@@ -4,32 +4,16 @@ tags: [integrations list]
 permalink: opentsdb.html
 summary: Learn about the OpenTSDB Integration.
 ---
+
+This page provides an overview of what you can do with the OpenTSDB integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the OpenTSDB integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **OpenTSDB** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## OpenTSDB Integration
 
 The [Wavefront proxy](https://docs.wavefront.com/proxies.html) supports OpenTSDB data format with minimal configuration. The Wavefront proxy supports both the OpenTSDB [Telnet interface](http://opentsdb.net/docs/build/html/user_guide/writing#telnet) and [HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing#http-api).
-
-## OpenTSDB Setup
-
-
-
-### Step 1. Install Wavefront Proxy
-
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your collector, install a proxy.
-
-### Step 2. Open TCP Port 4242
-
-By default, the proxy listens on TCP port 4242 for line messages in OpenTSDB [line format](http://opentsdb.net/docs/build/html/user_guide/writing#telnet). 
-
-1. Open the proxy configuration file (<wavefront_config_path>/wavefront.conf) for edit. 
-2. Add or uncomment the line `opentsdbPorts=4242`.  
-
-See [Proxy Configuration File](https://docs.wavefront.com/proxies_configuring.html#configuration-properties) for details. 
-
-### Step 3. Configure the Collector
-
-If you have existing collectors such as Tcollector or Diamond sending data to an OpenTSDB server, change the target address from your OpenTSDB service to the Wavefront proxy.
-
-
 
 
 

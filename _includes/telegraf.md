@@ -2,7 +2,7 @@
 
 You can choose automatic installation or manual installation and configuration. For proxy installation prerequisites, see the [Proxy Host Requirements](https://docs.wavefront.com/proxies_installing.html#proxy-host-requirements).
 
-[[CSPAuthMethodSelector section-header="true"]]
+**Authentication Configuration** - Select the authentication type - **OAuth App** or **API token**. For the most recent instructions, see the steps on the **Setup** tab of the integration in the Operations for Applications user interface.
 
 ### Install Wavefront Proxy and Telegraf Agent Automatically
 
@@ -16,7 +16,7 @@ You can install the Wavefront proxy and Telegraf agent manually from our package
 1. Go to the Wavefront proxy directory created during the package installation: `cd /opt/wavefront/wavefront-proxy`.
 1. Run the interactive configuration script: `bin/autoconf-wavefront-proxy.sh`. The script prompts you for the following properties:
    - **server** - https://YOUR_CLUSTER.wavefront.com/api/
-   - [[CSPAuthCredsListItem]]
+   - *Authentication_Properties* - Use OAuth app credentials or an API token. For details, see [Integrations Authentication Properties](https://docs.wavefront.com/authentication_properties.html). For the most recent instructions, see the steps on the **Setup** tab of the integration in the Operations for Applications user interface.
    - **proxyname** - A name (alphanumeric plus periods) unique across your entire account representing the machine that the proxy is running on. The proxyname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
    - **enable graphite** - Indicate whether to enable the Graphite format. See the Graphite integration for details on Graphite configuration.
   When the interactive configuration is complete, the Wavefront proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf` is updated with the input that you provided and the `wavefront-proxy` service is started.

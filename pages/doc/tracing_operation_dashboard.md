@@ -16,7 +16,7 @@ The default, read-only dashboard lets you explore RED metrics of an operation, h
 See the Operation Dashboard:
 
 * Option 1:
-  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+  1. Log in to your service instance.
   1. From the toolbar, select **Applications** > **Operation Dashboard**.
 
 * Option 2:

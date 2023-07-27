@@ -4,32 +4,18 @@ tags: [integrations list]
 permalink: datadog.html
 summary: Learn about the Datadog Integration.
 ---
+
+This page provides an overview of what you can do with the Datadog integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Datadog integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Datadog** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Datadog Integration
 
 The `Datadog Agent` is lightweight piece of software that runs on your hosts. It collects events and metrics, which you can then examine using Wavefront dashboards and charts.
 
 This integration configures the `Datadog Agent` to send metrics into Wavefront.
-## Datadog Setup
-
-### Step 1. Install and Configure Wavefront Proxy
-{% include proxy_datadog_config.md %}
-
-### Step 2. Install Datadog Agent
-Get detailed information [here](https://docs.datadoghq.com/agent/?tab=linux) to install Datadog Agent.
-
-### Step 3. Configure Datadog Agent to send data to Wavefront Proxy
-1.  On the server running your Datadog Agent, open the file `/etc/datadog-agent/datadog.yaml` and update the following properties:{% raw %}
-    ```
-        api_key: YOUR_API_TOKEN
-        site: <wavefront-proxy-host-ip:PORT>
-        dd_url: http://<wavefront-proxy-host-Ip:PORT>
-    ```
-{% endraw %}
-    Replace the `PORT` with the `dataDogJsonPorts` setting.  
-    **Note**: Replace the `api_key` with the Datadog api-key to send data to Datadog and Wavefront simultaneously.
-2.  Save and close `datadog.yaml`
-3.  Restart the agent: `sudo service datadog-agent restart`.
-
 
 
 

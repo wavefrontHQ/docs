@@ -5,6 +5,8 @@ sidebar: doc_sidebar
 permalink: users_account_managing.html
 summary: Learn how to manage your passwords and preferences.
 ---
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Your VMware Cloud Services Account](csp_users_account_managing.html)."%}
+
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports administrator-level customization for all users of an instance, and user-level customization, discussed on this page. 
 
 You manage your account from the gear icon in the top right corner. From there, all users can manage passwords and configure preferences. Users in a [multi-tenant environment](authentication.html#multi-tenant-authentication) who have been invited to more than one tenant can also switch tenants from the gear icon.
@@ -122,4 +124,4 @@ VMware Aria Operations for Applications allows [user accounts](user-accounts.htm
 To generate an API token for your user account:
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
-2. Click the **API Access** tab and click **Generate**. See [Generate and Manage the API Tokens for Your User Account](wavefront_api.html#generate-and-manage-the-api-tokens-for-your-user-account) for details.
+2. Click the **API Access** tab and click **Generate**. See [Generate and Manage the API Tokens for Your User Account](api_tokens.html#generate-and-manage-the-api-tokens-for-your-user-account) for details.

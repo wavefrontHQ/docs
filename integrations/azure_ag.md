@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: azure_ag.html
 summary: Learn about the Microsoft Azure Application Gateways Integration.
 ---
+
+This page provides an overview of what you can do with the Microsoft Azure Application Gateways integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Microsoft Azure Application Gateways integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Microsoft Azure Application Gateways** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Microsoft Azure Integration
 
 The Microsoft Azure integration enables monitoring Azure with Wavefront and offers pre-defined dashboards and alert conditions.
@@ -68,7 +75,6 @@ You can see the information about the metrics on the [Azure metrics](https://doc
 - [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines)
 - [Azure Virtual Machine Scale Set](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)
 
-## Microsoft Azure Integrations
 
 
 
@@ -107,7 +113,6 @@ To register a Microsoft Azure Cloud Integration:
 8. Select whether you want to fetch logs. 
    If you decide that you want to fetch activity logs, you can also specify the log categories to fetch, e.g. Administrative, Service health, Alert, and so on.
 9. Click **Register**.
-
 
 
 

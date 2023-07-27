@@ -5,8 +5,9 @@ entries:
   product:
   version:
   folders:
-
-  - title: Quickstart & Tutorials
+  
+  
+  - title: About 
     output: web
     folderitems:
 
@@ -14,9 +15,29 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
-    - title: Customize Your Account
-      url: /users_account_managing.html
+    - title: "Subscription Types"
+      url: /subscriptions-differences.html
       output: web
+       
+    - title: Product FAQ
+      output: web
+      url: /tobs_faq.html
+
+  - title: Subscription and Commitment 
+    output: web
+    folderitems:
+
+    - title: Upgrade from Trial to Paid
+      url: /upgrade_and_purchase.html
+      output: web
+
+    - title: Purchase Additional Capacity
+      url: /purchase_additional_capacity.html
+      output: web
+  
+  - title: Quickstart & Tutorials
+    output: web
+    folderitems:
 
     - title: Learning Resources
       url: /tutorial_overview.html
@@ -25,10 +46,6 @@ entries:
     - title: Videos
       output: web
       url: /videos.html
-
-    - title: Product FAQ
-      output: web
-      url: /tobs_faq.html
 
       subfolders:
 
@@ -481,6 +498,14 @@ entries:
             url: /integrations_aws_key_age.html
             output: web
 
+          - title: GCP Overview and Permissions
+            url: /integrations_gcp_overview.html
+            output: web
+          
+          - title: GCP Integration API Setup
+            url: /integrations_gcp_api.html
+            output: web
+
           - title: VMware TKGi Integration
             url: /integrations_tkgi.html
             output: web
@@ -836,7 +861,65 @@ entries:
         url: /wavefront_clis.html
         output: web
 
-  - title: Administration
+
+  - title: Administering VMware Cloud Services Subscriptions
+    output: web
+    folderitems:
+
+      - title: Get Started with VMware Cloud Services
+        url: /csp_getting_started.html
+        output: web
+
+      - title: Sign Up or Log In
+        url: /csp_sign_up_or_log_in.html
+        output: web
+
+      - title: Manage Your VMware Cloud Services Account
+        url: /csp_users_account_managing.html
+        output: web
+ 
+        subfolders:
+        - title: Authorization and User Management
+          output: web
+          subfolderitems:
+
+          - title: Authorization Model
+            url: /csp_authorization.html
+            output: web
+
+          - title: Permissions Reference
+            url: /csp_permissions_overview.html
+            output: web
+
+          - title: Manage Roles and Groups
+            url: /csp_users_roles.html
+            output: web
+          
+          - title: Manage User Accounts
+            url: /csp_user_management.html
+            output: web
+
+          - title: Manage Server to Server Apps
+            url: /csp_server_to_server_apps.html
+            output: web
+            
+        - title: Manage Access to Objects
+          output: web
+          subfolderitems:
+
+          - title: Manage Access to Dashboards and Alerts
+            url: /csp_access.html
+            output: web
+
+          - title: Metrics Security Policy Rules
+            url: /csp_metrics_security.html
+            output: web
+            
+      - title: Authentication Model
+        url: /csp_authentication.html
+        output: web
+
+  - title: Administering Original Subscriptions
     output: web
     folderitems:
 
@@ -844,18 +927,10 @@ entries:
         url: /wavefront_administer.html
         output: web
 
-      - title: Upgrade from Trial Version
-        url: /upgrade_and_purchase.html
+      - title: Customize Your Account
+        url: /users_account_managing.html
         output: web
-
-      - title: Purchase Additional Capacity
-        url: /purchase_additional_capacity.html
-        output: web
-
-      - title: Security
-        url: /wavefront_security.html
-        output: web
-
+      
         subfolders:
         - title: Authorization and User Management
           output: web
@@ -883,6 +958,10 @@ entries:
 
           - title: Manage Service Accounts
             url: /service-accounts.html
+            output: web
+
+          - title: Manage API Tokens
+            url: /api_tokens.html
             output: web
 
 
@@ -915,58 +994,58 @@ entries:
             url: /authentication.html
             output: web
 
-        - title: Monitoring & Troubleshooting
-          output: web
-          subfolderitems:
+  - title: Monitoring & Troubleshooting
+    output: web
+    folderitems:
 
-          - title: Examine Overall Usage
-            url: /examine_usage.html
-            output: web
+      - title: Examine Overall Usage
+        url: /examine_usage.html
+        output: web
 
-          - title: Monitor Usage with Ingestion Policies
-            url: /ingestion_policies.html
-            output: web
+      - title: Monitor Usage with Ingestion Policies
+        url: /ingestion_policies.html
+        output: web
 
-          - title: Monitor with the Usage Integration
-            url: /wavefront_monitoring.html
-            output: web
+      - title: Monitor with the Usage Integration
+        url: /wavefront_monitoring.html
+        output: web
 
-          - title: Internal Metrics
-            url: /wavefront-internal-metrics.html
-            output: web
+      - title: Internal Metrics
+        url: /wavefront-internal-metrics.html
+        output: web
 
-          - title: Track Alerts, Users, and Dashboards
-            url: /track_adoption.html
-            output: web
+      - title: Track Alerts, Users, and Dashboards
+        url: /track_adoption.html
+        output: web
 
-          - title: Monitor Wavefront Proxies
-            url: /monitoring_proxies.html
-            output: web
+      - title: Monitor Wavefront Proxies
+        url: /monitoring_proxies.html
+        output: web
 
-          - title: Improve PPS Usage and Prevent Overage
-            url: /wavefront_usage_info.html
-            output: web
+      - title: Improve PPS Usage and Prevent Overage
+        url: /wavefront_usage_info.html
+        output: web
 
-          - title: Use Top or Spy to Investigate Traffic
-            url: /wavefront_monitoring_spy.html
-            output: web
-          
-          - title: Monitor the Status of Your Service
-            url: /service_status_page.html
-            output: web
+      - title: Use Top or Spy to Investigate Traffic
+        url: /wavefront_monitoring_spy.html
+        output: web
+      
+      - title: Monitor the Status of Your Service
+        url: /service_status_page.html
+        output: web
 
-        - title: Best Practices
-          output: web
-          subfolderitems:
+  - title: Best Practices
+    output: web
+    folderitems:
 
-          - title: Understanding Cardinality
-            url: /cardinality.html
-            output: web
+      - title: Understanding Cardinality
+        url: /cardinality.html
+        output: web
 
-          - title: Optimizing Data Shape
-            url: /optimize_data_shape.html
-            output: web
+      - title: Optimizing Data Shape
+        url: /optimize_data_shape.html
+        output: web
 
-          - title: Obsolescence Policy
-            url: /wavefront_obsolescence_policy.html
-            output: web
+      - title: Obsolescence Policy
+        url: /wavefront_obsolescence_policy.html
+        output: web

@@ -24,7 +24,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 <tr>
 <td width="50%">
 <ol>
-<li>Log in to the product. The URL is something like <code>https://example.wavefront.com</code></li>
+<li>Log in to your service instance.</li>
 <li>Select <strong>Dashboards > All Dashboards</strong>.</li>
 <li>In the search bar, enter <strong>Tour</strong> and select <strong>Name Contains: Tour</strong></li>
 <li>Scroll through the list of dashboards and select <strong>Tour: Cluster Metrics Exploration. </strong></li></ol></td>

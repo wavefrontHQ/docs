@@ -11,8 +11,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Videos
 
-The following videos get you started:
-
+The following videos get you started. Note that these videos were created in 2020 and some of the information in them might have changed. They also use the 2020 version of the UI.
 
 
 <table style="width: 100%;">
@@ -88,9 +87,9 @@ When you add filters for `env` and `az`, the information makes sense.
 
 ## Obsolete Metrics
 
-If a metric stops sending data points for a certain period of time (obsolescence period), it becomes *obsolete*. 
+If a metric stops sending data points for a certain period of time (obsolescence period), it becomes **obsolete**. 
 
-{% include note.html content="The obsolescence period for metrics and sources (by default 4 weeks) might vary because it depends on the configuration of your cluster. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)."%}
+{% include note.html content="The obsolescence period for metrics and sources (by default 2 weeks) might vary because it depends on the configuration of your cluster. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)."%}
 
 In the Metrics browser and Query Editor, obsolete metrics are no longer shown in the autocomplete drop-down lists.
 

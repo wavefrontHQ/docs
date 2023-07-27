@@ -230,7 +230,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
 
 * Potential Resolution:
 
-  1. Log in to your service instance (`https://<your_instance>.wavefront.com`) and navigate to the **Operations for Applications Usage** integration.
+  1. Log in to your service instance and navigate to the **Operations for Applications Usage** integration.
   2. In the **Operations for Applications Service and Proxy Data** dashboard check if the proxy's queue and backlog are staying the same size or growing.
     * If they're growing, then the attempted rate of ingest is higher than allowed by the backend limit. Either lower the rate of data that is at the proxies, or contact our Technical Support team to request a higher backend limit. If your overall rate of data ingestion is higher than your contract rate, you may incur overage charges.
     * If the proxy's queue size is spiky (going up and coming down, close to 0), then the proxy is effectively smoothing out bursts in your rate of data ingestion. This is normal behavior and is not a cause for concern.
@@ -274,17 +274,53 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
 **HTTP 401 Unauthorized ERROR Message**
 
 * Message:
-   ```
-   2021-02-18 22:52:28,376 ERROR [proxy:checkinError] HTTP 401 Unauthorized: Please verify that your server and token settings are correct and that the token has Proxy Management permission!
-   ```
-* Explanation:
+  ```
+  2021-02-18 22:52:28,376 ERROR [proxy:checkinError] HTTP 401 Unauthorized: Please verify that your server and token settings are correct and that the token has Proxy Management permission!
+  ```
+* Explanation: The proxy cannot connect using the token provided.
+  
+  {% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Operations for Applications differs for VMware Cloud services subscriptions and original subscriptions."%}
 
-  The proxy cannot connect using the token provided. The token or the account associated with the token might have been deleted or might not have the required permissions.
+  <table>
+  <tbody>
+  <thead>
+  <tr>
+  <th width="50%">VMware Cloud Services Subscriptions</th>
+  <th width="50%">Original Subscriptions</th>
+  </tr>
+  </thead>
+  <tr>
+  <td><ul>
+  <li>If the proxy uses the <strong>OAuth app</strong> authentication type, the corresponding server to server app might have been deleted or might have not the <strong>Proxies</strong> service role.</li>
+  <li>If the proxy uses the <strong>API token</strong> authentication type, the API token might have been deleted or expired, or might have not the <strong>Proxies</strong> service role. The user account associated with the token might have been removed.</li>
+  </ul></td>
+  <td>The API token or the account associated with the API token might have been deleted or might not have the <strong>Proxies</strong> permissions.</td>
+  </tr>
+  </tbody>
+  </table>
 
 * Potential Resolution:
 
-  - Validate that the token that the proxy is attempting to use is correct and active for the user account or service account.
-  - Ensure that the user account or service account that is associated with the token has the Proxies permission.
+  <table>
+  <tbody>
+  <thead>
+  <tr>
+  <th width="50%">VMware Cloud Services Subscriptions</th>
+  <th width="50%">Original Subscriptions</th>
+  </tr>
+  </thead>
+  <tr>
+  <td><ul>
+  <li>Validate that the API token or the OAuth app credentials that the proxy is using are correct and active.</li>
+  <li>Validate that the user account associated with the token or the corresponding server to server app is active.</li>
+  <li>Ensure that the corresponding server to server app, or the API token and the associated user account have the <strong>Proxies</strong> service role.</li></ul></td>
+  <td><ul>
+  <li>Validate that the token used by the proxy is correct and active.</li>
+  <li>Validate that the user or server account associated with the token is active.</li>
+  <li>Ensure that the user or service account associated with the token has the <strong>Proxies</strong> permission.</li></ul></td>
+  </tr>
+  </tbody>
+  </table>
 
 ### Proxy CRITICAL Messages
 

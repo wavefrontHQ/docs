@@ -7,6 +7,8 @@ permalink: metrics_security.html
 summary: Use metrics security to control access to time series, histograms, and delta counters.
 ---
 
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services](csp_metrics_security.html)."%}
+
 In a large enterprise, certain data is confidential. VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
@@ -20,7 +22,7 @@ In a large enterprise, certain data is confidential. VMware Aria Operations for 
 
 ## Video: Metrics Security Policy
 
-Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview.
+Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_3ea13tor" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>

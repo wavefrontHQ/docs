@@ -19,11 +19,11 @@ Let's look at how you can create a sampling policy and get familiar with the pol
 
 ## Create a Sampling Policy
 
-{% include note.html content="Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+{% include note.html content="Only Super Admin users and users with the [Applications permissions](permissions_overview.html) can create sampling policies." %}
 
 To create a sampling policy:
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Sampling Policies**.
 1. Click **Create Policy** and enter the details:
     <table style="width: 100%;">

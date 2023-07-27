@@ -14,7 +14,7 @@ You can export traces from VMware Aria Operations for Applications (formerly kno
 Follow the steps to export traces via the traces browser or the Wavefront API:
 * Export the traces via the [Traces Browser](tracing_traces_browser.html) and save the JSON file.
 * Export traces via the API.
-  * Use the Operations for Applications Swagger UI. See [API Documentation (Product Instance)](wavefront_api.html#api-documentation-product-instance) for details on navigating to the Swagger UI.
+  * Use the Operations for Applications Swagger UI. See [API Documentation (Product Instance)](wavefront_api.html#api-documentation-service-instance) for details on navigating to the Swagger UI.
     <br/>Example:
     ![UI image showing where the API is on the Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
   * Use a `curl` command that has the `/api/v2/chart/api` URL.

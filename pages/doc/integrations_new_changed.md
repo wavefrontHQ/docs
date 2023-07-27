@@ -1,5 +1,5 @@
 ---
-title: Integrations Release Notes
+title: Integrations Release Notes and Announcements
 keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
@@ -8,13 +8,44 @@ summary: New and changed integrations.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+
+## Announcement
+
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. 
+
+For details about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
+
+If your Operations for Applications service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+
+{% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
+
+## July 2023
+
+We made improvements to the following integrations in July 2023:
+
+* Google Cloud Platform:
+  * You can select to ingest Google Cloud Platform histogram metrics and filter these metrics by their Google Cloud Platform grouping functions such as **Count**, **Mean**, and **Standard Deviation**. To do so, when you register or edit your Google Cloud Platform integration, enable **Histogram** metrics ingestion, select **Custom** and select to ingest certain histogram metrics based on the listed Google Cloud Platform grouping functions. When you select a grouping function, only the histogram metrics with the respective grouping function will be ingested. If you deselect all check boxes, all histogram metrics will be ingested.
+  * You can now select to ingest Google Cloud Run metrics. To do so, when you register or edit your Google Cloud Platform integration, in the **Categories to fetch** section, select **Custom** and select the **Cloud Run** check box.
+* Amazon Web Services - You can now select to ingest Amazon Web Services Usage metrics. To do so, when you register or edit your CloudWatch integration, in the **Products** section, select **Custom** and select the **AWS Usage** check box.
+* Kafka - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Redis - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* etcd - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Cassandra - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* NVIDIA - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* VMware GemFire - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. Also updated some of the dashboard queries to a new format.
+* Uptime - Updated the integration with the new Uptime logo.
+* Windows Host - The setup steps now use a URL parameter in the Wavefront proxy configuration.
+* Operations for Applications Usage - Fixed issues in the predefined dashboards.
+* Terraform Provider - Fixed a discrepancy in the Terraform `resource_alert` provider resulting in erroneous Terraform change plan.
+
+
 ## May 2023
 
 We made improvements to the following integrations in May 2023:
 
-* Istio - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [Istio Setup](istio.html#istio-setup) for details.
-* Envoy Proxy - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [Envoy Proxy on Kubernetes](envoy.html#envoy-proxy-on-kubernetes) for details.
-* RabbitMQ - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [RabbitMQ on Kubernetes](rabbitmq.html#rabbitmq-on-kubernetes) for details.
+* Istio - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Envoy Proxy - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* RabbitMQ - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
 * Tanzu Application Service -- Made updates to the **TAS: Nozzle Troubleshooting** and the **TAS: Workload Monitoring** dashboards, as well as to the **TAS UAA Latency is Elevated** alert.
   * Updated the latency queries because now we emit latency as a histogram.
   * Updated the **TAS: Nozzle Troubleshooting** dashboard to show points used by histograms.
@@ -76,7 +107,7 @@ We made improvements to the following integrations in January 2023:
 
 * Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into VMware Aria Operations for Applications](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-vmware-aria-operations-for-applications).
 
-* ServiceNow -- We updated the instructions on how to set up the integration to reflect the latest UI changes. See more in the [ServiceNow Setup](servicenow.html#servicenow-setup) instructions.
+* ServiceNow -- We updated the instructions on how to set up the integration to reflect the latest UI changes.
 
 * Microsoft SQL Server -- Updated the charts in the **SQL Server Metrics** dashboard to use the instance variables.
 

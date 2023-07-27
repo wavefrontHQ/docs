@@ -58,10 +58,27 @@ You can:
 
 To view and manage maintenance windows, select **Alerting > Maintenance Windows**.
 
+<!--Uncomment for 2023-30.x
+
+![An annotated screenshot of the Maintenance Windows browser page with what an you do on this page. The information is in the bullet list below.](images/maint_window_browser.png)
+
+On the **Maintenance Windows** browser page, you can:
+
+* Search for and apply filters to the maintenance windows so that you can narrow down the results.
+* Share, save, and clear search results.
+* Browse through a list of saved searches.
+* Hide or show the filters and the saved searches list displayed on the left by clicking the **Filters** button.
+* Sort the maintenance windows by name, creator, start or end date and so on, in descending or ascending order.
+* Show the details for all maintenance windows by turning on the **Expand All** toggle. By default, this setting is turned off.
+* Show the details for a specific maintenance window by clicking the arrow next to the check box of the window.
+* Edit, extend, close, or delete a single maintenance window by clicking the ellipsis icon and selecting the respective option from the menu.
+* Select the check boxes of multiple maintenance windows, extend. close or delete them by clicking the **Delete** button.
+-->
+
 <div markdown="span" class="alert alert-info" role="alert">While every user can view maintenance windows, you must have the [**Alerts** permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 
-Watch this <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_r6vcinjj/1_2r5qmitg" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
+Watch this <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_r6vcinjj/1_2r5qmitg" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows. Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_2r5qmitg" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_2r5qmitg/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Maintenance Windows"></iframe>
@@ -101,7 +118,7 @@ Specify one or more of the following:
 
 ![set maintenance window scope](/images/maint_window_2.png)
 
-{% include note.html content="Maintenance windows that are refined by point tags, sources, or source tags *do not* apply to alerts in NO DATA state." %}
+{% include note.html content="Maintenance windows that are refined by point tags, sources, or source tags **do not** apply to alerts that are in NO DATA state due to invalid sources." %}
 
 #### Step 3 (Optional): Specify Alternate Alert Targets
 

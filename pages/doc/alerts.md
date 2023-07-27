@@ -24,7 +24,7 @@ This section starts with a video and explores the anatomy of an alert. Go to one
 
 ### How Alerts Work Video
 
-In this video, Clement explains how a single-threshold alert works:
+In this video, Clement explains how a single-threshold alert works. Note that this video was created in 2018 and some of the information in it might have changed. 
 
 <p><iframe id="kmsembed-1_jdy1nak1" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jdy1nak1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="How Alerts Work (Lightboard Video)"></iframe>
 </p>
@@ -156,12 +156,11 @@ When an alert fires, we analyze the point tags that are most likely to be relate
 
 ### Alert Viewer Video
 
-In this video, Pierre gives a 2-minute tour of Alert Viewer:
+In this video, Pierre gives a 2-minute tour of Alert Viewer. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_qdr0dtwr" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to alert viewer"></iframe>
 </p>
-
 
 ## Alerts Browser Tutorial
 

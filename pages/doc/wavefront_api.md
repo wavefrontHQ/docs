@@ -19,12 +19,13 @@ The current version of the REST API is v2. You can access the API at `<your_inst
 
 {% include note.html content="Our REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
 
+{% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For VMware Cloud services subscriptions, the authentication and authorization APIs are part of the VMware Cloud services REST API. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
 
-## API Documentation (Product Instance)
+## API Documentation (Service Instance)
 
-Each product instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
+Each Operations for Applications service instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
 
-To access the REST API documentation :
+To access the Operations for Applications REST API documentation:
 
 1. Log in to your product instance.
 2. Display the doc from the UI or using a URL:
@@ -34,90 +35,32 @@ To access the REST API documentation :
 
 ![REST API in a product instance](/images/rest_api.png)
 
+{% include important.html content="For VMware Cloud services subscriptions, to access the VMware Cloud services API documentation, go to [https://console.cloud.vmware.com/csp/gateway/portal/#/api-docs](https://console.cloud.vmware.com/csp/gateway/portal/#/api-docs)."%}
+
 ## API Documentation (VMware Developer)
 
-If you don't have access to a product instance, you can have a look at our API doc [on the VMware Developer website](https://developer.vmware.com/apis/714/).
+If you don't have access to a service instance, you can have a look at our [Operations for Applications API doc](https://developer.vmware.com/apis/714/) on the VMware Developer website.
 
-We include an overview and a Swagger-generated API Reference. We update the reference with each release.
+We include an overview and a Swagger-generated API Reference. We update the reference on a regular basis.
 
 ![REST API in VMware Developer](/images/vmware_code_api.png)
+
+{% include important.html content="For VMware Cloud services subscriptions, you can have a look at the [VMware Cloud services API doc](https://developer.vmware.com/apis/csp/csp-iam/latest/) on the VMware Developer website."%}
 
 The [VMware Developer website](https://developer.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Operations for Applications. We're providing these samples as is - some are from our team, others will come from the community.
 
 <a id="generating-an-api-token"></a>
-## Managing API Tokens
 
-Before you can invoke the API using `curl` or from an API client, you must have an API token.
+## Invoking the Operations for Applications REST API
 
-An API token is a string of hexadecimal characters and dashes. For example:
+You can invoke the API using `curl` or from an API client. In either case, you must use a token.
 
-```
-a411c16b-3cf7-4f03-bf11-8ca05aab898d
-```
-VMware Aria Operations for Applications allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [REST API](wavefront_api.html).
+The token that you need depends on your [subscription type](subscriptions-differences.html). 
 
-{% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
+* For VMware Cloud services subscriptions, invoking the Operations for Application REST API requires a VMware Cloud services access token.
+* For original subscriptions, invoking the Operations for Application REST API requires an Operations for Application API token.
 
-### Generate and Manage the API Tokens for Your User Account
-
-{% include note.html content="All users can use and manage their existing API tokens. You must have the [**API Tokens** permission](permissions_overview.html) to generate new API tokens for your user account." %}
-
-
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as user with the **API Tokens** permission.
-2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select your user name.
-2. On the **API Access** tab, click **Generate**.
-
-    You can have up to 20 tokens at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-3. To revoke a token, click the **Revoke** button for the token.
-
-    If you run a script that uses a revoked token, the script returns an authorization error.
-4. To add a name or rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
-
-![Generate API Token](/images/generate_token.png)
-
-
-{% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
-
-### Generate and Manage the API Tokens for a Service Account
-
-As a user with the **Accounts** permission, you can generate API tokens for [service accounts](service-accounts.html) upon creation or at a later stage. To generate an API token for an existing **service account**:
-
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Accounts** permission.
-2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
-3. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
-4. To generate a new token, in the Tokens section, click **Generate**.
-
-    You can have up to 20 tokens per service account at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-5. To revoke a token, click the **Revoke** button for the token.
-
-    Revoking a token cannot be undone.
-5. To rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
-6. Select the appropriate permissions for the service account and click **Update**.
-
-### View and Manage the API Tokens in Your Organization
-
-As a user with the **Accounts** permission, you can view and revoke the API token of any user or service account in your organization.
-
-1. Log in to your product instance as a user with the **Accounts** permission.
-2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select **Accounts**.
-3. Click the **API Tokens** tab.
-
-  You see the API tokens for all user and service accounts in a paginated table format.
-
-![The API Tokens page shows the tokens table, the search field above the table, and the preconfigured filters and the saved searches in the left panel](/images/API_tokens.png)
-
-{% include important.html content="Revoking a token cannot be undone. Any script that uses a revoked token returns an authorization error." %}
-
-On the API Tokens page, you can:
-- Sort the API tokens table by column.
-- Search and, optionally, save and share your search.
-- Filter the API tokens by account type, usage, particular accounts, or your saved search.
-- Revoke an API token from the vertical ellipsis icon for the token.
-
-
-## Invoking the API
-
-You can invoke the API using `curl` or from an API client. In either case, you must use an API token. See [Use the Operations for Applications REST API](using_wavefront_api.html) for details and examples.
+See [Use the Operations for Applications REST API](using_wavefront_api.html) for details and examples.
 
 ## Generate an API Client Using Swagger
 
@@ -144,16 +87,20 @@ Here's an example for generating a Java client:
 
 `swagger-codegen generate -i https://mydomain.wavefront.com/api/v2/swagger.json -c swagger-config.json -l java`
 
-## REST API Categories
+## Operations for Applications REST API Categories
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
 - **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#allow-or-deny-access-to-embedded-charts).
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
 - **Account (User and Service Account)** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [**Alerts** permission](permissions_overview.html) can create and update alerts.
 - **ApiToken** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
-- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
+- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html), [Google Cloud Platform Integration](gcp.html), [Google Cloud Billing Integration](gcp_billing.html), [New Relic Integration](newrelic.html), [AppDynamics Integration](appdynamics.html), [Dynatrace Integration](dynatrace.html), [Microsoft Azure Integration](azure.html), [VMware Aria Operations (SaaS) Integration](vrops.html), and the [Snowflake Integration](snowflake.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [**Dashboards** permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
 - **Direct Ingestion** - Perform [direct ingestion](direct_ingestion.html) instead of using a proxy.
@@ -167,12 +114,16 @@ The REST API supports the following objects corresponding to different categorie
 - **Proxy** - Retrieve information about Wavefront proxies. Users with [**Proxies** permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
 - **Role** - Retrieve information about a role and manage roles and role assignees.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
 - **Source** - Retrieve sources and tags associated with a source. Users with [**Source Tags** permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **Usage** - Retrieve information about usage associated with ingestion policies and manage policies.
 - **User** - Deprecated API. Use **Account (User and Service Account)** instead.
 - **UserGroup** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Webhook** - Retrieve webhooks. Users with [**Alerts** permission](permissions_overview.html) can create, update, and delete webhooks.
 
 <a name="access"></a>

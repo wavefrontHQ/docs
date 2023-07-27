@@ -10,6 +10,8 @@ This page contains the playlists with our videos. You can instead watch them fro
 
 Note that in most of our videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront.
 
+{% include note.html content="In most of our videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront. These videos were created between 2017 and 2022 and some of the information in them might have changed." %}
+
 ## Getting Started
 
 This playlist includes videos with conceptual background and some how-to videos. You can also watch the playlist videos <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_zcafsh0j/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.

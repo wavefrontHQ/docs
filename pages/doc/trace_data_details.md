@@ -761,7 +761,7 @@ Amazon Simple Notification Service (SNS), and external databases. For details, s
 ## Apdex
 
 The Application Performance Index ([Apdex](https://www.apdex.org)) helps you understand how the response time of a service compares to the predefined response time threshold.
-Operations for Applications detects ingested application trace data as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold value.
+Operations for Applications detects ingested application trace data as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold value.
 
 <!---
 For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).

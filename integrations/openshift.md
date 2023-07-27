@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: openshift.html
 summary: Learn about the OpenShift Integration.
 ---
+
+This page provides an overview of what you can do with the OpenShift integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the OpenShift integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **OpenShift** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Kubernetes Integration
 
 Operations for Applications provides a comprehensive solution for monitoring Kubernetes. This integration uses the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect detailed metrics from Kubernetes clusters.
@@ -41,6 +48,7 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 {% include image.md src="images/db_kubernetes_pods.png" width="80" %}
 
+
 ## Kubernetes Clusters Integrations
 
 Operations for Applications uses the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes "Observability for Kubernetes GitHub repository") to monitor your Kubernetes clusters.
@@ -50,12 +58,12 @@ Operations for Applications uses the [Observability for Kubernetes Operator](htt
 
 ## Add a Kubernetes Integration
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure our Kubernetes Metrics Collector and a Wavefront proxy. With the 2022-48.x release we introduce a new Kubernetes Observability Operator which simplifies the deployment. 
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure our Kubernetes Metrics Collector and a Wavefront proxy. With the 2022-48.x release we introduced the Kubernetes Observability Operator which simplifies the deployment of the Kubernetes Metrics Collector and the Wavefront proxy. 
 
 The setup process varies based on the distribution type that you choose to monitor. 
 
 
-1. Log in to your product cluster: https://<code>your_cluster.wavefront.com</code>.
+1. Log in to your product cluster.
 2. Click **Integrations** on the toolbar.
 3. In the **Featured** section, click the **Kubernetes** tile.
 4. Click **Add Integration**.
@@ -180,6 +188,8 @@ To configure the Kubernetes Metrics Collector to use a Wavefront proxy that's al
     
 #### Install and Configure the Collector on OpenShift Enterprise 3.x
 
+**Note**: The Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy is deprecated. Our new Observability for Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+
 Our Collector supports monitoring of OpenShift clusters:
     
 * To monitor OpenShift Origin 3.9, follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift.md).
@@ -188,7 +198,6 @@ Our Collector supports monitoring of OpenShift clusters:
 
 ### Kubernetes Quick Install Using Helm
 
-**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Observability for Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
 1. Ensure that you have installed [Helm](https://helm.sh/docs/intro/).
 2. Add the Wavefront Helm repo:
@@ -214,8 +223,6 @@ Refer to our [Helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefr
 
 ### Kubernetes Manual Install
 
-**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Observability for Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
-
 Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md).
 
 
@@ -237,8 +244,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
   * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/4-collector-config.yaml)
   * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/5-collector-daemonset.yaml)
 
-     **Note**: Download the following file only for vSphere Tanzu environment: [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
-
+    
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
 3. If RBAC is disabled in your Kubernetes cluster, edit `5-collector-daemonset.yaml` and comment out `serviceAccountName: wavefront-collector`.
@@ -262,7 +268,6 @@ The `kube-state-metrics` service starts running on your cluster. Our Kubernetes 
 
 * [Kubernetes Overview](https://docs.wavefront.com/wavefront_kubernetes.html)
 * [Kubernetes Troubleshooting](https://docs.wavefront.com/kubernetes_troubleshooting.html)
-
 
 
 ## Metrics

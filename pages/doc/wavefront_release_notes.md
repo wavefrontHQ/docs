@@ -13,6 +13,50 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## Announcement
+
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
+
+* **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
+* **Original Subscriptions**: Existing subscriptions which remain as is until they migrate to VMware Cloud services. 
+   
+   We are in the process of incrementally migrating original subscriptions to VMware Cloud services.
+
+For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
+ 
+{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
+
+
+## 2023-29.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+<!-- Uncomment and release for 20223-30.x - next release
+* **Maintenance Window Browser Page Improvements**: The [**Maintenance Window** browser page](maintenance_windows_managing.html#maintenance-windows) is now improved and allows you to:
+
+    * Hide and show details for all maintenance window or for a specific maintenance window.
+    * Sort the maintenance windows by name, state, start or end time, and so on.
+    * Apply various filters, hide and show the filters listed on the left.-->
+
+*  **Google Cloud Platform Integration Improvements**: You can now select to ingest histogram metrics as well as filter these metrics by their Google Cloud Platform grouping function. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
+
+* **Documentation Improvement**: We have added a new [documentation page](integrations_gcp_api.html) which explains how to set up the Google Cloud Platform integration by using our REST API.
+
+## 2023-27.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+**Monitor Google Cloud Run**: You can monitor Google Cloud Run metrics. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
+
+### Original Subscriptions Only
+
+**Service Accounts Improvement**: With this release, [service accounts](service-accounts.html) can create and modify ingestion policies when they have the **Ingestion Policies** permission. 
+
+## 2023-25.x Release Notes
+
+* **Wavefront Proxy Release**: We’ve just released [Wavefront proxy 13](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports sending data to Operations for Applications subscriptions **onboarded** to VMware Cloud Services by using a VMware Cloud services access token.
+* **New Fields in the Generic Webhook Alert Template**: We added two new fields to the Generic Webhook notification template which allow you to extract information about the filter-by and group-by keys. For information and examples, see [Extract Information About the Filter-by and Group-by Keys](alert_target_customizing.html#extract-information-about-the-filter-by-and-group-by-keys).
+
 ## 2023-20.x Release Notes
 
 **The Group By Parameter Is Case-Sensitive**: With this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For more information and details, see [Aggregation Functions](query_language_reference.html#aggregation-functions) and [Tags Overview](tags_overview.html#tags-basics).

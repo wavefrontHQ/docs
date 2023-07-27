@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: amazon_ec2.html
 summary: Learn about the Amazon EC2 Integration.
 ---
+
+This page provides an overview of what you can do with the Amazon EC2 integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Amazon EC2 integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Amazon EC2** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Amazon Web Services Integration
 
 The Amazon Web Services integration is full-featured implementation offering pre-defined dashboards and alert conditions and is fully configurable.
@@ -87,7 +94,6 @@ You can see the information about the metrics and dimensions which are published
 
 
 
-## Amazon Web Services Integrations
 
 
 
@@ -101,11 +107,14 @@ Then, you register the integration by providing the necessary information. See [
 
 ### Set Up AWS CloudWatch Logs (Beta)
 
-You can use an AWS Lambda function to ingest CloudWatch logs to Operations for Applications. CloudWatch provides data and actionable insights to monitor your applications and respond to system-wide performance changes. It also helps you optimize resource utilization and get a unified view of operational health. CloudWatch collects monitoring and operational data in the form of logs, metrics, and events, providing a unified view of AWS resources, applications, and services that run on AWS and on-premises servers. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep applications running smoothly. To understand more about CloudWatch, see the Amazon CloudWatch documentation.
+You can use an AWS Lambda function to ingest CloudWatch logs to Operations for Applications. CloudWatch provides data and actionable insights to monitor your applications and respond to system-wide performance changes. It also helps you optimize resource utilization and get a unified view of operational health. CloudWatch collects monitoring and operational data in the form of logs, metrics, and events, providing a unified view of AWS resources, applications, and services that run on AWS and on-premises servers. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep applications running smoothly. To understand more about CloudWatch, see the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 
 #### Install the Wavefront Proxy
 
-The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy (version 12.2 or later)](https://docs.wavefront.com/proxies_installing.html) in your AWS environment.
+The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy](https://docs.wavefront.com/proxies_installing.html) in your AWS environment.
+
+* If your Operations for Applications service **is** onboarded to VMware Cloud services, install  Wavefront proxy version 13.0 or later.
+* If your Operations for Applications service is **not** onboarded to VMware Cloud services, install  Wavefront proxy version 12.2 or later.
 
 #### Create an AWS Lambda Function
 
@@ -113,7 +122,7 @@ The Wavefront proxy is required to send logs from your systems to Operations for
 2. Click **Applications** on the left and click the **Create Application** button.
 3. Click the **Serverless application** tab, search for **VMware-Log-Insight-Cloud**, and select it.
 4. Scroll down and in the **Application settings** section in the bottom right, provide the Wavefront proxy details.
-    * In the **APIToken** text box, enter a valid Operations for Applications API token.
+    * In the **APIToken** text box, enter <code>log-integration-token</code>.
     * In the **APIUrl** text box, enter the Wavefront proxy URL.
     * In the **NameOfFunction** text box, enter a meaningful name for the Lambda function.
 5. Click **Deploy**.
@@ -128,7 +137,6 @@ The Wavefront proxy is required to send logs from your systems to Operations for
 #### View the AWS CloudWatch Logs
 
 View logs in the [**Logs Browser**](https://docs.wavefront.com/logging_log_browser.html). It takes a few minutes for the CloudWatch logs to show up.
-
 
 
 

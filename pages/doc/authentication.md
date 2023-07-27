@@ -7,6 +7,8 @@ permalink: authentication.html
 summary: Learn how to enable multi-tenant authentication.
 ---
 
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Authentication Model in Operations for Applications on VMware Cloud Services](csp_authentication.html)."%}
+
 Most of our customers use [single-tenant authentication](auth_self_service_sso.html). If your company wants to set up different tenants for different teams, VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports multi-tenancy.
 
 {% include note.html content="Switching tenants in multi-tenant environments require [the extra steps listed below](#point-a-proxy-to-a-different-tenant-in-a-multi-tenant-environment)." %}

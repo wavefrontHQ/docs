@@ -14,7 +14,7 @@ By default, events are displayed as small dots on the X axis of most charts. You
 
 ## Videos
 
-Watch these videos to get you started!
+Watch these videos to get you started! Note that these videos were created in 2017 and some of the information in them might have changed. They also use the 2017 version of the UI.
 
 <table style="width: 100%;">
 <tbody>

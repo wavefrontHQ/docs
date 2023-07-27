@@ -7,6 +7,8 @@ permalink: user-accounts.html
 summary: Create and manage user accounts.
 ---
 
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Users of Operations for Applications on VMware Cloud Services](csp_user_management.html)."%}
+
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports:
 * User accounts, discussed here, which authenticate with a username and password.
 * [Service accounts](service-accounts.html), which authenticate with a token.
@@ -58,7 +60,7 @@ As a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user), you
 POST https://<your_instance>.wavefront.com/api/logout/{identifier}
 ```
 
-You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#managing-api-tokens).
+You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid [API token](api_tokens.html#generate-and-manage-the-api-tokens-for-your-user-account).
 
 ## What Can a New User Do?
 

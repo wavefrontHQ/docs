@@ -97,16 +97,6 @@ We've added the following configuration properties for logs to the already exist
 <th width="30%">Format /Example </th>
 </tr>
 </thead>
-<!---not clear this needs to be doc'ed
-<tr>
-<a name="pushFlushMaxLogs"></a>
-<td>pushFlushMaxLogs</td>
-<td markdown="span">Maximum number of logs in a single flush in MB.
-<br/> Default: 4.
-<br/> Version: Since 11.3</td>
-<td> A number from 1-5.</td>
-</tr>
---->
 <tbody>
 <tr>
 <a name="pushRateLimitLogs"></a>
@@ -170,6 +160,42 @@ We've added the following configuration properties for logs to the already exist
 <br/>Example: blockedLogs</td>
 </tr>
 </tbody>
+</table>
+
+### Properties for VMware Cloud Services Subscriptions
+
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. The content in this section is valid for **onboarded** subscribers. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)." %}
+
+VMware Cloud services provides access to both VMware Aria Operations for Logs and VMware Aria Operations for Applications. Therefore, to send logs data and see the data on the Operations for Applications Logs Browser, you must configure the proxy with the Operations for Logs URL and token. 
+
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th width="30%">Property</th>
+      <th width="70%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <a name="logServerIngestionURL"></a>
+      <td>
+        logServerIngestionURL
+      </td>
+      <td markdown="span">
+        The URL you use to send data to Operations for Logs.
+      </td>
+    </tr>
+    <tr>
+      <a name="logServerIngestionToken"></a>
+      <td>
+        logServerIngestionToken
+      </td>
+      <td markdown="span">
+        The authorization token that was given by Operations for Logs.
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## Proxy Preprocessor Rules for Logs

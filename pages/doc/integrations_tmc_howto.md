@@ -25,8 +25,11 @@ To get started, you set up the integration from Tanzu Mission Control to VMware 
 
 ### Step 1: Generate an API Token
 
-* If your Operations for Applications service **is** onboarded to VMware Cloud services, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html).
+<!--* If your Operations for Applications service **is** onboarded to VMware Cloud services, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html).
 * If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. See [Managing API tokens](api_tokens.html).
+-->
+
+In your product cluster, [Generate a Service Account API Token for Tanzu Mission Control](integrations_tmc.html#generate-an-api-token-for-tanzu-mission-control).
 
 ### Step 2: In Tanzu Mission Control, Set Up the Integration
 
@@ -88,7 +91,7 @@ You can now click the link to VMware Aria Operations for Applications. You are r
 
 Dashboards allow you to drill down into your data, change the time window, examine individual charts, use filters, and much more.
 
-[Visualize Kubernetes Data](wavefront_kubernetes.html#visualize-kubernetes-data) has some specific information. For a general overview of dashboards and charts, see [Examine Data with Dashboards and Charts](ui_examine_data.html) or watch this short video. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gunwcmwm/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+[Visualize Kubernetes Data](wavefront_kubernetes.html#visualize-kubernetes-data) has some specific information. For a general overview of dashboards and charts, see [Examine Data with Dashboards and Charts](ui_examine_data.html) or watch a short video. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gunwcmwm/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_gunwcmwm" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe>

@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: dataplatforms.html
 summary: Learn about the Data Platforms Integration.
 ---
+
+This page provides an overview of what you can do with the Data Platforms integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Data Platforms integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Data Platforms** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Data Platforms Blueprints Integration
 
 [Data Platform Blueprints available on the Bitnami catalog](https://bitnami.com/stack) provide you with fully automated deployment of your data platform, comprising of different combinations of software stacks on a Kubernetes cluster. The blueprints are validated and tested with engineered values of pod resources, such as CPU, Memory, and JVM, along with pod affinity and anti-affinity rules to provide recommended Kubernetes node count and associated node size and to facilitate cloud platform capacity planning.
@@ -28,104 +35,7 @@ The image below is a sample of the Kafka-Spark-Solr Blueprint dashboard, that is
 
 {% include image.md src="images/dashboard.png" width="80" %}
 
-### Data Platform Blueprints Setup
 
-Make sure "Bitnami Data Platform Blueprints" with Tanzu observability are deployed on your cluster. If not, follow the [Data Platforms Blueprint specific instructions on the Bitnami Catalog](https://bitnami.com/stacks) to enable observability for your data platform cluster running on Kubernetes cluster.
-
-Use the Blueprint-specific links below to enable metrics ingestion to Tanzu Observability by Wavefront. The data ingestion is done by using Wavefront Collectors.
-
-[Data Platform Blueprint1 - Kafka-Spark-Solr](https://github.com/bitnami/charts/tree/master/bitnami/dataplatform-bp1#tanzu-observability-wavefront-chart-parameters)
-
-[Data Platform Blueprint2 - Kafka-Spark-Elasticsearch](https://github.com/bitnami/charts/tree/master/bitnami/dataplatform-bp2#tanzu-observability-wavefront-parameters)
-
-See [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) for more details about the Wavefront Collector.
-
-### For using an existing Tanzu observibility deployment
-
-- To enable the annotation discovery feature in wavefront for the existing wavefront deployment,  make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector ConfigMap. They should be enabled by default.
-
-**NOTE**: The Wavefront Collector scrapes all the pods that have Prometheus annotation enabled.
-
-See [annotation based discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Wavefront Collector for more information.
-
-- If you wish not to use the annotation based discovery feature in wavefront, edit the Wavefront Collector ConfigMap To add rules based discovery to wavefront, add the following snippet under discovery plugins. Once done, restart the wavefront collectors DaemonSet.
-{% raw %}
-```console
-$ kubectl edit configmap wavefront-collector-config -n wavefront
-```
-{% endraw %}
-
-Add the below config:
-{% raw %}
-```yaml
-      discovery:
-        enable_runtime_plugins: true
-        plugins:
-        ## auto-discover kafka-exporter
-        - name: kafka-discovery
-          type: prometheus
-          selectors:
-            images:
-              - '*bitnami/kafka-exporter*'
-          port: 9308
-          path: /metrics
-          scheme: http
-          prefix: kafka.
-
-        ## auto-discover jmx exporter
-        - name: kafka-jmx-discovery
-          type: prometheus
-          selectors:
-            images:
-              - '*bitnami/jmx-exporter*'
-          port: 5556
-          path: /metrics
-          scheme: http
-          prefix: kafkajmx.
-
-        ## auto-discover solr
-        - name: solr-discovery
-          type: prometheus
-          selectors:
-            images:
-              - '*bitnami/solr*'
-          port: 9983
-          path: /metrics
-          scheme: http
-
-        ## auto-discover spark
-        - name: spark-worker-discovery
-          type: prometheus
-          selectors:
-            images:
-              - '*bitnami/spark*'
-          port: 8081
-          path: /metrics/
-          scheme: http
-          prefix: spark.
-        
-        ## auto-discover spark
-        - name: spark-master-discovery
-          type: prometheus
-          selectors:
-            images:
-              - '*bitnami/spark*'
-          port: 8080
-          path: /metrics/
-          scheme: http
-          prefix: spark.
-```
-{% endraw %}
-
-Below is the command to restart the DaemonSets
-{% raw %}
-```console
-$ kubectl rollout restart daemonsets wavefront-collector -n wavefront
-```
-{% endraw %}
-Once you enable metrics ingestion into Tanzu Observability by Wavefront, the Wavefront Collector pods will collect the metrics from the individual applications of your data platform and will push them through the Wavefront proxy to your Wavefront environment.
-
-Within a minute, you will be able to use the dashboards listed on the *Dashboards* tab, and see our default metrics sent from any Data Platform clusters created in that Kubernetes cluster.
 
 ## Metrics
   

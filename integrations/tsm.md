@@ -4,118 +4,26 @@ tags: [integrations list]
 permalink: tsm.html
 summary: Learn about the VMware Tanzu Service Mesh Integration.
 ---
+
+This page provides an overview of what you can do with the VMware Tanzu Service Mesh integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the VMware Tanzu Service Mesh integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **VMware Tanzu Service Mesh** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Tanzu Service Mesh Integration
 
 Tanzu Service Mesh provides advanced, end-to-end connectivity, security, and insights for modern applications across application end-users, microservices, APIs, and data. It enables compliance with Service Level Objectives (SLOs) and data protection and privacy regulations.
 
-Click the **Setup** tab for instructions on setting up your environment to send Tanzu Service Mesh **metrics** to Wavefront.
+Click the **Setup** tab for instructions on setting up your environment to send Tanzu Service Mesh **metrics** to Operations for Applications.
 
-This integration uses `Prometheus` to scrape Istio mesh metrics and federate them. It uses the Wavefront Collector for Kubernetes to forward these metrics to Wavefront.
+This integration uses `Prometheus` to scrape Istio mesh metrics and federate them. It uses the Kubernetes Metrics Collector to forward these metrics to Operations for Applications.
 This integration also installs dashboards. Here's a preview of the Tanzu Service Mesh Data Plane and Control Plane dashboards:
 
 {% include image.md src="images/tsm_dataplane_db.png" width="80" %}
 {% include image.md src="images/tsm_controlplane_db.png" width="80" %}
 
-## Tanzu Service Mesh Setup
 
-
-
-  **Supported Versions:**
-  * Istio: 1.13.0 or later.
-  * Wavefront Collector for Kubernetes: 1.10.0 or later.
-  * Prometheus: 2.37.0 or later.
-
-
-  **Prerequisites:**
-  * While onboarding new Kubernetes clusters on Tanzu Service Mesh dashboard, make sure that you exclude the Wavefront Collector and Wavefront Proxy deployed namespaces.
-    For example: `wavefront` and `wavefront-collector`.
-  * When the Tanzu Service Mesh is configured as a multi-cluster, make sure that you deploy Prometheus and Wavefront Collector on each cluster.
-
-This integration uses two main components:
-* [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
-
-* [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to collect the federated metrics from Prometheus server and send these metrics to Wavefront. The Collector can send data to Wavefront using a [Wavefront Proxy](https://docs.wavefront.com/proxies.html) or through [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
-
-Use the following instructions to start reporting metrics.
-
-### Reporting Tanzu Service Mesh Metrics to Wavefront
-
-#### 1. Deploy Prometheus with Federation Configuration
-
-Step 1. Download the [Prometheus yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml) file with the federation.
-
-Step 2. Deploy the Prometheus server to `istio-system` namesapce.{% raw %}
-```
-kubectl create -f prometheus.yaml
-```
-{% endraw %}
-
-#### 2. Update the Wavefront Collector ConfigMap
-If you do not already have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster either by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
-
-Step 1. Edit the Wavefront Collector ConfigMap at runtime:{% raw %}
-```
-kubectl edit configmap wavefront-collector-config -n wavefront
-```
-{% endraw %}
-- Add the following snippet under `Prometheus Sources`:{% raw %}
-```
-        ##########################################################################
-        # Static source to collect Istio metrics via a federated Prometheus server
-        ##########################################################################
-        prometheus_sources:
-        - url: 'http://prometheus.istio-system.svc.cluster.local:9090/federate?match[]={job=~"federate|kubernetes-pods"}'
-          httpConfig:
-            bearer_token_file: '/var/run/secrets/kubernetes.io/serviceaccount/token'
-            tls_config:
-              ca_file: '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
-              insecure_skip_verify: true
-
-          prefix: 'tsm.'
-
-          filters:
-            metricTagDenyList:
-              destination_principal:
-              - '*'
-
-            metricAllowList:
-            - 'tsm.istio.requests.*'
-            - 'tsm.istio.request.*'   # mandatory for OOTB dashboards
-            - 'tsm.istio.response.*'
-            - 'tsm.istio.tcp.*'       # mandatory for OOTB dashboards
-            - 'tsm.go.goroutines.value'
-            - 'tsm.go.memstats.alloc.bytes.value'
-            - 'tsm.go.memstats.heap.alloc.bytes.value'
-            - 'tsm.go.memstats.heap.inuse.bytes.value'
-            - 'tsm.go.memstats.heap.sys.bytes.value'
-            - 'tsm.go.memstats.stack.inuse.bytes.value'
-            - 'tsm.istio.build.value' # mandatory for OOTB dashboards
-            - 'tsm.pilot.conflict.*.listener.*'
-            - 'tsm.pilot.proxy.convergence.time.bucket.value'
-            - 'tsm.pilot.services.value'
-            - 'tsm.pilot.total.xds.internal.errors.value'
-            - 'tsm.pilot.total.xds.rejects.value'
-            - 'tsm.pilot.virt.services.value'
-            - 'tsm.pilot.xds.*.reject.value'
-            - 'tsm.pilot.xds.push.context.errors.value'
-            - 'tsm.pilot.xds.pushes.value'
-            - 'tsm.pilot.xds.write.timeout.value'
-            - 'tsm.pilot.xds.value'
-            - 'tsm.process.cpu.seconds.total.value'
-            - 'tsm.process.resident.memory.bytes.value'
-            - 'tsm.process.virtual.memory.bytes.value'
-            - 'tsm.citadel.server.*'
-            - 'tsm.galley.validation.*'
-            - 'tsm.sidecar.*'
-            - 'tsm.istio.agent.*'
-```
-{% endraw %}
-- Add the following snippet for Wavefront Proxy metricDenyList under `sinks`:{% raw %}
-```
-          metricDenyList:
-          - 'istio.*'
-```
-{% endraw %}
 
 ## Metrics
 

@@ -13,9 +13,7 @@ By default, all users in VMware Aria Operations for Applications (formerly known
   * You must have the **Alerts** permission to edit alerts. The [Alerts](permissions_overview.html) permission applies to all alerts **except** [ingestion policy](ingestion_policies.html) alerts.
     - Users with the **Alerts** permission can view, create, and modify alerts except ingestion policy alerts.
     - Users who don’t have the **Alerts** permissions can only view alerts, including ingestion policy alerts.
-    - Only Super Admin users can create and modify alerts associated with ingestion policies.
-
-    A user with the **Accounts** permission can assign the permission to you.
+    - Users with the **Ingestion Policies** permission can edit an ingestion policy alert only by editing the corresponding ingesting policy.
   *	If an individual alert is protected by [Access Control](access.html), you might not be able to edit or even view that alert.
     - To view an alert that is under access control, you must have **View** access for the alert.
     - To modify an alert that is under access control, you must have **View & Modify** access for this alert. You also need the **Alerts** permission.
@@ -170,7 +168,7 @@ If your alert monitors an *exception* metric, the alert might not see any data d
 
 In such cases, use one of the following approaches:
 * Consider the NO DATA state to be normal and take action only when the alert triggers to FIRING, which means the alert sees the presence of reported error data.
-  {% include note.html content="By default, [obsolete metrics](metrics_managing.html#obsolete-metrics) *are not* included in alert evaluation. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
+  {% include note.html content="By default, [obsolete metrics](metrics_managing.html#obsolete-metrics) **are not** included in alert evaluation. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
 * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
 * Send in your data as a [counter metric](delta_counters.html) (instead of a gauge) and query with a `cs()` query. Counter metrics are cumulative and do not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
 

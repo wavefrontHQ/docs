@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: system.html
 summary: Learn about the Operations for Applications Usage Integration.
 ---
+
+This page provides an overview of what you can do with the Operations for Applications Usage integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Operations for Applications Usage integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Operations for Applications Usage** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Operations for Applications Usage Integration
 
 The **Operations for Applications Service and Proxy Data** dashboard allows you to examine internal metrics and check whether your Operations for Applications instance is behaving as expected.

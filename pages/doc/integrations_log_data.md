@@ -19,7 +19,7 @@ The [Create Metrics from Logs for Real-Time Cloud Application Monitoring](https:
 
 The built-in Log Data integration guides you through installing a Wavefront proxy. To access this integration:
 
-1. Log in to your product cluster (`https://<example>.wavefront.com`).
+1. Log in to your service instance.
 1. Click **Integrations** and click the **Log Data** tile.
 1. Click the **Setup** tab and follow the instructions.
 

@@ -11,7 +11,7 @@ The Traces Browser in VMware Aria Operations for Applications (formerly known as
 
 ## Video
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_guro3vem" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Highlights the Operations for Applications traces browser features."></iframe>
@@ -22,11 +22,11 @@ This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">vi
 See the Traces Browser:
 
 * Option 1:
-  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+  1. Log in to your service instance.
   1. From the toolbar, select **Applications** > **Traces**.
 
 * Option 2:
-  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+  1. Log in to your service instance.
   1. Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)

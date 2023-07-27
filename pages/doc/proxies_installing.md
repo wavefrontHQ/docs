@@ -7,9 +7,13 @@ summary: Learn how to install and manage Wavefront proxies.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
 
-In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to your Operations for Applications service from a host or application.
+In most cases, a Wavefront proxy must be running in your environment before metrics begin streaming to your Operations for Applications service from a host or application.
 
 {% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to install and manage Wavefront proxies." %}
+
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services access token. <br/>
+- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with an Operations for Applications API token."%}
 
 ## Proxy Host Requirements
 
@@ -17,6 +21,9 @@ In most cases, a Wavefront proxy must be running in your installation before met
 - Networking:
   - By default, the proxy uses port 2878. Make sure this port is reachable from other machines on your network. You can change this default separately for different types of data (metrics, histograms, traces, etc.) in the [proxy configuration file](proxies_configuring.html). For example, use `traceListenerPorts` to specify where to listen to trace data.
   - For egress, ensure that port 443 is available.
+
+    {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, your environment must allow an outbound HTTPS connection to the VMware Cloud services platform (`https://console.cloud.vmware.com/`)."%}
+
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - CPU - A standalone proxy can easily handle up to 40K PPS (points per second). If you're sending more, use [multiple proxies behind a load balancer](proxies.html#production-environment-team-of-proxies--load-balancer).
 - Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8, 9, 10 or 11 is required. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
@@ -26,30 +33,43 @@ In most cases, a Wavefront proxy must be running in your installation before met
 
 <a name="single"></a>
 
+## Proxy Authentication Types
+
+* If your Operations for Applications service instance **is** onboarded to VMware Cloud services, the proxy requires a VMware Cloud services access token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two options for the proxy to retrieve an access token. You can configure the proxy with:
+    *	The credentials (ID and secret) of a VMware Cloud services server to server **OAuth app** and the ID of the VMware Cloud organization running the service.
+
+        Before you add a proxy with an OAuth app, you must retrieve the credentials (ID and secret) of a server to server app that is assigned with the **Proxies** service role and added to the VMware Cloud organization running the service. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html?hWord=N4IgpgHiBcIMpgE4DckAIAuB7NBnJqiaAhgA6kgC+QA).
+
+        Also, you must retrieve the VMware Cloud organization ID. See [How do I manage my Cloud Services Organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html).
+
+        {% include note.html content="When the access token expires, depending on the token TTL configuration of the server to server app, the proxy automatically retrieves a new access token."%}
+
+    *	A VMware Cloud services **API token** that belongs to your user account.
+
+        Before you add a proxy with an API token, you must have a VMware Cloud services API token that belongs to the VMware Cloud organization running the service and that is assigned with the **Proxies** service role. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
+
+        {% include important.html content="You might need to regenerate and reconfigure the API token periodically depending on its TTL configuration."%}
+
+* If your Operations for Applications service instance **isn't** onboarded to VMware Cloud services, the proxy requires an Operations for Applications **API token**.
+
+    Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
+
 ## Install a Proxy
 
 Many users install a proxy when they set up an integration. You can also install a proxy from the UI or perform a scripted installation manually.
 
 {% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to Operations for Applications. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
 
-To view the current proxies in your environment, you can use the [Proxes Browser](monitoring_proxies.html#examine-your-proxies-with-the-proxies-browser).
-
 ### Install a Proxy from the UI
 
 To install and run a proxy:
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<ol><li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>) and select <strong>Browse &gt; Proxies</strong>. </li>
-<li>Click <strong>Add New Proxy</strong>.</li>
-<li>On the right, click the tab for your operating system and follow the steps on screen.  </li>
-</ol>
-The screenshot on the right shows the steps for installing a Windows proxy. </td>
-<td width="40%"><img src="/images/add_proxy.png" alt="screenshot of add proxy flow in GUI"></td>
-</tr>
-</tbody>
-</table>
+
+1. Log in to your service instance and select **Browse** > **Proxies**.
+1. Click **Add New Proxy**.
+1. If your service instance is onboarded to VMware Cloud services, click the tab for the [proxy authentication type](#proxy-authentication-types) of your choice - **OAuth app** or **API token**.
+1. Click the tab for your operating system and follow the steps on screen.
+
+    {% include tip.html content="If your service instance isn't onboarded to VMware Cloud services, the latest API token of your user account is prepopulated in the proxy installation command but you can change it."%}
 
 The proxy starts listening on port 2878. You can customize listener ports with the [proxy configuration file](proxies_configuring.html).
 
@@ -66,7 +86,10 @@ You can use steps in an integration or perform a package install.
 
 After installing a proxy, you can start and stop the proxy service, check service status, and view the logs that are generated by the service. See [Logging](proxies_configuring.html#logging) for customizing your proxy, including its log configuration options.
 
+To view the current proxies in your environment, you can use the [Proxes Browser](monitoring_proxies.html#examine-your-proxies-with-the-proxies-browser).
+
 <a id="starting-and-stopping-a-proxy"></a>
+
 ### Start and Stop a Proxy
 
 {% include note.html content="When you stop the proxy service, the proxy becomes [orphaned](monitoring_proxies.html#get-started-wih-the-proxies-browser). If the proxy is ephemeral, you cannot activate it again." %}
@@ -163,7 +186,7 @@ You can test that a proxy is receiving and sending data as follows:
 echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
    ```
    where `<wavefront_proxy_address>` is the address of your Wavefront proxy.
-1. Log in to service instance (`https://<your_instance>.wavefront.com`) and select **Browse > Metrics**.
+1. Log in to service instance and select **Browse > Metrics**.
 1. In the Metrics field, type `test.metric`.
 1. Click `test.metric` to display a chart of the metric.
 
@@ -245,7 +268,7 @@ On the [Proxies Browser](monitoring_proxies.html#get-started-wih-the-proxies-bro
 
 {% include note.html content="You cannot delete a proxy in **Active** status." %}
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) and select **Browse > Proxies**.
+1. Log in to your service instance and select **Browse > Proxies**.
 1. Select the check boxes for one or more proxies that you want to delete.
 1. Click **Delete** and confirm.
 1. In the top-right corner, from the drop-down menu, select **Deleted** and verify that the proxy was successfully deleted.
