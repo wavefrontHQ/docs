@@ -498,7 +498,7 @@ You can monitor the PPS consumption per AWS integration instance and service. Th
 
 1. To see more details and the chart with the current data, click the service you're interested in.
 
-   Note that if a service is disabled, the service link will be inactive. 
+   Note that if a service is disabled, the service link will be inactive and the PPS consumption will show 0. 
 
    You'll see the chart showing the current data (by default, for the last 2 hours).
 
