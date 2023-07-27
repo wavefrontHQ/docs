@@ -12,7 +12,7 @@ VMware Cloud services provides identity access management for the users of your 
 
 {% include note.html content="To manage user access to the services in your VMware Cloud organization, you must hold the VMware Cloud **Organization Owner** or **Organization Administrator** role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation."%}
 
-## Add Users to Your Service Instance
+## Adding Users to Your Service Instance
 
 To add a user to your service instance, you must assign that user:
 
@@ -28,7 +28,9 @@ You can assign users with these roles in the following ways:
 
 ### Adding Users to Your Organization
 
-When you are adding an individual user or a list of users to the VMware Cloud organization running the service instance, you can assign that users organization, service, and custom roles.
+When you are adding an individual user or a list of users to the VMware Cloud organization running the service instance, you must assign that users organization, service, and custom roles.
+
+{% include note.html content="When you invite a new user, ensure that you assign the users at least the **Viewer** Operations for Applications service role and the custom roles that the user will need. For example, if the user that you invite will set up integrations, make sure that you assign that user both the **View** built-in service role and at least the **Proxies** service role."%}
 
 For details, see [How do I add users to my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html).
 

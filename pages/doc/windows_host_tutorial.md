@@ -1,32 +1,29 @@
 ---
-title: AWS Integration Tutorial
+title: Windows Host Integration Tutorial
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
-permalink: hello_wavefront_aws_tutorial.html
-summary: Get data from Amazon Web Services or a Windows host.
+permalink: windows_host_tutorial.html
+summary: Get data from Windows host.
 ---
 
-In this tutorial, you'll learn how to:
-1. Send data from applications and services that run on your AWS account.
-2. Visualize data with preconfigured dashboards and charts.
-3. Set up and use a system alert.
+Starting July 3, 2023, Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: 
+* Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform.
+* **Original** subscriptions -- the existing ones which remain as is until they migrate to VMware Cloud services. 
+
+In this tutorial, you'll learn how to ingest data from a Windows host machine to Operations for Applications when your service is onboarded to VMware Cloud services and when your service is not onboarded to VMware Cloud services.
+
+## Onboarded Subscriptions
+
+When your service **is onboarded** to VMware Cloud services, you can use
+
+### 
+
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
-{% include tip.html content="Don't have an AWS account? You can [send data from a Windows host](#video-set-up-data-ingestion-from-a-windows-host). Or you can explore dashboards with sample data. Log in, click **Integrations** and search for **Tutorial** or **Tour**." %}
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%" markdown="span">![screenshot of tutorial dashboards list](images/tutorial_screenshot.png)
-</td>
-<td width="50%" markdown="span">![screenshot tour pro dashboards list](images/tour_screenshot.png) </td></tr>
-</tbody>
-</table>
-
-
-## Task 1: Set Up the Integration
+### Task 1: Set Up the Integration
 
 In this task, we'll set up a data ingestion pipeline with AWS.
 
@@ -211,9 +208,9 @@ When the threshold is exceeded, you'll receive an email that includes a link to 
 * [Alerts FAQs](alerts_faq.html)
 
 
-## Video: Set Up Data Ingestion from a Windows Host
+## Set Up Data Ingestion from a Windows Host Video
 
-Watch the following video to learn how to ingest Windows host metrics. 
+Watch the following video to learn how to ingest Windows host metrics when your service is **not onboarded** to VMware Cloud services. 
 
 Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 <p>
@@ -221,14 +218,3 @@ Note that this video was created in 2021 and some of the information in it might
 </p>
 You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0bbze8os" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/>
 
-## Frequently Asked Questions
-
-Our Success Value Engineering team shared some frequently asked questions -- and where you can find the answers.
-
-* How do I manage my account (permissions, preferences, etc.)? See [Customize Your Account](users_account_managing.html).
-* How can admins add other users? See [Manage User Accounts](user-accounts.html).
-* How do admins set up SSO? See [Single-Tenant Authentication and Self-Service SAML SSO](auth_self_service_sso.html)
-* How do I track usage? See [Monitor Your Service with the Operations for Applications Usage Integration](wavefront_monitoring.html).
-* Why did my alert (not) fire? See [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire) and [Why Did My Alert Misfire](alerts_faq.html#why-did-my-alert-misfire).
-* How do I contact support? Start with [the gear icon menu](wavefront_support_feedback.html#support). See [How Do I Engage with Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) for details on severity levels, SLAs, and so on.
-* Do you have videos? Yes! We have a [video channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)!
