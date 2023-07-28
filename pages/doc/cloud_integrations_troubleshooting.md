@@ -43,8 +43,8 @@ The following precheck steps use SnowSQL.
 
         In this example:
         
-        * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`. For information about the Snowflake account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
-        * `<user_name>` is the user that you have created for Operations for Applications. For example, `My_AoA_Integration`.
+        * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`.
+        * `<user_name>` is the user that you have created for Operations for Applications by following the setup steps for the Snowflake integration in the Operations for Applications UI. For example, `My_AoA_Integration`.
     
     2. Provide your password when prompted.
     3. To quit the connection, enter `!quit`.
@@ -58,8 +58,8 @@ The following precheck steps use SnowSQL.
         In this example:
         
         * `<path_to_your_key>` is the path to your private `rsa_key.p8` key. For example, `~/.ssh/rsa_key.p8`
-        * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`. For information about the Snowflake account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
-        * `<user_name>` is the user that you have created for Operations for Applications. For example, `My_AoA_Integration`.
+        * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`.
+        * `<user_name>` is the user that you have created for Operations for Applications by following the setup steps for the Snowflake integration in the Operations for Applications UI. . For example, `My_AoA_Integration`.
     2. Provide the passphrase for the private key when prompted.
     3. Copy the generated JWT token.
 
@@ -89,8 +89,7 @@ The following precheck steps use SnowSQL.
     
     In this example:
         
-    * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`. For information about the Snowflake account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
-    * `<jwt-token>` is the JWT token that you generated in Step 3.
+    * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`. 
     * You must also provide the `role` assigned to the user and the `warehouse` on which the role has usage and monitoring privileges.
 
     Upon successful authorization, you will see something like this:
