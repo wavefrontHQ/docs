@@ -200,6 +200,36 @@ Clone the alert before making any customizations so that you don't lose your cha
 After you clone an alert, snooze the original system integration alert to avoid running a duplicate version of the alert. For more information about editing alerts, see [Manage Alerts](alerts_manage.html).
 
 
+## Monitor the PPS Consumption for AWS, GCP, and Microsoft Azure
+
+You can monitor the PPS consumption per integration instance and service for the following list of integrations:
+
+* Amazon Web Services
+* Google Cloud Platform
+* Microsoft Azure
+
+The PPS consumption for each service in an integration instance is calculated by using the `mavg()` over one hour.
+
+1. In your product instance, click **Integrations** on the toolbar.
+1. In the **Featured** section, click the tile of the integration you're interested in.
+   * **Amazon Web Services**
+   * **Google Cloud Platform**
+   * **Microsoft Azure**
+1. On the **Overview** tab, in the **PPS Consumption** column, you can see the PPS consumption for each registered integration instance.
+1. To see the PPS consumption per service, click the PPS number for the instance you're interested in.
+
+   The menu that appears shows the services within the integration instance, the PPS consumption for each service, and when the data was fetched for the last time. For example, for your Amazon Web Services integrations, you'll see:
+
+   ![Annotated screenshot of the Overview tab of an AWS integration with the information above.](images/aws-pps-metrics.png)
+
+1. To see more details and the chart with the current data, click the service you're interested in.
+
+   Note that if a service is disabled, the service link will be inactive and the PPS consumption will show 0. 
+
+   You'll see the chart showing the current data (by default, for the last 2 hours).
+
+   ![Screenshot of the chart showing the consumption for a service.](images/aws-pps-consumption-chart.png)
+
 ## Integration States
 
 The Integrations page reports integration states depending on two factors:
