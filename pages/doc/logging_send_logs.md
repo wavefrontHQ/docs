@@ -70,7 +70,7 @@ You can monitor your Kubernetes clusters or Linux hosts using our built-in integ
 
 ## Option 2: Configure a Log Shipper
 
-The log shipper sends your data to the Wavefront proxy. During Beta, we support the [Fluentd](https://docs.fluentd.org/) and [Fluent Bit](https://docs.fluentbit.io/) log shippers, which scrape and buffer your logs before sending them to the Wavefront proxy.
+The log shipper sends your data to the Wavefront proxy. We support the [Fluentd](https://docs.fluentd.org/) and [Fluent Bit](https://docs.fluentbit.io/) log shippers, which scrape and buffer your logs before sending them to the Wavefront proxy.
 
 If you want to use a different log shipper, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support).
 

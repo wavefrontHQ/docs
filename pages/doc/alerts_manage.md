@@ -63,10 +63,10 @@ To start alert creation, do one of the following:
 You can create logs alerts using the logs data that you sent. For detail, see <a href="logging_log_alerts.html">Manage Alerts for Logs</a>.
 <ul>
     <li>
-        You need the <b>Logs</b> permission to view the log alerts.
+        You need the <b>Logs</b> permission to view the logs alerts.
     </li>
     <li>
-        You need the <b>Alerts</b> and <b>Logs</b> permission to create and manage log alerts.
+        You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
     </li>
 </ul>
 {{site.data.alerts.end}}
@@ -186,7 +186,7 @@ If you already have information that helps recipients find the causes for the al
       <strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.
     </li>
     <li>
-      <strong>Related Logs: </strong>You see this field only if you have <strong>Logs</strong> permission. Click the plus button to add log tags. When an alert fires, you get a link to access the logs associated with these tags on the Log Browser. Click <b>Go To Logs</b> to test if the tags work for your log data and refine the log search by adding or removing tags.
+      <strong>Related Logs: </strong>You see this field only if you have <strong>Logs</strong> permission. Click the plus button to add log tags. When an alert fires, you get a link to access the logs associated with these tags on the Logs Browser. Click <b>Go To Logs</b> to test if the tags work for your log data and refine the log search by adding or removing tags.
   </li>
   </ul>
 </td>

@@ -21,7 +21,7 @@ To use the Logs Browser:
 
 1. Configure your application and the log shipper to [send logs](logging_send_logs.html).
 1. In a web browser, log in to your product instance as user with the **Logs** permission.
-1. On the toolbar, click **Logs (Beta)** > **Log Browser**.
+1. On the toolbar, click **Logs** > **Log Browser**.
 
 On the Logs Browser, you can filter and examine logs for a selected period.
 
@@ -341,7 +341,7 @@ The logs details table has the **Timestamp**, **Source**, and **Message** column
 1. Click the add columns icon in the top right of the table.
 1. Select the columns that you want to add. The options you see are the tags you defined during log shipper configuration.
 
-Here's an example that shows how to add the **levels** column to the table.
+Here's an example that shows how to add the **level** column to the table.
 
 ![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
 
