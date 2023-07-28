@@ -53,8 +53,12 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Integrations Tutorial"
+        - title: "AWS Integration Tutorial"
           url: /hello_wavefront_aws_tutorial.html
+          output: web
+        
+        - title: Windows Host Integration Tutorial
+          url: /windows_host_tutorial.html
           output: web
 
         - title: Dashboards & Charts Tutorial
