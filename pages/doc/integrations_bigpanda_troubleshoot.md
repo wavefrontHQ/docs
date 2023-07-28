@@ -13,7 +13,7 @@ BigPanda is an algorithmic event and alert management platform. This integration
 
 Typically, alert targets are configured to use webhooks. A common use case is when VMware Aria Operations for Applications is configured to have BigPanda alert targets, by using the webhook feature.
 
-For information about setting up the BigPanda integration, see [BigPanda setup](bigpanda.html).
+For information about setting up the BigPanda integration, follow the instructions displayed on the BigPanda integration **Setup** tab in the Operations for Applications UI .
 
 ## Problems
 
