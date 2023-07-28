@@ -371,5 +371,6 @@ To disable scroll auto-load:
 * [Get started with logs](logging_overview.html).
 * [Send logs](logging_send_logs.html).
 * Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
+* [Create logs alerts](logging_log_alerts.html) on your logs data.
 * See [Logs troubleshooting](logging_faq.html).
 

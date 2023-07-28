@@ -35,8 +35,8 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
 
 {{site.data.alerts.note}}
 <ul>
-  <li>
-    Our service retains logs for 7, 15, or 30 days, based on your settings.
+  <li markdown="span">
+    Our service retains logs for 30 days during the Logs free trial or retains logs for 7 days when on the freemium subscription! To retain logs for a longer period, contact your account representative or [technical support](wavefront_support_feedback.html#support).
   </li>
   <li markdown="span">
     Only users with the [**Logs** permission](permissions_overview.html) can view the Logs Browser and drill down into logs from charts, alerts, and traces.
