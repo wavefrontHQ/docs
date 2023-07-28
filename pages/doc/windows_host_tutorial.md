@@ -7,208 +7,123 @@ permalink: windows_host_tutorial.html
 summary: Get data from Windows host.
 ---
 
-Starting July 3, 2023, Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: 
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: 
 * Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform.
 * **Original** subscriptions -- the existing ones which remain as is until they migrate to VMware Cloud services. 
 
-In this tutorial, you'll learn how to ingest data from a Windows host machine to Operations for Applications when your service is onboarded to VMware Cloud services and when your service is not onboarded to VMware Cloud services.
+In this tutorial, you'll learn how to ingest data from a Windows host machine to Operations for Applications by using a Wavefront proxy. Although Operations for Applications supports direct ingestion, using a Wavefront proxy is the recommended way for ingesting data.
+
 
 ## Onboarded Subscriptions
 
-When your service **is onboarded** to VMware Cloud services, you can use
+When your service **is onboarded** to VMware Cloud services, the Wavefront proxy requires a VMware Cloud services access token with the **Proxies** service role. There are two options for the proxy to retrieve the access token. You can configure the proxy with:
 
-### 
+- A server to server OAuth app that belongs to the VMware Cloud organization running the service.
 
+- An API token that belongs to your user account in the VMware Cloud organization running the service. Note that you must regenerate and reconfigure the API Token periodically depending on the token TTL configuration.
 
-It's an easy setup. You don't have to install anything or make changes to your application code.
+In this tutorial, we will use a server to server OAuth app.
 
+### Task 1: Create a Server to Server OAuth App
 
-### Task 1: Set Up the Integration
+We create a server to server OAuth app and will retrieve the app ID and app secret.
 
-In this task, we'll set up a data ingestion pipeline with AWS.
+1. Navigate to the VMware Cloud Services Console as a user with the required permissions, such as **Organization Owner**, **Organization Administrator**, or an **Organization Member** with the **Developer** additional role assigned.
 
-### Step 1: Start Integration Setup
+   For details, see [What Organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html).
 
-1. Click **Integrations** on the toolbar.
-   An integration tile usually has:
-   * A **Setup** tab which provides step-by-step instructions on setting up the integration.
-   * A **Dashboards** tab to access the out-of-the-box dashboards.
-   Popular integrations also have an **Alerts** tab with preconfigured alerts.
-2. Click the **Amazon Web Services (AWS)** tile.
-    <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
-3. On the **Setup** tab, click **Add Integration**.
-    ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
-4. Click the **How to get Role ARN** link.
+2. Click **Organization > OAuth Apps** and click **Create App**.
+3. Select **Server to server app** and click **Continue**.
+4. Provide a meaningful app name and description.
+   For example:
+   * **App Name**: `wavefront_proxy`.
+   * **App Description**: `Server to server app that I will use for my Windows integration setup.`
+5. In the **Access Token TTL** field, specify the time to live for the access token of your server to server app. 
+6. Define the scopes by assigning roles to the server to server app.
+   * Assign the **Organization Member** organization role.
+   * Search for `Operations for Applications` in the list of scopes, expand VMware **Operations for Applications** and select **Proxies** and **Viewer**.
 
-You'll see **Account ID** and **External ID** under **How to get Role ARN**. You'll need them to set up the integration.
+    
+   {% include note.html content="Note that these are the minimum required roles for the server to server app that you'll use to install the Wavefront proxy." %}
 
-### Step 2: Create a Read-Only Role in Your AWS Account
+7. Click **Create**.
+8. On the **OAuth app created** screen, click **Download JSON**, save the file to a secure place and click **Continue**.
+   
+   The JSON file contains the app ID and app secret that you'll need when you install the Wavefront proxy.
 
-{{site.data.alerts.note}}
-<p>For this step, you must log in to your AWS account. Create a new AWS account if you don’t have one.</p>
-{{site.data.alerts.end}}
+### Task 2: Add the Server to Server App to the Organization
 
-Follow these steps:
+We add the app to the organization.
 
-1. Open a web browser tab and log in to your AWS account.
-1. Search for the **IAM** (AWS Identity and Access Management) service and click it to open the service.
-1. In the left panel, click **Roles**, and click **Create role**.
-1. Create a trusted entity:
-    1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
-    1. Copy the **Account ID** value shown in the AWS integration setup instructions.
-    1. Paste it in the **Account ID** text box in the AWS UI.
-        ![A diagram that shows where the account ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
-    1. Select the **Require external ID** check box.
-        ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
-    1. Enter the **External ID**. Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the external ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
-    1. Click **Next**.
-1. Set Permissions:
-    1. Search for the **ReadOnlyAccess** permission and select it.
-        {% include note.html content="You get many results when you search for ReadOnlyAccess. Scroll down and browse through the pages until you find ReadOnlyAccess, as shown in the screenshot below."%}
-        ![A screenshot that shows the ReadOnlyAccess permission selected.](images/hello_tutorial_readonly_permission.png)
-    1. Click **Next**.
+1. Click **Identity & Access Management > OAuth Apps** and click **Add App**.
+2. Select **Enter App ID** and paste the app ID from the JSON file.
+   
+   You see the app details.
+3. In a multi-tenant environment, you can assign the app to different tenants.
+    1. Click **Add an instance**.
+    2. Select the tenant from the drop-down menu and assign the same roles to the app.
 
-1. Set the **Role name** as `example-role`.
-1. Click **Create role**.
-1. Once the list of roles appears, click `example-role` (the role you just created), and copy the **ARN** value.
-
-{% include note.html content="See [Giving Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy for VMware Aria Operations for Applications." %}
-
-### Step 3: Configure the AWS Integration
-
-Go back to the product instance where you opened the AWS integration tile, and follow these steps:
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
-<ol><li>Paste the <strong>Role ARN</strong> value you copied in the previous step as the value for <strong>“Role ARN” from Amazon IAM</strong>. </li>
-<li>Click <strong>Register</strong>. </li>
-</ol>
-</td>
-<td width="50%" markdown="span">![Screenshot of the AWS integration's configure section. The Register button is highlighted in red.](images/hell_tutorial_configure_aws_integration.png) </td></tr>
-</tbody>
-</table>
-
-VMware Aria Operations for Applications can now connect to your AWS account and get data. Once the data starts flowing, you can visualize it. It will take a few minutes for the data to show.
-
-### Step 4: (Optional) Launch an EC2 Instance
-
-Don't have an application running on your AWS account? Follow the steps given below.
-If you already have an application running on the AWS account, move to the next task and see how you can visualize your data.
-
-1. Go back to your AWS account, search for the **EC2** service, and click it to open the service.
-1. Follow the AWS documentation on [Launching an Amazon EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance).
-
-<!--
-1. Select **Launch Instance** and click **Launch Instance**.
-    ![Screenshot showing the launch instance.](images/hello_tutorial_launch_instance.png)
-1. Select **Free tier only** on the left panel and click **Select** on the image you want to run.
-      {% include important.html content="You may still be charged for the use of some AWS products unless your infrastructure and service choices remain within the free usage tier. Therefore, make sure it is free to use." %}
-1. Follow the steps to launch the instance.
-1. You can select **proceed without a key pair** when prompted to select or create a new key pair.
-      {% include important.html content="When you select **proceed without a key pair**, you are not able to SSH into the EC2 instance you deploy. Only use it for this tutorial, as it is not a recommended approach." %}
--->
-Once the instance is launched, you'll see the data after a few minutes.
-
-### Learn More About Data Ingestion and the AWS Integration
-
-* [Set Up Data Ingestion](wavefront_data_ingestion.html) has information on data ingestion, including a video.
-* [Amazon Web Services Integration](integrations_aws_overview.html) has more information on the AWS integration.
-* [Set up and manage the AWS Integration by Using the API](integrations_aws_overview_API.html).
-* See the [List of our integrations](label_integrations%20list.html).
-
-## Task 2: Explore Data with Out-of-the-Box Dashboards
-
-With data flowing, you can start exploring dashboards and charts:
-
-<p><span style="font-size: large; font-weight: 500">View Metrics</span></p>
-
-1. In your product instance, navigate to the AWS integration.
-1. Click the **Metrics** tab.
-
-You see charts with the metrics collected from your AWS account.
-
-Example:
-![Screenshot of the AWS metrics once the data starts to flow.](images/hello_tutorial_aws_metrics.png)
-{% include note.html content="You see **No Data** if we can't find any metrics to match the queries in the chart." %}
-
-<br/>
-<p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
-
-Our service includes system dashboards for the AWS integration that help you analyze and gather data.
-1. To see the list of the system dashboards, click the **Dashboards** tab.
-    ![Screenshot of all the predefined dashboards available.](images/hello_tutorial_aws_dahsboards.png)
-1. Click **AWS: Summary**. From the **Summary** dashboard, you can easily navigate to all other AWS dashboards.
-    {% include note.html content="You need to configure your AWS account preferences to send billing metrics. See [Configuring CloudWatch Billing Metrics](integrations_aws_metrics.html#configuring-cloudwatch-billing-metrics)." %}
-    ![Screenshot of the predefined AWS summary dashboard](images/hello_tutorial_aws_summary_dashboard.png)
+   {% include note.html content="Only services and roles allowed by the app scope can be selected." %}
 
 
-### Learn More About Dashboards and Charts
+4. Click **Add**.
 
-This [90-second video](https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0) gives a great overview of how to interact with dashboards and charts.
+### Task 3: Retrieve the Organization ID
 
-Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
+1. In the VMware Cloud Services Console, click your user name.
+2. You see the name of the organization and the organization ID below it.
+3. Click the **Copy** icon.
+4. Paste the organization ID in a text file to have it handy.
 
-## Task 3: Set Up and Use an Out-of-the-Box Alert
-
-Many integrations have preconfigured alerts for common use cases. All you have to do is:
-* Clone the alert.
-* Edit the thresholds (for most alerts).
-* Specify who should receive the alert notification, i.e. the recipient of the alert.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%" markdown="span">
-1. Navigate to the <strong>Integrations</strong> page.
-<br/>
-<br/>
-2. Click the integration that you want to use.
-<br/>
-<br/>A configured integration has a green tick in the top right.
-</td>
-<td width="50%" markdown="span">![Screenshot of several integrations, icon with green tick in top right](images/featured_integrations.png) </td></tr>
-<tr>
-<td width="50%">
-3. On the <strong>Alerts</strong> tab, click <strong>Install All</strong>. <p>Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.</p>
-<br/><br/>
-You can now edit the alert directly, but we recommend that you clone the alert so you don't lose your changes in case you reinstall the alerts.
-</td>
-<td width="50%" markdown="span">![Screenshot that shows the Alerts tab of the AWS integration](images/aws_alerts_install.png) </td></tr>
-<tr>
-<td width="50%">
-4. From the toolbar, select <strong>Alerting > All Alerts</strong> and search for the alert by name.
-   <br/><br/>In this example, we'll clone the <strong>EC2 Instance CPU Usage Too High</strong> alert. When you clone the alert, the new alert opens in Edit mode.
-</td>
-<td width="50%" markdown="span">![Screenshot of the Alerts Browser, where we've searched for the ECS instance CPU usage too high alert](images/clone_aws_alert.png) </td></tr>
-<tr>
-<td width="50%" >
-5. Customize the thresholds. <p>For example, you can set up the alert to be SEVERE when 97% of CPU utilization is reached.</p>
-6. Scroll down to the <strong>Recipients</strong> section. For the lowest severity level that you want notification for:<br/>
-&nbsp;&nbsp; a. Click the plus (+) icon.<br/>
-&nbsp;&nbsp; b. Enter your email address.<br/>
-&nbsp;&nbsp; c. Press Enter.<br/>
-<br/>
-</td>
-<td width="50%" markdown="span">![Screenshot of the recipients section of the alert where we've entered the email address](images/aws_specify_recipient.png) </td></tr>
-<tr>
-<td width="50%" >
-When the threshold is exceeded, you'll receive an email that includes a link to the alert in the Alert Viewer. <br/><br/>The annotated screenshot on the right can help you get started with the Alert Viewer. <br/><br/>This <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0#">short video</a> shows what you can do. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
-</td>
-<td width="50%" markdown="span">![Annotated screenshot of the alert viewer](images/alert_viewer.png) </td></tr>
-</tbody>
-</table>
-
-### Learn More About Alerts
-
-* [How Alerts Work & Tutorials for Alert Viewer and Alerts Browser](alerts.html)
-* [Create and Manage Alerts](alerts_manage.html)
-* [Alerts FAQs](alerts_faq.html)
+{% include note.html content="To install the Wavefront proxy you need the long organization ID." %}
 
 
-## Set Up Data Ingestion from a Windows Host Video
+### Task 4: Navigate to Operations for Applications
+
+1. In the VMware Cloud Services Console, click VMware Cloud Services.
+2. Navigate to the VMware Aria Operations for Applications tile.
+3. Click **Launch Service** and select a tenant to which the app is added.
+
+### Task 5: Start the Setup Process
+
+1. In your Operations for Applications service instance, click **Integrations** on the toolbar.
+2. Click the **Windows Host** tile.
+3. Click the **Setup** tab.
+
+### Task 6: Install the Wavefront Proxy
+
+1. Download [wavefront-proxy-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-proxy-setup.exe) file.
+2. In a command prompt, navigate to the directory in which you downloaded the installer.
+3. Run the command to install the Wavefront proxy:
+
+    ```
+    .\wavefront-proxy-setup.exe /server=https://<your_product_cluster>.wavefront.com/api/ /cspAppId=<CSP_APP_ID> /cspAppSecret=<CSP_APP_SECRET> /cspOrgId=<CSP_ORG_ID> /SILENT
+
+    ```
+    Here, you must replace:
+    
+    * `<CSP_APP_ID>` with the app ID of your server to server app
+    * `<CSP_APP_SECRET>` with the app secret of your server to server app
+    * `<CSP_ORG_ID>` with the ID of your organization
+
+Once installed, the proxy automatically starts. Check `Program Files (x86)\Wavefront\wavefront.log` to verify the installation.
+
+### Task 7: Install the Telegraf Agent
+
+1. Download [wavefront-telegraf-64-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-telegraf-64-setup.exe). 
+2. Double-click the installer and follow the instructions to install Telegraf.
+
+### Task 8: Verify That Metrics Are Flowing
+
+When the Wavefront proxy and the Telegraf agent are installed and the proxy starts ingesting data to Operations for Applications, on the **Metrics** tab, you'll see the metrics that are flowing along with charts for each metric.
+
+![Screenshot of the Windows host Metrics tab with metrics that are flowing](images/windows-host-metrics-tab.png)
+
+On the **Dashboards** tab, you can see that the Windows Host dashboard installed. Click the **Windows Host Metrics** dashboard link and the dashboard opens in another browser tab.
+
+![Screenshot of the Windows host metrics dashboard](images/windows-host-dashboard.png)
+
+## Original Subscriptions
 
 Watch the following video to learn how to ingest Windows host metrics when your service is **not onboarded** to VMware Cloud services. 
 
