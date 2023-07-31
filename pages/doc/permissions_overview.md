@@ -72,9 +72,9 @@ The following list gives an overview of permissions. To learn more, click the li
 
     Users with the **Integrations** permission can install and uninstall integration dashboards, alerts, etc.
     
-- **[Logs](logging_overview.html)** (Beta)
+- **[Logs](logging_overview.html)**
     
-    {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your Operations for Applications account representative."%}
+    {% include important.html content="Logs is enabled only for selected customers. To participate, contact your Operations for Applications account representative."%}
 
     Users with the **Logs** permission can view the Logs Browser and drill into logs from charts, alerts, and traces.
         
