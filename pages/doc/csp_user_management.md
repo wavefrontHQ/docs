@@ -12,7 +12,7 @@ VMware Cloud services provides identity access management for the users of your 
 
 {% include note.html content="To manage user access to the services in your VMware Cloud organization, you must hold the VMware Cloud **Organization Owner** or **Organization Administrator** role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation."%}
 
-## Add Users to Your Service Instance
+## Adding Users to Your Service Instance
 
 To add a user to your service instance, you must assign that user:
 
@@ -20,15 +20,18 @@ To add a user to your service instance, you must assign that user:
 
 1. An [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
 
-    {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
+    {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform. "%}
+    
+    When you invite a new user, assign that user at a minimum the **Viewer** Operations for Applications service role. You must also assign the service or custom roles that the user will need. For example, if the user that you want to invite will set up integrations, make sure that you assign that user both the **Viewer** and the **Proxies** service roles.
 
     {% include important.html content="In a multi-tenant Operations for Applications environment, service roles are assigned per service instance (tenant), while custom roles are assigned for **all** service instances (tenants)."%}
+
 
 You can assign users with these roles in the following ways:
 
 ### Adding Users to Your Organization
 
-When you are adding an individual user or a list of users to the VMware Cloud organization running the service instance, you can assign that users organization, service, and custom roles.
+When you are adding an individual user or a list of users to the VMware Cloud organization running the service instance, you must assign that users organization, service, and custom roles.
 
 For details, see [How do I add users to my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html).
 

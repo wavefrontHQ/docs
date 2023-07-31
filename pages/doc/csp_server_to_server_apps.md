@@ -32,6 +32,11 @@ If you build an application or tool that manages proxies or ingests data, then t
 
 1. Create a server to server app in VMware Cloud services. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 1. Assign one or more roles to the server to server app to grant it the [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions) it needs.
+
+   For example, to use a server to server app for setting up the Operations for Applications integrations, assign both **Viewer** and **Proxies** permissions to the app. 
+
+   {% include important.html content="Ensure that you assign to the server to server app **only** the roles and permissions that are needed. Do not assign all roles and permissions listed in the VMware Cloud Services Console." %}
+
 1. Obtain the OAuth 2.0 client credentials of the server to server app and save them to a secure place.
 1. Add the app to your VMware Cloud organization running the Operations for Applications service.
 1. Configure your tool to pass the OAuth 2.0 client credentials to the REST API and exchange them to an access token. See [Make API Calls by Using a Server to Server App](using_wavefront_api.html#make-api-calls-by-using-a-server-to-server-app).
