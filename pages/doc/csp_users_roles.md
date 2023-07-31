@@ -70,6 +70,8 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
 
 Custom roles let you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
 
+{% include important.html content="The Operations for Applications permissions in a custom role applies to all Operations for Applications service instances to which the target user account or server to server app has access. Therefore, to obtain the Operations for Applications permissions from a custom role for a certain Operations for Applications service instance, the user account or server to server app assigned with that custom role must have at least one Operations to Applications service role for that service instance, for example, the **Viewer** service role."%}
+
 To create a custom role:
 
 1. On the VMware Cloud Services Console **Roles** page, click **Add Role**.
