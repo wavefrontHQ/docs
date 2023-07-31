@@ -32,7 +32,7 @@ For information about the two subscription types and how they differ, see [Subsc
 
 * **Maintenance Window Browser Page Improvements**: The [**Maintenance Window** browser page](maintenance_windows_managing.html#maintenance-windows) is now improved and allows you to:
 
-    * Hide and show details for all maintenance window or for a specific maintenance window.
+    * Hide and show details for all maintenance windows or for a specific maintenance window.
     * Sort the maintenance windows by name, state, start or end time, and so on.
     * Apply various filters, hide and show the filters listed on the left.
 
