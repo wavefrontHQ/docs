@@ -12,9 +12,9 @@ summary: Manage Operations for Applications permissions with roles.
 VMware Cloud services supports roles to manage authorization in your services on the platform, including VMware Aria Operations for Applications.
 
 From the VMware Cloud Services Console, users with the VMware Cloud **Organization Owner** or **Organization Administrator** role can:
-1. Create one or more **groups** and add one or more users to each group.
-1. Create one or more **custom roles** and assign one or more permissions to each role.
-3. Assign one or more **service roles** and **custom roles** to each group. It's also possible to assign roles to individual users and server to server apps.
+* Create **groups** and add new and existing users to each group.
+* Create **custom roles** and assign Operations for Applications permissions to each role.
+* Assign one or more **service roles** and **custom roles** to each group. It's also possible to assign roles to individual users and server to server apps.
 
 In addition to the roles model, Operations for Applications also supports [access control for individual objects](csp_access.html), for example, users with the **Super Admin** service role can limit access to a sensitive dashboard.
 
@@ -24,10 +24,11 @@ The roles model allows you to make sure nobody can perform tasks without the cor
 
 Assigning roles to groups of users is most efficient and least error prone. It's possible to assign a role to an individual account -- that might make sense during a POC.
 
-VMware Cloud services includes **built-in service roles** for each service on the platform, including Operations for Applications service roles. Additionally, VMware Cloud services supports **custom roles**.
+VMware Cloud services includes built-in **service roles** for each service on the platform, including Operations for Applications service roles. Additionally, VMware Cloud services supports **custom roles**.
 
 - A role can be assigned for a certain time period or without an expiration date.
-- In a multi-tenant environment, a user can have different service roles for the different Operations for Applications service instances (tenants). Custom roles apply to **all** tenants.
+- At least one Operations for Applications service role is required for a user to have access to the Operations for Applications service instance. Custom roles are optional.
+- In a multi-tenant environment, a user can have different service roles for the different Operations for Applications service instances (tenants). Custom roles apply to **all** tenants for which the user has a service role.
 
 The VMware Cloud Services Console **Roles** page lists all service roles and custom roles in your VMware Cloud organization. To navigate to this page:
 
@@ -70,7 +71,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
 
 Custom roles let you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
 
-{% include important.html content="The Operations for Applications permissions in a custom role applies to all Operations for Applications service instances to which the target user account or server to server app has access. Therefore, to obtain the Operations for Applications permissions from a custom role for a certain Operations for Applications service instance, the user account or server to server app assigned with that custom role must have at least one Operations to Applications service role for that service instance, for example, the **Viewer** service role."%}
+{% include important.html content="The Operations for Applications permissions in a custom role apply to **all** Operations for Applications service instances to which the target user account or server to server app has access. Therefore, to obtain the Operations for Applications permissions from a custom role for a given Operations for Applications service instance, the user account or server to server app assigned with that custom role must have at least one Operations to Applications service role for that service instance, for example, the **Viewer** service role."%}
 
 To create a custom role:
 
@@ -96,7 +97,7 @@ For a [federated domain](csp_authentication.html#federated-domain-authentication
 
 ## Manage User Groups
 
-For efficient user management, you can create groups of users and assign roles to these groups. You can assign [service roles](#operations-for-applications-service-roles-built-in) and [custom roles](#create-edit-or-delete-a-custom-role) to groups.
+For efficient user management, you can create groups of users and assign roles to these groups. You can add new and existing users to a group. You can assign [service roles](#operations-for-applications-service-roles-built-in) and [custom roles](#create-edit-or-delete-a-custom-role) to a group.
 
 See [How do I work with groups](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
