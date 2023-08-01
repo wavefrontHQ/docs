@@ -14,7 +14,7 @@ Even without additional customization, the Wavefront proxy ingests metrics and f
 
   {% include note.html content="**Proxy 12.0 and later**:<br/> It's a best practice to configure a unique name for each proxy by setting the [`proxyname`](#proxyname) property in the `wavefront.conf` file." %}
 * **[Proxy preprocessor rules](proxies_preprocessor_rules.html)** allow you to manipulate incoming metrics before they reach the proxy, for example, you could remove confidential text strings or replace unacceptable characters.
-* **[Log files](#logging)** can help in case of problems.
+* **[Log files](#proxy-log-files)** can help in case of problems.
 
 <a name="paths">
 ## Proxy File Paths
@@ -31,7 +31,7 @@ By default, proxy files are installed in the following locations.
   - Windows - `C:\Program Files (x86)\Wavefront`
   - For Docker containers, see [logging info on docs.docker.com](https://docs.docker.com/engine/reference/commandline/logs/).
 
-  See [Logging](#logging) for details on log files and content.
+  See [Proxy Log Files](#proxy-log-files) for details on log files and content.
 - `<wavefront_spool_path>`
   - Linux - `/var/spool/wavefront-proxy`
   - Mac - `/usr/local/var/spool/wavefront-proxy`
