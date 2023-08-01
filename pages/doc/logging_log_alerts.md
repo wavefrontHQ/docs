@@ -8,7 +8,7 @@ summary: Learn how you can create, snooze and delete a logs alert.
 
 {% include important.html content="Our service retains logs for 30 days during the Logs free trial or retains logs for 7 days when on the freemium subscription! To retain logs for a longer period, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-You can create alerts for your logs data and see when the alert fired.
+You can create alerts for your logs data and see the firing events of an alert.
 
 <!-- Add this after email notification and remove the line above
 
