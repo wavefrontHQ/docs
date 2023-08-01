@@ -23,7 +23,7 @@ You can create alerts for your logs data and get email notifications when the al
     <li>
         You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
     </li>
-    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#announcement">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscription</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
+    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#announcement">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
 </ul>
 {{site.data.alerts.end}}
 

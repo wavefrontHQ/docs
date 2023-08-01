@@ -40,7 +40,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
   </li>
   <li>
     Only users with the <b>Logs</b> permission can view the Logs Browser and drill down into logs from charts, alerts, and traces.
-    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#announcement">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscription</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
+    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#announcement">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
   </li>
 </ul>
 {{site.data.alerts.end}}
