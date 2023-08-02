@@ -16,16 +16,16 @@ You can create alerts for your logs data and get email notifications when the al
 -->
 
 {{site.data.alerts.note}}
-<ul>
-    <li>
-        You need the <b>Logs</b> permission to view the logs alerts.
-    </li>
-    <li>
-        You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
-    </li>
-    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#announcement">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
-</ul>
-{{site.data.alerts.end}}
+  <ul>
+      <li>
+          You need the <b>Logs</b> permission to view the logs alerts.
+      </li>
+      <li>
+          You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
+      </li>
+  </ul>
+  <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
+  {{site.data.alerts.end}}
 
 To create log alerts, you need to have the following user preferences:
 * Select **WQL** as the default query language.

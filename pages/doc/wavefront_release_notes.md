@@ -30,14 +30,14 @@ For information about the two subscription types and how they differ, see [Subsc
 
 ### Original and Onboarded Subscriptions
 
-* **Logs GA release**: This release marks the GA release for the [Logs feature](logging_overview.html). You can:
-
-{% include important.html content="Logs is enabled only for selected customers. If you like to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
+* **Logs GA release**: With this release, we launch the General Availability of our [Logs feature](logging_overview.html). You can:
   * [Send your logs](logging_send_logs.html) to our service, and troubleshoot using the [Logs Browser](logging_log_browser.html).
   * [Create logs charts](logging_logs_chart.html) to view logs next to your metrics data.
   * Drill into logs from alerts, charts, and traces.
   * [Customize the default log settings](logging_logs_settings.html) to map logs tags to metrics and trace tags so you can drill into logs seamlessly.
   
+  {% include important.html content="Logs is enabled only for selected customers. If you want to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
+
   ![A screenshot of the logs browser.](images/logs_browser_ga_for_release_notes.png)
 
 * **Logs Alerts**: You can create alerts for your logs data and see the firing events of the logs alert. See [Manage Logs Alerts](logging_log_alerts.html) for details.
@@ -49,9 +49,10 @@ For information about the two subscription types and how they differ, see [Subsc
       <li>
           You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
       </li>
-      <p>The steps to add roles and permissions differ for Onboarded and Original subscriptions. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
   </ul>
+  <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
   {{site.data.alerts.end}}
+  
   ![A screenshot of the alert browser on the logs alerts tab.](images/logs_alerts_for_rlease_notes.png)
 
 * **Maintenance Window Browser Page Improvements**: The [**Maintenance Window** browser page](maintenance_windows_managing.html#maintenance-windows) is now improved and allows you to:
