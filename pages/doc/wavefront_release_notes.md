@@ -76,6 +76,8 @@ For information about the two subscription types and how they differ, see [Subsc
 
 *  **Google Cloud Platform Integration Improvements**: You can now select to ingest histogram metrics as well as filter these metrics by their Google Cloud Platform grouping function. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
 
+* **Documentation Improvement**: We have added a new [documentation page](integrations_gcp_api.html) which explains how to set up the Google Cloud Platform integration by using our REST API.
+
 ## 2023-27.x Release Notes
 
 ### Original and Onboarded Subscriptions

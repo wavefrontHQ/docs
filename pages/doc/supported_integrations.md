@@ -73,7 +73,7 @@ For best performance, when you configure most of our integrations it is recommen
 
 We're in the process of incrementally updating our integrations so that you can use them when your Operations for Applications service **is** onboarded to VMware Cloud services. 
 
-Here's the list of the integrations that are updated as of today (with the 2023-30.x release). This list grows with each release. If you urgently need an integration to become available and configurable for your onboarded service, please contact us at: `tanzu_saas_ops@vmware.com`.
+Here's the list of the integrations that are updated as of today (with the 2023-31.x release). This list grows with each release. If you urgently need an integration to become available and configurable for your onboarded service, please contact us at: `tanzu_saas_ops@vmware.com`.
 
 <table style="width: 100%;">
 <thead>
