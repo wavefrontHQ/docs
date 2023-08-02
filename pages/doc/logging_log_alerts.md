@@ -27,6 +27,12 @@ You can create alerts for your logs data and get email notifications when the al
 </ul>
 {{site.data.alerts.end}}
 
+To create log alerts, you need to have the following user preferences:
+* Select **WQL** as the default query language.
+* Select **Chart Builder** as the default way of building queries. 
+
+To learn how to configure user preferences, see [Configure User Preferences](users_account_managing.html#configure-user-preferences).
+
 ## Alerts Browser
 
 Use the Alerts Browser to create and manage your logs alerts. To see the logs alerts you created, click the **Logs Alerts** tab.
