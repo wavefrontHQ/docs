@@ -35,7 +35,7 @@ If you build an application or tool that manages proxies or ingests data, then t
 
    {% include important.html content="Ensure that you assign the server to server app **only** with the roles and permissions that are needed. Do not assign all roles listed in the VMware Cloud Services Console." %}
 
-   For example, to use a server to server app only for setting up the Operations for Applications integrations, assign only the **Proxies** service roles to the app.
+   For example, to use a server to server app only for setting up the Operations for Applications integrations, assign only the **Proxies** service role to the app.
 
    If you plan to assign the server to server app a custom role, you must assign that server to server app at least one Operations for Applications service role, for example **Viewer**.
 
