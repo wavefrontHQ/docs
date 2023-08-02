@@ -17,15 +17,15 @@ In this tutorial, you’ll learn how to ingest data from a Windows host machine 
 
 When your service **is onboarded** to VMware Cloud services, the Wavefront proxy requires a VMware Cloud services access token with the **Proxies** service role. There are two options for the proxy to retrieve the access token and you can configure the proxy with:
 
-- A server to server OAuth app that belongs to the VMware Cloud organization running the service.
+- The credentials of a server to server OAuth app that belongs to the VMware Cloud organization running the service.
 
 - An API token that belongs to your user account in the VMware Cloud organization running the service. 
    
-  Note that you must regenerate and reconfigure the user account API Token periodically. This depends on the token TTL configuration.
+  Note that, periodically, you might need to regenerate the API token and reconfigure the proxy. This depends on the TTL configuration of the API token.
 
 In this tutorial, we will create a server to server OAuth app in VMware Cloud services and we'll retrieve the necessary credentials. Then we will install the Wavefront proxy and the Telegraf agent on the same Window host and we'll start to monitor the metrics flowing from the same Windows host.
 
-### Step 1: Create a Server to Server OAuth App
+### Step 1: Create a Server to Server OAuth App in Your Organization
 
 Let's create a server to server OAuth app and retrieve the app ID and app secret. You will need the app ID and app secret when you install the Wavefront proxy.
 
@@ -42,60 +42,46 @@ Let's create a server to server OAuth app and retrieve the app ID and app secret
 5. In the **Access Token TTL** field, specify the time to live for the access token of your server to server app. 
 6. Define the scopes by assigning roles to the server to server app.
    For example:
-   * Assign the **Organization Member** organization role.
-   * Search for `Operations for Applications` in the list of scopes, expand VMware **Operations for Applications** and select **Proxies** and **Viewer**.
+   1. Assign the **Organization Member** organization role.
+   1. Search for `Operations for Applications` in the list of scopes, expand the **VMware Aria Operations for Applications** service roles, and select **Proxies**.
     
    {% include note.html content="Note that these are the minimum required roles for the server to server app that you'll use to install the Wavefront proxy." %}
 
 7. Click **Create**.
-8. On the **OAuth app created** screen, click **Download JSON**, save the file to a secure place and click **Continue**.
+8. On the **OAuth app created** screen, click **Download JSON**, save the file to a secure place, and click **Continue**.
    
    The JSON file contains the app ID and app secret that you need when you install the Wavefront proxy.
 
-### Step 2: Add the Server to Server App to the Organization
-
-We add the app to the organization.
-
-1. Click **Identity & Access Management > OAuth Apps** and click **Add App**.
-2. Select **Enter App ID** and paste the app ID from the JSON file.
-   
-   You see the app details.
-
-3. In a multi-tenant environment, you can assign the app to different tenants.
-    1. Click **Add an instance**.
-    2. Select the tenant from the drop-down menu and assign the same roles to the app.
-
-   {% include note.html content="Only services and roles allowed by the app scope can be selected." %}
+9. To add your newly created app to the organization, on the **Add to this organization** page, click **Add**.
 
 
-4. Click **Add**.
-
-### Step 3: Retrieve the Organization ID
+### Step 2: Retrieve the Organization ID
 
 You will need the organization ID when you install the Wavefront proxy.
 
 1. In the VMware Cloud Services Console, click your user name.
-2. You see the name of the organization and the organization ID below it.
+
+   You see the name of the organization and the organization ID below it.
 3. Click the **Copy** icon.
 4. Paste the organization ID in a text file to have it handy.
 
-{% include note.html content="To install the Wavefront proxy you need the long organization ID." %}
+{% include note.html content="To install the Wavefront proxy, you need the long organization ID." %}
 
 
-### Step 4: Navigate to Operations for Applications
+### Step 3: Navigate to Operations for Applications
 
 1. In the VMware Cloud Services Console, click VMware Cloud Services.
 2. Navigate to the VMware Aria Operations for Applications tile.
 3. Click **Launch Service**.
-   In a multi-tenant environment, you should also select the tenant to which you added the server to server OAuth app.
+   In a multi-tenant environment, you should also select a tenant.
 
-### Step 5: Start the Setup Process
+### Step 4: Start the Setup Process
 
 1. In your Operations for Applications service instance, click **Integrations** on the toolbar.
 2. Click the **Windows Host** tile.
 3. Click the **Setup** tab.
 
-### Step 6: Install the Wavefront Proxy
+### Step 5: Install the Wavefront Proxy
 
 1. Download [wavefront-proxy-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-proxy-setup.exe) file.
 2. In a command prompt, navigate to the directory in which you downloaded the installer.
@@ -113,12 +99,12 @@ You will need the organization ID when you install the Wavefront proxy.
 
 Once installed, the proxy automatically starts. Check `Program Files (x86)\Wavefront\wavefront.log` to verify the installation.
 
-### Step 7: Install the Telegraf Agent
+### Step 6: Install the Telegraf Agent
 
 1. Download [wavefront-telegraf-64-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-telegraf-64-setup.exe). 
 2. Double-click the installer and follow the instructions to install Telegraf.
 
-### Step 8: Verify That Metrics Are Flowing
+### Step 7: Verify That Metrics Are Flowing
 
 When the Wavefront proxy and the Telegraf agent are installed and the proxy starts ingesting data to Operations for Applications, on the **Metrics** tab, you'll see the metrics that are flowing along with charts for each metric.
 

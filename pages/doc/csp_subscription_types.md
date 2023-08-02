@@ -137,8 +137,9 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 <strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> or <strong>Organization Administrator</strong> role.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
 <p><strong>How</strong>: To add a user to your Operations for Applications service instance, you must assign that user:
-<ol><li>An organization role for the VMware Cloud organization running the service.</li>
-<li>An Operations for Applications service role for your service instance or a custom role with an Operations for Applications permission.</li></ol>
+<ol><li>An organization role for the VMware Cloud organization running the service instance.</li>
+<li>An Operations for Applications service role for your service instance. At a minimum, you must assign the <strong>Viewer</strong> service role.</li>
+<li>Optionally, a custom role with an Operations for Applications permission. A custom role applies to all service instances for which the user has an Operations for Applications service role.</li></ol>
 For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p>
 </td>
 </tr>
@@ -168,7 +169,8 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
 <p><strong>How</strong>: Server to server OAuth apps in VMware Cloud services correspond to service accounts in Operations for Applications. A server to server app authenticates with OAuth credentials (ID and secret) and an access token is directly issued to the app. To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
 <ol><li>An organization role for the VMware Cloud organization running the service.</li>
-<li>An Operations for Applications service role for your service instance or a custom role with an Operations for Applications permission.</li></ol>
+<li>An Operations for Applications service role for your service instance.</li>
+<li>Optionally, a custom role with an Operations for Applications permission. A custom role applies to all service instances for which the server to server app has an Operations for Applications service role.</li></ol>
 For details, see <a href="csp_server_to_server_apps.html">Manage Server to Server Apps</a>.</p>
 </td>
 </tr>
@@ -202,7 +204,7 @@ Each API token inherits the permissions of its associated user or service accoun
 <strong>Who</strong>: All users.
 <p><strong>Where</strong>: In the Cloud Services Console user interface.</p>
 <p><strong>How</strong>: Each user can generate VMware Cloud services API tokens for their user account. An API token can be assigned with roles from the list of roles that the user owns - organization roles, service roles, and custom roles.</p>
-<p>For access to Operations for Applications, the VMware Cloud services API token must be assigned with an Operations for Applications service role or a custom role with an Operations for Applications permission.</p>
+<p>For access to Operations for Applications, the VMware Cloud services API token must be assigned with an Operations for Applications service role and, optionally, a custom role with an Operations for Applications permission.</p>
 <p>For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html">How do I generate API tokens</a> in the VMware Cloud services documentation.</p>
 </td>
 </tr>

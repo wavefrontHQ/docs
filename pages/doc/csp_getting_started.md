@@ -79,15 +79,15 @@ See [What organization roles are available in VMware Cloud Services](https://doc
 
 ## What Are Service Roles and Custom Roles?
 
-VMware Cloud services includes service-specific built-in roles, including [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in). Each service role grants certain access to the corresponding service instance in the organization.
+VMware Cloud services includes service-specific built-in roles, including [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in). A service role is required to grant certain access to the corresponding service instance in the organization.
 
-While the service roles are built-in and not editable, as a VMware Cloud **Organization Administrator** or **Organization Owner**, you can create [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with service permissions of your choice, including [Operations for Application permissions](csp_permissions_overview.html#operations-for-applications-permissions).
+While the service roles are built-in and not editable, as a VMware Cloud **Organization Administrator** or **Organization Owner**, you can create [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with service permissions of your choice, including [Operations for Application permissions](csp_permissions_overview.html#operations-for-applications-permissions). Custom roles are optional and apply to all service instances for which the target user or server to server app has at least one service role.
 
 ## What's a Server to Server App?
 
 If you want to use an application for automating management tasks in your service, for example, in Operations for Applications, your application requires direct access to your service, without user authorization.
 
-For that purpose, VMware Cloud services supports server to server apps, which are based on OAuth 2.0 *client credentials* grant type. You can configure your application to pass the OAuth 2.0 client credentials (id and secret) to the Operations for Applications REST API. This way, the API tokens are issued directly to your application.
+For that purpose, VMware Cloud services supports server to server apps, which are based on OAuth 2.0 *client credentials* grant type. You can configure your application to pass the OAuth 2.0 client credentials (id and secret) to the VMware Cloud services REST API and exchange the credentials for a VMware Cloud services access token. Your application can use the VMware Cloud services access token to interact with the Operations for Applications REST API.
 
 See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 

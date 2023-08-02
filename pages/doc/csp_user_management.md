@@ -14,18 +14,21 @@ VMware Cloud services provides identity access management for the users of your 
 
 ## Adding Users to Your Service Instance
 
-To add a user to your service instance, you must assign that user:
+To add a user to your Operations for Applications service instance, you must assign that user:
 
 1. An [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) for the VMware Cloud organization running the service instance.
 
-1. An [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
+1. An [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance.
+  
+    You can assign a combination of service roles. For example, if the user that you want to invite will set up integrations, make sure that you assign that user both the **Integrations** and the **Proxies** service roles.
+
+    If you plan to assign that user a custom role, you must assign that user at least the **Viewer** Operations for Applications service role.
 
     {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform. "%}
-    
-    When you invite a new user, assign that user at a minimum the **Viewer** Operations for Applications service role. You must also assign the service or custom roles that the user will need. For example, if the user that you want to invite will set up integrations, make sure that you assign that user both the **Viewer** and the **Proxies** service roles.
 
-    {% include important.html content="In a multi-tenant Operations for Applications environment, service roles are assigned per service instance (tenant), while custom roles are assigned for **all** service instances (tenants)."%}
+1. Optionally, a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
 
+    {% include important.html content="In a multi-tenant Operations for Applications environment, custom roles apply to **all** service instances (tenants) to which the user has access, that is, for which the user has at least one service role."%}
 
 You can assign users with these roles in the following ways:
 
