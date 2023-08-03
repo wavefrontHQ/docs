@@ -40,7 +40,8 @@ For information about the two subscription types and how they differ, see [Subsc
 
   ![A screenshot of the logs browser.](images/logs_browser_ga_for_release_notes.png)
 
-* **Logs Alerts**: You can create alerts for your logs data and see the firing events of the logs alert. See [Manage Logs Alerts](logging_log_alerts.html) for details.
+* **Logs Alerts**: You can create alerts for your logs data and see the firing events of the logs alert. See [Manage Logs Alerts](logging_log_alerts.html) for details. 
+
   {{site.data.alerts.note}}
   <ul>
       <li>
@@ -52,7 +53,9 @@ For information about the two subscription types and how they differ, see [Subsc
   </ul>
   <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
   {{site.data.alerts.end}}
-  
+
+  In this release, you need to select **WQL** as the default query language, and select **Chart Builder** as the default way of building queries for your [user preferences](users_account_managing.html#configure-user-preferences). This limitation will be removed in an upcoming release.
+
   ![A screenshot of the alert browser on the logs alerts tab.](images/logs_alerts_for_rlease_notes.png)
 
 * **Maintenance Window Browser Page Improvements**: The [**Maintenance Window** browser page](maintenance_windows_managing.html#maintenance-windows) is now improved and allows you to:

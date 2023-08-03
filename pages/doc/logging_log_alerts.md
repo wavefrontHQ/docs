@@ -27,12 +27,6 @@ You can create alerts for your logs data and get email notifications when the al
   <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
   {{site.data.alerts.end}}
 
-To create log alerts, you need to have the following user preferences:
-* Select **WQL** as the default query language.
-* Select **Chart Builder** as the default way of building queries. 
-
-To learn how to configure user preferences, see [Configure User Preferences](users_account_managing.html#configure-user-preferences).
-
 ## Alerts Browser
 
 Use the Alerts Browser to create and manage your logs alerts. To see the logs alerts you created, click the **Logs Alerts** tab.
