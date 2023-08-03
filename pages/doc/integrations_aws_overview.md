@@ -95,7 +95,11 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 To get the account ID and the external ID, do the following:
 
+<<<<<<< HEAD
 1. Log in to your Wavefront cluster.
+=======
+1. Log in to your service instance.
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
 2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
 3. Click the **Set Up Integration** button.
 4. Select which services you want to set up and click **Next**.
@@ -115,9 +119,28 @@ To get the account ID and the external ID, do the following:
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
 1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
+<<<<<<< HEAD
 1. Paste the copied Wavefront account information.           
    1. **Account ID** - The identifier of the Wavefront account to which you want to grant access.   
    2. Select the option **Require external ID** and provide the external ID. 
+=======
+1. Paste the copied account information.
+   
+   <table>
+   <tbody>
+   <thead><tr><th width="35%">Option</th><th width="65%">Description</th></tr></thead>
+   <tr>
+   <td><strong>Account ID</strong></td>
+   <td>The identifier of the account to which you want to grant access.</td>
+   </tr>
+   <tr>
+   <td><strong>Require external ID</strong></td>
+   <td>Select the option <strong>Require external ID</strong> and provide the external ID.</td>
+   </tr>
+   </tbody>
+   </table>
+   
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
@@ -133,6 +156,7 @@ To get the account ID and the external ID, do the following:
 
 <a name="CLI"></a> 
 <p><span style="font-size: medium; font-weight: 800">CLI Method</span></p>
+<<<<<<< HEAD
 
 By using this method, the process for getting the account ID and the external ID as well as the creation of a role in AWS is automated.
 
@@ -153,6 +177,28 @@ By using this method, the process for getting the account ID and the external ID
 
 **Task 2: Get the Role ARN**
 
+=======
+
+By using this method, the process for getting the account ID and the external ID, as well as the creation of a role in AWS is automated.
+
+**Task 1: Create a role in AWS**
+
+1. Log in to your service instance and click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
+1. Click the **Set Up Integration** button.
+1. Select which services you want to set up and click **Next**.
+   * **CloudWatch & Metrics+**
+   * **CloudWatch & Metrics+ & CloudTrail** 
+1. Click the **How to get Role ARN?** link.
+1. On the **AWS CLI Method** tab, under **Step 1** of the interactive help page, enter the stack and role names.
+   ![Screenshot of the AWS CLI method interactive help page.](images/aws-rolearn-cli-method.png)
+
+1. Copy the command displayed in **Step 2** of the interactive help page. 
+1. In another web browser page log in to your AWS account, open the [AWS Command Line Interface](https://aws.amazon.com/cli/), and run the copied command.
+
+**Task 2: Get the Role ARN**
+
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
 1. Copy the command displayed in **Step 3** of the interactive help page and run it in the [AWS Command Line Interface](https://aws.amazon.com/cli/).
 
    ```aws iam get-role --role-name wavefront
@@ -167,11 +213,76 @@ By using this method, the process for getting the account ID and the external ID
       
 ### Giving Limited Access
 
+<<<<<<< HEAD
 Instead of giving global read-only access, you can give Tanzu Observability more limited access. To do this, when you create a role in AWS, instead of providing **ReadOnlyAccess**, you can either create a policy with the required permissions and assign it to the role, or select an existing policy.
+=======
+Instead of giving global read-only access, you can give Operations for Applications more limited access. To do this, when you create a role in AWS, instead of providing **ReadOnlyAccess**, you can either create a policy with the required permissions and assign it to the role, or select an existing policy.
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
 
 <a name="policy"></a>
 
 **Task 1: Create a Policy in AWS**
+<<<<<<< HEAD
+=======
+
+To create a permission policy in AWS that you can use when you create the role with limited access, follow these steps:
+
+1. Log in to your AWS account.
+1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
+1. Under **Access management** on the left, click **Policies**.
+1. Click **Create Policy**. 
+    * On the **Visual Editor** tab, you can select a service and set the permissions manually. See [Required Permissions for Limited Access](#required_permissions).
+      1. Search for and select a service.
+      1. Specify the actions allowed in the selected service.
+      1. Select the resources, as necessary.
+      1. (Optional) Request conditions.
+      
+    * On the **JSON** tab, you can enter a JSON snippet. See [An Example Snippet of a Policy](#example_snippet).
+  
+1. Click **Next: Tags** and click **Next: Review**.
+1. On the **Review policy** page provide a name and, optionally, a description of the policy and click **Create policy**.
+
+
+**Task 2: Create a Role with Limited Access in AWS**
+
+After you create the policy with the required permissions, create a role with limited access.
+
+1. Retrieve the account ID and the external ID by following the steps in [Task 1 of the GUI method](#GetIDs).
+2. Create a role in AWS.
+  
+    1. Log in to your AWS account.
+    1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
+    1. Under **Access management** on the left, click **Roles**.
+    1. Click **Create role**.
+    1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
+    1. Paste the copied account information.           
+        <table>
+        <tbody>
+        <thead><tr><th width="35%">Option</th><th width="65%">Description</th></tr></thead>
+        <tr>
+        <td><strong>Account ID</strong></td>
+        <td>The identifier of the account to which you want to grant access.</td>
+        </tr>
+        <tr>
+        <td><strong>Require external ID</strong></td>
+        <td>Select the option <strong>Require external ID</strong> and provide the external ID.</td>
+        </tr>
+        </tbody>
+        </table>
+    1. Click **Next**.
+    1. On the **Add permissions** screen, search for, and select the check box of the policy you have created.
+    1. Click **Next**.
+    1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
+
+3. Get the Role ARN by following the steps in [Task 3 of the GUI method](#GetRoleArn).
+
+<a name="required_permissions"></a>
+
+<p>
+<span style="font-size: medium; font-weight: 800">Minimum Required Permissions for Limited Access</span></p>
+
+The required permissions for limited access, shown in the table below, are sufficient for monitoring your AWS services. You need to include the whole list of minimum required services and permissions as shown in the [example snippet](#example_snippet).
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
 
 To create a permission policy in AWS that you can use when you create the role with limited access, follow these steps:
 
@@ -269,6 +380,12 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 </table>
 
 <a name="example_snippet"></a>
+<<<<<<< HEAD
+=======
+
+<p>
+<span style="font-size: medium; font-weight: 800">An Example JSON Snippet of a Policy</span></p>
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
 
 <p>
 <span style="font-size: medium; font-weight: 800">An Example JSON Snippet of a Policy</span></p>
@@ -310,14 +427,23 @@ You can explicitly specify the limited access permissions in a custom IAM policy
 
 ## Managing an AWS Integration
 
+<<<<<<< HEAD
 You can set up an AWS integration, enable and disable it, edit an integration, and delete it. After you set up an AWS integration, you can register more services to it. You can also [add and manage AWS integrations by using the Wavefront REST API](integrations_aws_overview_API.html).
+=======
+You can set up an AWS integration, enable and disable it, edit an integration, and delete it. After you set up an AWS integration, you can register more services to it. You can also [add and manage AWS integrations by using the Operations for Applications REST API](integrations_aws_overview_API.html).
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
 
 ### Set up an AWS Integration
 
 To set up an AWS integration, you must have a **Role ARN** handy. 
 
+<<<<<<< HEAD
 1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
+=======
+1. Log in to your service instance and click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
+>>>>>>> 958891ca96c61397abcca565429d7157784a8902
 1. Click the **Set Up Integration** button.   
 1. Select the AWS services to register and click **Next**.
    * **CloudWatch and Metrics+**
@@ -366,8 +492,8 @@ If you want to configure allow lists and service refresh rate for the CloudWatch
 
 After you set up the AWS integration with a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn), you can additionally register more Amazon Web services.
 
-1. In your Wavefront instance, click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. In your service instance, click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab, click the ellipsis icon next to an instance, click **Add**, and select an option.
    * To register an AWS Metrics+ service, select **AWS Metrics+** and configure the following integration properties:
       
@@ -399,10 +525,10 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
 
 ### Enable and Disable AWS Integrations
 
-Tanzu Observability automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration:
+We automatically disable integrations that are experiencing errors due to invalid credentials. To enable an integration after the credentials have been corrected or to manually disable an integration:
 
-1. In your Wavefront instance, click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. In your service instance, click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab search for the instance that you want to enable or disable.
 1. In the row that contains the integration that you want to enable or disable, click the ellipsis icon, and select an option.
    * **Enable** > **[Service Name]** 
@@ -414,8 +540,8 @@ Tanzu Observability automatically disables integrations that are experiencing er
 
 You can edit your AWS integrations. You cannot edit the Role ARN, only some of the settings are editable.
 
-1. In your Wavefront instance, click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. In your product instance, click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab, click the ellipsis icon next to an instance, click **Edit**, and select an option.
    * To edit an AWS Metrics+ service, select **AWS Metrics+** and edit the name of the integration.
       
@@ -447,8 +573,8 @@ The selected integration is edited.
 
 You can delete an AWS integration if you no longer need it. New metrics will no longer be fetched from the AWS integration that you deleted. However, existing metrics are not affected.
 
-1. In your Wavefront instance, click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. In your product instance, click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab search for and select the instance that you want to delete.
 1. Click the **Delete** button and confirm.
 
@@ -457,6 +583,27 @@ In addition, you can also delete a single service within an integration instance
 1. In the row that contains the integration service that you want to delete, click the ellipsis icon, and select **Delete** > **[Service Name]**.
 1. Confirm the deletion.
 
+## Viewing PPS Consumption
+
+You can monitor the PPS consumption per AWS integration instance and service. The PPS consumption for each service in an integration instance is calculated by using the `mavg()` over one hour.
+
+1. In your product instance, click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
+1. On the **Overview** tab, in the **PPS Consumption** column, you see the PPS consumption for each registered integration instance.
+1. To see the PPS consumption per service, click the PPS number for the instance you're interested in.
+
+   The menu that appears shows the services within the integration instance, the PPS consumption for each service, and when the data was fetched for the last time.
+
+   ![Annotated screenshot of the Overview tab of an AWS integration with the information above.](images/aws-pps-metrics.png)
+
+1. To see more details and the chart with the current data, click the service you're interested in.
+
+   Note that if a service is disabled, the service link will be inactive and the PPS consumption will show 0. 
+
+   You'll see the chart showing the current data (by default, for the last 2 hours).
+
+   ![Screenshot of the chart showing the consumption for a service.](images/aws-pps-consumption-chart.png)
+
 
 ## Viewing AWS Metrics
 
@@ -464,7 +611,7 @@ Once metrics start flowing, you can view them on the **Metrics** tab.
 
 You can drill down into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. 
 
-![Screenshot of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
+![Screenshot of the AWS metrics once the data starts to flow to Operations for Applications.](images/hello_tutorial_aws_metrics.png)
 
 For example:
 

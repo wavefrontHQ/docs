@@ -23,7 +23,7 @@ For more information, see [Giving Tanzu Observability Access to Your AWS Account
 
 ### Create an External ID
 
-1. Log in to your Wavefront cluster.
+1. Log in to your service instance.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration/awsExternalId` request.
@@ -50,7 +50,7 @@ Follow the steps in [Giving Tanzu Observability Access to Your AWS Account](inte
 You can add an AWS integration by using the Wavefront REST API.
 
 
-1. Log in to your Wavefront cluster.
+1. Log in to your service instance.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.

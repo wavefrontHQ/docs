@@ -30,20 +30,19 @@ It's an easy setup. You don't have to install anything or make changes to your a
 
 In this task, we'll set up a data ingestion pipeline with AWS.
 
-### Step 1: Start Integration Setup
+### Step 1: Start the Integration Setup
 
 1. Click **Integrations** on the toolbar.
-   An integration tile usually has:
-   * A **Setup** tab which provides step-by-step instructions on setting up the integration.
-   * A **Dashboards** tab to access the out-of-the-box dashboards.
-   Popular integrations also have an **Alerts** tab with preconfigured alerts.
 2. Click the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
-3. On the **Setup** tab, click **Add Integration**.
-    ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
-4. Click the **How to get Role ARN** link.
+3. Click **Set Up Integration**.
+    ![Highlights the Set up integration button.](images/hello_tutorial_aws_add_integration.png)
+4. Click the **CloudWatch & Metrics+** tile and click **Next**.
+6. Click the **How to get Role ARN** link and click **AWS UI Method** tab.
 
 You'll see **Account ID** and **External ID** under **How to get Role ARN**. You'll need them to set up the integration.
+
+![The AWS setup page after clicking How to get Role ARN link and the AWS UI Method tab selected.](images/hello_tutorial_aws_integration_UI-setup.png)
 
 ### Step 2: Create a Read-Only Role in Your AWS Account
 
@@ -53,18 +52,19 @@ You'll see **Account ID** and **External ID** under **How to get Role ARN**. You
 
 Follow these steps:
 
-1. Open a web browser tab and log in to your AWS account.
+1. In a web browser, log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it to open the service.
 1. In the left panel, click **Roles**, and click **Create role**.
 1. Create a trusted entity:
     1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
     1. Copy the **Account ID** value shown in the AWS integration setup instructions.
-    1. Paste it in the **Account ID** text box in the AWS UI.
-        ![A diagram that shows where the account ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
+    1. Paste it in the **Account ID** text box in the AWS UI. 
+        ![A diagram that shows where the account ID is in the integration and an arrow pointing how to copy and paste in the AWS U.](images/hello_tutorial_aws_account_ID.png)
     1. Select the **Require external ID** check box.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
-    1. Enter the **External ID**. Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the external ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
+    1. Copy the **External ID** value shown in the AWS integration setup instructions.
+    2. Paste it in the **External ID** text box in the AWS UI. 
+        ![A diagram that shows where the external ID is in the integration and an arrow pointing how to copy and paste in the AWS UI.](images/hello_tutorial_aws_external_ID.png)
     1. Click **Next**.
 1. Set Permissions:
     1. Search for the **ReadOnlyAccess** permission and select it.
@@ -90,7 +90,7 @@ Go back to the product instance where you opened the AWS integration tile, and f
 <li>Click <strong>Register</strong>. </li>
 </ol>
 </td>
-<td width="50%" markdown="span">![Screenshot of the AWS integration's configure section. The Register button is highlighted in red.](images/hell_tutorial_configure_aws_integration.png) </td></tr>
+<td width="50%" markdown="span">![Screenshot of the AWS integration's setup section. The Register button is highlighted in red.](images/hell_tutorial_configure_aws_integration.png) </td></tr>
 </tbody>
 </table>
 
@@ -130,14 +130,15 @@ With data flowing, you can start exploring dashboards and charts:
 
 1. In your product instance, navigate to the AWS integration.
 1. Click the **Metrics** tab.
+1. Drill down to an individual metric and select it.
 
-You see charts with the metrics collected from your AWS account.
+You see a chart with the metric collected from your AWS account. 
 
 Example:
 ![Screenshot of the AWS metrics once the data starts to flow.](images/hello_tutorial_aws_metrics.png)
 {% include note.html content="You see **No Data** if we can't find any metrics to match the queries in the chart." %}
 
-<br/>
+
 <p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
 
 Our service includes system dashboards for the AWS integration that help you analyze and gather data.
