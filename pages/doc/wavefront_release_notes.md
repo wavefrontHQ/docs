@@ -54,7 +54,7 @@ For information about the two subscription types and how they differ, see [Subsc
   <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
   {{site.data.alerts.end}}
 
-  In this release, you need to select **WQL** as the default query language, and select **Chart Builder** as the default way of building queries for your [user preferences](users_account_managing.html#configure-user-preferences). This limitation will be removed in an upcoming release.
+  In this release, you can create logs alerts only when the default query language for your [user account](users_account_managing.html#configure-user-preferences) is **WQL** and **Chart Builder** is the default way for building queries. This limitation will be removed in an upcoming release.
 
   ![A screenshot of the alert browser on the logs alerts tab.](images/logs_alerts_for_rlease_notes.png)
 
