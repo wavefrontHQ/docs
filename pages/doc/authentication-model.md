@@ -29,15 +29,15 @@ Operations for Applications supports direct authentication for user accounts and
 
 You can use the authentication provided by Operations for Applications or use one of the supported authentication integrations. Operations for Applications supports several authentication solutions including:
 
-* [ADFS](adfs.html)
-* [Azure AD](azure_ad.html)
 * [Google](google.html)
 * [OneLogin](onelogin.html)
 * [Okta](okta.html)
 * [PingOne](pingone.html)
-* [VMware Workspace ONE Access](workspace-one.html).
+* [VMware Workspace ONE Access](workspace-one.html)
 
 We also support [self-service SAML SSO](auth_self_service_sso.html) setup. After the administrator sets up self-service SAML SSO, users will log in to the service instance by using the identity provider that the administrator has set up instead of using a password. New users who did not exist in the service instance are auto-created when they authenticate for the first time.
+
+{% include important.html content="If your environment requires Self-Service SAML SSO setup with an IdP that is not available in the list for self-service SAML SSO (for example, Azure AD or ADFS), create a [support ticket](wavefront_support_feedback.html#support)."%} 
 
 If a customer's chosen authentication solution supports two-factor authentication, Operations for Applications requires two-factor authentication for login.
 

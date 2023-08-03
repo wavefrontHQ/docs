@@ -19,18 +19,17 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Single-Tenant Authentication
 
-Most administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predefined. SSO setup with other IdPs is also possible.
+Most administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predefined. 
 
-* [ADFS](adfs.html)
-* [Azure AD](azure_ad.html)
 * [Google](google.html)
 * [OneLogin](onelogin.html)
 * [Okta](okta.html)
 * [PingOne](pingone.html)
 
-  {% include note.html content=" PingFederate Self Service SSO is not supported."%} 
-* [VMware Workspace ONE Access](workspace-one.html).
- 
+  {% include note.html content="PingFederate Self Service SSO is not supported."%} 
+* [VMware Workspace ONE Access](workspace-one.html)
+
+SSO setup with other IdPs is also possible. If your environment requires the setup of SSO using and IdP that is not available in the predefined list for self-service SAML SSO (for example, Azure AD or ADFS), create a [support ticket](wavefront_support_feedback.html#support).
 
 As an administrator, in single-tenant authentication environments, you can set up SAML SSO and your users will log in to the identity provider. After a user has been successfully authenticated, you can set the permissions for that user. [Permissions](permissions_overview.html) determine what the user can do in the environment.
 
