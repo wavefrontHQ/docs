@@ -29,16 +29,20 @@ In this tutorial, we will create a server to server OAuth app in VMware Cloud se
 
 Let's create a server to server OAuth app and retrieve the app ID and app secret. You will need the app ID and app secret when you install the Wavefront proxy.
 
-1. Navigate to the VMware Cloud Services Console as a user with the required permissions, such as **Organization Owner**, **Organization Administrator**, or an **Organization Member** with the **Developer** additional role assigned.
+1. Log in to the VMware Cloud Services Console as a user with the required permissions, such as **Organization Owner**, **Organization Administrator**, or an **Organization Member** with the **Developer** additional role assigned.
 
-   For details, see [What Organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html).
+   For details about the organization roles in VMware Cloud Services, see [What Organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html).
 
-2. Click **Organization > OAuth Apps** and click **Create App**.
+   1. In a Web browser, navigate to [https://console.cloud.vmware.com/](https://console.cloud.vmware.com/).
+   1. Enter your account email and click **Next**.
+   1. Type your password and click **Sign In**.
+
+2. In the navigation panel on the left, click **Organization > OAuth Apps** and click the **Create App** button.
 3. Select **Server to server app** and click **Continue**.
-4. Provide a meaningful app name and description.
+4. Provide a meaningful name and description of the app.
    For example:
    * **App Name**: `wavefront_proxy`.
-   * **App Description**: `Server to server app that I will use for my Windows integration setup.`
+   * **App Description**: `Server to server app to use for my Windows integration setup.`
 5. In the **Access Token TTL** field, specify the time to live for the access token of your server to server app. 
 6. Define the scopes by assigning roles to the server to server app.
    For example:
@@ -70,21 +74,26 @@ You will need the organization ID when you install the Wavefront proxy.
 
 ### Step 3: Navigate to Operations for Applications
 
+To install the Wavefront proxy, set up an integration, and install integration dashboards, you must have the **Proxies** and **Integrations** permissions. For more information see [Operations for Applications Permissions in VMware Cloud Services](csp_permissions_overview.html).
+
 1. In the VMware Cloud Services Console, click VMware Cloud Services.
-2. Navigate to the VMware Aria Operations for Applications tile.
+2. Search for Operations for Applications and click the **VMware Aria Operations for Applications** tile.
 3. Click **Launch Service**.
+   
    In a multi-tenant environment, you should also select a tenant.
+   
+   ![Operations for Applications tile with a drop-down menu displaying the available tenants.](images/csp_multi_tenancy.png)
 
 ### Step 4: Start the Setup Process
 
 1. In your Operations for Applications service instance, click **Integrations** on the toolbar.
-2. Click the **Windows Host** tile.
+2. Click the **Windows Host** integration tile.
 3. Click the **Setup** tab.
 
 ### Step 5: Install the Wavefront Proxy
 
-1. Download [wavefront-proxy-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-proxy-setup.exe) file.
-2. In a command prompt, navigate to the directory in which you downloaded the installer.
+1. Download [wavefront-proxy-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-proxy-setup.exe) file to the Windows host machine.
+2. Open the command prompt and navigate to the directory in which you downloaded the installer.
 3. Run the command to install the Wavefront proxy:
 
     ```
@@ -122,5 +131,5 @@ Note that this video was created in 2021 and some of the information in it might
 <p>
 <iframe id="kmsembed-1_0bbze8os" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0bbze8os/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Setting up a Windows integration"></iframe>
 </p>
-You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0bbze8os" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/>
+You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0bbze8os" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/>.
 
