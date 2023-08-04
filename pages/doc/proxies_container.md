@@ -217,7 +217,7 @@ By default, Wavefront proxy logs in Docker and Kubernetes are sent to std_out. Y
 --mount type=bind, src=<absolute_path>/log4j2.xml, dst=/etc/wavefront/wavefront-proxy/log4j2.xml
 ```
 
-See [Logging](proxies_configuring.html#logging) for additional background.
+See [Log Files](proxies_configuring.html#proxy-log-files) for additional background.
 
 ## Run Telegraf in a Docker Container
 

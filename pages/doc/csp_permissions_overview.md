@@ -84,7 +84,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     </tr>
     <tr>
       <th>Logs</th>
-      <td><a href="logging_log_browser.html">View logs</a> and <a href="logging_drill_into_logs.html">drill into logs</a> from charts, alerts, and traces. In combination with the <strong>Dashboards</strong> permission, you can <a href="logging_logs_chart.html">create logs charts</a>.
+      <td><a href="logging_log_browser.html">View logs</a> and drill into logs from charts, alerts, and traces. In combination with the <strong>Dashboards</strong> permission, you can <a href="logging_logs_chart.html">create logs charts</a>.
       <p><strong>Note:</strong> Logs (Beta) is enabled only for selected customers. To participate, contact your Operations for Applications account representative.</p></td>
     </tr>
     <tr>

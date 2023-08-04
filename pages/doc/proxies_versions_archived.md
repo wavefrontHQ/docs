@@ -31,7 +31,7 @@ See [Proxy Custom Install with Incoming TLS/SSL](proxies_manual_install.html#pro
   {% include note.html content="Proxy 6.1 and later stores spooled data differently from previous versions. If the proxies in your environment have accumulated a substantial backlog, drain the backlog before upgrading to version 6.1 or later." %}
 - New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html#configuration-properties).
 - [Jaeger integration can now receive data via HTTP](proxies_configuring.html#traceJaegerHttpListenerPorts).
-- Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
+- Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#proxy-log-files).
 - Ability to export data that is queued at the proxy.
 - Deprecated configuration options:
   - `retryThreads` configuration option is deprecated as it is no longer applicable to the new storage engine.

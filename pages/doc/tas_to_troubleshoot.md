@@ -127,7 +127,7 @@ You have successfully set up the nozzle and the integration. However, you don't 
 
 
 * Ensure that the installation of the Wavefront Nozzle in has completed.
-* Verify that the proxy uses the correct API token and Wavefront instance URL. You specify that information in Ops Manager in the **Proxy Config** page.
+* Verify that the proxy uses the correct authentication credentials and Operations for Applications instance URL. You specify that information in Ops Manager in the **Proxy Config** page.
 * In your Tanzu Application Service environment, verify that the BOSH jobs for Wavefront proxy and for the Telegraf agent are running.
   * In the BOSH CLI, use the `bosh deps` command to identify your wavefront-nozzle deployment, then tail the logs using `bosh ssh`.
 

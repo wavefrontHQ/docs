@@ -123,7 +123,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 2 with
     https://wavefront.surf/us/example
     ```
 
-  {% include note.html content="See [custom configurations](wavefront_springboot.html#custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
+  {% include note.html content="See [custom configurations](wavefront_springboot3.html#custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
 
 ## Examine Inventory Data
 

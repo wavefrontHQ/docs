@@ -314,6 +314,45 @@ The <strong>Show Events</strong> drop-down menu in the upper right of the toolba
 </tbody>
 </table>
 
+## Drill into Logs from Charts
+
+If you have the **Logs** permission, you can drill into logs from charts, for example, if you notice data anomalies on a chart and want to debug the issue.
+
+{{site.data.alerts.note}}
+<ul>
+    <li markdown="span">
+        Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support).
+    </li>
+    <li markdown="span">
+        You must have tagged the metrics and the logs from the same source with equivalent source tag values. If your metrics and logs tags don't match, to map the metrics tags to logs tags, see [Customize Logs Settings](logging_logs_settings.html).
+    </li>
+</ul>
+{{site.data.alerts.end}}
+
+To drill into the related logs from a chart:
+
+1. Position your pointer over the metric (on the location of the anomaly).
+1. Right-click that point on the chart and select **Logs**.
+    {%include note.html content=" This feature supports only one source filter. If you selected more than one source on the chart, you only see one source on the Logs Browser (the source that comes first when the source name is alphabetically sorted)."%}
+
+![A screenshot of a chart with the right-click menu that includes the Logs option.](images/logging_charts_to_logs.png)
+In this example, you right-click the metric chart for source `db-5` at `01:25 PM`.
+
+The Logs Browser opens in a new tab with the following configuration:
+- The search time window is a 10-minute period, starting 5 minutes before and ending 5 minutes after the time of the point that you right-clicked on the chart.
+- The search query includes the `source` tag as a filter for the source that you right-clicked.
+
+![A screenshot of a search query and selected time window in the Logs Browser.](images/logging_from_chart.png)
+In this example, the Logs Browser opens with the filter `source = db-5` and the time window `01:20 PM to 01:30 PM` (starting 5 minutes before and ending 5 minutes after `01:25 PM`).
+
+{% include tip.html content="You can customize the before and after buffer time to create a customized time window when drilling into logs from a chart. For more details, see [Customize the Time Window when Drilling into Logs](logging_logs_settings.html#customize-the-time-window-when-drilling-into-logs)" %}
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="logging_overview.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 
 ## Export to CSV or PDF
 

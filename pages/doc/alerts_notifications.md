@@ -131,3 +131,5 @@ When you select **Create Alert** and **Edit Alert** you can select a **Secure Me
   - A notification that some metrics are hidden due to metrics security policies is shown on the chart.
 
 ![alert email screenshot without metrics image](images/alert_email_protected.png)
+
+

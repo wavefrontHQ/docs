@@ -837,7 +837,8 @@ Use the following iterators to visit each time series in the indicated [category
 <tbody>
 <tr>
 <td markdown="span">`failingAlertSeries`</td>
-<td markdown="span">Iterator that can return a custom combination of [details](#alert-series-details) for each failing time series.
+<td>Iterator that can return a custom combination of <a href="#alert-series-details">details</a> for each failing time series.
+<p>When there is <strong>no data</strong> in this iterator, you can use the <a href="#list-all-sources-and-point-tags-of-an-aggregation-alerts-time-series"><code>contributingKVs</code> iterator</a>.</p>
 </td>
 </tr>
 <tr>
@@ -1015,6 +1016,81 @@ The preceding template might yield the following message:
 ```
 {% endraw %}
 
+## List All Sources and Point Tags of an Aggregation Alert's Time Series
+
+Starting with the 2023.31 release, you can use the `contributingKVs` iterator to visit each source and point tag (shown as a `<key>=<value>` pair) of a failed alert whose condition uses a single top-level [aggregation function](query_language_aggregate_functions.html). For example, the condition of the failed alert can be `sum(ts(~sample.cpu.usage.percentage)) > 1`.
+
+{% include note.html content="The listed keys are **contributing** to the alert failure, but they are not definitely **failing**." %}
+
+{% include important.html content="This feature is disabled by default. To enable this feature for your service instance, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
+
+<table>
+<colgroup>
+<col width="25%"/>
+<col width="75%"/>
+</colgroup>
+<thead>
+<tr><th>Iterator</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`contributingKVs`</td>
+<td>This iterator is populated only when there is <strong>no data</strong> in the <a href="#alert-series-iterators"><code>failingAlertSeries</code> iterator</a>. This happens when the alert condition uses a single top-level <a href="query_language_aggregate_functions.html">aggregation function</a>.
+<p>This iterator returns the keys and values of each source and point tag used in the alert's time series generating the aggregation. The sources and point tags listed might or might not be a part of the actual failing time series. The aggregation can contain thousands of keys but the display is limited to 100 which is <a href="#limit-list-sizes">configurable</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+**Example: Accessing All Sources and Point Tags in a Generic Webhook Alert Target Template**
+
+This portion of the Generic Webhook alert target template shows the iterator that returns the keys and values of the time series used in a failed alert whose condition uses a single top-level aggregation function:
+
+{% raw %}
+```handlebars
+"contributingKVs": {
+    {{#trimTrailingComma}}
+      {{#contributingKVs}}
+        "{{{key}}}": [
+          {{#trimTrailingComma}}
+            {{#value}}
+              "{{{.}}}",
+            {{/value}}
+          {{/trimTrailingComma}}
+        ],
+      {{/contributingKVs}}
+    {{/trimTrailingComma}}
+  } 
+```
+{% endraw %}
+
+**Example: All Sources and Point Tags in Output from the Sample Template**
+
+Here is a sample keys and values output generated with the preceding template:
+
+{% raw %}
+```handlebars
+"contributingKVs": {
+    "cpu": [
+      "cpu4",
+      "cpu5",
+      "cpu6",
+      "cpu7",
+      "cpu8",
+      "cpu9",
+      "cpu-total",
+      "cpu0",
+      "cpu1",
+      "cpu2",
+      "cpu3"
+    ],
+    "source": [
+      "source1"
+    ]
+  } 
+```
+{% endraw %}
+
 ## Tailor Content to the Trigger Type
 
 If you want to send out different notifications for different types of triggers, you can use the following functions.
@@ -1175,8 +1251,8 @@ See **Example: Setting and Testing Iteration Limits** below for an example.
 </td>
 </tr>
 <tr>
-<td markdown="span">`setRecoveredLimit`</td>
-<td markdown="span">Sets the limit for the number of items returned by `recoveredAlertSeries`, `recoveredHosts`, and `recoveredSeries`.
+<td markdown="span">`setContributingKVsLimit`</td>
+<td markdown="span">Sets the limit for the number of items returned by `contributingKVs`.
 </td>
 </tr>
 </tbody>

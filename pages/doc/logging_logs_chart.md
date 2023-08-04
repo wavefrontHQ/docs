@@ -20,7 +20,7 @@ If you have the **Logs** and **Dashboards** permissions, in the [Chart Builder](
 <tr>
   <td width="40%">
   <p>1. Select <strong>Dashboards</strong> > <strong>Create Chart</strong> on the toolbar.</p>
-  <p>2. From the <strong>Data</strong> drop-down menu, select <strong>Logs (Beta)</strong>.</p>
+  <p>2. From the <strong>Data</strong> drop-down menu, select <strong>Logs</strong>.</p>
   </td>
   <td width="60%">
     <img src="images/logs_histogram_data.png" alt="The Data drop-down menu."/>
@@ -61,51 +61,14 @@ If you have the **Logs** and **Dashboards** permissions, in the [Chart Builder](
 If you select the stacked-column chart, the resulting chart shows the number of logs matching the selected filters distributed over the [selected time window](ui_charts.html#set-the-time-window-on-a-chart). The logs are grouped by the values of the selected grouping tags. You can zoom in on smaller time windows. You can also use the logs table chart to see the logs on your chart.
   ![Logs histogram chart](images/logs_histogram_chart.png)
 
-## Logs Table Chart
+## Select the Logs Table Chart Type
 
-To troubleshoot faster, you can have the logs data on the same dashboard that you use to monitor your application, service, sources, etc., by using the logs table chart.
+After you select to see logs data on the chart you can view the logs data in a table using the logs-table chart type.
 
-<a id="create_logs_table_chart">
-<p><span style="font-size: medium; font-weight: 600">Create a Logs Table Chart</span></p>
-
-Follow these steps:
-
-1. Select **Dashboards** > **Create Chart** on the toolbar.
 1. Select the **Logs Table** chart type.
-1. From the **Data** drop-down menu, select **Logs (Beta)** and add the filters that you want.
-    {% include note.html content="The count function is disabled when you select the logs table chart because you don’t need to group your logs in the table view." %}
-1. Click the **Format** tab to customize the data displayed on the chart.
-    <table>
-    <tbody>
-    <thead>
-    <tr><th width="20%">Option</th><th width="80%">Description</th></tr>
-    </thead>
-    <tr>
-      <td>
-        Sort by Timestamp
-      </td>
-      <td markdown="span">
-        By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Number of Message Lines
-      </td>
-      <td>
-        Select the number of log lines you want to see in the Message column to get a better preview of the log message.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Columns to Show in Table
-      </td>
-      <td markdown="span">
-        Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags so that you can filter and search logs. For more details, see [Log Attributes](logging_overview.html#log-attributes). Select the tags for which you want to see  see information in new columns.
-      </td>
-    </tr>
-    </tbody>
-    </table>
+1. Click the **Format** tab to customize the data displayed on the chart. For details see, [Chart Reference](ui_chart_reference.html#logs-table).
+  ![A screenshot of the logs=table chart type's format tab.](images/logging_logs_table_chart_format_tab.png)
+1. Click the **Description** tab and add a description.
 1. On the top right, click **Save**.
 1. Specify the dashboard in which you want to insert the chart or create a new dashboard.
 
@@ -116,8 +79,7 @@ Once the chart is in a dashboard, you can:
 
 ![An annotated screenshot of the logs table chart. The annotations are listed as bullets below.](images/logging_logs_chart_features.png)
 * Search for keywords or phrases. You only get results for the data in the logs chart table.
-* You only see the first 50 logs. To see more logs, click the ellipsis icon in the top-right corner of the chart and select **Logs (Beta)**.
-* If you want to drill into a specific log, right-click the row on the table, and click **Logs (Beta)**. The tags on the log you selected carry over to the Logs Browser as filters, and you see all the logs with the same filters.
+* If you want to drill into a specific log, right-click the row on the table, and click **Logs**. The tags on the log you selected carry over to the Logs Browser as filters, and you see all the logs with the same filters.
 * If you want to see a specific log message while you troubleshoot and examine the other charts in the dashboard:
   * Press **Shift** + **p** to pin the log message to the chart. 
   * To close the logs detail pop-up, click the **x** in the top right corner.
@@ -129,5 +91,4 @@ Once the chart is in a dashboard, you can:
 
 * [Send logs](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
-* Learn how you can troubleshoot faster by [drilling into the Log Browser](logging_drill_into_logs.html) from charts, alerts, application map, and the Traces Browser.
 * See [Logs troubleshooting](logging_faq.html).

@@ -1,5 +1,5 @@
 ---
-title: Find and Examine Logs in the Logs Browser (Beta)
+title: Find and Examine Logs in the Logs Browser
 keywords: data, logs
 tags: [logs]
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: logging_log_browser.html
 summary: Learn how to filter and explore logs in the Logs Browser.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Logs Browser to troubleshoot your issues.
 
@@ -21,7 +21,7 @@ To use the Logs Browser:
 
 1. Configure your application and the log shipper to [send logs](logging_send_logs.html).
 1. In a web browser, log in to your product instance as user with the **Logs** permission.
-1. On the toolbar, click **Logs (Beta)**.
+1. On the toolbar, click **Logs** > **Log Browser**.
 
 On the Logs Browser, you can filter and examine logs for a selected period.
 
@@ -207,12 +207,11 @@ You can add search filters from the predefined filters in the left panel and fro
   <tr>
     <td>
       <p>To add a tag filter from a predefined filter:
-      <ol><li>Select the target tag key.
-      <ul><li>To add a <code>source</code> tag filter, click the <strong>Source</strong> filter in the left panel.
-      <p>The filter lists the <code>source</code> values for the selected time window and the current search query. For each <code>source</code> value, the list shows the number of logs matching that value.</p></li>
-      <li>To add any other tag filter, click the <strong>All Tags</strong> filter in the left panel and expand the target tag key.
-      <p>The filter lists all tag keys from the beginning of the logs ingestion and all tag values for the selected time window and the current search query. For each tag value, the list shows the number of logs matching that value.</p></li></ul>
-      </li>
+      <ol>
+        <li>Select the target tag key.
+          <p>Select a tag that is listed under <strong>All Tags</strong> in the left panel and expand the target tag key.</p>
+          <p>The filter lists all tag keys from the beginning of the logs ingestion and all tag values for the selected time window and the current search query. For each tag value, the list shows the number of logs matching that value.</p>
+        </li>
       <li>Select the target tag value and the filter type.
       <ul>
       <li>To add an include tag filter, select the equal (=) sign for the target tag value.</li>
@@ -221,7 +220,6 @@ You can add search filters from the predefined filters in the left panel and fro
       </ol></p>
     </td>
     <td>
-      <p><img src="images/logs_source_filter.png"/></p>
       <p><img src="images/logs_tag_filter.png"/></p>
     </td>
   </tr>
@@ -340,11 +338,10 @@ Let's look at an example:
 
 The logs details table has the **Timestamp**, **Source**, and **Message** columns by default. Follow these steps to add columns.
 
-1. Click the add columns icon in the top left of the table.
-    ![a screenshot of the table with the add column button highlighted](images/logging_log_table_add_column.png)
+1. Click the add columns icon in the top right of the table.
 1. Select the columns that you want to add. The options you see are the tags you defined during log shipper configuration.
 
-Here's an example that shows how to add the **tag** column to the table.
+Here's an example that shows how to add the **level** column to the table.
 
 ![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
 
@@ -374,5 +371,6 @@ To disable scroll auto-load:
 * [Get started with logs](logging_overview.html).
 * [Send logs](logging_send_logs.html).
 * Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
+* [Create logs alerts](logging_log_alerts.html) on your logs data.
 * See [Logs troubleshooting](logging_faq.html).
 
