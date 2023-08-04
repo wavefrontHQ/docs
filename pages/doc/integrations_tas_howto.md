@@ -75,7 +75,7 @@ We've streamlined the getting started process so it involves a few simple steps 
 2. In Tanzu Ops Manager, install, configure, and deploy the nozzle. At a minimum:
     1. In the **Wavefront Proxy Config** section, specify the Operations for Applications instance, authentication credentials, and a user-friendly host name.
 
-   ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
+       ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
     2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
      See [Ops Manager: Install, Configure, and Deploy the Nozzle](#step-2-ops-manager-install-configure-and-deploy-the-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
      After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#architecture-and-data-flow) below.
