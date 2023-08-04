@@ -22,7 +22,7 @@ With an easy setup, TAS specific SLIs,
 ability to monitor across your foundations and out-of-the-box dashboards and alerts,
 you'll be up and running in no time.
 
-Supported Versions: TAS v2.11 and later and TAS v2.7 LTS.
+Supported Versions: TAS v2.11 and later.
 
 ## Benefits
 
@@ -48,9 +48,9 @@ The Tanzu Observability Nozzle for TAS has three major components.
 
 {% include image.md src="images/screen-3.png" width="80" %}
 
-### Step 1: Download the Tanzu Obervability Nozzle Tile
+### Step 1: Download the Tanzu Observability Nozzle Tile
 
-The Tanzu Observability Nozzle is the code that sends data from Tanzu Application Service to Tanzu Observability.
+The Tanzu Observability Nozzle is the code that sends data from Tanzu Application Service to Operations for Applications.
 
 <a href="https://network.pivotal.io/products/wavefront-nozzle/" class="btn btn-sm btn-default">Download nozzle</a>
 
@@ -58,10 +58,23 @@ The Tanzu Observability Nozzle is the code that sends data from Tanzu Applicatio
 
 1. Log in to Ops Manager.
 2. Upload the TAS Integration for Tanzu Observability.
-3. Configure the nozzle. At a minimum, specify the:
-    - Wavefront Proxy Configuration: Wavefront instance, API token, and a user-friendly host name
-      {% include image.md src="images/screen-4.png" width="80" %}
-    - Telegraf Agent Configuration: Foundation name
+3. Configure the nozzle. At a minimum, specify the following:
+    - Wavefront Proxy Configuration:
+      - Wavefront instance URL
+      - Authentication Configuration
+      - User-friendly host name
+   - Telegraf Agent Configuration:
+     - Foundation name
+
+{% include image.md src="images/screen-4.png" width="80" %}
+
+#### Authentication Configuration
+Starting with version 4.3.0, the Nozzle supports two types of authentication:
+
+- If your Operations for Applications service is **onboarded** to VMware Cloud services, use [server to server OAuth app credentials](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html), such as app ID and app secret. The server to server app must have the **Proxies** service role and must belong to the VMware Cloud organization running the Operations for Applications service instance.
+- If your Operations for Applications service is **not onboarded** to VMware Cloud services, you can still use a valid [Operations for Applications API token](https://docs.wavefront.com/api_tokens.html).
+
+For information about the original and onboarded subscriptions and how they differ, see [Subscription Types](https://docs.wavefront.com/subscriptions-differences.html).
 
 See the [documentation](https://docs.wavefront.com/integrations_tas_howto.html) for details and FAQs.
 
