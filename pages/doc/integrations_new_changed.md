@@ -23,7 +23,7 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 We made improvements to the following integrations in August 2023:
 
-* Tanzu Application Service - We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html)
+* Tanzu Application Service - We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
 * Kubernetes:
   * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
   * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
