@@ -72,7 +72,10 @@ For information about the two subscription types and how they differ, see [Subsc
 
 ### Onboarded Subscriptions Only
 
-**Support for Kubernetes Integration Setup**: We added support for setting up the Kubernetes integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations ReleaseNotes](integrations_new_changed.html#august-2023) for details.
+* **Support for Kubernetes Integration Setup**: We added support for setting up the Kubernetes integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
+
+* **Support for Tanzu Application Service Integration Setup**: We added support for setting up the Tanzu Application Service integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
+
 
 ## 2023-29.x Release Notes
 

@@ -81,6 +81,12 @@ Here's the list of the integrations that are updated as of today (with the 2023-
 </thead>
 <tbody>
 <tr>
+<td markdown="span">Tanzu Application Service</td>
+<td markdown="span">[Tanzu Application Service Integration](tas_v4.html)</td></tr>
+<tr>
+<td markdown="span">Kubernetes</td>
+<td markdown="span">[Kubernetes Integration](kubernetes.html)</td></tr>
+<tr>
 <td markdown="span">Linux Host</td>
 <td markdown="span">[Linux Host Integration](linux.html)</td></tr>
 <tr>

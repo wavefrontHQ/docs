@@ -23,11 +23,21 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 We made improvements to the following integrations in August 2023:
 
+* Tanzu Application Service - We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
 * Kubernetes:
   * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
   * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
 
   For the latest list of integrations, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+
+* Operations for Applications Usage - Made bug fixes to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards.
+
+* Fluentd - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Ceph - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* .NET Core - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Docker with cAdvisor - Updated the setup steps and instructions.
+* Tanzu Service Mesh - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+
 
 ## July 2023
 
