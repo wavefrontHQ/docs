@@ -803,7 +803,7 @@ entries:
       url: /tracing_faq.html
       output: web
 
-  - title: Logs (Beta)
+  - title: Logs
     output: web
     folderitems:
 
@@ -815,7 +815,7 @@ entries:
         url: /logging_send_logs.html
         output: web
         
-      - title: Proxy Configurations for Logs
+      - title: Proxy Configurations
         url: /logging_proxy_configurations.html
         output: web
 
@@ -833,10 +833,10 @@ entries:
               url: /logging_logs_chart.html
               output: web
 
-            - title: Drill into Logs
-              url: /logging_drill_into_logs.html
-              output: web
-
+      - title: Manage Log Alerts
+        url: /logging_log_alerts.html
+        output: web
+      
       - title: Customize Logs Settings
         url: /logging_logs_settings.html
         output: web
