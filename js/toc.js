@@ -27,7 +27,7 @@
       return "<a class='"+settings.classes.link+"' href='#" + fixedEncodeURIComponent(header.id) + "'>" + innerText + "</a>";
     }
 
-    var headers = $(settings.headers).filter(function() {
+    var headers = $.find(settings.headers).filter(function() {
       // get all headers with an ID
       var previousSiblingName = $(this).prev().attr( "name" );
       if (!this.id && previousSiblingName) {
