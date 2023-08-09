@@ -116,59 +116,9 @@ Configure your log shipper:
   1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs.
   2. (Optional) If you're already using a logging solution, specify alternate strings for required and optional log attributes in the [proxy configuration file](logging_proxy_configurations.html). See also [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes).
 
-### Limits for Logs
-
-If logs exceed the maximum character limit for a message, tag, or value, the Wavefront proxy drops the logs. Ensure that your logs are within the given limits. See [How Do I Track Data Blocked by the Wavefront Proxy?](logging_faq.html#how-do-i-track-data-blocked-by-the-wavefront-proxy)
-
-{% include note.html content="To increase the limits, ask your administrator to reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)." %}
-
-<table style="width: 100;">
-  <tr>
-    <th width="20%">
-      Attribute
-    </th>
-    <th width="80%">
-      Default Limit
-    </th>
-  </tr>
-  <tr>
-    <td>
-      Log message
-    </td>
-    <td>
-      20,000 characters
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Log tags
-    </td>
-    <td>
-      Low cardinality. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.<br/>
-      128 characters per tag key<br/>
-      128 characters per tag value<br/>
-      100 tags per log
-    </td>
-  </tr>
-</table>
-
-<!--- Repeat from logging_overview. There are links below already. I recommend we cut this.
-## Map the Traces and Metrics to Logs
-
-To get the unified observability experience and drill down from traces to logs and metrics in dashboards or charts to logs, you need to update your settings so that your traces and metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings.
-
-## View Logs
-
-When the data is in Tanzu Observability, you can use the Logs Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
---->
-
 ## Learn More!
 
 * [Get started with logs](logging_overview.html).
 * [View and browse logs](logging_log_browser.html).
 * Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
 * See [Logs troubleshooting](logging_faq.html).
-
-<!---
-[Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
---->
