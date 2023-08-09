@@ -98,7 +98,7 @@ Use the methods listed below to track the incoming log data and the number of lo
 
 ### Search for Logs on the Proxy Log Files
 
-By default, the proxy logs entries are logged in the `wavefront.log` file, or you can configure the proxy to log all the raw blocked data separately. For details, see [Blocked Data Log](proxies_configuring.html#blocked-data-log).
+By default, the proxy logs entries are logged in the `wavefront.log` file. For details, see [Proxy Log Files](proxies_configuring.html#proxy-log-files).
 
 In the proxy log entries, search logs containing the following message:
 

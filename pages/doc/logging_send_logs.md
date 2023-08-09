@@ -116,23 +116,9 @@ Configure your log shipper:
   1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs.
   2. (Optional) If you're already using a logging solution, specify alternate strings for required and optional log attributes in the [proxy configuration file](logging_proxy_configurations.html). See also [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes).
 
-<!--- Repeat from logging_overview. There are links below already. I recommend we cut this.
-## Map the Traces and Metrics to Logs
-
-To get the unified observability experience and drill down from traces to logs and metrics in dashboards or charts to logs, you need to update your settings so that your traces and metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings.
-
-## View Logs
-
-When the data is in Tanzu Observability, you can use the Logs Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
---->
-
 ## Learn More!
 
 * [Get started with logs](logging_overview.html).
 * [View and browse logs](logging_log_browser.html).
 * Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
 * See [Logs troubleshooting](logging_faq.html).
-
-<!---
-[Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
---->
