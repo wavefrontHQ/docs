@@ -17,7 +17,7 @@ If you notice anomalies on your metrics charts or see that a service on the appl
     Only users with the <a href="permissions_overview.html"><b>Logs</b> permission</a> can view the Logs Browser.
   </li>
   <li>
-    Our logging feature does not support OpenTelemetry logs yet. If you use OpenTelemetry and send data to our service, the logs you send do not show up on the Logs Browser.
+    Our service does not support log ingestion for the OpenTelemetry Protocol.
   </li>
 </ul>
 {{site.data.alerts.end}}

@@ -135,7 +135,7 @@ You can send your logs using a log shipper, such as Fluentd that sends logs as J
 </tbody>
 </table>
 
-{% include note.html content="Our logging feature does not support OpenTelemetry logs yet. If you use OpenTelemetry and send data to our service, the logs you send do not show up on the Logs Browser." %}
+{% include note.html content="Our service does not support log ingestion for the OpenTelemetry Protocol." %}
 
 ## View Logs and Troubleshoot
 
