@@ -31,7 +31,7 @@ On the Sources Browser, you can:
 * Sort the sources by name, status, CPU, and integrations, in descending or ascending order.
 * Show the details for all sources by turning on the **Expand All** toggle. By default, this setting is turned off.
 * Show the details for a specific source by clicking the arrow next to the check box of the source.
-* Hide a single source or create a maintenance window by clicking the ellipsis icon and selecting the respective option from the menu.
+* Hide a single source or create a maintenance window for the alerts with a particular source by clicking the ellipsis icon and selecting the respective option from the menu.
 * Select the check boxes of multiple sources and delete them by clicking the **Delete** button.
 * Add or remove source tags.
 * Show or hide obsolete and hidden sources.
