@@ -11,7 +11,7 @@ Starting July 3, 2023, Operations for Applications is a service on the VMware Cl
 * Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform.
 * **Original** subscriptions -- the existing ones which remain as is until they migrate to VMware Cloud services. 
 
-In this tutorial, you’ll learn how to ingest data from a Windows host machine to Operations for Applications by using a Wavefront proxy. Although Operations for Applications supports direct ingestion, in production environments, using a Wavefront proxy is the recommended way for ingesting data.
+In this tutorial, you’ll learn how to ingest data from a Windows host machine to Operations for Applications by using a Wavefront proxy. Although Operations for Applications supports direct ingestion in non-production environments, such as POC or development and test environments, in production environments using a Wavefront proxy is the recommended and supported way for ingesting data.
 
 ## Onboarded Subscriptions
 

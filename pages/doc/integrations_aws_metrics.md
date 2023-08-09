@@ -144,6 +144,42 @@ As part of CloudWatch we collect metrics that let you check if throttling is hap
   - `aws.usage.throttlecount` - Understand whether throttling is happening at the AWS end.
   - `aws.usage.callcount.*` - Get the number of API calls that goes to AWS. If you know the Service Quota, you can easily calculate the percentage of usages and trigger an alert if the percentage reaches a defined threshold.
   
+### Setup for Ingesting AWS CloudWatch Logs
+
+You can ingest CloudWatch logs to Operations for Applications. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep applications running smoothly. To understand more about CloudWatch, see the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
+
+#### Install the Wavefront Proxy
+
+The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy](proxies_installing.html) in your AWS environment. 
+
+* If your Operations for Applications service **is** onboarded to VMware Cloud services, install Wavefront proxy version 13.0 or later.
+* If your Operations for Applications service is **not** onboarded to VMware Cloud services, install Wavefront proxy version 12.2 or later.
+
+{% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
+
+#### Create an AWS Lambda Function
+
+1. Log in to the AWS Management Console, search for **Lambda**, and select it.
+2. Click **Applications** on the left and click the **Create Application** button.
+3. Click the **Serverless application** tab, search for **VMware-Log-Insight-Cloud**, and select it.
+4. Scroll down and in the **Application settings** section in the bottom right, provide the Wavefront proxy details.
+    * In the **APIToken** text box, enter `log-integration-token`.
+    * In the **APIUrl** text box, enter the Wavefront proxy URL.
+    * In the **NameOfFunction** text box, enter a meaningful name for the Lambda function.
+5. Click **Deploy**.
+6. Add a trigger from the CloudWatch log stream.
+    * Navigate to your Lambda function and click it.
+    * Click the **Add trigger** button and from the drop-down menu select **CloudWatch Logs**.
+    * Select the **CloudWatch Logs** Log group that serves as the event source.
+    * Give the filter a meaningful name and click **Add**.
+      
+      Once you create the trigger, your function starts sending logs from CloudWatch to our service. It takes a few minutes for the CloudWatch logs to show up.
+
+#### View the AWS CloudWatch Logs
+
+View logs in the [**Logs Browser**](logging_log_browser.html). Note that it will take a few minutes for the CloudWatch logs to show up in the GUI.
+
+
 ## CloudTrail Events, Metrics, and Point Tags
 
 We retrieve CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Tanzu Observability [System event](events.html).
