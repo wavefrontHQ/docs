@@ -62,7 +62,7 @@ You can change access for an individual dashboard or alert from the Edit page of
 <ol><li> Click <strong>Dashboards</strong> > <strong>All Dashboards</strong> and navigate to the dashboard that you want to modify.</li>
 <li>Click the name of the dashboard, and click the <strong>Share</strong> icon on top.</li>
 <li>In the <strong>Dashboard Links and Access</strong> window, click the <strong>Accounts & Groups</strong> tab.</li>
-<ul><li>To grant View Access or View & Modify access, type the name(s) of <a href="csp_users_roles.html#manage-user-groups">groups</a> or <a href="csp_user_management.html#add-users-to-your-service-instance">users</a>.</li>
+<ul><li>To grant View Access or View & Modify access, type the name(s) of <a href="csp_users_roles.html#manage-user-groups">groups</a> or <a href="csp_user_management.html#adding-users-to-your-service-instance">users</a>.</li>
 <li>To revoke View Access or View & Modify access, click the `x` next to the group or user name that you want to remove.</li>
 </ul>
 <li> Click <strong>Update</strong>.</li>
