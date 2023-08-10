@@ -49,7 +49,7 @@ Privileged users can change the access setting for one or more dashboards or ale
 1. From the top menu bar, select **Dashboards > All Dashboards**.
 2. Select the check boxes for the dashboards you want to change. You can see the current Access settings in the **Access** column.
 3. Click **+Access** to add groups or users and **-Access** to remove groups or users.
-4. Enter the [groups](csp_users_roles.html#manage-user-groups) or [users](csp_user_management.html#add-users-to-your-service-instance) and click **Update**.
+4. Enter the [groups](csp_users_roles.html#manage-user-groups) or [users](csp_user_management.html#adding-users-to-your-service-instance) and click **Update**.
 
 ## Changing Access for Individual Dashboards or Alerts
 
