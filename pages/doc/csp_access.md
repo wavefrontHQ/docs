@@ -49,7 +49,7 @@ Privileged users can change the access setting for one or more dashboards or ale
 1. From the top menu bar, select **Dashboards > All Dashboards**.
 2. Select the check boxes for the dashboards you want to change. You can see the current Access settings in the **Access** column.
 3. Click **+Access** to add groups or users and **-Access** to remove groups or users.
-4. Enter the [groups](csp_users_roles.html#manage-user-groups) or [users](csp_user_management.html#add-users-to-your-service-instance) and click **Update**.
+4. Enter the [groups](csp_users_roles.html#manage-user-groups) or [users](csp_user_management.html#adding-users-to-your-service-instance) and click **Update**.
 
 ## Changing Access for Individual Dashboards or Alerts
 
@@ -62,7 +62,7 @@ You can change access for an individual dashboard or alert from the Edit page of
 <ol><li> Click <strong>Dashboards</strong> > <strong>All Dashboards</strong> and navigate to the dashboard that you want to modify.</li>
 <li>Click the name of the dashboard, and click the <strong>Share</strong> icon on top.</li>
 <li>In the <strong>Dashboard Links and Access</strong> window, click the <strong>Accounts & Groups</strong> tab.</li>
-<ul><li>To grant View Access or View & Modify access, type the name(s) of <a href="csp_users_roles.html#manage-user-groups">groups</a> or <a href="csp_user_management.html#add-users-to-your-service-instance">users</a>.</li>
+<ul><li>To grant View Access or View & Modify access, type the name(s) of <a href="csp_users_roles.html#manage-user-groups">groups</a> or <a href="csp_user_management.html#adding-users-to-your-service-instance">users</a>.</li>
 <li>To revoke View Access or View & Modify access, click the `x` next to the group or user name that you want to remove.</li>
 </ul>
 <li> Click <strong>Update</strong>.</li>

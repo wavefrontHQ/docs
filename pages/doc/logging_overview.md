@@ -91,22 +91,9 @@ Each log has required attributes, standard attributes, and custom tags. We token
     <td>
     <strong>Custom Tags</strong>
     </td>
-    <td>You can send logs with additional custom tag key-value pairs of your choice. Follow these guidelines:
-       <ul>
-        <li>
-          Low-cardinality tags. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.
-        </li>
-        <li>
-          128 characters per tag key
-        </li>
-        <li>
-          128 characters per tag value
-        </li>
-        <li>
-          100 tags per log
-        </li>
-       </ul>
-    <p>See <a href="logging_send_logs.html#limits-for-logs">Limits for Logs</a> for details.</p>
+    <td>
+    You can send logs with additional custom tag key-value pairs of your choice. 
+    <br/>Make sure the custom tags are low-cardinality tags. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.
     </td>
   </tr>
 </table>
