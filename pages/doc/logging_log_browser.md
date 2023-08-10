@@ -17,7 +17,7 @@ If you notice anomalies on your metrics charts or see that a service on the appl
     Only users with the <a href="permissions_overview.html"><b>Logs</b> permission</a> can view the Logs Browser.
   </li>
   <li>
-    Our service does not support log ingestion for the OpenTelemetry Protocol.
+    Our service does not support logs ingestion for the OpenTelemetry Protocol.
   </li>
 </ul>
 {{site.data.alerts.end}}
