@@ -35,9 +35,10 @@ For information about the two subscription types and how they differ, see [Subsc
 * **Sources Browser Page Improvements**: The [**Sources** browser page](sources_managing.html#examine-sources-in-the-source-browser) is now improved and allows you to:
 
     * Hide and show details for all sources or for a specific source.
-    * Sort the sources by name, status, and so on.
     * Apply various filters, hide and show the filters listed on the left.
-  
+    * Hide a single source or create a maintenance window for the alerts with a particular source.
+
+
   In addition, the page on which you can [examine a single source](sources_managing.html#step-2-examine-the-source) is also improved for better user experience. 
   
 
