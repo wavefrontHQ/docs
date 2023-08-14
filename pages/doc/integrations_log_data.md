@@ -39,8 +39,8 @@ logsIngestionConfigFile=<wavefront_config_path>/logsIngestion.yaml
 
 These entries instruct the Wavefront proxy to listen for log data:
 
-* on port 5044 it listens using the [Lumberjack protocol](http://github.com/elastic/logstash-forwarder/blob/master/PROTOCOL.md), which works with [Filebeat](http://www.elastic.co/products/beats/filebeat)
-* on port 5045 it listens for raw logs data over a TCP socket as a UTF-8 encoded string (which works with Splunk, and many others).
+* On port 5044 it listens using the [Lumberjack protocol](http://github.com/elastic/logstash-forwarder/blob/master/PROTOCOL.md), which works with [Filebeat](http://www.elastic.co/products/beats/filebeat)
+* On port 5045 it listens for raw logs data over a TCP socket as a UTF-8 encoded string (which works with Splunk, and many others)
 
 ### Configuring the Wavefront Proxy to Add Structure to Log Data
 
@@ -87,7 +87,7 @@ The Wavefront proxy includes these [patterns](http://github.com/wavefrontHQ/java
 
 #### Notes on Specifying Grok Patterns
 
--   Bugs in grok patterns can be frustrating to debug. Try your grok pattern with a sample log line in one of the grok parsing debugger tools (e.g. [grok debugger](http://grokdebug.herokuapp.com/)).
+-   Bugs in grok patterns can be frustrating to debug. Try your grok pattern with a sample log line in one of the grok parsing debugger tools.
 -   As in the examples above, use single quotes unless you need double quotes. YAML parsers escape sequences inside double quotes, which is usually not what you want (e.g. "\\n" will be the newline character).
 -   Remember that grok patterns expand to regex patterns. If you want to capture a number inside brackets, you need `'\[NUMBER:myNum\]'` or `"\\[NUMBER:myNum\\]"` (for the above bullet). A [regex debugger](https://regex101.com/) may be helpful.
 -   The Wavefront proxy [javadoc](http://static.javadoc.io/com.wavefront/proxy/4.1/com/wavefront/agent/config/LogsIngestionConfig.html) contains advanced grok examples.
