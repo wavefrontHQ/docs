@@ -85,7 +85,7 @@ Logs (Beta) Related Changes:
 
 We have made an improvement to the AWS integration:
 
-* Amazon Web Services – Now contains AWS CloudWatch Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your AWS integration to send logs to Operations for Applications. For details on our Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For details on how to set up the integration, see [Setup for Ingesting AWS CloudWatch Logs (Beta)](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs-beta).
+* Amazon Web Services – Now contains AWS CloudWatch Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your AWS integration to send logs to Operations for Applications. For details on our Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For details on how to set up the integration, see [Setup for Ingesting AWS CloudWatch Logs (Beta)](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs).
 
 
 We added the following integration in March 2023:

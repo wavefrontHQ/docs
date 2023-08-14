@@ -75,7 +75,7 @@ If you are using Fluentd, you can specify the `application` and `service` in the
 
 ## How Do I Track Data Blocked by the Wavefront Proxy?
 
-The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#limits-for-logs) for a message, tag, and value. Use the methods listed below to track the incoming log data and the number of logs blocked by the proxy:
+Use the methods listed below to track the incoming log data and the number of logs blocked by the proxy:
 
 ### See the Data on the Predefined Logs Stats Charts
 
@@ -94,13 +94,13 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 ### Search for Metrics on the Metrics Browser
 
 1. Select **Browse** > **Metrics**.
-1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logSourceMissing`, `logSourceTooLong`, `logMessageTooLong`, `tooManyLogTags`, `logAnnotationKeyTooLong`, `logAnnotationKeyBadChars`, `logAnnotationValueEmpty`, and `logAnnotationValueTooLong`
-  
-    {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limit, contact [technical support](wavefront_support_feedback.html#support)." %}
+1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logAnnotationValueEmpty`.
 
-### Search for Logs on the Logs Browser
+### Search for Logs on the Proxy Log Files
 
-In the [Logs Browser](logging_log_browser.html), search for logs containing the following message:
+By default, the proxy logs entries are logged in the `wavefront.log` file. For details, see [Proxy Log Files](proxies_configuring.html#proxy-log-files).
+
+In the proxy log entries, search logs containing the following message:
 
 ```
 INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
