@@ -9,15 +9,148 @@ summary: Learn about the differences in the UI of VMware Aria Operations for App
 
 Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud Services subscriptions.
 
+## Examples of the Differences Between Original and Onboarded Subscriptions
+
+### Users, Roles and Group Management
+
+Most of the user and account management tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for onboarded subscriptions. For example, the tasks related to user, roles and groups management:
+
+  * Invite new users
+  * Assign permissions
+  * Create and edit roles
+  * Create and edit groups
+  * Assign roles to users and groups
+
+  ![A graphic showing the differences in the user and account management tasks for original and onboarded subscriptions. The information displayed is already described in the above bullet list.](images/user-management-comparison.png)
 
 
-## Examples of Basic Administrative Tasks
+### Admin Tasks
 
-Most of the administrative tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for onboarded subscriptions.
+Some administrative tasks done by Super Admins, or users with the **Accounts** permission in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for onboarded subscriptions. Others can be still done in the Operations for Applications UI for onboarded subscriptions. Also, there can be changes in the required roles. 
 
-![Original vs Onboarded subscriptions user, roles and groups management](images/user-management-comparison.png)
+![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
-## Differences by Area
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="22%">Task</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
+</thead>
+<tr>
+<td>Upgrade from trial
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
+<li><strong>Where:</strong> In the VMware Cloud Services Console</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Purchase more PPS
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
+<li><strong>Where:</strong> In the VMware Cloud Services Console</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Invite new Super Admins
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> VMware Cloud Organization Owner or Organization Administrator</li>
+<li><strong>Where:</strong> In the VMware Cloud Services Console</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Restore orphan dashboards and alerts
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Restrict access to new dashboards and alerts
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications users with the Accounts permission</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Set the service organization settings
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications users with the Accounts permission</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+<td>
+<ul>
+<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Where:</strong> In the Operations for Applications UI</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+### REST API Access
+
+For original subscriptions using the Operations for Applications REST API, requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API tokens** permission. 
+
+To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
+
+When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such as token, you can:
+
+* Generate a VMware Cloud services API token associated with your user account and exchange it for an access token.
+
+  ![A graphic showing information how to generate API token for the user account for onboarded and original subscriptions.](images/csp-api-token-user.png)
+
+* Use a server to server app (which is the equivalent of a service account), obtain the OAuth credentials, such as ID and secret, associated with the server to server app and exchange them for an access token.
+
+   ![A graphic showing information how to generate API token for a service account or server to server app  for onboarded and original subscriptions.](images/csp-api-token-apps.png)
+
+## In-Depth Explanation of the Differences by Area
 
 <table style="width: 100%;">
 <tbody>
