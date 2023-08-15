@@ -1,9 +1,9 @@
 ---
-title: Manage Service Accounts
+title: Manage Service Accounts in Operations for Applications on VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
-permalink: service-accounts.html
+permalink: csp_service_accounts.html
 summary: Create and manage service accounts.
 ---
 

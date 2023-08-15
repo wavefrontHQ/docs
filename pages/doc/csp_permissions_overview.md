@@ -39,6 +39,10 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
       <th width="70%">Allows to</th>
     </tr>
     <tr>
+      <th>Accounts</th>
+      <td>Create, edit, and delete <a href="csp_service_accounts.html">service accounts</a> and <a href="csp_api_tokens.html">Operations for Applications API tokens</a>. Also, can manage Operations for Applications organization settings - display settings, query settings, logs settings, and security settings.</td>
+    </tr>
+    <tr>
       <th>Alerts</th>
       <td>Create, edit, and delete <a href="alerts.html">alerts</a>, <a href="webhooks_alert_notification.html">alert targets</a>, and <a href="maintenance_windows_managing.html">maintenance windows</a>. Also, can manage alert tags and view alert history.</td>
     </tr>

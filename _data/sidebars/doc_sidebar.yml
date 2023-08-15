@@ -906,6 +906,14 @@ entries:
           - title: Manage Server to Server Apps
             url: /csp_server_to_server_apps.html
             output: web
+
+          - title: Manage Service Accounts
+            url: /csp_service_accounts.html
+            output: web
+
+          - title: Manage API Tokens
+            url: /csp_api_tokens.html
+            output: web
             
         - title: Manage Access to Objects
           output: web
