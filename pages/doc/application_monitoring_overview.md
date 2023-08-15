@@ -12,7 +12,7 @@ You need to select how you want to send data to our service based on where the a
 
 ## Monitor Applications Running on Kubernetes
 
-Send eBPF data from your applications running on a Kubernetes cluster. We can then auto-discover all the services in your Kubernetes cluster
+Send eBPF data from your applications running on a Kubernetes cluster. We can then auto-discover all the services in your Kubernetes cluster.
 
 Go to [Kubernetes App Auto-Instrumentation via Pixie](https://github.com/wavefrontHQ/observability-for-kubernetes/tree/main/operator/hack/autoinstrumentation#kubernetes-app-auto-instrumentation-via-pixie), and follow the instructions to send data and start monitoring your applications.
 
@@ -22,17 +22,17 @@ You can use the different dashboard and monitor your applications:
 * Identify potential hotspots using the [Service Dashboard](tracing_service_dashboard.html). 
 * Create charts using the RED metrics. 
 
-Example: The service maps shows you how a service is communicating with other services.
+Example: The service map shows how a specific service communicates with other services in the application.
 
 ![Shows a screenshot of the service map.](images/app_monitoring_ebpf_service_map.png)
 
 ## Monitor OpenTelemetry Applications
 
 Instrument your applications using OpenTelemetry and send traces and spans to our service.
+* [Get an overview](https://docs.wavefront.com/opentelemetry_overview.html) of how to configure your applications that use OpenTelemetry and send data to our service. 
+* The [Java tutorial](opentelemetry_java_app_tutorial.html) shows you how to auto-instrument your Java application using the OpenTelemetry Java agent and send data to our service.
 
-[Get an overview](https://docs.wavefront.com/opentelemetry_overview.html) of how to configure your applications that use OpenTelemetry and send data to our service. The [Java tutorial](opentelemetry_java_app_tutorial.html) shows you how to auto-instrument your Java application using the OpenTelemetry Java agent and send data to our service.
-
-Once the data is in our service you can monitor your applications and visualize the data data.
+Once the data is in our service, you can monitor your applications and visualize the data.
 
 * View the services on the Service Map.
 * Identify potential hotspots using the [Service Dashboard](tracing_service_dashboard.html).
