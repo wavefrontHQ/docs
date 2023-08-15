@@ -1,5 +1,5 @@
 ---
-title: Manage Server to Server Apps (Service Accounts)
+title: Manage Server to Server Apps
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
