@@ -29,7 +29,8 @@ The following proxy versions are deprecated or moved to end-of-life.
 <tbody>
 <tr>
 <td>12.x</td>
-<td>Deprecated since June 26, 2023</td>
+<td>12.4 is deprecated since June 26, 2023
+<p>12.1, 12.2, and 12.3 are end-of-life since May 1, 2023</p></td>
 <td>TBD</td>
 </tr>
 <tr>
