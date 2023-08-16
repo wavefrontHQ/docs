@@ -1,5 +1,5 @@
 ---
-title: Differences Between Original and VMware Cloud Services Subscriptions
+title: Area Differences Between Original and VMware Cloud Services Subscriptions
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar

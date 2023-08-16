@@ -21,7 +21,7 @@ entries:
         output: web
         subfolderitems:
       
-        - title: "Original and Oboarded Subscriptions"
+        - title: "Operations for Applications Subscription Types"
           url: /subscriptions-differences.html
           output: web
                 
