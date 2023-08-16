@@ -1,5 +1,5 @@
 ---
-title: How to Invite New Users Tutorial
+title: How to Invite New Users from VMware Cloud Services Tutorial
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
