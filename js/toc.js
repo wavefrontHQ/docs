@@ -27,13 +27,13 @@
       return "<a class='"+settings.classes.link+"' href='#" + fixedEncodeURIComponent(header.id) + "'>" + innerText + "</a>";
     }
 
-    var headers = $.find(settings.headers).filter(function() {
+    var headers = $.find(settings.headers).filter(function(item) {
       // get all headers with an ID
-      var previousSiblingName = $(this).prev().attr( "name" );
-      if (!this.id && previousSiblingName) {
-        this.id = $(this).attr( "id", previousSiblingName.replace(/\./g, "-") );
+      var previousSiblingName = $(item).prev().attr( "name" );
+      if (!item.id && previousSiblingName) {
+          item.id = $(item).attr( "id", previousSiblingName.replace(/\./g, "-") );
       }
-      return this.id;
+      return item.id;
     }), output = $(this);
     if (!headers.length || headers.length < settings.minimumHeaders || !output.length) {
       $(this).hide();
@@ -52,13 +52,13 @@
     };
 
     var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); };
-    var highest_level = headers.map(function(_, ele) { return get_level(ele); }).get().sort()[0];
+    var highest_level = $(headers).map(function(_, ele) { return get_level(ele); }).get().sort()[0];
     var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
 
     var level = get_level(headers[0]),
         this_level,
         html = settings.title + " <" +settings.listType + " class=\"" + settings.classes.list +"\">";
-    headers.on('click', function() {
+    $(headers).on('click', function() {
       if (!settings.noBackToTopLinks) {
         window.location.hash = this.id;
       }
