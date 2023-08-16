@@ -41,13 +41,13 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 <td>
 <ul>
 <li><strong>Who:</strong> Operations for Applications Super Admin</li>
-<li><strong>Where:</strong> In the Operations for Applications UI</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
 <li><strong>Who:</strong> VMware Cloud Organization Owner</li>
-<li><strong>Where:</strong> In the VMware Cloud Services Console</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 </tr>
@@ -57,13 +57,13 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 <td>
 <ul>
 <li><strong>Who:</strong> Operations for Applications Super Admin</li>
-<li><strong>Where:</strong> In the Operations for Applications UI</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
 <li><strong>Who:</strong> VMware Cloud Organization Owner</li>
-<li><strong>Where:</strong> In the VMware Cloud Services Console</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 </tr>
@@ -110,7 +110,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Operations for Applications Admin</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -126,7 +126,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Operations for Applications Admin</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
