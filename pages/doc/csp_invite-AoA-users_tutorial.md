@@ -57,6 +57,8 @@ VMware Cloud uses organizations to provide controlled access to one or more serv
 
 ### Step 4: Assign Roles and Invite the User
 
+In a multi-tenant environment, you can assign different service roles for each Operations for Applications instance. Let's first assign the mandatory organization role and then we will assign different service roles for two Operations for Applications instances. 
+
 1. Select a mandatory organization role to assign.
 
    The **Organization Member** role is selected by default and is the minimum mandatory role to assign. 
@@ -97,4 +99,4 @@ VMware Cloud uses organizations to provide controlled access to one or more serv
 
 The invitations you send are valid for seven days. You can view the status of the invitation by expanding **Identity & Access Management** and then clicking **Pending Invitations**.
 
-
+{% include note.html content="If you have created custom roles and want to assign only custom roles to the user for a particular Operations to Applications service instance, you must make sure that you also assign at least one Operations to Applications service role for the instance. For example, the **Viewer** service role." %}
