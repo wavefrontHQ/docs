@@ -1,5 +1,5 @@
 ---
-title: Area Differences Between Original and VMware Cloud Services Subscriptions
+title: Differences Between Original and VMware Cloud Services Subscriptions
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar
@@ -9,7 +9,7 @@ summary: Learn about the differences between VMware Aria Operations for Applicat
 
 Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud Services subscriptions.
 
-## Examples of the Differences Between Original and VMware Cloud Services Subscriptions
+## Examples of the Functionality Differences 
 
 ### Users, Roles and Group Management
 
@@ -150,7 +150,7 @@ When your service is onboarded to VMware Cloud services and you want to access t
 
    ![A graphic showing information how to generate API token for a service account or server to server app  for onboarded and original subscriptions.](images/csp-api-token-apps.png)
 
-## In-Depth Explanation of the Differences by Area
+## In-Depth Explanation of the Functionality Differences
 
 <table style="width: 100%;">
 <tbody>
@@ -333,7 +333,7 @@ Each API token inherits the permissions of its associated user or service accoun
 <ul>
 <li>Default display settings for new accounts, such as getting started progress and default dashboard display.</li>
 <li>Default query language preferences and optionally, allow users to write queries in PromQL. For details, see <a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a>.</li>
-<li>Logs settings, if Logs (Beta) is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
+<li>Logs settings, if Logs is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
 <li>Access to newly created dashboards and alerts. For details, see <a href="csp_access.html">Managing Access to Dashboards and Alerts</a></li>
 </ul></p>
 </td>

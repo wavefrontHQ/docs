@@ -29,7 +29,7 @@ entries:
           url: /csp-ui-differences.html
           output: web
           
-        - title: "Differences by Area"
+        - title: "Functionality Differences"
           url: /csp-differences-by-area.html
           output: web
 
@@ -66,6 +66,10 @@ entries:
       - title: Tutorials
         output: web
         subfolderitems:
+
+        - title: "Invite New Users Tutorial"
+          url: /csp_new_users_tutorial.html
+          output: web
 
         - title: "AWS Integration Tutorial"
           url: /hello_wavefront_aws_tutorial.html

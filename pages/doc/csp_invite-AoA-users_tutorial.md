@@ -1,5 +1,5 @@
 ---
-title: How to Invite New Users from VMware Cloud Services Tutorial
+title: Invite New Users from the VMware Cloud Services Console
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
