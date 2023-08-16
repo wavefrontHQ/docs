@@ -136,9 +136,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 
 ### REST API Access
 
-For original subscriptions using the Operations for Applications REST API, requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API tokens** permission. 
-
-To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
+For original subscriptions, using the Operations for Applications REST API requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API Tokens** permission. To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
 
 When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such a token, you can:
 
@@ -146,7 +144,7 @@ When your service is onboarded to VMware Cloud services and you want to access t
 
   ![A graphic showing information how to generate API token for the user account for onboarded and original subscriptions.](images/csp-api-token-user.png)
 
-* Use a server to server app (which is the equivalent of a service account), obtain the OAuth credentials, such as ID and secret, associated with the server to server app and exchange them for an access token.
+* Create a server to server app (which is the equivalent of a service account), obtain its OAuth credentials (app ID and app secret), and exchange them for an access token.
 
    ![A graphic showing information how to generate API token for a service account or server to server app  for onboarded and original subscriptions.](images/csp-api-token-apps.png)
 
@@ -168,9 +166,9 @@ When your service is onboarded to VMware Cloud services and you want to access t
 <tr>
 <td>Permissions
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because all of the authorization and authentication tasks requiring these permissions are done in the Operations for Applications UI. See the <a href="permissions_overview.html">Permissions Reference</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because they are required for all of the authorization and authentication tasks which are done in the Operations for Applications IU. In addition the <strong>Accounts</strong> permission grants privileges for managing the Operations for Applications organization settings. See the <a href="permissions_overview.html">Permissions Reference</a>.
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because all of the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console. See the <a href="csp_users_roles.html">Operations for Applications Permissions in VMware Cloud Services</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console. The new <strong>Admin</strong> permission grants privileges for managing the Operations for Applications organization settings. See the <a href="csp_permissions_overview.html">Operations for Applications Permissions in VMware Cloud Services</a>.
 </td>
 </tr>
 <tr>
