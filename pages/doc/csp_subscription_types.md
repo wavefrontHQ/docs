@@ -7,7 +7,7 @@ permalink: subscriptions-differences.html
 summary: Learn about the VMware Aria Operations for Applications subscription types and the advantages of VMware Cloud services subscriptions over original subscriptions.
 ---
 
-Operations for Applications subscriptions are two types: original subscriptions and VMare Cloud services subscriptions.
+Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud services subscriptions.
 
 ## Why the Two Subscription Types Differ?
 

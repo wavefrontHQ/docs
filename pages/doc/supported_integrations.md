@@ -1,5 +1,5 @@
 ---
-title: Integrations Supported for Onboarded Subscriptions
+title: Integrations Supported for VMware Cloud Services Subscriptions
 keywords: integrations
 tags: 
 sidebar: doc_sidebar
