@@ -4,7 +4,7 @@ keywords:
 tags: [introduction]
 sidebar: doc_sidebar
 permalink: csp-differences-by-area.html
-summary: Learn about the differences in the UI of VMware Aria Operations for Applications onboarded and original subscriptions.
+summary: Learn about the differences between VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
 ---
 
 Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud Services subscriptions.
@@ -13,7 +13,7 @@ Operations for Applications subscriptions are two types: original subscriptions 
 
 ### Users, Roles and Group Management
 
-Most of the user and account management tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for onboarded subscriptions. For example, the tasks related to user, roles and groups management:
+Most of the user and account management tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for VMware Cloud services subscriptions. For example, the tasks related to user, roles and groups management:
 
   * Invite new users
   * Assign permissions
@@ -26,7 +26,7 @@ Most of the user and account management tasks done in the Operations for Applica
 
 ### Admin Tasks
 
-Some administrative tasks done by Super Admins, or users with the **Accounts** permission in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for onboarded subscriptions. Others can be still done in the Operations for Applications UI for onboarded subscriptions. Also, there can be changes in the required roles. 
+Some administrative tasks done by Super Admins, or users with the **Accounts** permission in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for VMware Cloud services subscriptions. Others can be still done in the Operations for Applications UI for VMware Cloud services subscriptions. Also, there can be changes in the required roles. 
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
@@ -140,7 +140,7 @@ For original subscriptions using the Operations for Applications REST API, requi
 
 To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
 
-When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such as token, you can:
+When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such a token, you can:
 
 * Generate a VMware Cloud services API token associated with your user account and exchange it for an access token.
 

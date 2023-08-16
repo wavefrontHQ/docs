@@ -1,10 +1,10 @@
 ---
-title: Differences Between Original and Onboarded Subscriptions
+title: Differences Between Original and VMware Cloud Services Subscriptions
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar
 permalink: csp-ui-differences.html
-summary: Learn about the differences in the UI of VMware Aria Operations for Applications onboarded and original subscriptions.
+summary: Learn about the differences in the UI of VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
 ---
 
 Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud services subscriptions.

@@ -1,5 +1,5 @@
 ---
-title: Operations for Applications Subscriptions
+title: VMware Aria Operations for Applications Subscription Types
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar
