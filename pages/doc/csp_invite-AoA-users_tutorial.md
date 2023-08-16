@@ -67,11 +67,11 @@ In a multi-tenant environment, you can assign different service roles for each O
 
    ![A screenshot with the Organization Member role, selected by default and the Support user additional role selected.](images/csp-mandatory-roles.png)
 
-2. Assign Operations for Applications service roles for an Operations for Applications instance.
+2. Assign Operations for Applications service roles for the first Operations for Applications instance.
    1. Click **Add a service**.
-   1. From the drop-down menu select **VMware Aria Operations for Applications**.
+   1. From the drop-down menu, select **VMware Aria Operations for Applications**.
       ![A screenshot with the Operations for Applications service selected.](images/csp-select-service.png)
-   1. In a multi-tenant environment, select the service instance to which you want to invite the new user.
+   1. From the **in** drop-down menu, select the service instance to which you want to invite the new user.
       ![A screenshot with the Operations for Applications service instance selected.](images/csp-select-aoa-service.png)
    1. Assign the service roles to the user.
 
@@ -87,9 +87,10 @@ In a multi-tenant environment, you can assign different service roles for each O
       ![A screenshot with the Operations for Applications roles selected.](images/csp-assign-service-roles.png)
    1. Leave the never expires access field as is.
 
-3. Assign the Super Admin service role for another Operations for Applications service instance.
-
-   1. From the drop-down menu, select the other service instance to which you want to invite the new user.
+3. Assign the **Super Admin** service role for another Operations for Applications instance.
+   
+   1. Click **+ Add an instance**.
+   1. From the **in** drop-down menu, select the other service instance to which you want to invite the new user.
       ![A screenshot with the Operations for Applications service instance selected.](images/csp-select-another-service.png)
    1. Assign the **Super Admin** service role to the user.
 
