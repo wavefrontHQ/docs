@@ -20,18 +20,16 @@ See the table view:
 1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
-![the image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
+![the image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/application_monitoring_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
   <br/>You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
-* Click the name of the service to drill down to the Service Dashboard.
+* Click the name of the service to drill into to the Service Dashboard.
+* Click **Service Map** to see how a specific service communicates with the other services in the application.
 * Sort data:
   - Sort the application and service names alphabetically.
   - Sort the table cluster name alphabetically.
-* See the change (Δ value) in the RED metrics based on the time you selected for **Compare**.
-<br/> For example, if you select **week ago** from the **Compare** drop-down, the Δ value indicate the change in RED metrics since the data was recorded a week ago.
-  <br/> ![shows the compare option on the table view. The drop down has the values, off (if selected doesn't show the change in value), 2 hours ago, day ago, week ago, and month ago. ](images/tracing_compare_table_view.png)
 * Click the vertical ellipsis > **Create Alerts** to create smart alerts that filter noise and capture true anomalies. See [Create an alert](#create-alerts).
 * Click the vertical ellipsis > **View Alerts** to view alerts that are firing for the service. The number of alerts firing for the service are shown on the **Alerts** column.
 * Inspect the Apdex score and RED metrics to obtain a status summary of a service.
@@ -66,35 +64,10 @@ Using the table view, you can:
     </tr>
     <tr>
       <td>
-        &#916; Request Rate
-      </td>
-      <td>
-        The difference between:
-        <ul>
-          <li>The current request rate</li>
-          <li>The request rate at the Compare option time.</li>
-        </ul>
-        This difference is also shown as a percentage.
-      </td>
-    </tr>
-    <tr>
-      <td>
         Error %
       </td>
       <td>
         The percentage of the service's spans that contain errors.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        &#916; Error %
-      </td>
-      <td>
-        The difference between:
-        <ul>
-          <li>The current error percentage</li>
-          <li>The error percentage at the Compare option time.</li>
-        </ul>
       </td>
     </tr>
     <tr>
@@ -105,31 +78,9 @@ Using the table view, you can:
         The span duration at the 95th percentile across the service.
       </td>
     </tr>
-    <tr>
-      <td>
-        &#916; Duration (P95)
-      </td>
-      <td>
-        The difference between:
-        <ul>
-          <li>The current duration (P95)</li>
-          <li>The duration (P95) at the Compare option time.</li>
-        </ul>
-        This difference is also shown as a percentage.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Component
-      </td>
-      <td>
-        See the components used by the service. For example, the beachshirts application's styling service uses the Java, Dropwizard, and Jersey components.
-      </td>
-    </tr>
   </table>
 
-* Use <img src="images/tracing_link_icon.png"
-  style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
+* Click **Share** to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 <a name="grid_view"></a>
 
@@ -142,7 +93,7 @@ See the grid view:
 1. From the toolbar, select **Applications** > **Application Status** and click the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
-![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_app_services.png)
+![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/application_monitoring_grid_view.png)
 
 On the page for a particular application, you can:
 * Examine the services in the application, or search for a particular service by applying filters.
@@ -150,11 +101,13 @@ On the page for a particular application, you can:
   - The request rate of the service.
   - The percentage of the service's spans that contain errors.
   - The span duration at the 95th percentile across the service.
+* Click **Actions** > **View Service Map** to see how the specific service communicates with the other services in the application.
 * Click **Actions** > **Create Alerts** to create smart alerts that filter noise and capture true anomalies. See [Create an alert](#create-alerts).
 * Click **Actions** > **View Alerts** to view alerts that are firing for the service. The number of alerts firing for the service are shown on the red box next to the service name.
 * Drill down from a service:
   - Click the name of the service or **Actions** to explore the dashboard for that service.
   - Click **View Traces** to explore the traces that originate in that service.
+* Click **Share** to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 ## Update Legend Settings
 
