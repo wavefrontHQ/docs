@@ -50,6 +50,8 @@ If you build an application or tool that manages proxies or ingests data, then t
 
    The access token is directly issued to your tool and it authenticates seamlessly to the API.
 
+{% include note.html content="If you want to use the sever to server app for a [proxy authentication](proxies_installing.html#proxy-authentication-types), you must also retrieve the VMware Cloud organization long ID. See [View the Organization ID](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html#view-the-organization-id-1) in the VMware Cloud services documentation." %}
+
 After you create a server to server app, you can change its roles, share it with other VMware Cloud organizations, and delete it when no longer need it.
 
-{% include note.html content="If you regenerate the app secret, the access token expires and cannot be reissued. You must update your scripts with the new app secret." %}
+{% include important.html content="If you regenerate the app secret, the access token expires and cannot be reissued. You must update your scripts with the new app secret." %}

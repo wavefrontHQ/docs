@@ -234,7 +234,7 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <td>
 <strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> role or the <strong>Developer</strong> additional role.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p><strong>How</strong>: Server to server OAuth apps in VMware Cloud services correspond to service accounts in Operations for Applications. A server to server app authenticates with OAuth credentials (ID and secret) and an access token is directly issued to the app. To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
+<p><strong>How</strong>: Server to server OAuth apps in VMware Cloud services correspond to service accounts in Operations for Applications. A server to server app authenticates with a VMware Cloud services access token that can be exchanged from its OAuth credentials (app ID and app secret). To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
 <ol><li>An organization role for the VMware Cloud organization running the service.</li>
 <li>An Operations for Applications service role for your service instance.</li>
 <li>Optionally, a custom role with an Operations for Applications permission. A custom role applies to all service instances for which the server to server app has an Operations for Applications service role.</li></ol>
