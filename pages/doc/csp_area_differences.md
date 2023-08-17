@@ -166,9 +166,13 @@ When your service is onboarded to VMware Cloud services and you want to access t
 <tr>
 <td>Permissions
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because they are required for all of the authorization and authentication tasks which are done in the Operations for Applications IU. In addition the <strong>Accounts</strong> permission grants privileges for managing the Operations for Applications organization settings. See the <a href="permissions_overview.html">Permissions Reference</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because they are required for all of the authorization and authentication tasks which are done in the Operations for Applications IU.
+<p>In addition, the <strong>Accounts</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
+See the <a href="permissions_overview.html">Permissions Reference</a>.
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console. The new <strong>Admin</strong> permission grants privileges for managing the Operations for Applications organization settings. See the <a href="csp_permissions_overview.html">Operations for Applications Permissions in VMware Cloud Services</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console.
+<p>The new <strong>Admin</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
+See the <a href="csp_permissions_overview.html">Operations for Applications Permissions in VMware Cloud Services</a>.
 </td>
 </tr>
 <tr>
