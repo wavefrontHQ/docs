@@ -11,6 +11,8 @@ summary: Create server to server apps and grant them access to VMware Aria Opera
 
 VMware Cloud services supports server to server apps that you can use to automate management of Operations for Applications objects, such as dashboards, alerts, etc. A server to server app can't perform the **UI operations** that all user accounts can [perform by default](csp_permissions_overview.html#default-tasks).
 
+You can also use a server to server app for a [Wavefront proxy authentication](proxies_installing.html#proxy-authentication-types). For example, see our [Windows Host Integration Tutorial](windows_host_tutorial.html), which includes installing a Wavefront proxy with server to server OAuth app credentials.
+
 {% include note.html content="A server to server app must hold roles with certain [permissions](csp_permissions_overview.html#operations-for-applications-permissions) to perform tasks. To run queries, a server to server app must hold the [**Metrics** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with the **Metrics** permission. To manage dashboards and alerts, the server to server app might need both roles with permissions and [access](csp_access.html)." %}
 
 ## What Are Server to Server Apps?
@@ -49,8 +51,6 @@ If you build an application or tool that manages proxies or ingests data, then t
 1. Configure your tool to pass the OAuth 2.0 client credentials to the REST API and exchange them to an access token. See [Make API Calls by Using a Server to Server App](using_wavefront_api.html#make-api-calls-by-using-a-server-to-server-app).
 
    The access token is directly issued to your tool and it authenticates seamlessly to the API.
-
-{% include note.html content="If you want to use the sever to server app for a [proxy authentication](proxies_installing.html#proxy-authentication-types), you must also retrieve the VMware Cloud organization long ID. See [View the Organization ID](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html#view-the-organization-id-1) in the VMware Cloud services documentation." %}
 
 After you create a server to server app, you can change its roles, share it with other VMware Cloud organizations, and delete it when no longer need it.
 
