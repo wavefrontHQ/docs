@@ -67,10 +67,6 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Invite New Users Tutorial"
-          url: /csp_new_users_tutorial.html
-          output: web
-
         - title: "AWS Integration Tutorial"
           url: /hello_wavefront_aws_tutorial.html
           output: web

@@ -4,7 +4,7 @@ keywords:
 tags: [introduction]
 sidebar: doc_sidebar
 permalink: csp-differences-by-area.html
-summary: Learn about the differences between VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
+summary: Learn about the functionality differences between VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
 ---
 
 Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud Services subscriptions.
@@ -46,7 +46,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
@@ -62,7 +62,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
@@ -94,7 +94,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -110,7 +110,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -126,7 +126,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
