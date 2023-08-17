@@ -26,11 +26,14 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
 
-## 2023-32.x Release Notes
+## 2023-33.x Release Notes
 
 ### Original and Onboarded Subscriptions
 
-* **Alerts Improvement**: When the **Resolve Window** for an alert is deleted by using an external tool, in the Operations for Applications UI, the **Alert** will now properly display that the **Resolve Window** matches the **Trigger Window**.
+* **Alerts Improvements**: 
+
+  * When the **Resolve Window** for an alert is deleted by using an external tool, in the Operations for Applications UI, the **Alert** will now properly display that the **Resolve Window** matches the **Trigger Window**.
+  * When you create or edit an alert, you can now select to run the alert query again so that you make sure that alerts do not misfire because of delays in getting the latest data. To do this, when you edit or create an alert, under **Conditions**, expand the **Additional Settings** and select to enable the **Rerun Alert Query** option. For details, see [Specify Thresholds and Severities](alerts_manage.html#step-2-specify-thresholds-and-severities).
 
 * **Sources Browser Page Improvements**: The [**Sources** browser page](sources_managing.html#examine-sources-in-the-source-browser) is now improved and allows you to:
 
