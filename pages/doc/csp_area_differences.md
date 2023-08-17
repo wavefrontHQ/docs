@@ -26,7 +26,7 @@ Most of the user and account management tasks done in the Operations for Applica
 
 ### Admin Tasks
 
-Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, **Organization Administrators**, or **Admins** in VMware Cloud services subscriptions.
+Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, VMware Cloud **Organization Administrators**, or **Admins** in VMware Cloud services subscriptions.
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
