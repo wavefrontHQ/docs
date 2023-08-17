@@ -26,7 +26,7 @@ Most of the user and account management tasks done in the Operations for Applica
 
 ### Admin Tasks
 
-Some administrative tasks done by Super Admins, or users with the **Accounts** permission in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for VMware Cloud services subscriptions. Others can be still done in the Operations for Applications UI for VMware Cloud services subscriptions. Also, there can be changes in the required roles. 
+Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, **Organization Administrators**, or **Admins** in VMware Cloud services subscriptions.
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
