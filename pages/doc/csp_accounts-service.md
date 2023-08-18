@@ -9,35 +9,37 @@ summary: Create and manage service accounts.
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Service Accounts](service-accounts.html)."%}
 
-{% include important.html content="Operations for Applications on VMware Cloud services supports service accounts **only** for proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts) that still authenticate with Operations for Applications API tokens. Most of the integrations require proxy setup for authentication with a VMware Cloud services access token."%}
+The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only the proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts) that still authenticate with Operations for Applications API tokens. Most of the integrations require proxy setup for authentication with a VMware Cloud services access token.
+
+If you migrated from an original Operations for Applications subscription, you might have some legacy service accounts for backward compatibility. It's recommended that you gradually switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens.
 
 ## What Are Service Accounts?
 
-Service accounts are used for automating management tasks.
-
 * A service account uses an **Operations for Applications API token** to authenticate.
-* Each account is automatically added to the **Service Accounts** internal group in Operations for Applications. This group has no roles and permissions. This group can be used only in dashboards and alerts access lists as well as metrics security policy rules and ingestion policies.
-* By default, service accounts don't have any permissions, even view permissions. Users with the **Super Admin** service role must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). There's no limit on the number of service accounts that you can create in your service instance. 
+* By default, service accounts don't have any permissions, even view permissions. Users with the **Admin** service role must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). There's no limit on the number of service accounts that you can create in your service instance. 
 
-As a user with the **Super Admin** service role, you [generate (and revoke, if needed)](api_tokens.html#generate-and-manage-the-api-tokens-for-a-service-account) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+As a user with the **Admin** service role, you [generate (and revoke, if needed)](api_tokens.html#generate-and-manage-the-api-tokens-for-a-service-account) API tokens for the service account. It’s also possible to deactivate a service account completely. 
+
+{% include note.html content="Operations for Applications includes an internal **Service Accounts** system group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) with access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## How Service Accounts Work
 
-If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API.
+If you plan to set up an integration that uses a proxy authentication with an Operations for Applications API token, you must create a service account with the **Proxies** permission and generate an API token for it.
 
 1. Create a service account from the UI. The service account name must be unique.
-2. Assign a role to the account to give the account the permissions it needs. Service accounts can perform get, modify, and delete tasks **only if** they have the necessary permissions.
-3. Configure your tool to pass the service account credentials (API token) to the REST API.
+2. Assign the service account with the **Proxies** permission.
+3. Set up the proxy in your integration to pass the API token of the service account.
 
-   The tool authenticates seamlessly to the API without embedding secret keys or user credentials in your instance, image, or application code.
+   The proxy authenticates seamlessly to the API without embedding secret keys or user credentials in your instance, image, or application code.
 
 You can disable a service account if you temporarily don't need it, or you can delete the account permanently.
 
 
 ## Create a Service Account
 
-Creating a service account is different from creating a user account.
+Creating a service account is done in the Operations for Applications UI.
 
+1. Log in to your service instance as a user with the **Admin** service role.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Accounts**.
 2. Click the **Service Accounts** tab and click **Create New Account**.
 3. On the **New Service Account** page, specify the account details and click **Create**.
@@ -65,19 +67,13 @@ Tokens</td>
 <tr>
 <td>
 Groups</td>
-<td>By default, service accounts are added to the <strong>Service Accounts</strong> group. If you assign roles to the <strong>Service Accounts</strong> group, all the service accounts get the permissions associated with these roles. You can also add service accounts to other groups. </td></tr>
-<tr>
-<td>Roles</td>
-<td>Roles for the service account. Roles are sets of permissions. You can create one or two roles and use those roles only for service accounts. </td></tr>
+<td>Grouping is not supported for service accounts in Operations for Applications subscriptions on VMware Cloud services. Service accounts are only added to the internal <strong>Service Accounts</strong> system group. This group doesn't have any roles and permissions. This group can be used when managing <a href="csp_access.html">access to dashboards and alerts</a>, <a href="csp_metrics_security.html">metrics security policy rules</a>, and <a href="ingestion_policies.html">ingestion policies</a>.</td></tr>
 <tr>
 <td>Permissions</td>
-<td>Individual permissions assigned to this service account. For example, give the account <strong>Proxies</strong> permission to interact with proxies or <strong>Alerts</strong> permissions to retrieve data from alerts. </td>
+<td>Individual permissions assigned to this service account. Assign the service account with the <strong>Proxies</strong> permission, so that you can use it for the proxy setup of an integration that authenticates with an Operations for Applications API token.</td>
 </tr>
 </tbody>
 </table>
-
-After you create the account, you can change its role or group assignment. The process is the same for user accounts and service accounts.
-
 
 ## Deactivate or Activate a Service Account
 
@@ -105,16 +101,3 @@ To activate or deactivate an account from the <strong>Edit Service Account</stro
 </tr>
 </tbody>
 </table>
-
-## Set the Default Service Accounts Group for New Service Accounts
-
-Each new service account is assigned to the **Service Accounts** group.
-
-To add any new service accounts to additional groups:
-
-1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
-2. In the **Default Service Accounts Groups** text box:
-  * Start typing the name of additional groups to add groups.
-  * Click the **x** next to a group name to remove a group. You cannot remove the **Service Accounts** group.
-
-Going forward, new service accounts are also added to this group.
