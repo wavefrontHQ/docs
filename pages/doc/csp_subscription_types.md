@@ -1,5 +1,5 @@
 ---
-title: Subscription Comparison and Benefits of VMware Cloud Services Subscriptions
+title: VMware Cloud Services vs Original Subscriptions
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar

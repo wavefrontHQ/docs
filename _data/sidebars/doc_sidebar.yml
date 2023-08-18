@@ -21,7 +21,7 @@ entries:
         output: web
         subfolderitems:
       
-        - title: "Subscription Comparison"
+        - title: "VMware Cloud Services vs Original"
           url: /subscriptions-differences.html
           output: web
                 
