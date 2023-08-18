@@ -40,9 +40,8 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     </tr>
     <tr>
       <th>Admin</th>
-      <td>Manage Operations for Applications organization settings - display settings, query settings, logs settings, and security settings.</td>
+      <td>Manage the Operations for Applications organization settings - set the default preferences for all users of the service instance and restrict access for new dashboards and alerts.</td>
     </tr>
-    <tr>
     <tr>
       <th>Alerts</th>
       <td>Create, edit, and delete <a href="alerts.html">alerts</a>, <a href="webhooks_alert_notification.html">alert targets</a>, and <a href="maintenance_windows_managing.html">maintenance windows</a>. Also, can manage alert tags and view alert history.</td>

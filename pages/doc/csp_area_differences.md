@@ -26,7 +26,7 @@ Most of the user and account management tasks done in the Operations for Applica
 
 ### Admin Tasks
 
-Some administrative tasks done by Super Admins, or users with the **Accounts** permission in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for VMware Cloud services subscriptions. Others can be still done in the Operations for Applications UI for VMware Cloud services subscriptions. Also, there can be changes in the required roles. 
+Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, VMware Cloud **Organization Administrators**, or **Admins** in VMware Cloud services subscriptions.
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
@@ -136,9 +136,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 
 ### REST API Access
 
-For original subscriptions using the Operations for Applications REST API, requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API tokens** permission. 
-
-To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
+For original subscriptions, using the Operations for Applications REST API requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API Tokens** permission. To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
 
 When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such a token, you can:
 
@@ -146,7 +144,7 @@ When your service is onboarded to VMware Cloud services and you want to access t
 
   ![A graphic showing information how to generate API token for the user account for onboarded and original subscriptions.](images/csp-api-token-user.png)
 
-* Use a server to server app (which is the equivalent of a service account), obtain the OAuth credentials, such as ID and secret, associated with the server to server app and exchange them for an access token.
+* Create a server to server app (which is the equivalent of a service account), obtain its OAuth credentials (app ID and app secret), and exchange them for an access token.
 
    ![A graphic showing information how to generate API token for a service account or server to server app  for onboarded and original subscriptions.](images/csp-api-token-apps.png)
 
@@ -168,9 +166,13 @@ When your service is onboarded to VMware Cloud services and you want to access t
 <tr>
 <td>Permissions
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because all of the authorization and authentication tasks requiring these permissions are done in the Operations for Applications UI. See the <a href="permissions_overview.html">Permissions Reference</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because they are required for all of the authorization and authentication tasks which are done in the Operations for Applications IU.
+<p>In addition, the <strong>Accounts</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
+See the <a href="permissions_overview.html">Permissions Reference</a>.
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because all of the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console. See the <a href="csp_users_roles.html">Operations for Applications Permissions in VMware Cloud Services</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console.
+<p>The new <strong>Admin</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
+See the <a href="csp_permissions_overview.html">Operations for Applications Permissions in VMware Cloud Services</a>.
 </td>
 </tr>
 <tr>
@@ -232,7 +234,7 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <td>
 <strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> role or the <strong>Developer</strong> additional role.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p><strong>How</strong>: Server to server OAuth apps in VMware Cloud services correspond to service accounts in Operations for Applications. A server to server app authenticates with OAuth credentials (ID and secret) and an access token is directly issued to the app. To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
+<p><strong>How</strong>: Server to server OAuth apps in VMware Cloud services correspond to service accounts in Operations for Applications. A server to server app authenticates with a VMware Cloud services access token that can be exchanged from its OAuth credentials (app ID and app secret). To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
 <ol><li>An organization role for the VMware Cloud organization running the service.</li>
 <li>An Operations for Applications service role for your service instance.</li>
 <li>Optionally, a custom role with an Operations for Applications permission. A custom role applies to all service instances for which the server to server app has an Operations for Applications service role.</li></ol>
