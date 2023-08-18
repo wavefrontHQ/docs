@@ -4,7 +4,7 @@ keywords:
 tags: [introduction]
 sidebar: doc_sidebar
 permalink: csp-differences-by-area.html
-summary: Learn about the differences between VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
+summary: Learn about the functionality differences between VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
 ---
 
 Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud Services subscriptions.
@@ -46,7 +46,7 @@ Some administrative tasks, done by **Super Admins** and users with the **Account
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
@@ -62,7 +62,7 @@ Some administrative tasks, done by **Super Admins** and users with the **Account
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
@@ -94,7 +94,7 @@ Some administrative tasks, done by **Super Admins** and users with the **Account
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -110,7 +110,7 @@ Some administrative tasks, done by **Super Admins** and users with the **Account
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -126,7 +126,7 @@ Some administrative tasks, done by **Super Admins** and users with the **Account
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -153,7 +153,7 @@ When your service is onboarded to VMware Cloud services and you want to access t
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="22%">Area</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
+<tr><th width="22%">Functionality</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
 </thead>
 <tr>
 <td>User Login

@@ -1,5 +1,5 @@
 ---
-title: VMware Aria Operations for Applications Subscription Types
+title: VMware Cloud Services vs Original Subscriptions
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar
