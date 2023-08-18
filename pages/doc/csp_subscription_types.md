@@ -1,5 +1,5 @@
 ---
-title: VMware Aria Operations for Applications Subscription Types
+title: Subscription Comparison and Benefits of VMware Cloud Services Subscriptions
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar

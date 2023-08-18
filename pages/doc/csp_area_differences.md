@@ -110,7 +110,7 @@ Some administrative tasks, done by **Super Admins** and users with the **Account
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -126,7 +126,7 @@ Some administrative tasks, done by **Super Admins** and users with the **Account
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -153,7 +153,7 @@ When your service is onboarded to VMware Cloud services and you want to access t
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="22%">Area</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
+<tr><th width="22%">Functionality</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
 </thead>
 <tr>
 <td>User Login

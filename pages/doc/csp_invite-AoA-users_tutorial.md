@@ -3,7 +3,6 @@ title: Invite New Users from the VMware Cloud Services Console
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
-published: false
 permalink: csp_new_users_tutorial.html
 summary: Learn how to invite new users to VMware Aria Operations for Applications through the VMware Cloud Services Console.
 ---
