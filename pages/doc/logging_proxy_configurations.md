@@ -1,14 +1,14 @@
 ---
-title: Logs Proxy Configurations and Preprocessor Rules (Beta)
+title: Logs Proxy Configurations and Preprocessor Rules
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
 summary: Proxy configuration properties and preprocessor rules for logging.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to this logging Beta. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
+Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to the Logs feature. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
 
 ## Proxy Configuration Properties for Logs
 
@@ -201,7 +201,10 @@ VMware Cloud services provides access to both VMware Aria Operations for Logs an
 ## Proxy Preprocessor Rules for Logs
 
 The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to our service. Logs store data in tags, that are key-value pairs. The rules listed below, update the log tag value.
-For details on how to configure the rules, see [Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file).
+
+{% include note.html content="For details on how to configure the rules, see [Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file)." %}
+
+
 
 ### logReplaceRegex
 
