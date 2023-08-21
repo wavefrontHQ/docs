@@ -11,19 +11,14 @@ summary: Control access to individual dashboards and alerts.
 
 VMware Cloud services supports the roles and groups authorization paradigm for managing global permissions in VMware Aria Operations for Applications. For example, a user with the **Dashboards** service role can manage *all* dashboards in Operations for Applications. This paradigm is sufficient for many of our customers.
 
-Users with the **Admin** and **Super Admin** service role who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
+Users with the **Admin** and **Super Admin** service roles who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
 {% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have a role with the **Dashboards** permission and **View and Modify** access for that dashboard." %}
 
-{% include tip.html content="In addition to access control, Operations for Applications also support [metrics security policy rules](csp_metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
+{% include tip.html content="In addition to access control, Operations for Applications also supports [metrics security policy rules](csp_metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
-This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the security setting. You can manage access for alerts the same way. 
 
-Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
-
-<p><iframe id="kmsembed-1_lckq6foe" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_lckq6foe/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Object-Based Access Control"></iframe></p>
-
-{% include note.html content="After the access setting is set to **Object Creator** in an environment, only the creator of a new object and the users with **Admin** and **Super Admin** service roles can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
+{% include note.html content="After the access setting is set to **Object Creator** in an environment, only the creator of a new object and users the **Super Admin** service role can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
 
 
 ## How Access Control Works
@@ -79,16 +74,16 @@ Initially, all users can *view* all dashboards and alerts. In addition, global p
 * Users with **Dashboards** permission can modify all dashboards.
 * Users with **Alerts** permission can modify all alerts.
 
-As a user with the **Admin** or **Super Admin** service role, you can restrict access for new dashboards and alerts:
+As a user with the **Admin** or **Super Admin** service role, you can restrict access to new dashboards and alerts:
 
 1. Log in to your service instance.
 1. If you are a **Super Admin** user, [enable Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode).
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
 2. Click the **Security** tab and select **Object Creator**.
 
-After the change, access to new dashboards and new alerts is initially limited to the dashboard creator and the users with the **Super Admin** service role. Those users can share the objects with groups or individual users by giving **View** access or **View & Modify** access.
+After the change, access to new dashboards and new alerts is initially limited to the dashboard creator and the users with the **Admin** or **Super Admin** service roles. Those users can share the objects with groups or individual users by giving **View** access or **View & Modify** access.
 
-{% include note.html content="A change to the security setting applies only to dashboards and alerts created after the change. If you change the setting to **Object Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Object Creator** keep the restricted access." %}
+{% include note.html content="A change to the security setting applies only to dashboards and alerts created **after** the change. If you change the setting to **Object Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Object Creator** keep the restricted access." %}
 
 By default, service accounts (which correspond to server to server apps in VMware Cloud services) don't have browse permissions. However, you can also grant access for new dashboards and alerts to service accounts:
 
@@ -126,10 +121,10 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
 3. Expand the **Dashboard** category and click the `GET api/v2/dashboard/{id}/history/{version}` request.
 4. Enter the dashboard name as the `"id"` parameter.
-   For example, if the dashboard URL is `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is *MY-DASHBOARD*.
+   For example, if the dashboard URL is `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is `MY-DASHBOARD`.
 5. Enter the last known version of the dashboard as an integer.
 
-   If you don't know the version, you can enter *1*. This way, you also determine whether the dashboard `"id"` input has ever existed.
+   If you don't know the version, you can enter `1`. This way, you also determine whether the dashboard `"id"` input has ever existed.
 
 6. Click **Execute**.
 
@@ -149,17 +144,17 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
 
 
    ```
-{
-  "modifyAclAccess":true,
-  "hidden":false,
-  "parameters":{},
-    "name":"MY DASHBOARD",
-    "id":"MY-DASHBOARD",
-    ...
+   {
+   "modifyAclAccess":true,
+   "hidden":false,
+   "parameters":{},
+      "name":"MY DASHBOARD",
+      "id":"MY-DASHBOARD",
+      ...
 
-    "favorite":false,
-    "numCharts":2
-}
+      "favorite":false,
+      "numCharts":2
+   }
 
    ```
 8. Click the `POST api/v2/dashboard/` request.
@@ -171,4 +166,4 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
 
 10. Validate that the dashboard is now live again.
 
-    For example, navigate to `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI.
+    For example, navigate to `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the Operations for Applications UI.

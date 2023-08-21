@@ -40,7 +40,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     </tr>
     <tr>
       <th>Admin</th>
-      <td>Manage the Operations for Applications organization settings - set the default preferences for all users of the service instance and restrict access for new dashboards and alerts.</td>
+      <td>Manage the Operations for Applications organization settings: set the default display options, PromQL support and the default way of building queries for all users of the service instance. Define Logs settings, if the Logs feature is enabled. Can also restrict access to new dashboards and alerts.</td>
     </tr>
     <tr>
       <th>Alerts</th>
