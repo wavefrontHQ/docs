@@ -12,7 +12,7 @@ VMware Aria Operations for Applications (previously known as Tanzu Observability
 - For VMware Cloud services subscriptions, users with the **Super Admin** service role (in Super Admin mode) and users with the **Admin** service role can enable the PromQL support. <br/>
 - For original Operations for Applications subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
 
-* Users with an administrative role, such as the **Super Admin** and **Admin** service roles (for VMware Cloud services subscriptions) and **Super Admins** or users with the **Accounts** permission (for original subscriptions) have control over user defaults:
+* Users with an administrative role in Operations for Applications have control over user defaults:
   - On the **Organization Settings** page (New User Defaults) they can enable users to write queries in PromQL.
   - If queries in PromQL are enabled, they can also set other options.
 * Users can then type PromQL or WQL queries into the Query Editor.
@@ -26,7 +26,7 @@ VMware Aria Operations for Applications (previously known as Tanzu Observability
 
 ## Set PromQL Organization Settings (Administrator Only)
 
-As a user with an administrative role, such as **Super Admin** and **Admin** service role (for VMware Cloud services subscriptions) and **Super Admins** or users with the **Accounts** permission (for original subscriptions) you can control user defaults.
+As a user with an administrative role, you can control user defaults. 
 
 * If **PromQL Support** is *not enabled*, other users cannot use PromQL or change PromQL user preferences.
 * If **PromQL Support** is *enabled*, administrators can set additional New User Default query settings, and other users can override those settings.
