@@ -56,7 +56,7 @@ When adding a Wavefront proxy, VMware Cloud services subscribers have two option
 
 ## Organization Settings Page
 
-The options for adding default groups for new user and service accounts as well as for setting the default permissions for new user accounts are removed, because VMware Cloud services subscribers manage users and roles through the VMware Cloud Services Console. Users with the **Super Admin** service role can still set the default display settings and language preferences for new users on the **Organization Settings** page.
+The options for adding default groups for new user and service accounts as well as for setting the default permissions for new user accounts are removed, because VMware Cloud services subscribers manage users and roles through the VMware Cloud Services Console. Users with the **Super Admin** or **Admin** service role can still set the default display settings and language preferences for new users on the **Organization Settings** page.
 
   ![An image showing that the options mentioned above are removed from the UI for new subscribers.](images/new-vs-original-new-accounts-defaults.png)
 

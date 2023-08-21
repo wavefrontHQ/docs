@@ -26,7 +26,9 @@ Most of the user and account management tasks done in the Operations for Applica
 
 ### Admin Tasks
 
-Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, VMware Cloud **Organization Administrators**, or **Admins** in VMware Cloud services subscriptions.
+Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, VMware Cloud **Organization Administrators** in VMware Cloud services subscriptions. Others can be done by  Operations for Applications **Admins** in the Operations for Applications UI.
+
+With the 2023-XX release, we introduce a new **Admin** service role, which corresponds to the **Accounts** permission for original subscriptions. Users with the **Admin** service role can restrict access to new dashboards and alerts and can also set the organization settings. For example, they can restrict the access to the object creator only and set default settings, such as display settings, PromQL support, default way of building queries, and define Logs settings. 
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
@@ -329,9 +331,9 @@ Each API token inherits the permissions of its associated user or service accoun
 </ul></p>
 </td>
 <td>
-<strong>Who</strong>: Users with the <strong>Super Admin</strong> Operations for Applications service role and Super Admin mode enabled.
+<strong>Who</strong>: Users with the <strong>Admin</strong> Operations for Applications service role.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: As a user with the <strong>Super Admin</strong> service role, you can configure:
+<p><strong>How</strong>: As a user with the <strong>Admin</strong> service role, you can configure:
 <ul>
 <li>Default display settings for new accounts, such as getting started progress and default dashboard display.</li>
 <li>Default query language preferences and optionally, allow users to write queries in PromQL. For details, see <a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a>.</li>

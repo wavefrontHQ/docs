@@ -22,7 +22,7 @@ In a large enterprise, certain data is confidential. VMware Aria Operations for 
 
 ## Video: Metrics Security Policy
 
-Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
+Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview. Note that this video was created in 2020 and some of the information in it might have changed.  It also uses the 2020 version of the UI, which is applicable to original subscriptions and there are some [differences between original and VMware Cloud services subscriptions](csp-ui-differences.html#metrics-security-policy-rule-creation-page). 
 
 <p>
 <iframe id="kmsembed-1_3ea13tor" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>

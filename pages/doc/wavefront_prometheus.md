@@ -8,7 +8,11 @@ summary: Run PromQL queries in the Query Editor
 
 VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
-* Users with the **Accounts** permission and **Super Admin** users have control over user defaults:
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+- For VMware Cloud services subscriptions, users with the **Super Admin** service role (in Super Admin mode) and users with the **Admin** service role can enable the PromQL support. <br/>
+- For original Operations for Applications subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
+
+* Users with an administrative role, such as the **Super Admin** and **Admin** service roles (for VMware Cloud services subscriptions) and **Super Admins** or users with the **Accounts** permission (for original subscriptions) have control over user defaults:
   - On the **Organization Settings** page (New User Defaults) they can enable users to write queries in PromQL.
   - If queries in PromQL are enabled, they can also set other options.
 * Users can then type PromQL or WQL queries into the Query Editor.
@@ -22,9 +26,7 @@ VMware Aria Operations for Applications (previously known as Tanzu Observability
 
 ## Set PromQL Organization Settings (Administrator Only)
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, only users with the **Super Admin**  service role in Super Admin mode can enable the PromQL support.<br/>
-- For original Operations for Applications subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
+As a user with an administrative role, such as **Super Admin** and **Admin** service role (for VMware Cloud services subscriptions) and **Super Admins** or users with the **Accounts** permission (for original subscriptions) you can control user defaults.
 
 * If **PromQL Support** is *not enabled*, other users cannot use PromQL or change PromQL user preferences.
 * If **PromQL Support** is *enabled*, administrators can set additional New User Default query settings, and other users can override those settings.
@@ -55,8 +57,6 @@ If an administrator has enabled PromQL support (discussed above), each user can 
 
       If your default language is set to **PromQL**, you can build your queries only in the Query Editor. Chart Builder was designed for Wavefront query language and doesn't support PromQL.
     * Whether to show the translation to WQL when you click inside the Query Editor.
-
-
 
 ## Video: Wavefront Query Language and PromQL
 
