@@ -26,7 +26,7 @@ Most of the user and account management tasks done in the Operations for Applica
 
 ### Admin Tasks
 
-Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, VMware Cloud **Organization Administrators** in VMware Cloud services subscriptions. Others can be done by  Operations for Applications **Admins** in the Operations for Applications UI.
+Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, VMware Cloud **Organization Administrators** in VMware Cloud services subscriptions. Others can be done by Operations for Applications **Admins** in the Operations for Applications UI.
 
 With the 2023-XX release, we introduce a new **Admin** service role, which corresponds to the **Accounts** permission for original subscriptions. Users with the **Admin** service role can restrict access to new dashboards and alerts and can also set the organization settings. For example, they can restrict the access to the object creator only and set default settings, such as display settings, PromQL support, default way of building queries, and define Logs settings. 
 
