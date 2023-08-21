@@ -1,11 +1,13 @@
 ---
-title: Services and Applications View
+title: Services and Applications View (Beta)
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: service_and_application_view.html
 summary: Overview of services and applications that send data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
+
+{% include important.html content="This feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 As part of troubleshooting an application, you need an overview of the services and applications that send data to Operations for Applications. Use the table view or grid view to understand the health of each service, and troubleshoot when your applications or services run into issues.
 
@@ -241,3 +243,8 @@ The Logs Browser opens in a new tab with the following configurations:
 * The search query contains the corresponding `service` and `application` tag filters.
 ![The search query and the selected time window in the Logs Browser.](images/logging_app_serv_search.png)
 
+
+## Learn Mora!
+
+* [Learn how you can monitor your application using eBPF or tracing](application_monitoring_overview.html).
+* See how a specific service communicates with the other service using the [Service Map](service_map.html).

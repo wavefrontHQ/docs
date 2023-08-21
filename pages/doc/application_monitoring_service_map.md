@@ -1,11 +1,14 @@
 ---
-title: Service Map
+title: Service Map (Beta)
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: service_map.html
 summary: Overview of how a specific service communicates with the other services in the application.
 ---
+
+{% include important.html content="This feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+
 
 When you troubleshoot an application, you need an overview of how a service communicates with the other services. The Service map helps you visualize this information.
 
@@ -110,7 +113,7 @@ Let's walk through the following scenario and get a quick overview of the applic
           </ul>
         </ul>
       </td>
-    <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
+    <td><img src="/images/service_map_focus_on_a_service.png" alt="Popup when you click on a service"/></td>
   </tr>
 </tbody>
 </table>
@@ -157,3 +160,8 @@ Let's walk through the following scenario and get a quick overview of the applic
   </tr>
 </tbody>
 </table>
+
+## Learn Mora!
+
+* [Learn how you can monitor your application using eBPF or tracing](application_monitoring_overview.html).
+* View the services on the [Service and Application View page](service_and_application_view.html).

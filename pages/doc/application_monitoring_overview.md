@@ -1,10 +1,12 @@
 ---
-title: Monitor Your Applications
+title: Monitor Your Applications (Beta)
 tags: [applications, ebpf, traces]
 sidebar: doc_sidebar
 permalink: application_monitoring_overview.html
 summary: Learn how you can monitor your application using eBPF or tracing.
 ---
+
+{% include important.html content="This feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 We can help you auto-discover and monitor your applications that run on a Kubernetes cluster or monitor your applications and services through the traces and spans sent to our service. 
 
@@ -12,7 +14,7 @@ You need to select how you want to send data to our service based on where the a
 
 ## Monitor Applications Running on Kubernetes
 
-Send eBPF data from your applications running on a Kubernetes cluster. We can then auto-discover all the services in your Kubernetes cluster.
+Send data via eBPF from your applications running on Kubernetes. We can then auto-discover all the services in your Kubernetes cluster.
 
 Go to [Kubernetes App Auto-Instrumentation via Pixie](https://github.com/wavefrontHQ/observability-for-kubernetes/tree/main/operator/hack/autoinstrumentation#kubernetes-app-auto-instrumentation-via-pixie), and follow the instructions to send data and start monitoring your applications.
 
@@ -27,9 +29,9 @@ Example: The service map shows how a specific service communicates with other se
 
 ![Shows a screenshot of the service map.](images/app_monitoring_ebpf_service_map.png)
 
-## Monitor OpenTelemetry Applications
+## Monitor Applications Using OpenTelemetry
 
-Instrument your applications using OpenTelemetry and send traces and spans to our service.
+Instrument your applications that use OpenTelemetry and send traces and spans to our service.
 * [Get an overview](https://docs.wavefront.com/opentelemetry_overview.html) of how to configure your applications that use OpenTelemetry and send data to our service. 
 * The [Java tutorial](opentelemetry_java_app_tutorial.html) shows you how to auto-instrument your Java application using the OpenTelemetry Java agent and send data to our service.
 
