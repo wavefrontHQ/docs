@@ -15,7 +15,7 @@ As part of troubleshooting an application, you need an overview of the services 
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 
@@ -122,12 +122,14 @@ Let's walk through the following scenario to get a quick overview of the applica
           <li> Navigate to the Traces Browser when you click <b>View Traces</b>.</li>
           <li>Click <b>Actions</b> to:</li>
           <ul>
-            <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
+            <li> Navigate to the Traces Browser when you click <b>View Traces</b>.</li>
+            <li> Navigate to the Operation Dashboard when you click <b>View Operaion Dashboard</b>.</li>
+            <li> Navigate to the Service Dashboard when you click <b>View Service Dashboard</b>.</li>
+            <li> Navigate to the Log Browser when you click <b>View Logs</b>. For details, see the section  [Drill into Logs from Traces](#drill-into-logs-from-traces) below.</li>
             <li>Click <b>Create Alerts</b> to create smart alerts that filter noise and capture true anomalies. See <a href="#create-alerts">Create an alert</a>.</li>
             <li>If an alert you created is firing, you see a red dot with a number on the service. The number indicates how many alerts are firing for a specific service. To see the alerts, click <b>view alerts</b>.</li>
-            <li>Click <b>Configure</b> to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or a user with the <strong>Applications</strong> permission.</li>
+            <li>Click the edit icon next to the Apdex score to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or a user with the <strong>Applications</strong> permission.</li>
           </ul>
-          <li> See the components used by the service. The styling service uses the Java, Dropwizard, and Jersey components.</li>
         </ul>
       </td>
     <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
@@ -427,7 +429,7 @@ Create an alert from the application status page:
     <table style = "width: 100;">
       <tr>
         <td markdown ="span">
-          **App map view**: <br/>Click on a service and select **Actions** > **Create Alert**, for example, to create an alert for the shopping service:
+          **App map view**: <br/>Click on a service > **Create Alert**.
         </td>
         <td markdown ="span" width="40%">
           ![A screenshot of how to click create alert as explained in the step](images/tracing_app_map_create_alert.png)
@@ -468,3 +470,36 @@ Create an alert from the application status page:
 Once the alert is created, click **Alerting > All Alerts** and search for the alert you created .
 
 <!-- {% include saved_searches.md %} -->
+
+## Drill into Logs from Traces
+
+If you have the **Logs** permission, you can drill into logs from the application status page and the Traces Browser.
+
+{% include note.html content="Even if logging is enabled for your environment, the drill-down from traces to logs might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
+
+When you notice that a service on the application map, table view, or grid view has a high error percentage, you can drill down into the related logs.
+
+{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values. If your traces and logs tags don't match, to map the traces tags to logs tags, see [Customize Logs Settings](logging_logs_settings.html)."%}
+
+* **From the Map View**
+  1. Select the time window of interest.
+  1. Click the service on the application map.
+  1. Select **View Logs**.
+  ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
+* **From the Table View**
+  1. Select the time window of interest.
+  1. Click the ellipsis for the service.
+  1. Select **View Logs**.
+  ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
+* **From the Grid View**
+  1. Select the time window of interest.
+  1. In a service tile, click **Actions**.
+  1. Select **View Logs**.
+  ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/logging_grid_view_to_logs.png)
+
+The Logs Browser opens in a new tab with the following configurations:
+  
+* The search time window corresponds to the time window on the Application Status page.
+* The search query contains the corresponding `service` and `application` tag filters.
+![The search query and the selected time window in the Logs Browser.](images/logging_app_serv_search.png)
+

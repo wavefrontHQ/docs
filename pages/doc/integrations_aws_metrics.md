@@ -175,7 +175,7 @@ As part of CloudWatch we collect metrics that let you check if throttling is hap
   - `aws.usage.throttlecount` - Understand whether throttling is happening at the AWS end.
   - `aws.usage.callcount.*` - Get the number of API calls that goes to AWS. If you know the Service Quota, you can easily calculate the percentage of usages and trigger an alert if the percentage reaches a defined threshold.
   
-### Setup for Ingesting AWS CloudWatch Logs (Beta)
+### Setup for Ingesting AWS CloudWatch Logs
 
 You can ingest CloudWatch logs to Operations for Applications. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep applications running smoothly. To understand more about CloudWatch, see the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 

@@ -1,12 +1,12 @@
 ---
-title: Get Started with Logs (Beta)
+title: Get Started with Logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
 summary: Learn about VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) metrics, logs, and traces.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
  <table style="width: 100%;">
 <tbody>
@@ -35,11 +35,12 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
 
 {{site.data.alerts.note}}
 <ul>
-  <li>
-    Our service retains logs for 7, 15, or 30 days, based on your settings.
-  </li>
   <li markdown="span">
-    Only users with the [**Logs** permission](permissions_overview.html) can view the Logs Browser and drill down into logs from charts, alerts, and traces.
+    Our service retains logs for 30 days during the Logs free trial or retains logs for 7 days when on the freemium subscription! To retain logs for a longer period, contact your account representative or [technical support](wavefront_support_feedback.html#support).
+  </li>
+  <li>
+    Only users with the <b>Logs</b> permission can view the Logs Browser and drill down into logs from charts, alerts, and traces.
+    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#announcement">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
   </li>
 </ul>
 {{site.data.alerts.end}}
@@ -90,22 +91,9 @@ Each log has required attributes, standard attributes, and custom tags. We token
     <td>
     <strong>Custom Tags</strong>
     </td>
-    <td>You can send logs with additional custom tag key-value pairs of your choice. Follow these guidelines:
-       <ul>
-        <li>
-          Low-cardinality tags. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.
-        </li>
-        <li>
-          128 characters per tag key
-        </li>
-        <li>
-          128 characters per tag value
-        </li>
-        <li>
-          100 tags per log
-        </li>
-       </ul>
-    <p>See <a href="logging_send_logs.html#limits-for-logs">Limits for Logs</a> for details.</p>
+    <td>
+    You can send logs with additional custom tag key-value pairs of your choice. 
+    <br/>Make sure the custom tags are low-cardinality tags. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.
     </td>
   </tr>
 </table>
@@ -134,12 +122,14 @@ You can send your logs using a log shipper, such as Fluentd that sends logs as J
 </tbody>
 </table>
 
+{% include note.html content="Our service does not support logs ingestion for the OpenTelemetry Protocol." %}
+
 ## View Logs and Troubleshoot
 
 When logs start flowing into our service, as a user with the **Logs** permission, you can:
 * Go to the [Logs Browser](logging_log_browser.html) directly to view and explore logs.
 * You can [create a logs chart](logging_logs_chart.html) on a dashboard so you can troubleshoot faster.
-* [Drill into the Logs Browser](logging_drill_into_logs.html) from charts, alerts, application map, and the Traces Browser.
+* Drill into the Logs Browser from charts, alerts, application map, and the Traces Browser.
 * [Customize log settings](logging_logs_settings.html)
   * If your metrics, logs, and traces have different tags, you can map the metrics and traces tags to the log tags.
   * Customize the time window on a chart or Traces Browser when drilling into logs from a chart and trace.

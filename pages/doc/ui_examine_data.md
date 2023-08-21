@@ -12,14 +12,13 @@ With dashboards and charts, all VMware Aria Operations for Applications (formerl
 
 ## Video
 
-All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes.
+All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need the **Dashboards** permission to save your changes. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
-You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. 
 
 <p>
 <iframe id="kmsembed-1_gunwcmwm" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
-
 
 ## Get Started: Dashboard Browser
 
@@ -67,7 +66,7 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data.
+This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
@@ -291,7 +290,7 @@ You can move the time window into the future. However, unless you are using one 
 </table>
 
 
-Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows.
+Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Time Windows on Dashboards and Charts"></iframe>
 </p>
@@ -312,6 +311,45 @@ The <strong>Show Events</strong> drop-down menu in the upper right of the toolba
 <td width="40%">
 <img src="images/display_events_v2.png" align="center" valign="center" alt="Show Events menu"></td>
 </tr>
+</tbody>
+</table>
+
+## Drill into Logs from Charts
+
+If you have the **Logs** permission, you can drill into logs from charts, for example, if you notice data anomalies on a chart and want to debug the issue.
+
+{{site.data.alerts.note}}
+<ul>
+    <li markdown="span">
+        Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support).
+    </li>
+    <li markdown="span">
+        You must have tagged the metrics and the logs from the same source with equivalent source tag values. If your metrics and logs tags don't match, to map the metrics tags to logs tags, see [Customize Logs Settings](logging_logs_settings.html).
+    </li>
+</ul>
+{{site.data.alerts.end}}
+
+To drill into the related logs from a chart:
+
+1. Position your pointer over the metric (on the location of the anomaly).
+1. Right-click that point on the chart and select **Logs**.
+    {%include note.html content=" This feature supports only one source filter. If you selected more than one source on the chart, you only see one source on the Logs Browser (the source that comes first when the source name is alphabetically sorted)."%}
+
+![A screenshot of a chart with the right-click menu that includes the Logs option.](images/logging_charts_to_logs.png)
+In this example, you right-click the metric chart for source `db-5` at `01:25 PM`.
+
+The Logs Browser opens in a new tab with the following configuration:
+- The search time window is a 10-minute period, starting 5 minutes before and ending 5 minutes after the time of the point that you right-clicked on the chart.
+- The search query includes the `source` tag as a filter for the source that you right-clicked.
+
+![A screenshot of a search query and selected time window in the Logs Browser.](images/logging_from_chart.png)
+In this example, the Logs Browser opens with the filter `source = db-5` and the time window `01:20 PM to 01:30 PM` (starting 5 minutes before and ending 5 minutes after `01:25 PM`).
+
+{% include tip.html content="You can customize the before and after buffer time to create a customized time window when drilling into logs from a chart. For more details, see [Customize the Time Window when Drilling into Logs](logging_logs_settings.html#customize-the-time-window-when-drilling-into-logs)" %}
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="logging_overview.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 

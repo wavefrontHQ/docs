@@ -19,7 +19,7 @@ In VMware Aria Operations for Applications (formerly known as Tanzu Observabilit
 
 ## Distributed Tracing Videos
 
-Watch these videos to listen to our co-founder Clement Pang introduce distributed tracing, and give updates including improved ingestion options and intelligent sampling:
+Watch these videos to listen to our co-founder Clement Pang introduce distributed tracing, and give updates including improved ingestion options and intelligent sampling. Note that these videos were created in 2019 and 2020 and some of the information in them might have changed.
 
 {% include note.html content="You need either the [**Proxies** permission](permissions_overview.html) or [**Direct Data Ingestion** permission](permissions_overview.html) to send trace data from your application to the Wavefront proxy or the Operations for Applications service." %}
 
@@ -35,7 +35,7 @@ Watch these videos to listen to our co-founder Clement Pang introduce distribute
 
 OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Operations for Applications, use OpenTelemetry.
 
-If your application uses an OpenTelemetry SDK, you can configure the application to send trace data [Directly to the Wavefront proxy](opentelemetry_overview.html#send-data)
+If your application uses an OpenTelemetry SDK, you can configure the application to send trace data [to the Wavefront proxy](opentelemetry_overview.html)
 ![A data flow diagram that shows how the data flows from your application to the proxy, and then to Operations for Applications](images/opentelemetry_proxy_tracing.png)
 
 ## Visualize Distributed Tracing Data

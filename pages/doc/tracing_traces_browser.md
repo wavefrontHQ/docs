@@ -11,7 +11,7 @@ The Traces Browser in VMware Aria Operations for Applications (formerly known as
 
 ## Video
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_guro3vem" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Highlights the Operations for Applications traces browser features."></iframe>
@@ -124,6 +124,35 @@ Span details include:
 * A clickable link to the corresponding Operation Dashboard that lets you examine the RED metrics associated with the call.
 
 If your spans have been instrumented to show span logs, you can click **Logs** to fetch the logs and drill down to examine them. We don't show span logs by default for better browser performance.
+
+## Drill into Logs from Traces
+
+If you notice a critical path through a trace in the Traces Browser, you can drill down into the related logs.
+
+{% include note.html content="You must have tagged the traces and the logs from the same sources, applications, and services with equivalent source, application, and service tag values. If your traces and logs tags don't match, to map the traces tags to logs tags, see [Customize Logs Settings](logging_logs_settings.html)." %}
+
+To see the logs for a trace:
+1. Click the trace that you want to examine.
+1. In the Trace Details section, click the service on which you want to focus.
+1. Expand the **IDs** section.
+1. Click **Search Logs**.
+![screenshot of the traces browser with the search logs highlighted](images/logging_traces_browser.png)
+
+The Logs Browser opens in a new tab with the following configurations:
+  
+* By default, the search time window starts 5 seconds before the trace and ends 5 seconds after the trace.
+  {% include tip.html content="You can customize the before and after buffer time to create a customized time window when drilling into logs from the Traces Browser. For more details, see [Customize the Time Window when Drilling into Logs](logging_logs_settings.html#customize-the-time-window-when-drilling-into-logs)" %}
+* The search query contains the corresponding `traceId`, `source`, `application`, and `service` tag filters.
+![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_search.png)
+
+<br/>
+To learn more about exploring traces and about finding hot spots at a glance, see [Traces Browser](tracing_traces_browser.html).
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="logging_overview.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## A Closer Look at Critical Paths
 

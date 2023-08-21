@@ -21,13 +21,11 @@ Having a proxy be part of the architecture has benefits:
 - **Enrich or filter data** -- You can set up the preprocessor to filter data before it's sent to your Operations for Applications service.
 -  **Examine bottlenecks** -- Each proxy generates its own metrics, so you can check whether data comes in and whether data is sent to your Operations for Applications service.
 
-In this video, Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience.
+In this video, Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience. Note that this video was created in 2019 and some of the information in it might have changed. 
 
 <p>
 <iframe id="kmsembed-1_5wfjti3m" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_5wfjti3m/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Wavefront Proxy"></iframe>
 </p>
-
-
 
 ## Proxy Deployment Options
 
