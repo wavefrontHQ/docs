@@ -18,7 +18,7 @@ Users with the **Admin** and **Super Admin** service roles who need finer-graine
 {% include tip.html content="In addition to access control, Operations for Applications also supports [metrics security policy rules](csp_metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
 
-{% include note.html content="After the access setting is set to **Object Creator** in an environment, only the creator of a new object and the users with **Admin** and **Super Admin** service roles can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
+{% include note.html content="After the access setting is set to **Object Creator** in an environment, only the creator of a new object and users the **Super Admin** service role can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
 
 
 ## How Access Control Works
