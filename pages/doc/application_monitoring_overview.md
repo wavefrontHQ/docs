@@ -8,9 +8,9 @@ summary: Learn how you can monitor your application using eBPF or tracing.
 
 {% include important.html content="This feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-We can help you auto-discover and monitor your applications that run on a Kubernetes cluster or monitor your applications and services through the traces and spans sent to our service. 
+You can auto-discover and monitor your applications that run on a Kubernetes cluster or monitor your applications and services through the traces and spans sent to our service. 
 
-You need to select how you want to send data to our service based on where the application runs or how you have configured your application. 
+You must first select how you want to send data to our service based on where the application runs or how you have configured your application. 
 
 ## Monitor Applications Running on Kubernetes
 
@@ -18,14 +18,14 @@ Send data via eBPF from your applications running on Kubernetes. We can then aut
 
 Go to [Kubernetes App Auto-Instrumentation via Pixie](https://github.com/wavefrontHQ/observability-for-kubernetes/tree/main/operator/hack/autoinstrumentation#kubernetes-app-auto-instrumentation-via-pixie), and follow the instructions to send data and start monitoring your applications.
 
-You can use the different dashboard and monitor your applications:
+You can use the different dashboards and monitor your applications. You can:
 
 * View the services on the [Service and Application View page](service_and_application_view.html).
 * See how a specific service communicates with the other service using the [Service Map](service_map.html).
 * Identify potential hotspots using the [Service Dashboard](tracing_service_dashboard.html). 
 * Create charts using the RED metrics. 
 
-Example: The service map shows how a specific service communicates with other services in the application.
+Example: See how a specific service communicates with other services in the application on the service map.
 
 ![Shows a screenshot of the service map.](images/app_monitoring_ebpf_service_map.png)
 
@@ -35,7 +35,7 @@ Instrument your applications that use OpenTelemetry and send traces and spans to
 * [Get an overview](https://docs.wavefront.com/opentelemetry_overview.html) of how to configure your applications that use OpenTelemetry and send data to our service. 
 * The [Java tutorial](opentelemetry_java_app_tutorial.html) shows you how to auto-instrument your Java application using the OpenTelemetry Java agent and send data to our service.
 
-Once the data is in our service, you can monitor your applications and visualize the data.
+Once the data is in our service, you can monitor your applications and visualize the data. You can:
 
 * View the services on the [Service and Application View page](service_and_application_view.html).
 * See how a specific service communicates with the other service using the [Service Map](service_map.html).
