@@ -168,14 +168,6 @@ Create an alert from the application status page:
 1. Navigate to the app map, table view, or grid view:
     <table style = "width: 100;">
       <tr>
-        <td markdown ="span">
-          **App map view**: <br/>Click on a service > **Create Alert**.
-        </td>
-        <td markdown ="span" width="40%">
-          ![A screenshot of how to click create alert as explained in the step](images/tracing_app_map_create_alert.png)
-        </td>
-      </tr>
-      <tr>
         <td markdown="span">
           **Table view**: <br/>Click the vertical ellipsis > **Create Alert**.
 
@@ -221,11 +213,6 @@ When you notice that a service on the application map, table view, or grid view 
 
 {% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values. If your traces and logs tags don't match, to map the traces tags to logs tags, see [Customize Logs Settings](logging_logs_settings.html)."%}
 
-* **From the Map View**
-  1. Select the time window of interest.
-  1. Click the service on the application map.
-  1. Select **View Logs**.
-  ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
 * **From the Table View**
   1. Select the time window of interest.
   1. Click the ellipsis for the service.
