@@ -1,5 +1,5 @@
 ---
-title: Integrations Supported for Onboarded Subscriptions
+title: Integrations Supported for VMware Cloud Services Subscriptions
 keywords: integrations
 tags: 
 sidebar: doc_sidebar
@@ -55,7 +55,7 @@ The following integrations are working as expected no matter whether your Operat
 * [Operations for Applications Usage Integration](wavefront_monitoring.html)
 
 
-## Integrations Supported for Onboarded Subscriptions
+## Integrations Supported for VMware Cloud Services Subscriptions
 
 For best performance, when you configure most of our integrations it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. When your Operations for Applications service **is onboarded** to the VMware Cloud services platform you have two choices for the proxy authentication:
 

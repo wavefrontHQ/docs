@@ -11,7 +11,16 @@ summary: Learn how to filter and explore logs in the Logs Browser.
 
 If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Logs Browser to troubleshoot your issues.
 
-{% include note.html content="Only users with the [**Logs** permission](permissions_overview.html) can view the Logs Browser."%}
+{{site.data.alerts.note}}
+<ul>
+  <li markdown="span">
+    Only users with the <a href="permissions_overview.html"><b>Logs</b> permission</a> can view the Logs Browser.
+  </li>
+  <li>
+    Our service does not support logs ingestion for the OpenTelemetry Protocol.
+  </li>
+</ul>
+{{site.data.alerts.end}}
 
 ## Get Started with the Logs Browser
 

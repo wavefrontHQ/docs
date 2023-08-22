@@ -11,24 +11,27 @@ summary: Create server to server apps and grant them access to VMware Aria Opera
 
 VMware Cloud services supports server to server apps that you can use to automate management of Operations for Applications objects, such as dashboards, alerts, etc. A server to server app can't perform the **UI operations** that all user accounts can [perform by default](csp_permissions_overview.html#default-tasks).
 
+You can also use a server to server app for a [Wavefront proxy authentication](proxies_installing.html#proxy-authentication-types). For example, see our [Windows Host Integration Tutorial](windows_host_tutorial.html), which includes installing a Wavefront proxy with server to server OAuth app credentials.
+
 {% include note.html content="A server to server app must hold roles with certain [permissions](csp_permissions_overview.html#operations-for-applications-permissions) to perform tasks. To run queries, a server to server app must hold the [**Metrics** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with the **Metrics** permission. To manage dashboards and alerts, the server to server app might need both roles with permissions and [access](csp_access.html)." %}
 
 ## What Are Server to Server Apps?
 
 Server to server apps are used for automating management tasks. 
 
-* A server to server app uses **OAuth 2.0 client credentials** to authenticate. Access tokens are issued directly to the application.
+* A server to server app has **OAuth 2.0 client credentials**, which can be exchanged to a VMware Cloud services access token.
 * A server to server app can be assigned with organization roles, service roles, and custom roles.
 
   {% include note.html content="You must explicitly grant each server to server app only the role with the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for server to server app are always very limited." %}
 * A server to server app can be used in multiple organizations. The owner of a server to server app is the organization in which it was created.
-* A server to server app in VMware Cloud services corresponds to a service account in Operations for Applications.
+
+{% include note.html content="Operations for Applications includes an internal **Service Accounts** system group, where any server to server app with access to the service is added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## How Server to Server Apps Work
 
-{% include note.html content="To manage server to server apps, you must hold either the VMware Cloud **Organization Owner** role or the VMware Cloud **Developer** additional role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation." %}
+{% include note.html content="To manage server to server apps, you must hold either the VMware Cloud **Organization Owner** role or any other organization role paired with the **Developer** additional role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation." %}
 
-If you build an application or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API with an access token. Here's how it works:
+If you build an application or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API with a VMware Cloud services access token. Here's how it works:
 
 1. Create a server to server app in VMware Cloud services. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 1. Assign the server to server app with one or more [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance.
@@ -51,3 +54,4 @@ If you build an application or tool that manages proxies or ingests data, then t
 
 After you create a server to server app, you can change its roles, share it with other VMware Cloud organizations, and delete it when no longer need it.
 
+{% include important.html content="If you regenerate the app secret, the access token expires and cannot be reissued. You must update your scripts with the new app secret." %}

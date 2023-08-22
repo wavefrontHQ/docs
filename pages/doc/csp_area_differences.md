@@ -1,19 +1,19 @@
 ---
-title: Differences Between Original and Onboarded Subscriptions
+title: Differences Between Original and VMware Cloud Services Subscriptions
 keywords: 
 tags: [introduction]
 sidebar: doc_sidebar
 permalink: csp-differences-by-area.html
-summary: Learn about the differences in the UI of VMware Aria Operations for Applications onboarded and original subscriptions.
+summary: Learn about the functionality differences between VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
 ---
 
 Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud Services subscriptions.
 
-## Examples of the Differences Between Original and Onboarded Subscriptions
+## Examples of the Functionality Differences 
 
 ### Users, Roles and Group Management
 
-Most of the user and account management tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for onboarded subscriptions. For example, the tasks related to user, roles and groups management:
+Most of the user and account management tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for VMware Cloud services subscriptions. For example, the tasks related to user, roles and groups management:
 
   * Invite new users
   * Assign permissions
@@ -26,7 +26,9 @@ Most of the user and account management tasks done in the Operations for Applica
 
 ### Admin Tasks
 
-Some administrative tasks done by Super Admins, or users with the **Accounts** permission in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for onboarded subscriptions. Others can be still done in the Operations for Applications UI for onboarded subscriptions. Also, there can be changes in the required roles. 
+Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners**, VMware Cloud **Organization Administrators** in VMware Cloud services subscriptions. Others can be done by Operations for Applications **Admins** in the Operations for Applications UI.
+
+With the 2023-XX release, we introduce a new **Admin** service role, which partially corresponds to the **Accounts** permission for original subscriptions. Users with the **Admin** service role can restrict access to new dashboards and alerts and can also set the organization settings. For example, they can restrict the access to the object creator only and set default settings, such as display settings, PromQL support, default way of building queries, and define Logs settings. 
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
@@ -41,13 +43,13 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 <td>
 <ul>
 <li><strong>Who:</strong> Operations for Applications Super Admin</li>
-<li><strong>Where:</strong> In the Operations for Applications UI</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
-<li><strong>Where:</strong> In the VMware Cloud Services Console</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 </tr>
@@ -57,13 +59,13 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 <td>
 <ul>
 <li><strong>Who:</strong> Operations for Applications Super Admin</li>
-<li><strong>Where:</strong> In the Operations for Applications UI</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> VMware Cloud Organization Owner</li>
-<li><strong>Where:</strong> In the VMware Cloud Services Console</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
+<li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 </tr>
@@ -94,7 +96,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -110,7 +112,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -126,7 +128,7 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -136,26 +138,24 @@ Some administrative tasks done by Super Admins, or users with the **Accounts** p
 
 ### REST API Access
 
-For original subscriptions using the Operations for Applications REST API, requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API tokens** permission. 
+For original subscriptions, using the Operations for Applications REST API requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API Tokens** permission. To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
 
-To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
-
-When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such as token, you can:
+When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such a token, you can:
 
 * Generate a VMware Cloud services API token associated with your user account and exchange it for an access token.
 
   ![A graphic showing information how to generate API token for the user account for onboarded and original subscriptions.](images/csp-api-token-user.png)
 
-* Use a server to server app (which is the equivalent of a service account), obtain the OAuth credentials, such as ID and secret, associated with the server to server app and exchange them for an access token.
+* Create a server to server app (which is the equivalent of a service account), obtain its OAuth credentials (app ID and app secret), and exchange them for an access token.
 
    ![A graphic showing information how to generate API token for a service account or server to server app  for onboarded and original subscriptions.](images/csp-api-token-apps.png)
 
-## In-Depth Explanation of the Differences by Area
+## In-Depth Explanation of the Functionality Differences
 
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="22%">Area</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
+<tr><th width="22%">Functionality</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
 </thead>
 <tr>
 <td>User Login
@@ -168,9 +168,13 @@ When your service is onboarded to VMware Cloud services and you want to access t
 <tr>
 <td>Permissions
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because all of the authorization and authentication tasks requiring these permissions are done in the Operations for Applications UI. See the <a href="permissions_overview.html">Permissions Reference</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because they are required for all of the authorization and authentication tasks which are done in the Operations for Applications IU.
+<p>In addition, the <strong>Accounts</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
+See the <a href="permissions_overview.html">Permissions Reference</a>.
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because all of the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console. See the <a href="csp_users_roles.html">Operations for Applications Permissions in VMware Cloud Services</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console.
+<p>The new <strong>Admin</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
+See the <a href="csp_permissions_overview.html">Operations for Applications Permissions in VMware Cloud Services</a>.
 </td>
 </tr>
 <tr>
@@ -232,7 +236,7 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <td>
 <strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> role or the <strong>Developer</strong> additional role.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p><strong>How</strong>: Server to server OAuth apps in VMware Cloud services correspond to service accounts in Operations for Applications. A server to server app authenticates with OAuth credentials (ID and secret) and an access token is directly issued to the app. To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
+<p><strong>How</strong>: Server to server OAuth apps in VMware Cloud services correspond to service accounts in Operations for Applications. A server to server app authenticates with a VMware Cloud services access token that can be exchanged from its OAuth credentials (app ID and app secret). To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
 <ol><li>An organization role for the VMware Cloud organization running the service.</li>
 <li>An Operations for Applications service role for your service instance.</li>
 <li>Optionally, a custom role with an Operations for Applications permission. A custom role applies to all service instances for which the server to server app has an Operations for Applications service role.</li></ol>
@@ -327,13 +331,13 @@ Each API token inherits the permissions of its associated user or service accoun
 </ul></p>
 </td>
 <td>
-<strong>Who</strong>: Users with the <strong>Super Admin</strong> Operations for Applications service role and Super Admin mode enabled.
+<strong>Who</strong>: Users with the <strong>Admin</strong> Operations for Applications service role.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: As a user with the <strong>Super Admin</strong> service role, you can configure:
+<p><strong>How</strong>: As a user with the <strong>Admin</strong> service role, you can configure:
 <ul>
 <li>Default display settings for new accounts, such as getting started progress and default dashboard display.</li>
 <li>Default query language preferences and optionally, allow users to write queries in PromQL. For details, see <a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a>.</li>
-<li>Logs settings, if Logs (Beta) is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
+<li>Logs settings, if Logs is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
 <li>Access to newly created dashboards and alerts. For details, see <a href="csp_access.html">Managing Access to Dashboards and Alerts</a></li>
 </ul></p>
 </td>
@@ -377,7 +381,7 @@ For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rul
 </td>
 <td>All integrations are still supported. See the <a href="label_integrations%20list.html">List of Integrations</a>.
 </td>
-<td>You still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.
+<td>You still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for VMware Cloud Services Subscriptions</a>.
 </td>
 </tr>
 </tbody>
