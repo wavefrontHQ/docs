@@ -118,11 +118,11 @@ The invitations you send are valid for seven days. You can view the status of th
 
 ## Invite a New User and Assign a Custom Role
 
-If you have created custom roles and want to assign only a custom roles to a user, you must make sure that you assign:
+If you have created custom roles and want to assign only custom roles to a user, you must make sure that you assign:
 
 * A mandatory organization role
 * At least one service role, for example **Viewer**
-* The custom role of interest
+* The custom roles of interest
 
 Custom roles work only in combination with service roles. The Operations for Applications permissions in a custom role apply to all service instances (tenants) for which the user has at least one Operations for Applications service role. 
 
@@ -136,29 +136,38 @@ Custom roles work only in combination with service roles. The Operations for App
 
 ### Step 2: Assign the Roles and Invite the User
 
-Let's assign the **Organization Administrator** mandatory service role, then assign the **Viewer** service role, and after that assign the custom role. In a multi-tenant environment, the service and custom roles apply to a selected tenant (Operations for Applications instance).
+Let's assign the **Organization Administrator** mandatory service role, then assign the **Viewer** service role for a couple of tenants, and after that assign the custom role. In a multi-tenant environment, the service and custom roles apply to a selected tenant (Operations for Applications instance).
 
 1. Under mandatory roles, select the **Organization Administrator** role.
 
    ![A screenshot with the Organization Administrator role selected.](images/csp-assign-org-admin.png)
 
-2. Assign the Operations for Applications service role for a specific Operations for Applications service instance.
+2. Assign the **Viewer** service role for a specific Operations for Applications service instance.
    1. Click **Add a service**.
    1. From the drop-down menu, select **VMware Aria Operations for Applications**.
       ![A screenshot with the Operations for Applications service selected.](images/csp-select-service.png)
    1. From the **in** drop-down menu, select the service instance to which you want to invite the new user and leave the **Viewer** service role selected so that you assign it to the user.
       ![A screenshot with the Operations for Applications service instance  and the Viewer role selected.](images/csp-select-aoa-service-viewer.png)
    1. Leave the never expires access field as is.
+3. Assign the **Viewer** and the **Ingestion Policies** service roles for another Operations for Applications service instance.
+   1. Click **+Add an instance**.
+   1. From the **in** drop-down menu, select the other service instance to which you want to invite the new user.
+   1. Select the **Viewer** and the **Ingestion Policies** service roles to assign them to the user.
+      ![A screenshot with the Operations for Applications service instance and the Viewer and the Ingestion Policies service roles selected.](images/csp-assign-two-service-roles.png)
+   1. Leave the never expires access field as is.
 
 3. Assign the custom role to the user.
 
-   The custom role is assigned for the already selected Operations for Applications service instance.
+   The custom role is assigned for the already selected Operations for Applications service instances.
 
    1. Click **+ Add Custom Roles Access**.
-   1. In the **Add custom role access** popup window, search for and select the role that you want to assign.
-      ![A screenshot of the popup window and the Operations for Applications custom role selected.](images/csp-add-custom-role.png)
-   1. Click **Add**.
+   1. In the **Add custom role access** popup window, search for, select the custom role that you want to assign, and click **Add**.   
    1. Leave the never expires access field as is.
+   
+   The custom role will be assigned to the user for the two tenants that we have already specified as shown in the screenshot below.
+
+   ![A screenshot with the added custom role](images/csp-add-custom-role.png)
+
 4. Leave the **Send emails to all invited users notifying them of this role assignment** selected and click **Add**.
 
 
