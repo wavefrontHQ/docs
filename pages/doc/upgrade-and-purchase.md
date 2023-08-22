@@ -9,6 +9,8 @@ summary: Learn how to upgrade from a trial version and purchase the service.
 
 When you register for the [trial version](start_trial.html) of VMware Aria Operations for Applications, your trial expires after 30 days. One of the options that we offer to users with the [VMware Cloud **Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) is to purchase the service by themselves. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option.
 
+After the upgrade, you will be able to sign up for a free trial of our logs feature. See [Get Started with Logs](logging_overview.html).
+
 ## Commit Contracts
 
 Operations for Applications commit contracts are two types:

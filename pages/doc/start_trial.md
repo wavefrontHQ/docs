@@ -56,3 +56,9 @@ VMware Cloud services provides provides single sign-on (SSO) and identity access
    You are redirected to the Operations for Applications GUI. You are logged with your VMware account.
    
    Initially, you have only the [**Viewer** Operations for Applications service role](csp_users_roles.html#manage-roles) but, as a VMware Cloud **Organization Owner**, you can change your roles. You can also add users to your service. See [Manage User Accounts](csp_user_management.html) for details.
+
+## Learn More!
+* [Get Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
+* See the list of [integrations supported for Operations for Applications subscriptions on VMware Cloud services](integrations_onboarded_subscriptions.html).
+* Try out the [Windows Host Integration Tutorial](windows_host_tutorial.html).
+* Find more [learning resources](tutorial_overview.html).
