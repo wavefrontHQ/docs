@@ -207,7 +207,7 @@ You create a metrics security policy rule following these steps. See the annotat
 
 Here's an annotated screenshot that shows the main actions:
 
-![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
+![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/csp_metrics_s_edit_rule.png)
 
 
 
