@@ -161,7 +161,7 @@ Let's walk through the following scenario and get a quick overview of the applic
 </tbody>
 </table>
 
-## Learn Mora!
+## Learn More!
 
 * [Learn how you can monitor your application using eBPF or tracing](application_monitoring_overview.html).
 * View the services on the [Service and Application View page](service_and_application_view.html).

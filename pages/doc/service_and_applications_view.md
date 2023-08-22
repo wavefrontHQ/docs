@@ -231,7 +231,7 @@ The Logs Browser opens in a new tab with the following configurations:
 ![The search query and the selected time window in the Logs Browser.](images/logging_app_serv_search.png)
 
 
-## Learn Mora!
+## Learn More!
 
 * [Learn how you can monitor your application using eBPF or tracing](application_monitoring_overview.html).
 * See how a specific service communicates with the other service using the [Service Map](service_map.html).
