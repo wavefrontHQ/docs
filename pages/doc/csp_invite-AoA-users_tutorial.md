@@ -84,7 +84,7 @@ In a multi-tenant environment, you can assign different service roles for each O
    ![A screenshot with the Organization Member role, selected by default and the Support user additional role selected.](images/csp-mandatory-roles.png)
 
 2. Assign Operations for Applications service roles for the first Operations for Applications instance.
-   1. Click **Add a service**.
+   1. Click **Add a Service**.
    1. From the drop-down menu, select **VMware Aria Operations for Applications**.
       ![A screenshot with the Operations for Applications service selected.](images/csp-select-service.png)
    1. From the **in** drop-down menu, select the service instance to which you want to invite the new user.
@@ -105,7 +105,7 @@ In a multi-tenant environment, you can assign different service roles for each O
 
 3. Assign the **Super Admin** service role for another Operations for Applications instance.
    
-   1. Click **+ Add an instance**.
+   1. Click **+ Add an Instance**.
    1. From the **in** drop-down menu, select the other service instance to which you want to invite the new user.
       ![A screenshot with the Operations for Applications service instance selected.](images/csp-select-another-service.png)
    1. Assign the **Super Admin** service role to the user.
@@ -118,7 +118,7 @@ The invitations you send are valid for seven days. You can view the status of th
 
 ## Invite a New User and Assign a Custom Role
 
-If you have created custom roles and want to assign only custom roles to a user, you must make sure that you assign:
+If you have created custom roles and want to assign custom roles to a user, you must make sure that you assign:
 
 * A mandatory organization role
 * At least one service role, for example **Viewer**
@@ -136,23 +136,23 @@ Custom roles work only in combination with service roles. The Operations for App
 
 ### Step 2: Assign the Roles and Invite the User
 
-Let's assign the **Organization Administrator** mandatory service role, then assign the **Viewer** service role for a couple of tenants, and after that assign the custom role. In a multi-tenant environment, the service and custom roles apply to a selected tenant (Operations for Applications instance).
+Let's assign **Organization Administrator** as a mandatory organization role, then assign the **Viewer** service role to one tenant and the **Ingestion Policies** role to another tenant. After that we will assign the custom role. 
 
 1. Under mandatory roles, select the **Organization Administrator** role.
 
    ![A screenshot with the Organization Administrator role selected.](images/csp-assign-org-admin.png)
 
 2. Assign the **Viewer** service role for a specific Operations for Applications service instance.
-   1. Click **Add a service**.
+   1. Click **Add a Service**.
    1. From the drop-down menu, select **VMware Aria Operations for Applications**.
       ![A screenshot with the Operations for Applications service selected.](images/csp-select-service.png)
    1. From the **in** drop-down menu, select the service instance to which you want to invite the new user and leave the **Viewer** service role selected so that you assign it to the user.
       ![A screenshot with the Operations for Applications service instance  and the Viewer role selected.](images/csp-select-aoa-service-viewer.png)
    1. Leave the never expires access field as is.
-3. Assign the **Viewer** and the **Ingestion Policies** service roles for another Operations for Applications service instance.
-   1. Click **+Add an instance**.
+3. Assign the **Ingestion Policies** service role for another Operations for Applications service instance.
+   1. Click **+Add an Instance**.
    1. From the **in** drop-down menu, select the other service instance to which you want to invite the new user.
-   1. Select the **Viewer** and the **Ingestion Policies** service roles to assign them to the user.
+   1. Select the **Ingestion Policies** service role to assign it to the user.
       ![A screenshot with the Operations for Applications service instance and the Viewer and the Ingestion Policies service roles selected.](images/csp-assign-two-service-roles.png)
    1. Leave the never expires access field as is.
 
