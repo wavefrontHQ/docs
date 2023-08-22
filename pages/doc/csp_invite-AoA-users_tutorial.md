@@ -13,7 +13,7 @@ Starting July 3, 2023, Operations for Applications is a service on the VMware Cl
 
 In this tutorial, you’ll learn how to invite new users to Operations for Applications through the VMware Cloud Services Console.
 
-## Required Permissions
+## Requirements
 
 When your service **is onboarded** to VMware Cloud services, all new users are invited through the VMware Cloud Services Console. 
 
@@ -26,13 +26,13 @@ When you invite new users, you must assign them:
 
 * A role within the VMware Cloud organization, such as **Organization Administrator**, **Organization Owner**, or **Organization Member**. 
     
-  Note than only if you have the **Organization Owner** role, you can assign the **Organization Owner** role to another user.
+  Note that you can assign the **Organization Owner** role to another user only if you have the **Organization Owner** role.
 
-* A role within the Operations for Applications service. 
+* A role within the Operations for Applications service instance. 
 
 Optionally, you can also assign a custom role created in the VMware Cloud organization. Custom roles are composed of different service permissions.
 
-## Invite a New User and Assign Service Roles
+## Verify That You Have the Required Organization Role
 
 ### Step 1: Log in to the VMware Cloud Services Console
 
@@ -47,7 +47,23 @@ VMware Cloud uses organizations to provide controlled access to one or more serv
 1. Click your username and click **Change Organization**.
 2. Select the name of the organization to which Operations for Applications is **onboarded**. 
 
-### Step 3: Enter the New User Details
+### Step 3: Find Your Roles Within the Organization
+
+1. Click your username and click **My Account**.
+2. On the **My Roles** tab you can see what organization roles are assigned to you.
+
+If do not have the VMware Cloud **Organization Owner** or **Organization Administrator** role assigned, you need to request them. To understand who the VMware Cloud **Organization Owner** or **Organization Administrator** users are, you can chat with VMware Support or file a VMware Cloud services support request. See [How do I get support](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E4DC731F-C039-4FB2-949E-9A61584CD5BF.html) in the VMware Cloud services product documentation.
+
+## Invite a New User and Assign Service Roles Only
+
+We provide a number of built-in Operations for Applications service roles.
+
+- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
+- Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service.
+
+For more information, see [Operations for Applications Service Roles (Built-in)](csp_users_roles.html#operations-for-applications-service-roles-built-in).
+
+### Step 1: Enter the New User Details
 
 1. Click **Identity & Access Management** in the navigation on the left and click **Active Users**.
 2. Click the **Add Users** button on top of the table.
@@ -55,7 +71,7 @@ VMware Cloud uses organizations to provide controlled access to one or more serv
    
    The email addresses or account names of the users must be delimited by comma, space, or a new line.
 
-### Step 4: Assign Roles and Invite the User
+### Step 2: Assign Roles and Invite the User
 
 In a multi-tenant environment, you can assign different service roles for each Operations for Applications instance. Let's first assign the mandatory organization role and then we will assign different service roles for two Operations for Applications instances. 
 
@@ -100,4 +116,50 @@ In a multi-tenant environment, you can assign different service roles for each O
 
 The invitations you send are valid for seven days. You can view the status of the invitation by expanding **Identity & Access Management** and then clicking **Pending Invitations**.
 
-{% include note.html content="If you have created custom roles and want to assign only custom roles to the user for a particular Operations to Applications service instance, you must make sure that you also assign at least one Operations to Applications service role for the instance. For example, the **Viewer** service role." %}
+## Invite a New User and Assign a Custom Role
+
+If you have created custom roles and want to assign only a custom roles to a user, you must make sure that you assign:
+
+* A mandatory organization role
+* At least one service role, for example **Viewer**
+* The custom role of interest
+
+Custom roles work only in combination with service roles. The Operations for Applications permissions in a custom role apply to all service instances (tenants) for which the user has at least one Operations for Applications service role. 
+
+### Step 1: Enter the New User Details
+
+1. Click **Identity & Access Management** in the navigation on the left and click **Active Users**.
+2. Click the **Add Users** button on top of the table.
+3. In the **Users** text box, enter the email addresses of the users that you want to invite.
+   
+   The email addresses or account names of the users must be delimited by comma, space, or a new line.
+
+### Step 2: Assign the Roles and Invite the User
+
+Let's assign the **Organization Administrator** mandatory service role, then assign the **Viewer** service role, and after that assign the custom role. In a multi-tenant environment, the service and custom roles apply to a selected tenant (Operations for Applications instance).
+
+1. Under mandatory roles, select the **Organization Administrator** role.
+
+   ![A screenshot with the Organization Administrator role selected.](images/csp-assign-org-admin.png)
+
+2. Assign the Operations for Applications service role for a specific Operations for Applications service instance.
+   1. Click **Add a service**.
+   1. From the drop-down menu, select **VMware Aria Operations for Applications**.
+      ![A screenshot with the Operations for Applications service selected.](images/csp-select-service.png)
+   1. From the **in** drop-down menu, select the service instance to which you want to invite the new user and leave the **Viewer** service role selected so that you assign it to the user.
+      ![A screenshot with the Operations for Applications service instance  and the Viewer role selected.](images/csp-select-aoa-service-viewer.png)
+   1. Leave the never expires access field as is.
+
+3. Assign the custom role to the user.
+
+   The custom role is assigned for the already selected Operations for Applications service instance.
+
+   1. Click **+ Add Custom Roles Access**.
+   1. In the **Add custom role access** popup window, search for and select the role that you want to assign.
+      ![A screenshot of the popup window and the Operations for Applications custom role selected.](images/csp-add-custom-role.png)
+   1. Click **Add**.
+   1. Leave the never expires access field as is.
+4. Leave the **Send emails to all invited users notifying them of this role assignment** selected and click **Add**.
+
+
+The invitations you send are valid for seven days. You can view the status of the invitation by expanding **Identity & Access Management** and then clicking **Pending Invitations**.
