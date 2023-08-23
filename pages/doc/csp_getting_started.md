@@ -9,7 +9,7 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 
 {% include note.html content="After July 3, 2023, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to VMware Cloud services and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
 
-{% include note.html content="Starting August XX, 2023, all [**new trial**](start_trial.html) instances of Operations for Applications are **onboarded** to VMware Cloud services."%}
+{% include note.html content="Starting September 7, 2023, all [**new trial**](start_trial.html) instances of Operations for Applications are **onboarded** to VMware Cloud services."%}
 
 VMware Cloud services provides features to your Operations for Applications environment, such as:
 - Single sign-on (SSO) with VMware Cloud services accounts.
