@@ -26,6 +26,12 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
 
+## 2023-34.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+* **Kubernetes Alerts Templates** - with this release, we have included alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
+
 ## 2023-33.x Release Notes
 
 ### Original and Onboarded Subscriptions
@@ -94,47 +100,12 @@ For information about the two subscription types and how they differ, see [Subsc
 * **Support for Tanzu Application Service Integration Setup**: We added support for setting up the Tanzu Application Service integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
 
 
-## 2023-29.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-*  **Google Cloud Platform Integration Improvements**: You can now select to ingest histogram metrics as well as filter these metrics by their Google Cloud Platform grouping function. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
-
-* **Documentation Improvement**: We have added a new [documentation page](integrations_gcp_api.html) which explains how to set up the Google Cloud Platform integration by using our REST API.
-
-## 2023-27.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-**Monitor Google Cloud Run**: You can monitor Google Cloud Run metrics. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
-
-### Original Subscriptions Only
-
-**Service Accounts Improvement**: With this release, [service accounts](service-accounts.html) can create and modify ingestion policies when they have the **Ingestion Policies** permission. 
-
-## 2023-25.x Release Notes
-
-* **Wavefront Proxy Release**: We’ve just released [Wavefront proxy 13](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports sending data to Operations for Applications subscriptions **onboarded** to VMware Cloud Services by using a VMware Cloud services access token.
-* **New Fields in the Generic Webhook Alert Template**: We added two new fields to the Generic Webhook notification template which allow you to extract information about the filter-by and group-by keys. For information and examples, see [Extract Information About the Filter-by and Group-by Keys](alert_target_customizing.html#extract-information-about-the-filter-by-and-group-by-keys).
-
-## 2023-20.x Release Notes
-
-**The Group By Parameter Is Case-Sensitive**: With this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For more information and details, see [Aggregation Functions](query_language_reference.html#aggregation-functions) and [Tags Overview](tags_overview.html#tags-basics).
-
-## 2023-18.x Release Notes
-
-* **Upcoming Metrics Obsolescence Period Changes**: Within the next releases we will change the [metrics obsolescence period](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) from **28 days** to **14 days**. This change will further improve your query performance. Here's what you have to do: 
-  * If you are querying for a time series that has not reported points within the last **14 days**, you must select to [Include Obsolete Metrics](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) for your [charts](https://docs.wavefront.com/ui_charts.html#include-metrics-that-stopped-reporting) or [dashboards](https://docs.wavefront.com/ui_dashboards.html#set-dashboard-display-preferences-and-settings). 
-  * If the data you are querying for does have data points within the last **14 days**, you do not need to do anything.
-
-  If you have any questions or concerns, please do not hesitate to [contact us](mailto:support@wavefront.com).
-
-* **Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
 
 
 
 
 ## Past Release Notes
+- [2023-29.x Release Notes](2023-29.x_release_notes.html)
 - [2023-13.x Release Notes](2023-13.x_release_notes.html)
 - [2023-06.x Release Notes](2023-06.x_release_notes.html)
 - [2022-49.x Release Notes](2022-49.x_release_notes.html)

@@ -172,6 +172,14 @@ The out-of-the-box dashboards:
     </td>
   </tr>
   <tr>
+  <tr>
+    <td width="20%" markdown="span">
+      **Kubernetes Workloads Troubleshooting**
+    </td>
+    <td width="80%">
+       Monitor and troubleshoot the Kubernetes workloads.
+    </td>
+  </tr>
     <td width="20%" markdown="span">
       **Kubernetes Summary**
     </td>

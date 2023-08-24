@@ -23,8 +23,23 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 We made improvements to the following integrations in August 2023:
 
+* vSphere - Updated the chart in the **vSphere: VM Details** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+
+* Tanzu Service Mesh - Updated the chart in the **Tanzu Service Mesh: Workload Summary** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+
+
+* Velero  - Added setup instructions to the integration. To see how to set up the Velero integration:
+
+  1. Log in to your service instance.
+  2. Click **Integrations** on the toolbar.
+  3. Search for **Velero** and click its tile.
+  4. Click the **Setup** tab.
+
 * Tanzu Application Service - We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+
 * Kubernetes:
+  * We added [new alerts templates](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/alerts/alerts.md).
+  * We added a new dashboard **Kubernetes Workloads Troubleshooting** which allows you to monitor the health of the Kubernetes workloads.
   * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
   * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
 
