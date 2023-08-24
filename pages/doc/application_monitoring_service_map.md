@@ -4,20 +4,21 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: service_map.html
-summary: Overview of how a specific service communicates with the other services in the application.
+summary: Understand how a specific service communicates with the other services in the application.
 ---
 
 {% include important.html content="This feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 
-When you troubleshoot an application, you need an overview of how a service communicates with the other services. The Service map helps you visualize this information.
+When you troubleshoot an application, you might need an overview of how a service communicates with the other services. The Service map helps you visualize this information.
+
+{% include note.html content="If you are using eBPF, you don't send traces to our service. Therefore, you don't see the option to drill down to the Traces Browser." %}
 
 ## Service Map Features
 
-The service map lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic for that service. You can also drill down to the Service Dashboard and Tracing Browser.
+The service map lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic for that service. You can also drill down to the Service Dashboard and Traces Browser.
 
-
-See the service map:
+To open the service map:
 1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Service and Applications**.
     1. Table view: Click **Service Map** for a specific service.
@@ -31,7 +32,7 @@ Let's walk through the following scenario and get a quick overview of the applic
 <tbody>
   <tr>
     <td width="55%">
-      Click the dropdown next to <b>Operation</b>, select the service you want to see on the map, and click <b>Search</b>.<br/>
+      Next to <b>Operation</b>, click the drop-down menu, select the service you want to see on the map, and click <b>Search</b>.<br/>
 
       You can refine your search by applying one or more filters, such as the cluster, shard, or span.kind.
 
@@ -40,6 +41,32 @@ Let's walk through the following scenario and get a quick overview of the applic
       </td>
     <td width="45%"><img src="/images/service_map_add_services.png" alt="Search for the beachshirts application using tags"/>
     <a name="appmap"></a>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+### Update the Legend
+
+<table style="width: 100%;">
+<tbody>
+  <tr>
+    <td>
+      Click the settings icon and select Apdex, Error, or Duration. These settings can be configured by each user.
+      <ul>
+        <li>
+          Error Percentage: Update the legend to highlight the data based on the error percentage. Select <b>Error 	&#37;</b> from the dropdown and customize the values. The values need to be in ascending order.
+        </li>
+        <li>
+          Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
+        </li>
+        <li>
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
+        </li>
+      </ul>
+    </td>
+    <td markdown="span">
+      ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_legend_settings_app_map.png)
     </td>
   </tr>
 </tbody>
@@ -131,32 +158,6 @@ Let's walk through the following scenario and get a quick overview of the applic
         </ul>
       </td>
     <td><img src="/images/service_map_tracing_traffic.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
-  </tr>
-</tbody>
-</table>
-
-### Update the Legend
-
-<table style="width: 100%;">
-<tbody>
-  <tr>
-    <td>
-      Click the settings icon and select Apdex, Error, or Duration. These settings can be configured by each user.
-      <ul>
-        <li>
-          Error Percentage: Update the legend to highlight the data based on the error percentage. Select <b>Error 	&#37;</b> from the dropdown and customize the values. The values need to be in ascending order.
-        </li>
-        <li>
-          Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
-        </li>
-        <li>
-          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
-        </li>
-      </ul>
-    </td>
-    <td markdown="span">
-      ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_legend_settings_app_map.png)
-    </td>
   </tr>
 </tbody>
 </table>

@@ -10,7 +10,11 @@ summary: Learn how you can monitor your application using eBPF or tracing.
 
 You can auto-discover and monitor your applications that run on a Kubernetes cluster or monitor your applications and services through the traces and spans sent to our service. 
 
-You must first select how you want to send data to our service based on where the application runs or how you have configured your application. 
+## Select How You Send Data
+
+You must first select how you want to send data to our service based on where the application runs or how you have configured your application.
+
+![A screenshot of applications onboarding screen.](images/monitor_applications_onboarding.png)
 
 ## Monitor Applications Running on Kubernetes
 
