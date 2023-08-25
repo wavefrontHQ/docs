@@ -6,18 +6,34 @@ sidebar: doc_sidebar
 permalink: sources_managing.html
 summary: Learn about sources and how to manage them.
 ---
-In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), a **source** is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of an [Operations for Applications data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from [AWS Cloud Watch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
 
-* To view and manage sources, select **Browse > Sources**.
+In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), a **source** is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of an [Operations for Applications data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from the [AWS CloudWatch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
+
+* To view and manage sources, click **Browse > Sources** on the toolbar.
 * To filter and group in charts, use the Wavefront Query Language. You can filter by source and [filter and group by source tags](tags_overview.html#source-tags).
 
 {% include shared/permissions.html entity="sources" entitymgmt="Source Tag" %}
 
 ## Examine Sources in the Source Browser
 
-If you don't see metrics in charts that filter by source, you can examine sources in the Source browser.
+If you don't see metrics in charts that filter by source, you can examine sources in the Sources browser.
 
-{% include note.html content="The Sources browser doesn't filter out the obsolete sources." %}
+{% include note.html content="The Sources browser doesn't filter out the obsolete sources." %}  
+
+![An annotated screenshot of the sources browser, where what you can do is listed in the bullet list bellow.](/images/sources-browser-page.png)
+
+On the Sources browser, you can:
+
+* Search for and apply filters to the sources so that you can narrow down the results.
+* Share, save, and clear search results.
+* Browse through a list of saved searches.
+* Hide or show the filters and the saved searches list displayed on the left by clicking the **Filters** button.
+* Show the details for all sources by turning on the **Expand All** toggle. By default, this setting is turned off.
+* Show the details for a specific source by clicking the arrow next to the check box of the source.
+* Hide a single source or create a maintenance window for the alerts with a particular source by clicking the ellipsis icon and selecting the respective option from the menu.
+* Select the check boxes of multiple sources and delete them by clicking the **Delete** button.
+* Add or remove source tags.
+* Show or hide obsolete and hidden sources.
 
 ### Step 1: Find a Source
 
@@ -39,7 +55,7 @@ Filter sources by status.
 <tr>
 <td width="50%">
 <p>Filter sources by tag. In most environments, administrators add source tags. You can <a href="tags_overview.html#source-tags">add source tags</a> from the UI or programmatically.</p>
-<p>In the screenshot on the right, we've filtered by the tag wavefront.aws.billing and selected Recent Metrics (which shows as <strong>ok</strong> in the search bar).</p></td>
+<p>In the screenshot on the right, we've filtered by the tag `integration.linux`.</p></td>
 <td width="50%"><img src="/images/sources_tag_paths.png" alt="multiple tags for selection"></td>
 </tr>
 </tbody>
@@ -47,7 +63,7 @@ Filter sources by status.
 
 ### Step 2: Examine the Source
 
-When you select a source in the Sources browser, you can examinine it in more detail on a second page.
+When you select a source in the Sources browser, you can examine it in more details on a second page.
 
 
 ![Sources exploration page with 2 sources selected in left panel and charts created. Also highlighting point rate chart and Alerts Fired chart](/images/sources_exploration.png)
@@ -66,7 +82,7 @@ With more and more companies using dynamic services such as AWS, it's typical to
 <td width="50%">
 <strong>To hide one or more sources:</strong>
 <ol>
-<li>Select <strong>Browse > Sources</strong>.</li>
+<li>Click <strong>Browse > Sources</strong> on the toolbar.</li>
 <li>Select one or more sources and click <strong>Hide</strong>.</li></ol> </td>
 <td width="50%"><img src="/images/hide_sources.png" alt="hide sources"></td>
 </tr>
@@ -79,7 +95,7 @@ With more and more companies using dynamic services such as AWS, it's typical to
 <td width="50%">
 <strong>To view hidden sources</strong>
 <ol>
-<li>Select <strong>Browse > Sources</strong>.</li>
+<li>Click <strong>Browse > Sources</strong> on the toolbar.</li>
 <li>Use the toggle in the top right of the Sources browser.</li></ol> </td>
 <td width="50%"><img src="/images/show_hidden_sources.png" alt="show hidden sources"></td>
 </tr>
@@ -97,8 +113,8 @@ Source descriptions are a great way to add details, such as the role, availabili
 <td width="50%">
 <strong>To add or edit a source description:</strong>
 <ol>
-<li>Select <strong>Browse > Sources</strong>.</li>
-<li>Select a source.</li>
+<li>Click <strong>Browse > Sources</strong> on the toolbar.</li>
+<li>Click the name of the source you're interested in.<p>The page containing details about the source and charts such as <strong>Rate of Metrics Points</strong>, <strong>Alerts Fired</strong>, and so on opens.</p></li>
 <li>Click <strong>Add a Description</strong>.</li></ol>
 All users can now view the description. </td>
 <td width="50%"><img src="/images/add_source_description.png" alt="add a source description"></td>

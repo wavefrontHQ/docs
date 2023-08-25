@@ -31,6 +31,7 @@ The Observability for Kubernetes Operator makes it easy for you to monitor and m
 In addition to setting up the metrics flow, this integration also installs dashboards:
 
 * Kubernetes Status: Detailed health of your Kubernetes integration.
+* Kubernetes Workloads Troubleshooting: Internal stats of the Kubernetes workloads.
 * Kubernetes Summary: Detailed health of your infrastructure and workloads.
 * Kubernetes Clusters: Detailed health of your clusters and its nodes, namespaces, pods and containers.
 * Kubernetes Nodes: Detailed health of your nodes.
@@ -48,6 +49,11 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 {% include image.md src="images/db_kubernetes_pods.png" width="80" %}
 
+### Alerts
+
+The Kubernetes integration contains number of predefined alert templates.
+
+The latest alert templates (in Beta) which can help you monitor Kubernetes workload failures can be found in our [alerts documentation](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/alerts/alerts.md).
 
 ## Kubernetes Clusters Integrations
 

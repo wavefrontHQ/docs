@@ -26,6 +26,23 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
 
+## 2023-33.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+* **Alerts Improvements**: When the **Resolve Window** for an alert is deleted by using an external tool, in the Operations for Applications UI, the **Alert** will now properly display that the **Resolve Window** matches the **Trigger Window**.
+
+
+* **Sources Browser Page Improvements**: The [**Sources** browser page](sources_managing.html#examine-sources-in-the-source-browser) is now improved and allows you to:
+
+    * Hide and show details for all sources or for a specific source.
+    * Apply various filters, hide and show the filters listed on the left.
+    * Hide a single source or create a maintenance window for the alerts with a particular source.
+
+
+  In addition, the page on which you can [examine a single source](sources_managing.html#step-2-examine-the-source) is also improved for better user experience. 
+  
+
 ## 2023-31.x Release Notes
 
 ### Original and Onboarded Subscriptions
