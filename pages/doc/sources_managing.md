@@ -22,13 +22,12 @@ If you don't see metrics in charts that filter by source, you can examine source
 
 ![An annotated screenshot of the sources browser, where what you can do is listed in the bullet list bellow.](/images/sources-browser-page.png)
 
-On the Sources Browser, you can:
+On the Sources browser, you can:
 
 * Search for and apply filters to the sources so that you can narrow down the results.
 * Share, save, and clear search results.
 * Browse through a list of saved searches.
 * Hide or show the filters and the saved searches list displayed on the left by clicking the **Filters** button.
-* Sort the sources by name, status, CPU, and integrations, in descending or ascending order.
 * Show the details for all sources by turning on the **Expand All** toggle. By default, this setting is turned off.
 * Show the details for a specific source by clicking the arrow next to the check box of the source.
 * Hide a single source or create a maintenance window for the alerts with a particular source by clicking the ellipsis icon and selecting the respective option from the menu.

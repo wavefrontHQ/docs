@@ -10,10 +10,12 @@ summary: Get answers to the top frequently asked questions for VMware Aria Opera
 ## Do You Have Tutorials?
 
 Yes!
-* The [Integrations](hello_wavefront_aws_tutorial.html) tutorial has:
+* The [AWS Integration Tutorial](hello_wavefront_aws_tutorial.html) tutorial has:
   - Detailed step-by-step instructions for ingesting data from AWS
-  - A video about ingesting data from a Windows machine
   - Links to next steps
+* The [Windows Host Integration Tutorial](windows_host_tutorial.html) has:
+  - Detailed step-by-step instructions for ingesting data from a Windows host machine, when your Operations for Applications service **is onboarded** to VMware Cloud services.
+  - A video about ingesting data from a Windows machine when your Operations for Applications service is **not onboarded** to VMware Cloud services.
 * The [Explore Data Tutorial](tutorial_dashboards.html) gives step-by-step instructions for exploring a sample dashboard. You don't need special permissions follow these steps.
 * The [Query Language Tutorial](query_language_getting_started.html) explores the anatomy of a query, includes a few videos, and includes hands-on practice.
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) and the [Create Alerts Tutorial](alerts_manage.html#create-alert-tutorial) get you started with alerts.
