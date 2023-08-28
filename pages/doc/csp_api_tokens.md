@@ -1,5 +1,5 @@
 ---
-title: Manage Tokens
+title: Manage API Tokens and Access Tokens
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
@@ -7,22 +7,62 @@ permalink: csp_api_tokens.html
 summary: Learn how you can generate and manage API tokens in VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront).
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions subscribers. For **original** subscriptions, see [Manage API Tokens](api_tokens.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage API Tokens](api_tokens.html)."%}
 
-Invoking the [Operations for Applications REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**.
+Invoking the [Operations for Applications REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**. In a few cases, when setting up a proxy for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts), authentication with an **Operations for Applications API token** is also supported.
 
-Authentication with **Operations for Applications API tokens** is **restricted** to support only the proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts) that still authenticate with Operations for Applications API tokens.
+To obtain a VMware Cloud services token, you can use the VMware Cloud services REST API to exchange it from:
+* A VMware Cloud services API token associated with your user account.
+* The credentials of a server to server OAuth app associated with the VMware Cloud organization running the service.
 
-If you migrated from an original Operations for Applications subscription, you might have some legacy Operations for Applications API tokens that are supported for backward compatibility. It’s recommended that you gradually switch to authentication with the more secure VMware Cloud services access tokens.
+To obtain an Operations for Applications API token, you can create a service account and generate an API token associated with it.
 
-## What Are VMware Cloud Services Access Tokens?
+{% include note.html content="If you migrated from an original Operations for Applications subscription, for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts and service accounts. It’s recommended that you gradually switch to authentication with the more secure VMware Cloud services access tokens."%}
 
-## What Are VMware Cloud Services API Tokens?
+## Managing the VMware Cloud Services API Tokens for Your User Account
 
-## What Are VMware Cloud Services Server to Server OAuth Apps?
+If you want to make REST API calls on your own behalf, you must generate a VMware Cloud services API token associated with your user account and exchange it for an access token. See [Make API Calls by Using a User Account](using_wavefront_api.html#make-api-calls-by-using-a-user-account).
 
-## What Are Operations for Applications API Tokens?
+You can generate VMware Cloud services API tokens only for your user account. You must assign each API token with the minimum required subset of the roles that you own. The access tokens associated with an API token inherit its roles. These roles include:
+* At least one organization role.
+* At least one Operations for Applications service role.
+* Optionally, one or more custom roles.
 
+You must also set each API token with a time to live (TTL), which is the time that the API token will be valid unless revoked. When an API token expires, its associated access token also expires. You must generate a new API token and update your API calls.
+
+For details on how to generate, regenerate, revoke, and secure your API tokens, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
+
+## Managing the VMware Cloud Services API Tokens in Your VMware Cloud Organization
+
+If your domain is federated and the Identity Governance and Administration (IGA) is activated, the users with the VMware Cloud **Organization Owner** role have access to advanced features, including managing the API tokens within the organization. For details, see [What is Identity Governance and Administration and how does it work with VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E6661280-A88A-4E26-9008-4C1620641FA1.html) in the VMware Cloud services documentation.
+
+The users with the VMware Cloud **Organization Owner** role can:
+* View the details of all API tokens created in the organization.
+* Deactivate API tokens.
+* Set constraints for idle and maximum TTL for all newly created API tokens.
+For details and instructions, see [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation.
+
+## Managing the Server to Server OAuth Apps in Your VMware Cloud Organization
+
+If you want to make REST API calls on behalf of your VMware Cloud organization, you must create a server to server OAuth app and exchange its credentials for an access token. See [Make API Calls by Using a Server to Server App](using_wavefront_api.html#make-api-calls-by-using-a-server-to-server-app).
+
+To create and manage server to server OAuth apps in your VMware Cloud organization, you must hold the **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles.
+
+You must assign each server to server app only with the minimum required roles for its tasks and add it to your VMware Cloud organization. The access tokens associated with a server to server app inherit its roles within the organizations it belongs. These roles include:
+* At least one organization role.
+* At least one Operations for Applications service role.
+* Optionally, one or more custom roles.
+
+You must also set each server to server app with a time to live (TTL), which is the time that its access tokens will be valid. The credentials of a sever to server app never expire, so your script can automatically exchange them for new access tokens. Only if you regenerate the app secret, you must update your API calls.
+
+For details on how to create, view, and modify the details of the OAuth 2.0 apps in your organization, see [How to manage OAuth 2.0 apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-229F9BCE-0C1F-4948-8792-23F51B5482BE.html) in the VMware Cloud services documentation.
+
+## Managing the Operations for Applications API Tokens for a Service Account
+
+If you want to set up a proxy for an integration  [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts), authentication with an **Operations for Applications API token** is also supported.
+
+
+## Managing the Operations for Applications API Tokens in Your Service Instance
 
 
 
