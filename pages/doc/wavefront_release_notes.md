@@ -30,7 +30,7 @@ For information about the two subscription types and how they differ, see [Subsc
 
 ### Original and Onboarded Subscriptions
 
-* **Kubernetes Alerts Templates** - with this release, we have included alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
+* **Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
 
 ## 2023-33.x Release Notes
 
