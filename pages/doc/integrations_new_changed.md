@@ -23,10 +23,15 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 We made improvements to the following integrations in August 2023:
 
-* vSphere -- Updated the chart in the **vSphere: VM Details** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+* vSphere:
 
-* Tanzu Service Mesh -- Updated the chart in the **Tanzu Service Mesh: Workload Summary** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+  * Updated a query in the **vSphere: VM Details** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+  
+  * Added a new **vSphere: VMware vSAN** dashboard that allows you to monitor detailed metrics about vSAN.
 
+* Tanzu Service Mesh -- Updated a query in the **Tanzu Service Mesh: Workload Summary** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+
+* AWS App Mesh -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
 
 * Velero -- Added setup instructions to the integration. To see how to set up the Velero integration:
 
