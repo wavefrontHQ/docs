@@ -42,7 +42,7 @@ For information about the two subscription types and how they differ, see [Subsc
 * **Sources Browser Page Improvements**: The [**Sources** browser page](sources_managing.html#examine-sources-in-the-source-browser) is now improved and allows you to:
 
     * Hide and show details for all sources or for a specific source.
-    * Apply various filters, hide and show the filters listed on the left.
+    * Apply various filters and hide or show the filters listed on the left.
     * Hide a single source or create a maintenance window for the alerts with a particular source.
 
 
@@ -85,7 +85,7 @@ For information about the two subscription types and how they differ, see [Subsc
 
     * Hide and show details for all maintenance windows or for a specific maintenance window.
     * Sort the maintenance windows by name, state, start or end time.
-    * Apply various filters, hide and show the filters listed on the left.
+    * Apply various filters and hide or show the filters listed on the left.
 
 * **New Field in the Generic Webhook Alert Template**: We added the [`contributingKVs` iterator](alert_target_customizing.html#list-all-sources-and-point-tags-of-an-aggregation-alerts-time-series), which returns the keys and values of each source and point tag used in the time series of a failed alert whose condition uses a single top-level aggregation function.
 
