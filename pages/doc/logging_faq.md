@@ -91,8 +91,6 @@ Use the methods listed below to track the incoming log data and the number of lo
     - In the **Blocked Logs per Second** chart, you can see how many logs were blocked.
     - In the **Proxy Backlog Size (Bytes)** chart, non-zero values indicate that the proxy is having issues delivering data.
 
-If you see blocked logs, you can get more details about them in the metrics browser (see the next section).
-
 ### Search for Metrics on the Metrics Browser
 
 1. Select **Browse** > **Metrics**.
@@ -109,7 +107,6 @@ INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
 ```
 
 You can see why the log was rejected and the log message.
-
 
 ## Why Do I See a `pattern not match` Error in the Fluentd Logs?
 
