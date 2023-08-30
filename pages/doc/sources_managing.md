@@ -24,7 +24,7 @@ If you don't see metrics in charts that filter by source, you can examine source
 
 On the Sources browser, you can:
 
-* Search for and apply filters to the sources so that you can narrow down the results.
+* Search for sources and apply filters to the sources so that you can narrow down the results.
 * Share, save, and clear search results.
 * Browse through a list of saved searches.
 * Hide or show the filters and the saved searches list displayed on the left by clicking the **Filters** button.
@@ -63,7 +63,7 @@ Filter sources by status.
 
 ### Step 2: Examine the Source
 
-When you select a source in the Sources browser, you can examine it in more details on a second page.
+When you select a source in the Sources browser, you can examine it in more detail on a second page.
 
 
 ![Sources exploration page with 2 sources selected in left panel and charts created. Also highlighting point rate chart and Alerts Fired chart](/images/sources_exploration.png)
