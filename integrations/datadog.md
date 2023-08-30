@@ -13,9 +13,9 @@ This page provides an overview of what you can do with the Datadog integration. 
 
 ## Datadog Integration
 
-The `Datadog Agent` is lightweight piece of software that runs on your hosts. It collects events and metrics, which you can then examine using Wavefront dashboards and charts.
+The `Datadog Agent` is lightweight piece of software that runs on your hosts. It collects events and metrics, which you can then examine using Operations for Applications dashboards and charts.
 
-This integration configures the `Datadog Agent` to send metrics into Wavefront.
+This integration configures the `Datadog Agent` to send metrics into Operations for Applications.
 
 
 

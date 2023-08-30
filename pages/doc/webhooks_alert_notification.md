@@ -248,8 +248,8 @@ Test your alert target to make sure that it works properly.
 **To add a custom alert target to a new or existing alert**:
 
 1. Go to the [**Create Alert** or **Edit Alert** page](alerts_manage.html) page.
-1. Scroll down to the **Target List** section.
-1. Start typing in the **Alert Target** field. A drop-down list appears. 
+1. Scroll down to the **Recipients** section.
+1. Start typing in the **Recipients** field. A drop-down list appears. 
    
    This list contains all available alert targets that can be integrated to your alert.
 
@@ -345,3 +345,5 @@ cs(~alert.webhooks.*.*, name=<webhook_name>)
 ```
 
 If the response code of the webhook is anything other than 2xx, we create an event with the name `<webhook_id>.<webhook_name>.<response_code>`.
+
+{% include note.html content="With the 2023-31.x release, you can also use `cs(~alert.webhooks.*)` in alerts. " %}

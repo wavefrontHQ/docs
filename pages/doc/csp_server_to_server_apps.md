@@ -31,7 +31,18 @@ Server to server apps are used for automating management tasks.
 If you build an application or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API with an access token. Here's how it works:
 
 1. Create a server to server app in VMware Cloud services. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
-1. Assign one or more roles to the server to server app to grant it the [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions) it needs.
+1. Assign the server to server app with one or more [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance.
+
+   {% include important.html content="Ensure that you assign the server to server app **only** with the roles and permissions that are needed. Do not assign all roles listed in the VMware Cloud Services Console." %}
+
+   For example, to use a server to server app only for setting up the Operations for Applications integrations, assign only the **Proxies** service role to the app.
+
+   If you plan to assign the server to server app a custom role, you must assign that server to server app at least one Operations for Applications service role, for example **Viewer**.
+
+1. Optionally, assign the server to server app a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
+
+    {% include important.html content="In a multi-tenant Operations for Applications environment, custom roles apply to **all** service instances (tenants) to which the server to server app has access, that is, for which the server to server app has at least one service role."%}
+    
 1. Obtain the OAuth 2.0 client credentials of the server to server app and save them to a secure place.
 1. Add the app to your VMware Cloud organization running the Operations for Applications service.
 1. Configure your tool to pass the OAuth 2.0 client credentials to the REST API and exchange them to an access token. See [Make API Calls by Using a Server to Server App](using_wavefront_api.html#make-api-calls-by-using-a-server-to-server-app).

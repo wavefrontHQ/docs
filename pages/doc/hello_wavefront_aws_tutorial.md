@@ -1,5 +1,5 @@
 ---
-title: Integrations Tutorial
+title: AWS Integration Tutorial
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
