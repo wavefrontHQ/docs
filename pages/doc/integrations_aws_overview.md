@@ -159,10 +159,13 @@ By using this method, the process for getting the account ID and the external ID
    * **CloudWatch & Metrics+ & CloudTrail** 
 1. Click the **How to get Role ARN?** link.
 1. On the **AWS CLI Method** tab, under **Step 1** of the interactive help page, enter the stack and role names.
+
+   The stack name is an identifier that helps you find a particular stack from a list of stacks. A stack name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can't be longer than 128 characters.
+
    ![Screenshot of the AWS CLI method interactive help page.](images/aws-rolearn-cli-method.png)
 
 1. Copy the command displayed in **Step 2** of the interactive help page. 
-1. In another web browser page log in to your AWS account, open the [AWS Command Line Interface](https://aws.amazon.com/cli/), and run the copied command.
+1. In another web browser page, log in to your AWS account, open the [AWS Command Line Interface](https://aws.amazon.com/cli/), and run the copied command.
 
 **Task 2: Get the Role ARN**
 
@@ -235,7 +238,10 @@ After you create the policy with the required permissions, create a role with li
     1. Click **Next**.
     1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
 
-3. Get the Role ARN by following the steps in [Task 3 of the GUI method](#GetRoleArn).
+**Task 3:  Get the Role ARN** 
+
+1. On the **Roles** page, click the newly created role.
+1. Copy the **ARN** value, so that you can use it when you configure your AWS integration. See Step 5 in [Set up an AWS Integration](#set-up-an-aws-integration).
 
 <a name="required_permissions"></a>
 
