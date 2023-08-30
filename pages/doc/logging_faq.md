@@ -77,7 +77,7 @@ If you are using Fluentd, you can specify the `application` and `service` in the
 
 Use the methods listed below to track the incoming log data and the number of logs blocked by the proxy:
 
-### Step 1: See the Data on the Predefined Logs Stats Charts
+### See the Data on the Predefined Logs Stats Charts
 
 1. Select **Dashboards** > **All Dashboards**.
 1. Search for **Operations for Applications Service and Proxy Data** in the search bar, and click the dashboard.
@@ -93,7 +93,7 @@ Use the methods listed below to track the incoming log data and the number of lo
 
 If you see blocked logs, you can get more details about them in the metrics browser (see the next section).
 
-### Step 2: Search for Metrics on the Metrics Browser
+### Search for Metrics on the Metrics Browser
 
 1. Select **Browse** > **Metrics**.
 1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logAnnotationValueEmpty`.
