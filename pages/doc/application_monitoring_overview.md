@@ -12,9 +12,30 @@ You can auto-discover and monitor your applications that run on a Kubernetes clu
 
 ## Select How You Send Data
 
-You must first select how you want to send data to our service based on where the application runs or how you have configured your application.
+You can explore the demo data to see the data. Then, you must select how you want to send data to our service based on where the application runs or how you have configured your application. Follow these steps:
 
-![A screenshot of applications onboarding screen.](images/monitor_applications_onboarding.png)
+<table style="width: 100%;">
+<tbody>
+    <tr>
+    <td width="40%">
+        <ol>
+            <li>
+                Click <b>View Onboarding Instructions</b>.
+            </li>
+            <li> 
+                Select how you send data to our service. For example, select <b>Applications Running on Kubernetes</b>, if you are sending data via eBPF.
+            </li>
+            <li>
+                Click <b>Save and Go To Services and Application</b>.
+            </li>
+        </ol>
+      </td>
+    <td width="60%">
+        <img src="/images/monitor_applications_onboarding.png" alt="A screenshot of the annotated applications onboarding screen."/>
+    </td>
+  </tr>
+</tbody>
+</table> 
 
 ## Monitor Applications Running on Kubernetes
 

@@ -176,7 +176,7 @@ Create an alert from the application status page:
 
         </td>
         <td markdown ="span" width="40%">
-          ![A screenshot of how to click create alert as explained in the step](images/trace_table_view_create_alert.png)
+          ![A screenshot of how to click create alert as explained in the step](images/app_monitoring_trace_table_view_create_alert.png)
         </td>
       </tr>
       <tr>
@@ -184,7 +184,7 @@ Create an alert from the application status page:
          **Grid view**: <br/>Click **Actions** and select **Create Alert**.
         </td>
         <td markdown ="span">
-          ![A screenshot of how to click create alert as explained in the step](images/tracing_grid_view_create_alert.png)
+          ![A screenshot of how to click create alert as explained in the step](images/app_monitoring_tracing_grid_view_create_alert.png)
         </td>
       </tr>
     </table>
@@ -220,12 +220,12 @@ When you notice that a service on the application map, table view, or grid view 
   1. Select the time window of interest.
   1. Click the ellipsis icon for the service.
   1. Select **View Logs**.
-  ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
+  ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/app_monitoring_logging_table_view_to_logs.png)
 * **From the Grid View**
   1. Select the time window of interest.
   1. In a service tile, click **Actions**.
   1. Select **View Logs**.
-  ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/logging_grid_view_to_logs.png)
+  ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/app_monitoring_logging_grid_view_to_logs.png)
 
 The Logs Browser opens in a new tab with the following configurations:
   

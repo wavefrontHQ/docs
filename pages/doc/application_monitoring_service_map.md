@@ -154,7 +154,7 @@ Let's walk through the following scenario and get a quick overview of the applic
       When you click on the tracing traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Traces Browser by clicking <b>View Traces for This Traffic</b>.</li>
-        <li> Navigate to the Operation Dashboard to view RED metrics of the inbound and outbound operations by clicking <b>View Passenger Dashboard (Outbound Traffic)</b> or <b>View Trip Dashboard (Inbound Traffic)</b>.</li>
+        <li> Navigate to the Operation Dashboard to view RED metrics of the outbound and inbound operations by clicking <b>View Passenger Dashboard (Outbound Traffic)</b> or <b>View Trip Dashboard (Inbound Traffic)</b>.</li>
         </ul>
       </td>
     <td><img src="/images/service_map_tracing_traffic.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
