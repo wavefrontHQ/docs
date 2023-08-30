@@ -1,5 +1,5 @@
 ---
-title: Logs Troubleshooting (Beta)
+title: Logs Troubleshooting
 keywords: logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: logging_faq.html
 summary: Learn how to customize your logging experience and find answers for frequently asked questions.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. If you'd like to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 ## My Logging Solution Doesn't Use the Default Attributes
 
@@ -36,7 +36,7 @@ You can use the [proxy configuration properties](logging_proxy_configurations.ht
 
 ## Why Don't I See Logs When I Drill Down From a Chart?
 
-If you right-click on a chart and select **Logs (Beta)**, you're directed to the Logs Browser. If you don't see data on the Logs Browser, here are some things to explore:
+If you right-click on a chart and select **Logs**, you're directed to the Logs Browser. If you don't see data on the Logs Browser, here are some things to explore:
 * If your chart has data from more than one source and you didn't select the target source, the Logs Browser cannot show the logs because this feature shows logs from only one source. To see the data corresponding to the chart query but focused on one source, select a source in the Logs Browser and click **Search**.
 * If you have not tagged your log data using the corresponding source value when you sent the logs from your log shipper, you might see no search results in the Logs Browser. See [What’s a Log?](logging_overview.html#whats-a-log) for details on the log syntax.
 
@@ -75,7 +75,7 @@ If you are using Fluentd, you can specify the `application` and `service` in the
 
 ## How Do I Track Data Blocked by the Wavefront Proxy?
 
-The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#limits-for-logs) for a message, tag, and value. Use the methods listed below to track the incoming log data and the number of logs blocked by the proxy:
+Use the methods listed below to track the incoming log data and the number of logs blocked by the proxy:
 
 ### Step 1: See the Data on the Predefined Logs Stats Charts
 
@@ -96,65 +96,13 @@ If you see blocked logs, you can get more details about them in the metrics brow
 ### Step 2: Search for Metrics on the Metrics Browser
 
 1. Select **Browse** > **Metrics**.
-1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be:
-    <table style="width: 100%;">
-      <thead>
-        <tr>
-          <th width="30%">
-            Metric Name
-          </th>
-          <th width="70%">
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td markdown="span">
-            `logAnnotationKeyBadChars`
-          </td>
-          <td>
-            If the log tag key does not meet the following guidelines the logs are blocked:<br/>
-            <ul>
-              <li>
-                The log tag key must only have alphanumeric or underscore characters.
-                {% include note.html content="Alphanumeric refers to A through Z (uppercase letters), a through z (lowercase letters), and 0 through 9 (numbers)." %}
-              </li>
-              <li>
-                The tag key name also should not start with a digit and should not start or finish with an underscore.
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td markdown="span">
-            `logAnnotationValueEmpty`
-          </td>
-          <td markdown="span">
-            A value for one or more of the annotations in the log message was either blank or empty.
-          </td>
-        </tr>
-        <tr>
-          <td markdown="span">
-            `logSourceTooLong` <br/>
-            `logMessageTooLong`<br/>
-            `tooManyLogTags`<br/>
-            `logAnnotationKeyTooLong`<br/>
-            `logAnnotationValueTooLong`
-          </td>
-          <td markdown="span">
-            You see the following metrics if the log value you sent or the number of log tags you sent exceeds the maximum limit. For more details, see [limits for logs](logging_send_logs.html#limits-for-logs).
-          </td>
-        </tr>
-      </tbody>
-    </table>
+1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logAnnotationValueEmpty`.
 
-Example: 
-![A screenshot of the metrics you see when you search for ~proxy.log.](images/logging_blocked_logs_metrics.png)
+### Search for Logs on the Proxy Log Files
 
-### Step 3: Search the Proxy Logs
+By default, the proxy logs entries are logged in the `wavefront.log` file. For details, see [Proxy Log Files](proxies_configuring.html#proxy-log-files).
 
-Go to your proxy logs and search for logs containing the following message:
+In the proxy log entries, search logs containing the following message:
 
 ```
 INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:

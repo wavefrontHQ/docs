@@ -19,11 +19,9 @@ Chart Builder has the tools for creating charts and customizing which metrics yo
 
 ## Video
 
-Here's a 90 second overview of some of the main features.
+Here's a 90 second overview of some of the main features. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <iframe id="kmsembed-1_46pqfyms" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Product intro how-to"></iframe>
-
-Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 ## Get Started
 

@@ -50,7 +50,7 @@ Production clusters currently offer 18 months of full-resolution (no downsamplin
 
 ## How Do I Log In to the Account Using an Email and Password?
 
-You can [invite users and let them send data to the same cluster](wavefront_springboot.html#custom-configurations). To invite yourself, just enter your email address.
+You can [invite users and let them send data to the same cluster](wavefront_springboot3.html#custom-configurations). To invite yourself, just enter your email address.
 
 If you added `wavefront.freemium-account=true` to your `application.properties` file, make sure to remove it so that a single-use login URL is no longer requested on startup.
 

@@ -53,8 +53,16 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Integrations Tutorial"
+        - title: "Invite New Users Tutorial"
+          url: /csp_new_users_tutorial.html
+          output: web
+
+        - title: "AWS Integration Tutorial"
           url: /hello_wavefront_aws_tutorial.html
+          output: web
+        
+        - title: Windows Host Integration Tutorial
+          url: /windows_host_tutorial.html
           output: web
 
         - title: Dashboards & Charts Tutorial
@@ -464,13 +472,13 @@ entries:
       url: /integrations.html
       output: web
 
-    - title: List of Integrations
+    - title: Complete List of Integrations
       url: /label_integrations%20list.html
       output: web
 
 
       subfolders:
-      - title: Integration Details
+      - title: Amazon Web Services Integrations
         output: web
         subfolderitems:
 
@@ -497,6 +505,22 @@ entries:
           - title: AWS IAM Access Key Age Integration
             url: /integrations_aws_key_age.html
             output: web
+
+      - title: Google Cloud Platform Integration
+        output: web
+        subfolderitems:
+
+          - title: GCP Overview and Permissions
+            url: /integrations_gcp_overview.html
+            output: web
+          
+          - title: GCP Integration API Setup
+            url: /integrations_gcp_api.html
+            output: web
+
+      - title: Integrations Details and Troubleshooting
+        output: web
+        subfolderitems:
 
           - title: VMware TKGi Integration
             url: /integrations_tkgi.html
@@ -791,7 +815,7 @@ entries:
       url: /tracing_faq.html
       output: web
 
-  - title: Logs (Beta)
+  - title: Logs
     output: web
     folderitems:
 
@@ -803,7 +827,7 @@ entries:
         url: /logging_send_logs.html
         output: web
         
-      - title: Proxy Configurations for Logs
+      - title: Proxy Configurations
         url: /logging_proxy_configurations.html
         output: web
 
@@ -821,10 +845,10 @@ entries:
               url: /logging_logs_chart.html
               output: web
 
-            - title: Drill into Logs
-              url: /logging_drill_into_logs.html
-              output: web
-
+      - title: Manage Log Alerts
+        url: /logging_log_alerts.html
+        output: web
+      
       - title: Customize Logs Settings
         url: /logging_logs_settings.html
         output: web

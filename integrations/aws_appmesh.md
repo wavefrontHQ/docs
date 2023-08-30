@@ -13,18 +13,16 @@ This page provides an overview of what you can do with the AWS App Mesh integrat
 
 ## AWS App Mesh Integration
 
-AWS App Mesh is a service mesh that allows you to monitor and control communications across microservices applications on AWS.
+AWS App Mesh is a service mesh that allows you to monitor and control communications across microservices applications on AWS EKS cluster.
 
 Click the **Setup** tab for instructions on:
 
-* Setting up your environment to send AWS App Mesh **metrics** to Operations for Applications.
-* Setting up your environment to send AWS App Mesh **traces** to Operations for Applications.
+* Reporting AWS App Mesh **metrics** to Operations for Applications.
+* Reporting AWS App Mesh **traces** to Operations for Applications.
 
-This integration also installs a dashboard. Here's a preview of the AWS App Mesh dashboard:
+This integration also installs a dashboard. Here's a preview of the dashboard displaying AWS App Mesh metrics on EKS:
 
-{% include image.md src="images/appmesh_1.png" width="80" %}
-{% include image.md src="images/appmesh_2.png" width="80" %}
-{% include image.md src="images/appmesh_3.png" width="80" %}
+{% include image.md src="images/appmesh_dashboard.png" width="80" %}
 
 
 

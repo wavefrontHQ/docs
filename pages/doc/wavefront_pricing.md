@@ -19,7 +19,7 @@ The model has this basic pricing structure:
 * Each ingested or scanned metric or derived metric counts as 1 PPS.
 * Each ingested or scanned histogram or derived histogram counts as 7 PPS.
 
-For scans, the pricing structure is as follows:
+For spans, the pricing structure is as follows:
 * If [intelligent sampling](trace_data_sampling.html#intelligent-sampling) is turned on, the trace data is counted as derived metrics (1 PPS) or derived histograms (7 PPS).
 * If you turn off intelligent sampling, or if you specify trace sampling policies to specifically include certain traces, each tracing span counts as 22 PPS.
 * [Span logs](trace_data_details.html#span-logs) are free.
