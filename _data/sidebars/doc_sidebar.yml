@@ -485,6 +485,10 @@ entries:
     - title: Integrations Overview
       url: /integrations.html
       output: web
+    
+    - title: How Integration Authentication Works
+      url: /integrations_onboarded_subscriptions.html
+      output: web
 
     - title: Complete List of Integrations
       url: /label_integrations%20list.html

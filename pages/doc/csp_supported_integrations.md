@@ -1,19 +1,38 @@
 ---
-title: Integrations Supported for VMware Cloud Services Subscriptions
+title: How Integration Authentication Works
 keywords: integrations
 tags: 
 sidebar: doc_sidebar
 permalink: integrations_onboarded_subscriptions.html
-summary: Learn about the list of integrations supported for Operations for Applications subscriptions onboarded to VMware Cloud services.
+summary: Learn which integrations work with VMware Cloud services API tokens and server to server OAuth apps and which still require Operations for Applications service accounts and API tokens.
 ---
 
 ## Subscription Types
 
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services.
 
+For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. When your Operations for Applications service **is onboarded** to the VMware Cloud services platform you have the following choices for the proxy authentication:
+
+* Use OAuth App authentication (recommended):
+
+  You must use the credentials (client ID and client secret) of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the ID of the VMware Cloud organization running the service.
+
+  If you don’t have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+
+
+* Use API Token authentication:
+
+  The API token must be generated in the VMware Cloud Services Console by an active user account. It also must have the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
+
+* Use an Operations for Applications [service account](csp_service_accounts.html):
+
+  A service account uses an Operations for Applications API token to authenticate. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can set up the Wavefront proxy in your integration to pass the API token of the service account. For information about service accounts, see [Manage Service Accounts in Operations for Applications on VMware Cloud Services](csp_service_accounts.html). To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account).
+
+
+
 ## Unaffected Integrations  
 
-The following integrations are working as expected no matter whether your Operations for Applications service is onboarded to VMware Cloud services platform or not.
+The following integrations are working as before no matter whether your Operations for Applications service is onboarded to VMware Cloud services platform or not.
 
 ### Cloud Integrations
 
@@ -24,6 +43,9 @@ The following integrations are working as expected no matter whether your Operat
 * [Dynatrace](dynatrace.html)
 * [New Relic](newrelic.html)
 * [VMware Aria Operations (SaaS)](integrations_vrops.html)
+
+  Note that this integration works with a VMware Cloud service API token.
+
 * [Snowflake](snowflake.html)
 
 ### Notification Integrations
@@ -55,25 +77,11 @@ The following integrations are working as expected no matter whether your Operat
 * [Operations for Applications Usage Integration](wavefront_monitoring.html)
 
 
-## Integrations Supported for VMware Cloud Services Subscriptions
+## Integrations That Leverage VMware Cloud Services Authentication
 
-For best performance, when you configure most of our integrations it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. When your Operations for Applications service **is onboarded** to the VMware Cloud services platform you have two choices for the proxy authentication:
+We're in the process of incrementally updating our integrations so that you can authenticate with a VMware Cloud services API token or OAuth server to server app  credentials. 
 
-   * Use OAuth App authentication (recommended):
-
-     You must use the credentials (client ID and client secret) of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the ID of the VMware Cloud organization running the service.
-
-      If you don’t have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
-
-
-   * Use API Token authentication:
-
-     The API token must be generated in the VMware Cloud Services Console by an active user account. It also must have the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
-
-
-We're in the process of incrementally updating our integrations so that you can use them when your Operations for Applications service **is** onboarded to VMware Cloud services. 
-
-Here's the list of the integrations that are updated as of today (with the 2023-31.x release). This list grows with each release. If you urgently need an integration to become available and configurable for your onboarded service, please contact us at: `tanzu_saas_ops@vmware.com`.
+Here's the list of the integrations that are updated as of today. This list grows with each release. If you urgently need an integration to become available and configurable with VMware Cloud services authentication credentials, please contact us at: `tanzu_saas_ops@vmware.com`.
 
 <table style="width: 100%;">
 <thead>
@@ -426,5 +434,41 @@ Here's the list of the integrations that are updated as of today (with the 2023-
 <tr>
 <td markdown="span">Zabbix </td>
 <td markdown="span">[Zabbix  Integration](zabbix.html)</td>
-</tr></tbody>
+</tr>
+<tr>
+<td markdown="span">Zipkin </td>
+<td markdown="span">[Zipkin  Integration](zipkin.html)</td>
+</tr>
+<tr>
+<td markdown="span">Velero </td>
+<td markdown="span">[Velero  Integration](velero.html)</td>
+</tr>
+</tbody>
 </table>
+
+
+## Integrations That Use Service Accounts
+
+Here's the list of the integrations that still use service accounts. Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is supported only when you use a service account<!--(targeting mid-October)-->.
+
+* AWS Lambda Functions <!--(targeted for update mid September)-->
+* Spring Boot <!--(target mid-end of September)-->
+* Nagios <!--(targeting mid-September for customer availability)-->
+* Tanzu Mission Control <!--(TBD)-->
+* VMware GemFire <!--(TBD https://jira.eng.vmware.com/browse/INT-1897)-->
+* Micrometer <!--(Target mid-September)-->
+* Catchpoint <!--(Target mid-September)-->
+* VMware Tanzu Kubernetes Grid Integration <!--(TBD)-->
+* Terraform Provider <!--(TBD)-->
+* Ansible Role <!--(archive/delete?)-->
+* VMware Aria Operations for Logs <!--(TBD)-->
+* VMware Spring Cloud Data Flow for Kubernetes <!--(TBD)-->
+* VMware tc Server  <!--(archive/delete?)-->
+* Microsoft Azure Deployment Manager <!--(archive/delete?)-->
+* Uptime <!--(TBD)-->
+* Datadog <!--(archive/delete?)-->
+* Grafana <!--(TBD)-->
+* Chef Server <!--(TBD)-->
+* AVI Networks (NSX ALB) <!--(archive/delete?)-->
+* VMware Blockchain <!--(archive/delete?)-->
+* C Sharp <!--(TBD)-->
