@@ -13,7 +13,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 {% include note.html content="To access the Proxies Browser, you must have the [**Proxies** permission](permissions_overview.html)." %}
 
-### Get Started wih the Proxies Browser
+### Get Started with the Proxies Browser
 
 With the Proxies Browser you can examine the status and the details of each proxy.
 
