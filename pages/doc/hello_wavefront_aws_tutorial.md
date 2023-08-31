@@ -4,7 +4,7 @@ keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
 permalink: hello_wavefront_aws_tutorial.html
-summary: Get data from Amazon Web Services or a Windows host.
+summary: Get data from Amazon Web Services.
 ---
 
 In this tutorial, you'll learn how to:
@@ -211,16 +211,6 @@ When the threshold is exceeded, you'll receive an email that includes a link to 
 * [Create and Manage Alerts](alerts_manage.html)
 * [Alerts FAQs](alerts_faq.html)
 
-
-## Video: Set Up Data Ingestion from a Windows Host
-
-Watch the following video to learn how to ingest Windows host metrics. 
-
-Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
-<p>
-<iframe id="kmsembed-1_0bbze8os" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0bbze8os/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Setting up a Windows integration"></iframe>
-</p>
-You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0bbze8os" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/>
 
 ## Frequently Asked Questions
 

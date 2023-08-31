@@ -17,7 +17,7 @@ The vSphere integration offers pre-defined dashboards and pre-defined alert cond
 
 ### Dashboards
 
-Wavefront provides the following dashboards for vSphere:
+Operations for Applications provides the following dashboards for vSphere:
 
 - Summary
 - Cluster
@@ -26,6 +26,7 @@ Wavefront provides the following dashboards for vSphere:
 - ESXi Host Detail
 - VM Summary
 - VM Details
+- VMware vSAN
 
 #### Summary Dashboard
 
@@ -41,7 +42,7 @@ Wavefront provides the following dashboards for vSphere:
 
 ### Metrics Configuration
 
-Wavefront ingests vSphere metrics using the vSphere input plugin for Telegraf. For details on the metrics and on how to configure ingestion, see the [vSphere plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere) details on GitHub.
+Operations for Applications ingests vSphere metrics using the vSphere input plugin for Telegraf. For details on the metrics and on how to configure ingestion, see the [vSphere plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere) details on GitHub.
 
 
 
