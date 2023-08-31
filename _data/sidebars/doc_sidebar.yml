@@ -480,7 +480,7 @@ entries:
       subfolders:
       - title: Amazon Web Services Integrations
         output: web
-        subfolderitems:
+        subfolderitems:    
 
           - title: AWS Integration Overview
             url: /integrations_aws_overview.html
@@ -544,6 +544,10 @@ entries:
 
           - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
+            output: web
+
+          - title: Troubleshooting Cloud Services Integrations
+            url: /integrations-troubleshooting.html
             output: web
 
           - title: Troubleshoot BigPanda Webhook Targets
