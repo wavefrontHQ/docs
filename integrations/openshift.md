@@ -31,6 +31,7 @@ The Observability for Kubernetes Operator makes it easy for you to monitor and m
 In addition to setting up the metrics flow, this integration also installs dashboards:
 
 * Kubernetes Status: Detailed health of your Kubernetes integration.
+* Kubernetes Workloads Troubleshooting: Internal stats of the Kubernetes workloads.
 * Kubernetes Summary: Detailed health of your infrastructure and workloads.
 * Kubernetes Clusters: Detailed health of your clusters and its nodes, namespaces, pods and containers.
 * Kubernetes Nodes: Detailed health of your nodes.
@@ -48,6 +49,11 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 {% include image.md src="images/db_kubernetes_pods.png" width="80" %}
 
+### Alerts
+
+The Kubernetes integration contains number of predefined alert templates.
+
+The latest alert templates (in Beta) which can help you monitor Kubernetes workload failures can be found in our [alerts documentation](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/alerts/alerts.md).
 
 ## Kubernetes Clusters Integrations
 
@@ -60,7 +66,7 @@ Operations for Applications uses the [Observability for Kubernetes Operator](htt
 
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure our Kubernetes Metrics Collector and a Wavefront proxy. With the 2022-48.x release we introduced the Kubernetes Observability Operator which simplifies the deployment of the Kubernetes Metrics Collector and the Wavefront proxy. 
 
-The setup process varies based on the distribution type that you choose to monitor. 
+The setup process varies based on the distribution type that you choose to monitor, and whether your Operations for Applications service is onboarded to the VMware Cloud services platform.
 
 
 1. Log in to your product cluster.
@@ -74,11 +80,11 @@ The setup process varies based on the distribution type that you choose to monit
 1. In the **Collector Configuration** section, configure the deployment options for the cluster.
     1. In the **Cluster Name** text box provide the name of your Kubernetes cluster.
     1. Choose the **Kubernetes Cluster** as a distribution type. 
-1. Choose whether you want to see the logs for your cluster. By default, the **Logs (Beta)** option is enabled.
+1. Choose whether you want to see the logs for your cluster. By default, the **Logs** option is enabled.
 1. Choose whether you want to enable or disable **Metrics**. By default, the **Metrics** option is enabled.
 1. Choose whether you want to use an **HTTP Proxy**. 
    If you enable HTTP proxy, to allow outbound traffic, you must add these URLs to your proxy rules:
-    * **Logs (Beta)**: <code>https://data.mgmt.cloud.vmware.com</code>
+    * **Logs**: <code>https://data.mgmt.cloud.vmware.com</code>
     * **Metrics**: <code>https://your_cluster.wavefront.com/</code>
       
    In addition, you must also configure the HTTP proxy settings, such as: 
@@ -89,18 +95,29 @@ The setup process varies based on the distribution type that you choose to monit
 
 1. Enter the authentication options and click **Next**.
    
-   You can authenticate to the Operations for Applications REST API by using either a user account, or a service account. In both cases, the account must have an API token associated with it.
+   The authentication options vary depending on whether your [Operations for Applications service is onboarded to VMware Cloud services](https://docs.wavefront.com/subscriptions-differences.html). For more details, see [Proxy Authentication Types](https://docs.wavefront.com/proxies_installing.html#proxy-authentication-types).
    
-1. From the **Script** section, get the deployment script. 
-    1. Review the script and click the **Copy to clipboard** button.
-    1. Run the script in your Kubernetes cluster.
-1. After successful installation, return back to the Operations for Applications GUI, and click **Finish**.
+   * If your service **is onboarded** to VMware Cloud services, choose to authenticate by using either an **OAuth App** or an **API token**. 
+
+     * **OAuth App** authentication requires you to use an existing App ID, App Secret, and Organization ID of a server to server app that has the **Proxies** service role assigned and belongs to the VMware Cloud services organization running the service.
+     * **API Token** authentication requires you to use an API token that belongs to your user account in the VMware Cloud organization running the service. Note that you must regenerate and reconfigure the API Token periodically depending on the token TTL configuration.
+
+   * If your service is **not onboarded** to VMware Cloud services, you can authenticate to the Operations for Applications REST API by using either a user account, or a service account. In both cases, the account must have an Operations for Applications API token associated with it.
+   
+1. In the **Script** section, review the script and click the **Copy to clipboard** button.
+   
+   * When your service **is onboarded** to VMware Cloud services:
+     * If you have selected **OAuth App** as the authentication type, replace `<CSP_APP_ID>` and `<CSP_APP_SECRET>` with your server to server app credentials and `<CSP_ORG_ID>` with the ID of the VMware Cloud organization running the service.
+     * If you have selected **API token** as the authentication type, replace `<CSP_API_TOKEN>` with your VMware Cloud services API token.
+   * When your service is **not onboarded** to VMware Cloud services, proceed to the next step.
+1. Run the script in your Kubernetes cluster.
+1. After successful installation, return back to the Operations for Applications UI, and click **Finish**.
 
 ### Kubernetes Install in an OpenShift Cluster
 
 Complete the steps below and click **Finish**.
 
-**Note**: Logs (Beta) is not supported when you use OpenShift.
+**Note**: The Logs feature is not supported when you use OpenShift.
 
 
 #### Install and Configure the Operations for Applications Helm Chart on OpenShift Enterprise 4.x
@@ -488,18 +505,19 @@ These are metrics for the health of the Kubernetes Control Plane.
 
 Metrics collected per type:
 
-| Metric Name                                                         | Description                                                                                         | K8s environment exceptions      |
-|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
-| kubernetes.node.cpu.node_utilization (node_role="control-plane")    | CPU utilization as a share of the contol-plane node allocatable in millicores.                                               | Not available in AKS, EKS, GKE  |
-| kubernetes.node.memory.working_set (node_role="control-plane")      | Total working set usage of the control-plane node. Working set is the memory being used and not easily dropped by the kernel.| Not available in AKS, EKS, GKE  |
-| kubernetes.node.filesystem.usage (node_role="control-plane")        | Total number of bytes consumed on a filesystem of the control-plane node.                                                     | Not available in AKS, EKS, GKE  |
-| kubernetes.controlplane.apiserver.storage.objects.gauge             | etcd object counts.                                                                                                           | Not available from kubernetes release version 1.23 and later  |
-| kubernetes.controlplane.etcd.db.total.size.in.bytes.gauge           | etcd database size.                                                                                                           | -                               |
-| kubernetes.controlplane.apiserver.request.duration.seconds.bucket   | Histogram buckets for API server request latency.                                                                             | -                               |
-| kubernetes.controlplane.apiserver.request.total.counter             | API server total request count.                                                                                               | -                               |
-| kubernetes.controlplane.workqueue.adds.total.counter                | Current depth of API server work queue.                                                                                        | -                               |
-| kubernetes.controlplane.workqueue.queue.duration.seconds.bucket     | Histogram buckets for work queue latency.                                                                                      | -                               |
-| kubernetes.controlplane.coredns.dns.request.duration.seconds.bucket | Histogram buckets for CoreDNS request latency.                                                                                | Not available in GKE, OpenShift |
-| kubernetes.controlplane.coredns.dns.responses.total.counter         | CoreDNS total response count.                                                                                                 | Not available in GKE, OpenShift |
+| Metric Name                                                            | Description                                                                                                                   | K8s environment exceptions                                   |
+|------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| kubernetes.node.cpu.node_utilization (node_role="control-plane")       | CPU utilization as a share of the contol-plane node allocatable in millicores.                                                | Not available in AKS, EKS, GKE                               |
+| kubernetes.node.memory.working_set (node_role="control-plane")         | Total working set usage of the control-plane node. Working set is the memory being used and not easily dropped by the kernel. | Not available in AKS, EKS, GKE                               |
+| kubernetes.node.filesystem.usage (node_role="control-plane")           | Total number of bytes consumed on a filesystem of the control-plane node.                                                     | Not available in AKS, EKS, GKE                               |
+| kubernetes.controlplane.apiserver.storage.objects.gauge                | etcd object counts.                                                                                                           | Not available from kubernetes release version 1.23 and later |
+| kubernetes.controlplane.etcd.db.total.size.in.bytes.gauge              | etcd database size.                                                                                                           | Kubernetes <= v1.25                                          |
+| kubernetes.controlplane.apiserver.storage.db.total.size.in.bytes.gauge | etcd database size.                                                                                                           | Kubernetes >= v1.26                                          |
+| kubernetes.controlplane.apiserver.request.duration.seconds.bucket      | Histogram buckets for API server request latency.                                                                             | -                                                            |
+| kubernetes.controlplane.apiserver.request.total.counter                | API server total request count.                                                                                               | -                                                            |
+| kubernetes.controlplane.workqueue.adds.total.counter                   | Current depth of API server work queue.                                                                                       | -                                                            |
+| kubernetes.controlplane.workqueue.queue.duration.seconds.bucket        | Histogram buckets for work queue latency.                                                                                     | -                                                            |
+| kubernetes.controlplane.coredns.dns.request.duration.seconds.bucket    | Histogram buckets for CoreDNS request latency.                                                                                | Not available in GKE, OpenShift                              |
+| kubernetes.controlplane.coredns.dns.responses.total.counter            | CoreDNS total response count.                                                                                                 | Not available in GKE, OpenShift                              |
 
 <h2>Alerts</h2>  <ul><li markdown="span"><b>K8s pod CPU usage too high</b>:Alert reports when the CPU millicore utilization of a pod exceeds the CPU millicore limit defined constantly. Having the CPU going over the set limit will cause the pod to suffer from CPU throttling which is going to affect the pod's performance. When this happens, please make sure the CPU resource limitation set for the pod is correctly configured.</li><li markdown="span"><b>K8s pod memory usage too high</b>:Alert reports when the memory utilization of a pod is constantly at high percentage.</li><li markdown="span"><b>K8s too many pods crashing</b>:Alert reports when a pod's running and succeeded phase percentage is below the required level specified.</li><li markdown="span"><b>K8s node CPU usage too high</b>:Alert reports when a node's cpu utilization percentage is constantly high.</li><li markdown="span"><b>K8s node storage usage too high</b>:Alert reports when a node's storage is almost full.</li><li markdown="span"><b>K8s node memory usage too high</b>:Alert reports when the memory utilization of a node is constantly high.</li><li markdown="span"><b>K8s too many containers not running</b>:Alert reports when the percentage of containers not running is constantly high.</li><li markdown="span"><b>K8s node unhealthy</b>:Alert reports when a node's condition is not ready or status is not true.</li><li markdown="span"><b>K8s pod storage usage too high</b>:Alerts reports when the pod's storage is almost full.</li><li markdown="span"><b>K8s Observability status is unhealthy </b>:The K8s observability status is unhealthy.</li></ul>

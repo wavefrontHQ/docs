@@ -19,6 +19,46 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 {% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
 
+## August 2023
+
+We made improvements to the following integrations in August 2023:
+
+* vSphere:
+
+  * Updated a query in the **vSphere: VM Details** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+  
+  * Added a new **vSphere: VMware vSAN** dashboard that allows you to monitor detailed metrics about vSAN.
+
+* Tanzu Service Mesh -- Updated a query in the **Tanzu Service Mesh: Workload Summary** dashboard, which uses the `limit()` function, because this function [may return No Data](ts_limit.html#summary). The `limit ()` function is replaced by `count ()`.
+
+* AWS App Mesh -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+
+* Velero -- Added setup instructions to the integration. To see how to set up the Velero integration:
+
+  1. Log in to your service instance.
+  2. Click **Integrations** on the toolbar.
+  3. Search for **Velero** and click its tile.
+  4. Click the **Setup** tab.
+
+* Tanzu Application Service -- We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+
+* Kubernetes:
+  * We added [new alerts templates](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/alerts/alerts.md).
+  * We added a new dashboard **Kubernetes Workloads Troubleshooting** which allows you to monitor the health of the Kubernetes workloads. To use this dashboard, maker sure that you use the Observability for Kubernetes Operator version 2.10.0 and later.
+  * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
+  * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
+
+  For the latest list of integrations, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+
+* Operations for Applications Usage -- Made bug fixes to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards.
+
+* Fluentd -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Ceph -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* .NET Core -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Docker with cAdvisor -- Updated the setup steps and instructions.
+* Tanzu Service Mesh -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+
+
 ## July 2023
 
 We made improvements to the following integrations in July 2023:
@@ -27,25 +67,25 @@ We made improvements to the following integrations in July 2023:
   * You can select to ingest Google Cloud Platform histogram metrics and filter these metrics by their Google Cloud Platform grouping functions such as **Count**, **Mean**, and **Standard Deviation**. To do so, when you register or edit your Google Cloud Platform integration, enable **Histogram** metrics ingestion, select **Custom** and select to ingest certain histogram metrics based on the listed Google Cloud Platform grouping functions. When you select a grouping function, only the histogram metrics with the respective grouping function will be ingested. If you deselect all check boxes, all histogram metrics will be ingested.
   * You can now select to ingest Google Cloud Run metrics. To do so, when you register or edit your Google Cloud Platform integration, in the **Categories to fetch** section, select **Custom** and select the **Cloud Run** check box.
 * Amazon Web Services - You can now select to ingest Amazon Web Services Usage metrics. To do so, when you register or edit your CloudWatch integration, in the **Products** section, select **Custom** and select the **AWS Usage** check box.
-* Kafka - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-* Redis - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-* etcd - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-* Cassandra - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-* NVIDIA - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-* VMware GemFire - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. Also updated some of the dashboard queries to a new format.
-* Uptime - Updated the integration with the new Uptime logo.
-* Windows Host - The setup steps now use a URL parameter in the Wavefront proxy configuration.
-* Operations for Applications Usage - Fixed issues in the predefined dashboards.
-* Terraform Provider - Fixed a discrepancy in the Terraform `resource_alert` provider resulting in erroneous Terraform change plan.
+* Kafka -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Redis -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* etcd -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Cassandra -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* NVIDIA -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* VMware GemFire -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. Also updated some of the dashboard queries to a new format.
+* Uptime -- Updated the integration with the new Uptime logo.
+* Windows Host -- The setup steps now use a URL parameter in the Wavefront proxy configuration.
+* Operations for Applications Usage -- Fixed issues in the predefined dashboards.
+* Terraform Provider -- Fixed a discrepancy in the Terraform `resource_alert` provider resulting in erroneous Terraform change plan.
 
 
 ## May 2023
 
 We made improvements to the following integrations in May 2023:
 
-* Istio - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-* Envoy Proxy - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-* RabbitMQ - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Istio -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Envoy Proxy -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* RabbitMQ -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
 * Tanzu Application Service -- Made updates to the **TAS: Nozzle Troubleshooting** and the **TAS: Workload Monitoring** dashboards, as well as to the **TAS UAA Latency is Elevated** alert.
   * Updated the latency queries because now we emit latency as a histogram.
   * Updated the **TAS: Nozzle Troubleshooting** dashboard to show points used by histograms.
@@ -65,7 +105,7 @@ Logs (Beta) Related Changes:
 
 We have made an improvement to the AWS integration:
 
-* Amazon Web Services – Now contains AWS CloudWatch Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your AWS integration to send logs to Operations for Applications. For details on our Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For details on how to set up the integration, see [Setup for Ingesting AWS CloudWatch Logs (Beta)](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs-beta).
+* Amazon Web Services –- Now contains AWS CloudWatch Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your AWS integration to send logs to Operations for Applications. For details on our Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For details on how to set up the integration, see [Setup for Ingesting AWS CloudWatch Logs (Beta)](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs).
 
 
 We added the following integration in March 2023:
