@@ -26,7 +26,7 @@ You can explore the demo data to see the data. Then, you must select how you wan
                 Select how you send data to our service. For example, select <b>Applications Running on Kubernetes</b>, if you are sending data via eBPF.
             </li>
             <li>
-                Click <b>Save and Go To Services and Application</b>.
+                Click <b>Save and Go To Services and Applications Page</b>.
             </li>
         </ol>
       </td>
