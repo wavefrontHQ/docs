@@ -136,7 +136,7 @@ The <strong>Resolve Window</strong> is the length of time (in minutes) during wh
 <td><img src="images/condition_options.png" alt="Condition options discussed in left column"></td>
 </tr>
 <tr>
-<td>4. For special cases, click <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
+<td>4. For special cases, expand <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
 <ul>
 <li><strong>Checking Frequency</strong>: Number of minutes between checks whether the condition is true. The default value is 5 minutes. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
 <li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Operations for Applications ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
