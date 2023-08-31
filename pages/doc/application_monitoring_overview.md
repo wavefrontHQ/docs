@@ -45,7 +45,7 @@ Go to [Kubernetes App Auto-Instrumentation via Pixie](https://github.com/wavefro
 
 You can use the different dashboards and monitor your applications. You can:
 
-* View the services on the [Service and Application View page](service_and_application_view.html).
+* View the services on the [Services and Applications page](service_and_application_view.html).
 * See how a specific service communicates with the other service using the [Service Map](service_map.html).
 * Identify potential hotspots using the [Service Dashboard](tracing_service_dashboard.html). 
 * Create charts using the RED metrics. 
@@ -62,7 +62,7 @@ Instrument your applications that use OpenTelemetry and send traces and spans to
 
 Once the data is in our service, you can monitor your applications and visualize the data. You can:
 
-* View the services on the [Service and Application View page](service_and_application_view.html).
+* View the services on the [Services and Applications page](service_and_application_view.html).
 * See how a specific service communicates with the other service using the [Service Map](service_map.html).
 * Identify potential hotspots using the [Service Dashboard](tracing_service_dashboard.html).
 * Create charts using the RED metrics.
