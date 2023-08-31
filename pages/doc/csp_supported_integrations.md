@@ -447,9 +447,9 @@ Here's the list of the integrations that are updated as of today. This list grow
 </table>
 
 
-## Integrations That Use Service Accounts
+## Integrations That Use Operations for Applications API Tokens
 
-Here's the list of the integrations that still use service accounts. Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is supported only when you use a service account<!--(targeting mid-October)-->.
+Here's the list of the integrations that still use API tokens. Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is supported only when you use a service account<!--(targeting mid-October)-->.
 
 * AWS Lambda Functions <!--(targeted for update mid September)-->
 * Spring Boot <!--(target mid-end of September)-->
