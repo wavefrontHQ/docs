@@ -65,10 +65,6 @@ Tokens</td>
 </ul></td>
 </tr>
 <tr>
-<td>
-Groups</td>
-<td>Grouping is not supported for service accounts in Operations for Applications subscriptions on VMware Cloud services. Service accounts are only added to the internal <strong>Service Accounts</strong> system group. This group doesn't have any roles and permissions. This group can be used when managing <a href="csp_access.html">access to dashboards and alerts</a>, <a href="csp_metrics_security.html">metrics security policy rules</a>, and <a href="ingestion_policies.html">ingestion policies</a>.</td></tr>
-<tr>
 <td>Permissions</td>
 <td>Individual permissions assigned to this service account. Assign the service account with the <strong>Proxies</strong> permission, so that you can use it for the proxy setup of an integration that authenticates with an Operations for Applications API token.</td>
 </tr>
