@@ -50,54 +50,6 @@ When your Operations for Applications service instance **is not onboarded** to V
 Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
 
 
-
-## Unaffected Integrations  
-
-The following integrations are working as expected no matter whether your Operations for Applications service is onboarded to VMware Cloud services platform or not, because they do not require API token authentication.
-
-### Cloud Integrations
-
-* [Google Cloud Platform](gcp.html)
-* [Amazon Web Services](aws.html)
-* [Microsoft Azure](azure.html)
-* [AppDynamics](appdynamics.html)
-* [Dynatrace](dynatrace.html)
-* [New Relic](newrelic.html)
-* [VMware Aria Operations (SaaS)](integrations_vrops.html)
-
-  Note that this integration works with a VMware Cloud service API token.
-
-* [Snowflake](snowflake.html)
-
-### Notification Integrations
-
-* [BigPanda](bigpanda.html)
-* [Microsoft Teams](msteams.html)
-* [PagerDuty](pagerduty.html)
-* [Slack](slack.html)
-* [Jira](jira.html)
-* [OpsGenie](opsgenie.html)
-* [ServiceNow](servicenow.html)
-* [Splunk On-Call](victorops.html)
-
-
-### collectd Integrations
-
-* [Apache collectd Integration](integrations_collectd_apache.html)
-* [Cassandra collectd Integration](integrations_collectd_cassandra.html)
-* [Memcached collectd Integration](integrations_collectd_memcached.html)
-* [MySQL collectd Integration](integrations_collectd_mysql.html)
-* [NGiNX collectd Integration](integrations_collectd_nginx.html)
-* [Redis collectd Integration](integrations_collectd_redis.html)
-* [Zookeeper collectd Integration](integrations_collectd_zookeeper.html)
-
-### Other Integrations
-
-* [Webhooks](webhooks.html)
-* [Graphite](graphite.html)
-* [Operations for Applications Usage Integration](wavefront_monitoring.html)
-
-
 ## Integrations That Use VMware Cloud Services Access Tokens
 
 We're in the process of incrementally updating our integrations so that you can authenticate with a VMware Cloud services API token or OAuth server to server app  credentials. 
@@ -493,3 +445,50 @@ Here's the list of the integrations that still use API tokens. Currently, if you
 * AVI Networks (NSX ALB) <!--(archive/delete?)-->
 * VMware Blockchain <!--(archive/delete?)-->
 * C Sharp <!--(TBD)-->
+
+## List of Unaffected Integrations
+
+The following integrations do not depend on the subscription type and work as expected, no matter whether your Operations for Applications service is onboarded to VMware Cloud services platform or not.
+
+### Cloud Integrations
+
+* [Google Cloud Platform](gcp.html)
+* [Amazon Web Services](aws.html)
+* [Microsoft Azure](azure.html)
+* [AppDynamics](appdynamics.html)
+* [Dynatrace](dynatrace.html)
+* [New Relic](newrelic.html)
+* [VMware Aria Operations (SaaS)](integrations_vrops.html)
+  
+  Note that currently this integration works with a VMware Cloud services API token only.
+
+* [Snowflake](snowflake.html)
+
+### Notification Integrations
+
+* [BigPanda](bigpanda.html)
+* [Microsoft Teams](msteams.html)
+* [PagerDuty](pagerduty.html)
+* [Slack](slack.html)
+* [Jira](jira.html)
+* [OpsGenie](opsgenie.html)
+* [ServiceNow](servicenow.html)
+* [Splunk On-Call](victorops.html)
+
+
+### collectd Integrations
+
+* [Apache collectd Integration](integrations_collectd_apache.html)
+* [Cassandra collectd Integration](integrations_collectd_cassandra.html)
+* [Memcached collectd Integration](integrations_collectd_memcached.html)
+* [MySQL collectd Integration](integrations_collectd_mysql.html)
+* [NGiNX collectd Integration](integrations_collectd_nginx.html)
+* [Redis collectd Integration](integrations_collectd_redis.html)
+* [Zookeeper collectd Integration](integrations_collectd_zookeeper.html)
+
+### Other Integrations
+
+* [Webhooks](webhooks.html)
+* [Graphite](graphite.html)
+* [Operations for Applications Usage Integration](wavefront_monitoring.html)
+
