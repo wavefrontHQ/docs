@@ -4,35 +4,56 @@ keywords: integrations
 tags: 
 sidebar: doc_sidebar
 permalink: integrations_onboarded_subscriptions.html
-summary: Learn which integrations work with VMware Cloud services API tokens and server to server OAuth apps and which still require Operations for Applications service accounts and API tokens.
+summary: Learn how integration authentication happens, which integrations work with VMware Cloud services access tokens and which integrations still work with Operations for Applications API tokens.
 ---
 
 ## Subscription Types
 
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services.
 
-For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. When your Operations for Applications service **is onboarded** to the VMware Cloud services platform you have the following choices for the proxy authentication:
+For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. 
 
-* Use OAuth App authentication (recommended):
+### VMware Cloud Services Subscriptions
 
-  You must use the credentials (client ID and client secret) of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the ID of the VMware Cloud organization running the service.
+When your Operations for Applications service **is onboarded** to the VMware Cloud services platform you have the following choices for the [Wavefront proxy](proxies_installing.html) authentication:
 
-  If you don’t have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+**VMware Cloud Services Access Token**
 
+The Wavefront proxy requires a VMware Cloud services access token with the **Proxies** service role. There are two options for the proxy to retrieve an access token. You can configure the Wavefront proxy to use:
 
-* Use API Token authentication:
+* OAuth App authentication (recommended and more secure):
+
+  You must use the credentials (client ID and client secret) of an existing server to server OAuth app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the long ID of the VMware Cloud organization running the service.
+
+  If you don’t have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation. You can also try out the [Windows host integration tutorial](windows_host_tutorial.html).
+
+  When the access token expires, depending on the token TTL configuration of the server to server app, the Wavefront proxy automatically retrieves a new access token.
+
+* API Token authentication:
 
   The API token must be generated in the VMware Cloud Services Console by an active user account. It also must have the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
 
-* Use an Operations for Applications [service account](csp_service_accounts.html):
+  You might need to regenerate and reconfigure the API token periodically depending on the TTL configuration.
 
-  A service account uses an Operations for Applications API token to authenticate. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can set up the Wavefront proxy in your integration to pass the API token of the service account. For information about service accounts, see [Manage Service Accounts in Operations for Applications on VMware Cloud Services](csp_service_accounts.html). To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account).
+
+**Operations for Applications API token**
+
+For a limited number of integrations, you can still use an Operations for Applications API token. It is recommended that the API token is associated with a [service account](csp_service_accounts.html) that has the **Proxies** permission. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can install the Wavefront proxy and set up your integration to pass the API token of the service account. It is recommended that you gradually switch to using server to server OAuth apps which authenticate with more secure VMware Cloud services access tokens.
+
+To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account).
+
+
+### Original Subscriptions
+
+When your Operations for Applications service instance **is not onboarded** to VMware Cloud services, the proxy requires an Operations for Applications **API token**.
+
+Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
 
 
 
 ## Unaffected Integrations  
 
-The following integrations are working as before no matter whether your Operations for Applications service is onboarded to VMware Cloud services platform or not.
+The following integrations are working as expected no matter whether your Operations for Applications service is onboarded to VMware Cloud services platform or not, because they do not require API token authentication.
 
 ### Cloud Integrations
 
@@ -77,11 +98,11 @@ The following integrations are working as before no matter whether your Operatio
 * [Operations for Applications Usage Integration](wavefront_monitoring.html)
 
 
-## Integrations That Leverage VMware Cloud Services Authentication
+## Integrations That Use VMware Cloud Services Access Tokens
 
 We're in the process of incrementally updating our integrations so that you can authenticate with a VMware Cloud services API token or OAuth server to server app  credentials. 
 
-Here's the list of the integrations that are updated as of today. This list grows with each release. If you urgently need an integration to become available and configurable with VMware Cloud services authentication credentials, please contact us at: `tanzu_saas_ops@vmware.com`.
+Here's the list of the integrations that are updated as of today. This list grows with each release. If you urgently need an integration to become available and configurable with a VMware Cloud services access token, please contact us at: `tanzu_saas_ops@vmware.com`.
 
 <table style="width: 100%;">
 <thead>
