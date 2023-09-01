@@ -21,7 +21,7 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 
 The Wavefront proxy requires a VMware Cloud services access token with the **Proxies** service role. There are two options for the proxy to retrieve an access token. You can configure the Wavefront proxy to use:
 
-* OAuth App authentication (recommended and more secure):
+* OAuth App authentication (recommended):
 
   You must use the credentials (client ID and client secret) of an existing server to server OAuth app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the long ID of the VMware Cloud organization running the service.
 
@@ -35,10 +35,9 @@ The Wavefront proxy requires a VMware Cloud services access token with the **Pro
 
   You might need to regenerate and reconfigure the API token periodically depending on the TTL configuration.
 
-
 **Operations for Applications API token**
 
-For a limited number of integrations, you can still use an Operations for Applications API token. It is recommended that the API token is associated with a [service account](csp_service_accounts.html) that has the **Proxies** permission. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can install the Wavefront proxy and set up your integration to pass the API token of the service account. It is recommended that you gradually switch to using server to server OAuth apps which authenticate with more secure VMware Cloud services access tokens.
+For a limited number of integrations, you must still use an Operations for Applications API token. It is recommended that the API token is associated with a [service account](csp_service_accounts.html) that has the **Proxies** permission. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can install the Wavefront proxy and set up your integration to pass the API token of the service account. It is recommended that you gradually switch to using server to server OAuth apps which authenticate with more secure VMware Cloud services access tokens.
 
 To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account).
 
@@ -424,27 +423,27 @@ Here's the list of the integrations that are updated as of today. This list grow
 
 Here's the list of the integrations that still use API tokens. Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is supported only when you use a service account<!--(targeting mid-October)-->.
 
-* AWS Lambda Functions <!--(targeted for update mid September)-->
-* Spring Boot <!--(target mid-end of September)-->
-* Nagios <!--(targeting mid-September for customer availability)-->
-* Tanzu Mission Control <!--(TBD)-->
-* VMware GemFire <!--(TBD https://jira.eng.vmware.com/browse/INT-1897)-->
-* Micrometer <!--(Target mid-September)-->
-* Catchpoint <!--(Target mid-September)-->
-* VMware Tanzu Kubernetes Grid Integration <!--(TBD)-->
-* Terraform Provider <!--(TBD)-->
-* Ansible Role <!--(archive/delete?)-->
-* VMware Aria Operations for Logs <!--(TBD)-->
-* VMware Spring Cloud Data Flow for Kubernetes <!--(TBD)-->
-* VMware tc Server  <!--(archive/delete?)-->
-* Microsoft Azure Deployment Manager <!--(archive/delete?)-->
-* Uptime <!--(TBD)-->
-* Datadog <!--(archive/delete?)-->
-* Grafana <!--(TBD)-->
-* Chef Server <!--(TBD)-->
-* AVI Networks (NSX ALB) <!--(archive/delete?)-->
-* VMware Blockchain <!--(archive/delete?)-->
-* C Sharp <!--(TBD)-->
+* [AWS Lambda Functions](aws-lambda-functions.html) <!--(targeted for update mid September)-->
+* [Spring Boot](springboot.html) <!--(target mid-end of September)-->
+* [Nagios](nagios.html) <!--(targeting mid-September for customer availability)-->
+* [VMware Tanzu Mission Control Advanced](tmc.html) <!--(TBD)-->
+* [VMware GemFire](gemfire.html) <!--(TBD https://jira.eng.vmware.com/browse/INT-1897)-->
+* [Micrometer](micrometer.html) <!--(Target mid-September)-->
+* [Catchpoint](catchpoint.html) <!--(Target mid-September)-->
+* [VMware Tanzu Kubernetes Grid Integration](tkgi.html) <!--(TBD)-->
+* [Terraform Provider](wavefront-terraform-provider.html) <!--(TBD)-->
+* [Ansible Role](ansible.html) <!--(archive/delete?)-->
+* [VMware Aria Operations for Logs](log-insight-cloud.html) <!--(TBD)-->
+* [VMware Spring Cloud Data Flow for Kubernetes](scdf.html) <!--(TBD)-->
+* [VMware tc Server](vmware-tcserver.html)  <!--(archive/delete?)-->
+* [Microsoft Azure Deployment Manager](adm.html) <!--(archive/delete?)-->
+* [Uptime](uptime.html) <!--(TBD)-->
+* [Datadog](datadog.html) <!--(archive/delete?)-->
+* [Grafana](grafana.html) <!--(TBD)-->
+* [Chef Server](wavefront-chef.html) <!--(TBD)-->
+* [AVI Networks (NSX ALB)](avi_nsx_alb.html) <!--(archive/delete?)-->
+* [VMware Blockchain](vmware_blockchain.html) <!--(archive/delete?)-->
+* [C Sharp](csharp.html) <!--(TBD)-->
 
 ## List of Unaffected Integrations
 
