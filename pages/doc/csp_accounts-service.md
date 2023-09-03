@@ -97,3 +97,32 @@ To activate or deactivate an account from the <strong>Edit Service Account</stro
 </tr>
 </tbody>
 </table>
+
+## Grant or Revoke Permissions
+
+You can grant a permissions to a service account when you create the account or add permissions later from the **Service Accounts** page or from the **Edit Service Account** page.
+
+The following example shows two ways of explicitly grant or revoke permissions for service accounts.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+To grant or revoke permissions from the <strong>Service Accounts</strong> page:
+<ol><li>Select one or more service accounts. </li>
+<li>Click <strong>+Permissions</strong> or <strong>-Permissions</strong> and select the permission to add or remove.</li>
+</ol></td>
+<td width="50%"><img src="/images/csp_sa_add_permission_global.png" alt="add or remove service account permissions"/></td>
+</tr>
+<tr>
+<td width="50%">
+To grant or revoke permissions from the <strong>Edit Service Account</strong> page:
+<ol><li>Click the service account name to open the <strong>Edit Service Account</strong> page. </li>
+<li>Select the permissions that you want to grant or revoke.</li>
+</ol></td>
+<td width="50%"><img src="/images/sa_add_permission_single.png" alt="add or remove service account permissions"/></td>
+</tr>
+
+</tbody>
+</table>
+

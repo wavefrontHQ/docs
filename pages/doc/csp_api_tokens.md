@@ -28,7 +28,7 @@ You can generate VMware Cloud services API tokens only for your user account. Yo
 * At least one Operations for Applications service role.
 * Optionally, one or more custom roles.
 
-You must also set each API token with a time to live (TTL), which is the time that the API token will be valid unless revoked. When an API token expires, you must generate a new API token and update your scripts and API calls.
+You must also set each API token with a time to live (TTL), which is the time that the API token will be valid unless revoked earlier. When an API token expires, you must generate a new API token and update your scripts and API calls.
 
 {% include important.html content="The access tokens exchanged from a VMware Cloud services API token have a TTL of 30 minutes. Make sure that your scrips periodically renew the access tokens before they expire."%}
 
