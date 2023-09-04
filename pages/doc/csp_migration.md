@@ -63,6 +63,8 @@ During the process of onboarding your Operations for Applications service to VMw
     - The **Accounts** permission is replaced by the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) plus the **Admin** Operations for Applications service role.
     - The **API Tokens** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. Each VMware Cloud services user can manage their own VMware Cloud services API tokens.
     - The **SAML IdP Admin** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. The VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
+
+    For details, see the [permissions differences](csp-differences-by-area.html#permissions).
 * If a user is assigned with roles in Operations for Applications, we assign that user with the corresponding custom roles in VMware Cloud services. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
 * If a user belongs to a group in Operations for Applications, we add that user to the corresponding group in VMware Cloud services. See [How Are the Groups Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-groups-migrated-to-vmware-cloud-services).
 * If a user is a **Super Admin** in Operations for Applications, we assign that user with the **Super Admin** Operations for Applications service role in VMware Cloud services.
@@ -136,6 +138,8 @@ During the process of onboarding your Operations for Applications service to VMw
     - The **API Tokens** permission in Operations for Applications **is not** replaced by any permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because each user can manage their own VMware Cloud services API tokens.
     - The **SAML IdP Admin** permission in Operations for Applications **is not** replaced with by permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because the VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
 
+    For details, see the [permissions differences](csp-differences-by-area.html#permissions).
+
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) in the VMware Cloud Services Console."%}
 
 <table style="width: 100%;">
@@ -148,7 +152,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
 During the process of onboarding your Operations for Applications service to VMware Cloud services, the service accounts **are not** migrated to VMware Cloud services.
 
-VMware Cloud services supports [server to server OAuth apps](csp_server_to_server_apps.html), which are equivalent to the services accounts in Operations for Applications. You should incrementally replace your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
+VMware Cloud services supports [server to server OAuth apps](csp_server_to_server_apps.html), which are equivalent to the services accounts in Operations for Applications. Service accounts are supported only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. You should incrementally replace your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
 
 For backward compatibility, all of your service accounts are **preserved** in Operations for Applications as follows:
 

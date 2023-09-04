@@ -957,7 +957,7 @@ entries:
             url: /csp_service_accounts.html
             output: web
 
-          - title: Manage API Tokens
+          - title: Manage Tokens
             url: /csp_api_tokens.html
             output: web
             
