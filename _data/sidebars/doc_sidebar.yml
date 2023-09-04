@@ -15,24 +15,6 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
-      subfolders:
-
-      - title: Subscription Types
-        output: web
-        subfolderitems:
-      
-        - title: "VMware Cloud Services vs Original"
-          url: /subscriptions-differences.html
-          output: web
-                
-        - title: "UI Differences"
-          url: /csp-ui-differences.html
-          output: web
-          
-        - title: "Functionality Differences"
-          url: /csp-differences-by-area.html
-          output: web
-
     - title: Product FAQ
       output: web
       url: /tobs_faq.html
@@ -41,14 +23,44 @@ entries:
     output: web
     folderitems:
 
-    - title: Upgrade from Trial to Paid
-      url: /upgrade_and_purchase.html
+    - title: Subscription Types
+      url: /subscriptions-differences.html
       output: web
 
-    - title: Purchase Additional Capacity
-      url: /purchase_additional_capacity.html
+      subfolders:
+
+      - title: Differences Explained
+        output: web
+        subfolderitems:
+        
+          - title: "UI Differences"
+            url: /csp-ui-differences.html
+            output: web
+            
+          - title: "Functionality Differences"
+            url: /csp-differences-by-area.html
+            output: web
+
+      - title: Free Trial and Purchases
+        output: web
+        subfolderitems:
+      
+        - title: Start a Free Trial
+          url:  /start_trial.html
+          output: web
+
+        - title: Upgrade from Trial to Paid
+          url: /upgrade_and_purchase.html
+          output: web
+
+        - title: Purchase Additional Capacity
+          url: /purchase_additional_capacity.html
+          output: web
+      
+    - title: "Onboarding Original to VMware Cloud Services"
+      url: /csp_migration.html
       output: web
-  
+   
   - title: Quickstart & Tutorials
     output: web
     folderitems:
@@ -485,16 +497,20 @@ entries:
     - title: Integrations Overview
       url: /integrations.html
       output: web
+    
+    - title: How Integration Authentication Works
+      url: /integrations_onboarded_subscriptions.html
+      output: web
 
-    - title: List of Integrations
+    - title: Complete List of Integrations
       url: /label_integrations%20list.html
       output: web
 
 
       subfolders:
-      - title: Integration Details
+      - title: Amazon Web Services Integrations
         output: web
-        subfolderitems:
+        subfolderitems:    
 
           - title: AWS Integration Overview
             url: /integrations_aws_overview.html
@@ -520,6 +536,10 @@ entries:
             url: /integrations_aws_key_age.html
             output: web
 
+      - title: Google Cloud Platform Integration
+        output: web
+        subfolderitems:
+
           - title: GCP Overview and Permissions
             url: /integrations_gcp_overview.html
             output: web
@@ -527,6 +547,10 @@ entries:
           - title: GCP Integration API Setup
             url: /integrations_gcp_api.html
             output: web
+
+      - title: Integrations Details and Troubleshooting
+        output: web
+        subfolderitems:
 
           - title: VMware TKGi Integration
             url: /integrations_tkgi.html
@@ -550,6 +574,10 @@ entries:
 
           - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
+            output: web
+
+          - title: Troubleshooting Cloud Services Integrations
+            url: /integrations-troubleshooting.html
             output: web
 
           - title: Troubleshoot BigPanda Webhook Targets
@@ -923,6 +951,14 @@ entries:
 
           - title: Manage Server to Server Apps
             url: /csp_server_to_server_apps.html
+            output: web
+
+          - title: Manage Service Accounts
+            url: /csp_service_accounts.html
+            output: web
+
+          - title: Manage API Tokens
+            url: /csp_api_tokens.html
             output: web
             
         - title: Manage Access to Objects
