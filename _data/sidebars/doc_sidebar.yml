@@ -494,15 +494,15 @@ entries:
       url: /integrations.html
       output: web
 
-    - title: List of Integrations
+    - title: Complete List of Integrations
       url: /label_integrations%20list.html
       output: web
 
 
       subfolders:
-      - title: Integration Details
+      - title: Amazon Web Services Integrations
         output: web
-        subfolderitems:
+        subfolderitems:    
 
           - title: AWS Integration Overview
             url: /integrations_aws_overview.html
@@ -528,6 +528,10 @@ entries:
             url: /integrations_aws_key_age.html
             output: web
 
+      - title: Google Cloud Platform Integration
+        output: web
+        subfolderitems:
+
           - title: GCP Overview and Permissions
             url: /integrations_gcp_overview.html
             output: web
@@ -535,6 +539,10 @@ entries:
           - title: GCP Integration API Setup
             url: /integrations_gcp_api.html
             output: web
+
+      - title: Integrations Details and Troubleshooting
+        output: web
+        subfolderitems:
 
           - title: VMware TKGi Integration
             url: /integrations_tkgi.html
@@ -558,6 +566,10 @@ entries:
 
           - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
+            output: web
+
+          - title: Troubleshooting Cloud Services Integrations
+            url: /integrations-troubleshooting.html
             output: web
 
           - title: Troubleshoot BigPanda Webhook Targets
