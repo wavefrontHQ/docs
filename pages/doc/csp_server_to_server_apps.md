@@ -1,5 +1,5 @@
 ---
-title: Manage Server to Server Apps (Service Accounts)
+title: Manage VMware Cloud Services Server to Server Apps
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -13,19 +13,19 @@ VMware Cloud services supports server to server apps that you can use to automat
 
 You can also use a server to server app for a [Wavefront proxy authentication](proxies_installing.html#proxy-authentication-types). For example, see our [Windows Host Integration Tutorial](windows_host_tutorial.html), which includes installing a Wavefront proxy with server to server OAuth app credentials.
 
-{% include note.html content="A server to server app must hold roles with certain [permissions](csp_permissions_overview.html#operations-for-applications-permissions) to perform tasks. To run queries, a server to server app must hold the [**Metrics** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with the **Metrics** permission. To manage dashboards and alerts, the server to server app might need both roles with permissions and [access](csp_access.html)." %}
+{% include note.html content="A server to server app must hold roles with certain [permissions](csp_permissions_overview.html#operations-for-applications-permissions) to perform tasks. For example, to run queries, a server to server app must hold the [**Metrics** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with the **Metrics** permission. To manage dashboards and alerts, the server to server app might need both roles with permissions and [access](csp_access.html)." %}
 
 ## What Are Server to Server Apps?
 
 Server to server apps are used for automating management tasks. 
 
-* A server to server app has **OAuth 2.0 client credentials**, which can be exchanged to a VMware Cloud services access token.
+* A server to server app uses **OAuth 2.0 client credentials** to get a VMware Cloud services **access token** and authenticate.
 * A server to server app can be assigned with organization roles, service roles, and custom roles.
 
   {% include note.html content="You must explicitly grant each server to server app only the role with the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for server to server app are always very limited." %}
 * A server to server app can be used in multiple organizations. The owner of a server to server app is the organization in which it was created.
 
-{% include note.html content="Operations for Applications includes an internal **Service Accounts** system group, where any server to server app with access to the service is added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
+{% include note.html content="Operations for Applications includes an internal **Service Accounts** system group, where all server to server apps with access to the service together with all [service accounts](csp_service_accounts.html) are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## How Server to Server Apps Work
 

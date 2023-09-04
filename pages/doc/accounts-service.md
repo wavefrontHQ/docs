@@ -7,7 +7,7 @@ permalink: service-accounts.html
 summary: Create and manage service accounts.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Server to Server Apps](csp_server_to_server_apps.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Server to Server Apps](csp_server_to_server_apps.html) and [Manage Service Accounts](csp_service_accounts.html)."%}
 
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports service accounts that can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
 
@@ -19,11 +19,11 @@ Each service account that you create is automatically added to the **Service Acc
 
 Service accounts are used for automating management tasks.
 
-* A service account uses a **token** to authenticate.
+* A service account uses an **API token** to authenticate.
 * Each account is automatically added to the **Service Accounts** group. If a role is assigned to that group, the service account gets the permissions from that role.
 * Service accounts can be added to any group to get that group's role (and permissions).
 
-As a user with the **Accounts** permission, you [generate (and revoke, if needed)](api_tokens.html#generate-and-manage-the-api-tokens-for-a-service-account) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+As a user with the **Accounts** permission, you [generate (and revoke, if needed)](api_tokens.html#generate-and-manage-the-api-tokens-for-a-service-account) API tokens for the service account. It’s also possible to deactivate a service account completely. 
 
 ## How Service Accounts Work
 
