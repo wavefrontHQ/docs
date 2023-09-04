@@ -226,7 +226,7 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <td><strong>Note:</strong> Server to server OAuth apps are recommended and fully supported. Service accounts are with limited support.
 <p><strong>Who</strong>:
 <ul>
-<li>For server to server OAuth apps, users with the VMware Cloud <strong>Organization Owner</strong>, <strong>Organization Administrator</strong>, or <strong>Organization Member</strong> with <strong>Developer</strong> role. </li>
+<li>For server to server OAuth apps, users with the VMware Cloud <strong>Organization Owner</strong>, <strong>Organization Administrator</strong>, or <strong>Organization Member</strong> with the <strong>Developer</strong> role assigned. </li>
 <li>For service accounts, users with the <strong>Admin</strong> Operations for Applications service role.</li>
 </ul></p>
 <p><strong>Where</strong>:
@@ -247,14 +247,14 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <td><strong>Who</strong>: Users with the <strong>Accounts</strong> permission.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: Permissions can be assigned to roles as well as to individual user accounts and service accounts.</p>
-<p>The permissions list includes the <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions, because they are required for all of the authorization and authentication tasks which are done in the Operations for Applications.</p>
-<p>In addition, the <strong>Accounts</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
 <p>See:
 <ul>
-<li><a href="permissions_overview.html">Permissions Reference</a></li>
 <li><a href="users_roles.html#create-a-role">Create a Role</a></li>
 <li><a href="users_roles.html#grant-or-revoke-account-permissions-explicitly">Grant or Revoke Account Permissions Explicitly</a></li>
 </ul></p>
+<p><strong>Note</strong>: The permissions list includes the <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions, because they are required for all of the authorization and authentication tasks which are done in the Operations for Applications.</p>
+<p>In addition, the <strong>Accounts</strong> permission grants privileges for managing the Operations for Applications organization settings.</p>
+<p>See the <a href="permissions_overview.html">Permissions Reference</a>. </p>
 </td>
 <td><strong>Who</strong>:
 <ul>
@@ -266,16 +266,16 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <li>For assigning permissions to roles, in the VMware Cloud Services Console.</li>
 <li>For assigning permissions to service accounts, in the Operations for Applications user interface.</li>
 </ul></p>
-<p><strong>How</strong>: Permissions can be assigned only to roles in VMware Cloud services and to service accounts in Operations for Applications.</p>
-<p>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because most of the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console.</p>
-<p>The <strong>Admin</strong> Operations for Applications permission grants privileges for managing service accounts, Operations for Applications API tokens, and the Operations for Applications organization settings.</p>
+<p><strong>How</strong>: Permissions can be assigned only to roles in the VMware Cloud services organization and service accounts - in the Operations for Applications environment.</p>
 <p>See:
 <ul>
-<li><a href="csp_permissions_overview.html">Operations for Applications Permissions in VMware Cloud Services</a></li>
 <li><a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Create, Edit, or Delete a Custom Role</a></li>
 <li><a href="csp_service_accounts.html#grant-or-revoke-permissions">Grant or Revoke Permissions from a Service Account</a></li>
 </ul>
 </p>
+<p><strong>Note</strong>: The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because most of the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console.</p>
+<p>The <strong>Admin</strong> Operations for Applications permission grants privileges for managing service accounts, Operations for Applications API tokens, and the Operations for Applications organization settings.</p>
+<p>See the <a href="csp_permissions_overview.html">Operations for Applications Permissions in VMware Cloud Services</a>.</p>
 </td>
 </tr>
 <tr>
@@ -325,7 +325,7 @@ For details, see <a href="csp_users_roles.html#manage-roles">Manage Roles</a>.</
 <tr>
 <td>Generating API Tokens
 </td>
-<td><strong>Note</strong>: Only Operations for Applications are supported.
+<td><strong>Note</strong>: Only Operations for Applications API tokens are supported.
 <p><strong>Who</strong>:
 <ul><li>For API tokens associated with a user account, the corresponding user who must have the <strong>API Tokens</strong> permission.</li>
 <li>For API tokens associated with service accounts, the users with the <strong>Accounts</strong> permission.</li>
@@ -333,10 +333,10 @@ For details, see <a href="csp_users_roles.html#manage-roles">Manage Roles</a>.</
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>:<ul>
 <li>A user with the <strong>API Tokens</strong> permission can generate Operations for Applications API tokens for their own user account. The API tokens inherit all permissions that its associated user account owns.</li>
-<li>Users with the <strong>Accounts</strong> permission can generate Operations for Applications API tokens for service accounts. The API tokens inherit the permissions ot its associated service account.</li></ul>
+<li>Users with the <strong>Accounts</strong> permission can generate Operations for Applications API tokens for service accounts. The API tokens inherit the permissions of their associated service account.</li></ul>
 For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 </td>
-<td><strong>Note</strong>: VMware Cloud services API tokens and server to server OAuth apps are recommended and fully supported to be used for obtaining VMware Cloud services access tokens. Operations for Applications API tokens are with limited support. 
+<td><strong>Note</strong>: It is recommended to use VMware Cloud services API tokens and server to server OAuth app credentials for obtaining VMware Cloud services access tokens. Operations for Applications API tokens are with limited support. 
 <p><strong>Who</strong>:
 <ul><li>For VMware Cloud services API tokens associated with a user account, the corresponding user.</li>
 <li>For Operations for Applications API tokens associated with service accounts, the users with the <strong>Admin</strong> Operations for Applications service role.</li>
@@ -348,7 +348,7 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 </p>
 <p><strong>How</strong>:
 <ul><li>Each user can generate VMware Cloud services API tokens for their user account. An API token can be assigned with roles from the list of roles that the user owns - organization roles, service roles, and custom roles. For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html">How do I generate API tokens</a> in the VMware Cloud services documentation.</li>
-<li>Users with the <strong>Admin</strong> service role can generate Operations for Applications API tokens for service accounts. The API tokens inherit the permissions that of its associated service account. For details, see <a href="csp_service_accounts.html">Manage Service Accounts</a>.
+<li>Users with the <strong>Admin</strong> service role can generate Operations for Applications API tokens for service accounts. The API tokens inherit the permissions of their associated service account. For details, see <a href="csp_service_accounts.html">Manage Service Accounts</a>.
 </li>
 </ul>
 </p>
@@ -391,7 +391,7 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 <li>To interact with the REST API by using a service account, you must use an API token associated with that service account. For details, see <a href="using_wavefront_api.html#make-api-calls-by-using-a-service-account">Make API Calls by Using a Service Account</a>.</li></ul></p>
 </td>
 <td>
-<strong>Who</strong>: Everyone who has a VMware Cloud services API token or the credentials of a server to server OAuth apps.
+<strong>Who</strong>: Everyone who has a VMware Cloud services API token or the credentials of a server to server OAuth app.
 <p><strong>Where</strong>: An API client.</p>
 <p><strong>How</strong>: Interacting with the Operations for Application REST API requires a VMware Cloud services access token.
 <ul><li>To interact with the REST API on behalf of your user account, you must exchange your VMware Cloud services API token for an access token. For details, see <a href="using_wavefront_api.html#make-api-calls-by-using-a-user-account">Make API Calls by Using a User Account</a>.</li>
@@ -436,7 +436,7 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: As a user with the <strong>Proxies</strong> permission, you must configure the proxy to authenticate to Operations for Applications with an Operations for Applications API token that have the <strong>Proxies</strong> permission. For details, see <a href="proxies_installing.html#install-a-proxy-from-the-ui">Install a Proxy from the UI</a>.</p>
 </td>
-<td><strong>Note</strong>: The Wavefront proxy authenticates with a VMware Cloud services access token obtained from server to server OAuth app credentials or from a VMware Cloud services API token. Proxy authentication with an Operations for Applications API token is with limited support to be used only for a <a href="integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens">list of integrations</a>.
+<td><strong>Note</strong>: The Wavefront proxy authenticates with a VMware Cloud services access token obtained from server to server OAuth app credentials or from a VMware Cloud services API token. Proxy authentication with an Operations for Applications API token is still possible and supported only for a <a href="integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens">limited list of integrations</a>.
 <p><strong>Who</strong>:
 <ul>
 <li>For proxy installation, users with the <strong>Proxies</strong> Operations for Applications service role.</li>
@@ -445,11 +445,11 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 </ul></p>
 <p><strong>Where</strong>:
 <ul>
-<li>For proxy installation and generating an Operations for Applications API token of a service account, in the Operations for Applications user interface.</li>
 <li>For generating a VMware Cloud services API token or creating a server to server OAuth app, in the VMware Cloud Services Console.</li>
+<li>For proxy installation and generating an Operations for Applications API token for a service account, in the Operations for Applications user interface.</li>
 </ul></p>
-<p><strong>How</strong>: As a user with the <strong>Proxies</strong> service role, you must configure the proxy to authenticate to Operations for Applications. The proxy must obtain a VMware Cloud services access token with the <strong>Proxies</strong> service role or use an Operations for Applications API token of a service account with the <strong>Proxies</strong> permission. To obtain a VMware Cloud services access token:
-<ul><li>The proxy can use the credentials of a server to server <strong>OAuth app</strong> - ID and secret, together with the VMware Cloud organization ID.</li>
+<p><strong>How</strong>: As a user with the <strong>Proxies</strong> service role, you configure the proxy to authenticate to Operations for Applications. The proxy obtains a VMware Cloud services access token with the <strong>Proxies</strong> service role or use an Operations for Applications API token of a service account with the <strong>Proxies</strong> permission. To obtain a VMware Cloud services access token:
+<ul><li>The proxy can use the credentials of a server to server <strong>OAuth app</strong> - ID and secret, together with the VMware Cloud organization long ID.</li>
 <li>The proxy can use the VMware Cloud services <strong>API token</strong> of an active user account.</li></ul>
 In both ways, the access token is directly issued to the proxy. For details, see <a href="proxies_installing.html#proxy-authentication-types">Proxy Authentication Types</a>.</p>
 </td>
@@ -458,12 +458,17 @@ In both ways, the access token is directly issued to the proxy. For details, see
 <td>Integrations Installation
 </td>
 <td><strong>Note</strong>: All <a href="label_integrations%20list.html">integrations</a> that use a Wavefront proxy authenticate with an Operations for Applications API token.
-<p><strong>Who</strong>: Users with the <strong>Integrations</strong> permission who must have an Operations for Applications API token with the <strong>Proxies</strong> permission.</p>
+<p><strong>Who</strong>: Users or service accounts with the <strong>Proxies</strong> permission who have an active Operations for Applications API token.</p>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: Follow the instructions on the <strong>Setup</strong> tab of the integration that you want to install.</p>
 </td>
 <td><strong>Note</strong>: <a href="integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens">Most of the integrations</a> that use a Wavefront proxy authenticate with a VMware Cloud services access token. A <a href="integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens">limited list of integrations</a> still use proxy authentication with an Operations for Applications API token.
-<p><strong>Who</strong>: Users with the <strong>Integrations</strong> Operations for Applications service role who must have a VMware Cloud services API token or the credentials of server to server OAuth app with the <strong>Proxies</strong> service role, or an Operations for Applications API token with the <strong>Proxies</strong> permission.</p>
+<p><strong>Who</strong>: Users with the <strong>Proxies</strong> Operations for Applications service role who must have one of the following:
+<ul>
+<li>A valid VMware Cloud services API token with the <strong>Proxies</strong> service role assigned.</li>
+<li>The credentials of a server to server OAuth app with the <strong>Proxies</strong> service role assigned.</li>
+<li>An Operations for Applications API token associated with a service account that has the <strong>Proxies</strong> permission.</li>
+</ul></p>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: Follow the instructions on the <strong>Setup</strong> tab of the integration that you want to install. </p>
 </td>
