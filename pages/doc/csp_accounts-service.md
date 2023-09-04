@@ -11,16 +11,16 @@ summary: Learn how you can create and manage service accounts.
 
 The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only the proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. [Most of the integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that require proxy setup authenticate with VMware Cloud services access tokens.
 
-If you onboarded from an original Operations for Applications subscription, you might have some legacy service accounts for backward compatibility. It's recommended that you incrementally switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens. See [How to Replace a Service Account with a Server to Server App?](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app).
+If your service was recently onboarded to VMware Cloud services, you might have some legacy service accounts for backward compatibility. It's recommended that you incrementally switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens. See [How to Replace a Service Account with a Server to Server App?](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app).
 
 ## What Are Service Accounts?
 
 * A service account uses an **Operations for Applications API token** to authenticate.
 * By default, service accounts don't have any permissions, even view permissions. Users with the **Admin** service role must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). There's no limit on the number of service accounts that you can create in your service instance. 
 
-As a user with the **Admin** service role, you [generate (and revoke, if needed)](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account) API tokens for the service account. It’s also possible to [deactivate](csp_service_accounts.html#deactivate-or-activate-a-service-account) a service account completely. 
+As a user with the **Admin** service role, you [generate (and revoke, if needed)](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account) the API tokens for the service account. It’s also possible to [deactivate](csp_service_accounts.html#deactivate-or-activate-a-service-account) a service account completely. 
 
-{% include note.html content="Operations for Applications includes the **Service Accounts** internal ystem group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) that have access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
+{% include note.html content="Operations for Applications includes the **Service Accounts** internal system group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) that have access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## How Service Accounts Work
 
@@ -32,7 +32,7 @@ If you plan to set up an integration that uses a proxy authentication with an Op
 
    The proxy authenticates seamlessly to the API without embedding secret keys or user credentials in your instance, image, or application code.
 
-You can disable a service account if you temporarily don't need it, or you can delete the account permanently.
+You can disable a service account if you temporarily don't need it, or you can delete the service account permanently.
 
 
 ## Create a Service Account
@@ -52,12 +52,12 @@ Service accounts are created in Operations for Applications.
 <tr>
 <td>
 Account ID</td>
-<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Operations for Applications converts service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
+<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Operations for Applications converts a service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
 </tr>
 <tr>
 <td>
 Tokens</td>
-<td>List of API tokens that the service account can use to authenticate to the service instance.
+<td>List of API tokens that the service account can use to authenticate to the Operations for Applications service instance.
 <ul><li>Click the <strong>Edit</strong> icon to change the token name. </li>
 <li>Click <strong>Revoke</strong> to revoke a token. Any service account that uses the token can no longer authenticate to the service instance. </li>
 <li>Click <strong>Generate</strong> to generate additional tokens. Having multiple active tokens makes it possible to revoke some tokens. For example, if the service connects to several proxies, you can generate a token to connect to each proxy. You can revoke the token for one proxy but leave the others. You can have up to 20 API tokens per service account at any given time.</li>
@@ -100,9 +100,9 @@ To activate or deactivate an account from the <strong>Edit Service Account</stro
 
 ## Grant or Revoke Permissions
 
-You can grant a permissions to a service account when you create the account or add permissions later from the **Service Accounts** page or from the **Edit Service Account** page.
+You can grant permissions to a service account when you create the account or add permissions later from the **Service Accounts** page or from the **Edit Service Account** page.
 
-The following example shows two ways of explicitly grant or revoke permissions for service accounts.
+The following example shows two ways of explicitly granting or revoking permissions for service accounts.
 
 <table style="width: 100%;">
 <tbody>
