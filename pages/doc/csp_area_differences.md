@@ -242,7 +242,7 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 </td>
 </tr>
 <tr>
-<td>Permissions Management
+<td id="permissions">Permissions Management
 </td>
 <td><strong>Who</strong>: Users with the <strong>Accounts</strong> permission.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>

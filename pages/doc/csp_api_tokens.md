@@ -1,5 +1,5 @@
 ---
-title: Manage API Tokens in VMware Cloud Services and Operations for Applications
+title: Manage Tokens in VMware Cloud Services and Operations for Applications
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
