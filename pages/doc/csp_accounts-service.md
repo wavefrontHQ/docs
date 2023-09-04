@@ -4,23 +4,23 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_service_accounts.html
-summary: Create and manage service accounts.
+summary: Learn how you can create and manage service accounts.
 ---
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Service Accounts](service-accounts.html)."%}
 
-The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only the proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts) that still authenticate with Operations for Applications API tokens. Most of the integrations require proxy setup for authentication with a VMware Cloud services access token.
+The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only the proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. [Most of the integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that require proxy setup authenticate with VMware Cloud services access tokens.
 
-If you migrated from an original Operations for Applications subscription, you might have some legacy service accounts for backward compatibility. It's recommended that you gradually switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens.
+If you onboarded from an original Operations for Applications subscription, you might have some legacy service accounts for backward compatibility. It's recommended that you incrementally switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens. See [How to Replace a Service Account with a Server to Server App?](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app).
 
 ## What Are Service Accounts?
 
 * A service account uses an **Operations for Applications API token** to authenticate.
 * By default, service accounts don't have any permissions, even view permissions. Users with the **Admin** service role must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). There's no limit on the number of service accounts that you can create in your service instance. 
 
-As a user with the **Admin** service role, you [generate (and revoke, if needed)](api_tokens.html#generate-and-manage-the-api-tokens-for-a-service-account) API tokens for the service account. It’s also possible to deactivate a service account completely. 
+As a user with the **Admin** service role, you [generate (and revoke, if needed)](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account) API tokens for the service account. It’s also possible to [deactivate](csp_service_accounts.html#deactivate-or-activate-a-service-account) a service account completely. 
 
-{% include note.html content="Operations for Applications includes an internal **Service Accounts** system group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) with access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
+{% include note.html content="Operations for Applications includes the **Service Accounts** internal ystem group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) that have access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## How Service Accounts Work
 
@@ -37,7 +37,7 @@ You can disable a service account if you temporarily don't need it, or you can d
 
 ## Create a Service Account
 
-Creating a service account is done in the Operations for Applications UI.
+Service accounts are created in Operations for Applications.
 
 1. Log in to your service instance as a user with the **Admin** service role.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Accounts**.

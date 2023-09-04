@@ -32,7 +32,7 @@ Currently, all original Operations for Applications subscriptions are integrated
 The onboarding is done by our team. You only need to federate your enterprise domain if you are currently using a SAML SSO integration. Here's the process:
 1. You receive a notification in your service UI with the date scheduled for your service onboarding to VMware Cloud services.
 1. If you are using a SAML SSO integration, your VMware Cloud **Organization Owner** user federates your currently integrated enterprise domain with your VMware Cloud organization. That must happen before the scheduled onboarding date.
-1. On the scheduled date, we onboard your service instance to VMware Cloud services, that is, we migrate your users, roles, and groups to your VMware Cloud organization. During the process, there'a a banner notification in your service UI.
+1. On the scheduled date, we onboard your service instance to VMware Cloud services, that is, we migrate your users, roles, and groups to your VMware Cloud organization. During the process, there's a banner notification in your service UI.
 
     {% include important.html content="During the onboarding, it's not recommended to do any changes related to users, roles, groups, and permissions. Such changes might be lost."%}
 1. When the onboarding completes, you can see a banner notification in your service UI and, shortly after that, all active users are logged out.
@@ -112,7 +112,7 @@ During the process of onboarding your Operations for Applications service to VMw
 {% include important.html content="Currently, VMware Cloud services supports grouping only for user accounts."%}
 
 * The permissions from the roles assigned to the **Service Accounts** system group in Operations for Applications are now directly assigned to the service accounts. See [What Happens with the Service Accounts?](csp_migration.html#what-happens-with-the-service-accounts).
-* In Operations for Applications, we continue to maintain the **Service Accounts** system group only as a local **internal** group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
+* In Operations for Applications, we continue to maintain the **Service Accounts** system group only as a local **internal** group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
 
 {% include tip.html content="From now on, the **Service Accounts** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
@@ -152,11 +152,11 @@ VMware Cloud services supports [server to server OAuth apps](csp_server_to_serve
 For backward compatibility, all of your service accounts are **preserved** in Operations for Applications as follows:
 
 * The service accounts no longer belong to groups, because the groups management is migrated to VMware Cloud services.
-* The service accounts no longer have roles, because the the roles management is migrated to VMware Cloud services.
+* The service accounts no longer have roles, because the roles management is migrated to VMware Cloud services.
 * The service accounts are assigned with their existing permissions, including the permissions that they have inherited from roles and group roles. Exceptions are the **API Tokens** and **SAML IdP Admin** permissions, which no longer exist.
 
     {% include note.html content="The **Accounts** permission in Operations for Applications corresponds to the [**Admin** Operations for Applications permission](csp_permissions_overview.html) in VMware Cloud services."%}
-* All service accounts still belong to the **Service Accounts** system group, which is now only an **internal** Operations for Applications group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
+* All service accounts still belong to the **Service Accounts** system group, which is now only an **internal** Operations for Applications group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can [manage server to server apps](csp_server_to_server_apps.html) in the VMware Cloud Services Console. Users with the **Admin** service role can [manage the service accounts](csp_service_accounts.html) in Operations for Applications. The **Service Accounts** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
