@@ -11,8 +11,9 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 
 ## What Should I Do Before the Onboarding?
 
-Currently, all original Operations for Applications subscriptions are integrated with VMware Cloud services for billing and subscription management. Therefore, you already have a [VMware Cloud organization](csp_getting_started.html#whats-a-vmware-cloud-organization) with at least one user with the [VMware Cloud **Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
+Currently, all original Operations for Applications subscriptions are integrated with VMware Cloud services for billing and subscription management. Therefore, you must already have a [VMware Cloud organization](csp_getting_started.html#whats-a-vmware-cloud-organization) with at least one user with the [VMware Cloud **Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
 
+Before the onboarding:
 * Verify that your VMware Cloud **Organization Owner** user can log in to the [VMware Cloud Services Console](https://console.cloud.vmware.com).
 
     - If you are the VMware Cloud **Organization Owner** user and cannot log in, try using the **Forgot Password** option.
@@ -34,7 +35,7 @@ The onboarding is done by our team. You only need to federate your enterprise do
 1. If you are using a SAML SSO integration, your VMware Cloud **Organization Owner** user federates your currently integrated enterprise domain with your VMware Cloud organization. That must happen before the scheduled onboarding date.
 1. On the scheduled date, we onboard your service instance to VMware Cloud services, that is, we migrate your users, roles, and groups to your VMware Cloud organization. During the process, there's a banner notification in your service UI.
 
-    {% include important.html content="During the onboarding, it's not recommended to do any changes related to users, roles, groups, and permissions. Such changes might be lost."%}
+    {% include important.html content="During the onboarding, you should not to do any changes related to users, roles, groups, and permissions. Such changes might be lost."%}
 1. When the onboarding completes, you can see a banner notification in your service UI and, shortly after that, all active users are logged out.
 1. Each user receives an email with an invitation link to sign up to VMware Cloud services.
 
@@ -45,7 +46,7 @@ The onboarding is done by our team. You only need to federate your enterprise do
     
     - The users of a federated domain must log in with their existing corporate passwords.
 
-{% include tip.html content="From now on, users [log in](csp_sign_up_or_log_in.html#log-in-from-the-vmware-cloud-services-console) to the service instance from the [VMware Cloud Services Console](https://console.cloud.vmware.com)."%}
+{% include tip.html content="From now on, **all** users [log in](csp_sign_up_or_log_in.html#log-in-from-the-vmware-cloud-services-console) to the service instance from the [VMware Cloud Services Console](https://console.cloud.vmware.com)."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -59,9 +60,9 @@ During the process of onboarding your Operations for Applications service to VMw
 
 * If a user is assigned with individual permissions in Operations for Applications, we assign that user with the corresponding [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) in VMware Cloud services. For example, if a user has the **Alerts** permission in Operations for Applications, we assign that user with the **Alerts** Operations for Applications service role in VMware Cloud services. There are the following exceptions:
 
-    - The **Accounts** permission is replaced with the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) plus the **Admin** Operations for Applications service role.
-    - The **API Tokens** permission is not replaced with any role, because this privilege is not needed in VMware Cloud services. Each VMware Cloud services user can manage their own VMware Cloud services API tokens.
-    - The **SAML IdP Admin** permission is not replaced with any role, because this privilege is not needed in VMware Cloud services. The VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
+    - The **Accounts** permission is replaced by the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) plus the **Admin** Operations for Applications service role.
+    - The **API Tokens** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. Each VMware Cloud services user can manage their own VMware Cloud services API tokens.
+    - The **SAML IdP Admin** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. The VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
 * If a user is assigned with roles in Operations for Applications, we assign that user with the corresponding custom roles in VMware Cloud services. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
 * If a user belongs to a group in Operations for Applications, we add that user to the corresponding group in VMware Cloud services. See [How Are the Groups Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-groups-migrated-to-vmware-cloud-services).
 * If a user is a **Super Admin** in Operations for Applications, we assign that user with the **Super Admin** Operations for Applications service role in VMware Cloud services.
@@ -77,7 +78,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
 ## How Are the Groups Migrated to VMware Cloud Services?
 
-Originally, your Operation for Applications service includes the **Everyone** and **Service Accounts** system groups as well as any other custom group that you have created.
+Originally, your Operation for Applications service includes the **Everyone** and **Service Accounts** system groups as well as any other custom groups that you have created.
 
 ### How Are the Custom Groups Migrated?
 
@@ -105,7 +106,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
 {% include tip.html content="From now on, it is up to you to add new users to the **All Operations for Applications Users** VMware Cloud group. The **Everyone** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
-### What Happens with Service Accounts System Group?
+### What Happens with the Service Accounts System Group?
 
 During the process of onboarding your Operations for Applications service to VMware Cloud services, we **do not** migrate the **Service Accounts** system group.
 
@@ -131,9 +132,9 @@ During the process of onboarding your Operations for Applications service to VMw
 * For the **Service Accounts** role that is assigned to the **Service Accounts** system group in Operations for Applications, we **do not** create any VMware Cloud custom role, because this group is not migrated. See [What Happens with Service Accounts System Group?](csp_migration.html#what-happens-with-service-accounts-system-group).
 * The corresponding VMware Cloud custom roles are assigned with the same [permissions](csp_permissions_overview.html) as the original roles in Operations for Applications. There are the following exceptions:
 
-    - The **Accounts** permission in Operations for Applications is replaced with the **Admin** Operations for Applications permission in VMware Cloud services. In addition, the users with that permission are assigned with the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
-    - The **API Tokens** permission in Operations for Applications **is not** replaced with any permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because each user can manage their own VMware Cloud services API tokens.
-    - The **SAML IdP Admin** permission in Operations for Applications **is not** replaced with any permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because the VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
+    - The **Accounts** permission in Operations for Applications is replaced by the **Admin** Operations for Applications permission in VMware Cloud services. In addition, the users with that permission are assigned with the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
+    - The **API Tokens** permission in Operations for Applications **is not** replaced by any permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because each user can manage their own VMware Cloud services API tokens.
+    - The **SAML IdP Admin** permission in Operations for Applications **is not** replaced with by permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because the VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) in the VMware Cloud Services Console."%}
 
@@ -162,11 +163,11 @@ For backward compatibility, all of your service accounts are **preserved** in Op
 
 ### How to Replace a Service Account with a Server to Server App?
 
-Service accounts authenticate with Operations for Applications API tokens, while server to server OAuth apps authenticate with the more secure VMware Cloud services access tokens. Service accounts are supported for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) but will be deprecated eventually.
+Service accounts authenticate with Operations for Applications API tokens, while server to server OAuth apps authenticate with the more secure VMware Cloud services access tokens. Service accounts are supported for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) but will be deprecated in the future.
 
 After onboarding to VMware Cloud services, you should incrementally replace your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
 
-1. Log in to the VMware Cloud Services Console as an **Organization Owner**, **Organization Administrator**, or **Organization Member** with the **Developer** role.
+1. Log in to the VMware Cloud Services Console as an **Organization Owner**, **Organization Administrator**, or **Organization Member** with the **Developer** role assigned.
 1. Create a server to server OAuth app. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 
     - For the server to server app name and description, you can enter the name and the description of the service account that you want to replace.
@@ -204,13 +205,13 @@ After onboarding to VMware Cloud services, you should incrementally replace your
         </tr>
         </tbody>
         </table>
-1. Copy the app credentials (ID and secret) of your newly created server to server app and save them to a secure location.
+1. Make sure that you save the app credentials (ID and secret) of your newly created server to server app to a secure location.
 
-    {% include important.html content="This is the only time you can see and copy the app secret. If you miss to copy it or lose it, you must regenerate the app secret."%}
+    {% include important.html content="This is the only time you can see and save the app secret. If you miss to copy it or lose it, you must regenerate the app secret."%}
 1. Add the server to server app to your VMware Cloud organization.
 1. Reconfigure your scripts, API calls, or proxies to exchange the app credentials for an access token, instead of using the API tokens associated with the service account.
 
-    {% include important.html content="Depending on the TTL that you configured for the app access tokens, make sure that your script renews the access token periodically before it expires. The proxy does this automatically. "%}
+    {% include important.html content="Depending on the TTL that you configured for the app access tokens, make sure that your script renews the access token periodically before it expires. The Wavefront proxy does this automatically. "%}
 1. Log in to your service instance as a user with the **Admin** service role and [deactivate or delete](csp_service_accounts.html#deactivate-or-activate-a-service-account) the service account that you replaced.
 
 <table style="width: 100%;">
@@ -223,16 +224,21 @@ After onboarding to VMware Cloud services, you should incrementally replace your
 
 During the process of onboarding your Operations for Applications service to VMware Cloud services, the Operations for Applications API tokens **are not** migrated to VMware Cloud services.
 
-VMware Cloud services supports VMware Cloud services API tokens associated with user accounts and server to server OAuth apps associated with organizations. You can exchange a VMware Cloud services API token or the credentials (ID and secret) of server to server OAuth app for a VMware Cloud services **access token**.
+Operations for Applications on VMware Cloud services supports authentication with:
 
-You should incrementally replace your Operations for Applications API tokens with VMware Cloud services access tokens.
+* VMware Cloud services API tokens associated with user accounts.
+* Server to server OAuth apps credentials, that is, app ID and app secret. The server to server OAuth app must belong to the organization that is running the Operations for Applications service.
+
+You must exchange a VMware Cloud services API token or the credentials (ID and secret) of server to server OAuth app for a VMware Cloud services **access token**.
+
+You should incrementally replace your Operations for Applications API tokens with VMware Cloud services API tokens and server to server OAuth apps.
 
 For backward compatibility, all of your API tokens are **preserved** in Operations for Applications.
 
 * The Operations for Applications API tokens associated with user accounts are **no longer**  editable. The users can still use, view, and revoke their Operations for Applications API tokens until they expire, but they **cannot** generate new ones.
 * The Operations for Applications API tokens associated with service accounts are editable, because we still support them for the proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens).
 
-{% include tip.html content="From now on, the users must generate VMware Cloud services API tokens for their accounts and exchange them for access tokens. Users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles should create server to server OAuth apps and exchange the app credentials for access tokens."%}
+{% include tip.html content="From now on, all users must generate VMware Cloud services API tokens for their accounts and exchange them for access tokens. Users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can create server to server OAuth apps and exchange the app credentials for access tokens."%}
 
 ### How to View and Manage the Operations for Applications API Tokens?
 
@@ -241,7 +247,7 @@ Users with the **Admin** Operations for Applications service role can [manage](c
 Each user can view and revoke their own Operations for Applications API tokens:
 
 1. Log in to your service instance.
-1. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select your user name.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 1. Click the **API Access** tab and view all your Operations for Applications API tokens.
 1. To revoke a token, click the **Revoke** button for the token.
 
@@ -249,7 +255,7 @@ Each user can view and revoke their own Operations for Applications API tokens:
 
 ### How to Replace an Operations for Applications API Token with a VMware Cloud Services Access Token?
 
-It's recommended to use Operations for Applications API tokens only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) until we update them to authenticate with VMware Cloud services access tokens.
+It's recommended to use Operations for Applications API tokens only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens). We will update these integrations to authenticate with VMware Cloud services access tokens in a future release.
 
 For all other cases, you should incrementally replace your Operations for Applications API tokens with the more secure VMware Cloud services access tokens.
 
@@ -301,7 +307,7 @@ To replace an Operations for Applications API token associated with your user ac
         </table>
 1. Reconfigure your scripts, API calls, or proxies to exchange the newly generated VMware Cloud services API token for an access token, instead of using the Operations for Applications API token.
 
-    {% include important.html content="The TTL of the access tokens associated with user accounts is 30 minutes. Make sure that your script renews the access token periodically before it expires. The proxy does this automatically. "%}
+    {% include important.html content="The TTL of the access tokens associated with user accounts is 30 minutes. Make sure that your script renews the access token periodically before it expires. The Wavefront proxy does this automatically. "%}
 1. [Revoke](csp_migration.html#how-to-view-and-manage-the-operations-for-applications-tokens) the Operations for Applications API token that you replaced.
 
 <table style="width: 100%;">
@@ -316,7 +322,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
 You should incrementally [reinstall your proxies](proxies_installing.html) to authenticate with the more secure VMware Cloud services access tokens. See [How to Replace an Operations for Applications API Token with a VMware Cloud Services Access Token?](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token).
 
-{% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Operations for Applications service. New proxies must authenticate with VMware Cloud services access tokens unless used for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
+{% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Operations for Applications service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -330,7 +336,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
 You should incrementally reinstall your [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that are updated to use proxy authentication with the more secure VMware Cloud services access token.
 
-{% include tip.html content="From now on, the users with the **Integrations** service role can set up integrations in your Operations for Applications service. New integrations must use proxy authenticate with VMware Cloud services access tokens except a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
+{% include tip.html content="From now on, the users with the **Proxies** and **Integrations** service roles can set up integrations in your Operations for Applications service. New integrations must use proxy authentication with VMware Cloud services access tokens except for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
 
 <table style="width: 100%;">
 <tbody>
