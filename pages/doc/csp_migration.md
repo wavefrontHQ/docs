@@ -30,7 +30,11 @@ Before the onboarding:
 
 ## What's the Onboarding Process?
 
-The onboarding is done by our team. You only need to federate your enterprise domain if you are currently using a SAML SSO integration. Here's the process:
+The onboarding is done by our team. If you are currently using a SAML SSO integration, you must only federate your enterprise domain before the process starts. The following flowchart shows the overall process.
+
+![Onboarding flowchart. Each stage of the process is described below.](images/csp-onboarding-flow.png)
+
+Here's the process:
 1. You receive a notification in your service UI with the date scheduled for your service onboarding to VMware Cloud services.
 1. If you are using a SAML SSO integration, your VMware Cloud **Organization Owner** user federates your currently integrated enterprise domain with your VMware Cloud organization. That must happen before the scheduled onboarding date.
 1. On the scheduled date, we onboard your service instance to VMware Cloud services, that is, we migrate your users, roles, and groups to your VMware Cloud organization. During the process, there's a banner notification in your service UI.
@@ -169,7 +173,26 @@ For backward compatibility, all of your service accounts are **preserved** in Op
 
 Service accounts authenticate with Operations for Applications API tokens, while server to server OAuth apps authenticate with the more secure VMware Cloud services access tokens. Service accounts are supported for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) but will be deprecated in the future.
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 After onboarding to VMware Cloud services, you should incrementally replace your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
+
+<br /><br /> The flowchart on the right shows the overall process for creating a server to server OAuth app and replacing a service account with it.
+</td>
+<td width="50%">
+<img src="/images/csp-replace-service-account.png" alt="Flowchart showing how to replace a service account with a server to server app. The process is described in the list below"/>
+</td>
+</tr>
+</tbody>
+</table>
 
 1. Log in to the VMware Cloud Services Console as an **Organization Owner**, **Organization Administrator**, or **Organization Member** with the **Developer** role assigned.
 1. Create a server to server OAuth app. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
@@ -261,9 +284,25 @@ Each user can view and revoke their own Operations for Applications API tokens:
 
 It's recommended to use Operations for Applications API tokens only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens). We will update these integrations to authenticate with VMware Cloud services access tokens in a future release.
 
-For all other cases, you should incrementally replace your Operations for Applications API tokens with the more secure VMware Cloud services access tokens.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td markdown="span">
+<br /><br /><br /><br />
 
+You should incrementally replace your Operations for Applications API tokens with the more secure VMware Cloud services access tokens.
+<br /><br />
 To replace an Operations for Applications API token associated with a service account, you must replace the service account with a server to server OAuth app. See [How to Replace a Service Account with a Server to Server App?](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app).
+<br /><br />
+The flowchart on the right shows the overall process for replacing an Operations for Applications API token with a VMware Cloud services API token.
+</td>
+<td>
+<img src="/images/csp-replace-api-token.png" alt="Flowchart showing how to replace an Operations for Applications API token with a VMware Cloud services API token. The process is described in the list below"/>
+</td>
+</tr>
+</tbody>
+</table>
+
 
 To replace an Operations for Applications API token associated with your user account:
 
