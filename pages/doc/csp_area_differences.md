@@ -86,23 +86,7 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 </tr>
 <tr>
-<td>Create and manage service accounts
-</td>
-<td>
-<ul>
-<li><strong>Who:</strong> Operations for Applications users with the Accounts permission</li>
-<li><strong>Where:</strong> In the Operations for Applications UI</li>
-</ul>
-</td>
-<td>
-<ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
-<li><strong>Where:</strong> In the Operations for Applications UI</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Manage Operations for Applications API tokens
+<td>Create and manage service accounts and their Operations for Applications API tokens
 </td>
 <td>
 <ul>
