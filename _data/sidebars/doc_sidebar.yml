@@ -15,28 +15,6 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
-      subfolders:
-
-      - title: Subscription Types
-        output: web
-        subfolderitems:
-      
-        - title: "VMware Cloud Services vs Original"
-          url: /subscriptions-differences.html
-          output: web
-                
-        - title: "UI Differences"
-          url: /csp-ui-differences.html
-          output: web
-          
-        - title: "Functionality Differences"
-          url: /csp-differences-by-area.html
-          output: web
-
-        - title: "Onboarding to VMware Cloud Services"
-          url: /csp_migration.html
-          output: web
-
     - title: Product FAQ
       output: web
       url: /tobs_faq.html
@@ -45,18 +23,44 @@ entries:
     output: web
     folderitems:
 
-    - title: Start a Free Trial
-      url:  /start_trial.html
+    - title: Subscription Types
+      url: /subscriptions-differences.html
       output: web
 
-    - title: Upgrade from Trial to Paid
-      url: /upgrade_and_purchase.html
-      output: web
+      subfolders:
 
-    - title: Purchase Additional Capacity
-      url: /purchase_additional_capacity.html
+      - title: Differences Explained
+        output: web
+        subfolderitems:
+        
+          - title: "UI Differences"
+            url: /csp-ui-differences.html
+            output: web
+            
+          - title: "Functionality Differences"
+            url: /csp-differences-by-area.html
+            output: web
+
+      - title: Free Trial and Purchases
+        output: web
+        subfolderitems:
+      
+        - title: Start a Free Trial
+          url:  /start_trial.html
+          output: web
+
+        - title: Upgrade from Trial to Paid
+          url: /upgrade_and_purchase.html
+          output: web
+
+        - title: Purchase Additional Capacity
+          url: /purchase_additional_capacity.html
+          output: web
+      
+    - title: "Onboarding Original to VMware Cloud Services"
+      url: /csp_migration.html
       output: web
-  
+   
   - title: Quickstart & Tutorials
     output: web
     folderitems:
