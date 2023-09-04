@@ -39,12 +39,29 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 ### Operations for Applications Service Roles (Built-in)
 
 The VMware Cloud Services Console **Roles** page includes the following built-in Operations for Applications service roles:
-- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions) - **Admin**, **Alerts**, **Applications**, **Batch Query Priority**, **Charts Embedding**, **Dashboards**, **Derived Metrics**, **Direct Data Ingestion**, **Events**, **External Links**, **Ingestion Policies**, **Integrations**, **Logs**, **Metrics**, **Proxies**, and **Sources**.
-- Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
+- A corresponding Operations for Applications service role for each [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions), that is, each of the following service roles has only one permission assigned:
+
+  * **Admin**
+  * **Alerts**
+  * **Applications**
+  * **Batch Query Priority**
+  * **Charts Embedding**
+  * **Dashboards**
+  * **Derived Metrics**
+  * **Direct Data Ingestion**
+  * **Events**
+  * **External Links**
+  * **Ingestion Policies**
+  * **Integrations**
+  * **Logs**
+  * **Metrics**
+  * **Proxies**
+  * **Sources**
+- Two special Operations for Applications service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
 
   <table>
   <tr>
-    <th width="30%">Special Service Role</th>
+    <th width="30%">Service Role</th>
     <th width="70%">Description</th>
   </tr>
   <tr>
@@ -61,7 +78,8 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
     <td>Users with that service role:<ul>
     <li>Don't have any Operations for Applications permissions.</li>
     <li>Can perform only the <a href="csp_permissions_overview.html#default-tasks">default tasks</a>.</li>
-    </ul></td>
+    </ul>
+    <p><strong>Tip:</strong> Assign the <strong>Viewer</strong> service role individually or in combination with custom roles.</p></td>
   </tr>
   </table>
 
