@@ -28,7 +28,7 @@ Most of the user and account management tasks done in the Operations for Applica
 
 Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners** and VMware Cloud **Organization Administrators** in VMware Cloud services subscriptions. Others can be done by Operations for Applications **Admins** in the Operations for Applications UI.
 
-With the 2023-XX release, we introduce the **Admin** permission and service role, which partially correspond to the **Accounts** permission for original subscriptions. Users with the **Admin** service role can manage service account and Operations for Applications API tokens. Also, they can restrict access to new dashboards and alerts and can also set the organization settings. For example, they can restrict the access to the object creator only and set default settings, such as display settings, PromQL support, default way of building queries, and define Logs settings. 
+With the 2023-XX release, we introduce the **Admin** permission and service role, which partially correspond to the **Accounts** permission for original subscriptions. Users with the **Admin** service role can manage service account and Operations for Applications API tokens. They can also restrict access to new dashboards and alerts and set the organization settings. For example, they can restrict the access to the object creator only and set default settings, such as display settings, PromQL support, default way of building queries, and define Logs settings. 
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
@@ -42,13 +42,13 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Operations for Applications <strong>Super Admin</strong></li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications  <strong>Super Admin</strong> service role</li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
@@ -58,13 +58,13 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Operations for Applications  <strong>Super Admin</strong></li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications <strong>Super Admin</strong> service role</li>
 <li><strong>Where:</strong> From the Operations for Applications UI</li>
 </ul>
 </td>
@@ -74,13 +74,13 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Operations for Applications  <strong>Super Admin</strong></li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> VMware Cloud Organization Owner or Organization Administrator</li>
+<li><strong>Who:</strong> VMware Cloud <strong>Organization Owner</strong> or <strong>Organization Administrator</strong></li>
 <li><strong>Where:</strong> In the VMware Cloud Services Console</li>
 </ul>
 </td>
@@ -90,13 +90,13 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications users with the Accounts permission</li>
+<li><strong>Who:</strong> Operations for Applications users with the <strong>Accounts</strong> permission</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications <strong>Admin</strong> service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -106,13 +106,13 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications Super Admin</li>
+<li><strong>Who:</strong> Operations for Applications <strong>Super Admin</strong></li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Super Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications <strong>Super Admin</strong> service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -122,13 +122,13 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications users with the Accounts permission</li>
+<li><strong>Who:</strong> Operations for Applications users with the <strong>Accounts</strong> permission</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications <strong>Admin</strong> service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -138,13 +138,13 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Operations for Applications users with the Accounts permission</li>
+<li><strong>Who:</strong> Operations for Applications users with the <strong>Accounts</strong> permission</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><strong>Who:</strong> Users with the Operations for Applications Admin service role</li>
+<li><strong>Who:</strong> Users with the Operations for Applications <strong>Admin</strong> service role</li>
 <li><strong>Where:</strong> In the Operations for Applications UI</li>
 </ul>
 </td>
@@ -156,7 +156,7 @@ With the 2023-XX release, we introduce the **Admin** permission and service role
 
 For original subscriptions, using the Operations for Applications REST API requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API Tokens** permission. To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
 
-When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. To get such a token, you can:
+When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. In a few cases, when setting up a Wavefront proxy for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts), authentication with an Operations for Applications API token is also supported. However, using a VMware Cloud services **access token** is the recommended way. To obtain such a token, you can:
 
 * Generate a VMware Cloud services API token associated with your user account and exchange it for an access token.
 
