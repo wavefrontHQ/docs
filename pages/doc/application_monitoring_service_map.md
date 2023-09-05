@@ -24,7 +24,7 @@ To open the service map:
     1. Table view: Click **Service Map** for a specific service.
     1. Grid view: Click **Actions** > **View Service Map** for a specific service.
 
-Let's walk through the following scenario and get a quick overview of the application map.
+Let's walk through the following scenario and get a quick overview of the service map.
 
 ### Add More Services
 
@@ -97,19 +97,19 @@ Let's walk through the following scenario and get a quick overview of the applic
         <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the service map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option or select <b>Fade Labels on Zoom</b>. </li>
           <ul>
             <li>
-              <b>Fade Labels on Zoom</b>: Hides the labels of small services and gradually exposes them as you zoom in on the application map. You always see the labels of the services in red, based on the legend settings you select.
+              <b>Fade Labels on Zoom</b>: Hides the labels of small services and gradually exposes them as you zoom in on the service map. You always see the labels of the services in red, based on the legend settings you select.
             </li>
             <li>
               <b>Show Node Counts</b>: Shows the number of instances of a service running in an application. For example, <b>shopping (5)</b> shows you that there are five instances of the shopping service in the beachshirts application.
             </li>
           </ul>
           <li>
-            <b>Alert Settings</b>: Select the severity of the alert you want to see on the application map. For example, if you select <b>Severe</b>, you see the alerts that have the severity status set to severe marked with a red dot on the application map.
+            <b>Alert Settings</b>: Select the severity of the alert you want to see on the service map. For example, if you select <b>Severe</b>, you see the alerts that have the severity status set to severe marked with a red dot on the service map.
           </li>
       </ul>
       </td>
     <td>
-      <img src="images/tracing_application_map_settings.png" alt="screenshot of the application map settings. The settings are explained on the left side."/>
+      <img src="images/tracing_application_map_settings.png" alt="screenshot of the service map settings. The settings are explained on the left side."/>
     </td>
   </tr>
 </tbody>

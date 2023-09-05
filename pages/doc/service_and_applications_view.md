@@ -1,5 +1,5 @@
 ---
-title: Services and Applications View (Beta)
+title: Services and Applications Page (Beta)
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
