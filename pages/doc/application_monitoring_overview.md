@@ -12,7 +12,7 @@ You can auto-discover and monitor your applications that run on a Kubernetes clu
 
 ## Select How You Send Data
 
-You can explore the demo data to see the data. Then, you must select how you want to send data to our service based on where the application runs or how you have configured your application. Follow these steps:
+You can explore the demo data and drill down to the service map, and other dashboards. Then, you must select how you want to send data to our service based on where the application runs or how you have configured your application. Follow these steps:
 
 <table style="width: 100%;">
 <tbody>
