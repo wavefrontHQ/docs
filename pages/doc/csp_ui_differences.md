@@ -33,7 +33,7 @@ When viewing their own user account settings in the Operations for Applications 
 
 The gear icon menu also differs, because many of the tasks for VMware Cloud services subscribers are done by using the VMware Cloud Services Console. 
 
-  For example, for Super Admin users with Super Admin mode enabled, the gear icon menu looks like this:
+  For example, for **Super Admin** users with **Super Admin** mode enabled, the gear icon menu looks like this:
  
   ![An image showing the differences in the gear icon menu, which are listed below.](images/new-vs-original-menu.png)
 
@@ -42,15 +42,15 @@ The gear icon menu also differs, because many of the tasks for VMware Cloud serv
    1. The **Super Admin** menu item is replaced with **Orphaned Objects**, because Super Admin users can no longer invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts. See the following bullet point.
    1. The **Sign Out** menu item is missing, because signing out is done from the User/Organization drop-down menu on the top-right of the menu bar.
 
-## Accounts Menu
+## Accounts Page
 
-The **Accounts** menu tabs differ, because most of the identity and access management tasks for VMware Cloud services subscribers are done by using the VMware Cloud Services Console. 
+Most of the identity and access management tasks for VMware Cloud services subscribers are done by using the VMware Cloud Services Console. Therefore, if you are a user with the **Admin** service role assigned (this role partially covers the **Accounts** permission for original subscriptions), when you click the gear icon on the toolbar and select **Accounts**, you will see only the **Service Accounts** and the **API Tokens** tabs.
 
   ![An image showing the differences in the Accounts menu and the Service Accounts tab.](images/new-vs-original-accounts.png)
 
-  1. The **User Accounts**, **Groups**, and **Roles** tabs are missing for VMware Cloud services subscribers, because the users, groups, and roles management is done from the VMware Cloud Services Console. From the **Accounts** menu, the VMware Cloud services subscribers can manage only service accounts and the Operations for Applications API tokens associated with the service accounts.
-  1. Service accounts cannot be assigned with roles nor can be added to groups, because service accounts are local entities in Operations for Applications, while roles ang groups management is centralized in VMware Cloud services. VMware Cloud services subscribers can assign only permission to service accounts.
-  1. VMware Cloud services subscribers can filter their service accounts only by permissions, because they don't have roles and don't belong to groups.
+  1. The **User Accounts**, **Groups**, and **Roles** tabs are missing, because the management of users, groups, and roles is done from the VMware Cloud Services Console. By using the **Accounts** menu item, the VMware Cloud services subscribers can manage only service accounts and the Operations for Applications API tokens associated with them.
+  1. VMware Cloud services subscribers cannot assign roles to service accounts and also can’t add them to groups. For VMware Cloud services subscriptions, service accounts are local entities in Operations for Applications, while roles and groups management is centralized in VMware Cloud services. VMware Cloud services subscribers can grant only permissions to service accounts.
+  1. Filtering the service accounts can be done only by permissions, because they don’t have roles and don’t belong to groups.
 
 ## Super Admin Page
 
@@ -60,7 +60,7 @@ The **Super Admin** page is replaced with **Orphaned Objects**, because Super Ad
 
 ## Add New Wavefront Proxy Page
 
-When adding a Wavefront proxy, VMware Cloud services subscribers have two options for the proxy authorization to Operations for Applications. They can configure the proxy with a VMware Cloud services API token or with server to server OAuth app credentials.
+When adding a Wavefront proxy, VMware Cloud services subscribers have two options for the proxy authorization to Operations for Applications. They can configure the proxy with server to server OAuth app credentials or with a VMware Cloud services API token.
 
   ![An image showing the differences in the add new proxy page.](images/new-vs-original-proxy.png)
 
