@@ -233,7 +233,6 @@ The Logs Browser opens in a new tab with the following configurations:
 * The search query contains the corresponding `service` and `application` tag filters.
 ![The search query and the selected time window in the Logs Browser.](images/logging_app_serv_search.png)
 
-
 ## Learn More!
 
 * [Learn how you can monitor your application using eBPF or tracing](application_monitoring_overview.html).
