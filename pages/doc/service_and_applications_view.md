@@ -206,7 +206,7 @@ Once the alert is created, click **Alerting** > **All Alerts** and search for th
 
 <!-- {% include saved_searches.md %} -->
 
-## Drill Down to Logs from Traces
+## Drill Down to Logs
 
 If you have the **Logs** permission, you can drill down to logs from the application status page and the Traces Browser.
 

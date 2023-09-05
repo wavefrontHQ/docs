@@ -127,14 +127,14 @@ Let's walk through the following scenario and get a quick overview of the servic
           <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
           <li>See how the service is performing using the Apdex score.</li>
           <li> View how a specific service communicates with the other services in an application by clicking the <b>Focus</b> icon.</li>
-          <li> Navigate to the Traces Browser by clicking <b>View Traces</b>.</li>
+          <li> Navigate to the Traces Browser by clicking <b>View Traces</b>. You don't see this option if you are using eBPF.</li>
           <li>Click <b>Actions</b> to:</li>
           <ul>
-            <li> Navigate to the Traces Browser by clicking <b>View Traces</b>.</li>
+            <li> Navigate to the Traces Browser by clicking <b>View Traces</b>. You don't see this option if you are using eBPF.</li>
             <li> Navigate to the Operation Dashboard by clicking <b>View Operation Dashboard</b>.</li>
             <li> Navigate to the Service Dashboard by clicking <b>View Service Dashboard</b>.</li>
-            <li> Navigate to the Logs Browser by clicking <b>View Logs</b>. For details, see the section [Drill into Logs from Traces](#drill-into-logs-from-traces) below.</li>
-            <li>Click <b>Create Alerts</b> to create smart alerts that filter noise and capture true anomalies. See <a href="#create-alerts">Create an alert</a>.</li>
+            <li> Navigate to the Logs Browser by clicking <b>View Logs</b>.</li>
+            <li>Click <b>Create Alerts</b> to create smart alerts that filter noise and capture true anomalies. See <a href="service_and_application_view.html#create-alerts">Create an alert</a>.</li>
             <li>If an alert you created is firing, you can see a red dot with a number on the service. The number indicates how many alerts are firing for a specific service. To see the alerts, click <b>view alerts</b>.</li>
             <li>Configure the apdex settings by clicking the Edit icon next to the Apdex score.</li>
           </ul>
@@ -145,15 +145,15 @@ Let's walk through the following scenario and get a quick overview of the servic
 </tbody>
 </table>
 
-### See Tracing Traffic Information
+### See Service Traffic Information
 
 <table style="width: 100%;">
 <tbody>
     <tr>
     <td>
-      When you click on the tracing traffic between the styling and printing service, you can:
+      When you click on the service traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li> Navigate to the Traces Browser by clicking <b>View Traces for This Traffic</b>.</li>
+        <li> Navigate to the Traces Browser by clicking <b>View Traces for This Traffic</b>. You don't see this option if you are using eBPF.</li>
         <li> Navigate to the Operation Dashboard to view RED metrics of the outbound and inbound operations by clicking <b>View Passenger Dashboard (Outbound Traffic)</b> or <b>View Trip Dashboard (Inbound Traffic)</b>.</li>
         </ul>
       </td>
