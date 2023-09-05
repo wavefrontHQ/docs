@@ -16,10 +16,11 @@ The menu bar differs, because the VMware Cloud services toolbar is added to the 
   ![An image showing the differences in the menu bar, which are listed below.](images/new-vs-original-toolbar.png)
 
   From the VMware Cloud services toolbar, you can:
-    1. Switch between tenants (service instances) in a multi-tenant Operations for Applications environment.
-    1. See notifications from VMware Cloud services.
-    1. Manage your VMware Cloud services account and switch to other organizations.
-    1. Go to the VMware Cloud Services Console and switch to other service subscriptions.
+
+  1. Switch between tenants (service instances) in a multi-tenant Operations for Applications environment.
+  1. See notifications from VMware Cloud services.
+  1. Manage your VMware Cloud services account and switch to other organizations.
+  1. Go to the VMware Cloud Services Console and switch to other service subscriptions.
 
 ## Own User Account Settings
 
@@ -38,9 +39,18 @@ The gear icon menu also differs, because many of the tasks for VMware Cloud serv
 
    1. The tenant name is missing, because it is shown in the VMware Cloud Services Console when you launch the service instance. In a multi-tenant environment, the current tenant is shown on the top-left of the menu bar and you can click it to switch between tenants.
    1. The **Self Service SAML** menu item is missing, because the enterprise federation setup is done from the VMware Cloud Services Console.
-   1. The **Accounts** option is also no longer needed, because account management is done in the VMware Cloud Services Console.
    1. The **Super Admin** menu item is replaced with **Orphaned Objects**, because Super Admin users can no longer invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts. See the following bullet point.
    1. The **Sign Out** menu item is missing, because signing out is done from the User/Organization drop-down menu on the top-right of the menu bar.
+
+## Accounts Menu
+
+The **Accounts** menu tabs differ, because most of the identity and access management tasks for VMware Cloud services subscribers are done by using the VMware Cloud Services Console. 
+
+  ![An image showing the differences in the Accounts menu and the Service Accounts tab.](images/new-vs-original-accounts.png)
+
+  1. The **User Accounts**, **Groups**, and **Roles** tabs are missing for VMware Cloud services subscribers, because the users, groups, and roles management is done from the VMware Cloud Services Console. From the **Accounts** menu, the VMware Cloud services subscribers can manage only service accounts and the Operations for Applications API tokens associated with the service accounts.
+  1. Service accounts cannot be assigned with roles nor can be added to groups, because service accounts are local entities in Operations for Applications, while roles ang groups management is centralized in VMware Cloud services. VMware Cloud services subscribers can assign only permission to service accounts.
+  1. VMware Cloud services subscribers can filter their service accounts only by permissions, because they don't have roles and don't belong to groups.
 
 ## Super Admin Page
 
