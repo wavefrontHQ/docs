@@ -1,5 +1,5 @@
 ---
-title: Service Map (Beta)
+title: Service Map (Controlled Release)
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
@@ -8,7 +8,6 @@ summary: Understand how a specific service communicates with the other services 
 ---
 
 {% include important.html content="This feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
-
 
 When you troubleshoot an application, you might need an overview of how a service communicates with the other services. The Service map helps you visualize this information.
 

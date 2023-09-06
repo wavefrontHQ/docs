@@ -1,5 +1,5 @@
 ---
-title: Monitor Your Applications (Beta)
+title: Monitor Your Applications (Controlled Release)
 tags: [applications, ebpf, traces]
 sidebar: doc_sidebar
 permalink: application_monitoring_overview.html

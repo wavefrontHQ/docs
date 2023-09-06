@@ -1,5 +1,5 @@
 ---
-title: Services and Applications Page (Beta)
+title: Services and Applications Page (Controlled Release)
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
