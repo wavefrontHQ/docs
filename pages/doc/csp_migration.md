@@ -371,6 +371,8 @@ You should incrementally [replace](csp_migration.html#how-to-replace-the-operati
 
 ### How to Replace the Operations for Application API Token of a Wavefront Proxy?
 
+    {% include important.html content="Make sure the version of your Wavefront proxy is 13.0 or later."%}
+
 1. Log in to the VMware Cloud Services Console.
 1. Obtain OAuth app credentials (recommended) or a VMware Cloud services API token:
 
@@ -378,7 +380,7 @@ You should incrementally [replace](csp_migration.html#how-to-replace-the-operati
     
         Also, obtain the long ID of the VMware Cloud organization. See [View the Organization ID](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html#view-the-organization-id-1) in the VMware Cloud services documentation.
     - Generate a VMware Cloud services API token with the **Proxies** service role. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
-1. Edit the configuration file of your proxy, `/etc/wavefront/wavefront-proxy/wavefront.conf`, with the OAuth app credentials or your VMware Cloud services API token:
+1. Go to the [proxy configurations location](proxies_configuring.html#proxy-file-paths) and edit the `wavefront.conf` file with the OAuth app credentials or your VMware Cloud services API token:
 
     - Replace the `token` parameter with the `cspAppId`, `cspAppSecret`, and `cspOrgId` parameters:
 
