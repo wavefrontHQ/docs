@@ -365,19 +365,20 @@ To replace an Operations for Applications API token associated with your user ac
 
 During the process of onboarding your Operations for Applications service to VMware Cloud services, all of the existing Wavefront proxies are **preserved** with their existing Operations for Applications API tokens.
 
-You should incrementally [replace](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens. See [How to Replace an Operations for Applications API Token with a VMware Cloud Services Access Token?](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token).
+You should incrementally [replace](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
 
 {% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Operations for Applications service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
 
 ### How to Replace the Operations for Application API Token of a Wavefront Proxy?
 
+1. Log in to the VMware Cloud Services Console.
 1. Obtain OAuth app credentials (recommended) or a VMware Cloud services API token:
 
-    - Create a server to server app with the **Proxies** service role and save its OAuth credentials (app ID and app secret). See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+    - Create a server to server app with the **Proxies** service role, save its OAuth credentials (app ID and app secret), and add it to your VMware Cloud organization. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
     
         Also, obtain the long ID of the VMware Cloud organization. See [View the Organization ID](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html#view-the-organization-id-1) in the VMware Cloud services documentation.
     - Generate a VMware Cloud services API token with the **Proxies** service role. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
-1. Edit the configuration file of your proxy, that is, `/etc/wavefront/wavefront-proxy/wavefront.conf`, with the OAuth app credentials or your VMware Cloud services API token:
+1. Edit the configuration file of your proxy, `/etc/wavefront/wavefront-proxy/wavefront.conf`, with the OAuth app credentials or your VMware Cloud services API token:
 
     - Replace the `token` parameter and the `cspAppId`, `cspAppSecret`, and `cspOrgId` parameters:
 
