@@ -380,14 +380,14 @@ You should incrementally [replace](csp_migration.html#how-to-replace-the-operati
     - Generate a VMware Cloud services API token with the **Proxies** service role. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
 1. Edit the configuration file of your proxy, `/etc/wavefront/wavefront-proxy/wavefront.conf`, with the OAuth app credentials or your VMware Cloud services API token:
 
-    - Replace the `token` parameter and the `cspAppId`, `cspAppSecret`, and `cspOrgId` parameters:
+    - Replace the `token` parameter with the `cspAppId`, `cspAppSecret`, and `cspOrgId` parameters:
 
         ```
         cspAppId=<OAuth_app_id>
         cspAppSecret=<OAuth_app_secret>
         cspOrgId=<Org_long_ID>
         ```
-    - Replace the `token` parameter and the `cspAPIToken` parameter:
+    - Replace the `token` parameter with the `cspAPIToken` parameter:
 
         ```
         cspAPIToken=<VMware_Cloud_services_API_token>
