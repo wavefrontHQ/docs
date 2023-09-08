@@ -84,5 +84,5 @@ Operations for Applications allows users to interact with the service instance u
 
 Before you can invoke the Operations for Applications API using `curl` or from an API client, you must have a VMware Cloud services access token with the relevant organization and service access. To obtain an access token, you must first generate a VMware Cloud services API token with relevant roles, and then exchange that API token for an access token.
 
-You [manage your VMware Cloud services API tokens](csp_api_tokens.html#managing-the-vmware-cloud-services-api-tokens-for-your-user-account) in the VMware Cloud Services Console.s
+You [manage your VMware Cloud services API tokens](csp_api_tokens.html#managing-the-vmware-cloud-services-api-tokens-for-your-user-account) in the VMware Cloud Services Console.
 
