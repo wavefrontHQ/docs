@@ -22,10 +22,10 @@ Users with the VMware Cloud **Organization Owner** or **Organization Administrat
 
 ## Access Control for Dashboards and Charts
 
-Our fine-grained **[access control](csp_access.html)** allows users with the **Super Admin** service role to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
+Our fine-grained **[access control](csp_access.html)** allows users with the **Admin** and **Super Admin** service roles to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
 
 * **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
-* **Security setting for new objects** -- In high security environments, users with the **Super Admin** service role can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to the users with the **Super Admin** service role.
+* **Security setting for new objects** -- In high security environments, users with the **Admin** and **Super Admin** service roles can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to the users with the **Super Admin** service role.
 
 ## Metrics Security Policy Rules
 
