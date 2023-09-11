@@ -265,7 +265,7 @@ You should incrementally replace your Operations for Applications API tokens wit
 For backward compatibility, all of your API tokens are **preserved** in Operations for Applications.
 
 * The Operations for Applications API tokens associated with user accounts are **no longer**  editable. The users can still use, view, and revoke their Operations for Applications API tokens until they expire, but they **cannot** generate new ones.
-* The Operations for Applications API tokens associated with service accounts are editable, because we still support them for the proxy setup of a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens).
+* The Operations for Applications API tokens associated with service accounts are editable, because we still support them for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens).
 
 {% include tip.html content="From now on, all users must generate VMware Cloud services API tokens for their accounts and exchange them for access tokens. Users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can create server to server OAuth apps and exchange the app credentials for access tokens."%}
 
@@ -371,7 +371,7 @@ You should incrementally [replace](csp_migration.html#how-to-replace-the-operati
 
 ### How to Replace the Operations for Application API Token of a Wavefront Proxy?
 
-    {% include important.html content="Make sure the version of your Wavefront proxy is 13.0 or later."%}
+{% include important.html content="Make sure the version of your Wavefront proxy is 13.0 or later."%}
 
 1. Log in to the VMware Cloud Services Console.
 1. Obtain OAuth app credentials (recommended) or a VMware Cloud services API token:

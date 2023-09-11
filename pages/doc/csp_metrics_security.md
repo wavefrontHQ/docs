@@ -36,9 +36,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 With a metrics security policy, you can block or allow access:
 * To metrics, optionally filtered by source or point tag
-* Based on individual accounts ([user accounts](csp_user_management.html) and [service accounts](csp_server_to_server_apps.html)) or [groups](csp_users_roles.html#manage-user-groups).
-
-{% include note.html content="Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services." %}
+* Based on individual accounts - [user accounts](csp_user_management.html) and service accounts (which includes the [server to server apps](csp_server_to_server_apps.html) in VMware Cloud services as well as the [service accounts](csp_service_accounts.html)), or [groups](csp_users_roles.html#manage-user-groups).
 
 When an account attempts to access metrics, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
 
@@ -181,7 +179,7 @@ Before you create rules, plan your strategy.
 * **Metrics Dimensions** allow you to determine what to block or allow.
   - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
-* **Access** allows you to allow or block access for a combination of accounts (user accounts and service accounts) or groups.
+* **Access** allows you to allow or block access for a combination of accounts (user accounts, server to server apps, and service accounts) or groups.
 
 See the Examples further below.
 
