@@ -54,12 +54,13 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </thead>
     <tr>
     <td><strong>Accounts</strong></td>
-    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is a VMware Cloud services subscription, individual <a href="csp_user_management.html">users</a> and <a href="csp_server_to_server_apps.html">server to server apps</a>. Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services.</li>
+    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is onboarded to VMware Cloud services, individual <a href="csp_user_management.html">users</a>, <a href="csp_server_to_server_apps.html">server to server apps</a>, and <a href="csp_service_accounts.html">service accounts</a>.</li>
     <li>If your Operations for Applications service is an original subscription, individual <a href="authorization-faq.html#what-are-user--service-accounts">user and service accounts</a>.</li></ul></td></tr>
     <tr>
     <td><strong>Groups</strong></td>
-    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is a VMware Cloud services subscription, <a href="csp_users_roles.html#manage-user-groups">groups</a> of VMware Cloud services users.</li>
-    <li>If your Operations for Applications service is an original subscription, <a href="users_roles.html#create-a-group">groups</a> of user and service accounts.</li></ul>
+    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is onboarded to VMware Cloud services, <a href="csp_users_roles.html#manage-user-groups">groups</a> of VMware Cloud services users.
+    <p>You can also select the <strong>Everyone</strong> internal system group (which includes all users) or the <strong>Service Accounts</strong> internal system group (which includes all <a href="csp_server_to_server_apps.html">server to server apps</a> that have access to your service as well as all <a href="csp_service_accounts.html">service accounts</a> in your service).</p></li>
+    <li>If your Operations for Applications service is an original subscription, <a href="users_roles.html#create-a-group">groups</a> of user and service accounts, including the <strong>Everyone</strong> and <strong>Service Accounts</strong> system groups.</li></ul>
     </td>
     </tr>
     <tr>
