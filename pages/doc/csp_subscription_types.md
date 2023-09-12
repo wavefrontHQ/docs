@@ -105,7 +105,7 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 <tr>
 <td>Permissions
 </td>
-<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because all of the authorization and authentication tasks requiring these permissions are done in the Operations for Applications IU. See the <a href="permissions_overview.html">Permissions Reference</a>.
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because all of the authorization and authentication tasks requiring these permissions are done in the Operations for Applications UI. See the <a href="permissions_overview.html">Permissions Reference</a>.
 </td>
 <td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because all of the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console. See the <a href="csp_users_roles.html">Operations for Applications Permissions in VMware Cloud Services</a>.
 </td>
@@ -270,7 +270,7 @@ Each API token inherits the permissions of its associated user or service accoun
 <ul>
 <li>Default display settings for new accounts, such as getting started progress and default dashboard display.</li>
 <li>Default query language preferences and optionally, allow users to write queries in PromQL. For details, see <a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a>.</li>
-<li>Logs settings, if Logs (Beta) is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
+<li>Logs settings, if Logs is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
 <li>Access to newly created dashboards and alerts. For details, see <a href="csp_access.html">Managing Access to Dashboards and Alerts</a></li>
 </ul></p>
 </td>
