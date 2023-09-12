@@ -15,16 +15,22 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcement
 
+### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
+
+Starting September 18, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. See how to [start a free trial](start_trial.html) from the VMware Cloud Services Console.
+
+### VMware Aria Operations for Applications on VMware Cloud Services
+
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
 
 * **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
-* **Original Subscriptions**: Existing subscriptions which remain as is until they migrate to VMware Cloud services. 
+* **Original Subscriptions**: Existing subscriptions which remain as is until onboarded to VMware Cloud services. 
    
-   We are in the process of incrementally migrating original subscriptions to VMware Cloud services.
+   We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
 
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
-{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
+{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
 
 ## 2023-34.x Release Notes
 
