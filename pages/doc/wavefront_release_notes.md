@@ -13,11 +13,11 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
-## Announcement
+## Announcements
 
 ### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
 
-Starting September 18, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. See how to [start a free trial](start_trial.html) from the VMware Cloud Services Console.
+Starting September 18, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) from the VMware Cloud Services Console.
 
 ### VMware Aria Operations for Applications on VMware Cloud Services
 
