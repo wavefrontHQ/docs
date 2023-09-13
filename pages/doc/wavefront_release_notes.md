@@ -26,11 +26,34 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
 
+## 2023-37.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+**Cloud Integrations Page Improvements**: We improved the user experience of the **Cloud Integrations** page. To navigate to this page:
+1. In your service instance, click **Integrations** on the toolbar.
+2. Click a cloud integration tile,  for example **Amazon Web Services**.
+3. On the **Setup** tab, click **Advanced**.
+
+![An annotated screenshot of the Cloud Integrations list page. The information is listed below](images/cloud-integrations-page.png)
+
+On the **Cloud Integrations** page, now you can:
+
+* Apply various filters and hide or show the filters listed on the left.
+* Search for integrations, save and share searches.
+* Hide or show the filters on the left.
+* Click the **Add Cloud Integration** button and select a new integration to add.
+* Select to display all or only the deleted integrations.
+* Sort the cloud integrations by name, time of the last data fetch or number of ingested metrics.
+* Use the ellipsis icon menu to:
+  * Enable or disable an integration instance, edit it, or delete it, when all integrations are displayed.
+  * Restore an integration instance or select to permanently delete it, when only deleted integrations are displayed.
+
 ## 2023-34.x Release Notes
 
 ### Original and Onboarded Subscriptions
 
-* **Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
+**Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
 
 ## 2023-33.x Release Notes
 
