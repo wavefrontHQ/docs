@@ -20,7 +20,7 @@ Before the onboarding:
     - If your VMware Cloud **Organization Owner** user is unreachable or you don't know the name of your VMware Cloud **Organization Owner** user, contact our Technical Support team for assistance.
 * If you have a [SAML SSO integration](auth_self_service_sso.html), as a VMware Cloud **Organization Owner** user, you must federate your currently integrated enterprise domain with your VMware Cloud organization. For details, see the [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html) in the VMware Cloud services documentation.
 
-    {% include warning.html content="If you do not federate your currently integrated enterprise domain, after onboarding to VMware Cloud service all users will lose access to the service."%}
+    {% include warning.html content="If you do not federate your currently integrated enterprise domain, after onboarding to VMware Cloud services all users will lose access to the service."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -64,6 +64,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
 ![An image displaying how users are migrated when your Operations for Applications service is onboarded to VMware Cloud services. The information from the image is explained in the bullet list below.](images/csp-user-accounts-migration.png)
 
+* If a user is a **Super Admin** in Operations for Applications, we assign that user with the **Super Admin** Operations for Applications service role in VMware Cloud services.
 * If a user is assigned with individual permissions in Operations for Applications, we assign that user with the corresponding [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) in VMware Cloud services. For example, if a user has the **Alerts** permission in Operations for Applications, we assign that user with the **Alerts** Operations for Applications service role in VMware Cloud services. There are the following exceptions:
 
     - The **Accounts** permission is replaced by the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) plus the **Admin** Operations for Applications service role.
@@ -71,10 +72,9 @@ During the process of onboarding your Operations for Applications service to VMw
     - The **SAML IdP Admin** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. The VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
 
     For details, see the [permissions differences](csp-differences-by-area.html#permissions).
+* If a user does not have any permissions and roles in Operations for Applications, we assign that user with the **Viewer** Operations for Applications service role in VMware Cloud services.
 * If a user is assigned with roles in Operations for Applications, we assign that user with the corresponding custom roles in VMware Cloud services. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
 * If a user belongs to a group in Operations for Applications, we add that user to the corresponding group in VMware Cloud services. See [How Are the Groups Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-groups-migrated-to-vmware-cloud-services).
-* If a user is a **Super Admin** in Operations for Applications, we assign that user with the **Super Admin** Operations for Applications service role in VMware Cloud services.
-* If a user does not have any permissions and roles in Operations for Applications, we assign that user with the **Viewer** Operations for Applications service role in VMware Cloud services.
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the Operations for Applications users](csp_user_management.html) in the VMware Cloud Services Console."%}
 
@@ -97,7 +97,7 @@ During the process of onboarding your Operations for Applications service to VMw
 * The service accounts from the custom groups in Operations for Applications **are not** added to any VMware Cloud group.
 
     {% include important.html content="Currently, VMware Cloud services supports grouping only for user accounts."%}
-* If a custom group in Operations for Applications is a assigned with roles, the corresponding VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If a custom group in Operations for Applications is assigned with roles, the corresponding VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the user groups](csp_users_roles.html#manage-user-groups) in the VMware Cloud Services Console."%}
 
@@ -109,7 +109,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
     {% include important.html content="New users will **no longer** be added automatically to this group."%}
 * The **All Operations for Applications Users** VMware Cloud group is assigned with the **All Operations for Applications Users** VMware Cloud custom role, which corresponds to the **Everyone** role in Operations for Applications. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
-* If the **Everyone** system group in Operations for Applications is a assigned with custom roles, the **All Operations for Applications Users** VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If the **Everyone** system group in Operations for Applications is assigned with custom roles, the **All Operations for Applications Users** VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
 * In Operations for Applications, we continue to maintain the **Everyone** system group only as a local **internal** group that is automatically populated with all new users. This group has no roles and permissions.
 
 {% include tip.html content="From now on, it is up to you to add new users to the **All Operations for Applications Users** VMware Cloud group. The **Everyone** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
@@ -311,7 +311,7 @@ To replace an Operations for Applications API token associated with your user ac
 1. Log in to the VMware Cloud Services Console.
 1. Generate an API token. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
 
-    - For the name of the VMware Cloud services API token, you can enter the name of the Operations for Applications API taken that you want to replace.
+    - For the name of the VMware Cloud services API token, you can enter the name of the Operations for Applications API token that you want to replace.
     - For the time to live (TTL) of the VMware Cloud services API token, you can configure a value from several minutes to several months, or never expire. This value defines the period in which the API token should be renewed.
     
         The TTL of the access tokens that will be issued to that API token is 30 minutes and is not configurable.
