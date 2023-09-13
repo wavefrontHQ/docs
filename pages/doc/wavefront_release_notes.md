@@ -43,8 +43,8 @@ On the **Cloud Integrations** page, now you can:
 * Search for integrations, save and share searches.
 * Hide or show the filters on the left.
 * Click the **Add Cloud Integration** button and select a new integration to add.
-* Select to display all or only the deleted integrations.
-* Sort the cloud integrations by name, time of the last data fetch or number of ingested metrics.
+* Select to display all active or only the deleted integrations.
+* Sort the cloud integrations by name, time of the last data fetch, or number of ingested metrics.
 * Use the ellipsis icon menu to:
   * Enable or disable an integration instance, edit it, or delete it, when all integrations are displayed.
   * Restore an integration instance or select to permanently delete it, when only deleted integrations are displayed.
