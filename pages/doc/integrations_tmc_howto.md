@@ -99,7 +99,7 @@ For more information about collector configuration for Operations for Applicatio
 2. Navigate to the cluster that you want to configure.
 3. On the cluster details page, in the top right corner, click **Actions** and select **Tanzu Observability > Configure collector**.
 
-   The **Configure** page displays the current the YAML code for the Collector.
+   The **Configure** page displays the current YAML code for the Collector.
 4. Edit the YAML code to modify the Collector configuration.
    
    * You can edit the code directly in the provided code text box.
@@ -108,7 +108,7 @@ For more information about collector configuration for Operations for Applicatio
 
 5. To apply the changes to the YAML code, click **Save**.
 
-Regardless of the method that you use to update the collector configuration YAML code, your changes are not applied to the cluster until you save.
+Regardless of the method that you use to update the Collector configuration YAML code, your changes are not applied to the cluster until you save.
 
 ## Examine Your Cluster's Data in Dashboards
 
