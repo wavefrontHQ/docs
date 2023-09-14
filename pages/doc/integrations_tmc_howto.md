@@ -87,6 +87,29 @@ After you have set up the credential from Tanzu Mission Control, you can start e
 
 You can now click the link to VMware Aria Operations for Applications. You are redirected to a dashboard in the VMware Aria Operations for Applications instance that shows the metrics for the cluster.
 
+## Modify the Collector Configuration for a Cluster
+
+You can use Tanzu Mission Control to modify the collector configuration that controls how data is sent to Operations for Applications.
+
+The collector configuration for Operations for Applications specifies the details about the data that is sent to your Operations for Applications account, such as what data is collected and how often it is sent. Using Tanzu Mission Control, you can change the configuration to fine-tune the data collection for each of your clusters.
+
+For more information about collector configuration for Operations for Applications, see the Wavefront Collector for Kubernetes [configuration file in GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file).
+
+1. Log in to the Tanzu Mission Control console as a user who has the **cluster.admin** role on the cluster.
+2. Navigate to the cluster that you want to configure.
+3. On the cluster details page, in the top right corner, click **Actions** and select **Tanzu Observability > Configure collector**.
+
+   The **Configure** page displays the current YAML code for the Collector.
+4. Edit the YAML code to modify the Collector configuration.
+   
+   * You can edit the code directly in the provided code text box.
+   * If you have already edited the Collector, you can click **Reset to Default Configuration** to pull the default configuration from your Operations for Applications account.
+   * To load a new configuration from a file, click **Import** and select the file to import.
+
+5. To apply the changes to the YAML code, click **Save**.
+
+Regardless of the method that you use to update the Collector configuration YAML code, your changes are not applied to the cluster until you save.
+
 ## Examine Your Cluster's Data in Dashboards
 
 Dashboards allow you to drill down into your data, change the time window, examine individual charts, use filters, and much more.
