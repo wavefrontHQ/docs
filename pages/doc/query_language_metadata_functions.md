@@ -102,7 +102,7 @@ taggify(<expression>, <newPointTagKey>, "<newPointTagValue>")
 For example, to add a point tag `Physical location`, `Site B` use:
 
 ```
-taggify("vsphere.host.cpu.used.summation" and source="esxi-11", "Physical location", "Site B")
+taggify(ts("vsphere.host.cpu.used.summation") and source="esxi-11", "Physical location", "Site B")
 ```
 
 ![Output has table column header Physical location and column values Site B](images/taggify-site.jpeg)
