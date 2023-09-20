@@ -17,7 +17,7 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
 
-Starting September 18, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
+Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
 
 ### VMware Aria Operations for Applications on VMware Cloud Services
 
