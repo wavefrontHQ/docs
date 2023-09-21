@@ -97,4 +97,8 @@ In case of urgency, you can contact the Operations for Applications team by send
    
 After you place your order, you will see a purchase confirmation page. Typically, it takes 24 hours to fulfil an order. Once your subscription becomes active, you'll receive an email notification.
 
+<<<<<<< HEAD
 <!--- In case of urgency, you can contact the Operations for Applications team by sending an email to `tanzu_saas_ops@vmware.com` with your service ID and someone from our team will help you. --->
+=======
+<!--- In case of urgency, you can contact the Operations for Applications team by sending an email to `tanzu_saas_ops@vmware.com` with your service ID and someone from our team will help you. --->
+>>>>>>> c4f2f575edc9c18f135de047c855b1f836404825
