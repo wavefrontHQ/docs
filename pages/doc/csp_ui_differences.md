@@ -39,12 +39,16 @@ The gear icon menu also differs, because many of the tasks for VMware Cloud serv
 
    1. The tenant name is missing, because it is shown in the VMware Cloud Services Console when you launch the service instance. In a multi-tenant environment, the current tenant is shown on the top-left of the menu bar and you can click it to switch between tenants.
    1. The **Self Service SAML** menu item is missing, because the enterprise federation setup is done from the VMware Cloud Services Console.
+   1. The **Accounts** menu item is available only for a **limited number** of VMware Cloud services subscriptions. See the section below.
    1. The **Super Admin** menu item is replaced with **Orphaned Objects**, because Super Admin users can no longer invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts. See the following bullet point.
    1. The **Sign Out** menu item is missing, because signing out is done from the User/Organization drop-down menu on the top-right of the menu bar.
+
 
 ## Accounts Page
 
 Most of the identity and access management tasks for VMware Cloud services subscribers are done by using the VMware Cloud Services Console. Therefore, if you are a user with the **Admin** service role assigned (this role partially covers the **Accounts** permission for original subscriptions), when you click the gear icon on the toolbar and select **Accounts**, you will see only the **Service Accounts** and the **API Tokens** tabs.
+
+{% include note.html content=" This page is available only for a **limited number** of VMware Cloud services subscriptions, because in most cases you should use [server to server OAuth apps](csp_server_to_server_apps.html) and [VMware Cloud services API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)." %}
 
   ![An image showing the differences in the Accounts menu and the Service Accounts tab.](images/new-vs-original-accounts.png)
 

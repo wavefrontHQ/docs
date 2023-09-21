@@ -11,9 +11,9 @@ Operations for Applications subscriptions are two types: original subscriptions 
 
 ## Examples of the Functionality Differences 
 
-### Users, Roles and Group Management
+### Users, Roles, and Group Management
 
-Most of the user and account management tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud Services for VMware Cloud services subscriptions. For example, the tasks related to user, roles, and groups management:
+Most of the user and account management tasks done in the Operations for Applications UI for original subscriptions, are done in the VMware Cloud services for VMware Cloud services subscriptions. For example, the following tasks related to managing users, roles, and groups can be done from the VMware Cloud Services Console.
 
   * Invite new users
   * Assign permissions
@@ -28,7 +28,9 @@ Most of the user and account management tasks done in the Operations for Applica
 
 Some administrative tasks, done by **Super Admins** and users with the **Accounts** permission in original subscriptions, are done by VMware Cloud **Organization Owners** and VMware Cloud **Organization Administrators** in VMware Cloud services subscriptions. Others can be done by Operations for Applications **Admins** in the Operations for Applications UI.
 
-With the 2023-XX release, we introduce the **Admin** permission and service role, which partially correspond to the **Accounts** permission for original subscriptions. Users with the **Admin** service role can manage service account and Operations for Applications API tokens. They can also restrict access to new dashboards and alerts and set the organization settings. For example, they can restrict the access to the object creator only and set default settings, such as display settings, PromQL support, default way of building queries, and define Logs settings. 
+With the 2023-XX release, we introduce the **Admin** permission and service role, which partially correspond to the **Accounts** permission for original subscriptions. Users with the **Admin** service role can manage service accounts and Operations for Applications API tokens. They can also restrict access to new dashboards and alerts and set the organization settings. For example, they can restrict the access to the object creator only and set default settings, such as display settings, PromQL support, default way of building queries, and define Logs settings. 
+
+{% include note.html content="Service accounts are enabled only for a limited number of VMware Cloud services subscriptions, because in most cases they should use [server to server OAuth apps](csp_server_to_server_apps.html). To enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team." %}
 
 ![A graphic showing the differences in the admin tasks for original and onboarded subscriptions. The information displayed is described in the table below.](images/csp-admin-tasks.png)
 
@@ -207,7 +209,7 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: Service accounts authenticate with API tokens. Service accounts can be assigned with roles and permissions, as well as can be added to groups. For details, see <a href="service-accounts.html">Manage Service Accounts</a>.</p>
 </td>
-<td><strong>Note:</strong> Server to server OAuth apps are recommended and fully supported. Service accounts are with limited support.
+<td><strong>Note:</strong> Server to server OAuth apps are recommended and fully supported. Service accounts are with limited support and will be deprecated in the future.
 <p><strong>Who</strong>:
 <ul>
 <li>For server to server OAuth apps, users with the VMware Cloud <strong>Organization Owner</strong>, <strong>Organization Administrator</strong>, or <strong>Organization Member</strong> with the <strong>Developer</strong> role assigned. </li>
@@ -320,7 +322,7 @@ For details, see <a href="csp_users_roles.html#manage-roles">Manage Roles</a>.</
 <li>Users with the <strong>Accounts</strong> permission can generate Operations for Applications API tokens for service accounts. The API tokens inherit the permissions of their associated service account.</li></ul>
 For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 </td>
-<td><strong>Note</strong>: It is recommended to use VMware Cloud services API tokens and server to server OAuth app credentials for obtaining VMware Cloud services access tokens. Operations for Applications API tokens are with limited support. 
+<td><strong>Note</strong>: It is recommended to use VMware Cloud services API tokens and server to server OAuth app credentials for obtaining VMware Cloud services access tokens. Operations for Applications API tokens are with limited support and will be deprecated in a future release. 
 <p><strong>Who</strong>:
 <ul><li>For VMware Cloud services API tokens associated with a user account, the corresponding user.</li>
 <li>For Operations for Applications API tokens associated with service accounts, the users with the <strong>Admin</strong> Operations for Applications service role.</li>
@@ -396,7 +398,7 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 <li>Default groups for new user accounts. New users are assigned to the Everyone system group and to all additional default groups that you specify. For details, see <a href="user-accounts.html#set-the-default-user-group-for-new-users">Set the Default User Group for New Users</a>.</li>
 <li>Default groups for new service accounts. New service accounts are assigned to the Service Accounts system group and to all additional default groups that you specify. For details, see <a href="service-accounts.html#set-the-default-service-accounts-group-for-new-service-accounts">Set the Default Service Accounts Group for New Service Accounts</a>.</li>
 <li>Default permissions for new user accounts. These permissions don't apply to service accounts. For details, see <a href="user-accounts.html#set-default-permissions-for-new-users">Set Default Permissions for New Users</a>.</li>
-<li>Logs settings, if Logs (Beta) is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
+<li>Logs settings, if Logs is enabled for your cluster. For details, see <a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
 <li>Access to newly created dashboards and alerts. For details, see <a href="access.html">Managing Access to Dashboards and Alerts</a>.</li>
 </ul></p>
 </td>
