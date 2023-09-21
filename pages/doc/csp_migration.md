@@ -156,9 +156,9 @@ During the process of onboarding your Operations for Applications service to VMw
 
 ## What Happens with the Service Accounts?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, the service accounts **are not** migrated to VMware Cloud services.
+During the process of onboarding your Operations for Applications service to VMware Cloud services, the service accounts **are not** migrated to VMware Cloud services, because VMware Cloud services supports [server to server OAuth apps](csp_server_to_server_apps.html), which are equivalent to the services accounts in Operations for Applications.
 
-VMware Cloud services supports [server to server OAuth apps](csp_server_to_server_apps.html), which are equivalent to the services accounts in Operations for Applications. Service accounts are supported only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. You should incrementally replace your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
+{% include important.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future."%}
 
 For backward compatibility, all of your service accounts are **preserved** in Operations for Applications as follows:
 
@@ -168,6 +168,8 @@ For backward compatibility, all of your service accounts are **preserved** in Op
 
     {% include note.html content="The **Accounts** permission in Operations for Applications corresponds to the [**Admin** Operations for Applications permission](csp_permissions_overview.html) in VMware Cloud services."%}
 * All service accounts still belong to the **Service Accounts** system group, which is now only an **internal** Operations for Applications group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
+
+You should incrementally [replace](#how-to-replace-a-service-account-with-a-server-to-server-app) your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can [manage server to server apps](csp_server_to_server_apps.html) in the VMware Cloud Services Console. Users with the **Admin** service role can [manage the service accounts](csp_service_accounts.html) in Operations for Applications. The **Service Accounts** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
@@ -251,21 +253,19 @@ After onboarding to VMware Cloud services, you should incrementally replace your
 
 ## What Happens with the Operations for Applications API Tokens?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, the Operations for Applications API tokens **are not** migrated to VMware Cloud services.
-
-Operations for Applications on VMware Cloud services supports authentication with:
+During the process of onboarding your Operations for Applications service to VMware Cloud services, the Operations for Applications API tokens **are not** migrated to VMware Cloud services, because Operations for Applications on VMware Cloud services supports authentication with:
 
 * VMware Cloud services API tokens associated with user accounts.
 * Server to server OAuth apps credentials, that is, app ID and app secret. The server to server OAuth app must belong to the organization that is running the Operations for Applications service.
 
 You must exchange a VMware Cloud services API token or the credentials (ID and secret) of server to server OAuth app for a VMware Cloud services **access token**.
 
-You should incrementally replace your Operations for Applications API tokens with VMware Cloud services API tokens and server to server OAuth apps.
-
-For backward compatibility, all of your API tokens are **preserved** in Operations for Applications.
+For backward compatibility, all of your API tokens are **preserved** in Operations for Applications as follows:
 
 * The Operations for Applications API tokens associated with user accounts are **no longer**  editable. The users can still use, view, and revoke their Operations for Applications API tokens until they expire, but they **cannot** generate new ones.
 * The Operations for Applications API tokens associated with service accounts are editable, because we still support them for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens).
+
+You should incrementally [replace](#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token) your Operations for Applications API tokens with VMware Cloud services API tokens and server to server OAuth apps.
 
 {% include tip.html content="From now on, all users must generate VMware Cloud services API tokens for their accounts and exchange them for access tokens. Users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can create server to server OAuth apps and exchange the app credentials for access tokens."%}
 
