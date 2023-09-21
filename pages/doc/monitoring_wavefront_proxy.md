@@ -13,7 +13,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 {% include note.html content="To access the Proxies Browser, you must have the [**Proxies** permission](permissions_overview.html)." %}
 
-### Get Started wih the Proxies Browser
+### Get Started with the Proxies Browser
 
 With the Proxies Browser you can examine the status and the details of each proxy.
 
@@ -149,7 +149,7 @@ The proxy statistics are shown in a tabular chart at the end of the section:
 
 ### Proxy Troubleshooting
 
-In this section of the **Operations for Applications Service and Proxy Data** dashboard, you can investigate second-level metrics that give you insight into questions, suchh as:
+In this section of the **Operations for Applications Service and Proxy Data** dashboard, you can investigate second-level metrics that give you insight into questions, such as:
 * Why are some points blocked?
 * What's the file descriptor usage on the proxy JVM?
 * How long does it take for points to be pushed from the proxy to Operations for Applications?

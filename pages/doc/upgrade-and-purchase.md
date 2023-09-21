@@ -9,7 +9,7 @@ summary: Learn how to upgrade from a trial version and purchase the service.
 
 When you register for the trial version of VMware Aria Operations for Applications, your trial expires after 30 days. One of the options that we offer is to purchase the service by using our self-service workflow. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option.
 
-{% include note.html content="Starting September 7, 2023, all [**new trial**](start_trial.html) instances of Operations for Applications are **onboarded** to VMware Cloud services. Trial service instances before this date are considered **original**. The upgrade procedure is slightly different for a [trial service instance on VMware Cloud services](upgrade_and_purchase.html#upgrade-a-trial-service-instance-on-vmware-cloud-services) and for an [original trial service instance](upgrade_and_purchase.html#upgrade-an-original-trial-service-instance)." %}
+{% include note.html content="Starting September 20, 2023, all [**new trial**](start_trial.html) instances of Operations for Applications are **onboarded** to VMware Cloud services. Trial service instances before this date are considered **original**. The upgrade procedure is slightly different for a [trial service instance on VMware Cloud services](upgrade_and_purchase.html#upgrade-a-trial-service-instance-on-vmware-cloud-services) and for an [original trial service instance](upgrade_and_purchase.html#upgrade-an-original-trial-service-instance)." %}
 
 After the upgrade, you will be able to sign up for a free trial of our logs feature. See [Get Started with Logs](logging_overview.html).
 
@@ -97,4 +97,4 @@ In case of urgency, you can contact the Operations for Applications team by send
    
 After you place your order, you will see a purchase confirmation page. Typically, it takes 24 hours to fulfil an order. Once your subscription becomes active, you'll receive an email notification.
 
-<!---> In case of urgency, you can contact the Operations for Applications team by sending an email to `tanzu_saas_ops@vmware.com` with your service ID and someone from our team will help you.--->
+<!--- In case of urgency, you can contact the Operations for Applications team by sending an email to `tanzu_saas_ops@vmware.com` with your service ID and someone from our team will help you. --->
