@@ -15,6 +15,12 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcements
 
+### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
+
+In October, 2023, we start incrementally [onboarding](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your service UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
+
+
+
 ### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
 
 Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
@@ -31,6 +37,12 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
+
+## 2023-38.x Release Notes
+
+### Onboarded Subscriptions
+
+* **New Admin Privilege**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
 
 ## 2023-34.x Release Notes
 

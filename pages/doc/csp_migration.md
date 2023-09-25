@@ -14,6 +14,7 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 Currently, all original Operations for Applications subscriptions are integrated with VMware Cloud services for billing and subscription management. Therefore, you must already have a [VMware Cloud organization](csp_getting_started.html#whats-a-vmware-cloud-organization) with at least one user with the [VMware Cloud **Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
 
 Before the onboarding:
+* Get familiar with the VMware Cloud service platform. See [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
 * Verify that your VMware Cloud **Organization Owner** user can log in to the [VMware Cloud Services Console](https://console.cloud.vmware.com).
 
     - If you are the VMware Cloud **Organization Owner** user and cannot log in, try using the **Forgot Password** option.
