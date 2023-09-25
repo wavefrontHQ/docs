@@ -42,7 +42,7 @@ For information about the two subscription types and how they differ, see [Subsc
 
 ### Onboarded Subscriptions
 
-* **New Admin Privilege**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
+* **New Admin Permission and Service Role**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
 
 ## 2023-34.x Release Notes
 
