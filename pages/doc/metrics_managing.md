@@ -141,7 +141,7 @@ While [obsolete metrics](metrics_managing.html#obsolete-metrics) are automatical
 <ol>
 <li>Select <strong>Browse > Metrics</strong>.</li>
 <li>Click the <strong>Manage Hidden Metrics</strong> button.</li>
-<li>In the dialog box, type a complete metrics name (e.g. <code>requests.latency</code>) or a metric prefix (e.g. <code>requests.</code>, <code>cpu.loadavg.</code>).
+<li>In the dialog box, type a complete metric name (e.g. <code>requests.latency</code>) or a metric prefix (e.g. <code>requests.</code>, <code>cpu.loadavg.</code>).
 <ul>
 <li>This field does not support auto-complete, so you have to type the entire metric name or metric prefix.</li>
 <li>The text is case sensitive.</li>
@@ -171,11 +171,11 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 </tbody>
 </table>
 
-### Convert Metrics to Ephemeral or Persistent
+### Change the Retention Period of Your Metrics
 
-With the 2023-XX release, we introduce ephemeral metrics, which have much shorter [retention period](terms_of_service.html#data-retention) than the persistent (default) metrics. By default, all metrics are persistent. Converting persistent metrics to ephemeral metrics improves [query performance](query_language_performance.html) and reduces [cardinality](cardinality.html).
+With the 2023-XX release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all metrics are persistent and we keep them for 18 months. Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and also reduce the [cardinality](cardinality.html).
 
-{% include note.html content="To convert individual metrics and metric prefixes from persistent to ephemeral and the reverse, you must be a **Super Admin** user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
+{% include note.html content="To convert individual metrics and metric prefixes from persistent to ephemeral and the reverse, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -183,8 +183,9 @@ With the 2023-XX release, we introduce ephemeral metrics, which have much shorte
 <td width="60%">
 <ol>
 <li>Select <strong>Browse > Metrics</strong>.</li>
-<li>Click the <strong>Change Ephemerality</strong> button</li>
-<li>To convert a persistent metric or prefix to ephemeral, in the <strong>Select Metric Prefix</strong> textbox, start typing and select the target metric name or prefix, and press Enter.<p>The metric name or prefix appears in the <strong>Ephemeral Metrics</strong> table below. You can repeat this step for multiple metrics and prefixes.</p></li>
+<li>Click the <strong>Change Ephemerality</strong> button.</li>
+<li>To convert a persistent metric or prefix to ephemeral, in the <strong>Select Metric Prefix</strong> text box, start typing the metric prefix and select the target metric name or prefix, and press Enter.
+<p>The metric name or prefix appears in the <strong>Ephemeral Metrics</strong> table below. You can repeat this step for multiple metrics and prefixes.</p></li>
 <li>To convert an ephemeral metric or prefix to persistent, in the <strong>Ephemeral Metrics</strong> table, locate the target metric or prefix and click the corresponding <strong>Convert to Persistent Metric</strong> action.<p>The metric name or prefix disappears from the <strong>Ephemeral Metrics</strong> table. You can repeat this step for multiple metrics and prefixes.</p></li>
 <li>Click <strong>Save</strong>.</li>
 </ol> </td>

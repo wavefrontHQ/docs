@@ -101,7 +101,7 @@ Although Operations for Applications supports high cardinality for time series d
 
    1. Ensure that the metric names are stable and do not change.
    2. Keep source names stable. Source names change over time, but make sure that they don't change frequently.
-   3. Use point tags and [ephemeral metrics](metric_types.html#metric-types-per-retention-period) for data that are ephemeral.
+   3. Use point tags and [ephemeral metrics](metric_types.html#metric-types-per-retention-period) for data that is ephemeral.
    4. In Kubernetes, where point tags are usually called labels, add only the point tags that you really need.
 
 For information about metric, source, and point tag names, see [Operations for Applications Data Format Best Practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
