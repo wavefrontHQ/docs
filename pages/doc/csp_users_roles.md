@@ -55,6 +55,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
     <li>Can set the default preferences for all users of the service instance.</li>
     <li>Can restrict access for new dashboards and alerts.</li>
     <li>Can <a href="access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
+    <li>Can <a href="metrics_managing.html#convert-metrics-to-ephemeral-or-persistent">convert metrics</a> from persistent to ephemeral and the reverse.</li>
     </ul>
     <p><strong>Tip:</strong> Combine the <strong>Super Admin</strong> service role with the roles that you want the user to have when Super Admin mode is disabled. </p></td>
   </tr>
