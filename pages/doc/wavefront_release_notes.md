@@ -17,8 +17,7 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
 
-In October, 2023, we start incrementally [onboarding](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your service UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
-
+In October, 2023, we start to incrementally [onboard](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Operations for Applications UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
 
 
 ### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
@@ -42,13 +41,35 @@ For information about the two subscription types and how they differ, see [Subsc
 
 ### Onboarded Subscriptions
 
-* **New Admin Permission and Service Role**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
+**New Admin Permission and Service Role**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
+
+
+### Original and Onboarded Subscriptions
+
+**Cloud Integrations Page Improvements**: We improved the user experience of the **Cloud Integrations** page. To navigate to this page:
+1. In your service instance, click **Integrations** on the toolbar.
+2. Click a cloud integration tile,  for example **Amazon Web Services**.
+3. On the **Setup** tab, click **Advanced**.
+
+![An annotated screenshot of the Cloud Integrations list page. The information is listed below](images/cloud-integrations-page.png)
+
+On the **Cloud Integrations** page, now you can:
+
+* Apply various filters and hide or show the filters listed on the left.
+* Search for integrations, save and share searches.
+* Hide or show the filters on the left.
+* Click the **Add Cloud Integration** button and select a new integration to add.
+* Select to display all active or only the deleted integrations.
+* Sort the cloud integrations by name, time of the last data fetch, or number of ingested metrics.
+* Use the ellipsis icon menu to:
+  * Enable or disable an integration instance, edit it, or delete it, when all integrations are displayed.
+  * Restore an integration instance or select to permanently delete it, when only deleted integrations are displayed.
 
 ## 2023-34.x Release Notes
 
 ### Original and Onboarded Subscriptions
 
-* **Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
+**Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
 
 ## 2023-33.x Release Notes
 
