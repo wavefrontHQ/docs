@@ -217,3 +217,25 @@ If you see an app called `tas2to-sli-test-app` in the results of `cf apps` or a 
   ```
   cf delete-route example.com --hostname tas2to-sli-test-app
   ```
+
+## Symptom: The Percentage in the Application CPU % Chart Is Too High
+
+The **Application CPU %** chart in the **TAS: Workload Monitoring** dashboard lists the application instances ranked by the highest utilization of their CPU entitlement. Sometimes, the **Application CPU %** chart might show high CPU usage percentage - more than 100%, for some of the applications. You can expect more than 100% if the Diego Cell has spare CPU capacity, and the container is trying to use more than it is entitled.
+
+If the host has spare CPU, it doesn’t throttle the CPU usage. But, if the host has more demand on its CPU, it will try to throttle all the containers fairly based on their entitlement.
+
+Usage of more than 100% also indicates that if the cell were to be fully CPU utilized, then that application would be waiting on requested CPU time because it would not be able to get that CPU time from other running containers. Theoretically, that can degrade the performance of the application.
+
+The solution is to scale up the Diego Cells, either horizontally or vertically and add CPU processing power. But, if the application is functioning fine, then that indicates you have sufficient free CPU capacity on the cells and you do not need to do anything.
+
+## Symptom: The Percentage in the CPU Usage Chart Is Too High
+
+The **CPU Usage** chart in the **TAS: BOSH Director Health** dashboard, might show CPU usage higher than 100%. This is because when using multi-core processors in CPU instrumentation, the usage maximum is the number of cores multiplied by 100. 
+
+Because modern computers have multiple cores, where previously they were predominantly single-core processors, CPU instrumentation can show CPU utilization greater than 100%. 
+
+In Tanzu Application Service, if there are three cores on the Diego Cell to which your app is deployed, 300% CPU can be distributed between all the apps on the Diego Cell. Because 150% could be the total value for some containers, 99% would be a fully saturated CPU for others.
+
+These metrics depend on various factors, such as the capacity of the Diego Cell and the total number of apps on the Diego Cell that are might not visible to the user.
+
+To understand the CPU Maximums, you can use the formula: `$NUM_CORES * 100%`.
