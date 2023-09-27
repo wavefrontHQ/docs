@@ -22,7 +22,7 @@ In a large enterprise, certain data is confidential. VMware Aria Operations for 
 
 ## Video: Metrics Security Policy
 
-Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
+Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI, which is applicable to original subscriptions and there are some [differences between original and VMware Cloud services subscriptions](csp-ui-differences.html#metrics-security-policy-rule-creation-page). 
 
 <p>
 <iframe id="kmsembed-1_3ea13tor" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
@@ -36,9 +36,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 With a metrics security policy, you can block or allow access:
 * To metrics, optionally filtered by source or point tag
-* Based on individual accounts ([user accounts](csp_user_management.html) and [service accounts](csp_server_to_server_apps.html)) or [groups](csp_users_roles.html#manage-user-groups).
-
-{% include note.html content="Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services." %}
+* Based on individual accounts - [user accounts](csp_user_management.html) and service accounts (which includes the [server to server apps](csp_server_to_server_apps.html) in VMware Cloud services as well as the [service accounts](csp_service_accounts.html)), or [groups](csp_users_roles.html#manage-user-groups).
 
 When an account attempts to access metrics, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
 
@@ -181,7 +179,7 @@ Before you create rules, plan your strategy.
 * **Metrics Dimensions** allow you to determine what to block or allow.
   - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
-* **Access** allows you to allow or block access for a combination of accounts (user accounts and service accounts) or groups.
+* **Access** allows you to allow or block access for a combination of accounts (user accounts, server to server apps, and service accounts) or groups.
 
 See the Examples further below.
 
@@ -207,7 +205,7 @@ You create a metrics security policy rule following these steps. See the annotat
 
 Here's an annotated screenshot that shows the main actions:
 
-![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
+![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/csp_metrics_s_edit_rule.png)
 
 
 
