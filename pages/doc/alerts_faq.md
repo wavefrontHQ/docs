@@ -89,7 +89,7 @@ In this scenario, your most recent aggregated values at the time of the alert ev
 
 ## Why Did My Alert Misfire?
 
-False positive alerts can be a big problem because they can lead to alert fatigue--the alert recipients stop paying attention to alerts. Reasons for false positive are similar to reasons for the alert firing.
+False positive alerts can be a big problem because they can lead to alert fatigue - the alert recipients stop paying attention to alerts. Reasons for false positive are similar to reasons for the alert firing.
 * The alert sees data that meet the alert condition. However, the actual data changed so the condition wasn't met for a long enough time.
 * Functions in the alert query make it look as if the condition was met for the **Trigger Window** time.
 
@@ -121,7 +121,11 @@ In this scenario, your most recent aggregated values at the time of the alert ev
 
 Using [missing data functions](query_language_reference.html#missing-data-functions) or raw aggregation functions (like `rawsum()`) can solve the problem in these cases.
 
+### Check if the Alert Fires on a New Source
 
+Alerts are firing when a new source reports in breaching the threshold briefly but not for the full duration of the configured trigger window. That happens because, when an alert sees a TRUE value proceeded by NO DATA, this is a special situation that causes the alert to fire immediately and not wait for the target threshold.
+
+To avoid this NO DATA special situation for new sources, see how to [Alert on Exceeding a Threshold When There Are More than X Points in the Trigger Window](alerts_recipes.html#alert-on-exceeding-a-threshold-when-there-are-more-than-x-points-in-the-trigger-window).
 
 ## Any Tips for Creating an Alert that Works Well?
 
