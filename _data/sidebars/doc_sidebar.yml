@@ -1042,6 +1042,10 @@ entries:
         url: /track_adoption.html
         output: web
 
+      - title: Monitoring Metric Data Quality
+        url: /wavefront_monitoring_metric.html
+        output: web
+
       - title: Monitor Wavefront Proxies
         url: /monitoring_proxies.html
         output: web

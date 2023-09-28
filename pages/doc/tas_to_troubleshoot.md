@@ -230,7 +230,7 @@ The solution is to scale up the Diego Cells, either horizontally or vertically a
 
 ## Symptom: The Percentage in the CPU Usage Chart Is Too High
 
-The **CPU Usage** chart in the **TAS: BOSH Director Health** dashboard, might show CPU usage higher than 100%. This is because when using multi-core processors in CPU instrumentation, the usage maximum is the number of cores multiplied by 100. 
+The **CPU Usage** chart in the **TAS: BOSH Director Health** dashboard might show CPU usage higher than 100%. This is because when using multi-core processors in CPU instrumentation, the usage maximum is the number of cores multiplied by 100. 
 
 Because modern computers have multiple cores, where previously they were predominantly single-core processors, CPU instrumentation can show CPU utilization greater than 100%. 
 
@@ -238,4 +238,4 @@ In Tanzu Application Service, if there are three cores on the Diego Cell to whic
 
 These metrics depend on various factors, such as the capacity of the Diego Cell and the total number of apps on the Diego Cell that are might not visible to the user.
 
-To understand the CPU Maximums, you can use the formula: `$NUM_CORES * 100%`.
+To understand the CPU maximums, you can use the formula: `$NUM_CORES * 100%`.
