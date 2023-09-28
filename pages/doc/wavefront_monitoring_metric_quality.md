@@ -8,12 +8,14 @@ summary: Monitor and investigate metrics that have the potential to cause perfor
 
 ---
 
+During ingestion, Operations for Applications assigns an ID to each newly added metric name, span name, source name, and key-value pair of a point tag or span tag. A new ID generally indicates that a new time series has been introduced. The Operations for Applications Usage integration includes a list of predefined alerts that can help you monitor the new metrics being sent. These metrics might include metrics with potentially problematic data quality.
+
 Typically, quick bursts of high cardinality metrics would be cause for an investigation. Using metric names, source names, or point tags to store high-cardinality data, such as timestamps, web session IDs, login IDs, and so on, can eventually cause performance issues when querying your data. 
 
 
 ## How to Install and Customize the Operations for Applications Usage Alerts
 
-During ingestion, Operations for Applications assigns an ID to each newly added metric name, span name, source name, and key-value pair of a point tag or span tag. A new ID generally indicates that a new time series has been introduced. The Operations for Applications Usage integration includes a list of predefined alerts that can help you monitor the new metrics being sent. These metrics might include metrics with potentially problematic data quality.
+To use the predefined alerts, you must first install them, then clone them, and then edit the clones to add recipients.
 
 {% include note.html content="All users can view alerts. You must have the **Integrations** permission to install the system alerts." %}
 
@@ -21,12 +23,12 @@ During ingestion, Operations for Applications assigns an ID to each newly added 
 
 **To install the predefined Operations for Applications Usage alerts:**
 
-1. Click **Integrations** on the toolbar.
+1. In your service instance, click **Integrations** on the toolbar.
 1. Click the **Operations for Applications Usage** integration tile.
 1. Click the **Alerts** tab.
 1. Click **Install All**.
 
-After you install the alerts, clone them, and edit the alert targets to assign the recipients who will receive notifications when an alert is triggered.
+After you install the alerts, clone them, and edit the clones to add the recipients who will receive notifications when an alert is triggered.
 
 ### Clone and Customize the Operations for Applications Usage Alerts
 
@@ -43,7 +45,7 @@ After you install the alerts, clone them, and edit the alert targets to assign t
 1. Enter a name of the new alert and click **Clone**.
 
    The new alert opens in edit mode.
-1. Customize the clone to suit your needs and click **Save**.
+1. Customize the clone to [specify the recipients](alerts_manage.html#step-3-specify-recipients) and click **Save**.
 
 After you clone an alert, snooze the original integration alert to avoid running duplicate versions of the alert. For more information about editing alerts, see [Manage Alerts](alerts_manage.html).
 
