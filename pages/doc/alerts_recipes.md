@@ -63,18 +63,24 @@ For example, here's the query for an alert that fires if the number of sample pr
 
 ## Alert on Exceeding a Threshold When There Are More than X Points in the Trigger Window
 
-You can combine the previous two alerts and define an [alert on exceeding a threshold](#alert-on-exceeding-a-threshold) that fires only [when there are more than a specified number of points in a time time window](#alert-when-there-are-more-than-x-points-in-a-time-window). Such an alert can be useful to ignore the special situation when a TRUE value proceeded by NO DATA misfires an alert, for example, when a new source reports in breaching the threshold briefly but not for the full duration of the configured trigger window.
+You can combine two alerts. In this case, let’s combine:
+* [Alert on exceeding a threshold](#alert-on-exceeding-a-threshold)
+* [Alert when there are more than x points in a time window](#alert-when-there-are-more-than-x-points-in-a-time-window)
+
+This way, you can define an alert on exceeding a threshold that fires only when there are more than a specified number of points in the trigger window. Such an alert can be useful to ignore the special situation when a TRUE value proceeded by NO DATA misfires an alert. For example, when a new source reports in breaching the threshold briefly but not for the full duration of the configured trigger window.
 
 For example, here's the query for a single-threshold alert that fires if the number of sample processes for `app-5` is more than 100 and there are at least 4 points in the 5-minute trigger window.
 
 `mcount(5m, (ts(~sample.process.num, source="app-5"))) > 3 and (ts(~sample.process.num, source="app-5")) > 100`
 
-To create a multi-threshold alert:
+To create such a multi-threshold alert:
 
 1. Use `mcount(5m, (ts(~sample.process.num, source="app-5"))) > 3 and (ts(~sample.process.num, source="app-5"))` in the alert's DATA field and click **Next**.
 2. Select `greater than`.
 3. Next to each severity, specify the threshold, for example, next to **Severe** type 100 and next to **Warn** type 90.
 4. Specify recipients for each severity.
+
+See [Create and Manage Alerts](alerts_manage.html) for details and a video.
 
 ## Alert Only Between Specific Times
 
