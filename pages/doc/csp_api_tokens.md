@@ -68,6 +68,9 @@ If you want to set up one of the [integrations](integrations_onboarded_subscript
 
 {% include important.html content="Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions, because The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future. To enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team. "%}
 
+{% include warning.html content=" Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions. It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future. Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team." %}
+
+
 As a user with the **Admin** service role, you can generate and manage the API tokens for [service accounts](csp_service_accounts.html) upon creation or at a later stage. 
 
 To generate and manage the API tokens for an existing **service account**:
@@ -84,11 +87,13 @@ To generate and manage the API tokens for an existing **service account**:
    3. To rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
 6. Select the appropriate permissions for the service account and click **Update**.
 
+
+
 ## Manage the Operations for Applications API Tokens in Your Service Instance
 
 As a user with the **Admin** service role, you can view and revoke the API tokens of any service account in your service instance.
 
-{% include note.html content="If your original Operations for Applications subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts. It’s recommended that you incrementally [replace them with VMware Cloud services API tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token)."%}
+{% include warning.html content="If your original Operations for Applications subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts. It’s recommended that you incrementally [replace them with VMware Cloud services API tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token)."%}
 
 1. Log in to your service instance as an **Admin** user.
 2. Click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Accounts**.

@@ -48,7 +48,7 @@ The gear icon menu also differs, because many of the tasks for VMware Cloud serv
 
 Most of the identity and access management tasks for VMware Cloud services subscribers are done by using the VMware Cloud Services Console. Therefore, if you are a user with the **Admin** service role assigned (this role partially covers the **Accounts** permission for original subscriptions), when you click the gear icon on the toolbar and select **Accounts**, you will see only the **Service Accounts** and the **API Tokens** tabs.
 
-{% include note.html content=" This page is available only for a **limited number** of VMware Cloud services subscriptions, because in most cases you should use [server to server OAuth apps](csp_server_to_server_apps.html) and [VMware Cloud services API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)." %}
+{% include warning.html content=" This page is available only for a **limited number** of VMware Cloud services subscriptions, because you should incrementally switch to using [server to server OAuth apps](csp_server_to_server_apps.html) and [VMware Cloud services API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html). Service accounts and the API tokens associated with them will be deprecated in the future." %}
 
   ![An image showing the differences in the Accounts menu and the Service Accounts tab.](images/new-vs-original-accounts.png)
 
