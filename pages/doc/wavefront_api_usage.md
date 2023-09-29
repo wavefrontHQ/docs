@@ -40,8 +40,10 @@ If you want to use [your own user account](csp_users_account_managing.html) to m
 
    1. Go to the [Authentication VMware Cloud services APIs](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html#/Authentication/getAccessTokenByApiRefreshTokenUsingPOST).
    2. In the `POST/am/api/auth/api-tokens/authorize` request, click **Try it out**.
-   3. For the **api_token** parameter, enter the value of the newly generated API token, and click **Execute**.
-   4. From the response body, copy the value of the `"access_token"` parameter.
+   3. For the **api_token** parameter, enter the value of the newly generated API token.
+   4. Deselect the **Send empty value** check box for the **passcode** parameter.
+   5. Click **Execute**.
+   6. From the response body, copy the value of the `"access_token"` parameter.
 
 4. If you use `curl`, and want to get information about all cloud integrations in your environment, run:
 
