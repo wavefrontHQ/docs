@@ -39,7 +39,11 @@ The Wavefront proxy requires a VMware Cloud services access token with the **Pro
 
 For a limited number of integrations, you must still use an Operations for Applications API token, associated with a [service account](csp_service_accounts.html) that has the **Proxies** permission. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can install the Wavefront proxy and set up your integration to pass the API token of the service account. 
 
-{% include warning.html content=" Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions. It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team." %}
+{% include warning.html content="  It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future." %}
+
+<!--Bring this back to the warning if we get the flag: First sentence: Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions. 
+
+Last sentence: Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team.-->
 
 To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account).
 
