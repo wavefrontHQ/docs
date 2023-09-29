@@ -7,7 +7,7 @@ permalink: csp_service_accounts.html
 summary: Learn how you can create and manage service accounts.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions, because in most cases they should use [server to server OAuth apps](csp_server_to_server_apps.html). To enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team. For **original** subscriptions, see [Manage Service Accounts](service-accounts.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Service Accounts](service-accounts.html)."%}
 
 {% include warning.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future."%}
 

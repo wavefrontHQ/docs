@@ -1,5 +1,5 @@
 ---
-title: Manage Tokens in VMware Cloud Services and Operations for Applications
+title: Manage Tokens for Operations for Applications on VMware Cloud Services
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
@@ -9,9 +9,9 @@ summary: Learn how you can generate and manage API tokens and access tokens.
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage API Tokens](api_tokens.html)."%}
 
-Invoking the [Operations for Applications REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**. In a few cases, when setting up a Wavefront proxy for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts), authentication with an **Operations for Applications API token** is also supported.
+Invoking the [Operations for Applications REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts), authentication with an **Operations for Applications API token** is also supported.
 
-To obtain a VMware Cloud services access token, you must make an API call to use the VMware Cloud services REST API and exchange it from:
+To obtain a VMware Cloud services access token, you must make an API call to the VMware Cloud services REST API and exchange it from:
 * A VMware Cloud services API token associated with your user account.
 * The credentials of a server to server OAuth app associated with the VMware Cloud organization running the service.
 
@@ -28,7 +28,7 @@ You can generate VMware Cloud services API tokens only for your user account. Yo
 * At least one Operations for Applications service role.
 * Optionally, one or more custom roles.
 
-You must also set each API token with a time to live (TTL), which is the time that the API token will be valid unless revoked earlier. When an API token expires, you must generate a new API token and update your scripts and API calls.
+You must also set each API token with a time to live (TTL), which is the time that the API token will be valid unless revoked earlier. Before an API token expires, you must generate a new API token and update your scripts and API calls.
 
 {% include important.html content="The access token exchanged from a VMware Cloud services API token has a TTL of 30 minutes. Make sure that your scripts periodically renew the access tokens before they expire."%}
 
@@ -58,13 +58,15 @@ You must assign each server to server app only with the minimum required roles f
 * At least one Operations for Applications service role.
 * Optionally, one or more custom roles.
 
-You must also set each server to server app with a time to live (TTL), which is the time that the access tokens associated with the app will be valid. The credentials of a sever to server app never expire, so that your script can periodically exchange them for new access tokens. Only if you regenerate the app secret, you must update your API calls.
+You must also set each server to server app with a time to live (TTL), which is the time that the access tokens associated with the app will be valid. The credentials of a sever to server app never expire, so that your script can periodically exchange them for new access tokens. Only if you regenerate the app secret, you must update your scripts and API calls.
 
 For details on how to create, view, and modify the details of the OAuth 2.0 apps in your organization, see [How to manage OAuth 2.0 apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-229F9BCE-0C1F-4948-8792-23F51B5482BE.html) in the VMware Cloud services documentation.
 
 ## Manage the Operations for Applications API Tokens for a Service Account
 
-If you want to set up one of the [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still use proxy authentication with an **Operations for Applications API token**, you must create a [service account](csp_service_accounts.html) and generate an API token associated with it.
+If you want to set up one of the [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with an **Operations for Applications API token**, you must create a [service account](csp_service_accounts.html) and generate an API token associated with it.
+
+{% include important.html content="Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions, because The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future. To enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team. "%}
 
 {% include warning.html content=" Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions. It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future. Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team." %}
 
