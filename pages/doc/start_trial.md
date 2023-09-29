@@ -13,7 +13,11 @@ You can start a 30-day free trial of the Operations for Applications service fro
 
 ## Operations for Applications and VMware Cloud Services
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services platform. VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html) for details.
+Starting July 3, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services platform.
+
+Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services.
+
+VMware Cloud services provides provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html) for details.
 
 ## Start Your Free Trial
 
@@ -52,3 +56,9 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service in t
    You are redirected to the Operations for Applications GUI. You are logged with your VMware account.
    
    Initially, you have only the [**Viewer** Operations for Applications service role](csp_users_roles.html#manage-roles) but, as a VMware Cloud **Organization Owner**, you can change your roles. You can also add users to your service. See [Manage User Accounts](csp_user_management.html) for details.
+
+## Learn More!
+* [Get Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
+* See the list of [integrations supported for Operations for Applications subscriptions on VMware Cloud services](integrations_onboarded_subscriptions.html).
+* Try out the [Windows Host Integration Tutorial](windows_host_tutorial.html).
+* Find more [learning resources](tutorial_overview.html).
