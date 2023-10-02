@@ -37,6 +37,12 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
 
+## 2023-39x. Release Notes
+
+### Original and Onboarded Subscriptions
+
+**Pie Chart Accessibility Improvement**: We added the **Slice Colors** option to the **Format** tab, so that you can now change the colors of the pie chart slices. See [Pie and Donut Chart](ui_chart_reference.html#pie-and-donut-chart).
+
 ## 2023-38.x Release Notes
 
 ### Onboarded Subscriptions
