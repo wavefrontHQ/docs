@@ -39,12 +39,29 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 ### Operations for Applications Service Roles (Built-in)
 
 The VMware Cloud Services Console **Roles** page includes the following built-in Operations for Applications service roles:
-- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions) - **Alerts**, **Applications**, **Batch Query Priority**, **Charts Embedding**, **Dashboards**, **Derived Metrics**, **Direct Data Ingestion**, **Events**, **External Links**, **Ingestion Policies**, **Integrations**, **Logs**, **Metrics**, **Proxies**, and **Sources**.
-- Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
+- A corresponding Operations for Applications service role for each [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions), that is, each of the following service roles has only one permission assigned:
+
+  * **Admin**
+  * **Alerts**
+  * **Applications**
+  * **Batch Query Priority**
+  * **Charts Embedding**
+  * **Dashboards**
+  * **Derived Metrics**
+  * **Direct Data Ingestion**
+  * **Events**
+  * **External Links**
+  * **Ingestion Policies**
+  * **Integrations**
+  * **Logs**
+  * **Metrics**
+  * **Proxies**
+  * **Sources**
+- Two special Operations for Applications service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
 
   <table>
   <tr>
-    <th width="30%">Special Service Role</th>
+    <th width="30%">Service Role</th>
     <th width="70%">Description</th>
   </tr>
   <tr>
@@ -52,9 +69,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
     <td>When users with that service role <a href="csp_users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a>, they:<ul>
     <li>Have all Operations for Applications permissions.</li>
     <li>Have access to all dashboards and alerts.</li>
-    <li>Can set the default preferences for all users of the service instance.</li>
-    <li>Can restrict access for new dashboards and alerts.</li>
-    <li>Can <a href="access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
+    <li>Can <a href="csp_access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
     </ul>
     <p><strong>Tip:</strong> Combine the <strong>Super Admin</strong> service role with the roles that you want the user to have when Super Admin mode is disabled. </p></td>
   </tr>
@@ -63,7 +78,8 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
     <td>Users with that service role:<ul>
     <li>Don't have any Operations for Applications permissions.</li>
     <li>Can perform only the <a href="csp_permissions_overview.html#default-tasks">default tasks</a>.</li>
-    </ul></td>
+    </ul>
+    <p><strong>Tip:</strong> Assign the <strong>Viewer</strong> service role individually or in combination with custom roles.</p></td>
   </tr>
   </table>
 
@@ -100,6 +116,8 @@ For a [federated domain](csp_authentication.html#federated-domain-authentication
 For efficient user management, you can create groups of users and assign roles to these groups. You can add new and existing users to a group. You can assign [service roles](#operations-for-applications-service-roles-built-in) and [custom roles](#create-edit-or-delete-a-custom-role) to a group.
 
 See [How do I work with groups](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
+
+{% include note.html content="Operations for Applications includes an internal **Everyone** system group, where any new user account is added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## Grant or Revoke a User's Role Explicitly
 
