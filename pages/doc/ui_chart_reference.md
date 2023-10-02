@@ -1748,6 +1748,10 @@ Consider the following example. The horizontal scale for your chart is "240 poin
 <td>Group Slices</td>
 <td>Allows you to specify the maximum number of slices for the chart. If there are more slices than the maximum, the values of all other slices are combined and have the label "Other" by default. You can change that label.   </td>
 </tr>
+<tr>
+<td>Slice Colors</td>
+<td>The colors for the different slices. You can click each color and change it. To revert your changes, click <strong>Reset to Default Colors</strong>.   </td>
+</tr>
 <tr><td>Min</td>
 <td>Allows you to filter the chart by value. Only values greater than or equal to Min are shown.</td>
 </tr>
