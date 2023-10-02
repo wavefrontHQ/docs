@@ -13,24 +13,63 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
-## Announcement
+## Announcements
+
+### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
+
+In October, 2023, we start to incrementally [onboard](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Operations for Applications UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
+
+
+### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
+
+Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
+
+### VMware Aria Operations for Applications on VMware Cloud Services
 
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
 
 * **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
-* **Original Subscriptions**: Existing subscriptions which remain as is until they migrate to VMware Cloud services. 
+* **Original Subscriptions**: Existing subscriptions which remain as is until onboarded to VMware Cloud services. 
    
-   We are in the process of incrementally migrating original subscriptions to VMware Cloud services.
+   We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
 
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
-{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
+{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
+
+## 2023-38.x Release Notes
+
+### Onboarded Subscriptions
+
+**New Admin Permission and Service Role**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
+
+
+### Original and Onboarded Subscriptions
+
+**Cloud Integrations Page Improvements**: We improved the user experience of the **Cloud Integrations** page. To navigate to this page:
+1. In your service instance, click **Integrations** on the toolbar.
+2. Click a cloud integration tile,  for example **Amazon Web Services**.
+3. On the **Setup** tab, click **Advanced**.
+
+![An annotated screenshot of the Cloud Integrations list page. The information is listed below](images/cloud-integrations-page.png)
+
+On the **Cloud Integrations** page, now you can:
+
+* Apply various filters and hide or show the filters listed on the left.
+* Search for integrations, save and share searches.
+* Hide or show the filters on the left.
+* Click the **Add Cloud Integration** button and select a new integration to add.
+* Select to display all active or only the deleted integrations.
+* Sort the cloud integrations by name, time of the last data fetch, or number of ingested metrics.
+* Use the ellipsis icon menu to:
+  * Enable or disable an integration instance, edit it, or delete it, when all integrations are displayed.
+  * Restore an integration instance or select to permanently delete it, when only deleted integrations are displayed.
 
 ## 2023-34.x Release Notes
 
 ### Original and Onboarded Subscriptions
 
-* **Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
+**Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
 
 ## 2023-33.x Release Notes
 
