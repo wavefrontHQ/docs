@@ -218,24 +218,26 @@ If you see an app called `tas2to-sli-test-app` in the results of `cf apps` or a 
   cf delete-route example.com --hostname tas2to-sli-test-app
   ```
 
-## Symptom: The Percentage in the Application CPU % Chart Is Too High
+## Symptom: The Percentage in the Application CPU % Chart Is Over 100%
 
-The **Application CPU %** chart in the **TAS: Workload Monitoring** dashboard lists the application instances ranked by the highest utilization of their CPU entitlement. Sometimes, the **Application CPU %** chart might show high CPU usage percentage - more than 100%, for some of the applications. You can expect more than 100% if the Diego Cell has spare CPU capacity, and the container is trying to use more than it is entitled.
+The **Application CPU %** chart in the **TAS: Workload Monitoring** dashboard lists the application instances ranked by the highest utilization of their CPU entitlement. Sometimes, the **Application CPU %** chart might show high CPU usage percentage - more than 100%, for some of the applications. This happens when an application container is using more than its share of CPU, and the Diego Cell hosting the application has spare capacity.
 
-If the host has spare CPU, it doesn’t throttle the CPU usage. But, if the host has more demand on its CPU, it will try to throttle all the containers fairly based on their entitlement.
+Although CPU usage over 100% might seem unexpected or alarming, it can also occur normally as a result of intentional planning.
 
-Usage of more than 100% also indicates that if the cell were to be fully CPU utilized, then that application would be waiting on requested CPU time because it would not be able to get that CPU time from other running containers. Theoretically, that can degrade the performance of the application.
+If the host has spare CPU, it does not throttle the CPU usage of applications. But, if the host has more demand on its CPU, it tries to throttle all the containers fairly, based on their entitlement. If an application is throttled, you can observe degraded performance from that application. If the application is functioning normally with occasional CPU spikes, you can choose to leave the memory and CPU entitlement unchanged.
 
-The solution is to scale up the Diego Cells, either horizontally or vertically and add CPU processing power. But, if the application is functioning fine, then that indicates you have sufficient free CPU capacity on the cells and you do not need to do anything.
+Because throttling only happens on Diego Cells that are heavily utilized, the CPU utilization of the Diego Cells themselves is more important to monitor than the container CPU utilization. Application-level performance metrics, such as RED metrics, are also often more important than container CPU.
 
-## Symptom: The Percentage in the CPU Usage Chart Is Too High
+If an application container is consistently using more than its CPU entitlement, the solution is to scale up the memory requested by the app, which also increases the container's CPU share. See [App manifest attribute reference](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#memory).
+
+Note that increasing the app memory might mean that Diego must move the application to a Cell with more available CPU and memory entitlement. If Diego is unable to find a Cell to run the larger application container, the solution is to scale up the Diego Cells, either horizontally or vertically. Adding Diego Cells or increasing the size of your Diego Cells will increase your infrastructure costs.
+
+Considering your own infrastructure costs and performance goals, you may want to keep the memory and CPU entitlements for certain apps at their **typical** CPU utilization, rather than at their **peak** utilization. If you provision all your apps with memory and CPU for their **peak** needs, you will need more Diego capacity to schedule those apps, and much of this capacity will be unused most of the time. If you provision most apps for their  **typical**  utilization, you will see spikes above their entitlement, but you will be using your infrastructure more efficiently and will see lower infrastructure costs. The optimal choice is to provision some apps for **peak** utilization and others for **typical**  utilization, based on business priority or performance sensitivity.
+
+## Symptom: The Percentage in the CPU Usage Chart Is Over 100%
 
 The **CPU Usage** chart in the **TAS: BOSH Director Health** dashboard might show CPU usage higher than 100%. This is because when using multi-core processors in CPU instrumentation, the usage maximum is the number of cores multiplied by 100. 
 
 Because modern computers have multiple cores, where previously they were predominantly single-core processors, CPU instrumentation can show CPU utilization greater than 100%. 
 
-In Tanzu Application Service, if there are three cores on the Diego Cell to which your app is deployed, 300% CPU can be distributed between all the apps on the Diego Cell. Because 150% could be the total value for some containers, 99% would be a fully saturated CPU for others.
-
-These metrics depend on various factors, such as the capacity of the Diego Cell and the total number of apps on the Diego Cell that are might not visible to the user.
-
-To understand the CPU maximums, you can use the formula: `$NUM_CORES * 100%`.
+If you observe high value of `system_cpu_core_sys` reported for the BOSH Director for the displayed time interval, you can investigate the cause of the spike. If the cause is a normal workload increase, then simply increase the CPU allocation for the BOSH Director.
