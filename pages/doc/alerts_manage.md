@@ -311,7 +311,9 @@ The **Content** section allows you to specify one or more triage dashboards. For
 </tbody>
 </table>
 
+### Why Can't I Create an Alert?
 
+After clicking **Save** to create an alert, you might get an error massage that contains `Cannot Save alert. (400) Exceeded limit settings: 1200 alerts allowed per customer`. This happens, because for optimal management of your alerts, Operations for Applications has a limit of 1,200 alerts. As a best practice, regularly review your alerts and delete the ones that you no longer need, especially if you use automation for alerts creation. For details, see [Regularly Clean Up the Unused Alerts](alerts_best_practices.html#regularly-clean-up-the-unused-alerts).
 
 ## Edit Alerts
 
