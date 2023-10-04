@@ -346,3 +346,4 @@ The proxy supports setting up [custom preprocessor rules](proxies_preprocessor_r
 ## Learn More
 
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) might have hints on why you don't see the results you expect.
+* KB article: [Where is my Old Data?](https://help.wavefront.com/hc/en-us/articles/360051131032-Where-is-my-Old-Data-)
