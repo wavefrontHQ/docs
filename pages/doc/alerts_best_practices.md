@@ -163,3 +163,39 @@ Consider carefully which values are best suited for the settings you specify in 
 
   Increase alert checking frequency for conditions that use larger moving time windows, or align to a large interval. An alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
 - **Minutes to Fire and Alert Check Frequency**. Set **Minutes to Fire** to be no less than **Alert Check Frequency** unless you use moving time windows.
+
+## Regularly Clean Up the Unused Alerts
+
+For optimal management of your alerts, Operations for Applications has a limit of 1,200 alerts. As a best practice, regularly review your alerts and delete the ones that you no longer need, especially if you use automation for alerts creation.
+
+As a user with the **Alerts** permission, you can clean up the unused alerts from the Alerts Browser.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">Delete the snoozed alerts that you no longer need.
+<ol>
+<li markdown="span">From the filters on the left, click the **SNOOZED** state.</li>
+<li markdown="span">Review the alerts and the determine the ones that you don't plan to unsnooze, especially the ones with the **Snoozed Forever** last event.</li>
+<li markdown="span">Click the ellipsis icon of an alert that you no longer need and select **Delete**.</li>
+</ol></td>
+<td width="50%" markdown="span">![Snoozed alerts](images/alerts_snoozed.png) </td></tr>
+<tr>
+<td width="50%">Delete the orphan alerts that you no longer need.
+<ol>
+<li markdown="span">Click the top-right dropdown menu and select **Orphan**.</li>
+<li markdown="span">Review the alerts and the determine the ones that you don't plan to restore. </li>
+<li markdown="span">Click the ellipsis icon of an alert that you no longer need and select **Delete**.</li>
+</ol></td>
+<td width="50%" markdown="span">![Orphan alerts](images/alerts_orphan.png) </td></tr>
+<tr>
+<td width="50%">Permanently delete the alerts in the trash that you no longer need.
+<ol>
+<li markdown="span">Click the top-right dropdown menu and select **Deleted**.</li>
+<li markdown="span">Review the alerts in the trash and determine the ones that you don't plan to restore. </li>
+<li markdown="span">Click the ellipsis icon of an alert that you want to permanently delete and select **Delete**.</li>
+</ol></td>
+<td width="50%" markdown="span">![Deleted alerts](images/alerts_deleted.png) </td></tr>
+</tbody>
+</table>
+
