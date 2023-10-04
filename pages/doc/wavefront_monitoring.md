@@ -87,7 +87,7 @@ These charts use the following metrics:
 
 The **Logs Stats** section contains charts that track the amount of logs that are successfully delivered and successfully queried by the Operations for Applications service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the proxy.
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative."%}
+{% include important.html content="Logs is enabled only for selected customers. To participate, contact your account representative."%}
 
 These charts use the following metrics:
 
