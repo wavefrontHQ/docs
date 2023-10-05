@@ -172,7 +172,7 @@ Many customers automate the creation, addition, and deletion of alerts, dashboar
 
 * **Problem**
 
-Some WQL querie requite quotes for the function to operate correctly. If you use a query that omits required quotes, for example, in an alert condition, a `400` error results.
+Some WQL queries requite quotes for the function to operate correctly. If you use a query that omits required quotes, for example, in an alert condition, a `400` error results.
 
 For example, assume you use the following fragment to create an alert:
 
