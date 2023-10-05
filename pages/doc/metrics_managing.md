@@ -189,7 +189,7 @@ With the 2023-XX release, we introduce **ephemeral** metrics, which have shorter
 <li>To convert an ephemeral metric or prefix to persistent, in the <strong>Ephemeral Metrics</strong> table, locate the target metric or prefix and click the corresponding <strong>Convert to Persistent Metric</strong> action.<p>The metric name or prefix disappears from the <strong>Ephemeral Metrics</strong> table. You can repeat this step for multiple metrics and prefixes.</p></li>
 <li>Click <strong>Save</strong>.</li>
 </ol> </td>
-<td width="40%"><img src="/images/TBD.png" alt="A screenshot of the Change Ephemerality dialog box."></td>
+<td width="40%"><img src="/images/change_ephemerality.png" alt="A screenshot of the Change Ephemerality dialog box."></td>
 </tr>
 </tbody>
 </table>
