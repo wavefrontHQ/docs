@@ -37,7 +37,7 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
 
-## 2023-39x. Release Notes
+## 2023-40.x Release Notes
 
 ### Original and Onboarded Subscriptions
 
