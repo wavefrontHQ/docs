@@ -354,7 +354,7 @@ To replace an Operations for Applications API token associated with your user ac
 1. Reconfigure your scripts, API calls, or proxies to exchange the newly generated VMware Cloud services API token for an access token, instead of using the Operations for Applications API token.
 
     {% include important.html content="The TTL of the access tokens associated with user accounts is 30 minutes. Make sure that your script renews the access token periodically before it expires. The Wavefront proxy does this automatically. "%}
-1. [Revoke](csp_migration.html#how-to-view-and-manage-the-operations-for-applications-tokens) the Operations for Applications API token that you replaced.
+1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Operations for Applications API token that you replaced.
 
 <table style="width: 100%;">
 <tbody>
@@ -366,7 +366,7 @@ To replace an Operations for Applications API token associated with your user ac
 
 During the process of onboarding your Operations for Applications service to VMware Cloud services, all of the existing Wavefront proxies are **preserved** with their existing Operations for Applications API tokens.
 
-You should incrementally [replace](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
+You should incrementally [replace](#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
 
 {% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Operations for Applications service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
 
@@ -395,7 +395,8 @@ You should incrementally [replace](csp_migration.html#how-to-replace-the-operati
         ```
         cspAPIToken=<VMware_Cloud_services_API_token>
         ```
-        
+1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Operations for Applications API token that you replaced.
+
 <table style="width: 100%;">
 <tbody>
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="csp_migration.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
