@@ -18,12 +18,14 @@ summary: Learn about gauges, counters, delta counters, histograms, and spans.
 
 ## Summary of Metric Types
 
+### Metric Types per Data Type
+
 The following table gives an overview of metric types. We introduce each type in more detail below.
 
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="20%">Metric</th><th width="40%">Description</th><th width="40%">Example</th></tr>
+<tr><th width="20%">Metric Type</th><th width="40%">Description</th><th width="40%">Example</th></tr>
 </thead>
 <tr>
 <td>Gauge</td>
@@ -55,7 +57,26 @@ The following table gives an overview of metric types. We introduce each type in
 <td>Spans are the fundamental units of trace data. Each span corresponds to a distinct invocation of an operation that executes as part of the request.</td>
 <td>For example, in our BeachShirts sample application, we have the <code>beachshirts.shopping</code> operation, which includes many invocations of the <code>Printing.getAvailableColors</code> span. </td>
 </tr>
+</tbody>
+</table>
 
+### Metric Types per Retention Period
+
+With the 2023-XX release, we introduce **ephemeral** metrics, which have a shorter [retention period](terms_of_service.html#data-retention). A Super Admin can [convert](metrics_managing.html#change-the-retention-period-of-your-metrics) persistent metrics to ephemeral metrics and the reverse.
+
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Metric Type</th><th width="40%">Description</th></tr>
+</thead>
+<tr>
+<td>Persistent</td>
+<td>Default data retention, typically 18 months. By default, all metrics are persistent.</td>
+</tr>
+<tr>
+<td>Ephemeral</td>
+<td>30 days of data retention. Converting persistent metrics to ephemeral metrics improves <a href="query_language_performance.html">query performance</a> and reduces <a href="cardinality.html">cardinality</a>.</td>
+</tr>
 </tbody>
 </table>
 

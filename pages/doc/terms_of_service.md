@@ -12,7 +12,7 @@ The terms of service and data retention for VMware Aria Operations for Applicati
 
 ## Data Retention
 
-A production instance retains different types data for different amounts of time. While this is subject to change, here are the default settings:
+A production instance retains different types of data for different amounts of time. While this is subject to change, here are the default settings:
 
 <table>
 <tbody>
@@ -20,7 +20,9 @@ A production instance retains different types data for different amounts of time
 <tr><th width="20%">Type of Data</th><th width="80%">Retention</th></tr>
 </thead>
 <tr><td><strong>metrics and counters</strong></td>
-<td>18 months of full-resolution (no downsampling)</td></tr>
+<td><ul><li>For persistent (default) metrics, 18 months of full-resolution (no downsampling).</li>
+<li>For ephemeral metrics, 30 days of data detention.</li></ul>
+See <a href="metric_types.html#metric-types-per-retention-period">Metric Types per Retention Period</a>.</td></tr>
 <tr><td><strong>histograms</strong></td>
 <td>6 months of data retention</td></tr>
 <tr><td><strong>spans</strong></td>

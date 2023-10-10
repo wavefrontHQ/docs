@@ -114,9 +114,8 @@ To make search easier, you can
 <tbody>
 <tr>
 <td width="60%">
-<strong>To examine metrics</strong>
 <ol>
-<li>Select <strong>Browse > Metrics</strong></li>
+<li>Select <strong>Browse > Metrics</strong>.</li>
 <li>Select folder icons to drill down to individual metrics.</li>
 <li>With a metric selected, click <strong>Expand Info</strong> to show sources and point tags for that metric.</li>
 <li>Click the metric name to show a chart with that metric.</li>
@@ -126,12 +125,11 @@ To make search easier, you can
 </tbody>
 </table>
 
+### Hide and Redisplay Metrics
 
-## Hide and Redisplay Metrics
+While [obsolete metrics](metrics_managing.html#obsolete-metrics) are automatically hidden, you can manually hide metrics from the Metrics browser. Manually hiding metrics does not permanently delete a metric or metric namespace.
 
-While obsolete metrics are automatically hidden, you can manually hide metrics from the Metrics browser. Manually hiding metrics does not permanently delete a metric or metric namespace.
-
-{% include shared/permissions.html entity="metrics" entitymgmt="Metric" %}
+{% include shared/permissions.html entity="metrics" entitymgmt="Metrics" %}
 
 {% include note.html content="Hidden metrics are removed from the autocomplete drop-down lists, but you can still use these metrics in queries as long as data points exist." %}
 
@@ -141,14 +139,13 @@ While obsolete metrics are automatically hidden, you can manually hide metrics f
 <td width="60%">
 <strong>To hide one or more metrics:</strong>
 <ol>
-<li>Select <strong>Browse > Metrics</strong></li>
-<li>Click the <strong>Manage Hidden Metrics</strong> button</li>
-<li>In the dialog type a complete metrics name (e.g. <code>requests.latency</code>) or a metric prefix (e.g. <code>requests.</code>, <code>cpu.loadavg.</code>).
+<li>Select <strong>Browse > Metrics</strong>.</li>
+<li>Click the <strong>Manage Hidden Metrics</strong> button.</li>
+<li>In the dialog box, type a complete metric name (e.g. <code>requests.latency</code>) or a metric prefix (e.g. <code>requests.</code>, <code>cpu.loadavg.</code>).
 <ul>
 <li>This field does not support auto-complete, so you have to type the entire metric name or metric prefix.</li>
 <li>The text is case sensitive.</li>
 <li>Wildcards are not supported. The star <code>*</code> character is considered part of the text string.</li>
-
 </ul></li>
 <li>Press Enter to add the metric(s) to the list and click <strong>Save</strong>.</li>
 </ol> </td>
@@ -163,13 +160,36 @@ While obsolete metrics are automatically hidden, you can manually hide metrics f
 <td width="60%">
 <strong>To view hidden metrics:</strong>
 <ol>
-<li>Select <strong>Browse > Metrics</strong></li>
+<li>Select <strong>Browse > Metrics</strong>.</li>
 <li>Click the <strong>Manage Hidden Metrics</strong> button.</li>
 <li>Click the <strong>Unhide</strong> button to the right of the metric or metric prefix to unhide and click <strong>Save</strong>.</li>
 </ol>
 The selected metrics and metric prefixes appear again as long as they are not obsolete.
 </td>
 <td width="40%"><img src="images/viewing_hidden_metrics.png" alt="view hidden metrics"></td>
+</tr>
+</tbody>
+</table>
+
+### Change the Retention Period of Your Metrics
+
+With the 2023-XX release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all metrics are persistent and we keep them for 18 months. Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and also reduce the [cardinality](cardinality.html).
+
+{% include note.html content="To convert individual metrics and metric prefixes from persistent to ephemeral and the reverse, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<ol>
+<li>Select <strong>Browse > Metrics</strong>.</li>
+<li>Click the <strong>Change Ephemerality</strong> button.</li>
+<li>To convert a persistent metric or prefix to ephemeral, in the <strong>Select Metric Prefix</strong> text box, start typing the metric prefix and select the target metric name or prefix, and press Enter.
+<p>The metric name or prefix appears in the <strong>Ephemeral Metrics</strong> table below. You can repeat this step for multiple metrics and prefixes.</p></li>
+<li>To convert an ephemeral metric or prefix to persistent, in the <strong>Ephemeral Metrics</strong> table, locate the target metric or prefix and click the corresponding <strong>Convert to Persistent Metric</strong> action.<p>The metric name or prefix disappears from the <strong>Ephemeral Metrics</strong> table. You can repeat this step for multiple metrics and prefixes.</p></li>
+<li>Click <strong>Save</strong>.</li>
+</ol> </td>
+<td width="40%"><img src="/images/change_ephemerality.png" alt="A screenshot of the Change Ephemerality dialog box."></td>
 </tr>
 </tbody>
 </table>
