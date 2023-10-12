@@ -9,7 +9,7 @@ summary: Learn how integration authentication happens, which integrations work w
 
 ## Subscription Types
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services.
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services.
 
 For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. 
 
@@ -59,6 +59,8 @@ Before you add a proxy, you must have an API token associated with your user acc
 
 We're in the process of incrementally updating our integrations so that you can authenticate with a VMware Cloud services API token or OAuth server to server app  credentials. 
 
+{% include note.html content= "The integrations in the **Archived** section are approaching their end-of-life. For that reason, we will not update these integrations to authenticate with VMware Cloud services access tokens" %}
+
 When your Operations for Applications service **is onboarded** to the VMware Cloud services platform, the list of the integrations that are updated as of today is in the table below. This list grows with each release. If you urgently need an integration to become available and configurable with a VMware Cloud services access token, please contact [technical support](wavefront_support_feedback.html).
 
 <table style="width: 100%;">
@@ -105,12 +107,6 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 <tr>
 <td markdown="span">Windows Host</td>
 <td markdown="span">[Windows Host Integration](windows.html)</td></tr>
-<tr>
-<td markdown="span">FreeBSD Host</td>
-<td markdown="span">[FreeBSD Host Integration](freebsd.html)</td></tr>
-<tr>
-<td markdown="span">OpenBSD Host</td>
-<td markdown="span">[OpenBSD Host Integration](openbsd.html)</td></tr>
 <tr>
 <td markdown="span">NetBSD Host</td>
 <td markdown="span">[NetBSD Host Integration](netbsd.html)</td></tr>
@@ -429,7 +425,6 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 
 Here's the list of the integrations that still use API tokens. Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is supported only when you use a service account<!--(targeting mid-October)-->.
 
-* [AWS Lambda Functions](aws-lambda-functions.html) <!--(targeted for update mid September)-->
 * [Spring Boot](springboot.html) <!--(target mid-end of September)-->
 * [Nagios](nagios.html) <!--(targeting mid-September for customer availability)-->
 * [VMware Tanzu Mission Control Advanced](tmc.html) <!--(TBD)-->
@@ -438,17 +433,11 @@ Here's the list of the integrations that still use API tokens. Currently, if you
 * [Catchpoint](catchpoint.html) <!--(Target mid-September)-->
 * [VMware Tanzu Kubernetes Grid Integration](tkgi.html) <!--(TBD)-->
 * [Terraform Provider](wavefront-terraform-provider.html) <!--(TBD)-->
-* [Ansible Role](ansible.html) <!--(archive/delete?)-->
 * [VMware Aria Operations for Logs](log-insight-cloud.html) <!--(TBD)-->
 * [VMware Spring Cloud Data Flow for Kubernetes](scdf.html) <!--(TBD)-->
-* [VMware tc Server](vmware-tcserver.html)  <!--(archive/delete?)-->
-* [Microsoft Azure Deployment Manager](adm.html) <!--(archive/delete?)-->
 * [Uptime](uptime.html) <!--(TBD)-->
 * [Datadog](datadog.html) <!--(archive/delete?)-->
 * [Grafana](grafana.html) <!--(TBD)-->
-* [Chef Server](wavefront-chef.html) <!--(TBD)-->
-* [AVI Networks (NSX ALB)](avi_nsx_alb.html) <!--(archive/delete?)-->
-* [VMware Blockchain](vmware_blockchain.html) <!--(archive/delete?)-->
 * [C Sharp](csharp.html) <!--(TBD)-->
 
 ## List of Unaffected Integrations
@@ -479,17 +468,6 @@ The following integrations do not depend on the subscription type and work as ex
 * [OpsGenie](opsgenie.html)
 * [ServiceNow](servicenow.html)
 * [Splunk On-Call](victorops.html)
-
-
-### collectd Integrations
-
-* [Apache collectd Integration](integrations_collectd_apache.html)
-* [Cassandra collectd Integration](integrations_collectd_cassandra.html)
-* [Memcached collectd Integration](integrations_collectd_memcached.html)
-* [MySQL collectd Integration](integrations_collectd_mysql.html)
-* [NGiNX collectd Integration](integrations_collectd_nginx.html)
-* [Redis collectd Integration](integrations_collectd_redis.html)
-* [Zookeeper collectd Integration](integrations_collectd_zookeeper.html)
 
 ### Other Integrations
 

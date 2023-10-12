@@ -11,13 +11,38 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Announcement
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. 
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. We are in the process of incrementally [onboarding](csp_migration.html) all original subscriptions to VMware Cloud services.
 
 For details about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
 
-If your Operations for Applications service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+If your Operations for Applications service **is onboarded** to VMware Cloud services, most of the integrations authenticate with VMware Cloud services **access tokens**. Only a limited list of integrations still authenticate with Operations for Applications API tokens. For details, see [How Integration Authentication Works](integrations_onboarded_subscriptions.html).
+
+{% include note.html content= "The integrations in the **Archived** section are approaching their end-of-life. For that reason, we will not update these integrations to authenticate with VMware Cloud services access tokens" %}
+
+During the process of onboarding an original Operations for Applications service to VMware Cloud services, all of the existing integrations are preserved and continue to operate using Operations for Applications API tokens. You should incrementally switch to integration authentication with the more secure VMware Cloud services access tokens. See [What Happens with the Integrations?](csp_migration.html#what-happens-with-the-integrations).
 
 {% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
+
+## October 2023
+
+We **deprecated** the following list of integrations and moved them to the **Archived** section.
+
+{% include important.html content= "These integrations will reach **end-of-life** on January, XX, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+
+* Azure Deployment Manager
+* Ansible Role
+* AVI Networks (NSX ALB)
+* CollectD
+* Data Platforms
+* FreeBSD Host
+* Metricproxy
+* OpenBSD Host
+* VMware Blockchain
+* VMware tc Server
+* Chef Server
+* AWS Lambda Functions
+* nodejs
+
 
 ## August 2023
 
