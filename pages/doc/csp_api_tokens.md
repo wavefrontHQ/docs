@@ -9,7 +9,7 @@ summary: Learn how you can generate and manage API tokens and access tokens.
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage API Tokens](api_tokens.html)."%}
 
-Invoking the [Operations for Applications REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts), authentication with an **Operations for Applications API token** is also supported.
+Invoking the [Operations for Applications REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens), authentication with an **Operations for Applications API token** is also supported.
 
 To obtain a VMware Cloud services access token, you must make an API call to the VMware Cloud services REST API and exchange it from:
 * A VMware Cloud services API token associated with your user account.
