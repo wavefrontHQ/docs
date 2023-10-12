@@ -45,7 +45,7 @@ For a limited number of integrations, you must still use an Operations for Appli
 
 Last sentence: Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team.-->
 
-To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account).
+To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-for-a-service-account).
 
 
 ### Original Subscriptions

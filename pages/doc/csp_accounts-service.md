@@ -18,7 +18,7 @@ If your service was recently onboarded to VMware Cloud services, you might have 
 * A service account uses an **Operations for Applications API token** to authenticate.
 * By default, service accounts don't have any permissions, even view permissions. Users with the **Admin** service role must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). There's no limit on the number of service accounts that you can create in your service instance. 
 
-As a user with the **Admin** service role, you [generate (and revoke, if needed)](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-for-a-service-account) the API tokens for the service account. It’s also possible to [deactivate](csp_service_accounts.html#deactivate-or-activate-a-service-account) a service account completely. 
+As a user with the **Admin** service role, you [generate (and revoke, if needed)](csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-for-a-service-account) the API tokens for the service account. It’s also possible to [deactivate](csp_service_accounts.html#deactivate-or-activate-a-service-account) a service account completely. 
 
 {% include note.html content="Operations for Applications includes the **Service Accounts** internal system group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) that have access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
