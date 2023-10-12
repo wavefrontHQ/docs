@@ -161,7 +161,7 @@ Last sentence: Тo temporarily enable service accounts for your service instance
 
 For original subscriptions, using the Operations for Applications REST API requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API Tokens** permission. To generate API tokens for service accounts and to manage the API tokens in your Operations for Applications organization, you need the **Accounts** permission.
 
-When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. In a few cases, when setting up a Wavefront proxy for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-supported-with-service-accounts), authentication with an Operations for Applications API token is also supported. However, using a VMware Cloud services **access token** is the recommended way as we will deprecate the service accounts in the future. To obtain an **access token**, you can:
+When your service is onboarded to VMware Cloud services and you want to access the Operations for Applications REST API, you need a VMware Cloud services **access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens), authentication with an Operations for Applications API token is also supported. However, using a VMware Cloud services **access token** is the recommended way as we will deprecate the service accounts in the future. To obtain an **access token**, you can:
 
 * Generate a VMware Cloud services API token associated with your user account and exchange it for an access token.
 
@@ -366,7 +366,7 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 <ul>
 <li>All users can view and revoke their own VMware Cloud services API tokens. For details, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-1BA71988-387C-42E1-8C98-EE2C1370826B.html">How do I manage my API tokens</a> in the VMware Cloud services documentation.</li>
 <li>Users with the VMware Cloud <strong>Organization Owner</strong> role can monitor the API tokens created in the organization and can set constraints for idle and maximum Time to live (TTL) for all newly created tokens. For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html">How do I manage API tokens in my Organization</a> in the VMware Cloud services documentation.</li>
-<li>Users with the <strong>Admin</strong> service role can view and revoke any Operations for Applications API token in the service instance. For details, see <a href="csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-in-your-service-instance">Managing the Operations for Applications API Tokens in Your Service Instance</a>.</li>
+<li>Users with the <strong>Admin</strong> service role can view and revoke any Operations for Applications API token in the service instance. For details, see <a href="csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-in-your-service-instance">Managing the Operations for Applications API Tokens in Your Service Instance</a>.</li>
 </ul></p>
 </td>
 </tr>
