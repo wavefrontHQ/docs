@@ -13,16 +13,11 @@ This page provides an overview of what you can do with the C Sharp integration. 
 
 # C Sharp Integration
 
-This Wavefront C# integration explains how to send C# application metrics to Wavefront.
+This integration explains how to send C# application metrics to Operations for Applications.
 
-Wavefront provides several C# SDKs for different purposes on Github:
+Applications written in C# can send metrics, delta counters, histogram distributions, spans, and events directly to Operations for Applications or to a Wavefront proxy.
 
-- **[wavefront-sdk-csharp](https://github.com/wavefrontHQ/wavefront-sdk-csharp)**: Core SDK for sending different telemetry data to Wavefront. Data include metrics, delta counters, distributions and spans.
-- **[wavefront-appmetrics-sdk-csharp](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)**: Provides reporters and constructs such as counters, meters and histograms to periodically report application metrics and distributions to Wavefront.
-- **[wavefront-opentracing-sdk-csharp](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)**: Wavefront OpenTracing C# SDK. See [our tracing documentation](https://docs.wavefront.com/tracing_basics.html) for background.
-- **[wavefront-aspnetcore-sdk-csharp](https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp)**: Provides out-of-the-box metrics for your ASP.NET core application and periodically reports them to Wavefront.
-
-In the Setup tab, the integration includes sample code based on `wavefront-appmetrics-sdk-csharp` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
+- Github: **[wavefrontHQ/wavefront-sdk-csharp](https://github.com/wavefrontHQ/wavefront-sdk-csharp)**
 
 This is a custom integration. You can send your own metrics and create your own dashboards.
 

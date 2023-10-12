@@ -92,7 +92,7 @@ To view the current proxies in your environment, you can use the [Proxes Browser
 
 ### Start and Stop a Proxy
 
-{% include note.html content="When you stop the proxy service, the proxy becomes [orphaned](monitoring_proxies.html#get-started-wih-the-proxies-browser). If the proxy is ephemeral, you cannot activate it again." %}
+{% include note.html content="When you stop the proxy service, the proxy becomes [orphaned](monitoring_proxies.html#get-started-with-the-proxies-browser). If the proxy is ephemeral, you cannot activate it again." %}
 
 * On a non-ephemeral proxy, you can start the stopped proxy service again.
 * On an ephemeral proxy, you cannot start the stopped proxy service again. The proxy is orphaned until you [delete](#delete-a-proxy) it. You can install a new proxy.
@@ -264,7 +264,7 @@ sudo yum remove telegraf</code></td></tr>
 
 ### Delete a Proxy
 
-On the [Proxies Browser](monitoring_proxies.html#get-started-wih-the-proxies-browser) page, you can see the status and the details of each proxy in your environment. If you don't need an inactive proxy, you can delete it.
+On the [Proxies Browser](monitoring_proxies.html#get-started-with-the-proxies-browser) page, you can see the status and the details of each proxy in your environment. If you don't need an inactive proxy, you can delete it.
 
 {% include note.html content="You cannot delete a proxy in **Active** status." %}
 
