@@ -36,6 +36,12 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2023-40.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+**Pie Chart Accessibility Improvement**: We added the **Slice Colors** option to the **Format** tab, so that you can now change the colors of the pie chart slices. See [Pie and Donut Chart](ui_chart_reference.html#pie-and-donut-chart).
+
 ## 2023-38.x Release Notes
 
 ### Onboarded Subscriptions
