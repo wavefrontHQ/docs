@@ -25,23 +25,26 @@ During the process of onboarding an original Operations for Applications service
 
 ## October 2023
 
-* We **deprecated** the following list of integrations and moved them to the **Archived** section.
+We **deprecated** a number of integrations in October 2023, and the following integrations are now moved to the **Archived** section:
 
-  {% include important.html content= "These integrations will reach **end-of-life** on January, XX, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+* Azure Deployment Manager
+* Ansible Role
+* AVI Networks (NSX ALB)
+* CollectD
+* Data Platforms
+* FreeBSD Host
+* Metricproxy
+* OpenBSD Host
+* VMware Blockchain
+* VMware tc Server
+* Chef Server
+* AWS Lambda Functions
+* nodejs
 
-  * Azure Deployment Manager
-  * Ansible Role
-  * AVI Networks (NSX ALB)
-  * CollectD
-  * Data Platforms
-  * FreeBSD Host
-  * Metricproxy
-  * OpenBSD Host
-  * VMware Blockchain
-  * VMware tc Server
-  * Chef Server
-  * AWS Lambda Functions
-  * nodejs
+{% include important.html content= "The deprecated integrations in the list above will reach **end-of-life** on January, XX, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+
+We made improvements to the following integrations in October 2023:
+
 * Kubernetes:
 
   * Fixed the alert query of the **K8s node unhealthy** system alert.
