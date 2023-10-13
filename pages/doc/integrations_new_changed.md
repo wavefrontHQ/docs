@@ -25,24 +25,35 @@ During the process of onboarding an original Operations for Applications service
 
 ## October 2023
 
-We **deprecated** the following list of integrations and moved them to the **Archived** section.
+* We **deprecated** the following list of integrations and moved them to the **Archived** section.
 
-{% include important.html content= "These integrations will reach **end-of-life** on January, XX, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+  {% include important.html content= "These integrations will reach **end-of-life** on January, XX, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
 
-* Azure Deployment Manager
-* Ansible Role
-* AVI Networks (NSX ALB)
-* CollectD
-* Data Platforms
-* FreeBSD Host
-* Metricproxy
-* OpenBSD Host
-* VMware Blockchain
-* VMware tc Server
-* Chef Server
-* AWS Lambda Functions
-* nodejs
+  * Azure Deployment Manager
+  * Ansible Role
+  * AVI Networks (NSX ALB)
+  * CollectD
+  * Data Platforms
+  * FreeBSD Host
+  * Metricproxy
+  * OpenBSD Host
+  * VMware Blockchain
+  * VMware tc Server
+  * Chef Server
+  * AWS Lambda Functions
+  * nodejs
+* Kubernetes:
 
+  * Fixed the alert query of the **K8s node unhealthy** system alert.
+  * Removed the `limit()` function from the queries in the Kubernetes integration system dashboards, because this function [may return No Data](ts_limit.html#summary).
+  * Removed thresholds from the **K8s pod CPU usage too high** system alert.
+  * Updated the **Kubernetes Workloads Troubleshooting** dashboard overview with information about the Operator compatibility.
+* Tanzu Application Service - Updated the **Error Rate per Minute** chart in the **Workload Monitoring** dashboard to include the 4xx and 5xx HTTP request error counts.
+* Operations for Applications Usage -- Enabled the **Include Obsolete Metrics** option for all charts in the **Operations for Applications Service and Proxy Data** dashboard.
+* Catchpoint -- We added support for Catchpoint setup with VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+* VMware GemFire -- Updated the queries of the GemFire system alerts with new prefixes.
+* Go -- Removed references of deprecated SDKs.
+* C Sharp -- Removed references of deprecated libraries.
 
 ## August 2023
 

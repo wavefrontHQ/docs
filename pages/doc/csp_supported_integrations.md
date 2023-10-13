@@ -169,6 +169,10 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 <td markdown="span">[Cassandra Integration](cassandra.html)</td>
 </tr>
 <tr>
+<td markdown="span">Catchpoint</td>
+<td markdown="span">[Catchpoint Integration](catchpoint.html)</td>
+</tr>
+<tr>
 <td markdown="span">Ceph</td>
 <td markdown="span">[Ceph Integration](ceph.html)</td>
 </tr>
@@ -430,7 +434,6 @@ Here's the list of the integrations that still use API tokens. Currently, if you
 * [VMware Tanzu Mission Control Advanced](tmc.html) <!--(TBD)-->
 * [VMware GemFire](gemfire.html) <!--(TBD https://jira.eng.vmware.com/browse/INT-1897)-->
 * [Micrometer](micrometer.html) <!--(Target mid-September)-->
-* [Catchpoint](catchpoint.html) <!--(Target mid-September)-->
 * [VMware Tanzu Kubernetes Grid Integration](tkgi.html) <!--(TBD)-->
 * [Terraform Provider](wavefront-terraform-provider.html) <!--(TBD)-->
 * [VMware Aria Operations for Logs](log-insight-cloud.html) <!--(TBD)-->
