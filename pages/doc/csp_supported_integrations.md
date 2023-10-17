@@ -406,6 +406,10 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 <td markdown="span">[Microsoft SQL Server Integration](sqlserver.html)</td>
 </tr> 
 <tr>
+<td markdown="span">Uptime</td>
+<td markdown="span">[Uptime Integration](uptime.html)</td>
+</tr> 
+<tr>
 <td markdown="span">Windows Performance Counters</td>
 <td markdown="span">[Windows Performance Counters Integration](winperf.html)</td>
 </tr> 
@@ -441,7 +445,6 @@ Here's the list of the integrations that still use API tokens. Currently, if you
 * [Terraform Provider](wavefront-terraform-provider.html) <!--(TBD)-->
 * [VMware Aria Operations for Logs](log-insight-cloud.html) <!--(TBD)-->
 * [VMware Spring Cloud Data Flow for Kubernetes](scdf.html) <!--(TBD)-->
-* [Uptime](uptime.html) <!--(TBD)-->
 * [Datadog](datadog.html) <!--(archive/delete?)-->
 * [Grafana](grafana.html) <!--(TBD)-->
 * [C Sharp](csharp.html) <!--(TBD)-->
