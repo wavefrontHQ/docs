@@ -15,17 +15,18 @@ This page provides an overview of what you can do with the Catchpoint integratio
 
 Catchpoint is a unified end-user monitoring platform which combines proactive and real user monitoring to provide total visibility into every layer of the digital delivery chain, including Networks, Code, CDNs, DNS, Services, APIs, SaaS services, and more.
 
-This integration configures Catchpoint `Test data webhook` to send metrics to the Wavefront service.
+This integration configures Catchpoint `Test data webhook` to send metrics to the Operations for Applications service.
 
 ### Dashboards
 
-Wavefront provides Catchpoint Tests dashboard for detailed monitoring:
+Operations for Applications provides Catchpoint Tests dashboard for detailed monitoring:
 
 - Catchpoint: WEB
 - Catchpoint: DNS
 - Catchpoint: Ping
 - Catchpoint: API
 - Catchpoint: FTP
+
 
 
 
