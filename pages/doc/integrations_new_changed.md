@@ -25,7 +25,7 @@ During the process of onboarding an original Operations for Applications service
 
 ## October 2023
 
-We **deprecated** a number of integrations in October 2023, and the following integrations are now moved to the **Archived** section:
+We **deprecated** a number of integrations in October 2023, and moved these integrations to the **Archived** section:
 
 * Azure Deployment Manager
 * Ansible Role
@@ -41,7 +41,7 @@ We **deprecated** a number of integrations in October 2023, and the following in
 * AWS Lambda Functions
 * nodejs
 
-{% include important.html content= "The deprecated integrations in the list above will reach **end-of-life** on January, XX, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+{% include important.html content= "The deprecated integrations in the list above will reach **end-of-life** in January, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
 
 We made improvements to the following integrations in October 2023:
 
@@ -54,6 +54,7 @@ We made improvements to the following integrations in October 2023:
 * Tanzu Application Service - Updated the **Error Rate per Minute** chart in the **Workload Monitoring** dashboard to include the 4xx and 5xx HTTP request error counts.
 * Operations for Applications Usage -- Enabled the **Include Obsolete Metrics** option for all charts in the **Operations for Applications Service and Proxy Data** dashboard.
 * Catchpoint -- We added support for Catchpoint setup with VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+* Nagios -- We updated the Nagios integration metrics and events collection scripts to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
 * VMware GemFire -- Updated the queries of the GemFire system alerts with new prefixes.
 * Go -- Removed references of deprecated SDKs.
 * C Sharp -- Removed references of deprecated libraries.

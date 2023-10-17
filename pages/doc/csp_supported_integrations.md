@@ -274,6 +274,10 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 <td markdown="span">[MySQL Integration](mysql.html)</td>
 </tr>	
 <tr>
+<td markdown="span">Nagios</td>
+<td markdown="span">[Nagios Integration](nagios.html)</td>
+</tr>	
+<tr>
 <td markdown="span">NGINX </td>
 <td markdown="span">[NGINX Integration](nginx.html)</td>
 </tr>	
@@ -430,7 +434,6 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 Here's the list of the integrations that still use API tokens. Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is supported only when you use a service account<!--(targeting mid-October)-->.
 
 * [Spring Boot](springboot.html) <!--(target mid-end of September)-->
-* [Nagios](nagios.html) <!--(targeting mid-September for customer availability)-->
 * [VMware Tanzu Mission Control Advanced](tmc.html) <!--(TBD)-->
 * [VMware GemFire](gemfire.html) <!--(TBD https://jira.eng.vmware.com/browse/INT-1897)-->
 * [Micrometer](micrometer.html) <!--(Target mid-September)-->
