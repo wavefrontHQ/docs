@@ -31,7 +31,7 @@ Let's walk through the following scenario and get a quick overview of the servic
 <tbody>
   <tr>
     <td width="55%">
-      Next to <b>Operation</b>, click the drop-down menu, select the service you want to see on the map, and click <b>Search</b>.<br/>
+      Next to <b>Operation</b>, click the drop-down menu. All the services are selected for you by default. You can deselect the services you don't want to see on the map and click <b>Search</b>. <br/><br/>
 
       You can refine your search by applying one or more filters, such as the cluster, shard, or span.kind.
 
