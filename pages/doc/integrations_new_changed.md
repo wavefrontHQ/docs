@@ -43,13 +43,7 @@ We **deprecated** a number of integrations in October 2023, and moved these inte
 
 {% include important.html content= "The deprecated integrations in the list above will reach **end-of-life** in January, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
 
-We updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
-
-  * Catchpoint
-  * Nagios
-  * Uptime
-
-We made improvements to the following integrations in October 2023:
+Also, we made improvements to the following integrations in October 2023:
 
 * Kubernetes:
 
@@ -62,6 +56,12 @@ We made improvements to the following integrations in October 2023:
 * VMware GemFire -- Updated the queries of the GemFire system alerts with new prefixes.
 * Go -- Removed references of deprecated SDKs.
 * C Sharp -- Removed references of deprecated libraries.
+
+In addition, we updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+
+  * Catchpoint
+  * Nagios
+  * Uptime
 
 ## August 2023
 
