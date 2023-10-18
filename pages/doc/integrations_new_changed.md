@@ -102,7 +102,6 @@ We made improvements to the following integrations in August 2023:
 * Docker with cAdvisor -- Updated the setup steps and instructions.
 * Tanzu Service Mesh -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
 
-
 ## July 2023
 
 We made improvements to the following integrations in July 2023:
