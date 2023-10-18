@@ -18,6 +18,7 @@ Color mapping is a powerful way to get users' attention when there's a problem. 
 * Gauge
 * Topk
 * Node map
+* Pie
 
 The following example shows how to use color mapping with a single stat chart.
 

@@ -230,6 +230,8 @@ As a final step, you name the alert, optionally add alert tags, and activate the
 </tbody>
 </table>
 
+{% include note.html content="You only see Step 5 when you create a metric alert. You don't see this step when you edit or clone a metric alert." %}
+
 
 ## Alert FAQs
 
