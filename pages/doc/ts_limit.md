@@ -19,9 +19,7 @@ The `limit()` function shows only a specified number of items. You can use `limi
 
 {% include important.html content="It's not recommended to use the `limit()` function, because it selects randomly from all time series and does not perform a query over all data followed by filtering. It is possible that the `limit()` function returns NO DATA or that it results in incorrect reporting because the function examines the underlying time series and not the actual reporting in time.
 <br><br>
-For example, the result of a query might be NO DATA even if some time series report data because the (randomly) selected time series have no data or because time series that the query looks at are not what you expect when you call `limit(number_of_timeseries)`.
-<br><br>
-Consider using the `count()` function instead of the `limit()` function." %}
+For example, the result of a query might be NO DATA even if some time series report data because the (randomly) selected time series have no data or because time series that the query looks at are not what you expect when you call `limit(number_of_timeseries)`." %}
 
 <table style="width: 100%;">
 <colgroup>
