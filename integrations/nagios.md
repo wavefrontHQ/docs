@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Nagios integration. T
 
 Nagios is a popular open source computer system and network monitoring application software. It watches hosts and services that the owner specifies, alerting the owner when things go wrong and again when they get better.
 
-This integration configures Nagios to send data from hosts and services to Wavefront. Metrics show up in the Nagios dashboard. Events show up as Wavefront events.
+This integration configures Nagios to send data from hosts and services to Operations for Applications. Metrics show up in the Nagios dashboard. Events show up as Operations for Applications events.
 
 ### Dashboards
 
