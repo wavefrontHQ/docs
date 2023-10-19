@@ -7,7 +7,7 @@ permalink: integrations_collectd.html
 summary: Learn how to send data collected by collectd to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-To set up collectd to collect metrics, follow the instructions in the in-product [collectd integration](integrations.html).
+To set up collectd to collect metrics, follow the in-product instructions on the Setup tab of the **collectd (Archived)** integration.
 
 To use collectd as your collector agent together with certain other applications, follow the instructions for the application:
 
