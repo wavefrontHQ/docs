@@ -17,7 +17,7 @@ For details about the two subscription types and how they differ, see [Subscript
 
 If your Operations for Applications service **is onboarded** to VMware Cloud services, most of the integrations authenticate with VMware Cloud services **access tokens**. Only a limited list of integrations still authenticate with Operations for Applications API tokens. For details, see [How Integration Authentication Works](integrations_onboarded_subscriptions.html).
 
-{% include note.html content= "The integrations in the **Archived** section are approaching their end-of-life. For that reason, we will not update these integrations to authenticate with VMware Cloud services access tokens" %}
+{% include note.html content= "The integrations in the **Archived** section are approaching their end-of-life. For that reason, we will not update these integrations to authenticate with VMware Cloud services access tokens." %}
 
 During the process of onboarding an original Operations for Applications service to VMware Cloud services, all of the existing integrations are preserved and continue to operate using Operations for Applications API tokens. You should incrementally switch to integration authentication with the more secure VMware Cloud services access tokens. See [What Happens with the Integrations?](csp_migration.html#what-happens-with-the-integrations).
 
