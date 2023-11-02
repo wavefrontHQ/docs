@@ -249,7 +249,7 @@ wavefront.freemium-account = false
 
 * `$API_Token` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
 * `$wavefront_instance` is the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
-* Set the value to `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account. 
+* Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account. 
 
 
 ### Step 3:  View Your Data in Our Service
