@@ -62,12 +62,13 @@ If you want to use a [**server to server app**](csp_server_to_server_apps.html) 
 1. Assign one or more roles to the server to server app to grant it the Operations for Applications access it needs.
 1. Obtain the OAuth 2.0 client credentials of the server to server app and save them to a secure place.
 1. Add the app to your VMware Cloud organization running the Operations for Applications service.
-1. Exchange the OAuth 2.0 client credentials for an access token.
+1. Encode the server to server OAuth 2.0 client credentials (ID and secret) to Base64 format.
+1. Exchange the Base64 encoded OAuth 2.0 client credentials for an access token.
 
    1. Navigate to the [Authentication VMware Cloud services APIs](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html#/Authentication/getTokenForAuthorizationGrantTypeUsingPOST).
    1. In the `POST/am/api/auth/token` request, click **Try it out**.
-   1. For the **username** parameter, enter the ID of the server to server app.
-   1. For the **password** parameter, enter the secret of the server to server app.
+   1. For the **username** parameter, enter the Base64 encoded ID of the server to server app.
+   1. For the **password** parameter, enter the Base64 encoded secret of the server to server app.
    1. For the **grant_type** parameter, select **client_credentials**.
    1. Click **Execute**.
    1. From the response body, copy the value of the `"access_token"` parameter.
