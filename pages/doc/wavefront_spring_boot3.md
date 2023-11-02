@@ -242,12 +242,14 @@ dependencies {
 By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have an Operations for Applications account, you can send data there instead by specifying the `uri` and `api-token` properties as follows:
 
 ```
-management.wavefront.api-token=$API_Token
-management.wavefront.uri=$wavefront_instance
+management.wavefront.api-token = $API_Token
+management.wavefront.uri = $wavefront_instance
+wavefront.freemium-account = false
 ```
 
 * `$API_Token` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
 * `$wavefront_instance` is the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
+* Set the value to `wavefront.freemium-account` as false.Because you have an Operations for Applications instance, you do not need a freemium account. 
 
 
 ### Step 3:  View Your Data in Our Service
