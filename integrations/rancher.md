@@ -371,7 +371,7 @@ Metrics collected per type:
 | <cluster, ns, node>.pod.count | Pod counts by cluster, namespaces and nodes. |
 | <cluster, ns, node>.pod_container.count | Container counts by cluster, namespaces and nodes. |
 
-## Kubernetes State Source
+### Kubernetes State Source
 
 These are cluster level metrics about the state of Kubernetes objects collected by the Collector leader instance.
 
@@ -386,12 +386,12 @@ These are cluster level metrics about the state of Kubernetes objects collected 
 | ReplicationController | replicationcontroller.desired_replicas | Number of desired replicas. |
 | ReplicationController | replicationcontroller.available_replicas | Number of available replicas (ready for at least minReadySeconds). |
 | ReplicationController | replicationcontroller.ready_replicas | Number of ready replicas. |
-| Daemonset | daemonset.desired_scheduled | Total number of nodes that should be running the daemon pod. |
-| Daemonset | daemonset.current_scheduled | Number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. |
-| Daemonset | daemonset.misscheduled | Number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. |
-| Daemonset | daemonset.ready | Number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready. |
+| DaemonSet | daemonset.desired_scheduled | Total number of nodes that should be running the daemon pod. |
+| DaemonSet | daemonset.current_scheduled | Number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. |
+| DaemonSet | daemonset.misscheduled | Number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. |
+| DaemonSet | daemonset.ready | Number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready. |
 | Statefulset | statefulset.desired_replicas | Number of desired replicas. |
-| Statefulset | statefulset.current_replicas | Number of Pods created by the StatefulSet controller from the StatefulSet version indicated by currentRevision.
+| Statefulset | statefulset.current_replicas | Number of Pods created by the StatefulSet controller from the StatefulSet version indicated by currentRevision. |
 | Statefulset | statefulset.ready_replicas | Number of Pods created by the StatefulSet controller that have a Ready Condition. |
 | Statefulset | statefulset.updated_replicas | Number of Pods created by the StatefulSet controller from the StatefulSet version indicated by updateRevision. |
 | Job | job.active | Number of actively running pods. |
@@ -408,11 +408,11 @@ These are cluster level metrics about the state of Kubernetes objects collected 
 | Node | node.spec.taint | Node taints (one metric per node taint). |
 | Node | node.info | Detailed node information (kernel version, kubelet version etc). |
 
-## Prometheus Source
+### Prometheus Source
 
 Varies by scrape target.
 
-## Systemd Source
+### Systemd Source
 
 These are Linux systemd metrics that can be collected by each Collector instance.
 
@@ -428,7 +428,7 @@ These are Linux systemd metrics that can be collected by each Collector instance
 | kubernetes.systemd.socket.current.connections | Current number of socket connections. |
 | kubernetes.systemd_socket_refused_connections_total | Total number of refused socket connections. |
 
-## Telegraf Source
+### Telegraf Source
 
 Host metrics:
 
@@ -468,7 +468,7 @@ Application metrics:
 | riak | [metrics list](https://github.com/influxdata/telegraf/tree/1.10.4/plugins/inputs/riak#measurements--fields) |
 | zookeeper | [metrics list](https://github.com/influxdata/telegraf/tree/1.10.4/plugins/inputs/zookeeper#metrics) |
 
-## Collector Health Metrics
+### Collector Health Metrics
 
 These are internal metrics about the health and configuration of the Kubernetes Metrics Collector.
 
@@ -478,8 +478,8 @@ These are internal metrics about the health and configuration of the Kubernetes 
 | kubernetes.collector.discovery.rules.count           | Number of discovery configuration rules.                                                                                             |
 | kubernetes.collector.discovery.targets.registered    | Number of auto discovered scrape targets currently being monitored.                                                                  |
 | kubernetes.collector.events.*                        | Events received, sent, and filtered.                                                                                                 |
-| kubernetes.collector.leaderelection.error            | Leader election error counter. Only emitted in daemonset mode.                                                                       |
-| kubernetes.collector.leaderelection.leading          | 1 indicates a pod is the leader. 0 indicates a pod is not the leader. Only emitted in daemonset mode.                                |
+| kubernetes.collector.leaderelection.error            | Leader election error counter. Only emitted in DaemonSet mode.                                                                       |
+| kubernetes.collector.leaderelection.leading          | 1 indicates a pod is the leader. 0 indicates a pod is not the leader. Only emitted in DaemonSet mode.                                |
 | kubernetes.collector.runtime.*                       | Go runtime metrics (MemStats, NumGoroutine, etc).                                                                                    |
 | kubernetes.collector.sink.manager.timeouts           | Counter of timeouts in sending data to Operations for Applications.                                                                          |
 | kubernetes.collector.source.manager.providers        | Number of configured source providers. Includes sources configured via auto-discovery.                                               |
@@ -495,11 +495,11 @@ These are internal metrics about the health and configuration of the Kubernetes 
 | kubernetes.collector.wavefront.sender.type           | 1 for proxy and 0 for direct ingestion.                                                                                              |
 | kubernetes.collector.histograms.duplicates           | Number of duplicate histogram series tagged by metric name (not emitted if no duplicates)                                            |
 
-## cAdvisor Metrics
+### cAdvisor Metrics
 
 cAdvisor exposes a Prometheus endpoint which the collector can consume. See the [cAdvisor documentation](https://github.com/google/cadvisor/blob/master/docs/storage/prometheus.md) for details on what metrics are available.
 
-## Control Plane Metrics
+### Control Plane Metrics
 
 These are metrics for the health of the Kubernetes Control Plane.
 
