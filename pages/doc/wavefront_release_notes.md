@@ -36,6 +36,18 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2023-45.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+**Metrics Security Policy Version History Update**: With this release, we move the metrics security policy to a new framework. When you update your metrics security policy:
+* The version history is tracked for the new version, and the version history starts from number 1 again. But you don’t lose the previous version history.
+  <br/>Example: In the screenshot below, you have updated the security policy 38 times before this release. When you update the policy after this release, it is numbered as version 1, and you have the older versions listed below it.  
+  ![A screenshot of the version history, which starts with 1 again at the top.](images/metrics_security_policy_new_version_history.png)
+* You won’t be able to revert the metrics security policy to the duplicate version number in the old framework because it will be deactivated. 
+  <br/>Example: In the screenshot below, you don’t see the vertical ellipsis next to number 1 because it is a duplicate value and a version of the old framework.
+  ![A screenshot of the version history, which starts with 1 again at the top.](images/metrics_security_policy_revert_deactivated.png)
+
 ## 2023-40.x Release Notes
 
 ### Original and Onboarded Subscriptions
