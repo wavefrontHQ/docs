@@ -187,6 +187,8 @@ All users can view the ingestion policies and examine the ingestion policy dashb
 3. Click the name of the policy in which you are interested and examine the policy dashboard.
 
     The ingestion policy dashboard contains the **Ingestion Summary** and **Optimize Usage** sections. If the ingestion policy has a PPS limit, the dashboard also includes the **Alert** section.
+    
+    <!-- TBD  Update the screenshot!-->
 
     ![Usage summary per ingestion policy](images/IP_dashboard.png)
 
@@ -225,6 +227,10 @@ All users can view the ingestion policies and examine the ingestion policy dashb
       <tr>
       <td><strong>Top Accounts Contributing to Ingestion</strong></td>
       <td>Shows which accounts contribute the most.</td></tr>
+       <tr>
+      <td><strong>Top Cloud Integrations Instances Contributing to Ingestion</strong></td>
+      <td>Shows which cloud integration instances, such as AWS, GCP, and so on, contribute the most.</td>
+      </tr>
       <tr>
       <td><strong>Usage by Ingestion Source</strong></td>
       <td>Shows the usage by ingestion mechanism - proxy and direct ingestions.</td>
