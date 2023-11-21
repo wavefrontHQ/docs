@@ -290,7 +290,7 @@ To view your data, you first run your project from the command line, and then cl
     {% include tip.html content="Try out the [Wavefront for Spring Boot 3 Tutorial](wavefront_springboot3_tutorial.html)."%}
 1. Click the link (for example, `https://wavefront.surf/us/<name>`) and you are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application.
     <br/>Example:
-    ![Spring Boot metrics dashbaord](images/springboot_metrics.png)
+    ![Spring Boot metrics dashboard](images/springboot_metrics.png)
     If your application uses trace data, click the link in the **Tracing** section of the dashboard to be directed to the Traces Browser.
     <br/>Example:
     ![Spring Boot traces browser](images/springboot_span_logs_pet_clinic.png)
