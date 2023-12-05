@@ -15,6 +15,7 @@ In a large enterprise, certain data is confidential. VMware Aria Operations for 
   -  Other permissions make certain information completely invisible. For example, only users with **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
+* **Traces Security** supports finer-grained control and limit access to confidential trace data from applications or services.
 
 {% include important.html content="This feature is not available on all service instances." %}
 
@@ -28,19 +29,22 @@ Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blan
 <iframe id="kmsembed-1_3ea13tor" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
 </p>
 
-## How Metrics Security Protects Sensitive Data
+## How Security Policies Protects Sensitive Data
 
-Metrics security policy rules allows fine-grained support for limiting access to sensitive data.
+The security policy rules allows fine-grained support for limiting access to sensitive data.
 
 ### Block or Allow Access
 
-With a metrics security policy, you can block or allow access:
+With a security policy, you can block or allow access:
 * To metrics, optionally filtered by source or point tag
+* To traces, optionally filtered by source or point tag
 * Based on groups, roles, and individual users.
 
-When an account attempts to access metrics, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
+When an account attempts to access metrics or traces, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
 
-For example, assume you have two rules:
+**Example: Metrics Security Policy**
+
+For example, assume you have two metrics security rules:
 
 <table style="width: 100%;">
 <tbody>
@@ -64,14 +68,30 @@ For example, assume you have two rules:
 
 After the rules are in force, only users in the Finance group can access data that starts with `revenue*`.
 
+**Example: Traces Security Policy**
+
+Talk to Vidhya to understand an example usecase.
+
 
 ### Sensitive Data Become Invisible
 
-Data protected by a metrics security policy rule can become invisible to users.
+Data protected by a security policy rule can become invisible to users.
+
+#### Metrics
 
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
 * **Not visible in alerts** (if **Secure Metrics Details** is selected for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
+
+#### Traces
+
+* **Not visible on the Traces Browser**. If you are blocked from an application or all the services in an application, you don't see the respective traces on the traces browser. But, if you are only blocked from a service or a few services in an application, you see the traces that are connected to the blocked services because the complete trace details need to be shown on the traces browser.
+
+* **Not visible on the Application Status page**. You don't see the services that are blocked on this page for the table and grid view.
+
+* **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard does not have any data because the RED metrics related to the application or service are blocked.
+
+* **Not visible on the Application Map**. If you are blocked from an application or all the services in an application, you don't see data on the service map. But, if you are only blocked from a service or a few services in an application, you see all the service including the blocked services because the service map is generated from the spans you send. The spans include data on how service communicate with each other including the services that are blocked.
 
 ### Rule Priority and Rule Pairs
 
