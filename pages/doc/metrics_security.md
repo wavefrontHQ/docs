@@ -42,7 +42,7 @@ With a security policy, you can block or allow access:
 
 When an account attempts to access metrics or traces, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
 
-**Example: Metrics Security Policy**
+#### Metrics
 
 For example, assume you have two metrics security rules:
 
@@ -68,10 +68,40 @@ For example, assume you have two metrics security rules:
 
 After the rules are in force, only users in the Finance group can access data that starts with `revenue*`.
 
-**Example: Traces Security Policy**
+#### Traces
 
-Talk to Vidhya to understand an example usecase.
+For example, assume you have two traces security rules:
 
+<table>
+<tbody>
+<thead>
+<tr><th width="30%">Name</th><th width="15%">Priority</th><th width="30%">Traces</th><th width="30%">Accounts</th></tr>
+</thead>
+<tr>
+<td markdown="span">BlockPaymentService</td>
+<td>2</td>
+<td>All trace and RED metrics that include the <code>payment*</code> data.</td>
+<td>All accounts</td>
+</tr>
+<tr>
+<td markdown="span">AllowPaymentData</td>
+<td>1</td>
+<td>All trace and RED metrics include the <code>payment*</code> data.</td>
+<td>All accounts in Finance group</td>
+</tr>
+</tbody>
+</table>
+
+After the rules are in force, only the users in the Finance group: 
+
+* See the payment service on the Application Status View page.
+* See the RED metrics for the Payment service on the Operations Dashboard.
+* Can create alerts using the RED metrics of the Payment service.
+
+However, if the users have permission to see other services, and these service communicate with the payment service, they can see:
+
+* How the payment service communicates with the other services on the service map.
+* Traces that include the payment service on the Traces browser because the spans sent or received by the payment service is part of the trace.
 
 ### Sensitive Data Become Invisible
 
@@ -126,7 +156,7 @@ See the Examples below for some scenarios.
 
 ### Alert Notifications
 
-To protect metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Operations for Applications looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
+To protect metrics or RED metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Operations for Applications looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
 
 ### Derived Metrics and Events
 
@@ -230,7 +260,9 @@ Here's an annotated screenshot that shows the main actions:
 ![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
 
 
+## Create a Traces Security Policy Rule 
 
+Add data
 
 ## Manage Multiple Metrics Security Policy Rules
 
