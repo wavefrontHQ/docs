@@ -239,20 +239,21 @@ See the Examples further below.
 
 You create a metrics security policy rule following these steps. See the annotated screenshot below for an example.
 
-1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Metrics Security Policy** and click **Create Rule**
-2. In the **Create Rule** dialog, specify the rule parameters.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Security Policy** and click **Create Rule**.
+1. Make sure you are on the **Metrics Security Policy** tab. 
+1. In the **Create Rule** dialog, specify the rule parameters.
   1. Specify a meaningful name and, optionally, a description. 
       
       Users might later modify the rule, so a clear name is essential. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
 
-  4. Specify and describe the metrics:
+  1. Specify and describe the metrics:
      * You can specify the full metric name or use a wildcard character in metric names, sources, or point tags. The wildcard character alone (`*`) means all metrics.
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
-  5. Specify the Access definition for the rule.
+  1. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
      2. Specify accounts, groups, or roles.
-  3. Click **OK.**
+  1. Click **OK.**
 
 
 Here's an annotated screenshot that shows the main actions:
@@ -262,9 +263,30 @@ Here's an annotated screenshot that shows the main actions:
 
 ## Create a Traces Security Policy Rule 
 
-Add data
+You create a traces security policy rule following these steps. See the annotated screenshot below for an example.
 
-## Manage Multiple Metrics Security Policy Rules
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Security Policy** and click **Create Rule**.
+1. Make sure you are on the **Traces Security Policy** tab. 
+1. In the **Create Rule** dialog, specify the rule parameters.
+  1. Specify a meaningful name and, optionally, a description. 
+      
+      Users might later modify the rule, so a clear name is essential. The description is visible only when you edit the rule. The name is visible on the Security Policy page.
+
+  1. Specify and describe the application or service:
+     * You can specify the full application, service, and operation name or use a wildcard character in application name, service names, sources, or point tags. The wildcard character alone (`*`) means all traces.
+     * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
+     * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
+  1. Specify the Access definition for the rule.
+     1. Select **Allow** or **Block** from the menu.
+     2. Specify accounts, groups, or roles.
+  1. Click **OK.**
+
+
+Here's an annotated screenshot that shows the main actions:
+
+![Annotated create traces security rule screenshot](images/traces_security_policy_create_rule.png)
+
+## Manage Multiple Security Policy Rules
 
 The following annotated screenshot gives an overview of rule management options:
 
