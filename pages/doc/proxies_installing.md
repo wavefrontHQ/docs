@@ -284,4 +284,5 @@ Here's some additional information in the doc:
 * Use the [proxy configuration file](proxies_configuring.html) to customize proxy behavior for metrics, histograms, and traces.
 
 Here's a KB article for TLS connections between two proxies:
-* [How to enable TLS connection between two Wavefront Proxies](https://help.wavefront.com/hc/en-us/articles/4408500702100-How-to-enable-TLS-connection-between-two-Wavefront-Proxies)
+
+* [How to enable TLS connection between two Wavefront Proxies](https://vmwaoa.zendesk.com/hc/en-us/articles/21299939293197-How-to-enable-TLS-connection-between-two-VMware-Aria-Operations-for-Applications-Proxies)

@@ -150,8 +150,6 @@ Let's look at how you can view the events you added to the charts and dashboards
 </table>
 
 ## Set Event Overlays Permanently
-
-<!---From https://help.wavefront.com/hc/en-us/articles/360058262552-How-to-set-Show-Events-setting-on-a-dashboard-permanently--->
 You cannot save the event overlay settings from the GUI, but can make the change in the dashboard JSON file.
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON." %}

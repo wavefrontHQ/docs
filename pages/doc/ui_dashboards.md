@@ -639,4 +639,4 @@ Each time you save a dashboard, you create a dashboard version. Up to 100 versio
 * [Troubleshooting Missing Data](missing_data_troubleshooting.html) can help if you don't see what you expect.
 
 The Customer Success team prepared this KB article about migrating data between environments:
-* [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)
+* [Migrating Objects or Data Between Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments)

@@ -177,4 +177,4 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 ## Learn More!
 
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
-* See the KB article [Migrating Objects or Data Between Operations for Applications Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several service instances.
+* See the KB article [Migrating Objects or Data Between Operations for Applications Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments) if your company has several service instances.
