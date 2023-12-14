@@ -123,7 +123,7 @@ Let's walk through the following scenario to get a quick overview of the applica
           <li>Click <b>Actions</b> to:</li>
           <ul>
             <li> Navigate to the Traces Browser when you click <b>View Traces</b>.</li>
-            <li> Navigate to the Operation Dashboard when you click <b>View Operaion Dashboard</b>.</li>
+            <li> Navigate to the Operation Dashboard when you click <b>View Operation Dashboard</b>.</li>
             <li> Navigate to the Service Dashboard when you click <b>View Service Dashboard</b>.</li>
             <li> Navigate to the Log Browser when you click <b>View Logs</b>. For details, see the section  [Drill into Logs from Traces](#drill-into-logs-from-traces) below.</li>
             <li>Click <b>Create Alerts</b> to create smart alerts that filter noise and capture true anomalies. See <a href="#create-alerts">Create an alert</a>.</li>
@@ -177,7 +177,7 @@ See the table view:
 1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
-![the image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
+![The image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
@@ -314,7 +314,7 @@ Using the table view, you can:
         Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
       <td markdown ="span">
-        ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
+        ![The image shows the setting and the legend setting with Apdex selected from the drop down.](images/apdex_score_legend_colors.png)
       </td>
     </tr>
   </table>
@@ -397,7 +397,7 @@ On the page for a particular application, you can:
           Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
         </td>
         <td markdown ="span">
-          ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
+          ![The image shows the setting and the legend setting with Apdex selected from the drop down.](images/apdex_score_legend_colors.png)
         </td>
       </tr>
     </table>

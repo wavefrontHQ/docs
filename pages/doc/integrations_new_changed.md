@@ -41,7 +41,7 @@ We **deprecated** a number of integrations in October 2023, and moved these inte
 * AWS Lambda Functions
 * nodejs
 
-{% include important.html content= "The deprecated integrations in the list above will reach **end-of-life** in January, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+{% include important.html content= "The deprecated integrations will reach **end-of-life** in January, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
 
 Also, we made improvements to the following integrations in October 2023:
 

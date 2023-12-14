@@ -363,6 +363,3 @@ To temporarily change the sampling behavior for a chart, use the **Sampling** me
 * Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details.
 * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) in another product or on another website.
 
-<!--
-* KB article: [How to Filter a Chart so it Displays Only Metrics with Certain Point Tags] (https://help.wavefront.com/hc/en-us/articles/4406632325140-How-to-filter-a-charts-displayed-point-tags 
--->

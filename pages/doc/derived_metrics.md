@@ -92,4 +92,4 @@ To create a derived metric:
 
 ## Learn More
 
-See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Operations for Applications service instances.
+See the KB article [Migrating Objects or Data Between Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments) if your company has several Operations for Applications service instances.

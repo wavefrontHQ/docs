@@ -16,7 +16,7 @@ You can collect traces  with Jaeger or Zipkin and send the trace data to Operati
 Suppose you have already instrumented your application using Jaeger or Zipkin with OpenTracing or OpenTelemetry. You can continue using that system for application development, and then switch to using Operations for Applications by changing a few configuration settings.
 
 {{site.data.alerts.note}}
-  <p>You can use OpenTracing or OpenTelemetry to send traces to Operations for Applications using the Jaeger or Zipkin integration. To learn about the specification that works for you, see <a href="https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-">OpenTracing or OpenTelemetry</a>.</p>
+  <p>You can use OpenTracing or OpenTelemetry to send traces to Operations for Applications using the Jaeger or Zipkin integration. </p>
   <ul>
     <li>
       The OpenTelemetry collector can identify data coming from applications instrumented with Jaeger or Zipkin and convert them to Open Telemetry format. Next, the Tanzu Observability (Wavefront) trace exporter converts the data to the Operations for Applications data format. See <a href="opentelemetry.html">OpenTelemetry</a> to configure your application.
