@@ -69,6 +69,15 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 </thead>
 <tbody>
 <tr>
+<td markdown="span">Chef Server</td>
+<td markdown="span">[Chef Server](wavefront-chef.html)</td></tr>
+<tr>
+<td markdown="span">Micrometer</td>
+<td markdown="span">[Micrometer](micrometer.html)</td></tr>
+<tr>
+<td markdown="span">Tanzu Application Service</td>
+<td markdown="span">[Tanzu Application Service Integration](tas_v4.html)</td></tr>
+<tr>
 <td markdown="span">Tanzu Application Service</td>
 <td markdown="span">[Tanzu Application Service Integration](tas_v4.html)</td></tr>
 <tr>
@@ -440,7 +449,6 @@ Here's the list of the integrations that still use API tokens. Currently, if you
 * [Spring Boot](springboot.html) <!--(target mid-end of September)-->
 * [VMware Tanzu Mission Control Advanced](tmc.html) <!--(TBD)-->
 * [VMware GemFire](gemfire.html) <!--(TBD https://jira.eng.vmware.com/browse/INT-1897)-->
-* [Micrometer](micrometer.html) <!--(Target mid-September)-->
 * [VMware Tanzu Kubernetes Grid Integration](tkgi.html) <!--(TBD)-->
 * [Terraform Provider](wavefront-terraform-provider.html) <!--(TBD)-->
 * [VMware Aria Operations for Logs](log-insight-cloud.html) <!--(TBD)-->
