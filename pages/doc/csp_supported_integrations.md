@@ -78,9 +78,6 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 <td markdown="span">Tanzu Application Service</td>
 <td markdown="span">[Tanzu Application Service Integration](tas_v4.html)</td></tr>
 <tr>
-<td markdown="span">Tanzu Application Service</td>
-<td markdown="span">[Tanzu Application Service Integration](tas_v4.html)</td></tr>
-<tr>
 <td markdown="span">Kubernetes</td>
 <td markdown="span">[Kubernetes Integration](kubernetes.html)</td></tr>
 <tr>
