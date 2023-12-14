@@ -26,7 +26,7 @@ We made improvements to the following integrations in December 2022:
   
   - We deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. 
     
-    If you currently use the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods..
+    If you currently use the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods.
     
     {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
     
