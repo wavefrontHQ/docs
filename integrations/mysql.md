@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the MySQL integration. Th
 
 ## MySQL Integration
 
-MySQL is an open source relational database management system. This integration installs and configures Telegraf to send MySQL metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+MySQL is an open source relational database management system. This integration installs and configures Telegraf to send MySQL metrics into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. For example, here's screenshot of dashboard with statistics collected from MySQL server.
 {% include image.md src="images/mysql-metrics.png" width="80" %}
