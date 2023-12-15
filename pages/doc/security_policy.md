@@ -328,7 +328,7 @@ With this policy in place:
 
 ## Traces Security Policies
 
-You can block sensitive applications or services from specific users so they don't see the data on the application status page, traces browser, application map, or operations dashboards.
+You can block applications or services information from specific users so they don't see the data on the application status page, traces browser, application map, or operations dashboards.
 
 {% include note.html content="Only a Super Admin user or users with **Applications** permission can view, create, and manage a traces security policy. " %}
 
@@ -359,6 +359,64 @@ You create a traces security policy rule following these steps. See the annotate
      * You can specify the full application, service, and operation name or use a wildcard character in application name, service names, sources, or point tags. The wildcard character alone (`*`) means all traces.
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
+
+     <br/>
+     For example, assume that you have the following:
+     * A `supermarket` application with the `vegetablesGreen`, `vegetablesRed`, `fruits`, and `dairy` services.
+     * The `vegetablesGreen` service has the `add` and `purchased` operations.
+     * Another application named `supermarket200`.
+    
+      <table style = "width: 100%;">
+      <tr>
+        <th width = "20%">Tracing Prefix</th>
+        <th width = "20%">Example</th>
+        <th width = "60%">Description</th>
+      </tr>
+      <tr>
+        <td markdown="span">
+          `applicationName*`
+        </td>
+        <td markdown="span">
+          `supermarket*`
+        </td>
+        <td markdown="span">
+          Using this prefix format, you can allow or block the trace data of all the applications that start with `supermarket`. In this example, trace data of the `supermarket` and `supermarket200` applications and their services can be blocked or shown to specific users.
+        </td>
+      </tr>
+      <tr>
+        <td markdown="span">
+          `applicationName.*`
+        </td>
+        <td markdown="span">
+          `supermarket.*`
+        </td>
+        <td markdown="span">
+          Using this prefix format, you can allow or block the trace data of all the services in the `supermarket` application. It includes the `vegetablesGreen`, `vegetablesRed`, `fruits`, and `dairy` services. 
+        </td>
+      </tr>
+      <tr>
+        <td markdown="span">
+          `applicationName.serviceName*`
+        </td>
+        <td>
+          `supermarket.vegtables*`
+        </td>
+        <td markdown="span">
+          Using this prefix format, you can block or allow the trace operations data of all the services that start with `vegetables`. In this example, the traces operation data of the `vegetablesGreen` and `vegetablesRed` services can be blocked or shown to specific users. 
+        </td>
+      </tr>
+      <tr>
+        <td markdown="span">
+          `applicationName.serviceName.*`
+        </td>
+        <td markdown="span">
+          `supermarket.vegtablesGreen.*`
+        </td>
+        <td markdown="span">
+          Using this prefix format, you can allow or block the traces operations data of the `supermarket` applications `egtablesGreen` service, which includes the `add` and `purchased` operations.
+        </td>
+      </tr>
+    </table>
   1. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
      2. Specify accounts, groups, or roles.
