@@ -14,7 +14,7 @@ This page provides an overview of what you can do with the Cernan integration. T
 ## Cernan Integration
 
 Cernan is an open source telemetry and logging aggregation server. From the [Cernan wiki](https://github.com/postmates/cernan/wiki):
-{% raw %}
+{% raw %}
 ```
 Cernan exposes multiple interfaces for ingestion and can emit to multiple aggregation sources while doing in-flight manipulation of data. Cernan has minimal CPU and memory requirements and is intended to service bursty telemetry without load shedding. Cernan aims to be reliable and convenient to use, both for application engineers and operations staff.
 ```
