@@ -20,11 +20,7 @@ In a large enterprise, certain data is confidential. VMware Aria Operations for 
 {% include important.html content="This feature is not available on all service instances." %}
 
 
-## How Security Policies Protects Sensitive Data
-
-The security policy rules allows fine-grained support for limiting access to sensitive data.
-
-## Block or Allow Access
+## Block or Allow Access to Sensitive Data
 
 With a security policy, you can block or allow access:
 * To metrics, optionally filtered by source or point tag
@@ -360,7 +356,8 @@ You create a traces security policy rule following these steps. See the annotate
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
 
-     <br/>
+     <a name="prefixes"></a>
+
      For example, assume that you have the following:
      * A `supermarket` application with the `vegetablesGreen`, `vegetablesRed`, `fruits`, and `dairy` services.
      * The `vegetablesGreen` service has the `add` and `purchased` operations.
