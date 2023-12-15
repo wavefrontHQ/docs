@@ -205,7 +205,7 @@ To configure the Kubernetes Metrics Collector to use a Wavefront proxy that's al
     
 #### Install and Configure the Collector on OpenShift Enterprise 3.x
 
-**Note**: The Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy is deprecated and has reached EOL. Our Observability for Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform.
+**Note**: The Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy is deprecated and has reached EOL. Our Observability for Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for the OpenShift Container Platform.
 
 Our Collector supports monitoring of OpenShift clusters:
     
