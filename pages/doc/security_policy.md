@@ -204,7 +204,7 @@ Consider this simple example:
 
 Privileged users can create rules, change rule priority, and change the scope of each rule.
 
-{% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage a metrics security policy. " %}
+{% include note.html content="Only a Super Admin user or users with **Metrics** or **Applications** permission can view, create, and manage a metrics security policy. " %}
 
 #### Plan Your Strategy
 
@@ -326,18 +326,16 @@ With this policy in place:
 
 You can block applications or services information from specific users so they don't see the data on the application status page, traces browser, application map, or operations dashboards.
 
-{% include note.html content="Only a Super Admin user or users with **Applications** permission can view, create, and manage a traces security policy. " %}
+{% include note.html content="Only a Super Admin user or users with **Metrics** or **Applications** permission can view, create, and manage a traces security policy. " %}
 
 ### Sensitive Data Become Invisible
 
 Data protected by a traces security policy rule can become invisible to users.
 
 * **Not visible on the Traces Browser**. If you are blocked from an application or service, you don't see the respective traces on the traces browser.
-
 * **Not visible on the Application Status page**. You don't see the services that are blocked on this page for the table and grid view.
-
-* **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard does not have any data because the RED metrics related to the application or service are blocked.
-
+* **Not visible on the Service Dashboard**. The charts generated on the Service Dashboard does not have any data because the RED metrics related to the application or service are blocked.
+* **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard does not have any data because the RED metrics related to the operations of the application or service are blocked.
 * **Not visible on the Application Map**. If you are blocked from an application or service, you don't see the respective data on the service map. 
 
 ### Create a Traces Security Policy Rule 
@@ -395,7 +393,7 @@ You create a traces security policy rule following these steps. See the annotate
         <td markdown="span">
           `applicationName.serviceName*`
         </td>
-        <td>
+        <td markdown="span">
           `supermarket.vegtables*`
         </td>
         <td markdown="span">
@@ -423,6 +421,10 @@ You create a traces security policy rule following these steps. See the annotate
 Here's an annotated screenshot that shows the main actions:
 
 ![Annotated create traces security rule screenshot](images/traces_security_policy_create_rule.png)
+
+### Examples for Traces Security Policy
+
+ADD DATA
 
 ## Manage Multiple Security Policy Rules
 
