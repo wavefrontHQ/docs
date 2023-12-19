@@ -72,6 +72,10 @@ Getting started is easy. Here are some things to know before you start:
   <td>3.0.x</td>
   <td>3.0.x</td>
   </tr>
+  <tr>
+  <td>3.2.x</td>
+  <td>3.2.x</td>
+  </tr>
   </tbody>
   </table>
 * Java 17 or above
