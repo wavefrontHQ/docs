@@ -1,6 +1,6 @@
 <div class="choose-path-container">
     <div class="row">
-    <p><i><b>Note</b>: The documentation on this site is about VMware Aria Operations for Applications, formerly known as Tanzu Observability by Wavefront. We're in the process of updating the product name, but in many places we still refer to it as Tanzu Observability or Wavefront.</i></p>
+    <p><i><b>Note</b>: The documentation on this site is about Aria Operations for Applications, formerly known as Tanzu Observability by Wavefront. We're in the process of updating the product name, but in many places we still refer to it as Tanzu Observability or Wavefront.</i></p>
     </div>
     <div class="row section-header">
         <h2>Choose Your Path</h2>
