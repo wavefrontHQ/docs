@@ -14,5 +14,5 @@ tutorials: "Quickly learn the basics of getting, displaying, and working with da
 videos: "View demonstrations of various features and use cases."
 reference_page: "List of all query language functions (and some links to get you started)."
 integrations_list: "A script creates the doc page for each integration from the Operations for Applications UI."
-kubernetes: "Aria Operations for Applications and Kubernetes info & videos."
+kubernetes: "Operations for Applications and Kubernetes info & videos."
 tracing: "Learn how to instrument applications for tracing and visualize the data."
