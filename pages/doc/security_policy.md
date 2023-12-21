@@ -81,10 +81,9 @@ For example, assume you have two traces security rules:
 
 After the rules are in force, only the users in the Finance group: 
 
-* See the payment service on the Application Status View page.
+* See the payment service on the Application Status page.
 * See the RED metrics for the Payment service on the Operations Dashboard.
 * See the trace data that includes the payments service on the Traces Browser.
-* See the payment service on a Service Map.
 
 ## Rule Priority and Rule Pairs
 
@@ -117,7 +116,7 @@ When you apply this policy, the users included in the user group will have acces
 
 You can block sensitive  metrics data from time series, histograms, RED metrics and delta counters so they don't show on charts and dashboards, and alerts.
 
-{% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
+{% include note.html content="Only a Super Admin user or users with **Metrics**  or **Applications** permission can view, create, and manage metrics security policy. " %}
 
 ### Video: Metrics Security Policy
 
@@ -333,10 +332,11 @@ You can block applications or services information from specific users so they d
 Data protected by a traces security policy rule can become invisible to users.
 
 * **Not visible on the Traces Browser**. If you are blocked from an application or service, you don't see the respective traces on the traces browser.
-* **Not visible on the Application Status page**. You don't see the services that are blocked on this page for the table and grid view.
+* **Not visible on the Application Status page**. You don't see the services that are blocked on this page for the table, app map, and grid view.
 * **Not visible on the Service Dashboard**. The charts generated on the Service Dashboard does not have any data because the RED metrics related to the application or service are blocked.
+  {% include note.html content="If you clone the out-of-the-box Service dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
 * **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard does not have any data because the RED metrics related to the operations of the application or service are blocked.
-* **Not visible on the Application Map**. If you are blocked from an application or service, you don't see the respective data on the service map. 
+  {% include note.html content="If you clone the out-of-the-box Operations dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
 
 ### Create a Traces Security Policy Rule 
 
@@ -422,9 +422,23 @@ Here's an annotated screenshot that shows the main actions:
 
 ![Annotated create traces security rule screenshot](images/traces_security_policy_create_rule.png)
 
-### Examples for Traces Security Policy
+### Examples of Traces Security Policy
 
-ADD DATA
+In this example, you have a traces security policy created to block trace data from the RiderApp's passenger service for the everyone user group. When the traces security policy is in place:
+* Users who belong to the everyone user group won't see the passenger service data on the traces browser, service dashboard, operations dashboard, and application status page.
+* Super Admin users can see all the data.
+
+![A screenshot of the traces security policy created to block the user group everyone from seeing data of the RiderApp's passenger service.](images/traces_security_policy_example.png)
+
+The screenshots below show you how the blocked trace data does not show up for a user in the everyone user group and how the data shows up for a Super Admin user.
+
+* Traces Browser: The Super Admin user can see the passenger service on the traces browser, while the other user can not see the passenger service on the traces browser.
+  ![A screenshot of how the Super Admin user and a user that belongs to the everyone group sees data on the traces browser.](images/traces_security_policy_example_traces_browser.png)
+
+
+* Application Map: The Super Admin user can see the passenger service on the application map, while the other user can not see the passenger service on the application map.
+  ![A screenshot of how the Super Admin user and a user that belongs to the everyone group sees data on the application map.](images/traces_security_policy_example_service_map.png)
+
 
 ## Manage Multiple Security Policy Rules
 

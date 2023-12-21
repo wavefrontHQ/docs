@@ -48,6 +48,8 @@ The standard dashboard for operations is read-only. To create a customizable cop
 
 After you save the clone, click **Dashboard** on the toolbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
+{% include note.html content="If you clone the out-of-the-box Operation dashboard and don't update the queries in the charts, the [tracing security policies](security_policy.html#traces-security-policies) do not apply to the cloned dashboard or the charts." %}
+
 ## Save Charts in the Operation Dashboard
 
 View queries used in the charts of the default Operation Dashboard and save these charts to your dashboard.
