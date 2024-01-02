@@ -9,7 +9,7 @@ summary: Use security policies to to control access to metrics (time series, his
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services](csp_metrics_security.html)."%}
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) has security policies to protect your metrics and security data.
+You can create security policies on VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) to protect your metrics and security data.
 
 <img src="images/security_policies_overview.png" alt="An overview image that shows metrics and traces security policies." style="width:70%; max-width:1000">
 

@@ -9,7 +9,7 @@ summary: Use security policies to to control access to metrics (time series, his
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services](csp_metrics_security.html)."%}
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) has security policies to protect your metrics and security data.
+You can create security policies on VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) to protect your metrics and security data.
 
 <img src="images/security_policies_overview.png" alt="An overview image that shows metrics and traces security policies." style="width:70%; max-width:1000">
 
@@ -243,7 +243,7 @@ You create a metrics security policy rule following these steps. See the annotat
 
 Here's an annotated screenshot that shows the main actions:
 
-![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
+![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/csp_metrics_s_edit_rule.png)
 
 ### Example for Metrics Security Policies
 
@@ -411,7 +411,7 @@ You create a traces security policy rule following these steps. See the annotate
 
 Here's an annotated screenshot that shows the main actions:
 
-![Annotated create traces security rule screenshot](images/traces_security_policy_create_rule.png)
+![Annotated create traces security rule screenshot](images/csp_traces_security_policy_create_rule.png)
 
 ### Examples of Traces Security Policy
 
@@ -419,7 +419,7 @@ In this example, you have a traces security policy created to block trace data f
 * Users who belong to the everyone user group won't see the passenger service data on the traces browser, service dashboard, operations dashboard, and application status page.
 * Super Admin users can see all the data.
 
-![A screenshot of the traces security policy created to block the user group everyone from seeing data of the RiderApp's passenger service.](images/traces_security_policy_example.png)
+![A screenshot of the traces security policy created to block the user group everyone from seeing data of the RiderApp's passenger service.](images/csp_traces_security_policy_example.png)
 
 The screenshots below show you how the blocked trace data does not show up for a user in the everyone user group and how the data shows up for a Super Admin user.
 
