@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_security_policy.html
-summary: Use security policies to to control access to metrics (time series, histograms, RED metrics and delta counters) and traces.
+summary: Use security policies to control access to metrics, such as time series, histograms, RED metrics, and delta counters, as well as traces.
 ---
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services](csp_metrics_security.html)."%}
@@ -15,8 +15,8 @@ You can create security policies on VMware Aria Operations for Applications (for
 
 In a large enterprise, certain data is confidential. Our service allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
-  - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
-  -  Other permissions make certain information completely invisible. For example, only users with **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.
+  - Some permissions limit who can modify objects (e.g., proxies or events). For example, users with the **Dashboards** permission can modify all dashboards.
+  -  Other permissions make certain information completely invisible. For example, only users with the **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
 * **Traces Security** supports finer-grained control and limit access to confidential trace data from applications or services.
@@ -27,8 +27,8 @@ In a large enterprise, certain data is confidential. Our service allows you to l
 ## Block or Allow Access to Sensitive Data
 
 With a security policy, you can block or allow access:
-* To metrics, optionally filtered by source or point tag
-* To traces, optionally filtered by source or point tag
+* To metrics, optionally filtered by source or point tag.
+* To traces, optionally filtered by source or point tag.
 * Based on groups, and individual users.
 
 When an account attempts to access metrics or traces, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
@@ -52,7 +52,7 @@ For example, assume you have two metrics security rules:
 <td markdown="span">AllowRevenueFinance</td>
 <td>1</td>
 <td>All metrics that start with <code>revenue*</code></td>
-<td>All accounts in Finance group</td>
+<td>All accounts in the Finance group</td>
 </tr>
 </tbody>
 </table>
@@ -83,7 +83,7 @@ For example, assume you have two traces security rules:
 </tbody>
 </table>
 
-After the rules are in force, only the users in the Finance group: 
+After the rules are in force, only the users in the Finance group can: 
 
 * See the payment service on the Application Status page.
 * See the RED metrics for the Payment service on the Operations Dashboard.
@@ -94,7 +94,7 @@ After the rules are in force, only the users in the Finance group:
 Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
 
 * Create a rule that blocks access to all metrics for a user group. For example, **Block all**. This rule is with lower priority.
-* Create another rule to allow access to a small set of metrics for that user group. E.g. metrics starting with the `cpu.*` prefix and that are tagged with `env=dev`, i.e. developers environment. For example **Allow CPU metrics**. This rule is with higher priority.
+* Create another rule to allow access to a small set of metrics for that user group. E.g., metrics starting with the `cpu.*` prefix and that are tagged with `env=dev`, i.e. developers environment. For example, **Allow CPU metrics**. This rule is with higher priority.
 
 <table style="width: 100%;">
 <tbody>
@@ -118,20 +118,20 @@ When you apply this policy, the users included in the user group will have acces
 
 ## Metrics Security Policy
 
-You can block sensitive  metrics data from time series, histograms, RED metrics and delta counters so they don't show on charts and dashboards, and alerts.
+You can block sensitive  metrics data from time series, histograms, RED metrics, and delta counters so that they don't show on charts and dashboards, and alerts.
 
-{% include note.html content="Only a Super Admin user or users with **Metrics**  or **Applications** permission can view, create, and manage metrics security policy. " %}
+{% include note.html content="Only a Super Admin user or users with the **Metrics**  or **Applications** permission can view, create, and manage metrics security policy. " %}
 
 ### Video: Metrics Security Policy
 
 Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <p>
-<iframe id="kmsembed-1_3ea13tor" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
+<iframe id="kmsembed-1_3ea13tor" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe>
 </p>
 
 
-### Sensitive Data Become Invisible
+### Sensitive Data Becomes Invisible
 
 Data protected by a metrics security policy rule can become invisible to users.
 
@@ -214,7 +214,7 @@ Privileged users can create rules, change rule priority, and change the scope of
 Before you create rules, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
-  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
+  - Specify one or more metric prefixes. You can specify an exact match (e.g., `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
 * **Access** allows you to allow or block access for a combination of accounts or groups.
 
@@ -226,8 +226,8 @@ You create a metrics security policy rule following these steps. See the annotat
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Security Policy** and click **Create Rule**.
 1. Make sure you are on the **Metrics Security Policy** tab. 
-1. In the **Create Rule** dialog, specify the rule parameters.
-  1. Specify a meaningful name and, optionally, a description. 
+1. Click **Create Rule**.
+1. Specify a meaningful name and, optionally, a description. 
       
       Users might later modify the rule, so a clear name is essential. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
 
@@ -237,7 +237,7 @@ You create a metrics security policy rule following these steps. See the annotat
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
   1. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
-     2. Specify accounts or groups.
+     2. Specify accounts, groups, or roles.
   1. Click **OK.**
 
 
@@ -245,13 +245,13 @@ Here's an annotated screenshot that shows the main actions:
 
 ![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/csp_metrics_s_edit_rule.png)
 
-### Example for Metrics Security Policies
+### Examples for Metrics Security Policies
 
 Before you start, plan your strategy. Here are some common scenarios.
 
 #### Example: Restrict Access to Confidential Metrics
 
-This example restricts access to specific ranges of highly-sensitive metrics, say revenue numbers, to select groups of users.
+This example restricts access to specific ranges of highly-sensitive metrics, say revenue numbers, to the specified groups of users.
 
 ![Screenshot of policy rules, where the finance group can access revenue numbers.](images/metrics_security_restrict.png)
 
@@ -314,61 +314,60 @@ With this policy in place:
 
 ## Traces Security Policies
 
-You can block applications or services information from specific users so they don't see the data on the application status page, traces browser, application map, or operations dashboards.
+You can block applications or services information from specific users, so that they don't see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards.
 
-{% include note.html content="Only a Super Admin user or users with **Metrics** or **Applications** permission can view, create, and manage a traces security policy. " %}
+{% include note.html content="Only a Super Admin user or users with the **Metrics** or **Applications** permission can view, create, and manage a traces security policy. " %}
 
 ### Sensitive Data Become Invisible
 
 Data protected by a traces security policy rule can become invisible to users.
 
-* **Not visible on the Traces Browser**. If you are blocked from an application or service, you don't see the respective traces on the traces browser.
+* **Not visible on the Traces Browser**. If you are blocked from an application or service, you don't see the respective traces on the Traces Browser.
 * **Not visible on the Application Status page**. You don't see the services that are blocked on this page for the table, app map, and grid view.
-* **Not visible on the Service Dashboard**. The charts generated on the Service Dashboard does not have any data because the RED metrics related to the application or service are blocked.
-  {% include note.html content="If you clone the out-of-the-box Service dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
+* **Not visible on the Service Dashboard**. The charts generated on the Service Dashboard do not have any data because the RED metrics related to the application or service are blocked.
+  {% include note.html content="If you clone the out-of-the-box Service Dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
 * **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard does not have any data because the RED metrics related to the operations of the application or service are blocked.
-  {% include note.html content="If you clone the out-of-the-box Operations dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
+  {% include note.html content="If you clone the out-of-the-box Operations Dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
 
 ### Create a Traces Security Policy Rule 
 
 You create a traces security policy rule following these steps. See the annotated screenshot below for an example.
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Security Policy** and click **Create Rule**.
-1. Make sure you are on the **Traces Security Policy** tab. 
-1. In the **Create Rule** dialog, specify the rule parameters.
-  1. Specify a meaningful name and, optionally, a description. 
-      
-      Users might later modify the rule, so a clear name is essential. The description is visible only when you edit the rule. The name is visible on the Security Policy page.
-
-  1. Specify and describe the application or service:
-     * You can specify the full application, service, and operation name or use a wildcard character in application name, service names, sources, or point tags. The wildcard character alone (`*`) means all traces.
-     * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
-     * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
-
-     <a name="prefixes"></a>
-
-     For example, assume that you have the following:
-     * A `supermarket` application with the `vegetablesGreen`, `vegetablesRed`, `fruits`, and `dairy` services.
-     * The `vegetablesGreen` service has the `add` and `purchased` operations.
-     * Another application named `supermarket200`.
+1. Click the **Traces Security Policy** tab. 
+1. Click **Create Rule**.
+1. Specify a meaningful name and, optionally, a description. 
     
-      <table style = "width: 100%;">
-      <tr>
-        <th width = "20%">Tracing Prefix</th>
-        <th width = "20%">Example</th>
-        <th width = "60%">Description</th>
-      </tr>
-      <tr>
-        <td markdown="span">
-          `applicationName*`
-        </td>
-        <td markdown="span">
-          `supermarket*`
-        </td>
-        <td markdown="span">
-          Using this prefix format, you can allow or block the trace data of all the applications that start with `supermarket`. In this example, trace data of the `supermarket` and `supermarket200` applications and their services can be blocked or shown to specific users.
-        </td>
-      </tr>
+    Users might later modify the rule, so a clear name is essential. The description is visible only when you edit the rule. The name is visible on the Security Policy page.
+1. Specify and describe the application or service:
+    * You can specify the full application, service, and operation name. You can also use a wildcard character in application name, service names, sources, or point tags. The wildcard character alone (`*`) means all traces.
+    * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
+    * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
+
+    <a name="prefixes"></a>
+
+    For example, assume that you have the following:
+    * A `supermarket` application with the `vegetablesGreen`, `vegetablesRed`, `fruits`, and `dairy` services.
+    * The `vegetablesGreen` service has the `add` and `purchased` operations.
+    * Another application named `supermarket200`.
+    
+    <table style = "width: 100%;">
+    <tr>
+      <th width = "20%">Tracing Prefix</th>
+      <th width = "20%">Example</th>
+      <th width = "60%">Description</th>
+    </tr>
+    <tr>
+      <td markdown="span">
+        `applicationName*`
+      </td>
+      <td markdown="span">
+        `supermarket*`
+      </td>
+      <td markdown="span">
+        Using this prefix format, you can allow or block the trace data of all the applications that start with `supermarket`. In this example, trace data of the `supermarket` and `supermarket200` applications and their services can be blocked or shown to specific users.
+      </td>
+    </tr>
       <tr>
         <td markdown="span">
           `applicationName.*`
@@ -405,8 +404,9 @@ You create a traces security policy rule following these steps. See the annotate
     </table>
   1. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
-     2. Specify accounts or groups.
+     2. Specify accounts, groups, or roles.
   1. Click **OK.**
+
 
 
 Here's an annotated screenshot that shows the main actions:
@@ -415,19 +415,19 @@ Here's an annotated screenshot that shows the main actions:
 
 ### Examples of Traces Security Policy
 
-In this example, you have a traces security policy created to block trace data from the RiderApp's passenger service for the everyone user group. When the traces security policy is in place:
-* Users who belong to the everyone user group won't see the passenger service data on the traces browser, service dashboard, operations dashboard, and application status page.
+In this example, you have a traces security policy created to block trace data from the RiderApp's passenger service for the Everyone user group. When the traces security policy is in place:
+* Users who belong to the Everyone user group won't see the passenger service data on the Traces Browser, Service Dashboard, Operations Dashboard, and Application Status page.
 * Super Admin users can see all the data.
 
 ![A screenshot of the traces security policy created to block the user group everyone from seeing data of the RiderApp's passenger service.](images/csp_traces_security_policy_example.png)
 
-The screenshots below show you how the blocked trace data does not show up for a user in the everyone user group and how the data shows up for a Super Admin user.
+The screenshots below show you how the blocked trace data does not show up for a user in the Everyone user group and how the data shows up for a Super Admin user.
 
-* Traces Browser: The Super Admin user can see the passenger service on the traces browser, while the other user can not see the passenger service on the traces browser.
+* Traces Browser: The Super Admin user can see the passenger service on the Traces Browser, while the other user, who belongs to the Everyone group, cannot see the passenger service on the Traces Browser.
   ![A screenshot of how the Super Admin user and a user that belongs to the everyone group sees data on the traces browser.](images/traces_security_policy_example_traces_browser.png)
 
 
-* Application Map: The Super Admin user can see the passenger service on the application map, while the other user can not see the passenger service on the application map.
+* Application Map: The Super Admin user can see the passenger service on the Application Map, while the other user, who belongs to the Everyone group, cannot see the passenger service on the Application Map.
   ![A screenshot of how the Super Admin user and a user that belongs to the everyone group sees data on the application map.](images/traces_security_policy_example_service_map.png)
 
 
