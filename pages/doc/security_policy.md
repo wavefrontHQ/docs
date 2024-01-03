@@ -101,7 +101,7 @@ For example, assume you have two traces security rules:
     2
   </td>
   <td>
-    All spans that include the <code>myapp.payment*</code> data.
+    All spans that include the <code>myapp.payment.*</code> data.
   </td>
   <td>
     All accounts
@@ -118,7 +118,7 @@ For example, assume you have two traces security rules:
     1
   </td>
   <td>
-    All spans that include the <code>myapp.payment*</code> data.
+    All spans that include the <code>myapp.payment.*</code> data.
   </td>
   <td>
     All accounts in Finance group
@@ -132,6 +132,12 @@ After the rules are in force, only the users in the Finance group can:
 * See the payment service on the Application Status page.
 * See the RED metrics for the Payment service on the Operations Dashboard.
 * See the trace data that includes the payments service on the Traces Browser.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="security_policy.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Rule Priority and Rule Pairs
 
@@ -159,6 +165,12 @@ Rules are evaluated in priority order. In many cases, it's useful to think of pa
 </table>
 
 When you apply this policy, the users included in the user group will have access to the metrics starting with the `cpu.` prefix and point tag `env=dev`, because the **Allow metrics** rule overrides the **Block all** rule. 
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="security_policy.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Metrics Security Policy
 
@@ -368,6 +380,11 @@ With this policy in place:
 * Members of the `Admins` group are granted access to all metrics (Rule 3).
 * Users who don’t belong to the groups covered by the rules have no access.
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="security_policy.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Traces Security Policies
 
@@ -444,7 +461,7 @@ You create a traces security policy rule following these steps. See the annotate
           `supermarket.vegtables*`
         </td>
         <td markdown="span">
-          Using this prefix format, you can block or allow the trace operations data of all the services that start with `vegetables`. In this example, the traces operation data of the `vegetablesGreen` and `vegetablesRed` services can be blocked or shown to specific users. 
+          Using this prefix format, you can allow or block the data of all the services that start with `vegetables`. In this example, the data of the `vegetablesGreen` and `vegetablesRed` services can be blocked or shown to specific users. 
         </td>
       </tr>
       <tr>
@@ -455,7 +472,7 @@ You create a traces security policy rule following these steps. See the annotate
           `supermarket.vegtablesGreen.*`
         </td>
         <td markdown="span">
-          Using this prefix format, you can allow or block the traces operations data of the `supermarket` applications `egtablesGreen` service, which includes the `add` and `purchased` operations.
+          Using this prefix format, you can allow or block the data of the `supermarket` applications `vegtablesGreen` service, which includes the `add` and `purchased` operations.
         </td>
       </tr>
     </table>
@@ -487,6 +504,13 @@ The screenshots below show you how the blocked trace data does not show up for a
   ![A screenshot of how the Super Admin user and a user that belongs to the everyone group sees data on the application map.](images/traces_security_policy_example_service_map.png)
 
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="security_policy.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+
 ## Manage Multiple Security Policy Rules
 
 The following annotated screenshot gives an overview of rule management options:
@@ -508,3 +532,9 @@ Here's a tour:
 1. Select the check boxes to the left of multiple rules to select them, use the icons to indicate changes, and click **Save** to commit the changes.
 1. Click the six-dot icon to explicitly drag a rule where you want it and change the rule prioritization.
 1. If you've moved, cloned, or deleted one or more rules, use the **Undo** button to undo the change, or **Redo** to revert the undo.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="security_policy.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
