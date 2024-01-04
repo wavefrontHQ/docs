@@ -230,6 +230,8 @@ As a final step, you name the alert, optionally add alert tags, and activate the
 </tbody>
 </table>
 
+{% include note.html content="You only see Step 5 when you create a metric alert. You don't see this step when you edit or clone a metric alert." %}
+
 
 ## Alert FAQs
 
@@ -478,4 +480,4 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.
 * Use ACLs to limit or share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
 
-* See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Operations for Applications service instances.
+* See the KB article [Migrating Objects or Data Between Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments) if your company has several Operations for Applications service instances.

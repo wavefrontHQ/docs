@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Micrometer integratio
 
 # Micrometer Integration
 
-To send Java application metrics to Wavefront you can use the Micrometer metrics library and the Wavefront registry. The registry sends data to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html), or it can send metrics directly to Wavefront services.
+To send Java application metrics to Operations for Applications, you can use the Micrometer metrics library and the Wavefront registry. The registry sends data to Operations for Applications using the [Wavefront proxy](https://docs.wavefront.com/proxies.html), or it can send metrics directly to Operations for Applications services.
 
 Starting with Spring Boot 2.0.0.M5, Micrometer is the instrumentation library powering the delivery of application metrics from Spring. The `micrometer-spring-legacymodule` provides drop-down support for Spring Boot 1.5.x.
 

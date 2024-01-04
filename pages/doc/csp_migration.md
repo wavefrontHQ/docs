@@ -74,8 +74,8 @@ During the process of onboarding your Operations for Applications service to VMw
 
     For details, see the [permissions differences](csp-differences-by-area.html#permissions).
 * If a user does not have any permissions and roles in Operations for Applications, we assign that user with the **Viewer** Operations for Applications service role in VMware Cloud services.
-* If a user is assigned with roles in Operations for Applications, we assign that user with the corresponding custom roles in VMware Cloud services. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
-* If a user belongs to a group in Operations for Applications, we add that user to the corresponding group in VMware Cloud services. See [How Are the Groups Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-groups-migrated-to-vmware-cloud-services).
+* If a user is assigned with roles in Operations for Applications, we assign that user with the corresponding custom roles in VMware Cloud services. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If a user belongs to a group in Operations for Applications, we add that user to the corresponding group in VMware Cloud services. See [How Are the Groups Migrated to VMware Cloud Services?](#how-are-the-groups-migrated-to-vmware-cloud-services).
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the Operations for Applications users](csp_user_management.html) in the VMware Cloud Services Console."%}
 
@@ -98,7 +98,7 @@ During the process of onboarding your Operations for Applications service to VMw
 * The service accounts from the custom groups in Operations for Applications **are not** added to any VMware Cloud group.
 
     {% include important.html content="Currently, VMware Cloud services supports grouping only for user accounts."%}
-* If a custom group in Operations for Applications is assigned with roles, the corresponding VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If a custom group in Operations for Applications is assigned with roles, the corresponding VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the user groups](csp_users_roles.html#manage-user-groups) in the VMware Cloud Services Console."%}
 
@@ -109,8 +109,8 @@ During the process of onboarding your Operations for Applications service to VMw
 * All current users are added to the **All Operations for Applications Users** VMware Cloud group.
 
     {% include important.html content="New users will **no longer** be added automatically to this group."%}
-* The **All Operations for Applications Users** VMware Cloud group is assigned with the **All Operations for Applications Users** VMware Cloud custom role, which corresponds to the **Everyone** role in Operations for Applications. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
-* If the **Everyone** system group in Operations for Applications is assigned with custom roles, the **All Operations for Applications Users** VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](csp_migration.html#how-are-the-roles-migrated-to-vmware-cloud-services).
+* The **All Operations for Applications Users** VMware Cloud group is assigned with the **All Operations for Applications Users** VMware Cloud custom role, which corresponds to the **Everyone** role in Operations for Applications. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If the **Everyone** system group in Operations for Applications is assigned with custom roles, the **All Operations for Applications Users** VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
 * In Operations for Applications, we continue to maintain the **Everyone** system group only as a local **internal** group that is automatically populated with all new users. This group has no roles and permissions.
 
 {% include tip.html content="From now on, it is up to you to add new users to the **All Operations for Applications Users** VMware Cloud group. The **Everyone** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
@@ -121,7 +121,7 @@ During the process of onboarding your Operations for Applications service to VMw
 
 {% include important.html content="Currently, VMware Cloud services supports grouping only for user accounts."%}
 
-* The permissions from the roles assigned to the **Service Accounts** system group in Operations for Applications are now directly assigned to the service accounts. See [What Happens with the Service Accounts?](csp_migration.html#what-happens-with-the-service-accounts).
+* The permissions from the roles assigned to the **Service Accounts** system group in Operations for Applications are now directly assigned to the service accounts. See [What Happens with the Service Accounts?](#what-happens-with-the-service-accounts).
 * In Operations for Applications, we continue to maintain the **Service Accounts** system group only as a local **internal** group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
 
 {% include tip.html content="From now on, the **Service Accounts** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
@@ -137,8 +137,8 @@ During the process of onboarding your Operations for Applications service to VMw
 During the process of onboarding your Operations for Applications service to VMware Cloud services, for each role in Operations for Applications, we create a corresponding [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) in your VMware Cloud organization running the service as follows:
 
 * For each role that you have created in Operations for Applications, we create a corresponding VMware Cloud custom role with the same name and description.
-* For the **Everyone** role that is assigned to the **Everyone** system group in Operations for Applications, we create the **All Operations for Applications Users** VMware Cloud custom role. See [How Is the Everyone System Group Migrated?](csp_migration.html#how-is-the-everyone-system-group-migrated).
-* For the **Service Accounts** role that is assigned to the **Service Accounts** system group in Operations for Applications, we **do not** create any VMware Cloud custom role, because this group is not migrated. See [What Happens with Service Accounts System Group?](csp_migration.html#what-happens-with-service-accounts-system-group).
+* For the **Everyone** role that is assigned to the **Everyone** system group in Operations for Applications, we create the **All Operations for Applications Users** VMware Cloud custom role. See [How Is the Everyone System Group Migrated?](#how-is-the-everyone-system-group-migrated).
+* For the **Service Accounts** role that is assigned to the **Service Accounts** system group in Operations for Applications, we **do not** create any VMware Cloud custom role, because this group is not migrated. See [What Happens with Service Accounts System Group?](#what-happens-with-the-service-accounts-system-group).
 * The corresponding VMware Cloud custom roles are assigned with the same [permissions](csp_permissions_overview.html) as the original roles in Operations for Applications. There are the following exceptions:
 
     - The **Accounts** permission in Operations for Applications is replaced by the **Admin** Operations for Applications permission in VMware Cloud services. In addition, the users with that permission are assigned with the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
@@ -272,7 +272,7 @@ You should incrementally [replace](#how-to-replace-an-operations-for-application
 
 ### How to View and Manage the Operations for Applications API Tokens?
 
-Users with the **Admin** Operations for Applications service role can [manage](csp_api_tokens.html#managing-the-operations-for-applications-api-tokens-in-your-service-instance) the Operations for Applications API tokens in the service instance.
+Users with the **Admin** Operations for Applications service role can [manage](csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-in-your-service-instance) the Operations for Applications API tokens in the service instance.
 
 Each user can view and revoke their own Operations for Applications API tokens:
 
@@ -295,7 +295,7 @@ It's recommended to use Operations for Applications API tokens only for a [limit
 
 You should incrementally replace your Operations for Applications API tokens with the more secure VMware Cloud services access tokens.
 <br /><br />
-To replace an Operations for Applications API token associated with a service account, you must replace the service account with a server to server OAuth app. See [How to Replace a Service Account with a Server to Server App?](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app).
+To replace an Operations for Applications API token associated with a service account, you must replace the service account with a server to server OAuth app. See [How to Replace a Service Account with a Server to Server App?](#how-to-replace-a-service-account-with-a-server-to-server-app).
 <br /><br />
 The flowchart on the right shows the overall process for replacing an Operations for Applications API token with a VMware Cloud services API token.
 </td>
@@ -354,7 +354,7 @@ To replace an Operations for Applications API token associated with your user ac
 1. Reconfigure your scripts, API calls, or proxies to exchange the newly generated VMware Cloud services API token for an access token, instead of using the Operations for Applications API token.
 
     {% include important.html content="The TTL of the access tokens associated with user accounts is 30 minutes. Make sure that your script renews the access token periodically before it expires. The Wavefront proxy does this automatically. "%}
-1. [Revoke](csp_migration.html#how-to-view-and-manage-the-operations-for-applications-tokens) the Operations for Applications API token that you replaced.
+1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Operations for Applications API token that you replaced.
 
 <table style="width: 100%;">
 <tbody>
@@ -366,7 +366,7 @@ To replace an Operations for Applications API token associated with your user ac
 
 During the process of onboarding your Operations for Applications service to VMware Cloud services, all of the existing Wavefront proxies are **preserved** with their existing Operations for Applications API tokens.
 
-You should incrementally [replace](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
+You should incrementally [replace](#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
 
 {% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Operations for Applications service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
 
@@ -395,7 +395,8 @@ You should incrementally [replace](csp_migration.html#how-to-replace-the-operati
         ```
         cspAPIToken=<VMware_Cloud_services_API_token>
         ```
-        
+1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Operations for Applications API token that you replaced.
+
 <table style="width: 100%;">
 <tbody>
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="csp_migration.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
@@ -406,7 +407,7 @@ You should incrementally [replace](csp_migration.html#how-to-replace-the-operati
 
 During the process of onboarding your Operations for Applications service to VMware Cloud services, all of the existing integrations are **preserved** and continue to operate using proxy authentication with Operations for Applications API tokens.
 
-You should incrementally [replace](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the proxy tokens of your [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that are updated to use proxy authentication with the more secure VMware Cloud services access token.
+You should incrementally [replace](#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the proxy tokens of your [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that are updated to use proxy authentication with the more secure VMware Cloud services access token.
 
 {% include tip.html content="From now on, the users with the **Proxies** and **Integrations** service roles can set up integrations in your Operations for Applications service. New integrations must use proxy authentication with VMware Cloud services access tokens except for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
 

@@ -11,13 +11,76 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Announcement
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. 
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. We are in the process of incrementally [onboarding](csp_migration.html) all original subscriptions to VMware Cloud services.
 
 For details about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
 
-If your Operations for Applications service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+If your Operations for Applications service **is onboarded** to VMware Cloud services, most of the integrations authenticate with VMware Cloud services **access tokens**. Only a limited list of integrations still authenticate with Operations for Applications API tokens. For details, see [How Integration Authentication Works](integrations_onboarded_subscriptions.html).
+
+{% include note.html content= "The integrations in the **Archived** section are approaching their end-of-life. For that reason, we will not update these integrations to authenticate with VMware Cloud services access tokens." %}
+
+During the process of onboarding an original Operations for Applications service to VMware Cloud services, all of the existing integrations are preserved and continue to operate using Operations for Applications API tokens. You should incrementally switch to integration authentication with the more secure VMware Cloud services access tokens. See [What Happens with the Integrations?](csp_migration.html#what-happens-with-the-integrations).
 
 {% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
+
+## December 2023
+
+We made improvements to the following integrations in December 2023:
+
+* Kubernetes and related integrations -- Removed the Helm and manual installation instructions from all Kubernetes-based integrations, such as AWS Appmesh, Cassandra, Ceph, .Net Core, Envoy, etcd, Fluentd, GemFire, Istio, Kafka, NVIDIA, RabbitMQ, Redis,TSM, and Velero. 
+
+  {% include important.html content= "We deprecated the Helm and manual installation of the Kubernetes Metrics Collector, Wavefront proxy, Logs, and so on, in December 2022.  Support for the legacy Collector and proxy installation methods (including bug fixes, security vulnerabilities, new functionality, etc.) was discontinued on Feb 28, 2023. You must use the Observability for Kubernetes Operator to set up the Kubernetes integration. " %}
+
+* Tanzu Application Service -- Fixed an issue with the **Error Rate** chart in the **Workload Monitoring** dashboard. 
+* VMware Tanzu Kubernetes Grid Integration -- Removed the `limit()` function from the queries in the VMware Tanzu Kubernetes Grid integration system dashboards, because this function [may return No Data](ts_limit.html#summary).
+
+We updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+
+  * Chef Server
+
+    This is a new Chef Server integration that supports VMware Cloud Services access token authentication.
+
+  * Micrometer
+
+## October 2023
+
+We **deprecated** a number of integrations in October 2023, and moved these integrations to the **Archived** section:
+
+* Azure Deployment Manager
+* Ansible Role
+* AVI Networks (NSX ALB)
+* AWS Lambda Functions
+* CollectD
+* Data Platforms
+* FreeBSD Host
+* Metricproxy
+* OpenBSD Host
+* VMware Blockchain
+* VMware tc Server
+* Chef Server
+* nodejs
+
+{% include important.html content= "The deprecated integrations will reach **end-of-life** in January, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+
+Also, we made improvements to the following integrations in October 2023:
+
+* Kubernetes:
+
+  * Fixed the alert query of the **K8s node unhealthy** system alert.
+  * Removed the `limit()` function from the queries in the Kubernetes integration system dashboards, because this function [may return No Data](ts_limit.html#summary).
+  * Removed thresholds from the **K8s pod CPU usage too high** system alert.
+  * Updated the **Kubernetes Workloads Troubleshooting** dashboard overview with information about the Operator compatibility.
+* Tanzu Application Service - Updated the **Error Rate per Minute** chart in the **Workload Monitoring** dashboard to include the 4xx and 5xx HTTP request error counts.
+* Operations for Applications Usage -- Enabled the **Include Obsolete Metrics** option for all charts in the **Operations for Applications Service and Proxy Data** dashboard.
+* VMware GemFire -- Updated the queries of the GemFire system alerts with new prefixes.
+* Go -- Removed references of deprecated SDKs.
+* C Sharp -- Removed references of deprecated libraries.
+
+In addition, we updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+
+  * Catchpoint
+  * Nagios
+  * Uptime
 
 ## August 2023
 
@@ -57,7 +120,6 @@ We made improvements to the following integrations in August 2023:
 * .NET Core -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
 * Docker with cAdvisor -- Updated the setup steps and instructions.
 * Tanzu Service Mesh -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
-
 
 ## July 2023
 

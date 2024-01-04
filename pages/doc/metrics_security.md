@@ -220,13 +220,15 @@ The following annotated screenshot gives an overview of rule management options:
 
 <!---Have to change screenshot to show Save instead of Apply--->
 
+{% include note.html content="With the 2023-45.x release, the metrics security policy moved to a new framework. Therefore, new updates you make to your security policy start from version 1 on the **Version History** page. For details, see [2023-45.x Release Notes](wavefront_release_notes.html#2023-45x-release-notes)." %}
+
 Here's a tour:
 
 1. Click **Version History** to:
   * Revert to an earlier version of the policy.
   * Look at information on who last edited the security policy and when that happened.
 1. Examine the **Metric Prefix** column to see the metrics affected by a rule.
-2. Look at the **Access** column to see whether the rule allows or blocks access.
+1. Look at the **Access** column to see whether the rule allows or blocks access.
 1. Select the check box to the left of a rule to select it, then use the icons above to clone or delete the selected rule.
 1. Select the check boxes to the left of multiple rules to select them, use the icons to indicate changes, and click **Save** to commit the changes.
 1. Click the six-dot icon to explicitly drag a rule where you want it and change the rule prioritization.

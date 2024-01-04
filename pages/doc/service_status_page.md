@@ -57,7 +57,7 @@ You can subscribe to receive notifications for incidents and scheduled maintenan
 <li>In a web browser, go to <a href="https://status.vmware-services.io">https://status.vmware-services.io</a>.</li>
 <li>In the top-right corner, click <strong>Subscribe to Updates</strong>.</li>
 <li>Select the notification method that you want to use, enter your contact details, and click <strong>Subscribe</strong></li>
-<li>On the next page, nex to <strong>Components</strong>, click <strong>Select none</strong> to deselect all services.</li>
+<li>On the next page, next to <strong>Components</strong>, click <strong>Select none</strong> to deselect all services.</li>
 <li>Scroll down to <strong>VMware Aria Operations for Applications</strong>.</li>
 <li>Select the check boxes for both <strong>VMware Aria Operations for Applications</strong> and your alias cluster name, and click <strong>Save</strong>.</li>
 <li>Click the confirmation link that we sent to you.</li>

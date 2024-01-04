@@ -13,9 +13,9 @@ This page provides an overview of what you can do with the Spring Boot integrati
 
 ## Spring Boot Integration
 
-Spring Boot lets you set up, configure, and run both simple and web-based applications. Wavefront supports Spring Boot in two ways:
+Spring Boot lets you set up, configure, and run both simple and web-based applications. Operations for Applications supports Spring Boot in two ways:
 
-- This integration has setup steps for configuring a Spring Boot application to send data to Wavefront. A dashboard for examining metrics is included with this integration.
+- This integration has setup steps for configuring a Spring Boot application to send data to Operations for Applications. A dashboard for examining metrics is included with this integration.
 - The [Spring Boot tutorial](https://docs.wavefront.com/wavefront_springboot3_tutorial.html) shows how to send data using the Spring Petclinic application.
 
 In addition to setting up the metrics flow, this integration also installs a dashboard that allows you to monitor the performance of your Spring Boot application. Here's a preview of the dashboard:

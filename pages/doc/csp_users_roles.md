@@ -30,6 +30,8 @@ VMware Cloud services includes built-in **service roles** for each service on th
 - At least one Operations for Applications service role is required for a user to have access to the Operations for Applications service instance. Custom roles are optional.
 - In a multi-tenant environment, a user can have different service roles for the different Operations for Applications service instances (tenants). Custom roles apply to **all** tenants for which the user has a service role.
 
+  {% include note.html content="When you invite new users in a multi-tenant environment, make sure that you assign them the roles they need for each Operations for Applications service instance (tenant). For information on how to do this, see [Invite New Users from the VMware Cloud Services Console](csp_new_users_tutorial.html)."%}
+
 The VMware Cloud Services Console **Roles** page lists all service roles and custom roles in your VMware Cloud organization. To navigate to this page:
 
 1. Log in to the VMware Cloud Services Console as an **Organization Owner** or **Organization Administrator**.
