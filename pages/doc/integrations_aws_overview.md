@@ -212,6 +212,7 @@ To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-
 1. Configure the integration properties:
      - **Name** - Name to identify the integration.
      - **Role ARN** - The Role ARN from your Amazon account.
+1. (Optional) If you want to skip the ingestion of support service limit metrics (also known as service quotas), that is, metrics namespace `aws.limits.*`, disable **Service Limit Metrics**.
 1. (Optional) If you want to configure a CloudTrail integration, click **Show Advanced Options**.
      - **Bucket Name** - Enter the S3 bucket containing CloudTrail logs. 
      
@@ -241,6 +242,7 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
       
       1. **Name** -- Name to identify the integration.
       2. **Role ARN** -- Select the Role ARN from your Amazon account.
+      3. **Service Limit Metrics** -- Disable or enable the ingestion of support service limit metrics (also known as service quotas), that is, metrics namespace `aws.limits.*`.
    
    * To register a CloudTrail service, select **Register CloudTrail**, and configure the following integration properties:
       
