@@ -4,6 +4,7 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wf_kubernetes_troubleshooting.html
+published: false
 summary: This page contains information about troubleshooting the Helm-managed and installed version of the Wavefront proxy and Kubernetes Metrics Collector.
 ---
 

@@ -55,14 +55,9 @@ We support SDKs that implement the [OpenTracing](https://opentracing.io) specifi
 
 {{site.data.alerts.note}}
 <p>You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Operations for Applications. </p>
-  <ul>
-    <li>
-      To learn about the specification that works for you, see <a href="https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-">OpenTracing or OpenTelemetry</a>.
-    </li>
-    <li>
+<p>
       If your application uses OpenTelemetry, see <a href="opentelemetry_tracing.html">OpenTelemetry</a> to send trace data to Operations for Applications.
-    </li>
-  </ul>
+    </p>
 {{site.data.alerts.end}}
 
 {{site.data.alerts.important}}

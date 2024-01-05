@@ -247,4 +247,4 @@ rawavg(align(1m, ts("my_data")))
 
 ## Learn More!
 
-The KB article [When to use raw vs. non-raw aggregation](https://help.wavefront.com/hc/en-us/articles/360048430731-When-to-use-raw-vs-non-raw-aggregation) gives additional detail.
+The KB article [When to use raw vs. non-raw aggregation](https://vmwaoa.zendesk.com/hc/en-us/articles/21285689952909-When-to-use-raw-vs-non-raw-aggregation) gives additional detail.

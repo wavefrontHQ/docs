@@ -23,6 +23,25 @@ During the process of onboarding an original Operations for Applications service
 
 {% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
 
+## December 2023
+
+We made improvements to the following integrations in December 2023:
+
+* Kubernetes and related integrations -- Removed the Helm and manual installation instructions from all Kubernetes-based integrations, such as AWS Appmesh, Cassandra, Ceph, .Net Core, Envoy, etcd, Fluentd, GemFire, Istio, Kafka, NVIDIA, RabbitMQ, Redis,TSM, and Velero. 
+
+  {% include important.html content= "We deprecated the Helm and manual installation of the Kubernetes Metrics Collector, Wavefront proxy, Logs, and so on, in December 2022.  Support for the legacy Collector and proxy installation methods (including bug fixes, security vulnerabilities, new functionality, etc.) was discontinued on Feb 28, 2023. You must use the Observability for Kubernetes Operator to set up the Kubernetes integration. " %}
+
+* Tanzu Application Service -- Fixed an issue with the **Error Rate** chart in the **Workload Monitoring** dashboard. 
+* VMware Tanzu Kubernetes Grid Integration -- Removed the `limit()` function from the queries in the VMware Tanzu Kubernetes Grid integration system dashboards, because this function [may return No Data](ts_limit.html#summary).
+
+We updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+
+  * Chef Server
+
+    This is a new Chef Server integration that supports VMware Cloud Services access token authentication.
+
+  * Micrometer
+
 ## October 2023
 
 We **deprecated** a number of integrations in October 2023, and moved these integrations to the **Archived** section:
@@ -30,6 +49,7 @@ We **deprecated** a number of integrations in October 2023, and moved these inte
 * Azure Deployment Manager
 * Ansible Role
 * AVI Networks (NSX ALB)
+* AWS Lambda Functions
 * CollectD
 * Data Platforms
 * FreeBSD Host
@@ -38,10 +58,9 @@ We **deprecated** a number of integrations in October 2023, and moved these inte
 * VMware Blockchain
 * VMware tc Server
 * Chef Server
-* AWS Lambda Functions
 * nodejs
 
-{% include important.html content= "The deprecated integrations in the list above will reach **end-of-life** in January, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
+{% include important.html content= "The deprecated integrations will reach **end-of-life** in January, 2024 and will be removed from the product. If you are using any of these integrations and need assistance, reach out to our [Technical Support team](wavefront_support_feedback.html)." %}
 
 Also, we made improvements to the following integrations in October 2023:
 
