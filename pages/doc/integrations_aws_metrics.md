@@ -301,11 +301,11 @@ Unless otherwise indicated, VMware Aria Operations for Applications sets the val
   - `aws.rds.capacity` - For Amazon Aurora only, RDS capacity.
   - `aws.rds.backtrackconsumedchangerecords` - For Amazon Aurora only, the number of change records stored for Backtrack.
 
-- Service Limit Metrics - Capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
+- (Optional) Service Limit Metrics - Capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
   - `aws.limits.<resource>.limit` - The current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - The current usage of an AWS resource in a particular region.
 
-    {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving VMware Aria Operations for Applications Read-Only Access](integrations_aws_overview.html#giving-access-to-your-aws-account) for details." %}
+    {% include note.html content="If you enabled the ingestion of these metrics, to examine them, your account needs at least the Business-level AWS Support plan, because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving VMware Aria Operations for Applications Read-Only Access](integrations_aws_overview.html#giving-access-to-your-aws-account) for details." %}
     
 
 
