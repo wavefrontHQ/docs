@@ -388,7 +388,7 @@ With this policy in place:
 
 ## Traces Security Policies
 
-You can block applications or services information from specific users, so that they don't see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards.
+You can block application or service information from specific users so that they don't see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards.
 
 {% include note.html content="Only a Super Admin user or users with the **Metrics** or **Applications** permission can view, create, and manage a traces security policy. " %}
 

@@ -36,131 +36,17 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
-## 2023-45.x Release Notes
+## 2024-01.x Release Notes
 
-### Original and Onboarded Subscriptions
+**Traces Security Policy**: You can block application or service information from specific users so that they don’t see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards. To learn more, see:
+* [Traces Security Policies for original and onboarded subscriptions](security_policy.html#traces-security-policies).
+* [Traces Security Policies for onboarded subscriptions only](csp_security_policy.html#traces-security-policies).
 
-**Metrics Security Policy Version History Update**: With this release, we move the metrics security policy to a new framework. When you update your metrics security policy:
-* The version history is tracked for the new version, and the version history starts from number 1 again. But you don’t lose the previous version history.
-  <br/>Example: In the screenshot below, you have updated the security policy 38 times before this release. When you update the policy after this release, it is numbered as version 1, and you have the older versions listed below it.  
-  ![A screenshot of the version history, which starts with 1 again at the top.](images/metrics_security_policy_new_version_history.png)
-* You won’t be able to revert the metrics security policy to the duplicate version number in the old framework because it will be deactivated. 
-  <br/>Example: In the screenshot below, you don’t see the vertical ellipsis next to number 1 because it is a duplicate value and a version of the old framework.
-  ![A screenshot of the version history, which starts with 1 again at the top.](images/metrics_security_policy_revert_deactivated.png)
-
-## 2023-40.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-**Pie Chart Accessibility Improvement**: We added the **Slice Colors** option to the **Format** tab, so that you can now change the colors of the pie chart slices. See [Pie and Donut Chart](ui_chart_reference.html#pie-and-donut-chart).
-
-## 2023-38.x Release Notes
-
-### Onboarded Subscriptions
-
-**New Admin Permission and Service Role**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
-
-
-### Original and Onboarded Subscriptions
-
-**Cloud Integrations Page Improvements**: We improved the user experience of the **Cloud Integrations** page. To navigate to this page:
-1. In your service instance, click **Integrations** on the toolbar.
-2. Click a cloud integration tile,  for example **Amazon Web Services**.
-3. On the **Setup** tab, click **Advanced**.
-
-![An annotated screenshot of the Cloud Integrations list page. The information is listed below](images/cloud-integrations-page.png)
-
-On the **Cloud Integrations** page, now you can:
-
-* Apply various filters and hide or show the filters listed on the left.
-* Search for integrations, save and share searches.
-* Hide or show the filters on the left.
-* Click the **Add Cloud Integration** button and select a new integration to add.
-* Select to display all active or only the deleted integrations.
-* Sort the cloud integrations by name, time of the last data fetch, or number of ingested metrics.
-* Use the ellipsis icon menu to:
-  * Enable or disable an integration instance, edit it, or delete it, when all integrations are displayed.
-  * Restore an integration instance or select to permanently delete it, when only deleted integrations are displayed.
-
-## 2023-34.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-**Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
-
-## 2023-33.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-* **Alerts Improvements**: When the **Resolve Window** for an alert is deleted by using an external tool, in the Operations for Applications UI, the **Alert** will now properly display that the **Resolve Window** matches the **Trigger Window**.
-
-
-* **Sources Browser Page Improvements**: The [**Sources** browser page](sources_managing.html#examine-sources-in-the-source-browser) is now improved and allows you to:
-
-    * Hide and show details for all sources or for a specific source.
-    * Apply various filters and hide or show the filters listed on the left.
-    * Hide a single source or create a maintenance window for the alerts with a particular source.
-
-
-  In addition, the page on which you can [examine a single source](sources_managing.html#step-2-examine-the-source) is also improved for better user experience. 
-  
-
-## 2023-31.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-* **Logs GA release**: With this release, we launch the General Availability of our [Logs feature](logging_overview.html). You can:
-  * [Send your logs](logging_send_logs.html) to our service, and troubleshoot using the [Logs Browser](logging_log_browser.html).
-  * [Create logs charts](logging_logs_chart.html) to view logs next to your metrics data.
-  * Drill into logs from alerts, charts, and traces.
-  * [Customize the default log settings](logging_logs_settings.html) to map logs tags to metrics and trace tags so you can drill into logs seamlessly.
-  
-  {% include important.html content="Logs is enabled only for selected customers. If you want to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
-
-  ![A screenshot of the logs browser.](images/logs_browser_ga_for_release_notes.png)
-
-* **Logs Alerts**: You can create alerts for your logs data and see the firing events of the logs alert. See [Manage Logs Alerts](logging_log_alerts.html) for details. 
-
-  {{site.data.alerts.note}}
-  <ul>
-      <li>
-          You need the <b>Logs</b> permission to view the logs alerts.
-      </li>
-      <li>
-          You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
-      </li>
-  </ul>
-  <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
-  {{site.data.alerts.end}}
-
-  In this release, you can create logs alerts only when the default query language for your [user account](users_account_managing.html#configure-user-preferences) is **WQL** and **Chart Builder** is the default way for building queries. This limitation will be removed in an upcoming release.
-
-  ![A screenshot of the alert browser on the logs alerts tab.](images/logs_alerts_for_rlease_notes.png)
-
-* **Maintenance Window Browser Page Improvements**: The [**Maintenance Window** browser page](maintenance_windows_managing.html#maintenance-windows) is now improved and allows you to:
-
-    * Hide and show details for all maintenance windows or for a specific maintenance window.
-    * Sort the maintenance windows by name, state, start or end time.
-    * Apply various filters and hide or show the filters listed on the left.
-
-* **New Field in the Generic Webhook Alert Template**: We added the [`contributingKVs` iterator](alert_target_customizing.html#list-all-sources-and-point-tags-of-an-aggregation-alerts-time-series), which returns the keys and values of each source and point tag used in the time series of a failed alert whose condition uses a single top-level aggregation function.
-
-  {% include important.html content="This feature is not available by default. To enable this feature for your service instance, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
-
-* **Support for Alerting on ~alert.webhooks**: With this release, you can alert on `cs(~alert.webhooks.*)`. See [Query Responses of Webhook Alert Targets](webhooks_alert_notification.html#query-responses-of-webhook-alert-targets) for details.
-
-### Onboarded Subscriptions Only
-
-* **Support for Kubernetes Integration Setup**: We added support for setting up the Kubernetes integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
-
-* **Support for Tanzu Application Service Integration Setup**: We added support for setting up the Tanzu Application Service integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
-
-
-
-
-
+Example: An annotated screenshot of the create traces security policy for original and onboarded subscriptions.
+![Annotated create traces security rule screenshot.](images/traces_security_policy_create_rule.png)
 
 ## Past Release Notes
+- [2023-45.x Release Notes](2023-45.x_release_notes.html)
 - [2023-29.x Release Notes](2023-29.x_release_notes.html)
 - [2023-13.x Release Notes](2023-13.x_release_notes.html)
 - [2023-06.x Release Notes](2023-06.x_release_notes.html)
@@ -169,15 +55,3 @@ On the **Cloud Integrations** page, now you can:
 - [2022-29.x Release Notes](2022-29.x_release_notes.html)
 - [2022-20.x Release Notes](2022-20.x_release_notes.html)
 - [2022-06.x Release Notes](2022-06.x_release_notes.html)
-- [2021-49.x Release Notes](2021.49.x_release_notes.html)
-- [2021-35.x Release Notes](2021.35.x_release_notes.html)
-- [2021-24.x Release Notes](2021.24.x_release_notes.html)
-- [2021-19.x Release Notes](2021.19.x_release_notes.html)
-- [2021-14.x Release Notes](2021.14.x_release_notes.html)
-- [2021-08.x Release Notes](2021.08.x_release_notes.html)
-- [2020-42.x Release Notes](2020.42.x_release_notes.html)
-- [2020-38.x Release Notes](2020.38.x_release_notes.html)
-- [2020-30.x Release Notes](2020.30.x_release_notes.html)
-- [2020-26.x Release Notes](2020.26.x_release_notes.html)
-- [2020-22.x Release Notes](2020.22.x_release_notes.html)
-- [2020-14.x Release Notes](2020.14.x_release_notes.html)
