@@ -74,7 +74,7 @@ You can [monitor](wavefront-internal-metrics.html) your span storage by checking
 
 ## Sampling Policies
 
-If you can’t find traces because Intelligent Sampling discarded them, create a sampling policy to let the Operations for Applications service know that you want to keep specific spans. Sampling policies impact the volume of spans that are ingested and can affect your costs. See your Service Agreement for cost details.
+If you can’t find traces because Intelligent Sampling discarded them, create a sampling policy to let the Operations for Applications service know that you want to keep specific spans. Sampling policies impact the volume of spans that are ingested and can affect your [costs](wavefront_pricing.html#pricing-structure). See your Service Agreement for cost details.
 
 See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 
