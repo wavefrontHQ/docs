@@ -107,8 +107,9 @@ You can add an AWS integration by using the REST API documentation UI.
   "ec2":{
     "baseCredentials":{
       "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-     "externalId": "string"
+      "externalId": "string"
     },
+    "customNamespaces":["LIMITS"]
     "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
     "pointTagFilterRegex":"(region|name)"
   },
@@ -128,9 +129,10 @@ You can add an AWS integration by using the REST API documentation UI.
   "cloudTrail":{
     "baseCredentials":{
       "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-     "externalId":"string"
+      "externalId":"string"
     },
     "filterRule":"string"
+  },
 }
       ```
 
