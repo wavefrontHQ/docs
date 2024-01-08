@@ -102,18 +102,25 @@ You can add an AWS integration by using the REST API documentation UI.
 
      ```
 {
-  "name":"AWSMetric+ integration",
-  "service":"ec2",
-  "ec2":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-      "externalId": "string"
+    "name": "AWSMetric+ integration",
+    "service": "ec2",
+    "ec2": {
+        "baseCredentials": {
+            "roleArn": "arn:aws:iam::<accountid>:role/<rolename>",
+            "externalId": "string"
+        },
+        "instanceSelectionTagsExpr": "string",
+        "volumeSelectionTagsExpr": "string",
+        "metricFilterRegex": "^aws.(sqs|ec2|ebs|elb).*$",
+        "pointTagFilterRegex": "(region|name)",
+        "hostNameTags": [
+            "string"
+        ],
+        "customNamespaces": [
+            "LIMITS"
+        ]
     },
-    "customNamespaces":["LIMITS"]
-    "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
-    "pointTagFilterRegex":"(region|name)"
-  },
-  "serviceRefreshRateInMins":5
+    "serviceRefreshRateInMins": 5
 }
      ```
 
