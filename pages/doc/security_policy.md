@@ -388,7 +388,7 @@ With this policy in place:
 
 ## Traces Security Policies
 
-You can block application or service information from specific users so that they don't see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards.
+You can block application or service information for specific users so that they don't see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards.
 
 {% include note.html content="Only a Super Admin user or users with the **Metrics** or **Applications** permission can view, create, and manage a traces security policy. " %}
 
@@ -400,7 +400,7 @@ Data protected by a traces security policy rule can become invisible to users.
 * **Not visible on the Application Status page**. You don't see the services that are blocked on this page for the table, app map, and grid view.
 * **Not visible on the Service Dashboard**. The charts generated on the Service Dashboard do not have any data because the RED metrics related to the application or service are blocked.
   {% include note.html content="If you clone the out-of-the-box Service Dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
-* **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard does not have any data because the RED metrics related to the operations of the application or service are blocked.
+* **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard do not have any data because the RED metrics related to the operations of the application or service are blocked.
   {% include note.html content="If you clone the out-of-the-box Operations Dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
 
 ### Create a Traces Security Policy Rule 

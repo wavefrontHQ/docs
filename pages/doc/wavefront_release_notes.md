@@ -38,7 +38,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-01.x Release Notes
 
-**Traces Security Policy**: You can block application or service information from specific users so that they don’t see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards. To learn more, see:
+**Traces Security Policy**: You can block application or service information for specific users so that they don’t see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards. To learn more, see:
 * [Traces Security Policies for original and onboarded subscriptions](security_policy.html#traces-security-policies).
 * [Traces Security Policies for onboarded subscriptions only](csp_security_policy.html#traces-security-policies).
 
