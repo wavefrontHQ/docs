@@ -399,9 +399,9 @@ Data protected by a traces security policy rule can become invisible to users.
 * **Not visible on the Traces Browser**. If you are blocked from an application or service, you don't see the respective traces on the Traces Browser.
 * **Not visible on the Application Status page**. You don't see the services that are blocked on this page for the table, app map, and grid view.
 * **Not visible on the Service Dashboard**. The charts generated on the Service Dashboard do not have any data because the RED metrics related to the application or service are blocked.
-  {% include note.html content="If you clone the out-of-the-box Service Dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
+  {% include note.html content="Tracing security policies do not apply to Charts and Dashboard variables that use  `~component.heartbeat`, such as cloned Service Dashboards or Operations Dashboards." %}
 * **Not visible on the Operation Dashboard**. The charts generated on the Operations Dashboard do not have any data because the RED metrics related to the operations of the application or service are blocked.
-  {% include note.html content="If you clone the out-of-the-box Operations Dashboard and don't update the queries in the charts, the tracing security policies do not apply to the cloned dashboard or the charts." %}
+  {% include note.html content="Tracing security policies do not apply to Charts and Dashboard variables that use  `~component.heartbeat`, such as cloned Service Dashboards or Operations Dashboards." %}
 
 ### Create a Traces Security Policy Rule 
 
