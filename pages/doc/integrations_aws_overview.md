@@ -10,7 +10,7 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 
 You can use the Amazon Web Services integration for initial setup, but additional steps might be needed for some of the services. This page gives an overview.
 
-{% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
+{% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to set up an AWS integration. If you do not have this permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 ## Basics
 
@@ -230,7 +230,7 @@ To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-
 The AWS integration, which includes a CloudWatch, an AWS Metrics+, and, optionally, a CloudTrail integration, are added to the Amazon Web Services integrations list on the **Setup** tab.
 
 - If you want to configure allow lists and refresh rate for the CloudWatch ingestion, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
-- If you want to disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics namespace `aws.limits.*`, click the **AWS Metrics+** link in the Types column and follow the instructions in [Disable Service Limit Metrics Ingestion](integrations_aws_metrics.html#disable-service-limit-metrics-ingestion).
+- If you want to disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`, click the **AWS Metrics+** link in the Types column and follow the instructions in [Disable Service Limit Metrics Ingestion](integrations_aws_metrics.html#disable-service-limit-metrics-ingestion).
 
 
 ### Register Additional AWS Services to an AWS Integration
@@ -246,7 +246,7 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
       
       1. **Name** -- Name to identify the integration.
       2. **Role ARN** -- Select the Role ARN from your Amazon account.
-      3. **Service Limit Metrics** -- Disable or enable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics namespace `aws.limits.*`. You can later edit this setting, if necessary.
+      3. **Service Limit Metrics** -- Disable or enable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`. You can later edit this setting, if necessary.
    
    * To register a CloudTrail service, select **Register CloudTrail**, and configure the following integration properties:
       

@@ -124,7 +124,7 @@ You can add an AWS integration by using the REST API documentation UI.
 }
      ```
 
-      **Note**: If you want to disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics namespace <code>aws.limits.*</code>, replace <code>"customNamespaces":["LIMITS"]</code> with <code>"customNamespaces":[]</code>.
+      **Note**: If you want to disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace <code>aws.limits.*</code>, replace <code>"customNamespaces":["LIMITS"]</code> with <code>"customNamespaces":[]</code>.
 
     * CloudTrail integration:
 
