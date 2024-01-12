@@ -34,7 +34,7 @@ VMware Aria Operations for Applications retrieves AWS metric and dimension data 
 
 ### Configuring CloudWatch Data Ingestion
 
-After you [set up an AWS integration](integrations_aws_overview.html#set-up-an-aws-integration) associated it with a Role ARN, you can configure which AWS product instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which VMware Aria Operations for Applications fetches metrics.
+After you [set up an AWS integration](integrations_aws_overview.html#set-up-an-aws-integration) associated with a Role ARN, you can configure which AWS product instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which VMware Aria Operations for Applications fetches metrics.
 {% include tip.html content="The following examples are supported only for EC2 and EBS metrics." %}
 
 To configure CloudWatch ingestion:
