@@ -316,7 +316,7 @@ After you [set up an AWS integration](integrations_aws_overview.html#set-up-an-a
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. In the Types column, click the **AWS Metrics+** link in the row of the integration you want to configure.
-1. Deselect the **Service Limit Metrics** checkbox.
+1. Deselect the **Service Limit Metrics** check box.
 1. Click **Update**.
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits
