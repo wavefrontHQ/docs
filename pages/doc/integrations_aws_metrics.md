@@ -8,7 +8,7 @@ summary: Monitor CloudWatch, CloudTrail, and Metrics+ with VMware Aria Operation
 ---
 Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS. The Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
-{% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
+{% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to set up an AWS integration. If you do not have this permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your VMware Aria Operations for Applications account with the correct permissions.
 * From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
@@ -310,13 +310,13 @@ Unless otherwise indicated, VMware Aria Operations for Applications sets the val
     
 ### Disable Service Limit Metrics Ingestion
 
-After you [set up an AWS integration](integrations_aws_overview.html#set-up-an-aws-integration) associated it with a Role ARN, you can disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics namespace `aws.limits.*`. You can later enable these metrics again, if necessary.
+After you [set up an AWS integration](integrations_aws_overview.html#set-up-an-aws-integration), you can disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`. You can later enable these metrics again, if necessary.
 
 1. Log in to your product cluster and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
-1. In the Types column, click the **AWS Metrics+** link in the row of the integration you want to configure.
-1. Deselect the **Service Limit Metrics** check box.
+1. In the Types column of the row of the integration you want to configure, click the **AWS Metrics+** link.
+1. On the **Edit AWS Metrics+** page, deselect the **Service Limit Metrics** check box.
 1. Click **Update**.
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits
