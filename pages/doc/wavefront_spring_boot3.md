@@ -243,66 +243,40 @@ dependencies {
 
 ### Step 2 (Optional): Specify Your Operations for Applications Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have an Operations for Applications account, you can send data there instead by specifying the `uri` and `api-token` properties as follows:
+By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a VMware Cloud Services account or an Operations for Applications account, you can send data there instead by specifying the properties shown below:
 
-```
-management.wavefront.api-token = $API_Token
-management.wavefront.uri = $wavefront_instance
-wavefront.freemium-account = false
-```
+* Properties to Authenticate with ID and Secret of a Server to Server OAuth App in VMware Cloud Services:
+  ```
+  management.wavefront.api-token-type=CSP_CLIENT_CREDENTIALS
+  management.wavefront.uri=[[wavefrontInstanceURL]]
+  management.wavefront.api-token=clientId=<CLIENT-ID>,clientSecret=<SECRET>,orgId=<OPTIONAL-ORG-ID>
+  wavefront.freemium-account = false
+  ```
+    * Replace `<WAVEFRONT_INSTANCE_URL>` with the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
+    * Replace `<CLIENT-ID>` and `<SECRET>` with the credentials (client ID and client secret) of an existing server-to-server OAuth app which has the **Direct Data Ingestion** service role assigned and is added to the VMware Cloud organization running the Operations for Applications service. 
+    * The `<OPTIONAL-ORG-ID>` parameter is optional, and you can replace it with the long ID of the VMware Cloud organization running the service.
+    * Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account. 
+  
+* Properties to Authenticate with a VMware Cloud Services API Token:
+  ```
+  management.wavefront.api-token-type=CSP_API_TOKEN
+  management.wavefront.uri=<WAVEFRONT_INSTANCE_URL>
+  management.wavefront.api-token=<CSP_API_TOKEN>
+  wavefront.freemium-account = false
+  ```
+  * Replace `<WAVEFRONT_INSTANCE_URL>` with the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
+  * Replace `<CSP_API_TOKEN>` with your VMware Cloud Services API token. The API token must be generated in the VMware Cloud Services Console by an active user account and must be assigned the **Direct Data Ingestion** service role.
+  * Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account.  
 
-* `$API_Token` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
-* `$wavefront_instance` is the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
-* Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account. 
-
-
-<ul id="profileTabs" class="nav nav-tabs">
-        <li class="active"><a href="#oauth" data-toggle="tab">Server to Server OAuth App in VMware Cloud Services</a></li>
-        <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
-        <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
-        <li><a href="#springboot2" data-toggle="tab">Spring Boot 2</a></li>
-        <li><a href="#springboot3" data-toggle="tab">Spring Boot 3</a></li>
-        <li><a href="#customProxy" data-toggle="tab">Custom Proxy Port</a></li>
-    </ul>
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tracingApplication">
-            <p>If you are using OpenTelemetry, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
-            <pre>
-traceDerivedCustomTagKeys=env
-            </pre>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="jaeger">
-            <p>If you are using Jaeger, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
-            <pre>
-traceDerivedCustomTagKeys=env
-            </pre>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="zipkin">
-            <p>If you are using Zipkin, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
-            <pre>
-traceDerivedCustomTagKeys=env
-            </pre>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="springboot2">
-        <p> If your application uses Spring Boot 2, add the configuration shown below to your application's <code>application.properties</code> file.</p>
-            <pre>
-wavefront.tracing.red-metrics-custom-tag-keys=env
-            </pre>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="springboot3">
-        <p> If your application uses Spring Boot 3, add the configuration shown below to your application's <code>application.properties</code> file.</p>
-            <pre>
-management.wavefront.trace-derived-custom-tag-keys=env
-            </pre>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="customProxy">
-        <p> Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
-            <pre>
-traceDerivedCustomTagKeys=env
-            </pre>
-        </div>
-      </div>
-
+* Properties to Authenticate with an Operations for Applications API Token (Legacy)
+  ```
+  management.wavefront.api-token = <API_TOKEN>
+  management.wavefront.uri = <WAVEFRONT_INSTANCE_URL>
+  wavefront.freemium-account = false
+  ```
+  * Replace `<API_TOKEN>` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
+  * Replace `<WAVEFRONT_INSTANCE_URL>` with the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
+  * Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account.  
 
 ### Step 3:  View Your Data in Our Service
 
