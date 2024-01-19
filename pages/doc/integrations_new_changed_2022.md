@@ -8,7 +8,7 @@ summary: New and changed integrations released in 2022.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations.
 
-This document lists new and changed integrations for 2022. For earlier releases, see [New and Changed Integrations in 2021](integrations_new_changed_2021.html)[New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
+This document lists new and changed integrations for 2022. For earlier releases, see [New and Changed Integrations in 2021](integrations_new_changed_2021.html) and [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
 * We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
