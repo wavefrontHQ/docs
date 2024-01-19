@@ -25,7 +25,9 @@ During the process of onboarding an original Operations for Applications service
 
 ## January 2024
 
-Amazon Web Services - You can now disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`. To do so, when you register or edit your AWS Metrics+ integration, deselect the **Service Limit Metrics** check box.
+We improved the following integration in January 2024:
+
+* Amazon Web Services - You can now disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`. To do so, when you register or edit your AWS Metrics+ integration, deselect the **Service Limit Metrics** check box.
 
 
 ## All 2019 - 2023 Integrations Release Notes
