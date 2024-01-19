@@ -30,16 +30,16 @@ For more information, see [Giving Access to Your AWS Account](integrations_aws_o
 1. Click **Execute**.
 1. Copy the external ID from the response body of the request.
 
-   ```
-   {
-  "status": {
-    "result": "OK",
-    "message": "",
-    "code": 200
-  },
-  "response": "<external-ID>"
-  }
-  ```
+    ```
+    {
+    "status": {
+        "result": "OK",
+        "message": "",
+        "code": 200
+      },
+    "response": "<external-ID>"
+    }
+    ```
 
 ### Provide Read-Only Access to Your Amazon Account and Get the Role ARN
 
@@ -87,13 +87,13 @@ You can add an AWS integration by using the REST API documentation UI.
   "name":"CloudWatch integration",
   "service":"CLOUDWATCH",
   "cloudWatch":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-      "externalId":"string"
+      "baseCredentials":{
+        "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
+        "externalId":"string"
+        },
+      "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
+      "pointTagFilterRegex":"(region|name)"
     },
-    "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
-    "pointTagFilterRegex":"(region|name)"
-  },
   "serviceRefreshRateInMins":5
 }
      ```
@@ -102,35 +102,46 @@ You can add an AWS integration by using the REST API documentation UI.
 
      ```
 {
-  "name":"AWSMetric+ integration",
-  "service":"ec2",
-  "ec2":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-     "externalId": "string"
+    "name": "AWSMetric+ integration",
+    "service": "ec2",
+    "ec2": {
+        "baseCredentials": {
+            "roleArn": "arn:aws:iam::<accountid>:role/<rolename>",
+            "externalId": "string"
+        },
+        "instanceSelectionTagsExpr": "string",
+        "volumeSelectionTagsExpr": "string",
+        "metricFilterRegex": "^aws.(sqs|ec2|ebs|elb).*$",
+        "pointTagFilterRegex": "(region|name)",
+        "hostNameTags": [
+            "string"
+        ],
+        "customNamespaces": [
+            "LIMITS"
+        ]
     },
-    "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
-    "pointTagFilterRegex":"(region|name)"
-  },
-  "serviceRefreshRateInMins":5
+    "serviceRefreshRateInMins": 5
 }
      ```
+
+      **Note**: If you want to disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace <code>aws.limits.*</code>, replace <code>"customNamespaces":["LIMITS"]</code> with <code>"customNamespaces":[]</code>.
 
     * CloudTrail integration:
 
       ```
 {
-  "name":"CloudTrail integration",
-  "service":"cloudTrail",
-   "region":"string",
-   "prefix": "string",
-   "bucketName":"string"
-  "cloudTrail":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-     "externalId":"string"
+    "name":"CloudTrail integration",
+    "service":"cloudTrail",
+    "region":"string",
+    "prefix": "string",
+    "bucketName":"string"
+    "cloudTrail":{
+        "baseCredentials":{
+            "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
+            "externalId":"string"
+        },
+        "filterRule":"string"
     },
-    "filterRule":"string"
 }
       ```
 
