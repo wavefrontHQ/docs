@@ -278,6 +278,78 @@ By default, the Wavefront Spring Boot Starter creates an account for you and sen
   * Replace `<WAVEFRONT_INSTANCE_URL>` with the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
   * Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account.  
 
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#oauth" data-toggle="tab">Server to Server OAuth App</a></li>
+    <li><a href="#api" data-toggle="tab">API Token</a></li>
+</ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="oauth">
+      <p>
+        Add these properties to authenticate with the ID and Secret of a Server to Server OAuth App in VMware Cloud Services:
+      </p>
+      <pre>
+management.wavefront.api-token-type=CSP_CLIENT_CREDENTIALS
+management.wavefront.uri={ENTER_WAVEFRONT_INSTANCE_URL}
+management.wavefront.api-token=clientId={ENTER_CLIENT-ID},clientSecret={ENTER_SECRET},orgId={OPTIONAL_ORG_ID}
+wavefront.freemium-account = false
+      </pre>
+      <ul>
+        <li>
+          Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
+        </li>
+        <li>
+          Replace <code>{ENTER_CLIENT-ID}</code> and <code>{ENTER_SECRET}</code> with the credentials (client ID and client secret) of an existing server-to-server OAuth app which has the <b>Direct Data Ingestion</b> service role assigned and is added to the VMware Cloud organization running the Operations for Applications service.
+        </li>
+        <li>
+          The <code>{OPTIONAL_ORG_ID}</code> parameter is optional, and you can replace it with the long ID of the VMware Cloud organization running the service.
+        </li>
+        <li>
+          Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
+        </li>
+      </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="api">
+      <ul>
+        <li>
+          If you have a VMware Cloud Service account, add the following properties to authenticate with a VMware Cloud Services API Token.
+          <pre>
+management.wavefront.api-token-type=CSP_API_TOKEN
+management.wavefront.uri={ENTER_WAVEFRONT_INSTANCE_URL}
+management.wavefront.api-token={ENTER_CSP_API_TOKEN}
+wavefront.freemium-account = false
+          </pre>
+          <ul>
+            <li>
+              Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
+            </li>
+            <li>
+              Replace <code>{ENTER_CSP_API_TOKEN}</code> with your VMware Cloud Services API token. The API token must be generated in the VMware Cloud Services Console by an active user account and must be assigned the <b>Direct Data Ingestion</b>service role.
+            </li>
+            <li>
+              Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
+            </li>
+          </ul>
+        </li>
+        <li>
+          sdgsgfshsfh
+          <pre>
+management.wavefront.api-token = {ENTER_API_TOKEN}
+management.wavefront.uri = {ENTER_WAVEFRONT_INSTANCE_URL}
+wavefront.freemium-account = false
+          </pre>
+          <ul>
+            <li>
+            </li>
+            <li>
+            </li>
+            <li>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 ### Step 3:  View Your Data in Our Service
 
 To view your data, you first run your project from the command line, and then click the link that directs you to our service. Follow these steps:
