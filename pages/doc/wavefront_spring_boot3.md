@@ -243,40 +243,7 @@ dependencies {
 
 ### Step 2 (Optional): Specify Your Operations for Applications Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a VMware Cloud Services account or an Operations for Applications account, you can send data there instead by specifying the properties shown below:
-
-* Properties to Authenticate with ID and Secret of a Server to Server OAuth App in VMware Cloud Services:
-  ```
-  management.wavefront.api-token-type=CSP_CLIENT_CREDENTIALS
-  management.wavefront.uri=[[wavefrontInstanceURL]]
-  management.wavefront.api-token=clientId=<CLIENT-ID>,clientSecret=<SECRET>,orgId=<OPTIONAL-ORG-ID>
-  wavefront.freemium-account = false
-  ```
-    * Replace `<WAVEFRONT_INSTANCE_URL>` with the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
-    * Replace `<CLIENT-ID>` and `<SECRET>` with the credentials (client ID and client secret) of an existing server-to-server OAuth app which has the **Direct Data Ingestion** service role assigned and is added to the VMware Cloud organization running the Operations for Applications service. 
-    * The `<OPTIONAL-ORG-ID>` parameter is optional, and you can replace it with the long ID of the VMware Cloud organization running the service.
-    * Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account. 
-  
-* Properties to Authenticate with a VMware Cloud Services API Token:
-  ```
-  management.wavefront.api-token-type=CSP_API_TOKEN
-  management.wavefront.uri=<WAVEFRONT_INSTANCE_URL>
-  management.wavefront.api-token=<CSP_API_TOKEN>
-  wavefront.freemium-account = false
-  ```
-  * Replace `<WAVEFRONT_INSTANCE_URL>` with the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
-  * Replace `<CSP_API_TOKEN>` with your VMware Cloud Services API token. The API token must be generated in the VMware Cloud Services Console by an active user account and must be assigned the **Direct Data Ingestion** service role.
-  * Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account.  
-
-* Properties to Authenticate with an Operations for Applications API Token (Legacy)
-  ```
-  management.wavefront.api-token = <API_TOKEN>
-  management.wavefront.uri = <WAVEFRONT_INSTANCE_URL>
-  wavefront.freemium-account = false
-  ```
-  * Replace `<API_TOKEN>` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
-  * Replace `<WAVEFRONT_INSTANCE_URL>` with the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
-  * Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account.  
+By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a VMware Cloud Services account or an Operations for Applications account, you can send data there instead by specifying the properties shown below: 
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#oauth" data-toggle="tab">Server to Server OAuth App</a></li>
@@ -311,7 +278,7 @@ wavefront.freemium-account = false
     <div role="tabpanel" class="tab-pane" id="api">
       <ul>
         <li>
-          If you have a VMware Cloud Service account, add the following properties to authenticate with a VMware Cloud Services API Token.
+          <b>VMware Cloud Services API Token</b>:<br/>If you have a VMware Cloud Service account, add the following properties to authenticate with a VMware Cloud Services API Token.
           <pre>
 management.wavefront.api-token-type=CSP_API_TOKEN
 management.wavefront.uri={ENTER_WAVEFRONT_INSTANCE_URL}
@@ -331,7 +298,7 @@ wavefront.freemium-account = false
           </ul>
         </li>
         <li>
-          sdgsgfshsfh
+          <b>Operations for Applications API Token</b>: <br/>If you have an Operations for Applications account, add the following properties to authenticate with the API Token (legacy).
           <pre>
 management.wavefront.api-token = {ENTER_API_TOKEN}
 management.wavefront.uri = {ENTER_WAVEFRONT_INSTANCE_URL}
@@ -339,10 +306,13 @@ wavefront.freemium-account = false
           </pre>
           <ul>
             <li>
+              Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
             </li>
             <li>
+              Replace <code>{WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
             </li>
             <li>
+              Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
             </li>
           </ul>
         </li>
