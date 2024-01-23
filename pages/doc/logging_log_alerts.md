@@ -37,6 +37,8 @@ Use the Alerts Browser to create and manage your logs alerts. To see the logs al
 
 Follow these steps to create a logs alert:
 
+{% include note.html content="You can only create 500 log alerts. If you exceed the log alert limit and need to create a new log alert, you need to delete an existing log alert so you can create a new log alert." %}
+
 ### Go to the Alert Browser
 1.	Log in to your product instance as a user with the **Alerts** and **Logs** permissions.
 2.	On the toolbar, click **Alerting** > **All Alerts**.
