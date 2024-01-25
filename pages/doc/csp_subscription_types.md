@@ -41,5 +41,6 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
   * Interacting with the REST API requires a VMware Cloud services access token, which can be exchanged from a user's API token or server to server app credentials.
 * **Improved Multi-Tenancy**: Support of switching between tenants on different clusters. This unlocks better experience in multi-tenant environments.
 * **Centralized Billing and Subscriptions**: The VMware Cloud Services Console displays billing and subscriptions details, and allows payment methods management. This brings the billing and subscriptions experience at a completely new level as we had no such ability before.
+* **Alerts Integration with VMware Tanzu Insights**: If your VMware Cloud organization is running both services, Operations for Applications and Insights, in the Alerts Browser, Alerts Viewer, and Alerts Editor, you can see the insights that are related to each alert. You can also directly go to the corresponding insight in VMware Hub and see all correlated alerts and events from all Insights sources.
 
 

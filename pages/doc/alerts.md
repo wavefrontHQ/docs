@@ -11,7 +11,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
 
-{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts and perform the tasks on this page. You need the [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## How Alerts Work
@@ -82,11 +82,18 @@ The default **Checking Frequency** interval is 5 minutes. You can adjust this pr
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
   * If an alert is non-critical, you can check only as often as needed.
 
+### What Are Related Insights?
+
+If your service is **onboarded** to VMware Cloud services and your VMware Cloud organization is also running the VMware Tanzu Insights service, there's a bi-directional communication between Operations for Applications and Tanzu Insights. When an alert fires:
+1. We forward that event to Tanzu Insights.
+2. Tanzu Insights correlates that event to one or more insights. For details, see [Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub](https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html).
+3. We fetch the insights that are related to each alert and show these insights in the Alerts Browser, Alert Viewer, and Alert Editor. If you have the Insights Viewer or Insights Admin service role, you can open each related insight directly in VMware Tanzu Hub and investigate its correlated alerts and events from all sources.
+
 ## Alert Viewer Tutorial
 
-Alert Viewer is for investigating a **single alert**.
+The Alert Viewer is for investigating a **single alert firing**. You can open the Alert Viewer for a current or past firing.
 
-When you receive an alert notification, it includes a link to the alert in Alert Viewer. The related information in Alert Viewer can help you determine what's going on.
+The related information in the Alert Viewer can help you determine what's going on. The related information depends on your [subscription type](subscriptions-differences.html) - VMware Cloud services subscriptions show related insights, while original subscriptions show related alerts.
 
 ![annotated alert viewer allowing you to solve the problems listed below](images/alert_viewer.png)
 
@@ -94,9 +101,11 @@ When you receive an alert notification, it includes a link to the alert in Alert
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">
-Click the link in the alert notification and start with the 10-second briefing in the top left. <br /><br/>
-Learn about:
+<td width="50%">Open the Alert Viewer:
+<ul><li>For a firing alert, in the Alerts Browser, in the State column for the alert, click <strong>View firing details</strong>. To open the Alert Viewer for a past firing, under Other Firings at the bottom, click <strong>View</strong> for the target firing.</li>
+<li>For a resolved alert, in the Alert Editor, in the top right, click <strong>Show Firings</strong>, and click <strong>View</strong> for the target firing.</li>
+<li>In the alert notification that you received, click the link to the Alert Viewer.</li></ul><br /><br/>
+Examine the following:
 <ul>
 <li>Alert status and description </li>
 <li>Alert settings </li>
@@ -109,12 +118,22 @@ Learn about:
 </tbody>
 </table>
 
-### Step 2: Examine Related Firing Alerts
+### Step 2: Examine the Related Information
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">In the top right, examine Related Firing Alerts. <br /><br/>
-When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
+<td width="50%"><ul><li><strong>For VMware Cloud services subscriptions</strong>,<br/>
+in the top right, we show the <a href="#what-are-related-insights">Related Insights</a> pane. <br /><br/>
+If your VMware Cloud organization is also running the VMware Tanzu Insights service, when an alert fires, we fetch all the insights that include this alert firing. You can:
+<ul><li>Filter by insight severity.</li>
+<li>View all alert firings in each insight.</li>
+<li>If you have the Insights Viewer or Insights Admin service role, you can view each related insight in VMware Tanzu Hub.</li></ul></li></ul></td>
+<td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information."></td>
+</tr>
+<tr>
+<td width="50%"><ul><li><strong>For original subscriptions</strong>,<br/>
+in the top right, we show the Related Firing Alerts pane. <br /><br/>
+When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlate them with the initial event using AI/ML algorithms. You can filter by alert severity.</li></ul></td>
 <td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
 </tr>
 </tbody>
