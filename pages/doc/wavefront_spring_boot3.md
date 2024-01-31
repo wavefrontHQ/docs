@@ -93,7 +93,10 @@ Initialize a new project using the Spring Initializer or add the required depend
       <a href="#new" data-toggle="tab">Initialize a New Project</a>
     </li>
     <li>
-      <a href="#existing" data-toggle="tab">Initialize an Existing Project</a>
+      <a href="#freemium" data-toggle="tab">Initialize an Existing Project (Freemium)</a>
+    </li>
+    <li>
+      <a href="#customer" data-toggle="tab">Initialize an Existing Project (Customer) </a>
     </li>
 </ul>
 <div class="tab-content">
@@ -132,8 +135,8 @@ Initialize a new project using the Spring Initializer or add the required depend
     </ol>
   </div>
 
-  <div role="tabpanel" class="tab-pane"  id="existing">
-    <p>Follow these steps:</p>
+  <div role="tabpanel" class="tab-pane"  id="freemium">
+    <p> Follow these steps if you don't have an Operations for Applications account and need to use the freemium account.</p>
     <ol>
       <li> Add the Wavefront dependency.
         <ul id="profileTabs" class="nav nav-tabs">
@@ -239,6 +242,86 @@ dependencies {
       </li>
     </ol>
   </div>
+  <div role="tabpanel" class="tab-pane active" id="customer">
+      <p> Follow these steps if you already have an Operations for Applications account.</p>
+      <ol>
+        <li>
+        Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
+        {{site.data.alerts.tip}}
+          <p>The Wavefront for Spring Boot dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$releaseVersion</code> with the correct dependency version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
+        {{site.data.alerts.end}}
+        <ul id="profileTabs" class="nav nav-tabs">
+            <li class="active"><a href="#mavenbom" data-toggle="tab">Maven</a></li>
+            <li><a href="#gradlebom" data-toggle="tab">Gradle</a></li>
+        </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="mavenbom">
+              <pre>
+
+&lt;dependencyManagement&gt;
+  &lt;dependencies&gt;
+  .....
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
+      &lt;artifactId&gt;wavefront-spring-boot-bom&lt;/artifactId&gt;
+      &lt;version&gt;$releaseVersion&lt;/version&gt;
+      &lt;type&gt;pom&lt;/type&gt;
+      &lt;scope&gt;import&lt;/scope&gt;
+    &lt;/dependency&gt;
+  .....
+  &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+              </pre>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="gradlebom">
+              <pre>
+dependencyManagement {
+  imports {
+    mavenBom "com.wavefront:wavefront-spring-boot-bom:$releaseVersion"
+  }
+}
+            </pre>
+          </div>
+        </div>
+      </li>
+      <li>
+        If you want to send trace data to our service using Micrometer Tracing, add the following dependencies.
+        <ul id="profileTabs" class="nav nav-tabs">
+            <li class="active"><a href="#maven-dt" data-toggle="tab">Maven</a></li>
+            <li><a href="#gradle-dt" data-toggle="tab">Gradle</a></li>
+        </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="maven-dt">
+              <pre>
+&lt;dependency&gt;
+  &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
+  &lt;artifactId&gt;micrometer-tracing-bridge-brave&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
+  &lt;artifactId&gt;micrometer-tracing-reporter-wavefront&lt;/artifactId&gt;
+  &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+              </pre>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="gradle-dt">
+              <pre>
+dependencies {
+  ...
+  implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+  runtimeOnly 'io.micrometer:micrometer-tracing-reporter-wavefront'
+}
+              </pre>
+            </div>
+          </div>
+      </li>
+      <li>
+        You need to Specify the Operations for Applications instance, as explained in <a href="#step-2-optional-specify-your-operations-for-applications-instance">Step 2</a> below. Otherwise, you run into errors because the freemium account settings do not support the configurations in this section.
+      </li>
+    </ol>
+    </div>
 </div>
 
 ### Step 2 (Optional): Specify Your Operations for Applications Instance
