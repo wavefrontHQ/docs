@@ -108,6 +108,7 @@ Initialize a new project using the Spring Initializer or add the required depend
       </li>
       <li markdown="span">
         Select 3.0.0 or later as the Spring Boot version and define the other parameters for your project.
+          <br/> Example:
           <br/> ![Spring Initializr](images/spring_boot3_initializr.png)
       </li>
       <li>
@@ -318,7 +319,7 @@ dependencies {
           </div>
       </li>
       <li>
-        You need to Specify the VMware Cloud Services account instance or the Operations for Applications instance, as explained in <a href="#step-2-optional-specify-your-operations-for-applications-instance">Step 2</a> below. Otherwise, you run into errors because the freemium account settings do not support the configurations in this section.
+        You need to specify the VMware Cloud Services account instance or the Operations for Applications instance, as explained in <a href="#step-2-optional-specify-your-operations-for-applications-instance">Step 2</a> below. Otherwise, you run into errors because the freemium account settings do not support the configurations in this section.
       </li>
     </ol>
     </div>
