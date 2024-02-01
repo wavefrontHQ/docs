@@ -318,7 +318,7 @@ dependencies {
           </div>
       </li>
       <li>
-        You need to Specify the Operations for Applications instance, as explained in <a href="#step-2-optional-specify-your-operations-for-applications-instance">Step 2</a> below. Otherwise, you run into errors because the freemium account settings do not support the configurations in this section.
+        You need to Specify the VMware Cloud Services account instance or the Operations for Applications instance, as explained in <a href="#step-2-optional-specify-your-operations-for-applications-instance">Step 2</a> below. Otherwise, you run into errors because the freemium account settings do not support the configurations in this section.
       </li>
     </ol>
     </div>
