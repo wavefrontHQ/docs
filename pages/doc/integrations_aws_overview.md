@@ -58,9 +58,9 @@ Data flows from AWS only if the account has the required access. You have severa
 <td markdown="span">In most cases, it makes sense to give the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
 <tr>
 <td markdown="span">Access to Service Limit metrics</td>
-<td markdown="span">If you want to collect Service Limit metrics:
-  - You need at least the Business-level AWS Support plan
-  - Grant the `AWSSupportAccess` policy (in addition to the `ReadOnlyAccess` policy)</td>
+<td>If you want to collect Service Limit metrics:<ul>
+  <li>You need at least the Business-level AWS Support plan.</li>
+  <li>Grant the <code>AWSSupportAccess</code> policy (in addition to the <code>ReadOnlyAccess</code> policy).</li></ul></td>
 </tr>
 <tr>
 <td markdown="span">Create IAM policy to specify limited access</td>
