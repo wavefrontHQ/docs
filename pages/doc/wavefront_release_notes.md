@@ -36,6 +36,20 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2024-07.x Release Notes
+
+**Replace all `~agent.` metrics with `~proxy.`**: The `~agent.` metrics were deprecated a few years ago. Starting with this release, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
+
+For example: 
+
+```
+# Deprecated metric: 
+rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
+
+# Replace with:
+rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
+``````
+
 ## 2024-05.x Release Notes
 
 * **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
