@@ -38,21 +38,23 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-05.x Release Notes
 
-**Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
-![An annotated screenshot of the Derived Metrics Browser. The information is listed below](images/derived_metrics.png)
+* **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
 
-On this page, now you can:
+  ![An annotated screenshot of the Derived Metrics Browser. The information is listed below](images/derived_metrics.png)
 
-* Apply various filters and hide or show the filters listed on the left.
-* Search for derived metrics, save and share searches.
-* Hide or show the filters on the left.
-* Click **Create Derived Metric** to add a derived metric.
-* Select to display only the existing or only the deleted derived metrics.
-* Sort the derived metrics by name, state, time of the last update, or number of points.
-* Use the ellipsis icon menu to:
-  * Edit, clone, or delete an existing derived metric.
-  * Restore or permanently delete a deleted derived metric.
+  On this page, now you can:
+
+  * Apply various filters and hide or show the filters listed on the left.
+  * Search for derived metrics, save and share searches.
+  * Hide or show the filters on the left.
+  * Click **Create Derived Metric** to add a derived metric.
+  * Select to display only the existing or only the deleted derived metrics.
+  * Sort the derived metrics by name, state, time of the last update, or number of points.
+  * Use the ellipsis icon menu to:
+    * Edit, clone, or delete an existing derived metric.
+    * Restore or permanently delete a deleted derived metric.
 
 ## 2024-03.x Release Notes
 
