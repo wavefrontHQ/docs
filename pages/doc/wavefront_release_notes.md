@@ -48,13 +48,15 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
   * Apply various filters and hide or show the filters listed on the left.
   * Search for derived metrics, save and share searches.
-  * Hide or show the filters on the left.
   * Click **Create Derived Metric** to add a derived metric.
-  * Select to display only the existing or only the deleted derived metrics.
+  * Choose to display only the existing or only the deleted derived metrics.
   * Sort the derived metrics by name, state, time of the last update, or number of points.
+  * Show or hide details for specific or all derived metrics.
   * Use the ellipsis icon menu to:
     * Edit, clone, or delete an existing derived metric.
     * Restore or permanently delete a deleted derived metric.
+  * Select one or more derived metrics to add or remove specific tags for them, or to delete them.
+
 
 ## 2024-03.x Release Notes
 
