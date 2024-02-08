@@ -34,7 +34,7 @@ See <a href="metric_types.html#metric-types-per-retention-period">Metric Types p
 
 Your Terms of Service are different depending on when you became a customer.
 
-Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
+Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for persistent metrics, 30 days for ephemeral metrics, 6 months for histograms, and 7 days for spans. We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
 If you became a customer on or after August 17, 2017:
 
