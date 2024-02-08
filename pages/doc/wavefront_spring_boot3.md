@@ -93,7 +93,10 @@ Initialize a new project using the Spring Initializer or add the required depend
       <a href="#new" data-toggle="tab">Initialize a New Project</a>
     </li>
     <li>
-      <a href="#existing" data-toggle="tab">Initialize an Existing Project</a>
+      <a href="#freemium" data-toggle="tab">Initialize an Existing Project (Freemium)</a>
+    </li>
+    <li>
+      <a href="#customer" data-toggle="tab">Initialize an Existing Project (Customer) </a>
     </li>
 </ul>
 <div class="tab-content">
@@ -132,8 +135,8 @@ Initialize a new project using the Spring Initializer or add the required depend
     </ol>
   </div>
 
-  <div role="tabpanel" class="tab-pane"  id="existing">
-    <p>Follow these steps:</p>
+  <div role="tabpanel" class="tab-pane"  id="freemium">
+    <p> Follow these steps if you don't have an Operations for Applications account and need to use the freemium account.</p>
     <ol>
       <li> Add the Wavefront dependency.
         <ul id="profileTabs" class="nav nav-tabs">
@@ -239,22 +242,166 @@ dependencies {
       </li>
     </ol>
   </div>
+  <div role="tabpanel" class="tab-pane active" id="customer">
+      <p> Follow these steps if you already have an Operations for Applications account.</p>
+      <ol>
+        <li>
+        Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
+        {{site.data.alerts.tip}}
+          <p>The Wavefront for Spring Boot dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$releaseVersion</code> with the correct dependency version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
+        {{site.data.alerts.end}}
+        <ul id="profileTabs" class="nav nav-tabs">
+            <li class="active"><a href="#mavenbom" data-toggle="tab">Maven</a></li>
+            <li><a href="#gradlebom" data-toggle="tab">Gradle</a></li>
+        </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="mavenbom">
+              <pre>
+
+&lt;dependencyManagement&gt;
+  &lt;dependencies&gt;
+  .....
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
+      &lt;artifactId&gt;wavefront-spring-boot-bom&lt;/artifactId&gt;
+      &lt;version&gt;$releaseVersion&lt;/version&gt;
+      &lt;type&gt;pom&lt;/type&gt;
+      &lt;scope&gt;import&lt;/scope&gt;
+    &lt;/dependency&gt;
+  .....
+  &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+              </pre>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="gradlebom">
+              <pre>
+dependencyManagement {
+  imports {
+    mavenBom "com.wavefront:wavefront-spring-boot-bom:$releaseVersion"
+  }
+}
+            </pre>
+          </div>
+        </div>
+      </li>
+      <li>
+        If you want to send trace data to our service using Micrometer Tracing, add the following dependencies.
+        <ul id="profileTabs" class="nav nav-tabs">
+            <li class="active"><a href="#maven-dt" data-toggle="tab">Maven</a></li>
+            <li><a href="#gradle-dt" data-toggle="tab">Gradle</a></li>
+        </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="maven-dt">
+              <pre>
+&lt;dependency&gt;
+  &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
+  &lt;artifactId&gt;micrometer-tracing-bridge-brave&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
+  &lt;artifactId&gt;micrometer-tracing-reporter-wavefront&lt;/artifactId&gt;
+  &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+              </pre>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="gradle-dt">
+              <pre>
+dependencies {
+  ...
+  implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+  runtimeOnly 'io.micrometer:micrometer-tracing-reporter-wavefront'
+}
+              </pre>
+            </div>
+          </div>
+      </li>
+      <li>
+        You need to Specify the VMware Cloud Services account instance or the Operations for Applications instance, as explained in <a href="#step-2-optional-specify-your-operations-for-applications-instance">Step 2</a> below. Otherwise, you run into errors because the freemium account settings do not support the configurations in this section.
+      </li>
+    </ol>
+    </div>
 </div>
 
 ### Step 2 (Optional): Specify Your Operations for Applications Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have an Operations for Applications account, you can send data there instead by specifying the `uri` and `api-token` properties as follows:
+By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a VMware Cloud Services account or an Operations for Applications account, you can send data there instead by specifying the properties shown below: 
 
-```
-management.wavefront.api-token = $API_Token
-management.wavefront.uri = $wavefront_instance
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#oauth" data-toggle="tab">Server to Server OAuth App</a></li>
+    <li><a href="#api" data-toggle="tab">API Token</a></li>
+</ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="oauth">
+      <p>
+        Add these properties to authenticate with the ID and Secret of a Server to Server OAuth App in VMware Cloud Services:
+      </p>
+      <pre>
+management.wavefront.api-token-type=CSP_CLIENT_CREDENTIALS
+management.wavefront.uri={ENTER_WAVEFRONT_INSTANCE_URL}
+management.wavefront.api-token=clientId={ENTER_CLIENT-ID},clientSecret={ENTER_SECRET},orgId={OPTIONAL_ORG_ID}
 wavefront.freemium-account = false
-```
-
-* `$API_Token` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
-* `$wavefront_instance` is the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
-* Set `wavefront.freemium-account` as false. Because you have an Operations for Applications instance, you do not need a freemium account. 
-
+      </pre>
+      <ul>
+        <li>
+          Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
+        </li>
+        <li>
+          Replace <code>{ENTER_CLIENT-ID}</code> and <code>{ENTER_SECRET}</code> with the credentials (client ID and client secret) of an existing server-to-server OAuth app which has the <b>Direct Data Ingestion</b> service role assigned and is added to the VMware Cloud organization running the Operations for Applications service.
+        </li>
+        <li>
+          The <code>{OPTIONAL_ORG_ID}</code> parameter is optional, and you can replace it with the long ID of the VMware Cloud organization running the service.
+        </li>
+        <li>
+          Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
+        </li>
+      </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="api">
+      <ul>
+        <li>
+          <b>VMware Cloud Services API Token</b>:<br/>If you have a VMware Cloud Service account, add the following properties to authenticate with a VMware Cloud Services API Token.
+          <pre>
+management.wavefront.api-token-type=CSP_API_TOKEN
+management.wavefront.uri={ENTER_WAVEFRONT_INSTANCE_URL}
+management.wavefront.api-token={ENTER_CSP_API_TOKEN}
+wavefront.freemium-account = false
+          </pre>
+          <ul>
+            <li>
+              Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
+            </li>
+            <li>
+              Replace <code>{ENTER_CSP_API_TOKEN}</code> with your VMware Cloud Services API token. The API token must be generated in the VMware Cloud Services Console by an active user account and must be assigned the <b>Direct Data Ingestion</b>service role.
+            </li>
+            <li>
+              Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>Operations for Applications API Token</b>: <br/>If you have an Operations for Applications account, add the following properties to authenticate with the API Token (legacy).
+          <pre>
+management.wavefront.api-token = {ENTER_API_TOKEN}
+management.wavefront.uri = {ENTER_WAVEFRONT_INSTANCE_URL}
+wavefront.freemium-account = false
+          </pre>
+          <ul>
+            <li>
+              Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
+            </li>
+            <li>
+              Replace <code>{WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
+            </li>
+            <li>
+              Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 ### Step 3:  View Your Data in Our Service
 

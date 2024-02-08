@@ -8,7 +8,7 @@ summary: Monitor CloudWatch, CloudTrail, and Metrics+ with VMware Aria Operation
 ---
 Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS. The Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
-{% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
+{% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to set up an AWS integration. If you do not have this permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your VMware Aria Operations for Applications account with the correct permissions.
 * From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
@@ -17,13 +17,14 @@ You have to set up your VMware Aria Operations for Applications account with the
 
 ## Supported AWS Integrations
 
-The AWS integration ingests data from many products and provides dashboards for each. See any integration page for [a list of dashboards](amazon_cloudtrail.html#dashboards). The following products are of special interest to most customers:
+The AWS integration ingests data from many AWS services and products including:
 
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** -- retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
 - **[CloudTrail](http://aws.amazon.com/cloudtrail)** -- retrieves EC2 event information and creates System events that represent the AWS events.
 - **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows VMware Aria Operations for Applications to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
 
+The AWS integration provides dashboards for each supported AWS service. See any AWS integration page for [a list of dashboards](amazon_cloudtrail.html#dashboards).
 
 ## CloudWatch Integration Details
 
@@ -33,7 +34,7 @@ VMware Aria Operations for Applications retrieves AWS metric and dimension data 
 
 ### Configuring CloudWatch Data Ingestion
 
-You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which VMware Aria Operations for Applications fetches metrics.
+After you [set up an AWS integration](integrations_aws_overview.html#set-up-an-aws-integration) associated with a Role ARN, you can configure which AWS product instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which VMware Aria Operations for Applications fetches metrics.
 {% include tip.html content="The following examples are supported only for EC2 and EBS metrics." %}
 
 To configure CloudWatch ingestion:
@@ -301,14 +302,22 @@ Unless otherwise indicated, VMware Aria Operations for Applications sets the val
   - `aws.rds.capacity` - For Amazon Aurora only, RDS capacity.
   - `aws.rds.backtrackconsumedchangerecords` - For Amazon Aurora only, the number of change records stored for Backtrack.
 
-- Service Limit Metrics - Capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
+- (Optional) Service Limit Metrics - Capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
   - `aws.limits.<resource>.limit` - The current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - The current usage of an AWS resource in a particular region.
 
-    {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving VMware Aria Operations for Applications Read-Only Access](integrations_aws_overview.html#giving-access-to-your-aws-account) for details." %}
+    {% include note.html content="You can [disable](#disable-service-limit-metrics-ingestion) the ingestion of these metrics. If these metrics are enabled, to examine them, your account needs at least the Business-level AWS Support plan, because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving VMware Aria Operations for Applications Read-Only Access](integrations_aws_overview.html#giving-access-to-your-aws-account) for details." %}
     
+### Disable Service Limit Metrics Ingestion
 
+After you [set up an AWS integration](integrations_aws_overview.html#set-up-an-aws-integration), you can disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`. You can later enable these metrics again, if necessary.
 
+1. Log in to your product cluster and click **Integrations** on the toolbar.
+1. In the Featured section, click the **Amazon Web Services** tile.
+1. Click the **Setup** tab.
+1. In the Types column of the row of the integration you want to configure, click the **AWS Metrics+** link.
+1. On the **Edit AWS Metrics+** page, deselect the **Service Limit Metrics** check box.
+1. Click **Update**.
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits
 
@@ -352,3 +361,4 @@ We can create a [multi-threshold alert](alerts_manage.html#create-a-multi-thresh
 
 ![service limits alarm](images/service_limit_alert.png)
 
+-->
