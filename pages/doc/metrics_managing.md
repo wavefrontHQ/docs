@@ -173,7 +173,7 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 
 ### Change the Retention Period of Your Metrics
 
-With the 2023-XX release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all metrics are persistent and we keep them for 18 months. Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and also reduce the [cardinality](cardinality.html).
+With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all metrics are persistent and we keep them for 18 months. Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and also reduce the [cardinality](cardinality.html).
 
 {% include note.html content="To convert individual metrics and metric prefixes from persistent to ephemeral and the reverse, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
 
