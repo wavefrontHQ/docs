@@ -97,33 +97,20 @@ In the Metrics browser and Query Editor, obsolete metrics are no longer shown in
 
 Select **Browse > Metrics** to display the Metrics Browser. Use the Metrics Browser to find metrics that are actively sending data points.
 
-{% include note.html content="The Metrics browser filters out the obsolete metrics." %}
+{% include note.html content="The Metrics Browser filters out the obsolete metrics." %}
 
-To make search easier, you can
+![An annotated screenshot of the Metrics Browser. The information is listed below.](images/metrics_browser.png)
+
+On the Metrics Browser, you can:
 * Drill down and go up the hierarchy.
-* Filter by source.
-* Hide and redisplay metrics or groups of metrics to unclutter your page.
+* Filter by name or source.
+* Hide and redisplay individual metrics or metrics namespaces to unclutter your page.
+* View the metric type in terms of retention period - persistent or ephemeral.
+* Convert persistent metrics to ephemeral and the reverse. Internal metrics are ephemeral and not convertible.
+* Create a chart or dashboard for an individual metric or for the current set of metrics.
+* View the sources and point tags for an individual metric.
 
-{% include tip.html content="If you select **Browse > Delta Counters** you can use the same browser to examine [delta counters](delta_counters.html)." %}
-
-![metrics browser with pointers to folder & chart icon for selection, source filter, and info button which displays sources and point tags for a metric](images/metrics_browser.png)
-
-### Examine Metrics
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<ol>
-<li>Select <strong>Browse > Metrics</strong>.</li>
-<li>Select folder icons to drill down to individual metrics.</li>
-<li>With a metric selected, click <strong>Expand Info</strong> to show sources and point tags for that metric.</li>
-<li>Click the metric name to show a chart with that metric.</li>
-</ol></td>
-<td width="40%"><img src="/images/browse_metrics.png" alt="browse metrics"></td>
-</tr>
-</tbody>
-</table>
+{% include tip.html content="If you select **Browse > Delta Counters** you can use the same browser to examine [delta counters](delta_counters.html). The only difference is that counters are persistent and not convertible." %}
 
 ### Hide and Redisplay Metrics
 
@@ -171,11 +158,13 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 </tbody>
 </table>
 
-### Change the Retention Period of Your Metrics
+### Change the Retention Period of Metrics
 
-With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all metrics are persistent and we keep them for 18 months. Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and also reduce the [cardinality](cardinality.html).
+With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all ingested metrics are persistent but are convertible. Internal metrics are ephemeral and not convertible.
 
-{% include note.html content="To convert individual metrics and metric prefixes from persistent to ephemeral and the reverse, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
+Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and also reduce the [cardinality](cardinality.html).
+
+{% include note.html content="To change the ephemerality of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -184,9 +173,9 @@ With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter
 <ol>
 <li>Select <strong>Browse > Metrics</strong>.</li>
 <li>Click the <strong>Change Ephemerality</strong> button.</li>
-<li>To convert a persistent metric or prefix to ephemeral, in the <strong>Select Metric Prefix</strong> text box, start typing the metric prefix and select the target metric name or prefix, and press Enter.
-<p>The metric name or prefix appears in the <strong>Ephemeral Metrics</strong> table below. You can repeat this step for multiple metrics and prefixes.</p></li>
-<li>To convert an ephemeral metric or prefix to persistent, in the <strong>Ephemeral Metrics</strong> table, locate the target metric or prefix and click the corresponding <strong>Convert to Persistent Metric</strong> action.<p>The metric name or prefix disappears from the <strong>Ephemeral Metrics</strong> table. You can repeat this step for multiple metrics and prefixes.</p></li>
+<li>To convert a persistent metric or metrics namespace to ephemeral, in the <strong>Select Metric Prefix</strong> text box, enter the target metric name or namespace prefix, and press Enter.
+<p>The metric name or namespace prefix appears in the <strong>Ephemeral Metrics</strong> table below. You can repeat this step for multiple metrics and metrics namespaces.</p></li>
+<li>To convert an ephemeral metric or metrics namespace to persistent, in the <strong>Ephemeral Metrics</strong> table, locate the target metric or namespace prefix and click the corresponding <strong>Convert to Persistent Metric</strong> action.<p>The metric name or namespace prefix disappears from the <strong>Ephemeral Metrics</strong> table. You can repeat this step for multiple metrics and metrics namespaces.</p></li>
 <li>Click <strong>Save</strong>.</li>
 </ol> </td>
 <td width="40%"><img src="/images/change_ephemerality.png" alt="A screenshot of the Change Ephemerality dialog box."></td>

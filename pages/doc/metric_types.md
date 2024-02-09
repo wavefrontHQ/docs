@@ -62,7 +62,7 @@ The following table gives an overview of metric types. We introduce each type in
 
 ### Metric Types per Retention Period
 
-With the 2024-07 release, we introduce **ephemeral** metrics, which have a shorter [retention period](terms_of_service.html#data-retention). A Super Admin can [convert](metrics_managing.html#change-the-retention-period-of-your-metrics) persistent metrics to ephemeral metrics and the reverse.
+With the 2024-07 release, we introduce **ephemeral** metrics, which have a shorter [retention period](terms_of_service.html#data-retention). [Converting](metrics_managing.html#change-the-retention-period-of-your-metrics) persistent metrics to ephemeral metrics improves the [query performance](query_language_performance.html) and reduces the [cardinality](cardinality.html).
 
 <table style="width: 100%;">
 <tbody>
@@ -71,11 +71,11 @@ With the 2024-07 release, we introduce **ephemeral** metrics, which have a short
 </thead>
 <tr>
 <td>Persistent</td>
-<td>Default data retention, typically 18 months. By default, all metrics are persistent.</td>
+<td>18 months of data retention. By default, all ingested metrics are persistent but are convertible. Counters are persistent and not convertible. </td>
 </tr>
 <tr>
 <td>Ephemeral</td>
-<td>30 days of data retention. Converting persistent metrics to ephemeral metrics improves <a href="query_language_performance.html">query performance</a> and reduces <a href="cardinality.html">cardinality</a>.</td>
+<td>30 days of data retention. By default, only the <a href="wavefront-internal-metrics.html">internal metrics</a> are ephemeral and they are not convertible.</td>
 </tr>
 </tbody>
 </table>

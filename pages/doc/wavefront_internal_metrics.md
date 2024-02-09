@@ -12,6 +12,7 @@ You can:
 * Clone and modify one of the Operations for Applications Usage integration dashboards.
 * Create your own dashboard, query these metrics in charts, and create alerts for some of these metrics.
 
+{% include note.html content="The internal metrics are [**ephemeral**](metric_types.html#metric-types-per-retention-period) and not convertible." %}
 
 ## Internal Metrics Overview
 
