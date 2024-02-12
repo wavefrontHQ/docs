@@ -19,14 +19,17 @@ A production instance retains different types of data for different amounts of t
 <thead>
 <tr><th width="20%">Type of Data</th><th width="80%">Retention</th></tr>
 </thead>
-<tr><td><strong>metrics and counters</strong></td>
+<tr><td><strong>metrics</strong></td>
 <td><ul><li>For persistent (default) metrics, 18 months of full-resolution (no downsampling).</li>
 <li>For ephemeral metrics, 30 days of data detention.</li></ul>
 See <a href="metric_types.html#metric-types-per-retention-period">Metric Types per Retention Period</a>.</td></tr>
+<tr><td><strong>counters</strong></td>
+<td>18 months of data retention.
+</td></tr>
 <tr><td><strong>histograms</strong></td>
-<td>6 months of data retention</td></tr>
+<td>6 months of data retention.</td></tr>
 <tr><td><strong>spans</strong></td>
-<td>7 days retention. With spans, we use <a href="trace_data_sampling.html#intelligent-sampling">Intelligent Sampling</a>. Use trace sampling policies explicitly exclude certain spans.  </td></tr>
+<td>7 days of retention. With spans, we use <a href="trace_data_sampling.html#intelligent-sampling">Intelligent Sampling</a>. Use trace sampling policies explicitly exclude certain spans.  </td></tr>
 </tbody>
 </table>
 

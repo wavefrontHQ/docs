@@ -30,7 +30,7 @@ When a Super Admin user [enables Super Admin mode](users_account_managing.html#e
 * Can [restore orphan dashboards and alerts](access.html#make-orphan-dashboards-or-alerts-visible).
 * Can invite other Super Admin users.
 * Can [sign out a user](user-accounts.html#sign-out-a-user).
-* Can [convert metrics](metrics_managing.html#convert-metrics-to-ephemeral-or-persistent) from persistent to ephemeral and the reverse.
+* Can [convert metrics](metrics_managing.html#change-the-retention-period-of-metrics) from persistent to ephemeral and the reverse.
 * Can purchase more PPS.
 
 To invite other Super Admin users:
