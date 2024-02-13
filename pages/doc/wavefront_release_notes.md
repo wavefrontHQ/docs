@@ -36,6 +36,28 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2024-05.x Release Notes
+
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
+
+* **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
+
+  ![An annotated screenshot of the Derived Metrics Browser. The information is listed below](images/derived_metrics.png)
+
+  On this page, now you can:
+
+  * Apply various filters and hide or show the filters listed on the left.
+  * Search for derived metrics, save and share searches.
+  * Click **Create Derived Metric** to add a derived metric.
+  * Choose to display only the existing or only the deleted derived metrics.
+  * Sort the derived metrics by name, state, time of the last update, or number of points.
+  * Show or hide details for specific or all derived metrics.
+  * Use the ellipsis icon menu to:
+    * Edit, clone, or delete an existing derived metric.
+    * Restore or permanently delete a deleted derived metric.
+  * Select one or more derived metrics to add or remove specific tags for them, or to delete them.
+
+
 ## 2024-03.x Release Notes
 
 **Amazon Web Services Integration Improvement**: You can now disable the ingestion of support service limit metrics. See the [Integrations Release Notes](integrations_new_changed.html#january-2024) for details.

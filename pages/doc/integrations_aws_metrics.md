@@ -306,7 +306,10 @@ Unless otherwise indicated, VMware Aria Operations for Applications sets the val
   - `aws.limits.<resource>.limit` - The current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - The current usage of an AWS resource in a particular region.
 
-    {% include note.html content="You can [disable](#disable-service-limit-metrics-ingestion) the ingestion of these metrics. If these metrics are enabled, to examine them, your account needs at least the Business-level AWS Support plan, because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving VMware Aria Operations for Applications Read-Only Access](integrations_aws_overview.html#giving-access-to-your-aws-account) for details." %}
+  {% include note.html content="To collect these metrics, you need:<br/>
+    - At least the Business-level AWS Support plan.<br/>
+    - Both the `AWSSupportAccess` and the `ReadOnlyAccess` policies. See [Giving Access to Your AWS Account](integrations_aws_overview.html#giving-access-to-your-aws-account) for details.<br/><br/>
+    You can [disable](#disable-service-limit-metrics-ingestion) the ingestion of these metrics." %}
     
 ### Disable Service Limit Metrics Ingestion
 
