@@ -10,16 +10,16 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 
 You can use the Amazon Web Services integration for initial setup, but additional steps might be needed for some of the services. This page gives an overview.
 
-{% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
+{% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to set up an AWS integration. If you do not have this permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 ## Basics
 
-The AWS integration ingests data from many Amazon and AWS products including:
+The AWS integration ingests data from many AWS services and products including:
 
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** -- retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
 - **[CloudTrail](http://aws.amazon.com/cloudtrail)** -- retrieves EC2 event information and creates VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) System events that represent the AWS events.
-- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows VMware Aria Operations for Applications to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
+- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and EC2 instance metadata like tags. You can investigate billing data and the number of reserved instances. Be sure to enable AWS+ metrics because it allows VMware Aria Operations for Applications to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
 
 {% include tip.html content="See [AWS CloudWatch, CloudTrail, and Metrics+ Integrations](integrations_aws_metrics.html)" %}
 
@@ -58,9 +58,9 @@ Data flows from AWS only if the account has the required access. You have severa
 <td markdown="span">In most cases, it makes sense to give the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
 <tr>
 <td markdown="span">Access to Service Limit metrics</td>
-<td markdown="span">If you want to collect Service Limit metrics:
-  - You need at least the Business-level AWS Support plan
-  - Grant the `AWSSupportAccess` policy (in addition to the `ReadOnlyAccess` policy)</td>
+<td>If you want to collect Service Limit metrics:<ul>
+  <li>You need at least the Business-level AWS Support plan.</li>
+  <li>Grant the <code>AWSSupportAccess</code> policy (in addition to the <code>ReadOnlyAccess</code> policy).</li></ul></td>
 </tr>
 <tr>
 <td markdown="span">Create IAM policy to specify limited access</td>
@@ -200,7 +200,9 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
 
 ## Managing an AWS Integration
 
-You can set up an AWS integration, enable and disable it, and delete it. After you set up an AWS integration, you can register more services to it. You can also [add and manage AWS integrations by using our REST API](integrations_aws_overview_API.html).
+When you set up an AWS integration, you associate it with your Role ARN and configure a CloudWatch, an AWS Metrics+, and, optionally, a CloudTrail integration. After you set up an AWS integration, you can edit, disable, enable, delete, and register more CloudWatch, AWS Metrics+, or CloudTrail integrations associated with the same Role ARN.
+
+You can also [add and manage AWS integrations by using our REST API](integrations_aws_overview_API.html).
 
 ### Set up an AWS Integration
 
@@ -225,22 +227,26 @@ To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-
      
 1. Click **Register**. 
 
-The integration is added to the Amazon Web Services Integrations list. If you want to configure allow lists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+The AWS integration, which includes a CloudWatch, an AWS Metrics+, and, optionally, a CloudTrail integration, are added to the Amazon Web Services integrations list on the **Setup** tab.
+
+- If you want to configure allow lists and refresh rate for the CloudWatch ingestion, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+- If you want to disable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`, click the **AWS Metrics+** link in the Types column and follow the instructions in [Disable Service Limit Metrics Ingestion](integrations_aws_metrics.html#disable-service-limit-metrics-ingestion).
 
 
-### Register Additional Amazon Web Services
+### Register Additional AWS Services to an AWS Integration
 
-After you set up the AWS integration with a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn), you can additionally register more Amazon Web services.
+After you set up the AWS integration with a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn), you can additionally register more CloudWatch, AWS Metrics+, or CloudTrail integrations associated with the same role ARN.
 
 1. In your service instance (`https://<your_instance>.wavefront.com`), click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.
-1. In the Cloud Integration page, click **Add Amazon Web Services** and select an option:
+1. On the Cloud Integrations page, click **Add Cloud Integration &gt; Add Amazon Web Services** and select an option:
    * To register an AWS Metrics+ service, select **Register AWS Metrics+**, and configure the following integration properties:
       
       1. **Name** -- Name to identify the integration.
       2. **Role ARN** -- Select the Role ARN from your Amazon account.
+      3. **Service Limit Metrics** -- Disable or enable the ingestion of support service limit metrics (also known as service quotas), that is, the metrics with the namespace `aws.limits.*`. You can later edit this setting, if necessary.
    
    * To register a CloudTrail service, select **Register CloudTrail**, and configure the following integration properties:
       
