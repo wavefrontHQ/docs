@@ -164,7 +164,7 @@ With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter
 
 {% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode). Internal metrics are ephemeral and not convertible." %}
 
-Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and can also reduce the [cardinality](cardinality.html).
+Converting persistent metrics to ephemeral can significantly improve the [query performance](query_language_performance.html) and reduce the [cardinality](cardinality.html).
 
 {% include important.html content="Converting a persistent metric to ephemeral deletes the data points of this metric that are older than 30 days." %}
 
