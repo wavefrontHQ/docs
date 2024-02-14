@@ -160,11 +160,13 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 
 ### Change the Retention Period of Metrics
 
-With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all ingested metrics are persistent but are convertible. Internal metrics are ephemeral and not convertible.
+With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all ingested metrics are persistent but are convertible to ephemeral.
 
-Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and also reduce the [cardinality](cardinality.html).
+{% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode). Internal metrics are ephemeral and not convertible." %}
 
-{% include note.html content="To change the ephemerality of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
+Converting persistent metrics to ephemeral metrics can significantly improve the [query performance](query_language_performance.html) and can also reduce the [cardinality](cardinality.html).
+
+{% include important.html content="Converting a persistent metric to ephemeral deletes the data points of this metric that are older than 30 days." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -182,6 +184,10 @@ Converting persistent metrics to ephemeral metrics can significantly improve the
 </tr>
 </tbody>
 </table>
+
+Changing the retention period of a metric or metrics namespace creates a [System event](events.html):
+* Converting a persistent metric to ephemeral creates a System event with the name `Ephemeral Prefix: Added <metric_name>`.
+* Converting an ephemeral metric to persistent creates a System event with the name `Ephemeral Prefix: Removed <metric_name>`.
 
 ## Learn More!
 
