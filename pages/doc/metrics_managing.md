@@ -160,13 +160,13 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 
 ### Change the Retention Period of Metrics
 
-With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all ingested metrics are persistent but are convertible to ephemeral.
-
-{% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
+With the 2024-07 release, we introduce **ephemeral** metrics, which have short [retention period](terms_of_service.html#data-retention). By default, all ingested metrics are persistent but are convertible to ephemeral.
 
 Converting persistent metrics to ephemeral can significantly improve the [query performance](query_language_performance.html) and reduce the [cardinality](cardinality.html).
 
-{% include important.html content="Converting a persistent metric to ephemeral deletes the data points of this metric that are older than 28 days." %}
+{% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
+
+{% include important.html content="Converting a persistent metric to ephemeral **permanently deletes** the data points of this metric that are older than 28 days." %}
 
 <table style="width: 100%;">
 <tbody>
