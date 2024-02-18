@@ -198,7 +198,7 @@ You can now edit the alert directly, but we recommend that you clone the alert s
 <td width="50%" markdown="span">![Screenshot of the recipients section of the alert where we've entered the email address](images/aws_specify_recipient.png) </td></tr>
 <tr>
 <td width="50%" >
-When the threshold is exceeded, you'll receive an email that includes a link to the alert in the Alert Viewer. <br/><br/>The annotated screenshot on the right can help you get started with the Alert Viewer. <br/><br/>This <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0#">short video</a> shows what you can do. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
+When the threshold is exceeded, you'll receive an email that includes a link to the alert in the <a href="alerts.html#alert-viewer-tutorial">Alert Viewer</a>. <br/><br/>The annotated screenshot on the right can help you get started with the Alert Viewer. <br/><br/>This <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0#">short video</a> shows what you can do. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
 </td>
 <td width="50%" markdown="span">![Annotated screenshot of the alert viewer](images/alert_viewer.png) </td></tr>
 </tbody>
