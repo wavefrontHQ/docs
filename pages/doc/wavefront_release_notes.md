@@ -36,6 +36,23 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2024-xx.x Release Notes
+
+* **Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers who are also running the VMware Tanzu Insights service now have a bidirectional link between the two services.
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">The <a href="alerts.html#alert-viewer-tutorial">Alert Viewer</a> and the <a href="alerts_manage.html#edit-alerts">Alert Editor</a> now include the Related Insights pane with a list of insights in which the corresponding alert is aggregated. In this pane, you can:
+  <ul><li>Filter the insights by severity.</li>
+  <li>If you have an Insights service role, you can open a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources.</li>
+  <li>View all Operations for Applications alert firings aggregated in a related insight.</li></ul>
+  <p>If your VMware Cloud organization is not running the VMware Tanzu Insights service, you can click <strong>Try Free Tier</strong> to unlock AI/ML-based insights for your entire infrastructure and workloads. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub</a>.</p></td>
+  <td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 2024-05.x Release Notes
 
 * **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
