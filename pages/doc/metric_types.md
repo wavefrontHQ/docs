@@ -75,7 +75,7 @@ With the 2024-07 release, we introduce **ephemeral** metrics, which have a short
 </tr>
 <tr>
 <td>Ephemeral</td>
-<td>30 days of data retention. By default, only the <a href="wavefront-internal-metrics.html">internal metrics</a> are ephemeral and they are not convertible.</td>
+<td>28 days of data retention.</td>
 </tr>
 </tbody>
 </table>

@@ -21,7 +21,7 @@ A production instance retains different types of data for different amounts of t
 </thead>
 <tr><td><strong>metrics</strong></td>
 <td><ul><li>For persistent (default) metrics, 18 months of full-resolution (no downsampling).</li>
-<li>For ephemeral metrics, 30 days of data detention.</li></ul>
+<li>For ephemeral metrics, 28 days of data detention.</li></ul>
 See <a href="metric_types.html#metric-types-per-retention-period">Metric Types per Retention Period</a>.</td></tr>
 <tr><td><strong>counters</strong></td>
 <td>18 months of data retention.
@@ -37,7 +37,7 @@ See <a href="metric_types.html#metric-types-per-retention-period">Metric Types p
 
 Your Terms of Service are different depending on when you became a customer.
 
-Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for persistent metrics, 30 days for ephemeral metrics, 6 months for histograms, and 7 days for spans. We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
+Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for persistent metrics, 28 days for ephemeral metrics, 6 months for histograms, and 7 days for spans. We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
 If you became a customer on or after August 17, 2017:
 

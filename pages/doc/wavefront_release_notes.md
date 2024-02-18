@@ -38,9 +38,9 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-07.x Release Notes
 
-* **New Ephemeral Metric Type**: With this release, we introduce ephemeral metrics, which have a short retention period. Ephemeral metrics are retained for 30 days, whereas persistent (default) metrics are retained for 18 months. For details, see [Metric Types per Retention Period](metric_types.html#metric-types-per-retention-period).
+* **New Ephemeral Metric Type**: With this release, we introduce ephemeral metrics, which have a short retention period. Ephemeral metrics are retained for 28 days, whereas persistent (default) metrics are retained for 18 months. For details, see [Metric Types per Retention Period](metric_types.html#metric-types-per-retention-period).
 
-  {% include note.html content="By default, all ingested metrics are persistent but are now convertible to ephemeral. All internal metrics are now ephemeral and not convertible. "%}
+  {% include note.html content="By default, all ingested metrics are persistent but are now convertible to ephemeral."%}
 
   On the Metrics Browser:
   
