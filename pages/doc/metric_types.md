@@ -62,7 +62,7 @@ The following table gives an overview of metric types. We introduce each type in
 
 ### Metric Types per Retention Period
 
-With the 2024-07 release, we introduce **ephemeral** metrics, which have a shorter [retention period](terms_of_service.html#data-retention). [Converting](metrics_managing.html#change-the-retention-period-of-metrics) persistent metrics to ephemeral metrics improves the [query performance](query_language_performance.html) and reduces the [cardinality](cardinality.html).
+With the 2024-07 release, we introduce **ephemeral** metrics, which have a short [retention period](terms_of_service.html#data-retention).
 
 <table style="width: 100%;">
 <tbody>
@@ -71,11 +71,13 @@ With the 2024-07 release, we introduce **ephemeral** metrics, which have a short
 </thead>
 <tr>
 <td>Persistent</td>
-<td>18 months of data retention. By default, all ingested metrics are persistent but are convertible. Counters are persistent and not convertible. </td>
+<td>18 months of data retention. By default, all metrics and counters are persistent. Metrics are convertible to ephemeral.</td>
 </tr>
 <tr>
 <td>Ephemeral</td>
-<td>28 days of data retention.</td>
+<td>28 days of data retention. Suitable for metrics that are relevant for a short time and that have high cardinality, such as the Kubernetes metrics (<code>kubernetes.</code>).
+<p><a href="metrics_managing.html#change-the-retention-period-of-metric">Converting</a> metrics from persistent to ephemeral improves the <a href="query_language_performance.html">query performance</a> and reduces the <a href="cardinality.html">cardinality</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>

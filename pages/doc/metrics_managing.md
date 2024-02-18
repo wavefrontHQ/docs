@@ -106,11 +106,11 @@ On the Metrics Browser, you can:
 * Filter by name or source.
 * Hide and redisplay individual metrics or metrics namespaces to unclutter your page.
 * View the metric type in terms of retention period - persistent or ephemeral.
-* Convert persistent metrics to ephemeral and the reverse. Internal metrics are ephemeral and not convertible.
+* Convert persistent metrics to ephemeral and the reverse.
 * Create a chart or dashboard for an individual metric or for the current set of metrics.
 * View the sources and point tags for an individual metric.
 
-{% include tip.html content="If you select **Browse > Delta Counters** you can use the same browser to examine [delta counters](delta_counters.html). The only difference is that counters are persistent and not convertible." %}
+{% include tip.html content="If you select **Browse > Delta Counters** you can use the same browser to examine [delta counters](delta_counters.html). The only difference is that counters are persistent and not convertible to ephemeral." %}
 
 ### Hide and Redisplay Metrics
 
@@ -162,11 +162,11 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 
 With the 2024-07 release, we introduce **ephemeral** metrics, which have shorter [retention period](terms_of_service.html#data-retention). By default, all ingested metrics are persistent but are convertible to ephemeral.
 
-{% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode). Internal metrics are ephemeral and not convertible." %}
+{% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode)." %}
 
 Converting persistent metrics to ephemeral can significantly improve the [query performance](query_language_performance.html) and reduce the [cardinality](cardinality.html).
 
-{% include important.html content="Converting a persistent metric to ephemeral deletes the data points of this metric that are older than 30 days." %}
+{% include important.html content="Converting a persistent metric to ephemeral deletes the data points of this metric that are older than 28 days." %}
 
 <table style="width: 100%;">
 <tbody>
