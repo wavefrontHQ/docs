@@ -133,7 +133,7 @@ For each alert, the Alerts Browser includes detailed information. For example, a
 
 Follow these steps for a tour:
 1. Click the ellipsis icon to the left for a menu.
-1. Click the chart icon in the State column to examine the [Alert Viewer](#alert-viewer-tutorial) for the last firing of an alert.
+1. Click the chart icon in the State column to examine the [Alert Viewer](#alert-viewer-tutorial) for the current or last firing of an alert.
 1. View the alert condition and points.
 1. View details below the severity:
   - View the last affected series, including the affected sources and point tags.
@@ -247,7 +247,7 @@ The related information in the right pane of the Alert Viewer can help you deter
 <tbody>
 <tr>
 <td width="50%">Open the Alert Viewer in one of the following ways:
-<ul><li>In the <a href="#alerts-browser-tutorial">Alerts Browser</a>, in the State column of the alert, click the chart icon to open the last firing of that alert.</li>
+<ul><li>In the <a href="#alerts-browser-tutorial">Alerts Browser</a>, in the State column of the alert, click the chart icon to open the current or last firing of that alert.</li>
 <li>In the alert notification that you received, click the link to the Alert Viewer.</li>
 </ul><br /><br/>
 Examine the following:
@@ -274,7 +274,7 @@ The related information in the right pane depends on your [subscription type](su
 If your VMware Cloud organization is also running VMware Tanzu Insights, we scan the insights that include this alert. You can:
 <ul><li>Filter the insights by severity.</li>
 <li>View all Operations for Applications alert firings aggregated in a related insight.</li>
-<li>If you have an Insights service role, you can view a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub</a>.</li>
+<li>If you have Tanzu Hub and Tanzu Insights service roles, you can view a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub</a>.</li>
 </ul>
 <p>If your VMware Cloud organization is not running VMware Tanzu Insights, you can click <strong>Try Free Tier</strong> to unlock AI/ML-based insights for your environment. </p>
 <p><strong>Note</strong>: The Related Insights pane is also available in the <a href="alerts_manage.html#edit-alerts">Alert Editor</a>.</p>
