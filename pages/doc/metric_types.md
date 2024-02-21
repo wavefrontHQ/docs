@@ -34,7 +34,7 @@ The following table gives an overview of metric types. We introduce each type in
 </tr>
 <tr>
 <td>Counter</td>
-<td>Shows values as they increase (and decrease).</td>
+<td>Shows values as they increase. Counters only accumulate or reset to zero (do not decrease).</td>
 <td>Number of failed connections, registered users.</td>
 </tr>
 <tr>
