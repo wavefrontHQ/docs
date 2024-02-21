@@ -30,7 +30,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 ## Configure the Petclinic Application
 
-1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project. Add the following code to the `pom.xml` file (replace VERSION with the current version):
+1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project. Add the following code to the `pom.xml` file (replace VERSION with the current version).
    {{site.data.alerts.tip}}
       <p> Make sure that the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="wavefront_springboot3.html#versionCompatibility">System Requirements</a> to get the correct dependency version.
       <br/>
@@ -51,7 +51,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     </dependencyManagement>
     ```
 
-1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file's `<dependencies>`:
+1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file's `<dependencies>`.
     ```xml
     <dependency>
       <groupId>com.wavefront</groupId>
@@ -79,20 +79,20 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 1. Add the `Datasource Micrometer` dependency to intercept and log JDBC SQL queries. You can intercept most Connection, Statement, and ResultSet methods invocations using the Datasource Micrometer dependency.
    {{site.data.alerts.tip}}
-      <p>Check the <a href="https://github.com/jdbc-observations/datasource-micrometer/releases">Datasource Micrometer releases</a> and enter the latest version in place of <code>{ADD_VERSION}</code>.</p>
+      <p>Check the <a href="https://github.com/jdbc-observations/datasource-micrometer/releases">Datasource Micrometer releases</a> and enter the latest version in place of <code>VERSION</code>.</p>
     {{site.data.alerts.end}}
     ```xml
     <dependency>
       <groupId>net.ttddyy.observation</groupId>
       <artifactId>datasource-micrometer-spring-boot</artifactId>
-      <version>{ADD_VERSION}</version>
+      <version>VERSION</version>
       <scope>runtime</scope>
     </dependency>
     ```
 
 1. Add the following configurations to the `application.properties` file so that your:
-    * Application is named `spring-demo`
-    * Service is named `spring-petclinic`
+    * Application is named `spring-demo`.
+    * Service is named `spring-petclinic`.
     * The probability of traces being sampled is set to 100% for demo purposes. To learn more on trace data sampling, see [Trace Sampling](trace_data_sampling.html).
     ```
     management.wavefront.application.name=spring-demo
@@ -134,7 +134,7 @@ When you click the link in the Wavefront Spring Boot starter, you are taken to t
 * Inventory details.
 * Hosts. Use the drop-down menus to group the hosts.
 
-If one or more applications are enabled for tracing, click the link in the Tracing section to be directed to the Tracing dashboard.
+If one or more applications are enabled for tracing, click the link in the **Tracing** section to be directed to the Tracing dashboard.
 
 ![Spring Boot inventory screenshot](images/springboot3_metrics_callout.png)
 
@@ -158,5 +158,5 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
 * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
 * You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront for Spring Boot Service Dashboards. If you want to modify a preconfigured dashboard, you must clone and edit the preconfigured dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
 * Customers or free trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
-    {% include note.html content="Alerts are not supported on this freemium cluster."%}
+    {% include note.html content="Alerts are not supported on the freemium cluster."%}
 * Try out the petclinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
