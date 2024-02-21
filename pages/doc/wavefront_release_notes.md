@@ -51,8 +51,17 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
   {% include note.html content="Converting persistent metrics to ephemeral improves the [query performance](query_language_performance.html) and reduces the [cardinality](cardinality.html). Consider converting metrics that are relevant for a short time and that have high cardinality, such as the Kubernetes metrics (`kubernetes.`). "%}
 
+* **Replace all `~agent.` metrics with `~proxy.`**: The `~agent.` metrics were deprecated a few years ago. With this release, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
 
+  For example: 
 
+  ```
+  # Deprecated metric: 
+  rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
+
+  # Replace with:
+  rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
+  ``````
 
 ## 2024-05.x Release Notes
 

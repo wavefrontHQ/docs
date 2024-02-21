@@ -289,7 +289,7 @@ You can use `groupRight` and `groupLeft` operators to achieve many-to-one and on
 For example, when we use the `groupRight` operator in the query below, we see results with the `processId` tag which is on the right side of the operator.
 
 ```
-sum(ts(~agent.listeners.connections.*), port, processId) + by(processId) groupRight sum(ts(~agent.points.2878.blocked), processId)
+sum(ts(~proxy.listeners.connections.*), port, processId) + by(processId) groupRight sum(ts(~proxy.points.2878.blocked), processId)
 ```
 
 ![A chart created with the above query with one dimension shown in the pinned legend - processId.](images/groupRight.png)
@@ -297,7 +297,7 @@ sum(ts(~agent.listeners.connections.*), port, processId) + by(processId) groupRi
 In the example below, we use the `groupLeft` operator. Therefore, we see results with the `port` and `processId` tags, which are on the left side of the operator.
 
 ```
-sum(ts(~agent.listeners.connections.*), port, processId) + by (processId) groupLeft sum(ts(~agent.points.2878.blocked), processId)
+sum(ts(~proxy.listeners.connections.*), port, processId) + by (processId) groupLeft sum(ts(~proxy.points.2878.blocked), processId)
 ```
 
 ![A chart created with the above query with two dimensions shown in the pinned legend - port and processId.](images/groupLeft.png)
