@@ -36,6 +36,24 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2024-07.x Release Notes
+
+* **New Ephemeral Metric Type**: With this release, we introduce ephemeral metrics, which have a short retention period. Ephemeral metrics are retained for 28 days, whereas persistent (default) metrics are retained for 18 months. For details, see [Metric Types per Retention Period](metric_types.html#metric-types-per-retention-period).
+
+  {% include note.html content="By default, all ingested metrics are persistent but are now convertible to ephemeral."%}
+
+  On the Metrics Browser:
+  
+  * All users can view the type of each metric - persistent or ephemeral.
+  * Super Admin users can convert metrics from persistent to ephemeral and the reverse. For details, see [Change the Retention Period of Metrics](metrics_managing.html#change-the-retention-period-of-metrics).
+    
+  ![A screenshot of the Metrics Browser with highlighted the new Type column and the new Change Ephemerality button.](images/metrics_browser_RNs.png)
+
+  {% include note.html content="Converting persistent metrics to ephemeral improves the [query performance](query_language_performance.html) and reduces the [cardinality](cardinality.html). Consider converting metrics that are relevant for a short time and that have high cardinality, such as the Kubernetes metrics (`kubernetes.`). "%}
+
+
+
+
 ## 2024-05.x Release Notes
 
 * **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
