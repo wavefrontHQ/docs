@@ -267,29 +267,40 @@ Examine the following:
 
 The related information in the right pane depends on your [subscription type](subscriptions-differences.html).
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%"><ul><li><strong>For a VMware Cloud services subscription</strong>, in the top right, examine the Related Insights pane. <br/><br/>
-If your VMware Cloud organization is also running VMware Tanzu Insights, we scan the insights that include this alert.
-<p><strong>Note</strong>: You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1">Service Roles</a> in the VMware Tanzu Hub documentation.</p>
-In the Related Insights pane, you can:
-<ul><li>Filter the insights by severity.</li>
-<li>View all Operations for Applications alert firings aggregated in a related insight.</li>
-<li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub</a> in the Tanzu Hub documentation.</li>
-</ul>
-<p>If your VMware Cloud organization is not running VMware Tanzu Insights, you can click <strong>Try Free Tier</strong> to unlock AI/ML-based insights for your environment. </p>
-<p><strong>Note</strong>: The Related Insights pane is also available on the <a href="alerts_manage.html#edit-alerts">Alert Edit</a> page.</p>
-</li></ul></td>
-<td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
-</tr>
-<tr>
-<td width="50%"><ul><li><strong>For an original subscription</strong>, in the top right, examine the Related Firing Alerts pane. <br /><br/>
-When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlate them with the initial event using AI/ML algorithms. You can filter by alert severity.</li></ul></td>
-<td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
-</tr>
-</tbody>
-</table>
+* For a VMware Cloud services subscription, in the top right, examine the Related Insights pane.
+
+  If your VMware Cloud organization is also running VMware Tanzu Insights, we scan the insights that include this alert.
+
+  {% include note.html content="You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see [Service Roles](https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1) in the VMware Tanzu Hub documentation."%}
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  In the Related Insights pane, you can:
+  <ul><li>Filter the insights by severity.</li>
+  <li>View all Operations for Applications alert firings aggregated in a related insight.</li>
+  <li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub</a> in the Tanzu Hub documentation.</li>
+  </ul>
+  <p>If your VMware Cloud organization is not running VMware Tanzu Insights, you can click <strong>Try Free Tier</strong> to unlock AI/ML-based insights for your environment. </p>
+  <p><strong>Note</strong>: The Related Insights pane is also available on the <a href="alerts_manage.html#edit-alerts">Alert Edit</a> page.</p>
+  </td>
+  <td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
+  </tr>
+  </tbody>
+  </table>
+
+* For an original subscription, in the top right, examine the Related Firing Alerts pane.
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlate them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
+  <td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
+  </tr>
+  </tbody>
+  </table>
 
 ### Step 3: Investigate Affected Point Tags and Sources
 <table style="width: 100%;">

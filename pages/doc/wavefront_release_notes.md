@@ -38,13 +38,16 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-xx.x Release Notes
 
-* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers who are also running VMware Tanzu Insights now have a bidirectional link between Operations for Applications and Insights. The Insights capabilities help you investigate your alerts from within the Operations for Operations user interface. You can also easily switch to Insights in VMware Tanzu Hub to view more data for troubleshooting and resolving problems.
+* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between Operations for Applications and VMware Tanzu Insights. The Insights capabilities help you investigate your alerts from within the Operations for Operations user interface.
+
+  The Alert Viewer and Alert Editor now include the Related Insights pane, which provides a list of the insights that contain the corresponding alert.
+
+  {% include note.html content="You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see [Service Roles](https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1) in the VMware Tanzu Hub documentation."%}
 
   <table style="width: 100%;">
   <tbody>
   <tr>
-  <td width="50%">The Alert Viewer and Alert Editor now include the Related Insights pane, which provides a list of the insights that contain the corresponding alert.
-  <p><strong>Note</strong>: You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1">Service Roles</a> in the VMware Tanzu Hub documentation.</p>
+  <td width="50%">
   In the Related Insights pane, you can:
   <ul><li>Filter the insights by severity.</li>
   <li>View all Operations for Applications alert firings aggregated in a related insight.</li>
@@ -56,6 +59,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
   </table>
 
   For details, see [Examine the Related Information](alerts.html#step-2-examine-the-related-information).
+
 
 ## 2024-05.x Release Notes
 
