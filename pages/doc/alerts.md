@@ -247,7 +247,7 @@ The related information in the right pane of the Alert Viewer can help you deter
 <tbody>
 <tr>
 <td width="50%">Open the Alert Viewer in one of the following ways:
-<ul><li>In the <a href="#alerts-browser-tutorial">Alerts Browser</a>, in the State column of the alert, click the chart icon to open the current or last firing of that alert.</li>
+<ul><li>In the <a href="#alerts-browser-tutorial">Alerts Browser</a>, in the State column of the alert, click the chart icon to open the current or most recent firing of that alert.</li>
 <li>In the alert notification that you received, click the link to the Alert Viewer.</li>
 </ul><br /><br/>
 Examine the following:

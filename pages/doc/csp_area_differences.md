@@ -492,7 +492,7 @@ For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rul
 <td><strong>Who</strong>: All users.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: The Alert Viewer shows the Related Insights pane with the insights that contain this alert. For details, see <a href="alerts.html#step-2-examine-the-related-information">Examine the Related Information</a>.</p>
-<p>The Alert Editor also includes Related Insights pane.</p>
+<p>The Alert Editor also includes the Related Insights pane.</p>
 </td>
 </tr>
 </tbody>
