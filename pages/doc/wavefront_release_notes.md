@@ -38,7 +38,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-xx.x Release Notes
 
-* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between Operations for Applications and VMware Tanzu Insights. The Insights capabilities help you investigate your alerts from within the Operations for Operations user interface.
+* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between Operations for Applications and VMware Tanzu Insights. The Insights capabilities help you investigate your alerts from within the Operations for Applications user interface.
 
   The Alert Viewer and Alert Editor now include the Related Insights pane, which provides a list of the insights that contain the corresponding alert.
 
