@@ -62,7 +62,6 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 **Amazon Web Services Integration Improvement**: You can now disable the ingestion of support service limit metrics. See the [Integrations Release Notes](integrations_new_changed.html#january-2024) for details.
 
-
 ## 2024-01.x Release Notes
 
 **Traces Security Policy**: You can block application or service information for specific users so that they don’t see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards. To learn more, see:
