@@ -175,8 +175,6 @@ Alert checks are based on data that is summarized every minute.  Consequently, i
 
 ### Viewing Firing Alerts
 
-When you hover over **Alerting** on the toolbar, you can see how many alerts are firing.
-
 <table style="width: 100%;">
 <tbody>
 <tr>

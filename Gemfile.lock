@@ -96,6 +96,7 @@ PLATFORMS
   x64-mingw32
   x64-unknown
   x86_64-darwin-20
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
