@@ -107,7 +107,7 @@ PLATFORMS
 
 DEPENDENCIES
   algoliasearch-jekyll (~> 0.8.0)
-  jekyll (~> 4.0, >= 4.0.1)
+  jekyll (~> 4.3, >= 4.3.3)
   jekyll-sitemap
   jekyll-target-blank
   kramdown-parser-gfm
