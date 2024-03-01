@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, examine, and organize them.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports smart alerts that dynamically filter noise and capture true anomalies.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports smart alerts that dynamically filter noise and capture true anomalies.
 * When the alert condition is met, an alert notifies one or more **alert targets**, which receive the alert notification(s).
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: delta_counters.html
 summary: Learn when and how to use cumulative counters and delta counters.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports [several types of metrics](metric_types.html), including 2 kinds of counters.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports [several types of metrics](metric_types.html), including 2 kinds of counters.
 
 * **Cumulative counters** (usually called **counters** in this doc set) monotonically increasing counters. They're useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function.
 * **Delta counters** (sometimes called periodic counters) measure the **change** since a metric was last recorded. For example, metrics for request count could be delta counters. Each value records how many requests were received since the last data point was recorded.
@@ -44,7 +44,7 @@ It often makes sense to collect both counter metrics and delta counter metrics -
 
 The following illustration contrasts cumulative counters and delta counters with a simple example:
 
-* Error data are being sent to Operations for Applications. 5 errors in the first minute, 17 in the second, and 8 in the third.
+* Error data are being sent to Tanzu Observability. 5 errors in the first minute, 17 in the second, and 8 in the third.
 * The top row shows cumulative counter behavior. In many cases, the data actually come in as cumulative counters:
   - The running total of the errors (5, 22, 30) is ingested and stored.
   - The `ts()` query shows a chart with values increasing over time.
@@ -78,7 +78,7 @@ For more on delta counter use cases, see the blog [Monitoring Apps in the Server
 
 AWS Lambda allows you to specify functions that you want to run -- and then you can stop worrying about the function execution. For example, assume that you want to generate a thumbnail each time any of your users uploads images to a folder. You can write a Lambda function that monitors the folders and takes care of thumbnail generation for you. AWS runs as many of the functions as necessary to handle the current workload, and you don't have to worry about scaling up or down.
 
-Delta counters make monitoring easy for this use case. Operations for Applications aggregates the metrics that come from different invocations of the same function. The AWS Lambda Functions integration comes preconfigured with several delta counters and a gauge for standard metrics. In addition, you can monitor custom business metrics by using our SDK to define a wrapper for your AWS Lambda function. See the [AWS Lambda Functions Integration](aws-lambda-functions.html) for setup instructions.
+Delta counters make monitoring easy for this use case. Tanzu Observability aggregates the metrics that come from different invocations of the same function. The AWS Lambda Functions integration comes preconfigured with several delta counters and a gauge for standard metrics. In addition, you can monitor custom business metrics by using our SDK to define a wrapper for your AWS Lambda function. See the [AWS Lambda Functions Integration](aws-lambda-functions.html) for setup instructions.
 
 
 ## Using Delta Counters
@@ -141,11 +141,11 @@ You can use our SDKs to make your metric a delta counter.
 We support the following [proxy configuration properties](proxies_configuring.html#configuration-properties) with delta counters.
 
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
-- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to Operations for Applications. Default is 30 seconds.
+- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to Tanzu Observability. Default is 30 seconds.
 
 ### Delta Prefix
 
-If you want to send metrics as delta counters to the Wavefront proxy or directly to Operations for Applications, prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
+If you want to send metrics as delta counters to the Wavefront proxy or directly to Tanzu Observability, prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
 
 ```
 DELTA_PREFIX = u"\u2206"
