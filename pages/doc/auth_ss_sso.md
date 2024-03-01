@@ -16,7 +16,6 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 {% include tip.html content="If you set up SAML SSO for your environment, user accounts can no longer sign in with their user name and password. They must log in through the IdP. Service accounts can continue to use their authentication tokens."%}
 
-
 ## Single-Tenant Authentication
 
 Most administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predefined. 
