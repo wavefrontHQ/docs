@@ -7,7 +7,7 @@ permalink: query_language_performance.html
 summary: Tricks for improving the query language performance.
 ---
 
-The Wavefront Query Language (WQL) lets you retrieve and display the data that has been ingested into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and create alerts that use this data.
+The Wavefront Query Language (WQL) lets you retrieve and display the data that has been ingested into Tanzu Observability (formerly known as VMware Aria Operations for Applications) and create alerts that use this data.
 
 <table style="width: 100%;">
 <tbody>
@@ -82,7 +82,7 @@ To see the performance statistics for a particular query of a chart or alert:
 
 ## Use Performance Improvement Suggestions
 
-If the query uses certain functions in ways that often cause performance degradation, Operations for Applications shows actionable suggestions for improving the query performance. The suggestions also include links to documentation and videos for details.
+If the query uses certain functions in ways that often cause performance degradation, Tanzu Observability shows actionable suggestions for improving the query performance. The suggestions also include links to documentation and videos for details.
 
 <table style="width: 100%;">
 <tbody>
@@ -108,7 +108,7 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 
 ## Use the Query Analyzer
 
-Sometimes, when you expect to see certain data in Operations for Applications, it doesn’t show up for some reason. By default, in such cases, charts display a **No Data** message (unless you have [overridden this setting and have set up charts to show another message](ui_charts.html#override-the-no-data-message-on-a-chart)). When you see **No Data** on a chart, you can use the Query Analyzer to analyze your queries and subqueries. The Query Analyzer helps you identify potential issues, so that you can easily [troubleshoot missing data](missing_data_troubleshooting.html), and also shows performance statistics for the queries and subqueries that result in **No Data**.
+Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a **No Data** message (unless you have [overridden this setting and have set up charts to show another message](ui_charts.html#override-the-no-data-message-on-a-chart)). When you see **No Data** on a chart, you can use the Query Analyzer to analyze your queries and subqueries. The Query Analyzer helps you identify potential issues, so that you can easily [troubleshoot missing data](missing_data_troubleshooting.html), and also shows performance statistics for the queries and subqueries that result in **No Data**.
 
 {% include tip.html content="If you use variables in your queries, in the Query Analyzer the variables are replaced by their actual (static) values. See the example below."%}
 
@@ -130,7 +130,7 @@ The subquery that causes the **No Data** issue is highlighted.
 
   ![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
 
-- **Example 2**: No data is present in Operations for Applications.
+- **Example 2**: No data is present in Tanzu Observability.
 
   ![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system](images/query-analyzer-tab-1.png)
 

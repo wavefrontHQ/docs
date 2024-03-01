@@ -7,7 +7,7 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert notifications by modifying alert target templates.
 ---
 
-An alert target provides a template that specifies how VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) extracts information from the alert, and how to assemble the notification from the alert information.
+An alert target provides a template that specifies how Tanzu Observability (formerly known as VMware Aria Operations for Applications) extracts information from the alert, and how to assemble the notification from the alert information.
 
 You can customize the predefined template for the alert target type by making and saving changes. The template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 
@@ -48,7 +48,7 @@ Here's what happens:
 2. The alert template:
    * Identifies the information you want to extract from the alert
    * Embeds that information in a formatted structure appropriate for the target's messaging platform.
-3. Operations for Applications sends the formatted information to the target.
+3. Tanzu Observability sends the formatted information to the target.
 4. The messaging platform interprets the structure and displays it as a readable notification.
 
 For example:
@@ -74,7 +74,7 @@ The predefined Slack and VictorOps templates contain JSON attributes defined by 
 
 ### Template Variables
 
-We define template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Operations for Applications replaces the variables in the template with strings that represent the requested values. 
+We define template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Tanzu Observability replaces the variables in the template with strings that represent the requested values. 
 
 We support property and iterator variables, which are used differently.
 

@@ -7,7 +7,7 @@ permalink: alerts_delayed_data.html
 summary: Diagnose and avoid spurious alerts due to delayed data reporting.
 ---
 
-An alert fires or resolves based on the data values that are present in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) during the alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to an apparent false positive (the alert fires when you don't expect it) or false negative (the alert does not fire as expected).
+An alert fires or resolves based on the data values that are present in Tanzu Observability (formerly known as VMware Aria Operations for Applications) during the alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to an apparent false positive (the alert fires when you don't expect it) or false negative (the alert does not fire as expected).
 
 This page can help you understand, diagnose, and prevent the impact of data delays on alerts. Buffering alerts against false positives, in particular, can help you reduce alert noise.
 
@@ -19,7 +19,7 @@ Suppose you need to monitor the total number of users that are sharded across 3 
 
 * At about 9:35, `app-3` finally sends its data points, and these delayed points are backfilled into the time series.
 
-* A few minutes later, you investigate the alert by using an Operations for Applications chart. You query for the total number of users, and adjust the custom time window so you can view the data points in the minutes around the alert check (9:28 to 9:30).
+* A few minutes later, you investigate the alert by using an Tanzu Observability chart. You query for the total number of users, and adjust the custom time window so you can view the data points in the minutes around the alert check (9:28 to 9:30).
 
 * You are surprised to see that the chart shows a total of about 105 users during the alert check window.
 
@@ -35,11 +35,11 @@ If you think an alert has fired or resolved by mistake, it's possible that a dat
 
 ### What is a Data Delay?
 
-A data delay is a noticeable latency between the time that a source collects a data value and the time that Operations for Applications receives that value. Data delays can occur anywhere in the data pipeline. Data delays can be:
+A data delay is a noticeable latency between the time that a source collects a data value and the time that Tanzu Observability receives that value. Data delays can occur anywhere in the data pipeline. Data delays can be:
 * Predictable - for example, when a source preprocesses or batches the data values before sending them.
 * Unpredictable - for example, when a sudden network slowdown or outage interferes with the flow of data.
 
-When delayed data points arrive, Operations for Applications backfills them into their time series. Each backfilled point is stored with the timestamp that reflects when the source collected it, not when we received it.
+When delayed data points arrive, Tanzu Observability backfills them into their time series. Each backfilled point is stored with the timestamp that reflects when the source collected it, not when we received it.
 
 <!---
 If backfilling does not occur,  we call it missing data – i.e., a permanent failure to report – and handle it differently.
@@ -47,11 +47,11 @@ If backfilling does not occur,  we call it missing data – i.e., a permanent fa
 
 ### Did a Data Delay Affect My Alert?
 
-The process of backfilling data values causes Operations for Applications to revise the affected time series. In effect, there are now two views of the time window in which the delay occurred:
+The process of backfilling data values causes Tanzu Observability to revise the affected time series. In effect, there are now two views of the time window in which the delay occurred:
 * The original view, which exists before backfilling takes place.
 * The revised view, which exists after backfilling takes place. This view consists of the complete set of reported data values.
 
-After backfilling takes place, you can see only the revised view in an Operations for Applications chart.
+After backfilling takes place, you can see only the revised view in an Tanzu Observability chart.
 
 If an alert has fired when you didn't expect it, use one of these approaches to determine whether a data delay was the cause:
 

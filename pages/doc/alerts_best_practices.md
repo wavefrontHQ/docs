@@ -7,7 +7,7 @@ permalink: alerts_best_practices.html
 summary: Learn about best practices for alert creation, alert settings, and alert troubleshooting.
 ---
 
-You use alerts in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) to get notified when something out of the ordinary happens. Alerts monitor your environment's behavior and send notifications based on how you configure the alert. 
+You use alerts in Tanzu Observability (formerly known as VMware Aria Operations for Applications) to get notified when something out of the ordinary happens. Alerts monitor your environment's behavior and send notifications based on how you configure the alert. 
 
 This page has some best practices from our Technical Support engineers to help you set up truly useful alerts and avoid common problems with alerts. 
 
@@ -35,7 +35,7 @@ For metrics that do not report at a fixed interval, alerts are only useful if y
 
 * You can base the query condition on the last value reported, the sum of the values, or the average of the values depending on what nuance you want your query to capture.
 
-* Operations for Applications evaluates alerts once every 5 minutes by default. The **Checking Frequency** in the Alert page's **Advanced Settings** allows you to change the default (minimum is 1 minute).
+* Tanzu Observability evaluates alerts once every 5 minutes by default. The **Checking Frequency** in the Alert page's **Advanced Settings** allows you to change the default (minimum is 1 minute).
 
 **Example 1**: Suppose you have a metric that reports the number of failures since server restart. If the metric reports 25 failures at 1:24, and 25 failures at 1:25, that could mean nothing has changed. However, it could also mean that within a minute, 10 failures resolved and 10 new failures appeared. It could even mean that within a minute, total failures dropped to 2, jumped up to 100, and came back down to 25. For this use case, your alert can't just check the number of failures once a minute. Instead, the alert has to look at a metric that captures the total number of failures that happened over time.
 
@@ -86,7 +86,7 @@ Don't use interpolation if metrics show deltas to avoid results like `4.5 proces
 
 **Question:** Is this metric aligned to the minute (or any other interval)? 
 
-By default, alert checking frequency is 5 minutes, and alert condition queries are evaluated with 1 minute granularity. If more than 1 data point comes in per minute, consider explicitly aligning your data to 1 minute using the summarization strategy appropriate for your use case (e.g., `sum`, `max`, `last` etc). If you don't specify a summarization strategy, Operations for Applications uses `avg`, which computes the mean. If your data points are coming in much less frequently than once a minute, consider adjusting the alert's checking frequency advanced option. 
+By default, alert checking frequency is 5 minutes, and alert condition queries are evaluated with 1 minute granularity. If more than 1 data point comes in per minute, consider explicitly aligning your data to 1 minute using the summarization strategy appropriate for your use case (e.g., `sum`, `max`, `last` etc). If you don't specify a summarization strategy, Tanzu Observability uses `avg`, which computes the mean. If your data points are coming in much less frequently than once a minute, consider adjusting the alert's checking frequency advanced option. 
 
 ### Near Real Time or Back-Filled?
 
@@ -104,7 +104,7 @@ For example, imagine you want to trigger an alert when the total number of error
 
 * **Reporting intervals**: Even though each VM in this example likely has the same reporting frequency, the reporting interval may be staggered. It usually makes sense to calculate the `total number of errors reported across 10 VMs` with an aggregation function. But staggered reporting in conjunction with an aggregation function introduces interpolated values. Consider whether you want to use a raw or non-raw aggregation function. See [Aggregating Time Series](query_language_aggregate_functions.html) for background and a video.
 
-* **Lag in real-time data**: If the Operations for Applications service receives the error data with a 5-minute lag, then you need to consider that when setting the Alert Firing time window or constructing your query.
+* **Lag in real-time data**: If the Tanzu Observability service receives the error data with a 5-minute lag, then you need to consider that when setting the Alert Firing time window or constructing your query.
   - If the alert is set to evaluate a 3-minute time window of real-time data, then there would be no reported values to evaluate during the check.
   - If you look at the data 20 minutes after the fact, you see that the total number of errors were exceeded.
 You can increase the **Trigger Window** or use the lag() function to get the correct behavior (alert fires).

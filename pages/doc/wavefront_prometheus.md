@@ -6,13 +6,13 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Query Editor
 ---
 
-VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+{% include note.html content="Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, users with the **Super Admin** service role (in Super Admin mode) and users with the **Admin** service role can enable the PromQL support. <br/>
-- For original Operations for Applications subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
+- For original Tanzu Observability subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
 
-* Users with an administrative role in Operations for Applications have control over user defaults:
+* Users with an administrative role in Tanzu Observability have control over user defaults:
   - On the **Organization Settings** page (New User Defaults) they can enable users to write queries in PromQL.
   - If queries in PromQL are enabled, they can also set other options.
 * Users can then type PromQL or WQL queries into the Query Editor.
@@ -48,7 +48,7 @@ To set PromQL settings for your organization:
 
 If an administrator has enabled PromQL support (discussed above), each user can control some aspects of PromQL.
 
-{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Operations for Applications instance." %}
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Tanzu Observability instance." %}
 
 1. From the gear icon, select your username.
 2. Under **Query Settings**, select:
@@ -101,7 +101,7 @@ Next, you can make changes to the visualization.
 
 ## Frequently Asked Questions
 
-Operations for Applications supports most PromQL functions and operators out of the box. There are a small number of differences.
+Tanzu Observability supports most PromQL functions and operators out of the box. There are a small number of differences.
 
 
 ### FAQ: Do You Have Best Practices?

@@ -4,7 +4,7 @@ keywords: alerts
 tags: [alerts, best practice]
 sidebar: doc_sidebar
 permalink: alerts_recipes.html
-summary: Queries for common alert scenarios in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront)
+summary: Queries for common alert scenarios in VTanzu Observability (formerly known as VMware Aria Operations for Applications)
 ---
 
 Our Customer Success team has found that customers use certain alerts frequently. For example, customers want to alert on point rate drops or on between specific times.
@@ -79,7 +79,7 @@ For example, here's the query for an alert that fires if the number of sample pr
 
 ## Alert on Wavefront Proxy
 
-The data from agents such as collectd, Telegraf, etc., are sent to the Wavefront proxy and the proxy pushes the data to the Operations for Application service. Make sure that the proxy checks in with your service and that data is being pushed to the service. You can set up the following alert to monitor the proxy:
+The data from agents such as collectd, Telegraf, etc., are sent to the Wavefront proxy and the proxy pushes the data to the Tanzu Observability service. Make sure that the proxy checks in with your service and that data is being pushed to the service. You can set up the following alert to monitor the proxy:
 
 ```
 mcount(5m,sum(rate(ts(~proxy.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~proxy.check-in)), sources)) !=0

@@ -7,7 +7,7 @@ permalink: query_language_align_function.html
 summary: Learn where to use the align() function and why the query engine does pre-alignment.
 ---
 
-In VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) charts, point buckets represent data that has been summarized over a certain length of time.
+In Tanzu Observability (formerly known as VMware Aria Operations for Applications) charts, point buckets represent data that has been summarized over a certain length of time.
 
 Both the **Summarize By** chart option and the [`align()` function](ts_align.html) group points into buckets and allow you to specify how those points are aggregated (e.g., averaged, counted, summed, etc.).  The `align()` function allows you to specify the desired bucket size. By default, the summarization method that aggregation functions use is based on the bucket size of the [chart resolution](ui_charts.html#chart-resolution).
 

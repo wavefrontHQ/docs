@@ -7,7 +7,7 @@ permalink: missing_data_troubleshooting.html
 summary: Learn how to troubleshoot when you expect to see data but it doesn't appear in charts.
 ---
 
-Sometimes you expect to see certain data in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Operations for Applications does not delete data, and retains [metric data for 18 months](terms_of_service.html#data-retention). What could be the problem?
+Sometimes you expect to see certain data in Tanzu Observability (formerly known as VMware Aria Operations for Applications) but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Tanzu Observability does not delete data, and retains [metric data for 18 months](terms_of_service.html#data-retention). What could be the problem?
 
 This doc page, based on the extensive experience of our customer success team, helps you investigate, understand, and remedy possible causes. In addition to manually investigating and troubleshooting your issues, you can use the [Query Analyzer](query_language_performance.html#use-the-query-analyzer) which helps you identify where exactly the problem is.
 
@@ -26,7 +26,7 @@ It might sound surprising, but many **No Data** problems are the result of a typ
 
 ### Step 2: Quote
 
-Because of character limitations imposed by the Operations for Applications Data Format, it's possible that your queries cannot recognize source names or tag names unless they are surrounded by double quotes. See [Data Format Best Practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices).
+Because of character limitations imposed by the Tanzu Observability Data Format, it's possible that your queries cannot recognize source names or tag names unless they are surrounded by double quotes. See [Taznu Observability Data Format Best Practices](wavefront_data_format.html#tanzu-observability-data-format-best-practices).
 
 ### Step 3: Untangle
 
@@ -264,7 +264,7 @@ As the proxy processes data in the memory buffers, space is freed up for new inc
 
 #### Proxy Queue Reasons: Network Issues
 
-If network issues prevent or slow down requests from the proxy to the Operations for Applications service, then the proxy queue fills up because data arrives at the proxy faster than data can be sent to the service.
+If network issues prevent or slow down requests from the proxy to the Tanzu Observability service, then the proxy queue fills up because data arrives at the proxy faster than data can be sent to the service.
 
 **Troubleshooting & Further Investigation:**
 
@@ -286,7 +286,7 @@ The proxy configuration property `memGuardFlushThreshold` is meant to protect ag
 
 ### Step 2: Understand Data Delays Inherent to Your Data Pipeline
 
-If your data travels through a pipeline before reaching the Wavefront proxy or before being direct ingested to the Operations for Applications service, the pipeline itself can introduce delays to the ingestion process.
+If your data travels through a pipeline before reaching the Wavefront proxy or before being direct ingested to the Tanzu Observability service, the pipeline itself can introduce delays to the ingestion process.
 
 **Troubleshooting & Further Investigation**
 
@@ -300,7 +300,7 @@ Every pipeline inherently has its own latencies. Understanding the latencies hel
 
 ### Step 3: Find Data Delays Caused by High Rate of New IDs
 
-Components of each data point are converted into IDs at the backend (Operations for Applications service) before the points are stored. These components include metric name, source name, and the point tag key and value combination.
+Components of each data point are converted into IDs at the backend (Tanzu Observability service) before the points are stored. These components include metric name, source name, and the point tag key and value combination.
 
 Each time the service detects a new name, it generates a new ID. ID generation adds to the ingestion time. When the rate of new IDs is low, this is negligible. However, when you send a large amount of new data at the same time and the ID generation rate is high, a backlog of items that need an ID can result. This backlog results in delays in ingestion.
 
@@ -309,8 +309,8 @@ Each time the service detects a new name, it generates a new ID. ID generation a
 
 The **Operations for Applications Usage** integration includes several alerts that you can customize to be alerted when there is a high rate of new IDs.
 
-* A high rate of new IDs can happen when you start sending new data to Operations for Applications.
-* A high rate of new IDs could also indicate a **cardinality issue** with the data shape of the data you're sending to Operations for Applications. For instance, if a timestamp was included as a point tag, a high number of unique point tags results. This can be a problem when you send the data to Operations for Applications, but also causes problems later when you query the data. See [Data Naming Best Practices](wavefront_data_naming.html) for best practices.
+* A high rate of new IDs can happen when you start sending new data to Tanzu Observability.
+* A high rate of new IDs could also indicate a **cardinality issue** with the data shape of the data you're sending to Tanzu Observability. For instance, if a timestamp was included as a point tag, a high number of unique point tags results. This can be a problem when you send the data to Tanzu Observability, but also causes problems later when you query the data. See [Data Naming Best Practices](wavefront_data_naming.html) for best practices.
 
 ## Problem: Blocked Data
 
@@ -325,14 +325,14 @@ By default, the proxy and the service allow data points that are timestamped bet
 * 8760 hours (1 year) ago
 * 24 hours (1 day) ahead of the current time
 
-This functionality supports back-fill of old data or pre-fill future data. Make sure that the timestamp of your data points is in this range. Data with a timestamp outside this range will be rejected at the proxy or not ingested by the Operations for Applications service. If you have a use case for ingesting data outside this time range, update the proxy configuration and [contact Support](wavefront_support_feedback.html#support) to have the backend configuration for your environment updated.
+This functionality supports back-fill of old data or pre-fill future data. Make sure that the timestamp of your data points is in this range. Data with a timestamp outside this range will be rejected at the proxy or not ingested by the Tanzu Observability service. If you have a use case for ingesting data outside this time range, update the proxy configuration and [contact Support](wavefront_support_feedback.html#support) to have the backend configuration for your environment updated.
 
 
 ### Step 2: Do Invalid Data Format Block Data?
 
 The proxy supports a variety of data formats. Most environments are set up to use different ports for different formats. Ensure that data is being sent to the proper port.
 
-For data that is in the Operations for Applications data format, see [this page](wavefront_data_format.html) for information on what is and is not valid and on the [limits that are in place](wavefront_limits.html).
+For data that is in the Tanzu Observability data format, see [this page](wavefront_data_format.html) for information on what is and is not valid and on the [limits that are in place](wavefront_limits.html).
 
 * Each component of the data point has a set of allowed characters and length limits.
 * There is also, for example, a default limit of 20 points tags per data point.

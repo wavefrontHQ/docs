@@ -1,23 +1,23 @@
----
-title: Start an Operations for Applications Free Trial
+---Console
+title: Start a Tanzu Observability Free Trial
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: start_trial.html
-summary: VMware offers a free trial of the VMware Aria Operations for Applications service where you can explore all of the service capabilities.
+summary: VMware offers a free trial of the Tanzu Observability service where you can explore all of the service capabilities.
 
 
 ---
 
-You can start a 30-day free trial of the Operations for Applications service from the VMware Cloud Services Console. 
+You can start a 30-day free trial of the Tanzu Observability (formerly known as VMware Aria Operations for Applications) service from the VMware Cloud Services Console. 
 
-## Operations for Applications and VMware Cloud Services
+## Tanzu Observability and VMware Cloud Services
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services platform.
+Starting July 3, 2023, Tanzu Observability is a service in the VMware Cloud services platform.
 
-Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services.
+Starting September 20, 2023, all **new trial** instances of Tanzu Observability are **onboarded** to VMware Cloud services.
 
-VMware Cloud services provides provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html) for details.
+VMware Cloud services provides provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Tanzu Observability. See [Getting Started with Tanzu Observability on VMware Cloud Services](csp_getting_started.html) for details.
 
 ## Start Your Free Trial
 
@@ -26,10 +26,10 @@ VMware Cloud services provides provides single sign-on (SSO) and identity access
     {% include tip.html content="If you don't have a VMware account, you must create one." %}
 
 1. From the navigation bar on the left, click **Services**.
-1. Click the **All** tab and search for VMware Aria Operations for Applications.
-1. In the **VMware Aria Operations for Applications** tile, click **Access**.
+1. Click the **All** tab and search for Tanzu Observability.
+1. In the **Tanzu Observability** tile, click **Access**.
 
-    You are redirected to the Operations for Applications marketing website.
+    You are redirected to the Tanzu Observability marketing website.
 
 1. Click **Start Free Trial**, enter your contact information and company details, review the Terms of Service, and click **Sign Up Now**.
 
@@ -53,12 +53,12 @@ VMware Cloud services provides provides single sign-on (SSO) and identity access
 
 6. Click **Continue**.
    
-   You are redirected to the Operations for Applications GUI. You are logged with your VMware account.
+   You are redirected to the Tanzu Observability GUI. You are logged with your VMware account.
    
-   {% include note.html content="Initially, you have only the [**Viewer** Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). As a VMware Cloud **Organization Owner**, you can [change your roles](csp_users_roles.html#manage-roles). It's recommended that when you start your free trial, you change your role to **Super Admin**. You can also add users to your service. See [Manage User Accounts](csp_user_management.html) for details." %}
+   {% include note.html content="Initially, you have only the [**Viewer** Tanzu Observability service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). As a VMware Cloud **Organization Owner**, you can [change your roles](csp_users_roles.html#manage-roles). It's recommended that when you start your free trial, you change your role to **Super Admin**. You can also add users to your service. See [Manage User Accounts](csp_user_management.html) for details." %}
 
 ## Learn More!
-* [Get Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
-* See the list of [integrations supported for Operations for Applications subscriptions on VMware Cloud services](integrations_onboarded_subscriptions.html).
+* [Get Started with Tanzu Observability on VMware Cloud Services](csp_getting_started.html).
+* See the list of [integrations supported for Tanzu Observability subscriptions on VMware Cloud services](integrations_onboarded_subscriptions.html).
 * Try out the [Windows Host Integration Tutorial](windows_host_tutorial.html).
 * Find more [learning resources](tutorial_overview.html).

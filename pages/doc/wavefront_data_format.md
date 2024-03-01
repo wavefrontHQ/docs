@@ -6,18 +6,18 @@ sidebar: doc_sidebar
 permalink: wavefront_data_format.html
 summary: Learn about the data format syntax and parameters.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
 
 ## Metrics
 
 
 ### Supported Data Formats for Metrics
 
-[Direct ingestion](direct_ingestion.html) supports only the Operations for Applications data format.
+[Direct ingestion](direct_ingestion.html) supports only the Tanzu Observability data format.
 
 [Wavefront proxies](proxies.html) support:
 
-- Operations for Applications data format
+- Tanzu Observability data format
 - [Graphite data format (plaintext and  pickle)](https://graphite.readthedocs.io/en/latest/feeding-carbon.html)
 - [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing/)
 
@@ -31,7 +31,7 @@ Here's the data format for metrics.
 Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A). See the **Data Format Fields** table below for details about each parameter.
 
 
-### Operations for Applications Data Format Fields
+### Tanzu Observability Data Format Fields
 
 <table>
 <colgroup>
@@ -71,7 +71,7 @@ Maximum length for metricName is 256.
 <td>timestamp</td>
 <td>No</td>
 <td>Timestamp of the metric.</td>
-<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives. Note that even if the timestamp at the proxy is in milliseconds, the Operations for Applications backend converts to seconds.</td>
+<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives. Note that even if the timestamp at the proxy is in milliseconds, the Tanzu Observability backend converts to seconds.</td>
 </tr>
 <tr>
 <td>source</td>
@@ -155,12 +155,12 @@ Most of our discussion of the histogram and span data formats is on the pages li
 <operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>
 ```
 
-## Operations for Applications Data Format Best Practices
+## Tanzu Observability Data Format Best Practices
 
 Follow best practices for improved query execution speed and meaningful results.
 
 * Make the metrics the most stable part of your data:
-  - Do not include source names in the metric name. Operations for Applications captures sources separately.
+  - Do not include source names in the metric name. Tanzu Observability captures sources separately.
   - Do not include data or timestamps in the metric name. Each point has an associated timestamp.
 * Aim for a metric hierarchy:
   - Partition the top level of the metric hierarchy by including at least one dot.
@@ -179,7 +179,7 @@ Metric names should reflect a class of comparable data across different sources 
 
 ### Source Names Best Practices
 
-Operations for Applications assumes that source names are unique. Source names should reflect a unique source that is emitting metrics. For example, consider prefixing the source names with the datacenter name or making source names unique in other ways.
+Tanzu Observability assumes that source names are unique. Source names should reflect a unique source that is emitting metrics. For example, consider prefixing the source names with the datacenter name or making source names unique in other ways.
 
 For example, if you have the same machine name in different data centers, and don't separate the two machines when sending data, you can get confusing query results. Time series might oscillate between different values seemingly randomly, or you might see unexpected averaging of points between multiple sources.
 

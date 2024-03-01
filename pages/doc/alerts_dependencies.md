@@ -9,7 +9,7 @@ summary: Use alert metrics to build alerts that depend on other alerts.
 
 Metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host.
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) generates _alert metrics_ for any alert. You can pass the metrics from one alert to the next in the dependency hierarchy.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) generates _alert metrics_ for any alert. You can pass the metrics from one alert to the next in the dependency hierarchy.
 
 ## Alert Metrics
 

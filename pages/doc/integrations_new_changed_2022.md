@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_new_changed_2022.html
 summary: New and changed integrations released in 2022.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations.
 
 This document lists new and changed integrations for 2022. For earlier releases, see [New and Changed Integrations in 2021](integrations_new_changed_2021.html) and [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
@@ -91,7 +91,7 @@ We made improvements to the following integrations in November 2022:
 
 Logs (Beta) Related Changes:
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your VMware Aria Operations for Applications account representative or [technical support](wavefront_support_feedback.html#support)." %}
+{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)." %}
 
 
 With the Initial Availability of our Logs (Beta) feature, we have made improvements to the following integrations:
@@ -106,7 +106,7 @@ We made improvements and bug fixes to the following integrations in October 2022
   - Made a minor fix to the **Operations for Applications Service and Proxy Data** dashboard.
 * Terraform Provider:
   - We added data source support for alerts, dashboards, events, derived metrics, maintenance windows, and external links.
-  - Added support for checking frequency of Terraform Operations for Applications Alert.
+  - Added support for checking frequency of Terraform Tanzu Observability Alert.
   - User groups and roles can be now fetched by ID.
   - We added a data source example to the sample Terraform Provider script.
 * Tanzu Application Service:
@@ -145,7 +145,7 @@ We added the following integration in August 2022:
 
 * VMware Tanzu Greenplum: 
   
-  VMware Tanzu Greenplum is a massively parallel processing (MPP) database server that supports next generation data warehousing and large-scale analytics processing. This integration installs and configures Telegraf to send system and query metrics into VMware Aria Operations for Applications.
+  VMware Tanzu Greenplum is a massively parallel processing (MPP) database server that supports next generation data warehousing and large-scale analytics processing. This integration installs and configures Telegraf to send system and query metrics into Tanzu Observability.
 
 We made improvements to the following integrations in August 2022:
 
@@ -201,7 +201,7 @@ We made improvements to the following integrations in June 2022:
 
 * Snowflake:
   * To enhance authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
-  * We improved the setup instructions with information on how to generate the public and private keys and give Operations for Applications access to your Snowflake account.
+  * We improved the setup instructions with information on how to generate the public and private keys and give Tanzu Observability access to your Snowflake account.
   * Improved the **Snowflake Summary** dashboard and included charts for warehouse load monitoring.
 
 * Jenkins:
@@ -260,7 +260,7 @@ We added the following integration in March 2022:
 
 * VMware Blockchain
 
-  VMware Blockchain is an enterprise-grade blockchain platform that enables multi-party workflows. This integration is developed and created by the community and falls into to the **Community Integrations** section of the VMware Aria Operations for Applications **Integrations** page. We do not validate the community integrations and they are not fully supported by the VMware Aria Operations for Applications team.
+  VMware Blockchain is an enterprise-grade blockchain platform that enables multi-party workflows. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Tanzu Observability **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability team.
 
 
 We made improvements to the following integrations in March 2022:
@@ -297,7 +297,7 @@ We added the following integrations in February 2022:
 
 * Dynatrace SaaS
 
-  This integration collects the metrics from a Dynatrace SaaS environment and sends them to VMware Aria Operations for Applications. The on-premises Dynatrace integration is moved to the **Archived** section.
+  This integration collects the metrics from a Dynatrace SaaS environment and sends them to Tanzu Observability. The on-premises Dynatrace integration is moved to the **Archived** section.
 
 Made improvements to the following integrations and dashboards in February 2022:
 
@@ -322,7 +322,7 @@ We added the following integrations in January 2022:
 
 * Velero
 
-  You can monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the VMware Aria Operations for Applications **Integrations** page. We do not validate the community integrations and they are not fully supported by the VMware Aria Operations for Applications team.
+  You can monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Tanzu Observability **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability team.
 
 Made improvements to the following integrations and dashboards in January 2022:
 

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_manual_install.html
 summary: Learn how to manually install a Wavefront proxy and Telegraf agent.
 ---
-Most VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) customers use an automated proxy install:
+Most Tanzu Observability (formerly known as VMware Aria Operations for Applications) customers use an automated proxy install:
 * Option 1: Install the Wavefront proxy and the Telegraf agent when the set up an integration.
 * Option 2: Perform a [scripted installation](proxies_installing.html#scripted-proxy-installation) of the Wavefront proxy and Telegraf agent.
 
@@ -20,7 +20,7 @@ Follow these steps to install a proxy on a host with full network access (incomi
 
 ### Prerequisites
 
-- **Networking:** [Test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the target proxy host and your Operations for Applications service.
+- **Networking:** [Test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the target proxy host and your Tanzu Observability service.
 
    {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, you must also test connectivity between the target proxy host and the VMware Cloud services platform (`https://console.cloud.vmware.com/`). For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
 
@@ -48,24 +48,24 @@ Before you can customize the proxy configuration, you have to find the values fo
 </thead>
 <tr>
 <td markdown="span">**server**</td>
-<td>URL of your Operations for Applications service instance.  </td>
+<td>URL of your Tanzu Observability service instance.  </td>
 <td>https://try.wavefront.com/api/ </td>
 </tr>
 <tr>
 <td><strong>token</strong></td>
-<td>A valid Operations for Applications token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.<p><strong>Note:</strong> Applies only to original Operations for Applications subscriptions that are not onboarded to VMware Cloud services, i.e. when <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with an Operations for Applications API token.</p></td>
+<td>A valid Tanzu Observability token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.<p><strong>Note:</strong> Applies only to original Tanzu Observability subscriptions that are not onboarded to VMware Cloud services, i.e. when <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Tanzu Observability with a Tanzu Observability API token.</p></td>
 <td></td>
 </tr>
 <tr>
 <td><p><strong>cspAppId</strong></p><p><strong>cspAppSecret</strong></p><p><strong>cspOrgId </strong></p></td>
-<td>Server to server OAuth app credentials - ID and secret (<strong>cspAppId</strong> and <strong>cspAppSecret</strong>), and the VMware Cloud organization ID (<strong>cspOrgId</strong>) running the Operations for Applications service instance. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Operations for Applications service instance. 
-<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services OAuth app.</p> </td>
+<td>Server to server OAuth app credentials - ID and secret (<strong>cspAppId</strong> and <strong>cspAppSecret</strong>), and the VMware Cloud organization ID (<strong>cspOrgId</strong>) running the Tanzu Observability service instance. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Tanzu Observability service instance. 
+<p><strong>Note:</strong> Applies only to Tanzu Observability subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Tanzu Observability with a VMware Cloud services OAuth app.</p> </td>
 <td></td>
 </tr>
 <tr>
 <td><strong>cspAPIToken</strong></td>
 <td>A valid VMware Cloud services API token associated with an active user account. The user and the token must have the <strong>Proxies</strong> service role.
-<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services token.</p>
+<p><strong>Note:</strong> Applies only to Tanzu Observability subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Tanzu Observability with a VMware Cloud services token.</p>
 </td>
 <td></td>
 </tr>
@@ -145,7 +145,7 @@ In some cases, you might need to run the proxy on a host with limited network ac
 
 ### Prerequisites
 
-- **Networking:** The minimum requirement is an outbound HTTPS connection to your Operations for Applications service, so the proxy can send metrics to the service. For metrics, by default the proxy uses port 2878. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
+- **Networking:** The minimum requirement is an outbound HTTPS connection to your Tanzu Observability service, so the proxy can send metrics to the service. For metrics, by default the proxy uses port 2878. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
 
    {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, your environment must also allow an outbound HTTPS connection to the VMware Cloud services platform (`https://console.cloud.vmware.com/`). For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
 
@@ -159,7 +159,7 @@ In some cases, you might need to run the proxy on a host with limited network ac
 
 Installation and configuration is similar to environments with full network access but might require additional work.
 
-1. Make sure all prerequisites are met, including an open outgoing HTTPS connection to your Operations for Applications service and JRE.
+1. Make sure all prerequisites are met, including an open outgoing HTTPS connection to your Tanzu Observability service and JRE.
 2. Install the .rpm or .deb file.
 3. Update the settings, either by editing the configuration file or by running the autoconf script, as explained above.
 4. You may need to update the Wavefront proxy control file  `/etc/init.d/wavefront.proxy` to the following settings:
@@ -266,7 +266,7 @@ You can test your proxy using `curl`. Documentation for the following `curl` com
 
 You can run the commands [directly from the API documentation](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive). This is less error prone than copy/paste of the token.
 
-For this task, you first get the list of proxies for your Operations for Applications service, then you display information for just the proxy you installed.
+For this task, you first get the list of proxies for your Tanzu Observability service, then you display information for just the proxy you installed.
 
 Step 1: Get the list of proxies for your service instance:
 ```
@@ -315,9 +315,9 @@ Sample output for single proxy:
 
 ## Configure Wavefront Proxy with an HTTP/HTTPS Proxy
 
-The Wavefront proxy initiates an HTTPS connection to your Operations for Applications service. The connection is made over the default HTTPS port 443.
+The Wavefront proxy initiates an HTTPS connection to your Tanzu Observability service. The connection is made over the default HTTPS port 443.
 
-Instead of sending traffic directly, you can send traffic from the Wavefront proxy to an HTTP or HTTPS proxy, which forwards to the Operations for Applications service. You set the connection parameters in the `wavefront.conf` file (`/etc/wavefront/wavefront-proxy/wavefront.conf` by default). See
+Instead of sending traffic directly, you can send traffic from the Wavefront proxy to an HTTP or HTTPS proxy, which forwards to the Tanzu Observability service. You set the connection parameters in the `wavefront.conf` file (`/etc/wavefront/wavefront-proxy/wavefront.conf` by default). See
 * [the sample conf file on Github](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default)
 * Some detail on [configuration options](proxies_configuring.html).
 
@@ -329,7 +329,7 @@ Instead of sending traffic directly, you can send traffic from the Wavefront pro
 By default, the HTTP/HTTPS proxy section is commented out. Uncomment the section in `wavefront.conf` if you want to use an HTTP/HTTPS proxy, and specify the following information:
 
 ```
-## The following settings are used to connect to an Operations for Applications service instance through a HTTP proxy:
+## The following settings are used to connect to a Tanzu Observability service instance through a HTTP proxy:
 #proxyHost=<location of the HTTP/HTTPS proxy>
 #proxyPort=<port for connecting with the HTTP/HTTPS proxy. Default is 8080>
 ## Optional: if http/https proxy supports username/password authentication
@@ -409,14 +409,14 @@ Sometimes, the output from one Wavefront proxy needs to be sent to another Wavef
 
 Common use cases include:
 
-* **Restrictions on outbound connections**: In environments where no direct outbound connections to Operations for Applications are possible, you can use a Wavefront proxy that has outbound access to act as a relay and forward data received on its endpoint to the Operations for Applications service.
-* **Log data filtering**: If you use a proxy to parse log data, you might need to perform filtering or tagging with proxy preprocessor rules. One proxy in a chain can have the job of altering or dropping certain strings before data is sent to Operations for Applications.
+* **Restrictions on outbound connections**: In environments where no direct outbound connections to Tanzu Observability are possible, you can use a Wavefront proxy that has outbound access to act as a relay and forward data received on its endpoint to the Tanzu Observability service.
+* **Log data filtering**: If you use a proxy to parse log data, you might need to perform filtering or tagging with proxy preprocessor rules. One proxy in a chain can have the job of altering or dropping certain strings before data is sent to Tanzu Observability.
 * **Preprocessor rule consolidation**: Proxy chaining can consolidate preprocessing rules to a central proxy. For example, proxies running in containers on a Kubernetes cluster could relay metrics to the chained proxy which has all required defined preprocessor rules.
 
 
 ### Set Up the Configuration Files for Chaining
 
-Let's set up proxy chaining. Proxy A sends data to the relay proxy (Proxy B). Proxy B then sends data to the Operations for Applications service. Follow these steps:
+Let's set up proxy chaining. Proxy A sends data to the relay proxy (Proxy B). Proxy B then sends data to the Tanzu Observability service. Follow these steps:
 
 1. On the proxy which will act as the relay (Proxy B) open the proxy configuration file (`wavefront.conf`) for edit. See [Proxy File Paths](proxies_configuring.html#proxy-file-paths) for the default location.
 2. Uncomment  the `pushRelayListenerPorts`  line so the proxy will listen for any relay messages.
@@ -429,11 +429,11 @@ Let's set up proxy chaining. Proxy A sends data to the relay proxy (Proxy B). Pr
 
 4. Change the server address to the address of relay (Proxy B). Here's an example:
 ```
-  # The server should be either the primary Operations for Applications cloud server, or your custom VPC address.
-  # This will be provided to you by the Operations for Applications team.
+  # The server should be either the primary Tanzu Observability cloud server, or your custom VPC address.
+  # This will be provided to you by the Tanzu Observability team.
   server=http://192.168.xxx.xxx:2978/api/
 ```
-  The authentication token that is specified in the `wavefront.conf` of the relay proxy (Proxy B) will be used to send the metrics to the Operations for Applications instances. An authentication token for Proxy A is not needed.
+  The authentication token that is specified in the `wavefront.conf` of the relay proxy (Proxy B) will be used to send the metrics to the Tanzu Observability instances. An authentication token for Proxy A is not needed.
 
 5. After making the changes, restart both proxies and examine the `wavefront.log` file from the relay proxy (Proxy B). Look for points that are delivered on the relay listener port, as in the following example:
 
