@@ -213,7 +213,7 @@ For each alert, the Alerts Browser includes detailed information. For example, a
 
 Follow these steps for a tour:
 1. Click the ellipsis icon to the left for a menu.
-2. Click the chart icon next to the status for alert details. If the alert is firing, click to examine the alert in Alert Viewer.
+2. Click the chart icon under the **State** column for alert details. If the alert is firing, click to examine the alert in Alert Viewer.
 3. View the alert condition and points.
 4. View details below the severity:
   - View the last affected series, including the affected sources and point tags.
