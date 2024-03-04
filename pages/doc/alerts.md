@@ -272,21 +272,30 @@ You can use alert tags to organize related alerts into categories. Alert tags ar
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
 <table style="width: 100%;">
-<tbody>
-<tr>
-<td width="70%">
-<br/>
-To add a new or existing alert tag at any time:
-<ul>
-<li>Set the <strong>Tags</strong> property when you create or edit the alert. </li>
-<li>Click plus (<strong>+</strong>) at the bottom of the alert in the Alerts Browser.</li>
-<li>Select one or more alerts in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong></li>
-</ul>
-<p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
-</td>
-<td width="30%"><img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options"></td>
-</tr>
-</tbody>
+  <tbody>
+    <tr>
+      <td width="70%">
+        <br/>
+        To add a new or existing alert tag at any time:
+        <ul>
+          <li>
+            Set the <strong>Tags</strong> property when you create or edit the alert.
+            </li>
+          <li>
+            In the Alerts Browser, expand to get the details view of an alert, and click plus (<strong>+</strong>) under <strong>Alert Tags<strong>.
+          </li>
+          <li>
+            Select one or more alerts in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong>
+          </li>
+        </ul>
+        <p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
+        {% include note.html content="If you want to add a new tag in the revamped Alerts Browser, enter the name of the tag and click plus (<strong>+</strong>) next to the new tag name. " %}
+      </td>
+      <td width="30%">
+        <img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options">
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 
