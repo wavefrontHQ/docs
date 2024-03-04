@@ -255,13 +255,10 @@ Alert version history shows:
 You can revert back to a past alert version or clone a past alert version.
 <br/><br/>.
 </td>
-<td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
+<td width="40%"><img src="images/alert_versions.png" alt="alert history selected in menu."></td>
 </tr>
 </tbody>
 </table>
-
-
-
 
 
 ### Step 5: Organize Related Alerts With Tags
