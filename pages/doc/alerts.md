@@ -286,7 +286,7 @@ You can use alert tags to organize related alerts into categories. Alert tags ar
           </li>
         </ul>
         <p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
-        {% include note.html content="If you want to add a new tag in the revamped Alerts Browser, enter the name of the tag and click plus (<strong>+</strong>) next to the new tag name. " %}
+        {% include note.html content="If you want to add a new tag in the revamped Alerts Browser, enter the name of the tag and click plus icon next to the new tag name. " %}
       </td>
       <td width="30%">
         <img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options">
