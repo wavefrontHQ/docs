@@ -279,13 +279,14 @@ You can use alert tags to organize related alerts into categories. Alert tags ar
             Set the <strong>Tags</strong> property when you create or edit the alert.
             </li>
           <li>
-            In the Alerts Browser, expand to get the details view of an alert, and click plus (<strong>+</strong>) under <strong>Alert Tags<strong>.
+            In the Alerts Browser, expand to get the details view of an alert, and click plus (<strong>+</strong>) under <strong>Alert Tags</strong>.
           </li>
           <li>
             Select one or more alerts in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong>
           </li>
         </ul>
         <p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
+        {% include note.html content="If you want to add a new tag in the revamped Alerts Browser, enter the name of the tag and click plus icon next to the new tag name. " %}
       </td>
       <td width="30%">
         <img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options">
@@ -294,7 +295,7 @@ You can use alert tags to organize related alerts into categories. Alert tags ar
   </tbody>
 </table>
 
-{% include note.html content="If you want to add a new tag in the revamped Alerts Browser, enter the name of the tag and click plus icon next to the new tag name. " %}
+
 
 {% include tip.html content="Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example." %}
 
