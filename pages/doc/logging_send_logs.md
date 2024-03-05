@@ -4,7 +4,7 @@ keywords: data, logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_send_logs.html
-summary: Learn about sending logs to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Learn about sending logs to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 {% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}

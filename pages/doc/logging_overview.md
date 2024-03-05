@@ -3,7 +3,7 @@ title: Get Started with Logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
-summary: Learn about VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) metrics, logs, and traces.
+summary: Learn about Tanzu Observability (formerly known as VMware Aria Operations for Applications) metrics, logs, and traces.
 ---
 
 {% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
@@ -12,7 +12,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
 <tbody>
 <tr>
   <td width="60%" >
-    VMware Aria Operations for Applications helps you monitor your application using metrics, traces, and logs.
+    Tanzu Observability helps you monitor your application using metrics, traces, and logs.
     For example, you can:
     <ul>
       <li>
@@ -27,7 +27,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
     </ul>
   </td>
   <td width="40%" markdown="span">
-    ![shows that Operations for Applications supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
+    ![shows that Tanzu Observability supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
   </td>
 </tr>
 </tbody>
