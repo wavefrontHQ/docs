@@ -84,11 +84,9 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
     * Restore or permanently delete a deleted derived metric.
   * Select one or more derived metrics to add or remove specific tags for them, or to delete them.
 
-
 ## 2024-03.x Release Notes
 
 **Amazon Web Services Integration Improvement**: You can now disable the ingestion of support service limit metrics. See the [Integrations Release Notes](integrations_new_changed.html#january-2024) for details.
-
 
 ## 2024-01.x Release Notes
 
