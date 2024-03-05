@@ -4,18 +4,18 @@ keywords: integrations
 tags: 
 sidebar: doc_sidebar
 permalink: integrations_onboarded_subscriptions.html
-summary: Learn how integration authentication happens, which integrations work with VMware Cloud services access tokens and which integrations still work with Operations for Applications API tokens.
+summary: Learn how integration authentication happens, which integrations work with VMware Cloud services access tokens and which integrations still work with Tanzu Observability API tokens.
 ---
 
 ## Subscription Types
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services.
+Starting July 3, 2023, Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services.
 
-For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. 
+For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Tanzu Observability in a secure, fast, and reliable manner. 
 
 ### VMware Cloud Services Subscriptions
 
-When your Operations for Applications service **is onboarded** to the VMware Cloud services platform you have the following choices for the [Wavefront proxy](proxies_installing.html) authentication:
+When your Tanzu Observability service **is onboarded** to the VMware Cloud services platform you have the following choices for the [Wavefront proxy](proxies_installing.html) authentication:
 
 **VMware Cloud Services Access Token**
 
@@ -35,22 +35,22 @@ The Wavefront proxy requires a VMware Cloud services access token with the **Pro
 
   You might need to regenerate and reconfigure the API token periodically depending on the TTL configuration.
 
-**Operations for Applications API token**
+**Tanzu Observability API token**
 
-For a limited number of integrations, you must still use an Operations for Applications API token, associated with a [service account](csp_service_accounts.html) that has the **Proxies** permission. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can install the Wavefront proxy and set up your integration to pass the API token of the service account. 
+For a limited number of integrations, you must still use a Tanzu Observability API token, associated with a [service account](csp_service_accounts.html) that has the **Proxies** permission. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can install the Wavefront proxy and set up your integration to pass the API token of the service account. 
 
-{% include warning.html content="  It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future." %}
+{% include warning.html content="  It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Tanzu Observability API tokens will be deprecated in the future." %}
 
 <!--Bring this back to the warning if we get the flag: First sentence: Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions. 
 
 Last sentence: Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team.-->
 
-To understand how you can manage the API tokens for service accounts, see [Managing the Operations for Applications API Tokens for a Service Account](csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-for-a-service-account).
+To understand how you can manage the API tokens for service accounts, see [Managing the Tanzu Observability API Tokens for a Service Account](csp_api_tokens.html#manage-the-tanzu-observability-api-tokens-for-a-service-account).
 
 
 ### Original Subscriptions
 
-When your Operations for Applications service instance **is not onboarded** to VMware Cloud services, the proxy requires an Operations for Applications **API token**.
+When your Tanzu Observability service instance **is not onboarded** to VMware Cloud services, the proxy requires a Tanzu Observability **API token**.
 
 Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
 
@@ -61,7 +61,7 @@ We're in the process of incrementally updating our integrations so that you can 
 
 {% include note.html content= "The integrations in the **Archived** section are approaching their end-of-life. For that reason, we will not update these integrations to authenticate with VMware Cloud services access tokens." %}
 
-When your Operations for Applications service **is onboarded** to the VMware Cloud services platform, the list of the integrations that are updated as of today is in the table below. This list grows with each release. If you urgently need an integration to become available and configurable with a VMware Cloud services access token, please contact [technical support](wavefront_support_feedback.html).
+When your Tanzu Observability service **is onboarded** to the VMware Cloud services platform, the list of the integrations that are updated as of today is in the table below. This list grows with each release. If you urgently need an integration to become available and configurable with a VMware Cloud services access token, please contact [technical support](wavefront_support_feedback.html).
 
 <table style="width: 100%;">
 <thead>
@@ -439,7 +439,7 @@ When your Operations for Applications service **is onboarded** to the VMware Clo
 </table>
 
 
-## Integrations That Use Operations for Applications API Tokens
+## Integrations That Use Tanzu Observability API Tokens
 
 Here's the list of the integrations that still use API tokens. Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is supported only when you use a service account<!--(targeting mid-October)-->.
 
@@ -456,7 +456,7 @@ Here's the list of the integrations that still use API tokens. Currently, if you
 
 ## List of Unaffected Integrations
 
-The following integrations do not depend on the subscription type and work as expected, no matter whether your Operations for Applications service is onboarded to VMware Cloud services platform or not.
+The following integrations do not depend on the subscription type and work as expected, no matter whether your Tanzu Observability service is onboarded to VMware Cloud services platform or not.
 
 ### Cloud Integrations
 

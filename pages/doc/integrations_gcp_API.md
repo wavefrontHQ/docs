@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_gcp_api.html
 summary: Understand how to set up and manage the GCP integration by using our REST API.
 ---
-The Google Cloud Platform integration allows you to ingest metrics directly from GCP. In addition to setting up and managing the GCP integration through the UI, you can also use the REST API for setting up and managing the GCP integration. This doc page provides some basic steps and examples on how to do this.
+The Google Cloud Platform integration allows you to ingest metrics directly from GCP to Tanzu Observability (formerly known as VMware Aria Operations for Applications). In addition to setting up and managing the GCP integration through the UI, you can also use the REST API for setting up and managing the GCP integration. This doc page provides some basic steps and examples on how to do this.
 
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an GCP integration." %}
 
@@ -14,7 +14,7 @@ In these examples, you access the REST API through the interface, so that you do
 
 ## Before You Start
 
-When you set up a Google Cloud Platform integration, you have to give the VMware Aria Operations for Applications service permissions to access the data you want to visualize and analyze.
+When you set up a Google Cloud Platform integration, you have to give the Tanzu Observability service permissions to access the data you want to visualize and analyze.
 
 For information, see [Google Cloud Platform Overview and Permissions](integrations_gcp_overview.html).
 
@@ -132,7 +132,7 @@ We also change the service refresh rate from `5` to `10` minutes.
 
       ![Updated list of services.](images/gcp-api-update-services.png)
 
-       {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as the ones displayed in the Operations for Applications UI." %}
+       {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as the ones displayed in the Tanzu Observability UI." %}
 
    1. To change the service refresh rate to 10 minutes, update the `"serviceRefreshRateInMins"` value:
 
@@ -165,7 +165,7 @@ We also change the service refresh rate from `5` to `10` minutes.
 
    ```
 
-   {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as the ones displayed in the Operations for Applications UI." %}
+   {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as the ones displayed in the Tanzu Observability UI." %}
    
 1. In the REST API documentation UI, click the `PUT /api/v2/cloudintegration/{id}` request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to update.
@@ -175,7 +175,7 @@ We also change the service refresh rate from `5` to `10` minutes.
 
 ## Enable and Disable a GCP Integration
 
-VMware Aria Operations for Applications automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
+Tanzu Observability automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
 
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
 1. Click **Execute**.

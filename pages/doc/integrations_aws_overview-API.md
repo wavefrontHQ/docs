@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_aws_overview_API.html
 summary: Understand how to set up and manage the AWS integration by using our REST API.
 ---
-The Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the UI, you can also use the REST API for setting up and managing the AWS integration. This doc page provides some basic steps and examples on how to do this.
+The Amazon Web Services integration allows you to ingest metrics directly from AWS to Tanzu Observability (formerly known as VMware Aria Operations for Applications). In addition to setting up and managing the AWS integration through the UI, you can also use the REST API for setting up and managing the AWS integration. This doc page provides some basic steps and examples on how to do this.
 
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
 
@@ -14,7 +14,7 @@ In these examples, you access the REST API through the interface, so that you do
 
 ## Before You Start
 
-To set up the Amazon Web Services integration, you must provide VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) with read-only access to your Amazon account. To do that, you need to provide an account ID and external ID. While the account ID is a constant value - the ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and VMware Aria Operations for Applications (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To set up the Amazon Web Services integration, you must provide Tanzu Observability with read-only access to your Amazon account. To do that, you need to provide an account ID and external ID. While the account ID is a constant value - the ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Tanzu Observability (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
@@ -58,7 +58,7 @@ For more information, see [Giving Access to Your AWS Account](integrations_aws_o
 
    - Select the **Require external ID** check box and provide the [external ID that you have copied](integrations_aws_overview_API.html#create-an-external-id).
 
-      You can also copy and paste the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in the VMware Aria Operations for Applications GUI).
+      You can also copy and paste the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in the Tanzu Observability GUI).
 
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
@@ -286,7 +286,7 @@ We also add the metrics for these services to a metric allow list by using a reg
 
 ## Enable and Disable an AWS Integration
 
-VMware Aria Operations for Applications automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
+Tanzu Observability automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
 
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
 1. Click **Execute**.

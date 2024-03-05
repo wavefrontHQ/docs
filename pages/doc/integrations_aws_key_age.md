@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_key_age.html
-summary: Send AWS Key Age data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Send AWS Key Age data to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 AWS Identity and Access Management (IAM) allows administrators of different AWS services to manage access to those AWS services and resources securely.
@@ -13,7 +13,7 @@ AWS Identity and Access Management (IAM) allows administrators of different AWS 
 
 An AWS Identity and Access Management (IAM) user represents a person or application that interacts with AWS. The user has a name and an access key. The access key consists of an access key ID and a secret key and can be used when accessing AWS programmatically.
 
-VMware Aria Operations for Applications supports a built-in integration that allows us to collect metrics about the access key age of all IAM users in an AWS profile. If you establish a trust relationship with an AWS integration and follow the setup steps in this guide you can:
+Tanzu Observability supports a built-in integration that allows us to collect metrics about the access key age of all IAM users in an AWS profile. If you establish a trust relationship with an AWS integration and follow the setup steps in this guide you can:
 * Monitor access key age metric related to IAM users by a profile.
 * Set up alerts so you know when access keys are about to expire. For example, you can configure an alert target to notify when the access key age of user is about to reach the MAX_KEY_AGE (180 days).
 
@@ -28,7 +28,7 @@ To perform the AWS IAM Access Key Age service integration setup, your environmen
 
 ## Sending IAM Access Key Age Data
 
-After you've set up your environment to meet the prerequisites, follow these steps to send the access key age data to VMware Aria Operations for Applications:
+After you've set up your environment to meet the prerequisites, follow these steps to send the access key age data to Tanzu Observability:
 1. Connect to the EC2 instance through SSH.
 2. Update the `~/.aws/credentials` file with an `access_key_id` and `secret_key` for each profile. The following example illustrates this:
   
