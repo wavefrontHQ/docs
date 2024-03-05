@@ -3,7 +3,7 @@ title: Logs Proxy Configurations and Preprocessor Rules
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
-summary: Proxy configuration properties and preprocessor rules for logging.
+summary: Proxy configuration properties and preprocessor rules for ingesting logs into Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 {% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
@@ -164,9 +164,9 @@ We've added the following configuration properties for logs to the already exist
 
 ### Properties for VMware Cloud Services Subscriptions
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. The content in this section is valid for **onboarded** subscribers. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)." %}
+{% include note.html content="Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. The content in this section is valid for **onboarded** subscribers. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)." %}
 
-VMware Cloud services provides access to both VMware Aria Operations for Logs and VMware Aria Operations for Applications. Therefore, to send logs data and see the data on the Operations for Applications Logs Browser, you must configure the proxy with the Operations for Logs URL and token. 
+VMware Cloud services provides access to both VMware Aria Operations for Logs (SaaS) and Tanzu Observability. Therefore, to send logs data and see the data on the Tanzu Observability Logs Browser, you must configure the proxy with the Operations for Logs URL and token. 
 
 
 <table style="width: 100%;">

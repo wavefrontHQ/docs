@@ -6,7 +6,7 @@ permalink: logging_log_alerts.html
 summary: Learn how you can create, snooze and delete a logs alert.
 ---
 
-{% include important.html content="Our service retains logs for 30 days during the Logs free trial or retains logs for 7 days when on the freemium subscription! To retain logs for a longer period, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability (formerly known as VMware Aria Operations for Applications) retains logs for 30 days during the Logs free trial or retains logs for 7 days when on the freemium subscription! To retain logs for a longer period, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 You can create alerts for your logs data and see the firing events of an alert.
 
@@ -358,4 +358,4 @@ Follow these steps to delete a logs alert you no longer need:
 
 ### What are the logs alert limits?
 
-Operations for Applications uses VMware Aria Operations for logs. See the limitations listed on the [Operations for logs documentation (scroll to Limits)](https://developer.vmware.com/apis/vmware-aria-operations-for-logs/latest/) when creating and managing logs alerts.
+Tanzu Observability uses VMware Aria Operations for Logs (SaaS). See the limitations listed on the [Operations for logs documentation (scroll to Limits)](https://developer.vmware.com/apis/vmware-aria-operations-for-logs/latest/) when creating and managing logs alerts.
