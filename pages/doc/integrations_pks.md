@@ -12,7 +12,7 @@ On this page, we list predefined alerts and give other details about the integra
 
 ## Predefined Alerts for the Integration
 
-The Tanzu Kubernetes Grid integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts_manage.html) from the **Alerts** browser or from charts in the VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) GUI.
+The Tanzu Kubernetes Grid integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts_manage.html) from the **Alerts** browser or from charts in the Tanzu Observability (formerly known as VMware Aria Operations for Applications) GUI.
 
 <table>
 <tbody>
@@ -57,7 +57,7 @@ The Tanzu Kubernetes Grid integration provides the following monitoring alerts f
 
 ## Tanzu Kubernetes Grid Monitoring Dashboards
 
-VMware Aria Operations for Applications includes several predefined dashboards for monitoring Tanzu Kubernetes Grid. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
+Tanzu Observability includes several predefined dashboards for monitoring Tanzu Kubernetes Grid. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
 
 We support dashboards for major functionality including:
 * Home dashboard
@@ -79,7 +79,7 @@ The Wavefront proxy pod includes four containers.
 
 ![pks-arch](images/pks-architecture-rev.png)
 
-VMware Aria Operations for Applications runs a Wavefront proxy pod inside each Kubernetes cluster created by Tanzu Kubernetes Grid. There are four containers within the Wavefront proxy pod.
+Tanzu Observability runs a Wavefront proxy pod inside each Kubernetes cluster created by Tanzu Kubernetes Grid. There are four containers within the Wavefront proxy pod.
 
 
 ## Troubleshooting the Tanzu Kubernetes Grid Integration

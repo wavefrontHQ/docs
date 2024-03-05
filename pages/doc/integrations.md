@@ -7,11 +7,11 @@ permalink: integrations.html
 summary: Learn how to customize a built-in integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
+Integrations are one easy way to get data from external systems into Tanzu Observability (formerly known as VMware Aria Operations for Applications). Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
 We update our [integrations release notes](integrations_new_changed.html) frequently.
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. For information about the subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).  
+Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. For information about the subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).  
 
 ## Watch a Video
 
@@ -27,7 +27,7 @@ Sign up for a trial version to try our integrations. Detailed setup steps for ea
 
 When the integration setup requires a token for the proxy authentication, the setup instructions of some integrations (such as all integrations for Linux distributions, Windows host integration, MacOS integration, Prometheus, and so on) vary depending on whether your service is onboarded to VMware Cloud services or not. For details, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html). For the latest and most recent instructions on how to set up an integration, see the steps on the **Setup** tab of the integration that you're interested in.
 
-* If your Operations for Applications service **is** onboarded to VMware Cloud services, you have two choices:
+* If your Tanzu Observability service **is** onboarded to VMware Cloud services, you have two choices:
 
    * Use OAuth App authentication (recommended):
 
@@ -41,7 +41,7 @@ When the integration setup requires a token for the proxy authentication, the se
      The API token must be generated in the VMware Cloud Services Console by an active user account. It also must have the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
    
 
-* If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. It is recommended that you use a service account API token. For more information, see [Manage API tokens](api_tokens.html).
+* If your Tanzu Observability service is **not** onboarded to VMware Cloud services, generate the API token in the Tanzu Observability UI. It is recommended that you use a service account API token. For more information, see [Manage API tokens](api_tokens.html).
 
 Here's a sample of what you see when you select one of our integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
@@ -58,7 +58,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 ## Built-In and Custom Integrations
 
-VMware Aria Operations for Applications lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
+Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by clicking **Integrations** on the toolbar and clicking the **Setup** tab.
 
@@ -94,7 +94,7 @@ This table provides links to the documentation pages for many of the custom and 
 
 Our customers have started to make open-source integrations available on GitHub.
 
-Our first external integration sends AlertSite monitoring results to VMware Aria Operations for Applications and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+Our first external integration sends AlertSite monitoring results to Tanzu Observability and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
 We're excited about this contribution and hope to see more soon!
 
@@ -235,7 +235,7 @@ When you hover over an integration, the integration border in the UI changes and
 ## More Info
 
 * Don't see the integration you are looking for? Have a look at [Set Up Data Ingestion](wavefront_data_ingestion.html) and at [Data Format](wavefront_data_format.html).
-* On our [VMware Aria Operations for Applications](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
+* On our [Tanzu Observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
   - [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
   - [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
   - [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)
