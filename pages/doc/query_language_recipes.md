@@ -115,7 +115,7 @@ For more details, see [Display Daily Average](query_language_windows_trends.html
 
 ## Data Pipeline Queries
 
-Data pipeline queries allow you to determine whether data is flowing to the proxies or to the Tanzu Observability (formerly known as VMware Aria Operations for Applications) service. You can also examine the point rate and potentially set an alert if data is larger than a threshold.
+Data pipeline queries allow you to determine whether data is flowing to the proxies or to the VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) service. You can also examine the point rate and potentially set an alert if data is larger than a threshold.
 
 ### Point Rate for All Proxies
 

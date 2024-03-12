@@ -4,7 +4,7 @@ keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Announcements and new and updated features in Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Announcements and new and updated features in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 This page lists new and updated features for the Tanzu Observability service.

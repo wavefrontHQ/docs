@@ -7,7 +7,7 @@ permalink: missing_data_troubleshooting.html
 summary: Learn how to troubleshoot when you expect to see data but it doesn't appear in charts.
 ---
 
-Sometimes you expect to see certain data in Tanzu Observability (formerly known as VMware Aria Operations for Applications) but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Tanzu Observability does not delete data, and retains [metric data for 18 months](terms_of_service.html#data-retention). What could be the problem?
+Sometimes you expect to see certain data in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Tanzu Observability does not delete data, and retains [metric data for 18 months](terms_of_service.html#data-retention). What could be the problem?
 
 This doc page, based on the extensive experience of our customer success team, helps you investigate, understand, and remedy possible causes. In addition to manually investigating and troubleshooting your issues, you can use the [Query Analyzer](query_language_performance.html#use-the-query-analyzer) which helps you identify where exactly the problem is.
 

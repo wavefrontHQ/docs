@@ -7,7 +7,7 @@ permalink: query_language_performance.html
 summary: Tricks for improving the query language performance.
 ---
 
-The Wavefront Query Language (WQL) lets you retrieve and display the data that has been ingested into Tanzu Observability (formerly known as VMware Aria Operations for Applications) and create alerts that use this data.
+The Wavefront Query Language (WQL) lets you retrieve and display the data that has been ingested into VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) and create alerts that use this data.
 
 <table style="width: 100%;">
 <tbody>

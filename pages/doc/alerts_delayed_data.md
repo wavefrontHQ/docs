@@ -7,7 +7,7 @@ permalink: alerts_delayed_data.html
 summary: Diagnose and avoid spurious alerts due to delayed data reporting.
 ---
 
-An alert fires or resolves based on the data values that are present in Tanzu Observability (formerly known as VMware Aria Operations for Applications) during the alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to an apparent false positive (the alert fires when you don't expect it) or false negative (the alert does not fire as expected).
+An alert fires or resolves based on the data values that are present in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) during the alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to an apparent false positive (the alert fires when you don't expect it) or false negative (the alert does not fire as expected).
 
 This page can help you understand, diagnose, and prevent the impact of data delays on alerts. Buffering alerts against false positives, in particular, can help you reduce alert noise.
 

@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to use tags to focus and speed up queries display and to unclutter the UI.
 ---
-In Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports tags for adding application-specific metadata to objects such alerts, dashboards, events, sources, and metrics.
+In VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports tags for adding application-specific metadata to objects such alerts, dashboards, events, sources, and metrics.
 
 ## Videos
 

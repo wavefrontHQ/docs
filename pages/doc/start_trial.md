@@ -1,15 +1,15 @@
----Console
+---
 title: Start a Tanzu Observability Free Trial
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: start_trial.html
-summary: VMware offers a free trial of the Tanzu Observability service where you can explore all of the service capabilities.
+summary: We offer a free trial of the VMware Tanzu Observability service where you can explore all of the service capabilities.
 
 
 ---
 
-You can start a 30-day free trial of the Tanzu Observability (formerly known as VMware Aria Operations for Applications) service from the VMware Cloud Services Console. 
+You can start a 30-day free trial of the VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) service from the VMware Cloud Services Console. 
 
 ## Tanzu Observability and VMware Cloud Services
 

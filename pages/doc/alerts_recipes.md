@@ -4,7 +4,7 @@ keywords: alerts
 tags: [alerts, best practice]
 sidebar: doc_sidebar
 permalink: alerts_recipes.html
-summary: Queries for common alert scenarios in VTanzu Observability (formerly known as VMware Aria Operations for Applications)
+summary: Queries for common alert scenarios in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications)
 ---
 
 Our Customer Success team has found that customers use certain alerts frequently. For example, customers want to alert on point rate drops or on between specific times.

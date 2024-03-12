@@ -7,7 +7,7 @@ permalink: alerts_missing_data.html
 summary: Configure an alert to fire when a time series stops reporting.
 ---
 
-Operations for Applications enables you to configure alerts that inform you about machine or application faults. When a machine or application crashes, it stops reporting data to Tanzu Observability -- the data from that source is missing.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) enables you to configure alerts that inform you about machine or application faults. When a machine or application crashes, it stops reporting data to Tanzu Observability -- the data from that source is missing.
 
 This explains how to configure alerts that detect missing data, so you can identify potential failures and resolve them.
 

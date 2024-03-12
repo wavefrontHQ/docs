@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_nginx.html
-summary: Learn how to send NGiNX data collected by collectd to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Learn how to send NGiNX data collected by collectd to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 [NGiNX](https://www.nginx.com/) is a popular web and proxy server. To collect NGiNX data with collectd, use the collectd NGiNX plugin documentation found at [Plugin:NGiNX - collectd Wiki](https://collectd.org/wiki/index.php/Plugin:nginx).

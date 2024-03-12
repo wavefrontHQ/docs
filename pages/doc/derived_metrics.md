@@ -7,7 +7,7 @@ permalink: derived_metrics.html
 summary: Learn how to save a query so it runs once a minute, and how to use the derived metric elsewhere.
 ---
 
-Use derived metrics to run a query and ingest it back into Tanzu Observability (formerly known as VMware Aria Operations for Applications). All users can then use the result of the query, that is, the derived metric, in their queries.
+Use derived metrics to run a query and ingest it back into VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). All users can then use the result of the query, that is, the derived metric, in their queries.
 
 You can create a derived metric from a time series metric or a histogram.
 

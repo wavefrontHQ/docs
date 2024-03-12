@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: delta_counters.html
 summary: Learn when and how to use cumulative counters and delta counters.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports [several types of metrics](metric_types.html), including 2 kinds of counters.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports [several types of metrics](metric_types.html), including 2 kinds of counters.
 
 * **Cumulative counters** (usually called **counters** in this doc set) monotonically increasing counters. They're useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function.
 * **Delta counters** (sometimes called periodic counters) measure the **change** since a metric was last recorded. For example, metrics for request count could be delta counters. Each value records how many requests were received since the last data point was recorded.

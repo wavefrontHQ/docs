@@ -7,7 +7,7 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert notifications by modifying alert target templates.
 ---
 
-An alert target provides a template that specifies how Tanzu Observability (formerly known as VMware Aria Operations for Applications) extracts information from the alert, and how to assemble the notification from the alert information.
+An alert target provides a template that specifies how VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) extracts information from the alert, and how to assemble the notification from the alert information.
 
 You can customize the predefined template for the alert target type by making and saving changes. The template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 

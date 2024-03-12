@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_aws_overview_API.html
 summary: Understand how to set up and manage the AWS integration by using our REST API.
 ---
-The Amazon Web Services integration allows you to ingest metrics directly from AWS to Tanzu Observability (formerly known as VMware Aria Operations for Applications). In addition to setting up and managing the AWS integration through the UI, you can also use the REST API for setting up and managing the AWS integration. This doc page provides some basic steps and examples on how to do this.
+The Amazon Web Services integration allows you to ingest metrics directly from AWS to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). In addition to setting up and managing the AWS integration through the UI, you can also use the REST API for setting up and managing the AWS integration. This doc page provides some basic steps and examples on how to do this.
 
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
 

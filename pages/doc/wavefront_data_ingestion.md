@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_data_ingestion.html
 summary: Learn how to set up the data ingestion pipeline.
 ---
-How you get your data into Tanzu Observability (formerly known as VMware Aria Operations for Applications) depends on your use case, but you have many options. You can use one of the supported integrations, or you can instrument your application and send data directly.
+How you get your data into VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) depends on your use case, but you have many options. You can use one of the supported integrations, or you can instrument your application and send data directly.
 
 Watch this video to listen to the Wavefront co-founder Clement Pang's talk about data ingestion. Note that this video was created in 2018 and some of the information in it might have changed.
 

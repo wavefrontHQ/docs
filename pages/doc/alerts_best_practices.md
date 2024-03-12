@@ -7,7 +7,7 @@ permalink: alerts_best_practices.html
 summary: Learn about best practices for alert creation, alert settings, and alert troubleshooting.
 ---
 
-You use alerts in Tanzu Observability (formerly known as VMware Aria Operations for Applications) to get notified when something out of the ordinary happens. Alerts monitor your environment's behavior and send notifications based on how you configure the alert. 
+You use alerts in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) to get notified when something out of the ordinary happens. Alerts monitor your environment's behavior and send notifications based on how you configure the alert. 
 
 This page has some best practices from our Technical Support engineers to help you set up truly useful alerts and avoid common problems with alerts. 
 

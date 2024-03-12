@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_aws_overview.html
 summary: Understand setup and services in the AWS integration.
 ---
-Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 
 You can use the Amazon Web Services integration for initial setup, but additional steps might be needed for some of the services. This page gives an overview.
 

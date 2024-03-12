@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_apache.html
-summary: Learn how to send Apache data collected by collectd to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Learn how to send Apache data collected by collectd to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 [Apache](https://httpd.apache.org/) is a popular open-source web server. To collect Apache data with collectd, use the collectd Apache plugin documentation found at [Plugin:Apache - collectd Wiki](https://collectd.org/wiki/index.php/Plugin:Apache).

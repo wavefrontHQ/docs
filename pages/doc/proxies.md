@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies.html
 summary: Learn about Wavefront proxies.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) enables you to:
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) enables you to:
 * Send data through Wavefront proxies. Most customers and our DevOps team use proxies.
 * Send data directly using [direct ingestions](direct_ingestion.html).
 

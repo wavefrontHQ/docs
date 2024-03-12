@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_gcp_api.html
 summary: Understand how to set up and manage the GCP integration by using our REST API.
 ---
-The Google Cloud Platform integration allows you to ingest metrics directly from GCP to Tanzu Observability (formerly known as VMware Aria Operations for Applications). In addition to setting up and managing the GCP integration through the UI, you can also use the REST API for setting up and managing the GCP integration. This doc page provides some basic steps and examples on how to do this.
+The Google Cloud Platform integration allows you to ingest metrics directly from GCP to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). In addition to setting up and managing the GCP integration through the UI, you can also use the REST API for setting up and managing the GCP integration. This doc page provides some basic steps and examples on how to do this.
 
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an GCP integration." %}
 

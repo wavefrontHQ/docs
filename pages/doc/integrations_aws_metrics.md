@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
-summary: Monitor CloudWatch, CloudTrail, and Metrics+ with Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Monitor CloudWatch, CloudTrail, and Metrics+ with VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS. The Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 

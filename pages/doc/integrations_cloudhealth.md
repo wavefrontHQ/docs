@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_cloudhealth.html
-summary: Learn how to send Tanzu Observability (formerly known as VMware Aria Operations for Applications) data to CloudHealth.
+summary: Learn how to send VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) data to CloudHealth.
 ---
 
 The CloudHealth platform helps your team manage resource utilization and costs across multiple cloud environments. CloudHealth provides spending summary reports for each cost center, which helps you drive financial accountability and find ways to lower your cloud spend.  You can create custom policies that automate daily cloud operations, support faster decision making, and reduce risk. CloudHealth also, reports on vulnerabilities so you can proactively monitor, detect, and remediate risks in real-time.

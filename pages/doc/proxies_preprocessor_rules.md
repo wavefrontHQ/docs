@@ -7,7 +7,7 @@ permalink: proxies_preprocessor_rules.html
 summary: Learn how to write proxy preprocessor rules.
 ---
 
-For fine-grained control before data are sent to Tanzu Observability (formerly known as VMware Aria Operations for Applications), the Wavefront proxy supports:
+For fine-grained control before data are sent to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications), the Wavefront proxy supports:
 
 * Point filtering and point altering rules
 * Span filtering and span altering rules

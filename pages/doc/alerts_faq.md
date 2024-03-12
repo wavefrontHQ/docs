@@ -8,7 +8,7 @@ summary: Learn alert customization from our experts.
 ---
 ## Why Can't I View and Edit This Alert?
 
-By default, all users in Tanzu Observability (formerly known as VMware Aria Operations for Applications) can view all alerts. But permissions and access control affect this default.
+By default, all users in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) can view all alerts. But permissions and access control affect this default.
 
   * You must have the **Alerts** permission to edit alerts. The [Alerts](permissions_overview.html) permission applies to all alerts **except** [ingestion policy](ingestion_policies.html) alerts.
     - Users with the **Alerts** permission can view, create, and modify alerts except ingestion policy alerts.

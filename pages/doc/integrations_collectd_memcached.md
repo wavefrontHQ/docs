@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_memcached.html
-summary: Learn how to send memcached data collected by collectd to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Learn how to send memcached data collected by collectd to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 [memcached](https://memcached.org/) is a popular memory object cache system. See [collectd memcached plugin documentation](https://collectd.org/wiki/index.php/Plugin:memcached).

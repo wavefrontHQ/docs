@@ -6,7 +6,7 @@ permalink: alerts_states_lifecycle.html
 summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
 ---
 
-Here's a video to get you started with the alerts lifecycle in Tanzu Observability (formerly known as VMware Aria Operations for Applications). Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
+Here's a video to get you started with the alerts lifecycle in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_gors5bq5" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gors5bq5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *"  frameborder="0" title="Alert States and Lifecycle"></iframe>

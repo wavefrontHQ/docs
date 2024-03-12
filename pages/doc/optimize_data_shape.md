@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: optimize_data_shape.html
 summary: Learn how to optimize your data in high-cardinality environments.
 ---
-Data shape refers to how each component of a time series is designed and formatted. Your data shapes in Tanzu Observability (formerly known as VMware Aria Operations for Applications) are important regardless of how you use the service and where you are in your work with the platform.
+Data shape refers to how each component of a time series is designed and formatted. Your data shapes in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) are important regardless of how you use the service and where you are in your work with the platform.
 
 * **New users** who plan on sending data into Tanzu Observability need to understand the most efficient ways of sending data in.
 * **Existing users** who explore data in dashboards and chart can investigate data shape and use that information to optimize data exploration. If they see that the data shape is not optimal, they might even request changes to how data are ingested.

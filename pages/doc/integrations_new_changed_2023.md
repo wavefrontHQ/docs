@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_new_changed_2023.html
 summary: New and changed integrations released in 2023.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations.
 
 This document lists new and changed integrations for 2023. For earlier releases, see [New and Changed Integrations in 2022](integrations_new_changed_2022.html), [New and Changed Integrations in 2021](integrations_new_changed_2021.html), and [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).

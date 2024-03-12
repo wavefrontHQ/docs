@@ -7,7 +7,7 @@ sidebar: doc_sidebar
 folder: labels
 ---
 
-<p>If your Tanzu Observability (formerly known as VMware Aria Operations for Applications) service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Tanzu Observability service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.</p>
+<p>If your VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Tanzu Observability service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.</p>
 
 <p>The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps on a certain integration doc page: </p>
 <ol><li>Navigate to the Tanzu Observability GUI and click <strong>Integrations</strong> on the toolbar. </li>

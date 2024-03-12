@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_lambda.html
-summary: Learn about AWS Lambda and Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Learn about AWS Lambda and VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 The [AWS Lambda Functions integration](aws-lambda-functions.html) includes:
 * Setup instructions

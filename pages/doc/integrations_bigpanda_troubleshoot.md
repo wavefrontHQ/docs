@@ -7,7 +7,7 @@ permalink: integrations_bigpanda_troubleshooting.html
 summary: Investigate, troubleshoot, and remediate issues with BigPanda Webhook targets.
 ---
 
-BigPanda is an algorithmic event and alert management platform. This integration allows you to create BigPanda tickets from triggered alerts in Tanzu Observability (formerly known as VMware Aria Operations for Applications). Tanzu Observability and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in Tanzu Observability to pass notifications from Tanzu Observability alerts into BigPanda. 
+BigPanda is an algorithmic event and alert management platform. This integration allows you to create BigPanda tickets from triggered alerts in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). Tanzu Observability and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in Tanzu Observability to pass notifications from Tanzu Observability alerts into BigPanda. 
 
 ## BigPanda Integration Configuration 
 

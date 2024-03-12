@@ -8,7 +8,7 @@ summary: Proxy files, logs, and configuration properties
 ---
 
 
-Even without additional customization, the Wavefront proxy ingests metrics and forwards them to Tanzu Observability (formerly known as VMware Aria Operations for Applications) in a secure, fast, and reliable manner. If needed, you can customize your proxy.
+Even without additional customization, the Wavefront proxy ingests metrics and forwards them to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) in a secure, fast, and reliable manner. If needed, you can customize your proxy.
 
 * **[Proxy configuration properties](#configuration-properties)** allow you to change how the proxy processes your data. For example, you can change ports or perform other advanced installation management.
 

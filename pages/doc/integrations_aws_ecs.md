@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
-summary: Send AWS ECS data to Tanzu Observability (formerly known as VMware Aria Operations for Applications) using Telegraf agent or AWS Fargate.
+summary: Send AWS ECS data to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) using Telegraf agent or AWS Fargate.
 ---
 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 

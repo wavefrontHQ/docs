@@ -4,7 +4,7 @@ keywords: events
 tags: [events, alerts]
 sidebar: doc_sidebar
 permalink: events.html
-summary: Learn about events and how to view, create, and close events in Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Learn about events and how to view, create, and close events in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 An event is a record that something of interest has happened. For example, the event might show that an alert has changed state, AWS instances have started or stopped, and so on. To view the list of all events, select **Browse > Events**.
 

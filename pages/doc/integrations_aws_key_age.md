@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_key_age.html
-summary: Send AWS Key Age data to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Send AWS Key Age data to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 AWS Identity and Access Management (IAM) allows administrators of different AWS services to manage access to those AWS services and resources securely.

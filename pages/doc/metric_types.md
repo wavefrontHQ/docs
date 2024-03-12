@@ -7,7 +7,7 @@ permalink: metric_types.html
 summary: Learn about gauges, counters, delta counters, histograms, and spans.
 ---
 
- Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports monitoring time series, histograms, and traces.
+ VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports monitoring time series, histograms, and traces.
 * Each **time series** consists of numeric data points for a metric, for example, CPU load or failed network connections. Time series can use one of the [supported data formats](wavefront_data_format.html#supported-data-formats-for-metrics).
    The type of data that you’re collecting determines the type of metric. Tanzu Observability supports gauges, counters, delta counters, and more.
 

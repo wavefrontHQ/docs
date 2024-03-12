@@ -3,7 +3,7 @@ title: Logs Proxy Configurations and Preprocessor Rules
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
-summary: Proxy configuration properties and preprocessor rules for ingesting logs into Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Proxy configuration properties and preprocessor rules for ingesting logs into VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 {% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}

@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, grafana]
 sidebar: doc_sidebar
 permalink: integrations_grafana.html
-summary: Learn how you can set up Tanzu Observability (formerly known as VMware Aria Operations for Applications) as a Prometheus data source in Grafana.
+summary: Learn how you can set up VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) as a Prometheus data source in Grafana.
 ---
 
 In addition to [setting up and using Tanzu Observability as a Wavefront Query Language data source in Grafana](grafana.html), you can also use Tanzu Observability as a Prometheus data source in Grafana. 
