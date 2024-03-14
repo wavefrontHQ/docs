@@ -1,5 +1,5 @@
 ---
-title: Manage Service Accounts in Operations for Applications on VMware Cloud Services
+title: Manage Service Accounts in Tanzu Observability on VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -7,24 +7,24 @@ permalink: csp_service_accounts.html
 summary: Learn how you can create and manage service accounts.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Service Accounts](service-accounts.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Service Accounts](service-accounts.html)."%}
 
-{% include warning.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future."%}
+{% include warning.html content="The usage of service accounts in Tanzu Observability on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Tanzu Observability API tokens will be deprecated in the future."%}
 
 If your service was recently onboarded to VMware Cloud services, you might have some legacy service accounts for backward compatibility. It's strongly recommended that you incrementally switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens. See [How to Replace a Service Account with a Server to Server App?](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app).
 
 ## What Are Service Accounts?
 
-* A service account uses an **Operations for Applications API token** to authenticate.
+* A service account uses an **Tanzu Observability API token** to authenticate.
 * By default, service accounts don't have any permissions, even view permissions. Users with the **Admin** service role must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). There's no limit on the number of service accounts that you can create in your service instance. 
 
-As a user with the **Admin** service role, you [generate (and revoke, if needed)](csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-for-a-service-account) the API tokens for the service account. It’s also possible to [deactivate](csp_service_accounts.html#deactivate-or-activate-a-service-account) a service account completely. 
+As a user with the **Admin** service role, you [generate (and revoke, if needed)](csp_api_tokens.html#manage-the-tanzu-observability-api-tokens-for-a-service-account) the API tokens for the service account. It’s also possible to [deactivate](csp_service_accounts.html#deactivate-or-activate-a-service-account) a service account completely. 
 
-{% include note.html content="Operations for Applications includes the **Service Accounts** internal system group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) that have access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
+{% include note.html content="Tanzu Observability includes the **Service Accounts** internal system group, where all service accounts together with the [server to server apps](csp_server_to_server_apps.html) that have access to the service are added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## How Service Accounts Work
 
-If you plan to set up an integration that uses a proxy authentication with an Operations for Applications API token, you must create a service account with the **Proxies** permission and generate an API token for it.
+If you plan to set up an integration that uses a proxy authentication with a Tanzu Observability API token, you must create a service account with the **Proxies** permission and generate an API token for it.
 
 1. Create a service account from the UI. The service account name must be unique.
 2. Assign the service account with the **Proxies** permission.
@@ -37,7 +37,7 @@ You can disable a service account if you temporarily don't need it, or you can d
 
 ## Create a Service Account
 
-Service accounts are created in Operations for Applications.
+Service accounts are created in Tanzu Observability.
 
 1. Log in to your service instance as a user with the **Admin** service role.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Accounts**.
@@ -52,12 +52,12 @@ Service accounts are created in Operations for Applications.
 <tr>
 <td>
 Account ID</td>
-<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Operations for Applications converts a service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
+<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Tanzu Observability converts a service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
 </tr>
 <tr>
 <td>
 Tokens</td>
-<td>List of API tokens that the service account can use to authenticate to the Operations for Applications service instance.
+<td>List of API tokens that the service account can use to authenticate to the Tanzu Observability service instance.
 <ul><li>Click the <strong>Edit</strong> icon to change the token name. </li>
 <li>Click <strong>Revoke</strong> to revoke a token. Any service account that uses the token can no longer authenticate to the service instance. </li>
 <li>Click <strong>Generate</strong> to generate additional tokens. Having multiple active tokens makes it possible to revoke some tokens. For example, if the service connects to several proxies, you can generate a token to connect to each proxy. You can revoke the token for one proxy but leave the others. You can have up to 20 API tokens per service account at any given time.</li>
@@ -66,7 +66,7 @@ Tokens</td>
 </tr>
 <tr>
 <td>Permissions</td>
-<td>Individual permissions assigned to this service account. Assign the service account with the <strong>Proxies</strong> permission, so that you can use it for the proxy setup of an integration that authenticates with an Operations for Applications API token.</td>
+<td>Individual permissions assigned to this service account. Assign the service account with the <strong>Proxies</strong> permission, so that you can use it for the proxy setup of an integration that authenticates with a Tanzu Observability API token.</td>
 </tr>
 </tbody>
 </table>

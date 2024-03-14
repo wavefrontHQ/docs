@@ -7,14 +7,14 @@ permalink: wavefront_administer.html
 summary: Understand what you can do if you have administrative privileges.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For information about VMware Cloud services subscriptions and original subscriptions and how they differ, see [Subscription Types](subscriptions-differences.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For information about VMware Cloud services subscriptions and original subscriptions and how they differ, see [Subscription Types](subscriptions-differences.html)."%}
 
-In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
+In Tanzu Observability, Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
 
-* Manage the authorization and access to the Operations for Applications environment.
-* Select the authentication model in the Operations for Applications environment, for example, by setting up SSO using an identity provider (IdP).
-* Monitor and troubleshoot the Operations for Applications environment and usage.
-* Purchase initial and additional Operations for Applications capacity by using the self-service workflows in the UI.
+* Manage the authorization and access to the Tanzu Observability environment.
+* Select the authentication model in the Tanzu Observability environment, for example, by setting up SSO using an identity provider (IdP).
+* Monitor and troubleshoot the Tanzu Observability environment and usage.
+* Purchase initial and additional Tanzu Observability capacity by using the self-service workflows in the UI.
 
 ## Authorization
 
@@ -34,7 +34,7 @@ You can select your preferred authentication method for your environment by sett
 
 ## Monitor and Troubleshoot
 
-You can use the Operations for Applications Usage integration dashboards to monitor and troubleshoot your environment. By using the dashboards in this integration, you can:
+You can use the Tanzu Observability Usage integration dashboards to monitor and troubleshoot your environment. By using the dashboards in this integration, you can:
 
 * Get usage information for your service instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.

@@ -7,13 +7,13 @@ permalink: authorization-faq.html
 summary: Before you start managing users, groups, roles, and access, here are some FAQs.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Authorization Model in Operations for Applications on VMware Cloud Services](csp_authorization.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Authorization Model in Tanzu Observability on VMware Cloud Services](csp_authorization.html)."%}
 
 ### What Are User & Service Accounts?
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports two account types:
-* [**User accounts**](user-accounts.html) are for human users who work with Operations for Applications. A user account authenticates with a user name and password.
-* [**Service accounts**](service-accounts.html) are for services that interact with Operations for Applications through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+Tanzu Observability supports two account types:
+* [**User accounts**](user-accounts.html) are for human users who work with Tanzu Observability. A user account authenticates with a user name and password.
+* [**Service accounts**](service-accounts.html) are for services that interact with Tanzu Observability through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
  Service accounts:
   - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Service Accounts** group.).
   - Can't perform the **UI operations** that user accounts can perform by default.
@@ -21,7 +21,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ### Who Is the Super Admin User?
 
-When your company signs up with Operations for Applications, we ask you which users you want as Super Admin users for your service instance.
+When your company signs up with Tanzu Observability, we ask you which users you want as Super Admin users for your service instance.
 
 When a Super Admin user [enables Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode), that user:
 
@@ -50,7 +50,7 @@ Groups allow you to combine a set of users. You can then:
 * Assign a role to the group.
 * Give [view or modify access](access.html) for individual dashboards and alerts to the group.
 
-The groups in your Operations for Applications environment do *not* currently synchronize with the groups in your identity provider (IdP) such as Active Directory or LDAP.
+The groups in your Tanzu Observability environment do *not* currently synchronize with the groups in your identity provider (IdP) such as Active Directory or LDAP.
 
 
 ### What's the Everyone Group?

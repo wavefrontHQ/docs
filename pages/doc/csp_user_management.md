@@ -1,36 +1,36 @@
 ---
-title: Manage Users of Operations for Applications on VMware Cloud Services
+title: Manage Users of Tanzu Observability on VMware Cloud Services
 keywords: administration
 sidebar: doc_sidebar
 permalink: csp_user_management.html
-summary: Add and manage users of VMware Aria Operations for Applications on VMware Cloud services.
+summary: Add and manage users of VMware Tanzu Observability on VMware Cloud services.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage User Accounts](user-accounts.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage User Accounts](user-accounts.html)."%}
 
-VMware Cloud services provides identity access management for the users of your services, including Operations for Applications. For example, see our tutorial [Invite New Users from the VMware Cloud Services Console](csp_new_users_tutorial.html).
+VMware Cloud services provides identity access management for the users of your services, including Tanzu Observability. For example, see our tutorial [Invite New Users from the VMware Cloud Services Console](csp_new_users_tutorial.html).
 
 {% include note.html content="To manage user access to the services in your VMware Cloud organization, you must hold the VMware Cloud **Organization Owner** or **Organization Administrator** role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation."%}
 
 ## Adding Users to Your Service Instance
 
-To add a user to your Operations for Applications service instance, you must assign that user:
+To add a user to your Tanzu Observability service instance, you must assign that user:
 
 1. An [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) for the VMware Cloud organization running the service instance.
 
     {% include note.html content="I you are a VMware Cloud **Organization Administrator**, you can assign only the VMware Cloud **Organization Member** role. Only a VMware Cloud **Organization Owner** can add VMware Cloud **Organization Owners** and VMware Cloud **Organization Administrators**."%}
 
-1. An [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance.
+1. An [Tanzu Observability service role](csp_users_roles.html#tanzu-observability-service-roles-built-in) for the service instance.
   
     You can assign a combination of service roles. For example, if the user that you want to invite will set up integrations, make sure that you assign that user both the **Integrations** and the **Proxies** service roles.
 
-    If you plan to assign that user a custom role, you must assign that user at least the **Viewer** Operations for Applications service role, so that the user can access the service instance.
+    If you plan to assign that user a custom role, you must assign that user at least the **Viewer** Tanzu Observability service role, so that the user can access the service instance.
 
-    {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform. "%}
+    {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#tanzu-observability-service-roles-built-in) to at least one user of your Tanzu Observability service instance. There are some Super Admin tasks that no one else can perform. "%}
 
-1. Optionally, a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
+1. Optionally, a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Tanzu Observability permission](csp_permissions_overview.html#tanzu-observability-permissions).
 
-    {% include important.html content="In a multi-tenant Operations for Applications environment, custom roles apply to **all** service instances (tenants) to which the user has access, that is, for which the user has at least one Operations for Applications service role."%}
+    {% include important.html content="In a multi-tenant Tanzu Observability environment, custom roles apply to **all** service instances (tenants) to which the user has access, that is, for which the user has at least one Tanzu Observability service role."%}
 
 You can assign users with these roles in the following ways:
 
@@ -54,13 +54,13 @@ The newly added users receive an invitation email with an account activation lin
 
 ### Editing a User's Roles
 
-If a user already belongs to the VMware Cloud organization running the service instance, you can edit the user's roles to assign that user with Operations for Applications service or custom roles.
+If a user already belongs to the VMware Cloud organization running the service instance, you can edit the user's roles to assign that user with Tanzu Observability service or custom roles.
 
 For details, see [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
 
 ## Remove a User
 
-- To remove a user from your service instance, you must remove their [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in).
+- To remove a user from your service instance, you must remove their [Tanzu Observability service roles](csp_users_roles.html#tanzu-observability-service-roles-built-in).
     - If the roles are individually assigned to the user, edit the user's roles. See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
     - If the roles are inherited from a group, edit the group and remove that user from the list of members. See [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
@@ -68,7 +68,7 @@ For details, see [How do I change user roles](https://docs.vmware.com/en/VMware-
 
 ## Sign Out a User
 
-As a user with the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in), you can sign out other users by using the [REST API](wavefront_api.html). To sign out a user while you [enabled Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode), simply run a POST request with the `logout` API call. For example:
+As a user with the [**Super Admin** service role](csp_users_roles.html#tanzu-observability-service-roles-built-in), you can sign out other users by using the [REST API](wavefront_api.html). To sign out a user while you [enabled Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode), simply run a POST request with the `logout` API call. For example:
 
 ```
 POST https://<your_instance>.wavefront.com/api/logout/{identifier}

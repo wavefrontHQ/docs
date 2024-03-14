@@ -1,19 +1,19 @@
 ---
-title: Authorization Model in Operations for Applications on VMware Cloud Services
+title: Authorization Model in Tanzu Observability on VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_authorization.html
-summary: Learn about authorization of groups, users, and server to server apps to access VMware Aria Operations for Applications on VMware Cloud services.
+summary: Learn about authorization of groups, users, and server to server apps to access VMware Tanzu Observability on VMware Cloud services.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authorization Model](authorization.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authorization Model](authorization.html)."%}
 
-VMware Cloud services supports role-based access control for the services on its platform, including Operations for Applications. Operations for Applications supports object-based access control for individual dashboards and alerts as well as metrics security policy.
+VMware Cloud services supports role-based access control for the services on its platform, including Tanzu Observability. Tanzu Observability supports object-based access control for individual dashboards and alerts as well as metrics security policy.
 
 ## Role-Based Access Control with Global Permissions
 
-[Operations for Applications permissions](csp_permissions_overview.html) always apply to all objects of a certain type. For example, a user with the **Dashboards** permission can view and modify all dashboards.
+[Tanzu Observability permissions](csp_permissions_overview.html) always apply to all objects of a certain type. For example, a user with the **Dashboards** permission can view and modify all dashboards.
 
 Users with the VMware Cloud **Organization Owner** or **Organization Administrator** role manage authorization with [roles and groups](csp_users_roles.html). They can:
 * Create **groups** and add users to each group.

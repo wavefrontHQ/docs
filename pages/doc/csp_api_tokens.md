@@ -1,5 +1,5 @@
 ---
-title: Manage Tokens for Operations for Applications on VMware Cloud Services
+title: Manage Tokens for Tanzu Observability on VMware Cloud Services
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
@@ -7,17 +7,17 @@ permalink: csp_api_tokens.html
 summary: Learn how you can generate and manage API tokens and access tokens.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage API Tokens](api_tokens.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage API Tokens](api_tokens.html)."%}
 
-Invoking the [Operations for Applications REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens), authentication with an **Operations for Applications API token** is also supported.
+Invoking the [Tanzu Observability REST API](wavefront_api.html), using `curl` or an API client, requires a **VMware Cloud services access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens), authentication with an **Tanzu Observability API token** is also supported.
 
 To obtain a VMware Cloud services access token, you must make an API call to the VMware Cloud services REST API and exchange it from:
 * A VMware Cloud services API token associated with your user account.
 * The credentials of a server to server OAuth app associated with the VMware Cloud organization running the service.
 
-To obtain an Operations for Applications API token, you can also create a service account and generate an API token associated with it.
+To obtain a Tanzu Observability API token, you can also create a service account and generate an API token associated with it.
 
-{% include note.html content="If your original Operations for Applications subscription was recently [onboarded to VMware Cloud services](csp_migration.html), for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts and service accounts. It’s recommended that you incrementally replace them with VMware Cloud services API tokens and sever to server OAuth apps."%}
+{% include note.html content="If your original Tanzu Observability subscription was recently [onboarded to VMware Cloud services](csp_migration.html), for backward compatibility, you might have some legacy Tanzu Observability API tokens that are associated with user accounts and service accounts. It’s recommended that you incrementally replace them with VMware Cloud services API tokens and sever to server OAuth apps."%}
 
 ## Manage the VMware Cloud Services API Tokens for Your User Account
 
@@ -25,7 +25,7 @@ If you want to make REST API calls on your own behalf, you must generate a VMwar
 
 You can generate VMware Cloud services API tokens only for your user account. You must assign each API token with the minimum required subset of the roles that you own. The access tokens associated with an API token inherit its roles. These roles include:
 * At least one organization role.
-* At least one Operations for Applications service role.
+* At least one Tanzu Observability service role.
 * Optionally, one or more custom roles.
 
 You must also set each API token with a time to live (TTL), which is the time that the API token will be valid unless revoked earlier. Before an API token expires, you must generate a new API token and update your scripts and API calls.
@@ -55,18 +55,18 @@ To create and manage server to server OAuth apps in your VMware Cloud organizati
 
 You must assign each server to server app only with the minimum required roles for its tasks and add it to your VMware Cloud organization. The access tokens associated with a server to server app inherit its roles within the organizations it belongs. These roles include:
 * At least one organization role.
-* At least one Operations for Applications service role.
+* At least one Tanzu Observability service role.
 * Optionally, one or more custom roles.
 
 You must also set each server to server app with a time to live (TTL), which is the time that the access tokens associated with the app will be valid. The credentials of a sever to server app never expire, so that your script can periodically exchange them for new access tokens. Only if you regenerate the app secret, you must update your scripts and API calls.
 
 For details on how to create, view, and modify the details of the OAuth 2.0 apps in your organization, see [How to manage OAuth 2.0 apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-229F9BCE-0C1F-4948-8792-23F51B5482BE.html) in the VMware Cloud services documentation.
 
-## Manage the Operations for Applications API Tokens for a Service Account
+## Manage the Tanzu Observability API Tokens for a Service Account
 
-If you want to set up one of the [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with an **Operations for Applications API token**, you must create a [service account](csp_service_accounts.html) and generate an API token associated with it.
+If you want to set up one of the [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with an **Tanzu Observability API token**, you must create a [service account](csp_service_accounts.html) and generate an API token associated with it.
 
-{% include warning.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future. "%}
+{% include warning.html content="The usage of service accounts in Tanzu Observability on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Tanzu Observability API tokens will be deprecated in the future. "%}
 
 <!--Bring this back to the warning if we get the flag: Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team.-->
 
@@ -88,11 +88,11 @@ To generate and manage the API tokens for an existing **service account**:
 
 
 
-## Manage the Operations for Applications API Tokens in Your Service Instance
+## Manage the Tanzu Observability API Tokens in Your Service Instance
 
 As a user with the **Admin** service role, you can view and revoke the API tokens of any service account in your service instance.
 
-{% include warning.html content="If your original Operations for Applications subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts. It’s recommended that you incrementally [replace them with VMware Cloud services API tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token)."%}
+{% include warning.html content="If your original Tanzu Observability subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Tanzu Observability API tokens that are associated with user accounts. It’s recommended that you incrementally [replace them with VMware Cloud services API tokens](csp_migration.html#how-to-replace-an-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token)."%}
 
 1. Log in to your service instance as an **Admin** user.
 2. Click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Accounts**.

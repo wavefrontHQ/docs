@@ -7,16 +7,16 @@ permalink: authentication.html
 summary: Learn how to enable multi-tenant authentication.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Authentication Model in Operations for Applications on VMware Cloud Services](csp_authentication.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Authentication Model in Tanzu Observability on VMware Cloud Services](csp_authentication.html)."%}
 
-Most of our customers use [single-tenant authentication](auth_self_service_sso.html). If your company wants to set up different tenants for different teams, VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports multi-tenancy.
+Most of our customers use [single-tenant authentication](auth_self_service_sso.html). If your company wants to set up different tenants for different teams, Tanzu Observability supports multi-tenancy.
 
 {% include note.html content="Switching tenants in multi-tenant environments require [the extra steps listed below](#point-a-proxy-to-a-different-tenant-in-a-multi-tenant-environment)." %}
 
 
 ## Multi-Tenant Authentication
 
-Several of our customers have asked for an environment that supports separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Operations for Applications. This separation of teams, called multi-tenancy, works like this:
+Several of our customers have asked for an environment that supports separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Tanzu Observability. This separation of teams, called multi-tenancy, works like this:
 
 * The administrator at the customer site requests tenants from our Technical Support team and provides the tenant administrator emails and other information such as the IdP.
 * After our Technical Support team has set up the tenants, each tenant administrator (a Super Admin or a user with the **Accounts** permission) invites users to that tenant.

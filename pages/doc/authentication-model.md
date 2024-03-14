@@ -7,15 +7,15 @@ permalink: wavefront-authentication.html
 summary: Learn about the authentication for user and service accounts.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Authentication Model in Operations for Applications on VMware Cloud Services](csp_authentication.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Authentication Model in Tanzu Observability on VMware Cloud Services](csp_authentication.html)."%}
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports these authentication options:
+Tanzu Observability supports these authentication options:
 * **Direct authentication**: With direct authentication, users authentication with user name and password and service accounts authenticate with a token.
 * **Authentication through an SSO identity provider**: You can choose from supported self-service SAML SSO provider or request and multi-tenant SSO support.
 
 ## Direct Authentication
 
-Operations for Applications supports direct authentication for user accounts and service accounts.
+Tanzu Observability supports direct authentication for user accounts and service accounts.
 
 * [User accounts](user-accounts.html) must authenticate with a user name and password.
 
@@ -27,7 +27,7 @@ Operations for Applications supports direct authentication for user accounts and
 
 ## Self-Service SAML SSO
 
-You can use the authentication provided by Operations for Applications or use one of the supported authentication integrations. Operations for Applications supports several authentication solutions including:
+You can use the authentication provided by Tanzu Observability or use one of the supported authentication integrations. Tanzu Observability supports several authentication solutions including:
 
 * [Google](google.html)
 * [OneLogin](onelogin.html)
@@ -39,7 +39,7 @@ We also support [self-service SAML SSO](auth_self_service_sso.html) setup. After
 
 {% include important.html content="If your environment requires Self-Service SAML SSO setup with an IdP that is not available in the list for self-service SAML SSO (for example, Azure AD or ADFS), create a [support ticket](wavefront_support_feedback.html#support)."%} 
 
-If a customer's chosen authentication solution supports two-factor authentication, Operations for Applications requires two-factor authentication for login.
+If a customer's chosen authentication solution supports two-factor authentication, Tanzu Observability requires two-factor authentication for login.
 
 ## Multi-Tenant SSO
 

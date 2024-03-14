@@ -4,17 +4,17 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: api_tokens.html
-summary: Learn how you can generate and manage API tokens in VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront).
+summary: Learn how you can generate and manage Tanzu Observability API tokens.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Manage Tokens](csp_api_tokens.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Manage Tokens](csp_api_tokens.html)."%}
 
 Before you can invoke the [REST API](wavefront_api.html) using `curl` or from an API client, you must have an API token. An API token is a string of hexadecimal characters and dashes. For example:
 
 ```
 a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
-Operations for Applications allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [REST API](wavefront_api.html).
+Tanzu Observability allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [REST API](wavefront_api.html).
 
 {% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
 

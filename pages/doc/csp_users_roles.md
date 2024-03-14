@@ -4,19 +4,19 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_users_roles.html
-summary: Manage Operations for Applications permissions with roles.
+summary: Manage Tanzu Observability permissions with roles.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Roles, Groups, and Permissions](users_roles.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Roles, Groups, and Permissions](users_roles.html)."%}
 
-VMware Cloud services supports roles to manage authorization in your services on the platform, including VMware Aria Operations for Applications.
+VMware Cloud services supports roles to manage authorization in your services on the platform, including Tanzu Observability.
 
 From the VMware Cloud Services Console, users with the VMware Cloud **Organization Owner** or **Organization Administrator** role can:
 * Create **groups** and add new and existing users to each group.
-* Create **custom roles** and assign Operations for Applications permissions to each role.
+* Create **custom roles** and assign Tanzu Observability permissions to each role.
 * Assign one or more **service roles** and **custom roles** to each group. It's also possible to assign roles to individual users and server to server apps.
 
-In addition to the roles model, Operations for Applications also supports [access control for individual objects](csp_access.html), for example, users with the **Super Admin** service role can limit access to a sensitive dashboard.
+In addition to the roles model, Tanzu Observability also supports [access control for individual objects](csp_access.html), for example, users with the **Super Admin** service role can limit access to a sensitive dashboard.
 
 ## Manage Roles
 
@@ -24,13 +24,13 @@ The roles model allows you to make sure nobody can perform tasks without the cor
 
 Assigning roles to groups of users is most efficient and least error prone. It's possible to assign a role to an individual account -- that might make sense during a POC.
 
-VMware Cloud services includes built-in **service roles** for each service on the platform, including Operations for Applications service roles. Additionally, VMware Cloud services supports **custom roles**.
+VMware Cloud services includes built-in **service roles** for each service on the platform, including Tanzu Observability service roles. Additionally, VMware Cloud services supports **custom roles**.
 
 - A role can be assigned for a certain time period or without an expiration date.
-- At least one Operations for Applications service role is required for a user to have access to the Operations for Applications service instance. Custom roles are optional.
-- In a multi-tenant environment, a user can have different service roles for the different Operations for Applications service instances (tenants). Custom roles apply to **all** tenants for which the user has a service role.
+- At least one Tanzu Observability service role is required for a user to have access to the Tanzu Observability service instance. Custom roles are optional.
+- In a multi-tenant environment, a user can have different service roles for the different Tanzu Observability service instances (tenants). Custom roles apply to **all** tenants for which the user has a service role.
 
-  {% include note.html content="When you invite new users in a multi-tenant environment, make sure that you assign them the roles they need for each Operations for Applications service instance (tenant). For information on how to do this, see [Invite New Users from the VMware Cloud Services Console](csp_new_users_tutorial.html)."%}
+  {% include note.html content="When you invite new users in a multi-tenant environment, make sure that you assign them the roles they need for each Tanzu Observability service instance (tenant). For information on how to do this, see [Invite New Users from the VMware Cloud Services Console](csp_new_users_tutorial.html)."%}
 
 The VMware Cloud Services Console **Roles** page lists all service roles and custom roles in your VMware Cloud organization. To navigate to this page:
 
@@ -38,10 +38,10 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 1. If necessary, switch to the target organization. See [How do I access another one of my Organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-432417CF-CE0C-48EB-BEBB-8C27751577D1.html).
 1. In the left navigation pane, select **Identity & Access Management** > **Roles**.
 
-### Operations for Applications Service Roles (Built-in)
+### Tanzu Observability Service Roles (Built-in)
 
-The VMware Cloud Services Console **Roles** page includes the following built-in Operations for Applications service roles:
-- A corresponding Operations for Applications service role for each [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions), that is, each of the following service roles has only one permission assigned:
+The VMware Cloud Services Console **Roles** page includes the following built-in Tanzu Observability service roles:
+- A corresponding Tanzu Observability service role for each [Tanzu Observability permission](csp_permissions_overview.html#operations-for-applications-permissions), that is, each of the following service roles has only one permission assigned:
 
   * **Admin**
   * **Alerts**
@@ -59,7 +59,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
   * **Metrics**
   * **Proxies**
   * **Sources**
-- Two special Operations for Applications service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
+- Two special Tanzu Observability service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
 
   <table>
   <tr>
@@ -69,7 +69,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
   <tr>
     <th>Super Admin</th>
     <td>When users with that service role <a href="csp_users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a>, they:<ul>
-    <li>Have all Operations for Applications permissions.</li>
+    <li>Have all Tanzu Observability permissions.</li>
     <li>Have access to all dashboards and alerts.</li>
     <li>Can <a href="csp_access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
     </ul>
@@ -78,7 +78,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
   <tr>
     <th>Viewer</th>
     <td>Users with that service role:<ul>
-    <li>Don't have any Operations for Applications permissions.</li>
+    <li>Don't have any Tanzu Observability permissions.</li>
     <li>Can perform only the <a href="csp_permissions_overview.html#default-tasks">default tasks</a>.</li>
     </ul>
     <p><strong>Tip:</strong> Assign the <strong>Viewer</strong> service role individually or in combination with custom roles.</p></td>
@@ -87,14 +87,14 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
 
 ### Create, Edit, or Delete a Custom Role
 
-Custom roles let you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
+Custom roles let you combine service permissions of your choice, for example, [Tanzu Observability permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
 
-{% include important.html content="The Operations for Applications permissions in a custom role apply to **all** Operations for Applications service instances to which the target user account or server to server app has access. Therefore, to obtain the Operations for Applications permissions from a custom role for a given Operations for Applications service instance, the user account or server to server app assigned with that custom role must have at least one Operations to Applications service role for that service instance, for example, the **Viewer** service role."%}
+{% include important.html content="The Tanzu Observability permissions in a custom role apply to **all** Tanzu Observability service instances to which the target user account or server to server app has access. Therefore, to obtain the Tanzu Observability permissions from a custom role for a given Tanzu Observability service instance, the user account or server to server app assigned with that custom role must have at least one Operations to Applications service role for that service instance, for example, the **Viewer** service role."%}
 
 To create a custom role:
 
 1. On the VMware Cloud Services Console **Roles** page, click **Add Role**.
-1. On the **Add permissions** tab, in the left panel, expand **VMware Aria Operations for Applications**.
+1. On the **Add permissions** tab, in the left panel, expand **VMware Tanzu Observability**.
 1. In the panel on the right, select the permissions that you want to assign to the role, and click **Continue**.
 1. On the **Role information** tab, enter a meaningful role name and description, and click **Continue**.
 1. On the **Review added permission** tab, verify your selections and click **Save**.
@@ -119,7 +119,7 @@ For efficient user management, you can create groups of users and assign roles t
 
 See [How do I work with groups](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
-{% include note.html content="Operations for Applications includes an internal **Everyone** system group, where any new user account is added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
+{% include note.html content="Tanzu Observability includes an internal **Everyone** system group, where any new user account is added automatically. This group doesn't have any roles and permissions. This group can be used when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ## Grant or Revoke a User's Role Explicitly
 

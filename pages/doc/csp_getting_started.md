@@ -1,17 +1,17 @@
 ---
-title: Getting Started with Operations for Applications on VMware Cloud Services
+title: Getting Started with Tanzu Observability on VMware Cloud Services
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_getting_started.html
 summary: Learn the basics for administering your service on the VMware Cloud services platform.
 ---
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. From this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to VMware Cloud services and **original** subscriptions.
+Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. From this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to VMware Cloud services and **original** subscriptions.
 
 Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. We are in the process of incrementally [onboarding](csp_migration.html) all original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Differences Between Original and VMware Cloud Services Subscriptions](csp-differences-by-area.html).
 
-{% include note.html content="Starting September 20, 2023, all [**new trial**](start_trial.html) instances of Operations for Applications are **onboarded** to VMware Cloud services."%}
+{% include note.html content="Starting September 20, 2023, all [**new trial**](start_trial.html) instances of Tanzu Observability are **onboarded** to VMware Cloud services."%}
 
-VMware Cloud services provides features to your Operations for Applications environment, such as:
+VMware Cloud services provides features to your Tanzu Observability environment, such as:
 - Single sign-on (SSO) with VMware Cloud services accounts.
 - SAML 2.0 SSO identity federation with your enterprise identity provider.
 - Identity access management (IAM) with built-in and custom service roles.
@@ -22,18 +22,18 @@ See the [Advantages of VMware Cloud Services Subscriptions Over Original Subscri
 
 ## What's VMware Cloud Services Console?
 
-The VMware Cloud Services Console lets you manage your entire VMware Cloud services portfolio across hybrid and native public clouds. Operations for Applications is one of the many services that you can access, configure, and consume through this console.
+The VMware Cloud Services Console lets you manage your entire VMware Cloud services portfolio across hybrid and native public clouds. Tanzu Observability is one of the many services that you can access, configure, and consume through this console.
 
 To open the VMware Cloud Services Console:
 
 - In a Web browser, go to `https://console.cloud.vmware.com`.
-- From the Operations for Applications UI, click the **VMware Cloud Services Applications Menu** icon (![applications icon](images/applications-solid.png)) in the top-right corner and select **Cloud Services Console**.
+- From the Tanzu Observability UI, click the **VMware Cloud Services Applications Menu** icon (![applications icon](images/applications-solid.png)) in the top-right corner and select **Cloud Services Console**.
 
 See [Using VMware Cloud Services Console](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-20D62AFF-024B-4901-976D-69BFD71BECC8.html) in the VMware Cloud services documentation.
 
 ## What's a VMware Cloud Services Account?
 
-A VMware Cloud services account is a user (human) account in VMware Cloud services with which you can access all of your service instances, including Operations for Applications. A VMware Cloud services account logs in to VMware Cloud services with an email address and a password. A VMware Cloud services account can be one of the following:
+A VMware Cloud services account is a user (human) account in VMware Cloud services with which you can access all of your service instances, including Tanzu Observability. A VMware Cloud services account logs in to VMware Cloud services with an email address and a password. A VMware Cloud services account can be one of the following:
 - A VMware account (VMware ID) that you create in the VMware Cloud Services Console.
 
     You can create a VMware account independently, while [onboarding](start_trial.html) a service, or while [signing up](csp_sign_up_or_log_in.html) to a service with an invitation link.
@@ -46,9 +46,9 @@ VMware Cloud services uses organizations to provide controlled access to one or 
 * Users can belong to multiple organizations. 
 * Multiple service instances can run in the same or in different organizations. 
 
-For example, you can have a multi-tenant Operations for Applications environment with multiple service instances (tenants) in the same organization.
+For example, you can have a multi-tenant Tanzu Observability environment with multiple service instances (tenants) in the same organization.
 
-{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you are [starting an Operations for Applications free trial](start_trial.html)."%}
+{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you are [starting an Tanzu Observability free trial](start_trial.html)."%}
 
 See [How do I manage my Cloud Services organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html) in the VMware Cloud services documentation.
 
@@ -81,16 +81,16 @@ See [What organization roles are available in VMware Cloud Services](https://doc
 
 ## What Are Service Roles and Custom Roles?
 
-VMware Cloud services includes service-specific built-in roles, including [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in). A service role is required to grant certain access to the corresponding service instance in the organization.
+VMware Cloud services includes service-specific built-in roles, including [Tanzu Observability service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in). A service role is required to grant certain access to the corresponding service instance in the organization.
 
 While the service roles are built-in and not editable, as a VMware Cloud **Organization Administrator** or **Organization Owner**, you can create [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with service permissions of your choice, including [Operations for Application permissions](csp_permissions_overview.html#operations-for-applications-permissions). Custom roles are optional and apply to all service instances for which the target user or server to server app has at least one service role.
 
 ## What's a Server to Server App?
 
-If you want to use an application for automating management tasks in your service, for example, in Operations for Applications, your application requires direct access to your service, without user authorization.
+If you want to use an application for automating management tasks in your service, for example, in Tanzu Observability, your application requires direct access to your service, without user authorization.
 
-For that purpose, VMware Cloud services supports server to server apps, which are based on OAuth 2.0 client credentials grant type. You can configure your application to pass the OAuth 2.0 client credentials (id and secret) to the VMware Cloud services REST API and exchange the credentials for a VMware Cloud services access token. Your application can use the VMware Cloud services access token to interact with the Operations for Applications REST API.
+For that purpose, VMware Cloud services supports server to server apps, which are based on OAuth 2.0 client credentials grant type. You can configure your application to pass the OAuth 2.0 client credentials (id and secret) to the VMware Cloud services REST API and exchange the credentials for a VMware Cloud services access token. Your application can use the VMware Cloud services access token to interact with the Tanzu Observability REST API.
 
 See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 
-{% include important.html content="For each server to server app with access to an Operations for Applications service instance, we create a corresponding **internal service account** in that service instance and add it the **Service Accounts** internal system group. So that, when you configure [the access control security settings](csp_access.html#change-the-access-control-security-setting), [ingestion polices](ingestion_policies.html#step-1-specify-the-scope-and-pps-limit), or [metrics security rules](csp_metrics_security.html), the server to server apps that are assigned with Operations for Applications service roles are represented as service accounts together with the [service accounts](csp_service_accounts.html) created in Operations for Applications."%}
+{% include important.html content="For each server to server app with access to a Tanzu Observability service instance, we create a corresponding **internal service account** in that service instance and add it the **Service Accounts** internal system group. So that, when you configure [the access control security settings](csp_access.html#change-the-access-control-security-setting), [ingestion polices](ingestion_policies.html#step-1-specify-the-scope-and-pps-limit), or [metrics security rules](csp_metrics_security.html), the server to server apps that are assigned with Tanzu Observability service roles are represented as service accounts together with the [service accounts](csp_service_accounts.html) created in Tanzu Observability."%}

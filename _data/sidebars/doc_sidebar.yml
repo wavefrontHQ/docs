@@ -970,7 +970,7 @@ entries:
             output: web
 
           - title: Security Policy Rules
-            url: /csp_metrics_security.html
+            url: /csp_security_policy.html
             output: web
             
       - title: Authentication Model
