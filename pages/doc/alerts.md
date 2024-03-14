@@ -302,10 +302,10 @@ You can use alert tags to organize related alerts into categories. Alert tags ar
 ### Step 6: (Optional) Use Multi-Level Alert Tags
 
 If your environment has a nested set of categories, you can use alert tag paths. For example, suppose you have created a group of alerts that you use as demo examples, and:
-* Within the demo group, some alerts monitor network activity, while others monitor request latency.
-* Within each subgroup, some alerts monitor production applications, while others monitor development applications.
+* Within the demo group, some alerts monitor network activity.
+* Within each subgroup, some alerts monitor production applications.
 
-To manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts Browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
+To manage these alerts, you assign the tag paths `example.network.prod` and `example.latency.prod`. The Alerts Browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
 
 ![Alert tag path](images/alert_tag_path.png)
 

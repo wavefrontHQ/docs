@@ -178,12 +178,12 @@ Alert checks are based on data that is summarized every minute.  Consequently, i
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">
+<td width="70%">
 <br/>
 The filter bar at the left of the Alerts Browser shows the number of firing alerts by severity. For multi-threshold alerts, we list each alert only for the highest severity even if lower severity conditions are also met.
 <br/><br/>
-Click FIRING to filter the list of alerts</td>
-<td width="50%"><img src="/images/alerts_filter.png" alt="Alerts in different states at the top, below the filter options with FIRING selected."></td>
+Click FIRING to filter the list of alerts.</td>
+<td width="30%"><img src="/images/alerts_filter.png" alt="Alerts in different states at the top, below the filter options with FIRING selected."></td>
 </tr>
 </tbody>
 </table>
