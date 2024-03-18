@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_new_changed_2023.html
 summary: New and changed integrations released in 2023.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations.
 
 This document lists new and changed integrations for 2023. For earlier releases, see [New and Changed Integrations in 2022](integrations_new_changed_2022.html), [New and Changed Integrations in 2021](integrations_new_changed_2021.html), and [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
@@ -23,7 +23,7 @@ We made improvements to the following integrations in December 2023:
 * Tanzu Application Service -- Fixed an issue with the **Error Rate** chart in the **Workload Monitoring** dashboard. 
 * VMware Tanzu Kubernetes Grid Integration -- Removed the `limit()` function from the queries in the VMware Tanzu Kubernetes Grid integration system dashboards, because this function [may return No Data](ts_limit.html#summary).
 
-We updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+We updated the following integrations to support VMware Cloud Services access token authentication when your Tanzu Observability service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
 
   * Chef Server
 
@@ -65,7 +65,7 @@ Also, we made improvements to the following integrations in October 2023:
 * Go -- Removed references of deprecated SDKs.
 * C Sharp -- Removed references of deprecated libraries.
 
-In addition, we updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+In addition, we updated the following integrations to support VMware Cloud Services access token authentication when your Tanzu Observability service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
 
   * Catchpoint
   * Nagios
@@ -92,12 +92,12 @@ We made improvements to the following integrations in August 2023:
   3. Search for **Velero** and click its tile.
   4. Click the **Setup** tab.
 
-* Tanzu Application Service -- We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+* Tanzu Application Service -- We added support for Tanzu Application Service setup when your Tanzu Observability service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
 
 * Kubernetes:
   * We added [new alerts templates](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/alerts/alerts.md).
   * We added a new dashboard **Kubernetes Workloads Troubleshooting** which allows you to monitor the health of the Kubernetes workloads. To use this dashboard, maker sure that you use the Observability for Kubernetes Operator version 2.10.0 and later.
-  * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
+  * We added support for Kubernetes setup when your Tanzu Observability service **is onboarded** to VMware Cloud services.
   * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
 
   For the latest list of integrations, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
@@ -152,11 +152,11 @@ We made improvements to the following integrations in May 2023:
 
 Logs (Beta) Related Changes:
 
- {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your VMware Aria Operations for Applications account representative or [technical support](wavefront_support_feedback.html#support)." %}
+ {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)." %}
 
 We have made an improvement to the AWS integration:
 
-* Amazon Web Services –- Now contains AWS CloudWatch Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your AWS integration to send logs to Operations for Applications. For details on our Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For details on how to set up the integration, see [Setup for Ingesting AWS CloudWatch Logs (Beta)](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs).
+* Amazon Web Services –- Now contains AWS CloudWatch Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your AWS integration to send logs to Tanzu Observability. For details on our Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For details on how to set up the integration, see [Setup for Ingesting AWS CloudWatch Logs (Beta)](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs).
 
 
 We added the following integration in March 2023:
@@ -196,7 +196,7 @@ We made improvements to the following integration in February 2023:
 
 We made improvements to the following integrations in January 2023:
 
-* Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into VMware Aria Operations for Applications](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-vmware-aria-operations-for-applications).
+* Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into Tanzu Observability](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-tanzu-observability).
 
 * ServiceNow -- We updated the instructions on how to set up the integration to reflect the latest UI changes.
 

@@ -7,7 +7,7 @@ permalink: alerts_manage.html
 summary: Learn how to create and manage alerts.
 ---
 
-All users in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) can [examine alerts and drill down to find the problem](alerts.html).
+All users in Tanzu Observability (formerly known as VMware Aria Operations for Applications) can [examine alerts and drill down to find the problem](alerts.html).
 
 {% include note.html content="You need the [**Alerts**](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
@@ -139,7 +139,7 @@ The <strong>Resolve Window</strong> is the length of time (in minutes) during wh
 <td>4. For special cases, expand <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
 <ul>
 <li><strong>Checking Frequency</strong>: Number of minutes between checks whether the condition is true. The default value is 5 minutes. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
-<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Operations for Applications ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
+<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Tanzu Observability ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
 </ul></td>
 <td><img src="images/advanced_condition_options.png" alt="Condition options discussed in left column"></td>
 </tr>
@@ -180,7 +180,7 @@ If you already have information that helps recipients find the causes for the al
       <strong>Runbook: </strong>A URL to a wiki page, or another document that helps alert recipients resolve the alert.
     </li>
     <li>
-      <strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Operations for Applications instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.
+      <strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Tanzu Observability instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.
     </li>
     <li>
       <strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.
@@ -480,4 +480,4 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.
 * Use ACLs to limit or share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
 
-* See the KB article [Migrating Objects or Data Between Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments) if your company has several Operations for Applications service instances.
+* See the KB article [Migrating Objects or Data Between Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments) if your company has several Tanzu Observability service instances.

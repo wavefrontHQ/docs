@@ -7,7 +7,7 @@ permalink: integrations-troubleshooting.html
 summary: Learn how to troubleshoot the setup of our Cloud Services integrations.
 ---
 
-Integrations are one easy way to get data from external systems into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). You can use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
+Integrations are one easy way to get data from external systems into Tanzu Observability (formerly known as VMware Aria Operations for Applications). You can use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
 ## Cloud Services Integrations
 
@@ -24,7 +24,7 @@ Our Cloud Services integrations are:
 
 ## Troubleshooting Snowflake Integration Setup
 
-If you give Operations for Applications access to a Snowflake account which is additionally secured, for example, if it has network policies attached, you can perform certain prechecks and thus ensure the successful authentication during the [Snowflake integration setup](snowflake.html).
+If you give Tanzu Observability access to a Snowflake account which is additionally secured, for example, if it has network policies attached, you can perform certain prechecks and thus ensure the successful authentication during the [Snowflake integration setup](snowflake.html).
 
 
 The following precheck steps use SnowSQL.
@@ -44,7 +44,7 @@ The following precheck steps use SnowSQL.
         In this example:
         
         * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`.
-        * `<user_name>` is the user that you have created for Operations for Applications by following the setup steps for the Snowflake integration in the Operations for Applications UI. For example, `My_AoA_Integration`.
+        * `<user_name>` is the user that you have created for Tanzu Observability by following the setup steps for the Snowflake integration in the Tanzu Observability UI. For example, `My_AoA_Integration`.
     
     2. Provide your password when prompted.
     3. To quit the connection, enter `!quit`.
@@ -59,7 +59,7 @@ The following precheck steps use SnowSQL.
         
         * `<path_to_your_key>` is the path to your private `rsa_key.p8` key. For example, `~/.ssh/rsa_key.p8`
         * `<account_identifier>` is the Snowflake account identifier with the account name, `<orgname>-<account_name>`.
-        * `<user_name>` is the user that you have created for Operations for Applications by following the setup steps for the Snowflake integration in the Operations for Applications UI. . For example, `My_AoA_Integration`.
+        * `<user_name>` is the user that you have created for Tanzu Observability by following the setup steps for the Snowflake integration in the Tanzu Observability UI. For example, `My_AoA_Integration`.
     2. Provide the passphrase for the private key when prompted.
     3. Copy the generated JWT token.
 

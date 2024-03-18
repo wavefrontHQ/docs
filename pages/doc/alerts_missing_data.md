@@ -7,7 +7,7 @@ permalink: alerts_missing_data.html
 summary: Configure an alert to fire when a time series stops reporting.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) enables you to configure alerts that inform you about machine or application faults. When a machine or application crashes, it stops reporting data to Operations for Applications -- the data from that source is missing.
+Operations for Applications enables you to configure alerts that inform you about machine or application faults. When a machine or application crashes, it stops reporting data to Tanzu Observability -- the data from that source is missing.
 
 This explains how to configure alerts that detect missing data, so you can identify potential failures and resolve them.
 
@@ -19,7 +19,7 @@ When a time series stops reporting, charts show NO DATA where you'd expect to se
 Missing data might result from:
 
 * Serious faults that require intervention to correct. For example:
-  - A time series might stop reporting data because the source of the series (an application, service, or host machine) has crashed and can no longer generate data points or send them to Operations for Applications.
+  - A time series might stop reporting data because the source of the series (an application, service, or host machine) has crashed and can no longer generate data points or send them to Tanzu Observability.
   - An application might malfunction intermittently so that it repeatedly stops sending points for short periods of time before resuming.
 
 * Brief interruptions that resolve on their own. For example, a time series might skip data points because a minor network problem has dropped a few packets.

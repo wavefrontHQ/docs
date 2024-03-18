@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to use tags to focus and speed up queries display and to unclutter the UI.
 ---
-In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports tags for adding application-specific metadata to objects such alerts, dashboards, events, sources, and metrics.
+In Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports tags for adding application-specific metadata to objects such alerts, dashboards, events, sources, and metrics.
 
 ## Videos
 
@@ -46,7 +46,7 @@ You use tags in several ways:
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
 * **[Span tags](trace_data_details.html#span-tags)** -- Tags that are associated with a span. Certain span tags are required for a span to be valid. In addition, you can instrument an application with custom span tags.
 
-You can use tags to filter alerts, dashboards, events, and sources from the Operations for Applications UI or with the REST API.
+You can use tags to filter alerts, dashboards, events, and sources from the Tanzu Observability UI or with the REST API.
 
 ### How to Use Different Tag Types
 
@@ -106,7 +106,7 @@ When you construct a query, you can use a colon (:) in a tag key, only if the ta
 
 ### Tags in the UI
 
-In the Operations for Applications UI:
+In the Tanzu Observability UI:
 * Tags display when you hover your mouse over a line, point, etc. in a chart.
 * Tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each object in the browser for that object (e.g. dashboard or alerts browse).
 * Tags on the left of the object browser allow you to filter your display.
@@ -128,7 +128,7 @@ All tag types support the ability to organize tags in a hierarchy. The hierarchy
 In dashboards, internal tags start with a tilde, for example, `~welcome.`, `~integration.`, and `~system.`. To improve readability, tags retain case for display but they are treated as case-insensitive for searching, sorting, etc.
 
 In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy. For example:
-* Select all Operations for Applications dashboards by clicking **wavefront**.
+* Select all Tanzu Observability dashboards by clicking **wavefront**.
 * Select only tutorial dashboards by expanding the **wavefront** node and then selecting **tutorial**.
 
 In queries, you achieve the same effect by specifying a tag path with trailing wildcards `".*"`. For example, enter `alertTagPath.*` to match alerts named `alertTagPath.tpc1`, `alertTagPath.tpc1.tpc11`, and so on.
@@ -184,11 +184,11 @@ To filter by a tag, click a tag icon. You can click the icon in the filter bar o
 
 ## Source Tags
 
-A metric in Operations for Applications Data Format includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings--in contrast, point tags are key-value pairs.
+A metric in Tanzu Observability Data Format includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings--in contrast, point tags are key-value pairs.
 
 You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
-{% include note.html content="You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Operations for Applications rejects source tags with a 403 error." %}
+{% include note.html content="You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Tanzu Observability rejects source tags with a 403 error." %}
 
 ### Why Source Tags?
 
@@ -291,6 +291,6 @@ The syntax is the same for both the SourceTag and the SourceDescription property
 
 ## Learn More!
 
-* See [Data Naming](wavefront_data_format.html#operations-for-applications-data-format-best-practices) for examples of tags and tag naming.
+* See [Data Naming](wavefront_data_format.html#tanzu-observability-data-format-best-practices) for examples of tags and tag naming.
 
 * Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example that uses alert tags.

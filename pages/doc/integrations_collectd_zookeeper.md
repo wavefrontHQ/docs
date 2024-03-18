@@ -4,10 +4,10 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_zookeeper.html
-summary: Learn how to send ZooKeeper data collected by collectd to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Learn how to send ZooKeeper data collected by collectd to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
-[Apache ZooKeeper](https://zookeeper.apache.org/) is a popular service for maintaining configuration and coordinating distributed systems. ZooKeeper is used by technologies like Hadoop and Apache Solr to coordinate clusters and help them run reliably. VMware Aria Operations for Applications supports a built-in integration that gets data from ZooKeeper using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
+[Apache ZooKeeper](https://zookeeper.apache.org/) is a popular service for maintaining configuration and coordinating distributed systems. ZooKeeper is used by technologies like Hadoop and Apache Solr to coordinate clusters and help them run reliably. Tanzu Observability supports a built-in integration that gets data from ZooKeeper using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
 
 The collectd ZooKeeper plugin documentation can be found at [collectd.conf(5) – collectd – The system statistics collection daemon](https://collectd.org/documentation/manpages/collectd.conf.5.shtml#plugin_zookeeper).
 

@@ -6,15 +6,15 @@ sidebar: doc_sidebar
 permalink: proxies_container.html
 summary: Configure Wavefront proxy and Telegraf in a Docker container
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports container proxy setup. This page discusses running a proxy and Telegraf agent as Docker containers, but the guidance (though not some specifics) applies to other container solutions as well.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports container proxy setup. This page discusses running a proxy and Telegraf agent as Docker containers, but the guidance (though not some specifics) applies to other container solutions as well.
 
 ## Run a Proxy in a Docker Container
 
 You can run a proxy in a Docker container by running one of the following commands:
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Operations for Applications differs for VMware Cloud services subscriptions and original subscriptions. For details, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services API token or OAuth app.<br/>
-- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with Operations for Applications tokens. "%}
+{% include note.html content="Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Tanzu Observability differs for VMware Cloud services subscriptions and original subscriptions. For details, see [Subscription Types](subscriptions-differences.html).<br/>
+- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Tanzu Observability with a VMware Cloud services API token or OAuth app.<br/>
+- For original Tanzu Observability subscriptions, the Wavefront proxy 13.0 still supports authentication with Tanzu Observability tokens. "%}
 
 **dockerhub:**
 
@@ -141,9 +141,9 @@ Options:
 <td width="20%"><strong>Authentication</strong></td>
 <td width="80%">Depends on your <a href="subscriptions-differences.html">subscription type</a> and <a href="proxies_installing.html#proxy-authentication-types">proxy authentication type</a>.
 <ul>
-<li>For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret). The server to server app must be assigned with the <strong>Proxies</strong> service role and must be added to the VMware Cloud organization running the Operations for Applications service instance. CSP_ORG_ID is the ID of the VMware Cloud organization.</li>
+<li>For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret). The server to server app must be assigned with the <strong>Proxies</strong> service role and must be added to the VMware Cloud organization running the Tanzu Observability service instance. CSP_ORG_ID is the ID of the VMware Cloud organization.</li>
 <li>For VMware Cloud services subscriptions and proxy authentication with an API token, CSP_API_TOKEN is the VMware Cloud services API token. The API token and its associated user account must be assigned with the <strong>Proxies</strong> service role.</li>
-<li>For original subscriptions, WAVEFRONT_TOKEN is the Operations for Applications API token. The user account or service account associated with the API token must be assigned with the <strong>Proxies</strong> permission.</li></ul>
+<li>For original subscriptions, WAVEFRONT_TOKEN is the Tanzu Observability API token. The user account or service account associated with the API token must be assigned with the <strong>Proxies</strong> permission.</li></ul>
 </td>
 </tr>
 <tr>
@@ -152,7 +152,7 @@ Options:
 </tr>
 <tr>
 <td width="20%"><strong>Service instance</strong></td>
-<td width="80%" markdown="span">&lt;myinstance&gt; is the URL of your Operations for Applications service, for example, <code>https://example.wavefront.com</code></td>
+<td width="80%" markdown="span">&lt;myinstance&gt; is the URL of your Tanzu Observability service, for example, <code>https://example.wavefront.com</code></td>
 </tr>
 <tr>
 <td width="20%"><strong>Port</strong></td>
@@ -294,9 +294,9 @@ Example: Run a command like the following for testing (see the Docker documentat
     ```
 
 You must specify:
-* WAVEFRONT_URL: The URL of your Operations for Applications service (e.g., https://example.wavefront.com)
+* WAVEFRONT_URL: The URL of your Tanzu Observability service (e.g., https://example.wavefront.com)
 * Authentication parameters for your [subscription type](subscriptions-differences.html) and authentication type:
-    * For VMware Cloud services subscriptions and authentication with a [server to server OAuth app](csp_server_to_server_apps.html), CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret). The server to server app must be assigned with the **Proxies** service role and must be added to the VMware Cloud organization running the Operations for Applications service instance. CSP_ORG_ID is the ID of the VMware Cloud organization.
+    * For VMware Cloud services subscriptions and authentication with a [server to server OAuth app](csp_server_to_server_apps.html), CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret). The server to server app must be assigned with the **Proxies** service role and must be added to the VMware Cloud organization running the Tanzu Observability service instance. CSP_ORG_ID is the ID of the VMware Cloud organization.
     * For VMware Cloud services subscriptions and authentication with an [API token](csp_users_account_managing.html#generate-an-api-token), CSP_API_TOKEN is the VMware Cloud services API token. The API token and its associated user account must be assigned with the **Proxies** service role.
-    * For original subscriptions, WAVEFRONT_TOKEN is the [Operations for Applications API token](api_tokens.html). The user account or service account associated with the API token must be assigned with the **Proxies** permission.
+    * For original subscriptions, WAVEFRONT_TOKEN is the [Tanzu Observability API token](api_tokens.html). The user account or service account associated with the API token must be assigned with the **Proxies** permission.
 * The port that the proxy is using; 2878 by default.

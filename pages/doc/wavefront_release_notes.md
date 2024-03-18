@@ -4,10 +4,10 @@ keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Announcements and new and updated features in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Announcements and new and updated features in Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
-This page lists new and updated features for the VMware Aria Operations for Applications service.
+This page lists new and updated features for the Tanzu Observability service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
@@ -15,30 +15,30 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcements
 
-### VMware Aria Operations for Applications on VMware Cloud Services
+### Tanzu Observability on VMware Cloud Services
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
+Starting July 3, 2023, Tanzu Observability is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
 
-* **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
+* **Onboarded Subscriptions**: Tanzu Observability subscriptions that are onboarded to the VMware Cloud services platform. 
 * **Original Subscriptions**: Existing subscriptions which remain as is until onboarded to VMware Cloud services. 
    
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
 
-### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
+### Free Trial of Tanzu Observability on VMware Cloud Services
 
-Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
+Starting September 20, 2023, all **new trial** instances of Tanzu Observability are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
 
-### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
+### Onboarding Original Tanzu Observability to VMware Cloud Services
 
-In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Operations for Applications UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
+In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Tanzu Observability UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
 
-{% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
+{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
 ## 2024-05.x Release Notes
 
-* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Tanzu Observability user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
 * **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
 
