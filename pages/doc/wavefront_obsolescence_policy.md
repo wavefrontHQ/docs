@@ -167,6 +167,20 @@ For the above example if the data measured across 3 minutes had been a total of:
 
 Starting with release 2020.26, a new data type for storing delta counters is part of the product. Data ingestion of delta counters remains unchanged, and a delta (∆) is still required to indicate a delta counter, but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In our example, `cs(errors.count)` displays values of 10, 15, and 5. See [Counters and Delta Counters](delta_counters.html#counters-and-delta-counters-basics) for details and examples.
 
+
+## Replace all `~agent.` metrics with `~proxy.`
+
+The `~agent.` metrics were deprecated a few years ago. With release 2024-05.x, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
+For example: 
+
+```
+# Deprecated metric: 
+rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
+
+# Replace with:
+rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
+```
+
 ## Operations for Applications Authentication and Authorization
 
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. VMware Cloud services provides centralized authentication and authorization to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Advantages of VMware Cloud Services Subscriptions Over Original Subscriptions](subscriptions-differences.html#advantages-of-vmware-cloud-services-subscriptions-over-original-subscriptions).
