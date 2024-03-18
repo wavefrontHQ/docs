@@ -4,14 +4,14 @@ keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
 permalink: windows_host_tutorial.html
-summary: Get data from a Windows host and monitor in VMware Aria Operations for Applications.
+summary: Get data from a Windows host and monitor in Tanzu Observability.
 ---
 
-Starting July 3, 2023, Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: 
-* Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform.
+Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: 
+* Tanzu Observability subscriptions **onboarded** to the VMware Cloud services platform.
 * **Original** subscriptions -- the existing ones which remain as is until they migrate to VMware Cloud services. 
 
-In this tutorial, you’ll learn how to ingest data from a Windows host machine to Operations for Applications by using a Wavefront proxy. Although Operations for Applications supports direct ingestion in non-production environments, such as POC or development and test environments, in production environments using a Wavefront proxy is the recommended and supported way for ingesting data.
+In this tutorial, you’ll learn how to ingest data from a Windows host machine to Tanzu Observability by using a Wavefront proxy. Although Tanzu Observability supports direct ingestion in non-production environments, such as POC or development and test environments, in production environments using a Wavefront proxy is the recommended and supported way for ingesting data.
 
 ## Onboarded Subscriptions
 
@@ -47,7 +47,7 @@ Let's create a server to server OAuth app and retrieve the app ID and app secret
 6. Define the scopes by assigning roles to the server to server app.
    For example:
    1. Assign the **Organization Member** organization role.
-   1. Search for `Operations for Applications` in the list of scopes, expand the **VMware Aria Operations for Applications** service roles, and select **Proxies**.
+   1. Search for `Tanzu Observability` in the list of scopes, expand the **Tanzu Observability** service roles, and select **Proxies**.
     
    {% include note.html content="Note that these are the minimum required roles for the server to server app that you'll use to install the Wavefront proxy." %}
 
@@ -72,21 +72,21 @@ You will need the organization ID when you install the Wavefront proxy.
 {% include note.html content="To install the Wavefront proxy, you need the long organization ID." %}
 
 
-### Step 3: Navigate to Operations for Applications
+### Step 3: Navigate to Tanzu Observability
 
-To install the Wavefront proxy, set up an integration, and install integration dashboards, you must have the **Proxies** and **Integrations** permissions. For more information see [Operations for Applications Permissions in VMware Cloud Services](csp_permissions_overview.html).
+To install the Wavefront proxy, set up an integration, and install integration dashboards, you must have the **Proxies** and **Integrations** permissions. For more information see [Tanzu Observability Permissions in VMware Cloud Services](csp_permissions_overview.html).
 
 1. In the VMware Cloud Services Console, click VMware Cloud Services.
-2. Search for Operations for Applications and click the **VMware Aria Operations for Applications** tile.
+2. Search for Tanzu Observability and click the **Tanzu Observability** tile.
 3. Click **Launch Service**.
    
    In a multi-tenant environment, you should also select a tenant.
    
-   ![Operations for Applications tile with a drop-down menu displaying the available tenants.](images/csp_multi_tenancy.png)
+   ![Tanzu Observability tile with a drop-down menu displaying the available tenants.](images/csp_multi_tenancy.png)
 
 ### Step 4: Start the Setup Process
 
-1. In your Operations for Applications service instance, click **Integrations** on the toolbar.
+1. In your Tanzu Observability service instance, click **Integrations** on the toolbar.
 2. Click the **Windows Host** integration tile.
 3. Click the **Setup** tab.
 
@@ -115,7 +115,7 @@ Once installed, the proxy automatically starts. Check `Program Files (x86)\Wavef
 
 ### Step 7: Verify That Metrics Are Flowing
 
-When the Wavefront proxy and the Telegraf agent are installed and the proxy starts ingesting data to Operations for Applications, on the **Metrics** tab, you'll see the metrics that are flowing along with charts for each metric.
+When the Wavefront proxy and the Telegraf agent are installed and the proxy starts ingesting data to Tanzu Observability, on the **Metrics** tab, you'll see the metrics that are flowing along with charts for each metric.
 
 ![Screenshot of the Windows host Metrics tab with metrics that are flowing](images/windows-host-metrics-tab.png)
 
