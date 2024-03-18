@@ -17,7 +17,7 @@ The focus in tutorial is on exploration, so you don't need any permissions to go
 
 ## Task 1: Find a Sample Dashboard in the Dashboards Browser
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes pre-built tutorial and tour integrations with dashboards that show how to use the product with sample metrics. Let's explore a tour dashboard, which contains sample data.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes pre-built tutorial and tour integrations with dashboards that show how to use the product with sample metrics. Let's explore a tour dashboard, which contains sample data.
 
 <table style="width: 100%;">
 <tbody>

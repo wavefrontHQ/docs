@@ -5,13 +5,13 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about the architecture, interfaces, and how to get started.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is a high-performance streaming analytics platform that supports observability for metrics, counters, histograms, and traces/spans. The product is unique because it scales to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data that were ingested earlier.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a high-performance streaming analytics platform that supports observability for metrics, counters, histograms, and traces/spans. The product is unique because it scales to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data that were ingested earlier.
 
 ## Where Do I Start?
 
 You can [sign up for a free trial](start_trial.html) and try out our service. 
 
-Starting July 3, 2023, Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services. For information about the subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
+Starting July 3, 2023, Tanzu Observability is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services. For information about the subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
 
 After your free trial expires, you can [upgrade and purchase our service](upgrade_and_purchase.html). 
 
@@ -94,7 +94,7 @@ After you've set up an alert with that information, we'll send alert notificatio
 
 We support [over 200 integrations](label_integrations%20list.html) including cloud providers, DevOps tools, big data, and more.
 
-To interact with our service, you can use our rich Graphical User Interface, which includes many pre-built system dashboards, charts, and alerts. You can also use SDKs available on our [GitHub page](https://github.com/wavefrontHQ), the Operations for Applications REST API, and CLIs.
+To interact with our service, you can use our rich Graphical User Interface, which includes many pre-built system dashboards, charts, and alerts. You can also use SDKs available on our [GitHub page](https://github.com/wavefrontHQ), the Tanzu Observability REST API, and CLIs.
 
 In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission Control are available.
 
@@ -135,7 +135,7 @@ It's easy to monitor any of the clusters:
 
 ## How Do I Set Up a Data Ingestion Pipeline?
 
-You can use VMware Aria Operations for Applications with time-series (metric) data, and also with traces and spans, and with histograms from diverse sources.
+You can use Tanzu Observability with time-series (metric) data, and also with traces and spans, and with histograms from diverse sources.
 * **Cloud:** Perform minimal setup to let the service access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
 * **Integrations:** For other data sources, we support [over 200 integrations](label_integrations%20list.html). You modify a simple configuration file and you’re good to go.
 * **Start Where You Are:** If your environment already has a metrics infrastructure, you can do some pre-processing on the data so that it corresponds to our data format, and send them directly to the Wavefront proxy.
@@ -173,4 +173,4 @@ Our service runs the metrics collection engine. The service runs in the cloud an
 * The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](integrations_log_data.html)
 
 
-![VMware Aria Operations for Applications architecture](images/wavefront_architecture_new.png)
+![Tanzu Observability architecture](images/wavefront_architecture_new.png)

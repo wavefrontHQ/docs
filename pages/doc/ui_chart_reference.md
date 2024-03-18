@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: ui_chart_reference.html
 summary: Chart types and configuration options for each chart type.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
 
 Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.
 

@@ -4,13 +4,11 @@ keywords: videos
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: videos.html
-summary: Learn about VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) with videos.
+summary: Learn about Tanzu Observability (formerly known as VMware Aria Operations for Applications) with videos.
 ---
-This page contains the playlists with our videos. You can instead watch them from the [VMware Aria Operations for Applications channel on VMware TV here](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793). 
+This page contains the playlists with our videos. You can instead watch them from the [Tanzu Observability channel on VMware TV here](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793). 
 
-Note that in most of our videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront.
-
-{% include note.html content="In most of our videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront. These videos were created between 2017 and 2022 and some of the information in them might have changed." %}
+{% include note.html content="In most of our videos we still refer to Tanzu Observability as Wavefront. These videos were created between 2017 and 2022 and some of the information in them might have changed." %}
 
 ## Getting Started
 
