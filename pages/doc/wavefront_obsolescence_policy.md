@@ -170,7 +170,7 @@ Starting with release 2020.26, a new data type for storing delta counters is par
 
 ## Replace all `~agent.` metrics with `~proxy.`
 
-The `~agent.` metrics were deprecated a few years ago. With release 2024-05.x, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
+The `~agent.` metrics were deprecated a few years ago. With release 2024-03.x, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
 For example: 
 
 ```
