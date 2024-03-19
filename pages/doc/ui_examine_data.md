@@ -6,7 +6,7 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-With dashboards and charts, all VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
+With dashboards and charts, all Tanzu Observability (formerly known as VMware Aria Operations for Applications) users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
 
 {% include note.html content="All users can view and explore charts. You must have the [**Dashboards** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 

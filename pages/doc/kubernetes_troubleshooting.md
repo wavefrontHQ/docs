@@ -14,9 +14,9 @@ For an in depth overview of the Kubernetes integration and how it is deployed, n
 {% include note.html content="If you currently use the Helm-managed and installed version of the Wavefront proxy and Kubernetes Metrics Collector, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration." %}
 
 
-## Not Enough Instances of VMware Aria Operations for Applications Components
+## Not Enough Instances of Tanzu Observability Components
 
-You might see a message containing information that there are not enough instances of the VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) components, such as:
+You might see a message containing information that there are not enough instances of the Tanzu Observability (formerly known as VMware Aria Operations for Applications) components, such as:
 
 * Wavefront proxy
 * Wavefront cluster collector
@@ -46,9 +46,9 @@ If the issue persists, check the logs for more details:
   kubectl logs daemonset/wavefront-logging -n observability-system
   ```
   
-## No Data Flowing into VMware Aria Operations for Applications
+## No Data Flowing into Tanzu Observability
 
-If you identify that there is a problem with data flowing into VMware Aria Operations for Applications, follow the steps below. 
+If you identify that there is a problem with data flowing into Tanzu Observability, follow the steps below. 
 
 ### Step 1: Check the Status of the Integration Locally
 
@@ -85,7 +85,7 @@ To verify that the system is healthy, run:
 
 ### Step 2: Verify That the Wavefront Proxy Is Running
 
-The Wavefront proxy forwards logs, metrics, traces, and spans from all components to VMware Aria Operations for Applications. If no data is flowing, this means that the proxy might be not running.
+The Wavefront proxy forwards logs, metrics, traces, and spans from all components to Tanzu Observability. If no data is flowing, this means that the proxy might be not running.
 
 To check the Wavefront proxy logs for errors, run:
 
@@ -233,7 +233,7 @@ If you want to change the metrics being filtered, follow the steps in our [examp
 
 ### Check Whether the Custom Resource Config File Is Configured Correctly
 
-Check the status of VMware Aria Operations for Applications components.
+Check the status of Tanzu Observability components.
 
 ```
 kubectl get wavefront -n observability-system

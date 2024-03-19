@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: ui_charts_faq.html
 summary: Learn chart customization from the experts.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes a variety of charts, with many customization options. [Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes a variety of charts, with many customization options. [Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
 
 {% include note.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, the UI menu selections and buttons required to perform the task are not visible." %}
 
@@ -40,7 +40,7 @@ The following example shows how to use color mapping with a single stat chart.
 
 ## Why the Color Can Be Different from What I Expect?
 
-In some cases, the color on a chart, for which you have set color mapping, can be different from what you expect to see. This can be caused by the decimal precision value that is set on the chart. When you use color mapping, Operations for Applications considers the real values in the system and changes the colors accordingly, while the values displayed on the chart can be rounded because of the decimal precision that is set on the chart.  
+In some cases, the color on a chart, for which you have set color mapping, can be different from what you expect to see. This can be caused by the decimal precision value that is set on the chart. When you use color mapping, Tanzu Observability considers the real values in the system and changes the colors accordingly, while the values displayed on the chart can be rounded because of the decimal precision that is set on the chart.  
 
 Consider the following scenario: 
 

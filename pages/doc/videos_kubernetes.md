@@ -4,11 +4,11 @@ keywords: videos
 tags: [kubernetes]
 sidebar: doc_sidebar
 permalink: videos_kubernetes.html
-summary: Watch our first videos on VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and Kubernetes.
+summary: Watch our first videos on Tanzu Observability (formerly known as VMware Aria Operations for Applications) and Kubernetes.
 ---
 
 
-The following videos get you started. Note that in most of the videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront. Note that these videos were created between 2019 and 2022 and some of the information in them might have changed.
+The following videos get you started. Note that in most of the videos we still refer to Tanzu Observability as Wavefront. Note that these videos were created between 2019 and 2022 and some of the information in them might have changed.
 
 <table style="width: 100%;">
 <tbody>
@@ -42,7 +42,7 @@ The following videos get you started. Note that in most of the videos we still r
 </td>
 <td><br><br>
 <p>
-This video gives you the big picture. It explains the different ways of monitoring Kubernetes with VMware Aria Operations for Applications (Tanzu Observability).</p>
+This video gives you the big picture. It explains the different ways of monitoring Kubernetes with Tanzu Observability.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_w7w6o0b4" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>

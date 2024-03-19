@@ -9,7 +9,7 @@ summary: Set up the Tanzu Observability tile and monitor your environment.
 
 [VMware Tanzu Application Service](https://docs.pivotal.io/application-service/2-12/concepts/overview.html), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, clone and customize dashboards, and more.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, clone and customize dashboards, and more.
 
 {% include important.html content="This document is for the Tanzu Application Service nozzle version 4.0 and later. Earlier versions are [documented here](https://docs.pivotal.io/wavefront-nozzle/3-x/). " %}
 
@@ -73,7 +73,7 @@ We've streamlined the getting started process so it involves a few simple steps 
 
 1. Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/)
 2. In Tanzu Ops Manager, install, configure, and deploy the nozzle. At a minimum:
-    1. In the **Wavefront Proxy Config** section, specify the Operations for Applications instance, authentication credentials, and a user-friendly host name.
+    1. In the **Wavefront Proxy Config** section, specify the Tanzu Observability instance, authentication credentials, and a user-friendly host name.
 
        ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
     2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
@@ -168,12 +168,12 @@ Ensure that your environment meet requirements on the Ops Manager side and on th
 * **Ops Manager Requirements**
   VMware Tanzu Observability by Wavefront nozzle has the following requirements:
   * Read-only access to the Doppler Firehose and Cloud Controller.
-  * Access to an Operations for Applications instance.
-  * Authentication credentials. The authentication credentials depend on whether your Operations for Applications service is onboarded to VMware Cloud services.
+  * Access to an Tanzu Observability instance.
+  * Authentication credentials. The authentication credentials depend on whether your Tanzu Observability service is onboarded to VMware Cloud services.
 * **Tanzu Observability by Wavefront Requirements**
-  To set up the Tanzu Application Service integration on your Operations for Applications instance, you must have:
-  * Access to an Operations for Applications instance.
-  * At a minimum, **Integrations** permission on that Operations for Applications instance.
+  To set up the Tanzu Application Service integration on your OTanzu Observability instance, you must have:
+  * Access to an Tanzu Observability instance.
+  * At a minimum, **Integrations** permission on that Tanzu Observability instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
 See [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) for more.
@@ -185,7 +185,7 @@ This section explains each step in the flow in detail.
 ### Prerequisites
 
 * You must have a Tanzu Network account to configure the Tanzu Observability Nozzle in Ops Manager.
-* You must have login credentials for an Operations for Applications instance to configure the integration.
+* You must have login credentials for an Tanzu Observability instance to configure the integration.
 * Ensure that the root certificate for Ops Manager is included in data coming from Tanzu Application Service. See the [No Data Flowing and Certificate Error](tas_to_troubleshooting.html#symptom-no-data-flowing-in-and-certificate-error) troubleshooting section.
 
 
@@ -227,12 +227,12 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    </tr>
    <tr>
    <td width="50%"><strong>Step 2.</strong> Click <strong>Wavefront Proxy Config</strong> and specify:
-   <ol><li>The URL of your Operations for Applications instance, for example, <code>https://example.wavefront.com</code>.</li>
+   <ol><li>The URL of your Tanzu Observability instance, for example, <code>https://example.wavefront.com</code>.</li>
    <li>
        The authentication credentials for your Wavefront proxy.
        <ul>
-          <li>If your Operations for Applications service is <strong>onboarded</strong> to VMware Cloud services, use <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html">server to server OAuth app credentials</a>, such as app ID and app secret. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Operations for Applications service instance. </li>
-          <li>If your Operations for Applications service is <strong>not onboarded</strong> to VMware Cloud services, you can still use a valid <a href="https://docs.wavefront.com/api_tokens.html">Operations for Applications API token</a>.</li>
+          <li>If your Tanzu Observability service is <strong>onboarded</strong> to VMware Cloud services, use <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html">server to server OAuth app credentials</a>, such as app ID and app secret. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Tanzu Observability instance. </li>
+          <li>If your Tanzu Observability service is <strong>not onboarded</strong> to VMware Cloud services, you can still use a valid <a href="https://docs.wavefront.com/api_tokens.html">Tanzu Observability API token</a>.</li>
        </ul>
        <p>For information about the original and onboarded subscriptions and how they differ, see <a href="https://docs.wavefront.com/subscriptions-differences.html">Subscription Types</a>.</p>
    </li>

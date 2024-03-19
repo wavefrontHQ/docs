@@ -6,7 +6,7 @@ permalink: ui_charts.html
 summary: Create charts, add and manage queries, and customize the chart.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides many different types of charts for examining data, creating alerts, and more! For example:
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) provides many different types of charts for examining data, creating alerts, and more! For example:
 <ul>
 <li>Create a chart and fine-tune the data it displays using filters and functions.</li>
 <li>Customize your charts.</li>
