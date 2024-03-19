@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-External links provide integration between VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and external systems.
+External links provide integration between Tanzu Observability (formerly known as VMware Aria Operations for Applications) and external systems.
 * **External links** are general purpose: you can link through to any type of system accessible from a URL.
 * The **Log integration** lets you drill down from a time series to a log entry in a logging system such as Scalyr, ELK, or Splunk. See [Access and Examine External Logs](log_integration.html) for details.
 

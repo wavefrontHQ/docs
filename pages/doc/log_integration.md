@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: log_integration.html
 summary: Learn how to manage and view external logs.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) log integration lets you drill down from time series that is displayed in a chart to a log entry in a logging system such as Scalyr, ELK, or Splunk.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) log integration lets you drill down from time series that is displayed in a chart to a log entry in a logging system such as Scalyr, ELK, or Splunk.
 
 Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. Set up the Log Integration and you
 * Look at the problem in a chart
