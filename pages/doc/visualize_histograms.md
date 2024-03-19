@@ -7,7 +7,7 @@ published: true
 permalink: visualize_histograms.html
 summary: Learn how to visualize histograms.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports histograms for computing, storing, and using distributions of metrics rather than single metrics. You can [send histograms](proxies_histograms.html#sending-histogram-distributions) to a Wavefront proxy or use direct ingestion.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports histograms for computing, storing, and using distributions of metrics rather than single metrics. You can [send histograms](proxies_histograms.html#sending-histogram-distributions) to a Wavefront proxy or use direct ingestion.
 
 You can find histogram metrics in the histogram browser and query for them using an `hs()` query. You can also visualize histograms different chart types.
 

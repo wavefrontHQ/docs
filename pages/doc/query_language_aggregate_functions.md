@@ -7,7 +7,7 @@ permalink: query_language_aggregate_functions.html
 summary: How to aggregate points from multiple time series with or without interpolation.
 ---
 
-You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports aggregation with interpolation or without interpolation:
+You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports aggregation with interpolation or without interpolation:
 
 * Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
 * Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do **not** interpolate the underlying series before aggregation.

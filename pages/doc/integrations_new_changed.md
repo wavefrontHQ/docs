@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_new_changed.html
 summary: New and changed integrations.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 
 ## Announcement

@@ -7,7 +7,7 @@ permalink: metrics_managing.html
 summary: Understand metrics structure and how to explore metrics in the Metrics Browser
 ---
 
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) provides observability for several different [metric types](metric_types.html) including time series metrics, delta counters, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the Metrics Browser.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) provides observability for several different [metric types](metric_types.html) including time series metrics, delta counters, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the Metrics Browser.
 
 ## Videos
 

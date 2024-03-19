@@ -7,7 +7,7 @@ permalink: upgrade_and_purchase.html
 summary: Learn how to upgrade from a trial version and purchase the service.
 ---
 
-When you register for the trial version of Tanzu Observability (formerly known as VMware Aria Operations for Applications), your trial expires after 30 days. One of the options that we offer is to purchase the service by using our self-service workflow. Another option is to contact the Tanzu Observability sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option.
+When you register for the trial version of VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications), your trial expires after 30 days. One of the options that we offer is to purchase the service by using our self-service workflow. Another option is to contact the Tanzu Observability sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option.
 
 {% include note.html content="Starting September 20, 2023, all [**new trial**](start_trial.html) instances of Tanzu Observability are **onboarded** to VMware Cloud services. Trial service instances before this date are considered **original**. The upgrade procedure is slightly different for a [trial service instance on VMware Cloud services](upgrade_and_purchase.html#upgrade-a-trial-service-instance-on-vmware-cloud-services) and for an [original trial service instance](upgrade_and_purchase.html#upgrade-an-original-trial-service-instance)." %}
 

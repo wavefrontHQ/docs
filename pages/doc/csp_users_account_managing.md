@@ -6,9 +6,9 @@ permalink: csp_users_account_managing.html
 summary: Learn how to manage your password and preferences.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Customize Your Account](users_account_managing.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Customize Your Account](users_account_managing.html)."%}
 
-When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+When your Tanzu Observability instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Tanzu Observability.
 
 ## Manage Your Password
 
@@ -18,7 +18,7 @@ It's a best practice to change your password every few months. See [How do I res
 
 ## Configure Your Preferences
 
-In your user profile page in Operations for Applications, you can configure several preferences, for example, select our light theme or chart title size.
+In your user profile page in Tanzu Observability, you can configure several preferences, for example, select our light theme or chart title size.
 1. Log in to your service instance.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your user name.
 1. On the **User Information** page, make the necessary changes.
@@ -26,7 +26,7 @@ In your user profile page in Operations for Applications, you can configure seve
     {% include note.html content="Some preferences, managed by the users with the **Super Admin** service role, are preset for all users of the service instance." %}
 
 In your user profile page in the VMware Cloud Services Console, you can configure several preferences, such as language and regional format, dark or light theme, motion reduction, and What's New banner appearance.
-1. In the Operations for Applications UI or in the VMware Cloud Services Console, click your user name on the menu bar and select **My Account**.
+1. In the Tanzu Observability UI or in the VMware Cloud Services Console, click your user name on the menu bar and select **My Account**.
 1. On the **Preferences** tab, in the corresponding panel for language, appearance, accessibility, etc., click **Edit**.
 1. Make the necessary changes and click **Save**.
 
@@ -69,7 +69,7 @@ If you hold the [**Super Admin** service role](csp_users_roles.html#operations-f
         <tr>
             <td width="70%">As a result:
             <ul>
-            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Operations for Applications service. See the <a href="csp_users_roles.html#operations-for-applications-service-roles-built-in">Super Admin service role</a> for details.</li>
+            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Tanzu Observability service. See the <a href="csp_users_roles.html#operations-for-applications-service-roles-built-in">Super Admin service role</a> for details.</li>
             <li>When the Super Admin mode is <strong>disabled</strong>, you have only the permissions from your other roles if any.</li>
             </ul></td>
             <td width="30%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle.">
@@ -80,9 +80,9 @@ If you hold the [**Super Admin** service role](csp_users_roles.html#operations-f
 
 ## Generate an API Token
 
-Operations for Applications allows users to interact with the service instance using the [REST API](wavefront_api.html).
+Tanzu Observability allows users to interact with the service instance using the [REST API](wavefront_api.html).
 
-Before you can invoke the Operations for Applications API using `curl` or from an API client, you must have a VMware Cloud services access token with the relevant organization and service access. To obtain an access token, you must first generate a VMware Cloud services API token with relevant roles, and then exchange that API token for an access token.
+Before you can invoke the Tanzu Observability API using `curl` or from an API client, you must have a VMware Cloud services access token with the relevant organization and service access. To obtain an access token, you must first generate a VMware Cloud services API token with relevant roles, and then exchange that API token for an access token.
 
 You [manage your VMware Cloud services API tokens](csp_api_tokens.html#manage-the-vmware-cloud-services-api-tokens-for-your-user-account) in the VMware Cloud Services Console.
 

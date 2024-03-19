@@ -7,7 +7,7 @@ permalink: integrations-troubleshooting.html
 summary: Learn how to troubleshoot the setup of our Cloud Services integrations.
 ---
 
-Integrations are one easy way to get data from external systems into Tanzu Observability (formerly known as VMware Aria Operations for Applications). You can use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
+Integrations are one easy way to get data from external systems into VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). You can use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
 ## Cloud Services Integrations
 

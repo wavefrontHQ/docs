@@ -7,7 +7,7 @@ permalink: alerts_notifications.html
 summary: Learn about alert notifications and some special notification use cases.
 ---
 
-When an alert in Tanzu Observability (formerly known as VMware Aria Operations for Applications) changes state, it sends notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change. By default, the notification includes a static alert image and a link to the alert chart in Alert Viewer.
+When an alert in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) changes state, it sends notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change. By default, the notification includes a static alert image and a link to the alert chart in Alert Viewer.
 
 
 ## Where and When Notifications Are Sent

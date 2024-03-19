@@ -6,7 +6,7 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Query Editor
 ---
 
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
 {% include note.html content="Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, users with the **Super Admin** service role (in Super Admin mode) and users with the **Admin** service role can enable the PromQL support. <br/>

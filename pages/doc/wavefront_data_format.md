@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_data_format.html
 summary: Learn about the data format syntax and parameters.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
 
 ## Metrics
 

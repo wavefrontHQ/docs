@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_log_data.html
-summary: Learn how to send log data to Tanzu Observability (formerly known as VMware Aria Operations for Applications) by setting up a proxy and configuring Filebeat or TCP.
+summary: Learn how to send log data to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) by setting up a proxy and configuring Filebeat or TCP.
 ---
 
 Tanzu Observability supports two methods for sending log data metrics to a Wavefront proxy: Filebeat and TCP. Wavefront proxy 4.4 and later supports these methods.

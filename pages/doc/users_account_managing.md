@@ -5,9 +5,9 @@ sidebar: doc_sidebar
 permalink: users_account_managing.html
 summary: Learn how to manage your passwords and preferences.
 ---
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Your VMware Cloud Services Account](csp_users_account_managing.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Your VMware Cloud Services Account](csp_users_account_managing.html)."%}
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports administrator-level customization for all users of an instance, and user-level customization, discussed on this page. 
+Tanzu Observability supports administrator-level customization for all users of an instance, and user-level customization, discussed on this page. 
 
 You manage your account from the gear icon in the top right corner. From there, all users can manage passwords and configure preferences. Users in a [multi-tenant environment](authentication.html#multi-tenant-authentication) who have been invited to more than one tenant can also switch tenants from the gear icon.
 
@@ -115,7 +115,7 @@ If you are a Super Admin user for the Wavefront service, you can temporarily ena
 
 ## Generate an API Token
 
-VMware Aria Operations for Applications allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with the product instance using the [REST API](wavefront_api.html).
+Tanzu Observability allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with the product instance using the [REST API](wavefront_api.html).
 
 {% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
 

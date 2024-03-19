@@ -7,7 +7,7 @@ permalink: csp_migration.html
 summary: Learn about how we migrate the authorization and authentication from Tanzu Observability to VMware Cloud services.
 ---
 
-Starting July 3, 2023, Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
+Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
 
 ## What Should I Do Before the Onboarding?
 

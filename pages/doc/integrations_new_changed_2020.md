@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_new_changed_2020.html
 summary: New and changed integrations released in 2019-2020
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) continuously adds new integrations to the existing set, and improves available integrations.
 
 This document lists new and changed integrations for 2019 and 2020.
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).

@@ -7,7 +7,7 @@ permalink: direct_ingestion.html
 summary: Learn how to send data directly to your service instance.
 ---
 
-You can send data to Tanzu Observability (formerly known as VMware Aria Operations for Applications) directly (by using direct ingestion) or by using the Wavefront proxy.
+You can send data to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) directly (by using direct ingestion) or by using the Wavefront proxy.
 
 * **Direct data ingestion** can be the best approach at the beginning only for testing purposes and during a POC. In production environments, the best way to send data is by using a Wavefront proxy.
 

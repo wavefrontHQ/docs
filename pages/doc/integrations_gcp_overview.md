@@ -7,7 +7,7 @@ permalink: integrations_gcp_overview.html
 summary: Minimum permissions for Google Cloud Platform.
 ---
 
-When you set up a Google Cloud Platform integration, you have to give the Tanzu Observability (formerly known as VMware Aria Operations for Applications) service permissions to access the data you want to visualize and analyze.
+When you set up a Google Cloud Platform integration, you have to give the VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) service permissions to access the data you want to visualize and analyze.
 
 
 ## Access Options

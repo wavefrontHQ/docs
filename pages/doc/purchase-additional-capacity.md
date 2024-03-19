@@ -7,7 +7,7 @@ permalink: purchase_additional_capacity.html
 summary: Learn how to add capacity to your current Tanzu Observability (formerly known as VMware Aria Operations for Applications) subscription.
 ---
 
-{% include note.html content="Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, to purchase additional capacity, you must hold the [**Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) in the VMware Cloud organization running the service as well as at least one [Tanzu Observability service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance. If your enterprise domain is federated, to access the organization billing account, you must have a VMware account linked to your corporate account.<br/>
 - For original Tanzu Observability subscriptions, to purchase additional capacity, you must be a **Super Admin** user."%}
 

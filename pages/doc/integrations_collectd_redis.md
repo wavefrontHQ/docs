@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_redis.html
-summary: Learn how to send Redis data collected by collectd to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Learn how to send Redis data collected by collectd to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 [Redis](https://redis.io/) is an in-memory data structure store, often used as a database, cache and message broker. Tanzu Observability supports a built-in integration that gets data from Redis using Telegraf. If you want to use collectd instead, follow the instructions on this page. 

@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_cassandra.html
-summary: Learn how to send Cassandra data collected by collectd to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
+summary: Learn how to send Cassandra data collected by collectd to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 [Apache Cassandra](http://cassandra.apache.org/) is a popular, distributed, NoSQL database system.

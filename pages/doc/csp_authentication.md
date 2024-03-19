@@ -1,5 +1,5 @@
 ---
-title: Authentication Model in Operations for Applications on VMware Cloud Services
+title: Authentication Model in Tanzu Observability on VMware Cloud Services
 keywords:
 tags: [integrations, administration]
 sidebar: doc_sidebar
@@ -7,15 +7,15 @@ permalink: csp_authentication.html
 summary: Learn how to enable multi-tenant authentication.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authentication Model](wavefront-authentication.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authentication Model](wavefront-authentication.html)."%}
 
-VMware Cloud services provides a central single sign-on (SSO) to all of your services running on the platform, including VMware Aria Operations for Applications. Users authenticate with VMware Cloud services accounts. Server-to-server apps, which correspond to service accounts in Operations for Applications, authenticate with OAuth 2.0 client credentials and VMware Cloud services API tokens are issued directly to them.
+VMware Cloud services provides a central single sign-on (SSO) to all of your services running on the platform, including Tanzu Observability. Users authenticate with VMware Cloud services accounts. Server-to-server apps, which correspond to service accounts in Tanzu Observability, authenticate with OAuth 2.0 client credentials and VMware Cloud services API tokens are issued directly to them.
 
 VMware Cloud services supports these user authentication options:
 * **Authentication through a VMware ID**: The VMware Cloud services account is based on the VMware ID (VMware account) credentials that the user creates in the VMware Cloud Services Console. 
 * **Authentication through a federated domain**: The VMware Cloud services account is based on the corporate account credentials. 
 
-VMware Cloud services also supports **multi-tenant SSO**, where each Operations for Applications tenant is onboarded as a separate Operations for Applications service instance in the same VMware Cloud organization. 
+VMware Cloud services also supports **multi-tenant SSO**, where each Tanzu Observability tenant is onboarded as a separate Tanzu Observability service instance in the same VMware Cloud organization. 
 
 ## VMware ID Authentication
 

@@ -7,7 +7,7 @@ permalink: alerts_manage.html
 summary: Learn how to create and manage alerts.
 ---
 
-All users in Tanzu Observability (formerly known as VMware Aria Operations for Applications) can [examine alerts and drill down to find the problem](alerts.html).
+All users in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) can [examine alerts and drill down to find the problem](alerts.html).
 
 {% include note.html content="You need the [**Alerts**](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 

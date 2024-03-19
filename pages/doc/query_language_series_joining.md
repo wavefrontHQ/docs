@@ -7,7 +7,7 @@ permalink: query_language_series_joining.html
 summary: Use relationships among your time series to build full stack correlations.
 ---
 
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports a `join()` function that lets you:
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports a `join()` function that lets you:
 * Compare two or more time series and find matches, or, conversely, find the time series that do not match.
 * Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
 

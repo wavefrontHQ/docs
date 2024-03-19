@@ -8,7 +8,7 @@ summary: Understand the setup and the VMware Aria Operations (SaaS) integration 
 ---
 [VMware Aria Operations (SaaS)](https://www.vmware.com/products/aria-operations.html) (formerly vRealize Operations Cloud) delivers intelligent operations management with application-to-storage visibility across physical, virtual, and cloud infrastructures. Using policy-based automation, operations teams automate key processes and improve the IT efficiency.
 
-The VMware Aria Operations (SaaS) integration is a full-featured native integration that offers agentless data ingestion of VMware Aria Operations (SaaS) metric data into Tanzu Observability (formerly known as VMware Aria Operations for Applications), as well as a predefined dashboard.
+The VMware Aria Operations (SaaS) integration is a full-featured native integration that offers agentless data ingestion of VMware Aria Operations (SaaS) metric data into VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications), as well as a predefined dashboard.
 
 {% include important.html content="The VMware Aria Operations (SaaS) integration v1 is the first version of this integration and currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases." %}
 

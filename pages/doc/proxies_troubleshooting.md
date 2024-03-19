@@ -7,7 +7,7 @@ permalink: proxies_troubleshooting.html
 summary: Troubleshoot proxy problems.
 ---
 
-Wavefront proxies give you a lot of flexibility and control in your Tanzu Observability (formerly known as VMware Aria Operations for Applications) environment. But with flexibility comes the potential for problems, so it's a best practice to [monitor you proxies](monitoring_proxies.html). For example, on the Proxies Browser page, you can see the account used to set up a specific proxy.
+Wavefront proxies give you a lot of flexibility and control in your VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) environment. But with flexibility comes the potential for problems, so it's a best practice to [monitor you proxies](monitoring_proxies.html). For example, on the Proxies Browser page, you can see the account used to set up a specific proxy.
 
 In addition, our SaaS Value Engineering team has put together the following troubleshooting advice.
 

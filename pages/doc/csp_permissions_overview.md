@@ -1,15 +1,15 @@
 ---
-title: Operations for Applications Permissions in VMware Cloud Services
+title: Tanzu Observability Permissions in VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_permissions_overview.html
-summary: Learn about the permissions in VMware Aria Operations for Applications on VMware Cloud services.
+summary: Learn about the permissions in VMware Tanzu Observability on VMware Cloud services.
 ---
 
 All users can perform certain default tasks. However, you must have the appropriate permissions to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible.
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Permissions Reference](permissions_overview.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Permissions Reference](permissions_overview.html)."%}
 
 ## Default Tasks
 
@@ -26,11 +26,11 @@ All users can:
 
 Users with the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) have full administrative access to the service.
 
-## Operations for Applications Permissions
+## Tanzu Observability Permissions
 
-VMware Cloud services allows users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles to perform access control for object management based on Operations for Applications permissions. 
+VMware Cloud services allows users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles to perform access control for object management based on Tanzu Observability permissions. 
 - Permissions can be assigned to roles only, and roles can be assigned to users, user groups, and server to server apps.
-- For each permission, there is a corresponding built-in [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) with only that permission assigned.
+- For each permission, there is a corresponding built-in [Tanzu Observability service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) with only that permission assigned.
 - Permissions can be assigned to [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role).
 
 <table>
@@ -40,7 +40,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     </tr>
     <tr>
       <th>Admin</th>
-      <td>Manage the Operations for Applications organization settings: set the default display options, PromQL support, and the default way of building queries for all users of the service instance. Can define logs settings, if the logs feature is enabled. Can restrict access to new dashboards and alerts. Can manage service accounts, if enabled for the service instance.</td>
+      <td>Manage the Tanzu Observability organization settings: set the default display options, PromQL support, and the default way of building queries for all users of the service instance. Can define logs settings, if the logs feature is enabled. Can restrict access to new dashboards and alerts. Can manage service accounts, if enabled for the service instance.</td>
     </tr>
     <tr>
       <th>Alerts</th>
@@ -56,7 +56,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     </tr>
     <tr>
       <th>Charts Embedding</th>
-      <td><a href="ui_sharing.html#embed-a-chart-in-other-uis">Generate HTML snippets of charts</a> in Operations for Applications and embed a corresponding interactive chart outside of Operations for Applications. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user’s account is removed, the embedded chart no longer works.</td>
+      <td><a href="ui_sharing.html#embed-a-chart-in-other-uis">Generate HTML snippets of charts</a> in Tanzu Observability and embed a corresponding interactive chart outside of Tanzu Observability. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user’s account is removed, the embedded chart no longer works.</td>
     </tr>
     <tr>
       <th>Dashboards</th>
@@ -68,7 +68,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     </tr>
     <tr>
       <th>Direct Data Ingestion</th>
-      <td><a href="direct_ingestion.html">Directly ingest metrics</a> using the REST API or one of the SDKs, bypassing the proxy. Grant this permission only to users who have a deep understanding of APIs and the Operations for Applications ingestion path.</td>
+      <td><a href="direct_ingestion.html">Directly ingest metrics</a> using the REST API or one of the SDKs, bypassing the proxy. Grant this permission only to users who have a deep understanding of APIs and the Tanzu Observability ingestion path.</td>
     </tr>
     <tr>
       <th>Events</th>
@@ -89,7 +89,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     <tr>
       <th>Logs</th>
       <td><a href="logging_log_browser.html">View logs</a> and drill into logs from charts, alerts, and traces. In combination with the <strong>Dashboards</strong> permission, you can <a href="logging_logs_chart.html">create logs charts</a>.
-      <p><strong>Note:</strong> Logs (Beta) is enabled only for selected customers. To participate, contact your Operations for Applications account representative.</p></td>
+      <p><strong>Note:</strong> Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative.</p></td>
     </tr>
     <tr>
       <th>Metrics</th>

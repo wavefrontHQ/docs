@@ -7,7 +7,7 @@ permalink: csp-ui-differences.html
 summary: Learn about the differences in the UI of Tanzu Observability original subscriptions and VMware Cloud services subscriptions.
 ---
 
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) subscriptions are two types: original subscriptions and VMware Cloud services subscriptions.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) subscriptions are two types: original subscriptions and VMware Cloud services subscriptions.
 
 ## Menu Bar
 

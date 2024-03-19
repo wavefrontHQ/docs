@@ -7,7 +7,7 @@ published: true
 permalink: proxies_histograms.html
 summary: Learn how to use histograms.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports histograms for computing, storing, and using **distributions of metrics** rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. You can send histograms to a Wavefront proxy or use direct ingestion.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports histograms for computing, storing, and using **distributions of metrics** rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. You can send histograms to a Wavefront proxy or use direct ingestion.
 
 This page explain how to send histogram distributions. After the data is available, you can [visualize histogram distributions](visualize_histograms.html) using Histogram charts or Heatmap charts.
 

@@ -7,7 +7,7 @@ permalink: query_language_metadata_functions.html
 summary: Learn how to rename metrics and sources and create point tags with aliasSource, aliasMetric, and taggify.
 ---
 
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes metadata (label manipulation) functions that enable users to temporarily rename a source, rename a metric or create a synthetic point tag. Dashboards and charts display the changed name or aggregated point tag. We support:
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes metadata (label manipulation) functions that enable users to temporarily rename a source, rename a metric or create a synthetic point tag. Dashboards and charts display the changed name or aggregated point tag. We support:
 * [`aliasSource`](ts_aliasSource.html) - Manipulate a source name
 * [`aliasMetric`](ts_aliasMetric.html) - Manipulate a metric name
 *  [`taggify`](ts_taggify.html) - Manipulate a point tag name 

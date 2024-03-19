@@ -7,7 +7,7 @@ permalink: query_language_windows_trends.html
 summary: Highlight trends with moving and tumbling windows.
 ---
 
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports moving time window functions for calculating continuous aggregation over a sliding time window. [Moving time window functions](query_language_reference.html#moving-window-time-functions) are useful if, for example, you want to calculate the moving average over the past 24 hours.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports moving time window functions for calculating continuous aggregation over a sliding time window. [Moving time window functions](query_language_reference.html#moving-window-time-functions) are useful if, for example, you want to calculate the moving average over the past 24 hours.
 
 But if you want to look at the daily average for each day, you have to create fixed-size time window. This page explains how use moving and fixed-sized time windows.
 

@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and manage Wavefront proxies.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
 
 In most cases, a Wavefront proxy must be running in your environment before metrics begin streaming to your Tanzu Observability service from a host or application.
 

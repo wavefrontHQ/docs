@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_manual_install.html
 summary: Learn how to manually install a Wavefront proxy and Telegraf agent.
 ---
-Most Tanzu Observability (formerly known as VMware Aria Operations for Applications) customers use an automated proxy install:
+Most VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) customers use an automated proxy install:
 * Option 1: Install the Wavefront proxy and the Telegraf agent when the set up an integration.
 * Option 2: Perform a [scripted installation](proxies_installing.html#scripted-proxy-installation) of the Wavefront proxy and Telegraf agent.
 

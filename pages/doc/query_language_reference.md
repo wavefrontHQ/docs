@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_reference.html
 summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language (WQL).
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes the Wavefront Query Language, which allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes the Wavefront Query Language, which allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
 
 
 ## Query Expressions

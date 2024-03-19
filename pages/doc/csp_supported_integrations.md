@@ -9,7 +9,7 @@ summary: Learn how integration authentication happens, which integrations work w
 
 ## Subscription Types
 
-Starting July 3, 2023, Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services.
+Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services.
 
 For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Tanzu Observability in a secure, fast, and reliable manner. 
 

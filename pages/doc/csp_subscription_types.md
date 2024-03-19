@@ -11,7 +11,7 @@ Tanzu Observability subscriptions are two types: original subscriptions and VMwa
 
 ## Why the Two Subscription Types Differ?
 
-Starting July 3, 2023, Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services.
+Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services.
 
 Starting September 20, 2023, all [**new trial**](start_trial.html) instances of Tanzu Observability are **onboarded** to VMware Cloud services.
 

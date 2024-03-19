@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_container.html
 summary: Configure Wavefront proxy and Telegraf in a Docker container
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports container proxy setup. This page discusses running a proxy and Telegraf agent as Docker containers, but the guidance (though not some specifics) applies to other container solutions as well.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports container proxy setup. This page discusses running a proxy and Telegraf agent as Docker containers, but the guidance (though not some specifics) applies to other container solutions as well.
 
 ## Run a Proxy in a Docker Container
 
