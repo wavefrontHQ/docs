@@ -4,10 +4,10 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wavefront_kubernetes_faq.html
-summary: Answers about viewing Kubernetes metrics in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Answers about viewing Kubernetes metrics in Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
-The [Kubernetes Metrics Collector on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to VMware Aria Operations for Applications. Much of the doc for the project is in the [docs folder on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/tree/main/docs/collector). This page has some special tips and tricks to help you create the user experience you're after.
+The [Kubernetes Metrics Collector on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to Tanzu Observability. Much of the doc for the project is in the [docs folder on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/tree/main/docs/collector). This page has some special tips and tricks to help you create the user experience you're after.
 
 <!--- Consider including Improve Display Speed with Sampling Option here --->
 
