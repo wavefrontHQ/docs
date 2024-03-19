@@ -6,17 +6,16 @@ permalink: wavefront_support_feedback.html
 summary: Get help with and give feedback.
 ---
 
-
 ## Support
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) support is available as follows:
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) support is available as follows:
 
 * Get in touch with Technical Support and create a support ticket. 
   1. Navigate to the [Support Portal](https://cloudhealth.zendesk.com/).
   2. Sign up and create an account. 
   3. [Submit a ticket](https://vmwaoa.zendesk.com/hc/en-us/requests/new).  
 
-* Get support from within Operations for Applications:
+* Get support from within Tanzu Observability:
   1. Log in to your service instance.
   1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
     <br/>![support menu item](images/get_support.png)

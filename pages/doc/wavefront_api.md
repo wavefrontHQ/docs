@@ -4,10 +4,10 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
-summary: Learn about the REST API for managing VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront).
+summary: Learn about the REST API for managing Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
-The REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Operations for Applications  GUI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
+The REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Tanzu Observability GUI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
 
 
 
@@ -19,13 +19,13 @@ The current version of the REST API is v2. You can access the API at `<your_inst
 
 {% include note.html content="Our REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
 
-{% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For VMware Cloud services subscriptions, the authentication and authorization APIs are part of the VMware Cloud services REST API. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
+{% include important.html content="Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. For VMware Cloud services subscriptions, the authentication and authorization APIs are part of the VMware Cloud services REST API. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
 
 ## API Documentation (Service Instance)
 
-Each Operations for Applications service instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
+Each Tanzu Observability service instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
 
-To access the Operations for Applications REST API documentation:
+To access the Tanzu Observability REST API documentation:
 
 1. Log in to your product instance.
 2. Display the doc from the UI or using a URL:
@@ -39,7 +39,7 @@ To access the Operations for Applications REST API documentation:
 
 ## API Documentation (VMware Developer)
 
-If you don't have access to a service instance, you can have a look at our [Operations for Applications API doc](https://developer.vmware.com/apis/714/) on the VMware Developer website.
+If you don't have access to a service instance, you can have a look at our [Tanzu Observability API doc](https://developer.vmware.com/apis/714/) on the VMware Developer website.
 
 We include an overview and a Swagger-generated API Reference. We update the reference on a regular basis.
 
@@ -47,20 +47,20 @@ We include an overview and a Swagger-generated API Reference. We update the refe
 
 {% include important.html content="For VMware Cloud services subscriptions, you can have a look at the [VMware Cloud services API doc](https://developer.vmware.com/apis/csp/csp-iam/latest/) on the VMware Developer website."%}
 
-The [VMware Developer website](https://developer.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Operations for Applications. We're providing these samples as is - some are from our team, others will come from the community.
+The [VMware Developer website](https://developer.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Tanzu Observability. We're providing these samples as is - some are from our team, others will come from the community.
 
 <a id="generating-an-api-token"></a>
 
-## Invoking the Operations for Applications REST API
+## Invoking the Tanzu Observability REST API
 
 You can invoke the API using `curl` or from an API client. In either case, you must use a token.
 
 The token that you need depends on your [subscription type](subscriptions-differences.html). 
 
-* For VMware Cloud services subscriptions, invoking the Operations for Application REST API requires a VMware Cloud services access token.
-* For original subscriptions, invoking the Operations for Application REST API requires an Operations for Application API token.
+* For VMware Cloud services subscriptions, invoking the Tanzu Observability REST API requires a VMware Cloud services access token.
+* For original subscriptions, invoking the Tanzu Observability REST API requires a Tanzu Observability API token.
 
-See [Use the Operations for Applications REST API](using_wavefront_api.html) for details and examples.
+See [Use the Tanzu Observability REST API](using_wavefront_api.html) for details and examples.
 
 ## Generate an API Client Using Swagger
 
@@ -87,7 +87,7 @@ Here's an example for generating a Java client:
 
 `swagger-codegen generate -i https://mydomain.wavefront.com/api/v2/swagger.json -c swagger-config.json -l java`
 
-## Operations for Applications REST API Categories
+## Tanzu Observability REST API Categories
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
@@ -95,11 +95,11 @@ The REST API supports the following objects corresponding to different categorie
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
 - **Account (User and Service Account)** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
 
-    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
+    {% include note.html content="Applies only to original subscriptions. See the [Tanzu Observability subscription types](subscriptions-differences.html)."%}
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [**Alerts** permission](permissions_overview.html) can create and update alerts.
 - **ApiToken** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
 
-    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
+    {% include note.html content="Applies only to original subscriptions. See the [Tanzu Observability subscription types](subscriptions-differences.html)."%}
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html), [Google Cloud Platform Integration](gcp.html), [Google Cloud Billing Integration](gcp_billing.html), [New Relic Integration](newrelic.html), [AppDynamics Integration](appdynamics.html), [Dynatrace Integration](dynatrace.html), [Microsoft Azure Integration](azure.html), [VMware Aria Operations (SaaS) Integration](vrops.html), and the [Snowflake Integration](snowflake.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [**Dashboards** permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
@@ -115,7 +115,7 @@ The REST API supports the following objects corresponding to different categorie
 - **Query** - Perform queries.
 - **Role** - Retrieve information about a role and manage roles and role assignees.
 
-    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
+    {% include note.html content="Applies only to original subscriptions. See the [Tanzu Observability subscription types](subscriptions-differences.html)."%}
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
 - **Source** - Retrieve sources and tags associated with a source. Users with [**Source Tags** permission](permissions_overview.html) can add and remove source tags and set descriptions.
@@ -123,7 +123,7 @@ The REST API supports the following objects corresponding to different categorie
 - **User** - Deprecated API. Use **Account (User and Service Account)** instead.
 - **UserGroup** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
 
-    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
+    {% include note.html content="Applies only to original subscriptions. See the [Tanzu Observability subscription types](subscriptions-differences.html)."%}
 - **Webhook** - Retrieve webhooks. Users with [**Alerts** permission](permissions_overview.html) can create, update, and delete webhooks.
 
 <a name="access"></a>
@@ -133,7 +133,7 @@ The `/api/access/{entity}` endpoint provides information on how often an entity 
 
 {% include important.html content="In order to use this API, users must have both the Direct Data Ingestion and Metrics [permissions](permissions_overview.html)."%}
 
-{% include note.html content="VMware Aria Operations for Applications uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
+{% include note.html content="Tanzu Observability uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
 "%}
 
 This GET endpoint has the following parameters:
@@ -149,7 +149,7 @@ This GET endpoint has the following parameters:
 <tr>
 <td>hostPrefix</td>
 <td>Prefix of the host name, e.g. you can use test-2a-app67 if the whole host name is test-2a-app67-id-12345 <br>
-<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts VMware Aria Operations for Applications scans.</td></tr>
+<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts Tanzu Observability scans.</td></tr>
 <tr>
 <td>usageThresholdDays</td>
 <td>How many days to look back. 7 days by default.</td></tr>
