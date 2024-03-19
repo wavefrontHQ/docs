@@ -170,7 +170,7 @@ Starting with release 2020.26, a new data type for storing delta counters is par
 
 ## Replace all `~agent.` metrics with `~proxy.`
 
-The `~agent.` metrics were deprecated a few years ago. With release 2024-05.x, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
+The `~agent.` metrics were deprecated a few years ago. With release 2024-03.x, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
 For example: 
 
 ```
@@ -181,7 +181,7 @@ rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
 rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
 ```
 
-## Tanzu Observability Authentication and Authorization
+## Operations for Applications Authentication and Authorization
 
 Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. VMware Cloud services provides centralized authentication and authorization to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Tanzu Observability. See [Advantages of VMware Cloud Services Subscriptions Over Original Subscriptions](subscriptions-differences.html#advantages-of-vmware-cloud-services-subscriptions-over-original-subscriptions).
 

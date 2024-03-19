@@ -65,7 +65,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-03.x Release Notes
 
-* **Updated Support Link**: The link for contacting our Technical Support team from within the Tanzu Observability user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
 * **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
 
@@ -84,21 +84,12 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
     * Restore or permanently delete a deleted derived metric.
   * Select one or more derived metrics to add or remove specific tags for them, or to delete them.
 
-## 2024-03.x Release Notes
+## 2024-01.x Release Notes
 
 **Amazon Web Services Integration Improvement**: You can now disable the ingestion of support service limit metrics. See the [Integrations Release Notes](integrations_new_changed.html#january-2024) for details.
 
-## 2024-01.x Release Notes
-
-**Traces Security Policy**: You can block application or service information for specific users so that they don’t see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards. To learn more, see:
-* [Traces Security Policies for original and onboarded subscriptions](security_policy.html#traces-security-policies).
-* [Traces Security Policies for onboarded subscriptions only](csp_security_policy.html#traces-security-policies).
-
-Example: An annotated screenshot of the create traces security policy for original and onboarded subscriptions.
-![Annotated create traces security rule screenshot.](images/traces_security_policy_create_rule.png)
-
 ## Past Release Notes
-- [2023-45.x Release Notes](2023-45.x_release_notes.html)
+- [2023-52.x Release Notes](2023-52.x_release_notes.html)
 - [2023-29.x Release Notes](2023-29.x_release_notes.html)
 - [2023-13.x Release Notes](2023-13.x_release_notes.html)
 - [2023-06.x Release Notes](2023-06.x_release_notes.html)

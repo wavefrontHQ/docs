@@ -62,7 +62,7 @@ The following table gives an overview of metric types. We introduce each type in
 
 ### Metric Types per Retention Period
 
-With the 2024-07 release, we introduce **ephemeral** metrics, which have a short [retention period](terms_of_service.html#data-retention).
+With the 2024-05 release, we introduce **ephemeral** metrics, which have a short [retention period](terms_of_service.html#data-retention).
 
 <table style="width: 100%;">
 <tbody>
