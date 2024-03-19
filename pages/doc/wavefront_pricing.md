@@ -30,7 +30,8 @@ For spans, the pricing structure is as follows:
 ## Data Retention
 
 Default data retention is:
-* 18 months for metrics and derived metrics.
+* 18 months for persistent metrics, counters, and derived metrics.
+* 28 days for ephemeral metrics.
 * 6 months for histograms and derived histograms.
 * 7 days for traces, spans, and span logs.
 

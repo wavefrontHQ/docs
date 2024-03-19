@@ -36,7 +36,7 @@ Follow these steps:
 
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on our free cluster. Freemium accounts that are are inactive for 3 days are automatically deleted.
 
-Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
+Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for persistent metrics, 28 days for ephemeral metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
 ## Why Do I Not See a Link to Access the Free Service on Start-Up?
 

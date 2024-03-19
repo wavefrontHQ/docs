@@ -40,7 +40,10 @@ Watch this video to learn how to optimize dashboard and query performance. Note 
 ## Use Performance Statistics
 
 You can see performance statistics for the whole chart and for each query of the chart. For the performance statistics, we measure the following characteristics:
-- **Cardinality**: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value). For example, you might receive `networks_bytes_received` from multiple sources and with multiple point tags (e.g. `availability_zone`). You can lower cardinality for each query (and the chart) by filtering, for example, limiting the query to certain sources, certain availability zones, etc.
+- **Cardinality**: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value). For example, you might receive `networks_bytes_received` from multiple sources and with multiple point tags (e.g. `availability_zone`). You can lower cardinality for each query (and the chart) by:
+
+  - Filtering, for example, limiting the query to certain sources, certain availability zones, etc.
+  - Using [ephemeral metrics](metric_types.html#metric-types-per-retention-period), which have a shorter retention period.
 - **Points Scanned**: Number of data points that were queried to show the chart on the screen. You can affect this number by including the time window in the query or by changing the time window interactively.
 - **Duration**: Time between query start and return of result.
 

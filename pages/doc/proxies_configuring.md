@@ -145,7 +145,7 @@ This section gives details on the proxy configuration properties. All properties
 <tbody>
 <tr>
 <td>agentMetricsPointTags</td>
-<td>Point tags and their values to be passed along with <code>~agent.*</code> metrics. <br/>Default: none</td>
+<td>Point tags and their values to be passed along with <code>~proxy.*</code> metrics. <br/>Default: none</td>
 <td>Comma-separated list of key-value pairs.<br/>
 Ex: <code>dc=west,env=prod</code></td>
 <td>3.24</td>

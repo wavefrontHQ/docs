@@ -12,7 +12,6 @@ You can:
 * Clone and modify one of the Operations for Applications Usage integration dashboards.
 * Create your own dashboard, query these metrics in charts, and create alerts for some of these metrics.
 
-
 ## Internal Metrics Overview
 
 We collect the following sets of metrics.
