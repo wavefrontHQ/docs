@@ -4,10 +4,10 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_ui_overview.html
-summary: Overview of services and applications that send data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Overview of services and applications that send data to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
-As part of troubleshooting an application, you need an overview of the services and applications that send data to Operations for Applications. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
+As part of troubleshooting an application, you need an overview of the services and applications that send data to Tanzu Observability. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
 
 <a name="app_map"></a>
 
@@ -177,7 +177,7 @@ See the table view:
 1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
-![The image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
+![The image shows the table view of all the applications that send data to Tanzu Observability. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
