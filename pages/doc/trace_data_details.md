@@ -7,7 +7,7 @@ permalink: trace_data_details.html
 summary: Get to know the concepts around distributed tracing.
 ---
 
-{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to  VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), use OpenTelemetry."%}
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability (formerly known as VMware Aria Operations for Applications), use OpenTelemetry."%}
 
 ## Traces
 
@@ -38,24 +38,24 @@ You can think of the trace as a tree of related spans. The trace has a unique tr
 
 ## Spans
 
-A trace consists of one or more spans, which are the individual segments of work in the trace. Each Operations for Applications span represents time spent by an operation in a service (often a microservice).
+A trace consists of one or more spans, which are the individual segments of work in the trace. Each Tanzu Observability span represents time spent by an operation in a service (often a microservice).
 
 Spans are the fundamental units of trace data. This page provides details about the format we use for a span, and the RED metrics that we automatically derive from each span. These details are useful for advanced customization.
 
-### Operations for Applications Span Format
+### Tanzu Observability Span Format
 
-A well-formed Operations for Applications span consists of fields and span tags that capture span attributes. We use these to identify and describe a span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTelemetry specification and others are required by the Operations for Applications service.
+A well-formed Tanzu Observability span consists of fields and span tags that capture span attributes. We use these to identify and describe a span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTelemetry specification and others are required by the Tanzu Observability service.
 
-Most use cases do not require you to know exactly how the Operations for Applications service expects a span to be formatted:
+Most use cases do not require you to know exactly how the Tanzu Observability service expects a span to be formatted:
 * When you instrument your application with OpenTelemetry your application emits spans with the required tags.
 * When you instrument your application with a [sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data), your application emits spans that are automatically constructed from raw data you pass as parameters.
 * When you instrument your application with a 3rd party distributed tracing system (Jaeger or Zipkin), your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations-and-exporters) you set up.
 
-It is possible to manually construct a well-formed span and send it either [directly to the Operations for Applications service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
+It is possible to manually construct a well-formed span and send it either [directly to the Tanzu Observability service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
 
 {{site.data.alerts.important}}
 <p>The valid characters in an application and service name are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
-<p>If your application or service names have any other characters other than the valid characters, the Operations for Applications service replaces each of those characters with a hyphen ("-"). </p>
+<p>If your application or service names have any other characters other than the valid characters, the Tanzu Observability service replaces each of those characters with a hyphen ("-"). </p>
 {{site.data.alerts.end}}
 
 <table style="width: 100%;">
@@ -166,7 +166,7 @@ Here’s the maximum number of characters for span tags:
 <tr>
 <td>Span tag key</td>
 <td>128</td>
-<td>If the span tag key exceeds the maximum length, the span associated with it is blocked by the Operations for Applications service.</td>
+<td>If the span tag key exceeds the maximum length, the span associated with it is blocked by the Tanzu Observability service.</td>
 </tr>
 <tr>
 <td>Span tag value</td>
@@ -210,7 +210,7 @@ The following table lists span tags that contain information about the span's id
 </tbody>
 </table>
 
-The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](#how-the-operations-for-applications-uses-application-tags) you set through an Operations for Applications SDK.
+The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](#how-the-tanzu-observability-uses-application-tags) you set through an Tanzu Observability SDK.
 
 <table>
 <colgroup>
@@ -228,7 +228,7 @@ The following table lists span tags that describe the architecture of the instru
 <td markdown="span">Yes</td>
 <td>Name of the instrumented application that emitted the span. 
   <p>The valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
-  <p>If your application or service names have special characters, Operations for Applications replaces each special character with a hyphen ("-"). </p>
+  <p>If your application or service names have special characters, Tanzu Observability replaces each special character with a hyphen ("-"). </p>
 </td>
 <td markdown="span">String</td>
 </tr>
@@ -238,7 +238,7 @@ The following table lists span tags that describe the architecture of the instru
 <td>
   Name of the instrumented microservice that emitted the span.
   <p>The valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
-  <p>If your application or service names have special characters, Operations for Applications replaces each special character with a hyphen ("-"). </p>
+  <p>If your application or service names have special characters, Tanzu Observability replaces each special character with a hyphen ("-"). </p>
 </td>
 <td markdown="span">String</td>
 </tr>
@@ -274,9 +274,9 @@ Because operations are normally composed of other operations, each span is norma
 
 ### Time-Value Precision in Spans
 
-A span has two time-value fields for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). Express these values in milliseconds, because Operations for Applications uses milliseconds for span storage and visualization. For convenience, you can specify time values in other units, and we convert them to milliseconds.
+A span has two time-value fields for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). Express these values in milliseconds, because Tanzu Observability uses milliseconds for span storage and visualization. For convenience, you can specify time values in other units, and we convert them to milliseconds.
 
-You must use the same precision for _both_ time values. Operations for Applications identifies the precision of the `start_milliseconds` value, and interprets the `duration_milliseconds` value using the same unit. The following table shows how to indicate the start-time precision:
+You must use the same precision for _both_ time values. Tanzu Observability identifies the precision of the `start_milliseconds` value, and interprets the `duration_milliseconds` value using the same unit. The following table shows how to indicate the start-time precision:
 
 <table>
 <colgroup>
@@ -322,9 +322,9 @@ You must use the same precision for _both_ time values. Operations for Applicati
 </tbody>
 </table>
 
-{% include note.html content="When specifying a span in Operations for Applications span format, adjust values as necessary so that the units match." %}
+{% include note.html content="When specifying a span in Tanzu Observability span format, adjust values as necessary so that the units match." %}
 
-For example, suppose you know a span started at `1533529977627` epoch milliseconds, and lasted for `3` seconds. In Operations for Applications span format, you could specify either of the following pairs of time values:
+For example, suppose you know a span started at `1533529977627` epoch milliseconds, and lasted for `3` seconds. In Tanzu Observability span format, you could specify either of the following pairs of time values:
 
 | `1533529977` | `3` | (both values in seconds) |
 | `1533529977627` | `3000` | (both values in milliseconds) |
@@ -337,7 +337,7 @@ For example, suppose you know a span started at `1533529977627` epoch millisecon
 
 ### Indexed and Unindexed Span Tags
 
-Operations for Applications uses indexes to optimize the performance of queries that filter on certain span tags. For example, we index the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. We also index certain built-in span tags, such as `span.kind`, `component`, `http.method`, and `error`.
+Tanzu Observability uses indexes to optimize the performance of queries that filter on certain span tags. For example, we index the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. We also index certain built-in span tags, such as `span.kind`, `component`, `http.method`, and `error`.
 
 For performance reasons, we automatically index built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
@@ -356,7 +356,7 @@ In the [Application Map](tracing_ui_overview.html#application-map-features), tra
 
 In the image shown below each arrow shows tracing traffic between application components. The arrows show direction of traffic.
 
-![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in Operations for Applications.](images/tracing_edges_concept.png)
+![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in Tanzu Observability.](images/tracing_edges_concept.png)
 
 To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](spans_function.html#spans-operators).
 
@@ -368,7 +368,7 @@ To understand how to query for tracing traffic in the tracing browser, see [Use 
 
 ## RED Metrics
 
-Operations for Applications derives RED metrics from the spans that are sent from the instrumented application. We automatically aggregate and display RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
+Tanzu Observability derives RED metrics from the spans that are sent from the instrumented application. We automatically aggregate and display RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
 
 RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
@@ -378,7 +378,7 @@ RED metrics are key indicators of the health of your services, and you can use t
 
 ### Span RED Metrics and Trace RED Metrics
 
-Operations for Applications uses ingested spans to derive RED metrics for two kinds of request:
+Tanzu Observability uses ingested spans to derive RED metrics for two kinds of request:
 * Span RED metrics measure individual operations, typically within a single service. For example, a span RED metric might measure the number of calls per minute to the `dispatch` operation in the `delivery` service.
 
   We use span RED metrics as the basis for certain predefined charts, such as the [Service Dashboard](/tracing_service_dashboard.html).
@@ -397,11 +397,11 @@ Operations for Applications uses ingested spans to derive RED metrics for two ki
 
 ### RED Metric Counters and Histograms
 
-In the predefined charts, such as the Service Dashboard, are rates and 95th percentile distributions. These metrics are themselves based on underlying delta counters and histograms that Operations for Applications automatically derives from spans. You can use these underlying delta counters and histograms in [RED metrics queries](#red-metrics-queries), for example, to create alerts on trace data.
+In the predefined charts, such as the Service Dashboard, are rates and 95th percentile distributions. These metrics are themselves based on underlying delta counters and histograms that Tanzu Observability automatically derives from spans. You can use these underlying delta counters and histograms in [RED metrics queries](#red-metrics-queries), for example, to create alerts on trace data.
 
-Operations for Applications constructs the names of the underlying delta counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that are obtained from the spans on which the metrics are derived. If necessary, Operations for Applications modifies these strings to comply with the [Operations for Applications data format](wavefront_data_format.html#operations-for-applications-data-format-fields) for metrics. Each metric is associated with point tags `application`, `service`, and `operationName`, and the corresponding span tag values are assigned to these point tags. The span tag values are used without modification.
+Tanzu Observability constructs the names of the underlying delta counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that are obtained from the spans on which the metrics are derived. If necessary, Tanzu Observability modifies these strings to comply with the [Tanzu Observability data format](wavefront_data_format.html#tanzu-observability-data-format-fields) for metrics. Each metric is associated with point tags `application`, `service`, and `operationName`, and the corresponding span tag values are assigned to these point tags. The span tag values are used without modification.
 
-{% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the RED metric counters and histograms, and prevent these metrics from appearing in the Operations for Applications UI, e.g., in the Service Dashboard." %}
+{% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the RED metric counters and histograms, and prevent these metrics from appearing in the Tanzu Observability UI, e.g., in the Service Dashboard." %}
 
 <table id = "oplevelredmetrics">
 <colgroup>
@@ -425,7 +425,7 @@ Operations for Applications constructs the names of the underlying delta counter
 </tr>
 <tr>
 <td markdown="span">`tracing.derived.<application>.<service>.<operationName>.duration.micros.m`  </td>
-<td markdown="span">Operations for Applications histogram</td>
+<td markdown="span">Tanzu Observability histogram</td>
 <td markdown="span">The duration of each invoked operation, in microseconds, aggregated in one-minute intervals. <br>Used in the Duration chart that is generated for a service. </td>
 </tr>
 </tbody>
@@ -455,7 +455,7 @@ Operations for Applications constructs the names of the underlying delta counter
 </tr>
 <tr>
 <td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.duration.millis.m`  </td>
-<td markdown="span">Operations for Applications histogram</td>
+<td markdown="span">Tanzu Observability histogram</td>
 <td markdown="span">The duration of each trace, in milliseconds, aggregated in one-minute intervals. Duration is measured from the start of the earliest root span to the end of the last span in a trace.</td>
 </tr>
 </tbody>
@@ -498,12 +498,12 @@ You can specify the RED metric counters and histograms in a query with the metri
   ```
   cs(tracing.derived.beachshirts.delivery.dispatch.error.count)
   ```
-* Use the point tags `application`, `service`, and `operationName` that Operations for Applications automatically associates with the metric, for example:
+* Use the point tags `application`, `service`, and `operationName` that Tanzu Observability automatically associates with the metric, for example:
   ```
   cs(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
   ```
 
-The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the [Operations for Applications data format](wavefront_data_format.html#operations-for-applications-data-format-fields). The point tag value always corresponds exactly to the span tag values.
+The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the [Tanzu Observability data format](wavefront_data_format.html#tanzu-observability-data-format-fields). The point tag value always corresponds exactly to the span tag values.
 
 <table style="width: 100%;">
 <tbody>
@@ -515,7 +515,7 @@ The point tag technique is useful when the metric name contains string values fo
 
 Pre-aggregated RED metrics speed up RED metric queries. service level RED metrics by aggregating the [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics). Querying and aggregating these metrics can be slow due to high cardinality from operation tags, source tags, and custom tags.
 
-Operations for Applications constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name are string values that are obtained from the spans from which the metrics are derived. You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. The screenshot below filters by application. Operations for Applications assigns the corresponding span tag values to these point tags.
+Tanzu Observability constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name are string values that are obtained from the spans from which the metrics are derived. You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. The screenshot below filters by application. Tanzu Observability assigns the corresponding span tag values to these point tags.
 
 {% include note.html content="To filter RED metrics using operation names, sources, or [custom span tags](tracing_customize_spans_and_alerts.html), use [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics)." %}
 
@@ -544,7 +544,7 @@ Operations for Applications constructs the names of the underlying aggregated de
 </tr>
 <tr>
 <td markdown="span">`tracing.aggregated.derived.<application>.<service>.duration.millis.m`  </td>
-<td markdown="span">Operations for Applications histogram</td>
+<td markdown="span">Tanzu Observability histogram</td>
 <td markdown="span">Duration of each spans, in microseconds, aggregated in one-minute intervals. Duration is measured from the start of the earliest root span to the end of the last span in a trace.</td>
 </tr>
 </tbody>
@@ -696,7 +696,7 @@ You can visualize tracing traffic data in charts using tracing traffic derived m
 </tr>
 <tr>
 <td markdown="span">`tracing.edge.derived.<application>.<service>.duration.millis.m`  </td>
-<td markdown="span">Operations for Applications histogram</td>
+<td markdown="span">Tanzu Observability histogram</td>
 <td markdown="span">Duration of the request in milliseconds, aggregated in one-minute intervals.</td>
 </tr>
 </tbody>
@@ -712,7 +712,7 @@ You can visualize tracing traffic data in charts using tracing traffic derived m
   ```
   cs(tracing.edge.derived.beachshirts.shopping.error.count, cluster=us-west)
   ```
-* Duration in the form of Operations for Applications histograms.
+* Duration in the form of Tanzu Observability histograms.
   ```
   hs(tracing.edge.derived.beachshirts.shopping.duration.millis.m, to.service=delivery)
   ```
@@ -735,9 +735,9 @@ The Tracing Browser shows you all the spans that make up a trace and the critica
 
 ### Trace Sampling and Derived RED Metrics
 
-If you have instrumented your application with an Operations for Applications SDK, Operations for Applications derives the RED metrics from 100% of the generated spans, _before_ any sampling is performed. This is true when the sampling is performed by the SDK or when the sampling is performed by a Wavefront proxy. Consequently, the RED metrics provide a highly accurate picture of your application's behavior. However, if you click through a chart to inspect a particular trace, you might discover that the trace has not actually been ingested. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
+If you have instrumented your application with an Tanzu Observability SDK, Tanzu Observability derives the RED metrics from 100% of the generated spans, _before_ any sampling is performed. This is true when the sampling is performed by the SDK or when the sampling is performed by a Wavefront proxy. Consequently, the RED metrics provide a highly accurate picture of your application's behavior. However, if you click through a chart to inspect a particular trace, you might discover that the trace has not actually been ingested. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
 
-If you have instrumented your application using a 3rd party distributed tracing system, Operations for Applications derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
+If you have instrumented your application using a 3rd party distributed tracing system, Tanzu Observability derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
 <table style="width: 100%;">
 <tbody>
@@ -761,7 +761,7 @@ Amazon Simple Notification Service (SNS), and external databases. For details, s
 ## Apdex
 
 The Application Performance Index ([Apdex](https://www.apdex.org)) helps you understand how the response time of a service compares to the predefined response time threshold.
-Operations for Applications detects ingested application trace data as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold value.
+Tanzu Observability detects ingested application trace data as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold value.
 
 <!---
 For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
@@ -777,15 +777,15 @@ For details on the Apdex score and configuring the response time threshold (T), 
 
 ## Application Tags
 
-An `ApplicationTags` object describes your application to the Operations for Applications service. The service requires tags that describe the structure of your application. These application tags are associated with the metrics and trace data that are sent by the instrumented microservices in your application.
+An `ApplicationTags` object describes your application to the Tanzu Observability service. The service requires tags that describe the structure of your application. These application tags are associated with the metrics and trace data that are sent by the instrumented microservices in your application.
 
-You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. The tags include information about the way your application is structured and deployed, so your code normally obtains tag values from a configuration file at runtime. The configuration file might be provided by the Operations for Applications SDK, or it might be part of a custom configuration mechanism that is implemented by your application. (Only SDKs with quickstart setup steps provide a configuration file.)
+You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. The tags include information about the way your application is structured and deployed, so your code normally obtains tag values from a configuration file at runtime. The configuration file might be provided by the Tanzu Observability SDK, or it might be part of a custom configuration mechanism that is implemented by your application. (Only SDKs with quickstart setup steps provide a configuration file.)
 
 {% include note.html content="You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data." %}
 
-### How the Operations for Applications Uses Application Tags
+### How the Tanzu Observability Uses Application Tags
 
-Operations for Applications uses application tags to aggregate and filter data at different levels of granularity.
+Tanzu Observability uses application tags to aggregate and filter data at different levels of granularity.
 
 * **Required tags** enable you to drill down into the data for a particular service:
     - `application` - Name that identifies the application, for example, `beachshirts`. All microservices in the same application should use the same `application` name.
@@ -808,7 +808,7 @@ Operations for Applications uses application tags to aggregate and filter data a
 
 ## Span Logs
 
-OpenTelemetry span events capture span-specific logging messages and other debugging or informational output from the application itself. Operations for Applications converts these span events to span logs.
+OpenTelemetry span events capture span-specific logging messages and other debugging or informational output from the application itself. Tanzu Observability converts these span events to span logs.
 
 Span logs are especially useful for recording additional information about errors within the span.
 
@@ -823,21 +823,21 @@ You can instrument your application to emit one or more logs with a span, and ex
 ## Helper Objects That Collect and Transfer Data
 
 The SDK you’re using determines which helper objects are in a microservice.
-{% include note.html content="When you use multiple Operations for Applications SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared."%}
+{% include note.html content="When you use multiple Tanzu Observability SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared."%}
 
 A typical set of helper objects includes some or all of the following:
 
 ### Wavefront Sender Object
 
-When you instrument an application, you set up a mechanism for sending metrics and trace data to the Operations for Applications service. Choose between:
+When you instrument an application, you set up a mechanism for sending metrics and trace data to the Tanzu Observability service. Choose between:
 
-* Sending data directly to the Operations for Applications service, also called [direct ingestion](direct_ingestion.html).
-* Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Operations for Applications service.
+* Sending data directly to the Tanzu Observability service, also called [direct ingestion](direct_ingestion.html).
+* Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Tanzu Observabilityservice.
 
 Your choice is represented in your code as a Wavefront sender object.
-(Most Operations for Applications SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the Wavefront proxy ports and configurations you define when sending data.
+(Most Tanzu Observability SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the Wavefront proxy ports and configurations you define when sending data.
 
-{% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Operations for Applications service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
+{% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Tanzu Observability service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
 
 <!--- change links when proxy/dir ing decision is in a single section --->
 
@@ -868,14 +868,14 @@ Trace data is reported automatically whenever spans are complete, so a `Wavefron
 
 ### Metrics Reporter Objects
 
-You can use one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Operations for Applications reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
+You can use one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Tanzu Observability reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
 
-An Operations for Applications reporter object specifies:
-* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Operations for Applications. The default reporting interval is once a minute.
+An Tanzu Observability reporter object specifies:
+* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Tanzu Observability. The default reporting interval is once a minute.
 
 * The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
 
-{% include note.html content="You can use an Operations for Applications reporter object to set a nondefault reporting interval." %}
+{% include note.html content="You can use an Tanzu Observability reporter object to set a nondefault reporting interval." %}
 
 <table style="width: 100%;">
 <tbody>

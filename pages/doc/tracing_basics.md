@@ -11,7 +11,7 @@ Distributed tracing enables you to track the flow of work that is performed by a
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
 
-In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), you can use the tracing dashboards and browsers to:
+In Tanzu Observability (formerly known as VMware Aria Operations for Applications), you can use the tracing dashboards and browsers to:
 
 * Monitor your application to make sure its response times are as expected.
 * Troubleshoot and analyze reported errors.
@@ -21,7 +21,7 @@ In VMware Aria Operations for Applications (formerly known as Tanzu Observabilit
 
 Watch these videos to listen to our co-founder Clement Pang introduce distributed tracing, and give updates including improved ingestion options and intelligent sampling. Note that these videos were created in 2019 and 2020 and some of the information in them might have changed.
 
-{% include note.html content="You need either the [**Proxies** permission](permissions_overview.html) or [**Direct Data Ingestion** permission](permissions_overview.html) to send trace data from your application to the Wavefront proxy or the Operations for Applications service." %}
+{% include note.html content="You need either the [**Proxies** permission](permissions_overview.html) or [**Direct Data Ingestion** permission](permissions_overview.html) to send trace data from your application to the Wavefront proxy or the Tanzu Observability service." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -33,10 +33,10 @@ Watch these videos to listen to our co-founder Clement Pang introduce distribute
 
 ## Instrument Your Application
 
-OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Operations for Applications, use OpenTelemetry.
+OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
 
 If your application uses an OpenTelemetry SDK, you can configure the application to send trace data [to the Wavefront proxy](opentelemetry_overview.html)
-![A data flow diagram that shows how the data flows from your application to the proxy, and then to Operations for Applications](images/opentelemetry_proxy_tracing.png)
+![A data flow diagram that shows how the data flows from your application to the proxy, and then to Tanzu Observability](images/opentelemetry_proxy_tracing.png)
 
 ## Visualize Distributed Tracing Data
 
@@ -53,7 +53,7 @@ Get an overview of how the applications and services are linked, understand the 
   ![application map](/images/Application_map_intro.png)
 
 * [**Table view**](tracing_ui_overview.html#table-view-features) lists the applications and services in the form of a table. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
-  <img src="/images/tracing_table_view_intro.png" alt="the image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
+  <img src="/images/tracing_table_view_intro.png" alt="the image shows the table view of all the applications that send data to Tanzu Observability. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
 
 * [**Grid view**](tracing_ui_overview.html#grid-view-features) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
   <img src="/images/tracing_grid_view_overview.png" alt="grid view of the services grouped by the application"/>
@@ -81,7 +81,7 @@ You can export traces you view in the Traces Browser, save them locally as JSON 
 
 ### Create a Sampling Policy
 
-Our intelligent sampling algorithm reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let the Operations for Applications service know that you want to keep certain spans.
+Our intelligent sampling algorithm reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let the Tanzu Observability service know that you want to keep certain spans.
 
 ![Shows a screenshot of the sampling polices user interface](images/tracing_sampling_policies.png)
 
