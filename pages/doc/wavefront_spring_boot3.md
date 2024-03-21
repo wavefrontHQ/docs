@@ -326,7 +326,7 @@ dependencies {
 
 ### Step 2 (Optional): Specify Your Tanzu Observability Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a VMware Cloud Services account or an Tanzu Observability account, you can send data there instead by specifying the properties shown below: 
+By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a VMware Cloud Services account or a Tanzu Observability account, you can send data there instead by specifying the properties shown below: 
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#oauth" data-toggle="tab">Server to Server OAuth App</a></li>
@@ -354,7 +354,7 @@ wavefront.freemium-account = false
           The <code>{OPTIONAL_ORG_ID}</code> parameter is optional, and you can replace it with the long ID of the VMware Cloud organization running the service.
         </li>
         <li>
-          Set <code>wavefront.freemium-account</code> as false. Because you have an Tanzu Observability instance, you do not need a freemium account.
+          Set <code>wavefront.freemium-account</code> as false. Because you have a Tanzu Observability instance, you do not need a freemium account.
         </li>
       </ul>
     </div>
@@ -376,12 +376,12 @@ wavefront.freemium-account = false
               Replace <code>{ENTER_CSP_API_TOKEN}</code> with your VMware Cloud Services API token. The API token must be generated in the VMware Cloud Services Console by an active user account and must be assigned the <b>Direct Data Ingestion</b>service role.
             </li>
             <li>
-              Set <code>wavefront.freemium-account</code> as false. Because you have an Tanzu Observability instance, you do not need a freemium account.
+              Set <code>wavefront.freemium-account</code> as false. Because you have a Tanzu Observability instance, you do not need a freemium account.
             </li>
           </ul>
         </li>
         <li>
-          <b>Tanzu Observability API Token</b>: <br/>If you have an Tanzu Observability account, add the following properties to authenticate with the API Token (legacy).
+          <b>Tanzu Observability API Token</b>: <br/>If you have a Tanzu Observability account, add the following properties to authenticate with the API Token (legacy).
           <pre>
 management.wavefront.api-token = {ENTER_API_TOKEN}
 management.wavefront.uri = {ENTER_WAVEFRONT_INSTANCE_URL}
@@ -395,7 +395,7 @@ wavefront.freemium-account = false
               Replace <code>{WAVEFRONT_INSTANCE_URL}</code> with the name of your Tanzu Observability instance, for example, https://example.wavefront.com.
             </li>
             <li>
-              Set <code>wavefront.freemium-account</code> as false. Because you have an Tanzu Observability instance, you do not need a freemium account.
+              Set <code>wavefront.freemium-account</code> as false. Because you have a Tanzu Observability instance, you do not need a freemium account.
             </li>
           </ul>
         </li>
@@ -522,7 +522,7 @@ You can configure the cluster and shard names under the `management.wavefront.ap
 
 ## Wavefront Spring Boot Integration
 
-If you already have an Tanzu Observability account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
+If you already have a Tanzu Observability account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
 
 1. Click **Integrations** on the toolbar, search for Spring Boot, and click the Spring Boot integration.
 1. Use the information displayed on the **Setup** tab to set up the integration.

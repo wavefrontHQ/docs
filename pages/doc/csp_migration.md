@@ -87,7 +87,7 @@ During the process of onboarding your Tanzu Observability service to VMware Clou
 
 ## How Are the Groups Migrated to VMware Cloud Services?
 
-Originally, your Operation for Applications service includes the **Everyone** and **Service Accounts** system groups as well as any other custom groups that you have created.
+Originally, your Tanzu Observability service includes the **Everyone** and **Service Accounts** system groups as well as any other custom groups that you have created.
 
 ### How Are the Custom Groups Migrated?
 

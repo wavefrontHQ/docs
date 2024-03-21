@@ -7,7 +7,7 @@ permalink: tracing_operation_dashboard.html
 summary: Identify potential hot spots of operations.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes the Operation Dashboard, which you can use to identify potential hot spots in each operation, such as the GET operation of the beachshirts application's shopping service. From the Operation Dashboard you can then drill down to the Traces Browser.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes the Operation Dashboard, which you can use to identify potential hot spots in each operation, such as the GET operation of the beachshirts application's shopping service. From the Operation Dashboard you can then drill down to the Traces Browser.
 
 ## Explore the Default Operation Dashboard
 

@@ -210,7 +210,7 @@ The following table lists span tags that contain information about the span's id
 </tbody>
 </table>
 
-The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](#how-the-tanzu-observability-uses-application-tags) you set through an Tanzu Observability SDK.
+The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](#how-the-tanzu-observability-uses-application-tags) you set through a Tanzu Observability SDK.
 
 <table>
 <colgroup>
@@ -735,7 +735,7 @@ The Tracing Browser shows you all the spans that make up a trace and the critica
 
 ### Trace Sampling and Derived RED Metrics
 
-If you have instrumented your application with an Tanzu Observability SDK, Tanzu Observability derives the RED metrics from 100% of the generated spans, _before_ any sampling is performed. This is true when the sampling is performed by the SDK or when the sampling is performed by a Wavefront proxy. Consequently, the RED metrics provide a highly accurate picture of your application's behavior. However, if you click through a chart to inspect a particular trace, you might discover that the trace has not actually been ingested. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
+If you have instrumented your application with a Tanzu Observability SDK, Tanzu Observability derives the RED metrics from 100% of the generated spans, _before_ any sampling is performed. This is true when the sampling is performed by the SDK or when the sampling is performed by a Wavefront proxy. Consequently, the RED metrics provide a highly accurate picture of your application's behavior. However, if you click through a chart to inspect a particular trace, you might discover that the trace has not actually been ingested. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
 
 If you have instrumented your application using a 3rd party distributed tracing system, Tanzu Observability derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
@@ -870,12 +870,12 @@ Trace data is reported automatically whenever spans are complete, so a `Wavefron
 
 You can use one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Tanzu Observability reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
 
-An Tanzu Observability reporter object specifies:
+A Tanzu Observability reporter object specifies:
 * The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Tanzu Observability. The default reporting interval is once a minute.
 
 * The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
 
-{% include note.html content="You can use an Tanzu Observability reporter object to set a nondefault reporting interval." %}
+{% include note.html content="You can use a Tanzu Observability reporter object to set a nondefault reporting interval." %}
 
 <table style="width: 100%;">
 <tbody>
