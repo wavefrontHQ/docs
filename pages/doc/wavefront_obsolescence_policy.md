@@ -181,7 +181,7 @@ rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
 rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
 ```
 
-## Operations for Applications Authentication and Authorization
+## Tanzu Observability Authentication and Authorization
 
 Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. VMware Cloud services provides centralized authentication and authorization to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Tanzu Observability. See [Advantages of VMware Cloud Services Subscriptions Over Original Subscriptions](subscriptions-differences.html#advantages-of-vmware-cloud-services-subscriptions-over-original-subscriptions).
 
@@ -189,5 +189,5 @@ Starting September 20, 2023, all **new trial** instances of Tanzu Observability 
 
 In October, 2023, we start to incrementally [onboard](csp_migration.html) all **original** subscriptions, which use Tanzu Observability authentication and authorization, to VMware Cloud services. 
 
-{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Tanzu Observability API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
+{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Tanzu Observability API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
