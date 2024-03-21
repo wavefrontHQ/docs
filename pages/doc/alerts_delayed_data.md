@@ -19,7 +19,7 @@ Suppose you need to monitor the total number of users that are sharded across 3 
 
 * At about 9:35, `app-3` finally sends its data points, and these delayed points are backfilled into the time series.
 
-* A few minutes later, you investigate the alert by using an Tanzu Observability chart. You query for the total number of users, and adjust the custom time window so you can view the data points in the minutes around the alert check (9:28 to 9:30).
+* A few minutes later, you investigate the alert by using a Tanzu Observability chart. You query for the total number of users, and adjust the custom time window so you can view the data points in the minutes around the alert check (9:28 to 9:30).
 
 * You are surprised to see that the chart shows a total of about 105 users during the alert check window.
 
@@ -51,7 +51,7 @@ The process of backfilling data values causes Tanzu Observability to revise the 
 * The original view, which exists before backfilling takes place.
 * The revised view, which exists after backfilling takes place. This view consists of the complete set of reported data values.
 
-After backfilling takes place, you can see only the revised view in an Tanzu Observability chart.
+After backfilling takes place, you can see only the revised view in a Tanzu Observability chart.
 
 If an alert has fired when you didn't expect it, use one of these approaches to determine whether a data delay was the cause:
 

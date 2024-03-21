@@ -6,13 +6,13 @@ permalink: examine_usage.html
 summary: Monitor the overall usage of your service instance.
 ---
 
-It's important to understand how you use your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Operations for Applications, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged for overage usage.
+It's important to understand how you use your Tanzu Observability (formerly known as VMware Aria Operations for Applications) service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to our service, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged for overage usage.
 
-You can examine the overall usage of your Operations for Applications service by using the **Usage Summary** dashboard, discussed here.
+You can examine the overall usage of your Tanzu Observability service by using the **Usage Summary** dashboard, discussed here.
 
 For monitoring the ingestion rates by specific accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
 
-For performance monitoring of your Operations for Applications service, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
+For performance monitoring of your Tanzu Observability service, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
 
 ## How to Go to the Usage Summary Dashboard?
 
@@ -99,7 +99,7 @@ The **Overview** section of the dashboard contains the following charts:
 
 ### Scan Rate Charts
 
-Typically, you are billed based on your ingestion rate (the rate at which you send your data to Operations for Applications). However, if your scan rate (the rate at which you query your data) exceeds 20 times your ingestion rate, you will be billed based on the scan rate.
+Typically, you are billed based on your ingestion rate (the rate at which you send your data to Tanzu Observability). However, if your scan rate (the rate at which you query your data) exceeds 20 times your ingestion rate, you will be billed based on the scan rate.
 
 The **Scan Rate** section of the dashboard contains helps you explore scan rates:
 
@@ -124,7 +124,7 @@ The **Scan Rate** section of the dashboard contains helps you explore scan rates
     
 ## Learn More!
 
-For more in-depth exploration on the usage of your Operations for Applications service, see the [Usage integration](system.html)-related documentation: 
+For more in-depth exploration on the usage of your Tanzu Observability service, see the [Usage integration](system.html)-related documentation: 
 
 * [Monitor Your Service](wavefront_monitoring.html).
 * [Find Actionable Usage Information](wavefront_usage_info.html).

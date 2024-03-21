@@ -6,7 +6,7 @@ permalink: wavefront_monitoring_spy.html
 summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine them with a keyboard-driven UI.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes HTTP `spy` endpoints for sampling the data that your service instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes HTTP `spy` endpoints for sampling the data that your service instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
 
 {% include note.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
@@ -22,7 +22,7 @@ Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux t
 
 You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_yif61rd5" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
-To set up the Wavefront top utility you need a valid API token. For an Operations for Applications subscription on VMware Cloud services, you must use a VMware Cloud services access token. To get an access token, generate a VMware Cloud services API token associated with your user account and exchange it for the access token. Make sure that when you do this, you deselect the **Send empty value** check box for the **passcode** parameter. For more information and instructions, see [Use the Operations for Applications REST API](using_wavefront_api.html).
+To set up the Wavefront top utility you need a valid API token. For a Tanzu Observability subscription on VMware Cloud services, you must use a VMware Cloud services access token. To get an access token, generate a VMware Cloud services API token associated with your user account and exchange it for the access token. Make sure that when you do this, you deselect the **Send empty value** check box for the **passcode** parameter. For more information and instructions, see [Use the Tanzu Observability REST API](using_wavefront_api.html).
 
 
 ## Why Spy?
@@ -31,7 +31,7 @@ The `spy` endpoints can provide insight into new data that is being ingested by 
 * Verify that your service instance is ingesting the data points that you expect.
 * Troubleshoot a sudden change in the rate at which new data is ingested.
 
-Operations for Applications supports the `spy` endpoints shown in the following table:
+Tanzu Observability supports the `spy` endpoints shown in the following table:
 
 <table width="100%">
 <tbody>
@@ -56,7 +56,7 @@ Operations for Applications supports the `spy` endpoints shown in the following 
 
 Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line.
 
-A `spy` endpoint always returns a *sample* of the requested data. Operations for Applications always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter.
+A `spy` endpoint always returns a *sample* of the requested data. Tanzu Observability always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter.
 
 ## Get Ingested Metric Points with Spy
 
@@ -143,7 +143,7 @@ Suppose you have a service instance named `ex1`.
 
 ## Get Ingested Delta Counters with Spy
 
-Your service instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Operations for Applications stores **post aggregation**, not the individual points that were sent to Operations for Applications.
+Your service instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Tanzu Observability stores **post aggregation**, not the individual points that were sent to Tanzu Observability.
 
 You can use the returned list to help you answer questions like:
 * Show me some ingested delta counters with names that start with the prefix `Cust`.
@@ -409,7 +409,7 @@ To get a sample of the ingested span logs, use the following endpoint. Replace `
 https://<your_instance>.wavefront.com/api/gateway/spy/spanlogs
 ```
 
-By default, the sampling rate is 1%, which means that Operations for Applications returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
+By default, the sampling rate is 1%, which means that Tanzu Observability returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
 
 <table width="100%">
 <tbody>
@@ -432,7 +432,7 @@ http://ex1.wavefront.com/api/gateway/spy/spanlogs?sampling=0.05
 
 ## Get New ID Assignments with Spy
 
-During ingestion, Operations for Applications assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
+During ingestion, Tanzu Observability assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
 
 Your service instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your service instance hasn't seen yet.
 

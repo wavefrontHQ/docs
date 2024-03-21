@@ -168,11 +168,11 @@ Ensure that your environment meet requirements on the Ops Manager side and on th
 * **Ops Manager Requirements**
   VMware Tanzu Observability by Wavefront nozzle has the following requirements:
   * Read-only access to the Doppler Firehose and Cloud Controller.
-  * Access to an Tanzu Observability instance.
+  * Access to a Tanzu Observability instance.
   * Authentication credentials. The authentication credentials depend on whether your Tanzu Observability service is onboarded to VMware Cloud services.
 * **Tanzu Observability by Wavefront Requirements**
   To set up the Tanzu Application Service integration on your OTanzu Observability instance, you must have:
-  * Access to an Tanzu Observability instance.
+  * Access to a Tanzu Observability instance.
   * At a minimum, **Integrations** permission on that Tanzu Observability instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
@@ -185,7 +185,7 @@ This section explains each step in the flow in detail.
 ### Prerequisites
 
 * You must have a Tanzu Network account to configure the Tanzu Observability Nozzle in Ops Manager.
-* You must have login credentials for an Tanzu Observability instance to configure the integration.
+* You must have login credentials for a Tanzu Observability instance to configure the integration.
 * Ensure that the root certificate for Ops Manager is included in data coming from Tanzu Application Service. See the [No Data Flowing and Certificate Error](tas_to_troubleshooting.html#symptom-no-data-flowing-in-and-certificate-error) troubleshooting section.
 
 

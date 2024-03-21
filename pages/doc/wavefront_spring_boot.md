@@ -309,7 +309,7 @@ dependencies {
 
 ### Step 2 (Optional): Specify Your Tanzu Observability Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have an Tanzu Observability account, you can send data there instead by specifying the `uri` and `api-token` properties, as follows:
+By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a Tanzu Observability account, you can send data there instead by specifying the `uri` and `api-token` properties, as follows:
 
 ```
 management.metrics.export.wavefront.api-token=$API_Token
@@ -447,7 +447,7 @@ You can configure the cluster and shard the same way. This information is used t
 
 ## Wavefront Spring Boot Integration
 
-If you already have an Tanzu Observability account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
+If you already have a Tanzu Observability account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
 
 1. Select **Integrations**, search for Spring Boot, and click the Spring Boot integration.
 1. Use the information displayed on the **Setup** tab to set up the integration.

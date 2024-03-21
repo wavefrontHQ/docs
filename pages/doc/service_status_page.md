@@ -14,7 +14,7 @@ VMware publishes service operational status and maintenance schedules to the [VM
 <tbody>
 <tr>
 <td width="60%">
-To see the status of your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service, you must get the alias name of your cluster.
+To see the status of your Tanzu Observability (formerly known as VMware Aria Operations for Applications) service, you must get the alias name of your cluster.
 <ol>
 <li>Log in to your service instance and click the gear icon on the toolbar.</li>
 <li>Under <strong>VMware Status Page</strong>, see your cluster alias name.</li>
@@ -34,14 +34,14 @@ To see the status of your VMware Aria Operations for Applications (formerly know
 To check whether your service is fully operational or it's undergoing maintenance, you can visit the VMware Cloud Services Status Page.
 <ol>
 <li>In a web browser, go to <a href="https://status.vmware-services.io">https://status.vmware-services.io</a>.</li>
-<li>Expand <strong>VMware Aria Operations for Applications</strong>.
+<li>Expand <strong>Tanzu Observability</strong>.
 <ul>
-<li>The status icon next to <strong>VMware Aria Operations for Applications</strong> shows the status of the central service.</li>
+<li>The status icon next to <strong>Tanzu Observability</strong> shows the status of the central service.</li>
 <li>The status icon next to your <a href="#find-your-cluster-alias-name">cluster alias name</a> shows the status of your service instance.</li>
 </ul></li>
 If both status icons are green check marks, your service is fully operational.</ol>
 </td>
-<td width="40%"><img src="images/service_status.png" alt="The VMware Cloud Services Status Page with expanded VMware Aria Operations for Applications."></td>
+<td width="40%"><img src="images/service_status.png" alt="The VMware Cloud Services Status Page with expanded Tanzu Observability."></td>
 </tr>
 </tbody>
 </table>
@@ -58,8 +58,8 @@ You can subscribe to receive notifications for incidents and scheduled maintenan
 <li>In the top-right corner, click <strong>Subscribe to Updates</strong>.</li>
 <li>Select the notification method that you want to use, enter your contact details, and click <strong>Subscribe</strong></li>
 <li>On the next page, next to <strong>Components</strong>, click <strong>Select none</strong> to deselect all services.</li>
-<li>Scroll down to <strong>VMware Aria Operations for Applications</strong>.</li>
-<li>Select the check boxes for both <strong>VMware Aria Operations for Applications</strong> and your alias cluster name, and click <strong>Save</strong>.</li>
+<li>Scroll down to <strong>Tanzu Observability</strong>.</li>
+<li>Select the check boxes for both <strong>Tanzu Observability</strong> and your alias cluster name, and click <strong>Save</strong>.</li>
 <li>Click the confirmation link that we sent to you.</li>
 </ol>
 </td>

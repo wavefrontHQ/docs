@@ -100,7 +100,7 @@ Our service uses these names as span tag values, as filters for traces, as compo
 ### Guidelines for Choosing Application Construct Names
 
 * Choose a string name for each construct. Names at the same level must be unique.
-  - **Example:** Specify only one application named `beachshirts` in an Tanzu Observability instance, and only one service named `delivery` in a given application.
+  - **Example:** Specify only one application named `beachshirts` in a Tanzu Observability instance, and only one service named `delivery` in a given application.
   {% include important.html content="Duplicate application, service, or component names might result in incorrect RED metrics. " %}
 * Choose logical names that clearly map to your applications and services. Logical names might be simpler, more readable versions of code identifiers.
 
