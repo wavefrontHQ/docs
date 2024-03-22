@@ -89,11 +89,11 @@ To use our Kubernetes Metrics Collector, you must set up our Kubernetes integrat
 
 ## Monitor Kubernetes
 
-Our Kubernetes Metrics Collector supports monitoring for your Kubernetes infrastructure at all levels of the stack.
+Our Kubernetes Metrics Collector supports monitoring for your Kubernetes infrastructure at all levels of the stack. See the [list of metrics collected by the Kubernetes Metrics Collector](kubernetes.html#metrics).
 * Set up the Kubernetes Collector to have much of the monitoring happen automatically.
 * Fine-tune and customize the solution with configuration options available in the Operations for Applications Kubernetes Metrics Collector.
 
-{% include note.html content="See the [list of metrics collected by the Kubernetes Metrics Collector](kubernetes.html#metrics)." %}
+{% include tip.html content="To avoid [high-cardinality](cardinality.html) and ensure optimal [query performance](query_language_performance.html), consider reducing the retention period of the Kubernetes metrics from 18 months (default) to 28 days. For that purpose, convert the `kubernetes.` metrics namespace from persistent to ephemeral. For details, see [Change the Retention Period of Metrics](metrics_managing.html#change-the-retention-period-of-metrics)." %}
 
 ### Infrastructure Monitoring
 
