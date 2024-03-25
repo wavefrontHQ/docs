@@ -12,7 +12,7 @@ frequencyHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Converts a histogram coming from Google Cloud Platform(GCP) to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) histogram format. When GCP Detailed Histogram Metrics is enabled, the query engine will additionally ingest bucket counts for GCP distributions, with metric namegcp.<metric>.bucket.
+Converts a histogram coming from Google Cloud Platform(GCP) to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) histogram format. When GCP Detailed Histogram Metrics is enabled, the query engine will additionally ingest bucket counts for GCP distributions, with metric namegcp.<metric>.bucket.
 
 Enabling GCP Detailed Histogram Metrics will increase your ingestion rate and cost.
 
@@ -33,7 +33,7 @@ Users can manipulate the resulting histograms with our [histogram query function
 <td markdown="span">Optional string that describes the bucket. Default is <strong>lt</strong>, that is, less than. If your source histogram uses a different tag key to specify the buckets, specify that tag key here.  </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
-<td>Ordinary histogram distribution that we'll convert to an Operations for Applications histogram. </td></tr>
+<td>Ordinary histogram distribution that we'll convert to a Tanzu Observability histogram. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional <code>group by</code> parameter for organizing the time series into subgroups and then returning each histogram subgroup.
@@ -45,9 +45,9 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-This function converts ordinary histogram data to Operations for Applications histograms. Histogram data is defined as a set of time series where each series represents the frequency of outcomes in a particular bucket, bounded by a tag such as `lt`.
+This function converts ordinary histogram data to Tanzu Observability histograms. Histogram data is defined as a set of time series where each series represents the frequency of outcomes in a particular bucket, bounded by a tag such as `lt`.
 
-One use case is to visualize GCP distributions, which can be ingested by the Operations for Applications service using the [Google Cloud Platform Integration](gcp.html). Distribution bucket data is ingested as `gcp.<metric>.bucket` with an `lt` tag defining the upper bound of each bucket. You can use `frequencyHisto(ts(gcp.<metric>.bucket))` to convert the bucket data to an Operations for Applications histogram.
+One use case is to visualize GCP distributions, which can be ingested by the Tanzu Observability service using the [Google Cloud Platform Integration](gcp.html). Distribution bucket data is ingested as `gcp.<metric>.bucket` with an `lt` tag defining the upper bound of each bucket. You can use `frequencyHisto(ts(gcp.<metric>.bucket))` to convert the bucket data to a Tanzu Observability histogram.
 
 When a chart displays the result of this function, it shows the median by default. You can use `percentile()` to change that and, for example, show the 90% percentile.
 
@@ -79,15 +79,15 @@ Now let's do the same with WQL. The GCP integration ingests the distribution's b
 
 ![GCP bucket data](images/gcp_bucket_data.png)
 
-Then we use `frequencyHisto()` to convert the data to an Operations for Applications histogram and group by `location`, and finally, we use `percentile()` to find the 95th percentile of the histogram.
+Then we use `frequencyHisto()` to convert the data to a Tanzu Observability histogram and group by `location`, and finally, we use `percentile()` to find the 95th percentile of the histogram.
 
 ![frequency histo](images/frequency_histo_p95.png)
 
 
 ## See Also
 
-* Our [histogram doc page](proxies_histograms.html) gives background information about Operations for Applications histograms.
-* The `cumulativeHisto()` function is similar but converts Prometheus cumulative histograms to Operations for Applications ordinary histograms.
+* Our [histogram doc page](proxies_histograms.html) gives background information about Tanzu Observability histograms.
+* The `cumulativeHisto()` function is similar but converts Prometheus cumulative histograms to Tanzu Observability ordinary histograms.
 
 
 ## Caveats

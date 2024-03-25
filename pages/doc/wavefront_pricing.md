@@ -1,18 +1,18 @@
 ---
-title: Operations for Applications Pricing
+title: Tanzu Observability Pricing
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_pricing.html
 summary: Summary of pricing information.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) pricing depends on the contract that your company has with VMware, on the types on data you're ingesting, and on some other factors. This page gives an overview of pricing for the different types of data you can send to Operations for Applications.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) pricing depends on the contract that your company has with VMware, on the types on data you're ingesting, and on some other factors. This page gives an overview of pricing for the different types of data you can send to Tanzu Observability.
 
 {% include note.html content="Some customers have special rates, for example, because they're helping us to test a new feature. The information on this page covers the most common case. "%}
 
 ## Pricing Structure
 
 At the core of the model is the idea of consumption-based pricing. What you pay is based on data throughput, primarily:
-* **Data ingestion**. When the Operations for Applications service ingests data, the data is consumed and count toward your allocation.
+* **Data ingestion**. When the Tanzu Observability service ingests data, the data is consumed and count toward your allocation.
 * **Data scanning**. When you run a query, either as part of an alert or when you look at a dashboard, the backend has to scan the data. Scanning counts toward your allocation.
 
 The model has this basic pricing structure:

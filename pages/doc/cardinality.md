@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how the service deals with cardinality.
 ---
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. Tanzu Observability can handle more than 200,000 concurrently running containers per Kubernetes cluster. In certain situations, however, high cardinality can cause system slowdown and metrics retrieval issues.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. Tanzu Observability can handle more than 200,000 concurrently running containers per Kubernetes cluster. In certain situations, however, high cardinality can cause system slowdown and metrics retrieval issues.
 
 ## Video
 

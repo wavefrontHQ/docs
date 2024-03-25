@@ -3,18 +3,18 @@ title: Security
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_security.html
-summary: Understand how VMware Aria Operations for Applications secures your data and supports fine-tuning security for your cluster.
+summary: Understand how VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) secures your data and supports fine-tuning security for your cluster.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) protects your data and includes facilities for you to customize authentication and authorization.
+Tanzu Observability protects your data and includes facilities for you to customize authentication and authorization.
 
 This page gives a summary.
 * Download this [white paper](https://tanzu.vmware.com/content/white-papers/vmware-tanzu-observability-security-and-privacy) for a detailed discussion. 
-* Download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for VMware Aria Operations for Applications](https://cloudsecurityalliance.org/star/registry/vmware-inc/) for our consensus assessment questionnaire.
+* Download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for VMware Tanzu Observability](https://cloudsecurityalliance.org/star/registry/vmware-inc/) for our consensus assessment questionnaire.
 
 ## Certifications
 
-Operations for Applications has successfully completed all requirements for the following certifications and reports:
+Tanzu Observability has successfully completed all requirements for the following certifications and reports:
 
 *	ISO 27001/27017/27018
 *	SOC 2 Type 1
@@ -22,13 +22,13 @@ Operations for Applications has successfully completed all requirements for the 
 
 ## Privacy
 
-Operations for Applications is used for monitoring applications. Operations for Applications securely stores user name and password information, but does not collect information about individual users. We do not install agents that collect user information.
+Tanzu Observability is used for monitoring applications. Tanzu Observability securely stores user name and password information, but does not collect information about individual users. We do not install agents that collect user information.
 
 None of the built-in integrations collect user information. However, our customers can set up their service instances to collect any type of information they want.
 
 ## Data Protection
 
-Currently, Operations for Applications uses AWS to run the service and to store customer application data.
+Currently, Tanzu Observability uses AWS to run the service and to store customer application data.
 
 * The service is served from a single AWS region spread across multiple availability zones for failover.
 * All incoming and outgoing traffic is encrypted.
@@ -46,15 +46,15 @@ Customers retain control and ownership of their content. We do not replicate cus
 
 ## High Availability
 
-Operations for Applications is architected to be highly available. In the event of a hardware failure, we automatically migrate to or restart workloads, on another host machine in the cluster and automatically restart the failed host. If the host machine fails to restart, or the performance of the restarted host is degraded, the service is capable of replacing the failed host in a cluster with an entirely new host within minutes.
+Tanzu Observability is architected to be highly available. In the event of a hardware failure, we automatically migrate to or restart workloads, on another host machine in the cluster and automatically restart the failed host. If the host machine fails to restart, or the performance of the restarted host is degraded, the service is capable of replacing the failed host in a cluster with an entirely new host within minutes.
 
 ## Disaster Recovery
 
-Operations for Applications supports the option of Disaster Recovery (DR) across regions for customers. Contact your Operations for Applications representative for details.
+Tanzu Observability supports the option of Disaster Recovery (DR) across regions for customers. Contact your Tanzu Observability representative for details.
 
 ## Networking
 
-Applications send data to Operations for Applications using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to Operations for Applications, we require TLS 1.2 connections.
+Applications send data to Tanzu Observability using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to Tanzu Observability, we require TLS 1.2 connections.
 
 The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#configure-wavefront-proxy-with-an-httphttps-proxy).
@@ -66,19 +66,19 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 ## Authentication
 
-Operations for Applications supports three methods of authentication.
+Tanzu Observability supports three methods of authentication.
 
 * By using a user name and password.
 
- Operations for Applications supports user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a token.
+ Tanzu Observability supports user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a token.
 
 * SAML SSO
 
-  You can use the authentication provided by Operations for Applications or use one of the supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
+  You can use the authentication provided by Tanzu Observability or use one of the supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
 
   We also support [self-service SAML SSO](auth_self_service_sso.html) setup.
 
-  If your chosen authentication solution supports two-factor authentication, Operations for Applications requires two-factor authentication for login.
+  If your chosen authentication solution supports two-factor authentication, Tanzu Observability requires two-factor authentication for login.
 
 * Multi-Tenant SSO
 
@@ -87,9 +87,9 @@ Operations for Applications supports three methods of authentication.
 
 ## Authorization
 
-Operations for Applications supports multi-level authorization:
+Tanzu Observability supports multi-level authorization:
 * **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a read-only role with no permissions and assign it to a Novice group, or create a Developers role, assign **Dashboards**, **Alerts**, **Proxy**, **Metrics**, and **Chart Embedding** permissions, and assign it to a developer group.
-* [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. Operations for Applications supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and the [Super Admin](authorization-faq.html#who-is-the-super-admin-user) user can view and modify new dashboards.
+* [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. Tanzu Observability supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and the [Super Admin](authorization-faq.html#who-is-the-super-admin-user) user can view and modify new dashboards.
 * [**Metrics security policy rules**](metrics_security.html) allow fine-grained control over metrics visibility in dashboards, charts, alerts, etc.
 
 
@@ -106,7 +106,7 @@ You can view changes that were made to dashboards, alerts, etc., by using [versi
 
 Our cloud integrations support monitoring data from different cloud providers. The process is like this:
 1. You open the integration.
-2. You give Operations for Applications [global read-only access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) or [limited access](integrations_aws_overview.html#giving-limited-access).
+2. You give Tanzu Observability [global read-only access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) or [limited access](integrations_aws_overview.html#giving-limited-access).
 
 For details, see the individual integration.
 
