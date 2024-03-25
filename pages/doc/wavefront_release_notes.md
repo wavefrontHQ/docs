@@ -65,7 +65,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-03.x Release Notes
 
-* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Tanzu Observability user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
 * **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
 

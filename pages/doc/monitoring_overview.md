@@ -6,10 +6,10 @@ permalink: monitoring_overview.html
 summary: Understand how out-of-the-box dashboards and tools help you find problems
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is perfect if you want to monitor lots of hosts or lots of metrics. For example, you can monitor hundreds of thousands of Kubernetes containers. But how well the system performs can still depend on the quality of the input:
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is perfect if you want to monitor lots of hosts or lots of metrics. For example, you can monitor hundreds of thousands of Kubernetes containers. But how well the system performs can still depend on the quality of the input:
 
 * Are the data points you're sending easy to ingest? Too many unique combinations of metric, source, and tag slow down the environment and make it hard to understand what's going on when you look at charts.
-* Are you actually using all the data you send in? It's tempting to send all data to Operations for Applications, and then analyze what seems suitable. But if you examine which data your dashboards and queries actually use, you might be able to get faster query displays and more easily stay within your allocated PPS budget.
+* Are you actually using all the data you send in? It's tempting to send all data to Tanzu Observability, and then analyze what seems suitable. But if you examine which data your dashboards and queries actually use, you might be able to get faster query displays and more easily stay within your allocated PPS budget.
 
 
 ## Find Slow Queries and Improve Dashboard Response
@@ -35,7 +35,7 @@ You can find queries that are exceptionally slow by checking  the **Slow Query**
 
 And even if a query isn't listed there, there are some guidelines for queries:
 
-1. When sending data to Operations for Applications, consider the [Operations for Applications data format best practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices), for example:
+1. When sending data to Tanzu Observability, consider the [Tanzu Observability data format best practices](wavefront_data_format.html#tanzu-observability-data-format-best-practices), for example:
 * Make the metrics the most stable part of your data. For example, don't include a unique ID in each metric.
 * Keep the number of distinct combinations of metric, source, and tags under 1000. For example, avoid including a timestamp in your metric. Instead, look at the metric over time in chart.
 
