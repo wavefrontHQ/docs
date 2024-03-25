@@ -109,7 +109,6 @@ To have the Operations for Applications service treat a metric as a delta counte
 
 [Using Delta Counters](delta_counters.html#using-delta-counters) gives details and best practices.
 
-
 ## Histograms
 
 Operations for Applications can receive and store metrics at 1 point per second per unique source. However, some scenarios generate metrics even more frequently. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric, timestamp, and source. Using "normal” metrics, we can’t measure this.
