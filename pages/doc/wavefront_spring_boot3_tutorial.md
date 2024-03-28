@@ -10,7 +10,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 {% include tip.html content="Want to start your project from scratch using [https://start.spring.io/](https://start.spring.io/)? Follow the [Observability with Spring](https://spring.io/guides/gs/tanzu-observability/) tutorial." %}
 
-If you are also using the Tanzu Application Service (TAS), see the VMware Tanzu solutions workbook [Instrumenting TAS OpenTelemetry for Spring Boot Application](https://docs.vmware.com/en/VMware-Tanzu-Reference-Architecture/services/tanzu-solutions-workbooks/solution-workbooks-TAS-OpenTelemetry-SpringBoot-TO.html).
+If you are also using the Tanzu Application Service (TAS), see the VMware Tanzu solutions workbook on [Instrumenting TAS OpenTelemetry for Spring Boot Application](https://docs.vmware.com/en/VMware-Tanzu-Reference-Architecture/services/tanzu-solutions-workbooks/solution-workbooks-TAS-OpenTelemetry-SpringBoot-TO.html).
 
 ## Prerequisites
 
