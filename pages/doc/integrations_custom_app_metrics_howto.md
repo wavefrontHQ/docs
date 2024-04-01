@@ -51,11 +51,9 @@ The supported way to do this using the Tanzu Observability by Wavefront Nozzle i
 
 ### Spring Boot
 
-Spring Boot is commonly used to build apps running on TAS.
+Spring Boot is commonly used to build apps running on TAS. To use a VMware Tanzu solutions workbook, see [Instrumenting TAS OpenTelemetry for Spring Boot Application](https://docs.vmware.com/en/VMware-Tanzu-Reference-Architecture/services/tanzu-solutions-workbooks/solution-workbooks-TAS-OpenTelemetry-SpringBoot-TO.html).
 
 Spring Boot Actuator supports both push and pull models, with the only difference typically being configuration changes. In that case, it becomes relatively easy to switch from push to pull or vice-versa.
-
-To use a VMware Tanzu solutions workbook, see [Instrumenting TAS OpenTelemetry for Spring Boot Application](https://docs.vmware.com/en/VMware-Tanzu-Reference-Architecture/services/tanzu-solutions-workbooks/solution-workbooks-TAS-OpenTelemetry-SpringBoot-TO.html).
 
 ### Wavefront Proxy Load
 
