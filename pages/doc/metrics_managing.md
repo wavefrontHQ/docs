@@ -106,7 +106,7 @@ On the Metrics Browser, you can:
 * Filter by name or source.
 * Hide and redisplay individual metrics or metrics namespaces to unclutter your page.
 * View the metric type in terms of retention period - persistent or ephemeral.
-* Convert persistent metrics to ephemeral and the reverse. Internal metrics are ephemeral and not convertible.
+* Convert persistent metrics to ephemeral and the reverse. Most of the internal metrics are ephemeral and not convertible.
 * Create a chart or dashboard for an individual metric or for the current set of metrics.
 * View the sources and point tags for an individual metric.
 
@@ -164,7 +164,7 @@ With the 2024-05 release, we introduce **ephemeral** metrics, which have short [
 
 Converting persistent metrics to ephemeral can significantly improve the [query performance](query_language_performance.html) and reduce the [cardinality](cardinality.html).
 
-{% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode). Internal metrics are ephemeral and not convertible to persistent." %}
+{% include note.html content="To change the retention period of a metric or metrics namespace, you must be a Super Admin user with [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode). Most of the internal metrics are ephemeral and not convertible to persistent." %}
 
 {% include important.html content="Converting a persistent metric to ephemeral **permanently deletes** the data points of this metric that are older than 28 days." %}
 
