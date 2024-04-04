@@ -13,9 +13,21 @@ You can:
 * Create your own dashboard, query these metrics in charts, and create alerts for some of these metrics.
 
 Most of the internal metrics are [**ephemeral**](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which are persistent:
-```
-~collector.*points.reported, ~externalservices.*.points, ~derived-metrics.points.reported, ~collector.*histograms.reported, ~derived-histograms.histograms.reported, ~collector.*spans.reported, ~query.metrics_scanned, ~proxy.points.*.received, ~proxy.histograms.*.received, ~proxy.spans.*.received, ~proxy.spanLogs.*.received, ~proxy.build.version, ~metric.global.namespace.*, ~histogram.global.namespace.*, ~counter.global.namespace.*
-```
+- `~collector.*points.reported`
+- `~externalservices.*.points`
+- `~derived-metrics.points.reported`
+- `~collector.*histograms.reported`
+- `~derived-histograms.histograms.reported`
+- `~collector.*spans.reported`
+- `~query.metrics_scanned`
+- `~proxy.points.*.received`
+- `~proxy.histograms.*.received`
+- `~proxy.spans.*.received`
+- `~proxy.spanLogs.*.received`
+- `~proxy.build.version`
+- `~metric.global.namespace.*`
+- `~histogram.global.namespace.*`
+- `~counter.global.namespace.*`
 
 ## Internal Metrics Overview
 
