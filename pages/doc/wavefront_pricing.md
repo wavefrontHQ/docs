@@ -26,7 +26,7 @@ For spans, the pricing structure is as follows:
 
 ![Metrics 1pps and Histograms 7pps are the basis, distributed tracing is 22 PPS if intelligent sampling is turned off](images/pricing_model_1.png)
 
-
+<!--
 ## Data Retention
 
 Default data retention is:
@@ -36,6 +36,8 @@ Default data retention is:
 * 7 days for traces, spans, and span logs.
 
 Some companies negotiate a longer data retention at a higher price. Ask your administrator for details.
+
+-->
 
 ## Learn More
 
