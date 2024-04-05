@@ -16,9 +16,7 @@ summary: Learn about gauges, counters, delta counters, histograms, and spans.
 
 {% include tip.html content="Wavefront co-founder Clement Pang wrote [a Medium article](https://medium.com/@clementpang/thoughts-from-the-front-line-why-wavefront-3d807e2106f) that explains different metric types and why they are so powerful." %}
 
-## Summary of Metric Types
-
-### Metric Types per Data Type
+## Metric Types per Data Type
 
 The following table gives an overview of metric types. We introduce each type in more detail below.
 
@@ -60,6 +58,7 @@ The following table gives an overview of metric types. We introduce each type in
 </tbody>
 </table>
 
+<!--
 ### Metric Types per Retention Period
 
 With the 2024-05 release, we introduce **ephemeral** metrics, which have a short [retention period](terms_of_service.html#data-retention).
@@ -82,6 +81,7 @@ With the 2024-05 release, we introduce **ephemeral** metrics, which have a short
 </tr>
 </tbody>
 </table>
+-->
 
 ## Gauges
 

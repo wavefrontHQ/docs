@@ -160,7 +160,7 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 
 ### Change the Retention Period of Metrics
 
-With the 2024-05 release, we introduce **ephemeral** metrics, which have short [retention period](terms_of_service.html#data-retention). By default, all ingested metrics are persistent but are convertible to ephemeral.
+With the 2024-05 release, we introduce **ephemeral** metrics, which have short retention period. By default, all ingested metrics are persistent but are convertible to ephemeral.
 
 Converting persistent metrics to ephemeral can significantly improve the [query performance](query_language_performance.html) and reduce the [cardinality](cardinality.html).
 
