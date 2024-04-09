@@ -38,7 +38,24 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-07.x Release Notes
 
-* **Ephemeral Internal Metrics**: All [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period), so that they are retained for 28 days. Internal metrics are not convertible to persistent.
+**Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
+
+- `~collector.*points.reported`
+- `~externalservices.*.points`
+- `~derived-metrics.points.reported`
+- `~collector.*histograms.reported`
+- `~derived-histograms.histograms.reported`
+- `~collector.*spans.reported`
+- `~query.metrics_scanned`
+- `~proxy.points.*.received`
+- `~proxy.histograms.*.received`
+- `~proxy.spans.*.received`
+- `~proxy.spanLogs.*.received`
+- `~proxy.build.version`
+- `~metric.global.namespace.*`
+- `~histogram.global.namespace.*`
+- `~counter.global.namespace.*`
+
 
 
 ## 2024-05.x Release Notes

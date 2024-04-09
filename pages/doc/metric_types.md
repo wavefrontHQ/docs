@@ -16,9 +16,7 @@ summary: Learn about gauges, counters, delta counters, histograms, and spans.
 
 {% include tip.html content="Wavefront co-founder Clement Pang wrote [a Medium article](https://medium.com/@clementpang/thoughts-from-the-front-line-why-wavefront-3d807e2106f) that explains different metric types and why they are so powerful." %}
 
-## Summary of Metric Types
-
-### Metric Types per Data Type
+## Metric Types per Data Type
 
 The following table gives an overview of metric types. We introduce each type in more detail below.
 
@@ -60,6 +58,7 @@ The following table gives an overview of metric types. We introduce each type in
 </tbody>
 </table>
 
+<!--
 ### Metric Types per Retention Period
 
 With the 2024-05 release, we introduce **ephemeral** metrics, which have a short [retention period](terms_of_service.html#data-retention).
@@ -76,12 +75,13 @@ With the 2024-05 release, we introduce **ephemeral** metrics, which have a short
 <tr>
 <td>Ephemeral</td>
 <td>28 days of data retention. Suitable for metrics that are relevant for a short time and that have high cardinality, such as the Kubernetes metrics (<code>kubernetes.</code>).
-<p>By default, only the <a href="wavefront-internal-metrics.html">internal metrics</a> are ephemeral and they are not convertible to persistent.</p>
+<p>By default, most of the <a href="wavefront-internal-metrics.html">internal metrics</a> are ephemeral and they are not convertible to persistent.</p>
 <p><a href="metrics_managing.html#change-the-retention-period-of-metric">Converting</a> metrics from persistent to ephemeral improves the <a href="query_language_performance.html">query performance</a> and reduces the <a href="cardinality.html">cardinality</a>.</p>
 </td>
 </tr>
 </tbody>
 </table>
+-->
 
 ## Gauges
 
