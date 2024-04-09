@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem 'jekyll', '~> 4.3', '>= 4.3.3'
-gem 'nokogiri', '~> 1.16.2'
+gem 'jekyll', '~> 4.0', '>= 4.0.1'
+gem 'nokogiri', '~> 1.14.3'
 group :jekyll_plugins do
   gem 'algoliasearch-jekyll', '~> 0.8.0'
 end

@@ -481,5 +481,19 @@ For details, see <a href="metrics_security.html">Metrics Security Policy Rules</
 For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rules</a>.</p>
 </td>
 </tr>
+<tr>
+<td>Related Information in Alert Viewer and Alert Editor
+</td>
+<td><strong>Who</strong>: All users.
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: The Alert Viewer shows the Related Firing Alerts pane with correlated alerts that have fired within 30 minutes. For details, see <a href="alerts.html#step-2-examine-the-related-information">Examine the Related Information</a>.</p>
+<p>The Alert Editor doesn't show related information.</p>
+</td>
+<td><strong>Who</strong>: All users.
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: The Alert Viewer shows the Related Insights pane with the insights that contain this alert. For details, see <a href="alerts.html#step-2-examine-the-related-information">Examine the Related Information</a>.</p>
+<p>The Alert Editor also includes the Related Insights pane.</p>
+</td>
+</tr>
 </tbody>
 </table>
