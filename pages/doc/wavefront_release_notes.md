@@ -36,7 +36,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
-## 2024-xx.x Release Notes
+## 2024-09.x Release Notes
 
 * **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between Operations for Applications and VMware Tanzu Insights. The Insights capabilities help you investigate your alerts from within the Operations for Applications user interface.
 
@@ -60,8 +60,54 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
   For details, see [Examine the Related Information](alerts.html#step-2-examine-the-related-information).
 
+## 2024-07.x Release Notes
+
+**Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
+
+- `~collector.*points.reported`
+- `~externalservices.*.points`
+- `~derived-metrics.points.reported`
+- `~collector.*histograms.reported`
+- `~derived-histograms.histograms.reported`
+- `~collector.*spans.reported`
+- `~query.metrics_scanned`
+- `~proxy.points.*.received`
+- `~proxy.histograms.*.received`
+- `~proxy.spans.*.received`
+- `~proxy.spanLogs.*.received`
+- `~proxy.build.version`
+- `~metric.global.namespace.*`
+- `~histogram.global.namespace.*`
+- `~counter.global.namespace.*`
 
 ## 2024-05.x Release Notes
+
+* **New Ephemeral Metric Type**: With this release, we introduce ephemeral metrics, which have a short retention period. Ephemeral metrics are retained for 28 days, whereas persistent (default) metrics are retained for 18 months. For details, see [Metric Types per Retention Period](metric_types.html#metric-types-per-retention-period).
+
+  {% include note.html content="By default, all ingested metrics are persistent but are now convertible to ephemeral."%}
+
+  On the Metrics Browser:
+  
+  * All users can view the type of each metric - persistent or ephemeral.
+  * Super Admin users can convert metrics from persistent to ephemeral and the reverse. For details, see [Change the Retention Period of Metrics](metrics_managing.html#change-the-retention-period-of-metrics).
+    
+  ![A screenshot of the Metrics Browser with highlighted the new Type column and the new Change Ephemerality button.](images/metrics_browser_RNs.png)
+
+  {% include note.html content="Converting persistent metrics to ephemeral improves the [query performance](query_language_performance.html) and reduces the [cardinality](cardinality.html). Consider converting metrics that are relevant for a short time and that have high cardinality, such as the Kubernetes metrics (`kubernetes.`). "%}
+
+* **Replace all `~agent.` metrics with `~proxy.`**: The `~agent.` metrics were deprecated a few years ago. With this release, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
+
+  For example: 
+
+  ```
+  # Deprecated metric: 
+  rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
+
+  # Replace with:
+  rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
+  ``````
+
+## 2024-03.x Release Notes
 
 * **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
@@ -82,23 +128,12 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
     * Restore or permanently delete a deleted derived metric.
   * Select one or more derived metrics to add or remove specific tags for them, or to delete them.
 
-
-## 2024-03.x Release Notes
+## 2024-01.x Release Notes
 
 **Amazon Web Services Integration Improvement**: You can now disable the ingestion of support service limit metrics. See the [Integrations Release Notes](integrations_new_changed.html#january-2024) for details.
 
-
-## 2024-01.x Release Notes
-
-**Traces Security Policy**: You can block application or service information for specific users so that they don’t see the data on the Application Status page, Traces Browser, Application Map, or Operations Dashboards. To learn more, see:
-* [Traces Security Policies for original and onboarded subscriptions](security_policy.html#traces-security-policies).
-* [Traces Security Policies for onboarded subscriptions only](csp_security_policy.html#traces-security-policies).
-
-Example: An annotated screenshot of the create traces security policy for original and onboarded subscriptions.
-![Annotated create traces security rule screenshot.](images/traces_security_policy_create_rule.png)
-
 ## Past Release Notes
-- [2023-45.x Release Notes](2023-45.x_release_notes.html)
+- [2023-52.x Release Notes](2023-52.x_release_notes.html)
 - [2023-29.x Release Notes](2023-29.x_release_notes.html)
 - [2023-13.x Release Notes](2023-13.x_release_notes.html)
 - [2023-06.x Release Notes](2023-06.x_release_notes.html)

@@ -30,65 +30,67 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 ## Configure the Petclinic Application
 
-1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project. Add the following code to the `pom.xml` file (replace VERSION with the current version).
-   {{site.data.alerts.tip}}
-      <p> Make sure that the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="wavefront_springboot3.html#versionCompatibility">System Requirements</a> to get the correct dependency version.
-      <br/>
-      For example, if you are using Spring Boot release version 3.0.1, the <code>VERSION</code> must be 3.0.1.
-      </p>
-    {{site.data.alerts.end}}
-    ```xml
-    <dependencyManagement>
-      <dependencies>
+1. Add the following configurations to the `pom.xml` file in the sample petclinic application:
+
+    1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project. Replace VERSION with the current version.
+        {{site.data.alerts.tip}}
+            <p> Make sure that the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="wavefront_springboot3.html#versionCompatibility">System Requirements</a> to get the correct dependency version.
+            <br/>
+            For example, if you are using Spring Boot release version 3.0.1, the <code>VERSION</code> must be 3.0.1.
+            </p>
+          {{site.data.alerts.end}}
+        ```xml
+        <dependencyManagement>
+          <dependencies>
+            <dependency>
+              <groupId>com.wavefront</groupId>
+              <artifactId>wavefront-spring-boot-bom</artifactId>
+              <version>VERSION</version>
+              <type>pom</type>
+              <scope>import</scope>
+            </dependency>
+          </dependencies>
+        </dependencyManagement>
+        ```
+
+    1. Add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` dependencies.
+        ```xml
         <dependency>
           <groupId>com.wavefront</groupId>
-          <artifactId>wavefront-spring-boot-bom</artifactId>
-          <version>VERSION</version>
-          <type>pom</type>
-          <scope>import</scope>
+          <artifactId>wavefront-spring-boot-starter</artifactId>
         </dependency>
-      </dependencies>
-    </dependencyManagement>
-    ```
+        <dependency>
+          <groupId>io.micrometer</groupId>
+          <artifactId>micrometer-registry-wavefront</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+        ```
 
-1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file's `<dependencies>`.
-    ```xml
-    <dependency>
-      <groupId>com.wavefront</groupId>
-      <artifactId>wavefront-spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-registry-wavefront</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    ```
+    1. Add the `micrometer-tracing-bridge-brave` and `micrometer-tracing-reporter-wavefront` dependencies to send trace data to our service.
+        ```xml
+        <dependency>
+          <groupId>io.micrometer</groupId>
+          <artifactId>micrometer-tracing-bridge-brave</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>io.micrometer</groupId>
+          <artifactId>micrometer-tracing-reporter-wavefront</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+        ```
 
-1. Add the following dependencies to your <code>pom.xml</code> to send trace data to Wavefront.
-    ```xml
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-tracing-bridge-brave</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-tracing-reporter-wavefront</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    ```
-
-1. Add the `Datasource Micrometer` dependency to intercept and log JDBC SQL queries. You can intercept most Connection, Statement, and ResultSet methods invocations using the Datasource Micrometer dependency.
-   {{site.data.alerts.tip}}
-      <p>Check the <a href="https://github.com/jdbc-observations/datasource-micrometer/releases">Datasource Micrometer releases</a> and enter the latest version in place of <code>VERSION</code>.</p>
-    {{site.data.alerts.end}}
-    ```xml
-    <dependency>
-      <groupId>net.ttddyy.observation</groupId>
-      <artifactId>datasource-micrometer-spring-boot</artifactId>
-      <version>VERSION</version>
-      <scope>runtime</scope>
-    </dependency>
-    ```
+    1. Add the `datasource-micrometer-spring-boot` dependency to intercept and log JDBC SQL queries. You can intercept most Connection, Statement, and ResultSet methods invocations using the Datasource Micrometer dependency.
+        {{site.data.alerts.tip}}
+            <p>Check the <a href="https://github.com/jdbc-observations/datasource-micrometer/releases">Datasource Micrometer releases</a> and enter the latest version in place of <code>VERSION</code>.</p>
+          {{site.data.alerts.end}}
+        ```xml
+        <dependency>
+          <groupId>net.ttddyy.observation</groupId>
+          <artifactId>datasource-micrometer-spring-boot</artifactId>
+          <version>VERSION</version>
+          <scope>runtime</scope>
+        </dependency>
+        ```
 
 1. Add the following configurations to the `application.properties` file so that your:
     * Application is named `spring-demo`.
@@ -102,17 +104,17 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 ## Send Data to Our Service
 
-1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
+1. Restart the application.
 
-1. Generate telemetry data from the petclinic user interface.
+1. Navigate to [http://localhost:8080](http://localhost:8080/) and generate telemetry data from the petclinic user interface.
    For example:
    1. Add an Owner and a Pet via the User Interface.
    1. Click **VETERINARIANS** to list vets in the database.
    1. Click **ERROR** to trigger errors.
 
-1. Click the one-time use link to access the Wavefront for Spring Boot Service Dashboard and view data.
+1. Copy the one-time use link that was printed on your terminal when you restarted your application to access the Wavefront for Spring Boot Service Dashboard and view data.
    {% include tip.html content = "Make sure to save the one-time use link so you can access the same dashboard each time you restart your application."%}
-   Example:
+   Example output on your terminal:
     ```
     To share this account, make sure the following is added to your configuration:
 
