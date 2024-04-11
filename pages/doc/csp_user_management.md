@@ -26,6 +26,8 @@ To add a user to your Operations for Applications service instance, you must ass
 
     If you plan to assign that user a custom role, you must assign that user at least the **Viewer** Operations for Applications service role, so that the user can access the service instance.
 
+    {% include note.html content="In a multi-tenant environment, you assign service roles on a tenant basis. You can assign different service roles for different Operations for Applications instances (tenants). The users have access only to the tenants for which they have service roles. The users receive the `401 Unauthorized: User has no access to service` error message when trying to access a tenant for which they don't have service roles."%}
+
     {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform. "%}
 
 1. Optionally, a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
@@ -36,7 +38,7 @@ You can assign users with these roles in the following ways:
 
 ### Adding Users to Your Organization
 
-When you are adding an individual user or a list of users to the VMware Cloud organization running the service instance, you must assign that users organization, service, and custom roles.
+When you are adding an individual user or a list of users to the VMware Cloud organization running the service instance, you must assign that users organization roles. To grant the users access to the Operations for Applications instance, you assign that users service roles. Optionally, you can also assign the users custom roles, which apply only in combination with service roles.
 
 For details, see [How do I add users to my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html).
 

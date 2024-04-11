@@ -30,7 +30,7 @@ To invite new users, you assign them:
 
 * A role within the Operations for Applications service instance. We provide a number of [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in).
 
-   Note that in a multi-tenant Operations for Applications environment, you must specify the service instance (tenant) for which you want to assign the service role. You can assign different service roles for different service instances. You invite the users only to the tenants for which you assigned them service roles.
+   Note that in a multi-tenant Operations for Applications environment, you must specify the service instance (tenant) for which you want to assign the service role. You can assign different service roles for different service instances (tenants). You invite the users only to the tenants for which you assigned them service roles.
 
 * Optionally, a custom role created in the VMware Cloud organization. [Custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) are composed of different service permissions.
 
@@ -96,7 +96,7 @@ In a multi-tenant environment, you assign service roles on a tenant basis. You c
    1. From the **in** drop-down menu, select the target service instance (tenant).
       ![A screenshot with the Operations for Applications service instance selected.](images/csp-select-aoa-service.png)
 
-      {% include note.html content="This drop-down menu is available only for multi-tenant service environments. If you want to grant access to all tenants, you must assign service roles for each tenant individually (see the next Step 3). If you miss selecting the target service instance, the users receive the `401 Unauthorized: User has no access to service` error message when trying to access that tenant."%}
+      {% include note.html content="This drop-down menu is available only for multi-tenant environments. If you want to grant access to all tenants, you must assign service roles for each tenant individually (see the next Step 3). If you miss selecting the target service instance, the users receive the `401 Unauthorized: User has no access to service` error message when trying to access that tenant."%}
 
    1. From the **with roles** drop-down menu, select the service roles to assign for the selected service instance (tenant).
 
@@ -117,7 +117,7 @@ In a multi-tenant environment, you assign service roles on a tenant basis. You c
    1. Click **+ Add an Instance**.
    1. From the **in** drop-down menu, select the target service instance (tenant).
       ![A screenshot with the Operations for Applications service instance selected.](images/csp-select-another-service.png)
-   1. From the **with roles** drop-down menu, select the **Super Admin** service role, so that you grant full administrative access to the selected service instance.
+   1. From the **with roles** drop-down menu, select the **Super Admin** service role, so that you grant full administrative privileges for the selected service instance.
 
       ![A screenshot with the Operations for Applications roles selected.](images/csp-assign-superadmin-service-role.png)
    1. Leave the never expires access field as is.
