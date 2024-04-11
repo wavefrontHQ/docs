@@ -36,7 +36,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
-## 2024-09.x Release Notes
+## 2024-xx.x Release Notes
 
 * **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between Operations for Applications and VMware Tanzu Insights. The Insights capabilities help you investigate your alerts from within the Operations for Applications user interface.
 
