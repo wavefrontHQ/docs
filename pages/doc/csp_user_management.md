@@ -18,7 +18,7 @@ To add a user to your Operations for Applications service instance, you must ass
 
 1. An [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) for the VMware Cloud organization running the service instance.
 
-    {% include note.html content="I you are a VMware Cloud **Organization Administrator**, you can assign only the VMware Cloud **Organization Member** role. Only a VMware Cloud **Organization Owner** can add VMware Cloud **Organization Owners** and VMware Cloud **Organization Administrators**."%}
+    {% include note.html content="If you are a VMware Cloud **Organization Administrator**, you can assign only the VMware Cloud **Organization Member** role. Only a VMware Cloud **Organization Owner** can add VMware Cloud **Organization Owners** and VMware Cloud **Organization Administrators**."%}
 
 1. An [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance.
   
