@@ -57,7 +57,7 @@ VMware Cloud uses organizations to provide controlled access to one or more serv
 1. Click your username and click **My Account**.
 2. On the **My Roles** tab you can see what organization roles are assigned to you.
 
-If do not have the VMware Cloud **Organization Owner** or **Organization Administrator** role assigned, you need to request them. To understand who the VMware Cloud **Organization Owner** or **Organization Administrator** users are, you can chat with our Technical Support team or file a VMware Cloud services support request. See [How do I get support](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E4DC731F-C039-4FB2-949E-9A61584CD5BF.html) in the VMware Cloud services product documentation.
+If you do not have the VMware Cloud **Organization Owner** or **Organization Administrator** role assigned, you need to request them. To understand who the VMware Cloud **Organization Owner** or **Organization Administrator** users are, you can chat with our Technical Support team or file a VMware Cloud services support request. See [How do I get support](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E4DC731F-C039-4FB2-949E-9A61584CD5BF.html) in the VMware Cloud services product documentation.
 
 
 ## Example 1: Invite a New User and Assign Service Roles
