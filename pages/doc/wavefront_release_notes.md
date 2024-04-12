@@ -36,6 +36,28 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2024-07.x Release Notes
+
+**Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
+
+- `~collector.*points.reported`
+- `~externalservices.*.points`
+- `~derived-metrics.points.reported`
+- `~collector.*histograms.reported`
+- `~derived-histograms.histograms.reported`
+- `~collector.*spans.reported`
+- `~query.metrics_scanned`
+- `~proxy.points.*.received`
+- `~proxy.histograms.*.received`
+- `~proxy.spans.*.received`
+- `~proxy.spanLogs.*.received`
+- `~proxy.build.version`
+- `~metric.global.namespace.*`
+- `~histogram.global.namespace.*`
+- `~counter.global.namespace.*`
+
+
+
 ## 2024-05.x Release Notes
 
 * **New Ephemeral Metric Type**: With this release, we introduce ephemeral metrics, which have a short retention period. Ephemeral metrics are retained for 28 days, whereas persistent (default) metrics are retained for 18 months. For details, see [Metric Types per Retention Period](metric_types.html#metric-types-per-retention-period).
