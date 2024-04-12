@@ -43,7 +43,7 @@ Each integration
 
 Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
 
-Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Tanzu Observabilityfrom a 3rd part tracing system.
+Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Tanzu Observability from a 3rd part tracing system.
 
 ## Trace Data from an Integration
 
