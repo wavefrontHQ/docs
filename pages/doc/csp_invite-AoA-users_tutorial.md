@@ -24,7 +24,7 @@ To invite users, you must have the VMware Cloud **Organization Owner** or **Orga
 
 To invite new users, you assign them:
 
-* A role within the VMware Cloud organization, such as **Organization Administrator**, **Organization Owner**, or **Organization Member**. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation.
+* A role within the VMware Cloud organization, such as **Organization Administrator**, **Organization Owner**, or **Organization Member**. See [What organization roles are available in VMware Cloud services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation.
     
   Note that you can assign the **Organization Owner** role to another user only if you have the **Organization Owner** role.
 
@@ -145,7 +145,7 @@ Custom roles work only in combination with service roles. In a multi-tenant envi
 
 ### Step 2: Assign the Roles and Invite the User
 
-Let's assign **Organization Administrator** as a mandatory organization role, then assign the **Viewer** service role for one tenant and the **Ingestion Policies** service role for another tenant. After that we will assign the custom role and it will apply to the two tenants for which the user has service roles.
+Let's assign **Organization Administrator** as a mandatory organization role, then assign the **Viewer** service role for one tenant and the **Ingestion Policies** service role for another tenant. After that, we assign the custom role and it applies to the two tenants for which the user has service roles.
 
 1. Under **Assign Organization Roles**, select the **Organization Administrator** role.
 
