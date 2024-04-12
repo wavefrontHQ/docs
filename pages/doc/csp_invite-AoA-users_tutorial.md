@@ -58,10 +58,10 @@ If do not have the VMware Cloud **Organization Owner** or **Organization Adminis
 
 We provide a number of built-in Tanzu Observability service roles.
 
-- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
+- A corresponding service role for each [permission](csp_permissions_overview.html#tanzu-observability-permissions).
 - Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service.
 
-For more information, see [Tanzu Observability Roles (Built-in)](csp_users_roles.html#operations-for-applications-service-roles-built-in).
+For more information, see [Tanzu Observability Roles (Built-in)](csp_users_roles.html#otanzu-observability-service-roles-built-in).
 
 ### Step 1: Enter the New User Details
 

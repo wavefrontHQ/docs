@@ -81,9 +81,9 @@ See [What organization roles are available in VMware Cloud Services](https://doc
 
 ## What Are Service Roles and Custom Roles?
 
-VMware Cloud services includes service-specific built-in roles, including [Tanzu Observability service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in). A service role is required to grant certain access to the corresponding service instance in the organization.
+VMware Cloud services includes service-specific built-in roles, including [Tanzu Observability service roles](csp_users_roles.html#tanzu-observability-service-roles-built-in). A service role is required to grant certain access to the corresponding service instance in the organization.
 
-While the service roles are built-in and not editable, as a VMware Cloud **Organization Administrator** or **Organization Owner**, you can create [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with service permissions of your choice, including [Operations for Application permissions](csp_permissions_overview.html#operations-for-applications-permissions). Custom roles are optional and apply to all service instances for which the target user or server to server app has at least one service role.
+While the service roles are built-in and not editable, as a VMware Cloud **Organization Administrator** or **Organization Owner**, you can create [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with service permissions of your choice, including [Operations for Application permissions](csp_permissions_overview.html#tanzu-observability-permissions). Custom roles are optional and apply to all service instances for which the target user or server to server app has at least one service role.
 
 ## What's a Server to Server App?
 

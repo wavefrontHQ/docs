@@ -24,13 +24,13 @@ All users can:
   * Share links to dashboards and charts with other users.
   * Access the user profile from the gear icon <i class="fa fa-cog"/> on the toolbar.
 
-Users with the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) have full administrative access to the service.
+Users with the [**Super Admin** service role](csp_users_roles.html#tanzu-observability-service-roles-built-in) have full administrative access to the service.
 
 ## Tanzu Observability Permissions
 
 VMware Cloud services allows users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles to perform access control for object management based on Tanzu Observability permissions. 
 - Permissions can be assigned to roles only, and roles can be assigned to users, user groups, and server to server apps.
-- For each permission, there is a corresponding built-in [Tanzu Observability service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) with only that permission assigned.
+- For each permission, there is a corresponding built-in [Tanzu Observability service role](csp_users_roles.html#tanzu-observability-service-roles-built-in) with only that permission assigned.
 - Permissions can be assigned to [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role).
 
 <table>

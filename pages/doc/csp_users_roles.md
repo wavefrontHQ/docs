@@ -41,7 +41,7 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 ### Tanzu Observability Service Roles (Built-in)
 
 The VMware Cloud Services Console **Roles** page includes the following built-in Tanzu Observability service roles:
-- A corresponding Tanzu Observability service role for each [Tanzu Observability permission](csp_permissions_overview.html#operations-for-applications-permissions), that is, each of the following service roles has only one permission assigned:
+- A corresponding Tanzu Observability service role for each [Tanzu Observability permission](csp_permissions_overview.html#tanzu-observability-permissions), that is, each of the following service roles has only one permission assigned:
 
   * **Admin**
   * **Alerts**
@@ -87,7 +87,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
 
 ### Create, Edit, or Delete a Custom Role
 
-Custom roles let you combine service permissions of your choice, for example, [Tanzu Observability permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
+Custom roles let you combine service permissions of your choice, for example, [Tanzu Observability permissions](csp_permissions_overview.html#tanzu-observability-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
 
 {% include important.html content="The Tanzu Observability permissions in a custom role apply to **all** Tanzu Observability service instances to which the target user account or server to server app has access. Therefore, to obtain the Tanzu Observability permissions from a custom role for a given Tanzu Observability service instance, the user account or server to server app assigned with that custom role must have at least one Operations to Applications service role for that service instance, for example, the **Viewer** service role."%}
 
@@ -115,7 +115,7 @@ For a [federated domain](csp_authentication.html#federated-domain-authentication
 
 ## Manage User Groups
 
-For efficient user management, you can create groups of users and assign roles to these groups. You can add new and existing users to a group. You can assign [service roles](#operations-for-applications-service-roles-built-in) and [custom roles](#create-edit-or-delete-a-custom-role) to a group.
+For efficient user management, you can create groups of users and assign roles to these groups. You can add new and existing users to a group. You can assign [service roles](#tanzu-observability-service-roles-built-in) and [custom roles](#create-edit-or-delete-a-custom-role) to a group.
 
 See [How do I work with groups](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
