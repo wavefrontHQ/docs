@@ -161,7 +161,7 @@ Last sentence: Тo temporarily enable service accounts for your service instance
 
 For original subscriptions, using the Tanzu Observability REST API requires an API token associated with a user account or a service account. To generate API tokens for your user account you need the **API Tokens** permission. To generate API tokens for service accounts and to manage the API tokens in your Tanzu Observability organization, you need the **Accounts** permission.
 
-When your service is onboarded to VMware Cloud services and you want to access the Tanzu Observability REST API, you need a VMware Cloud services **access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens), authentication with a Tanzu Observability API token is also supported. However, using a VMware Cloud services **access token** is the recommended way as we will deprecate the service accounts in the future. To obtain an **access token**, you can:
+When your service is onboarded to VMware Cloud services and you want to access the Tanzu Observability REST API, you need a VMware Cloud services **access token**. In a few cases, when setting up a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens), authentication with a Tanzu Observability API token is also supported. However, using a VMware Cloud services **access token** is the recommended way as we will deprecate the service accounts in the future. To obtain an **access token**, you can:
 
 * Generate a VMware Cloud services API token associated with your user account and exchange it for an access token.
 
@@ -366,7 +366,7 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 <ul>
 <li>All users can view and revoke their own VMware Cloud services API tokens. For details, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-1BA71988-387C-42E1-8C98-EE2C1370826B.html">How do I manage my API tokens</a> in the VMware Cloud services documentation.</li>
 <li>Users with the VMware Cloud <strong>Organization Owner</strong> role can monitor the API tokens created in the organization and can set constraints for idle and maximum Time to live (TTL) for all newly created tokens. For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html">How do I manage API tokens in my Organization</a> in the VMware Cloud services documentation.</li>
-<li>Users with the <strong>Admin</strong> service role can view and revoke any Tanzu Observability API token in the service instance. For details, see <a href="csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-in-your-service-instance">Managing the Tanzu Observability API Tokens in Your Service Instance</a>.</li>
+<li>Users with the <strong>Admin</strong> service role can view and revoke any Tanzu Observability API token in the service instance. For details, see <a href="csp_api_tokens.html#manage-the-tanzu-observability-api-tokens-in-your-service-instance">Managing the Tanzu Observability API Tokens in Your Service Instance</a>.</li>
 </ul></p>
 </td>
 </tr>
@@ -425,7 +425,7 @@ For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 <p><strong>Where</strong>: In the Tanzu Observability user interface.</p>
 <p><strong>How</strong>: As a user with the <strong>Proxies</strong> permission, you must configure the proxy to authenticate to Tanzu Observability with a Tanzu Observability API token that have the <strong>Proxies</strong> permission. For details, see <a href="proxies_installing.html#install-a-proxy-from-the-ui">Install a Proxy from the UI</a>.</p>
 </td>
-<td><strong>Note</strong>: The Wavefront proxy authenticates with a VMware Cloud services access token obtained from server to server OAuth app credentials or from a VMware Cloud services API token. Proxy authentication with a Tanzu Observability API token is still possible and supported only for a <a href="integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens">limited list of integrations</a>.
+<td><strong>Note</strong>: The Wavefront proxy authenticates with a VMware Cloud services access token obtained from server to server OAuth app credentials or from a VMware Cloud services API token. Proxy authentication with a Tanzu Observability API token is still possible and supported only for a <a href="integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens">limited list of integrations</a>.
 <p><strong>Who</strong>:
 <ul>
 <li>For proxy installation, users with the <strong>Proxies</strong> Tanzu Observability service role.</li>
@@ -451,7 +451,7 @@ In both ways, the access token is directly issued to the proxy. For details, see
 <p><strong>Where</strong>: In the Tanzu Observability user interface.</p>
 <p><strong>How</strong>: Follow the instructions on the <strong>Setup</strong> tab of the integration that you want to install.</p>
 </td>
-<td><strong>Note</strong>: <a href="integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens">Most of the integrations</a> that use a Wavefront proxy authenticate with a VMware Cloud services access token. A <a href="integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens">limited list of integrations</a> still use proxy authentication with a Tanzu Observability API token.
+<td><strong>Note</strong>: <a href="integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens">Most of the integrations</a> that use a Wavefront proxy authenticate with a VMware Cloud services access token. A <a href="integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens">limited list of integrations</a> still use proxy authentication with a Tanzu Observability API token.
 <p><strong>Who</strong>: Users with the <strong>Proxies</strong> Tanzu Observability service role who must have one of the following:
 <ul>
 <li>A valid VMware Cloud services API token with the <strong>Proxies</strong> service role assigned.</li>

@@ -66,7 +66,7 @@ During the process of onboarding your Tanzu Observability service to VMware Clou
 ![An image displaying how users are migrated when your Tanzu Observability service is onboarded to VMware Cloud services. The information from the image is explained in the bullet list below.](images/csp-user-accounts-migration.png)
 
 * If a user is a **Super Admin** in Tanzu Observability, we assign that user with the **Super Admin** Tanzu Observability service role in VMware Cloud services.
-* If a user is assigned with individual permissions in Tanzu Observability, we assign that user with the corresponding [Tanzu Observability service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) in VMware Cloud services. For example, if a user has the **Alerts** permission in Tanzu Observability, we assign that user with the **Alerts** Tanzu Observability service role in VMware Cloud services. There are the following exceptions:
+* If a user is assigned with individual permissions in Tanzu Observability, we assign that user with the corresponding [Tanzu Observability service roles](csp_users_roles.html#tanzu-observability-service-roles-built-in) in VMware Cloud services. For example, if a user has the **Alerts** permission in Tanzu Observability, we assign that user with the **Alerts** Tanzu Observability service role in VMware Cloud services. There are the following exceptions:
 
     - The **Accounts** permission is replaced by the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) plus the **Admin** Tanzu Observability service role.
     - The **API Tokens** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. Each VMware Cloud services user can manage their own VMware Cloud services API tokens.
@@ -159,7 +159,7 @@ During the process of onboarding your Tanzu Observability service to VMware Clou
 
 During the process of onboarding your Tanzu Observability service to VMware Cloud services, the service accounts **are not** migrated to VMware Cloud services, because VMware Cloud services supports [server to server OAuth apps](csp_server_to_server_apps.html), which are equivalent to the services accounts in Tanzu Observability.
 
-{% include warning.html content="The usage of service accounts in Tanzu Observability on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Tanzu Observability API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Tanzu Observability API tokens will be deprecated in the future."%}
+{% include warning.html content="The usage of service accounts in Tanzu Observability on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Tanzu Observability API tokens will be deprecated in the future."%}
 
 For backward compatibility, all of your service accounts are **preserved** in Tanzu Observability as follows:
 
@@ -176,7 +176,7 @@ You should incrementally [replace](#how-to-replace-a-service-account-with-a-serv
 
 ### How to Replace a Service Account with a Server to Server App?
 
-Service accounts authenticate with Tanzu Observability API tokens, while server to server OAuth apps authenticate with the more secure VMware Cloud services access tokens. Service accounts are supported for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) but will be deprecated in the future.
+Service accounts authenticate with Tanzu Observability API tokens, while server to server OAuth apps authenticate with the more secure VMware Cloud services access tokens. Service accounts are supported for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) but will be deprecated in the future.
 
 <table style="width: 100%;">
 <tbody>
@@ -231,7 +231,7 @@ After onboarding to VMware Cloud services, you should incrementally replace your
         <tr>
         <td><strong>Service Roles</strong>
         </td>
-        <td>Required for service access. Assign the <a href="csp_users_roles.html#operations-for-applications-service-roles-built-in">Tanzu Observability service roles</a> that correspond to the permissions of the service account that you want to replace.
+        <td>Required for service access. Assign the <a href="csp_users_roles.html#tanzu-observability-service-roles-built-in">Tanzu Observability service roles</a> that correspond to the permissions of the service account that you want to replace.
         <p>If you already assigned a custom role, you must assign at least the <strong>Viewer</strong> Tanzu Observability service role.</p>
         </td>
         </tr>
@@ -264,15 +264,15 @@ You must exchange a VMware Cloud services API token or the credentials (ID and s
 For backward compatibility, all of your API tokens are **preserved** in Tanzu Observability as follows:
 
 * The Tanzu Observability API tokens associated with user accounts are **no longer**  editable. The users can still use, view, and revoke their Tanzu Observability API tokens until they expire, but they **cannot** generate new ones.
-* The Tanzu Observability API tokens associated with service accounts are editable, because we still support them for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens).
+* The Tanzu Observability API tokens associated with service accounts are editable, because we still support them for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens).
 
-You should incrementally [replace](#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token) your Tanzu Observability API tokens with VMware Cloud services API tokens and server to server OAuth apps.
+You should incrementally [replace](#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token) your Tanzu Observability API tokens with VMware Cloud services API tokens and server to server OAuth apps.
 
 {% include tip.html content="From now on, all users must generate VMware Cloud services API tokens for their accounts and exchange them for access tokens. Users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can create server to server OAuth apps and exchange the app credentials for access tokens."%}
 
 ### How to View and Manage the Tanzu Observability API Tokens?
 
-Users with the **Admin** Tanzu Observability service role can [manage](csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-in-your-service-instance) the Tanzu Observability API tokens in the service instance.
+Users with the **Admin** Tanzu Observability service role can [manage](csp_api_tokens.html#manage-the-tanzu-observability-api-tokens-in-your-service-instance) the Tanzu Observability API tokens in the service instance.
 
 Each user can view and revoke their own Tanzu Observability API tokens:
 
@@ -285,7 +285,7 @@ Each user can view and revoke their own Tanzu Observability API tokens:
 
 ### How to Replace a Tanzu Observability API Token with a VMware Cloud Services Access Token?
 
-It's recommended to use Tanzu Observability API tokens only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens). We will update these integrations to authenticate with VMware Cloud services access tokens in a future release.
+It's recommended to use Tanzu Observability API tokens only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens). We will update these integrations to authenticate with VMware Cloud services access tokens in a future release.
 
 <table style="width: 100%;">
 <tbody>
@@ -354,7 +354,7 @@ To replace a Tanzu Observability API token associated with your user account:
 1. Reconfigure your scripts, API calls, or proxies to exchange the newly generated VMware Cloud services API token for an access token, instead of using the Tanzu Observability API token.
 
     {% include important.html content="The TTL of the access tokens associated with user accounts is 30 minutes. Make sure that your script renews the access token periodically before it expires. The Wavefront proxy does this automatically. "%}
-1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Tanzu Observability API token that you replaced.
+1. [Revoke](#how-to-view-and-manage-the-tanzu-observability-api-tokens) the Tanzu Observability API token that you replaced.
 
 <table style="width: 100%;">
 <tbody>
@@ -366,11 +366,11 @@ To replace a Tanzu Observability API token associated with your user account:
 
 During the process of onboarding your Tanzu Observability service to VMware Cloud services, all of the existing Wavefront proxies are **preserved** with their existing Tanzu Observability API tokens.
 
-You should incrementally [replace](#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
+You should incrementally [replace](#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
 
-{% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Tanzu Observability service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Tanzu Observability API tokens."%}
+{% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Tanzu Observability service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens."%}
 
-### How to Replace the Operations for Application API Token of a Wavefront Proxy?
+### How to Replace the Tanzu Observability API Token of a Wavefront Proxy?
 
 {% include important.html content="Make sure the version of your Wavefront proxy is 13.0 or later."%}
 
@@ -395,7 +395,7 @@ You should incrementally [replace](#how-to-replace-the-operations-for-applicatio
         ```
         cspAPIToken=<VMware_Cloud_services_API_token>
         ```
-1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Tanzu Observability API token that you replaced.
+1. [Revoke](#how-to-view-and-manage-the-tanzu-observability-api-tokens) the Tanzu Observability API token that you replaced.
 
 <table style="width: 100%;">
 <tbody>
@@ -407,9 +407,9 @@ You should incrementally [replace](#how-to-replace-the-operations-for-applicatio
 
 During the process of onboarding your Tanzu Observability service to VMware Cloud services, all of the existing integrations are **preserved** and continue to operate using proxy authentication with Tanzu Observability API tokens.
 
-You should incrementally [replace](#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the proxy tokens of your [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that are updated to use proxy authentication with the more secure VMware Cloud services access token.
+You should incrementally [replace](#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy) the proxy tokens of your [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that are updated to use proxy authentication with the more secure VMware Cloud services access token.
 
-{% include tip.html content="From now on, the users with the **Proxies** and **Integrations** service roles can set up integrations in your Tanzu Observability service. New integrations must use proxy authentication with VMware Cloud services access tokens except for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Tanzu Observability API tokens."%}
+{% include tip.html content="From now on, the users with the **Proxies** and **Integrations** service roles can set up integrations in your Tanzu Observability service. New integrations must use proxy authentication with VMware Cloud services access tokens except for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens."%}
 
 <table style="width: 100%;">
 <tbody>

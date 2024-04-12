@@ -92,7 +92,7 @@ To generate and manage the API tokens for an existing **service account**:
 
 As a user with the **Admin** service role, you can view and revoke the API tokens of any service account in your service instance.
 
-{% include warning.html content="If your original Tanzu Observability subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Tanzu Observability API tokens that are associated with user accounts. It’s recommended that you incrementally [replace them with VMware Cloud services API tokens](csp_migration.html#how-to-replace-an-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token)."%}
+{% include warning.html content="If your original Tanzu Observability subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Tanzu Observability API tokens that are associated with user accounts. It’s recommended that you incrementally [replace them with VMware Cloud services API tokens](csp_migration.html#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token)."%}
 
 1. Log in to your service instance as an **Admin** user.
 2. Click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Accounts**.
