@@ -116,7 +116,8 @@ In a multi-tenant environment, you assign service roles on a tenant basis. You c
    
    1. Click **+ Add an Instance**.
    1. From the **in** drop-down menu, select the target service instance (tenant).
-      ![A screenshot with the Tanzu Observability service instance selected.](images/csp-select-another-service.png)
+      ![A screenshot with the Tanzu Observabilitys service instance selected.](images/csp-select-another-service.png)
+
    1. From the **with roles** drop-down menu, select the **Super Admin** service role, so that you grant full administrative privileges for the selected service instance.
 
       ![A screenshot with the Tanzu Observability roles selected.](images/csp-assign-superadmin-service-role.png)

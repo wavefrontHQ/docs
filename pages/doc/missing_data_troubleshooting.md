@@ -9,6 +9,7 @@ summary: Learn how to troubleshoot when you expect to see data but it doesn't ap
 
 Sometimes you expect to see certain data in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) but, for some reason, it doesn't show up! This can be a frustrating and confusing experience, especially when you urgently need the data. What could be the problem?
 
+
 <!-- Before removing data retention link
 
 Sometimes you expect to see certain data in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) but, for some reason, it doesn't show up! This can be a frustrating and confusing experience, especially when you urgently need the data. Operations for Applications does not delete data - the [retention period](terms_of_service.html#data-retention) is 18 months for persistent metrics and 28 days for ephemeral metrics. What could be the problem?
