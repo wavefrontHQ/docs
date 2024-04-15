@@ -22,15 +22,20 @@ To invite users, you must have the VMware Cloud **Organization Owner** or **Orga
 
 ## Roles to Assign
 
-When you invite new users, you must assign them:
+To invite new users, you assign them:
 
-* A role within the VMware Cloud organization, such as **Organization Administrator**, **Organization Owner**, or **Organization Member**. 
+* A role within the VMware Cloud organization, such as **Organization Administrator**, **Organization Owner**, or **Organization Member**. See [What organization roles are available in VMware Cloud services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation.
     
   Note that you can assign the **Organization Owner** role to another user only if you have the **Organization Owner** role.
 
-* A role within the Tanzu Observability service instance. 
+* A role within the Tanzu Observability service instance. We provide a number of [Tanzu Observability service roles](csp_users_roles.html#tanzu-observability-service-roles-built-in).
 
-Optionally, you can also assign a custom role created in the VMware Cloud organization. Custom roles are composed of different service permissions.
+   Note that in a multi-tenant Tanzu Observability environment, you must specify the service instance (tenant) for which you want to assign the service role. You can assign different service roles for different service instances (tenants). You invite the users only to the tenants for which you assigned them service roles.
+
+* Optionally, a custom role created in the VMware Cloud organization. [Custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) are composed of different service permissions.
+
+   Note that a custom role with a Tanzu Observability permission applies only if the user has at least one Tanzu Observability service role. In a multi-tenant Tanzu Observability environment, custom roles apply to all service instances (tenants) for which the user has at least one Tanzu Observability service role.
+
 
 ## Verify That You Have the Required Organization Role
 
@@ -52,16 +57,17 @@ VMware Cloud uses organizations to provide controlled access to one or more serv
 1. Click your username and click **My Account**.
 2. On the **My Roles** tab you can see what organization roles are assigned to you.
 
-If do not have the VMware Cloud **Organization Owner** or **Organization Administrator** role assigned, you need to request them. To understand who the VMware Cloud **Organization Owner** or **Organization Administrator** users are, you can chat with VMware Support or file a VMware Cloud services support request. See [How do I get support](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E4DC731F-C039-4FB2-949E-9A61584CD5BF.html) in the VMware Cloud services product documentation.
+If you do not have the VMware Cloud **Organization Owner** or **Organization Administrator** role assigned, you need to request them. To understand who the VMware Cloud **Organization Owner** or **Organization Administrator** users are, you can chat with our Technical Support team or file a VMware Cloud services support request. See [How do I get support](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E4DC731F-C039-4FB2-949E-9A61584CD5BF.html) in the VMware Cloud services product documentation.
 
-## Invite a New User and Assign Service Roles Only
+
+## Example 1: Invite a New User and Assign Service Roles
 
 We provide a number of built-in Tanzu Observability service roles.
 
-- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
+- A corresponding service role for each [permission](csp_permissions_overview.html#tanzu-observability-permissions).
 - Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service.
 
-For more information, see [Tanzu Observability Roles (Built-in)](csp_users_roles.html#operations-for-applications-service-roles-built-in).
+For more information, see [Tanzu Observability Roles (Built-in)](csp_users_roles.html#tanzu-observability-service-roles-built-in).
 
 ### Step 1: Enter the New User Details
 
@@ -73,23 +79,26 @@ For more information, see [Tanzu Observability Roles (Built-in)](csp_users_roles
 
 ### Step 2: Assign Roles and Invite the User
 
-In a multi-tenant environment, you can assign different service roles for each Tanzu Observability instance. Let's first assign the mandatory organization role and then we will assign different service roles for two Tanzu Observability instances. 
+In a multi-tenant environment, you assign service roles on a tenant basis. You can assign different service roles for different Tanzu Observability instances (tenants). Let’s first assign the mandatory organization role and then assign different service roles for two Tanzu Observability instances.
 
-1. Select a mandatory organization role to assign.
+1. Under **Assign Organization Roles**, select a mandatory organization role to assign.
 
    The **Organization Member** role is selected by default and is the minimum mandatory role to assign. 
    
-   You can also assign an additional role. For example, **Support User**. This means that the user will have read-only access to the VMware Cloud organization resources and will be able to submit and manage support tickets. For information about the VMware Cloud organization roles, see [What Organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html).
+   You can also assign an additional role, for example, **Support User**. This means that the user will have read-only access to the VMware Cloud organization resources and will be able to submit and manage support tickets. For information about the VMware Cloud organization roles, see [What Organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html).
 
    ![A screenshot with the Organization Member role, selected by default and the Support user additional role selected.](images/csp-mandatory-roles.png)
 
-2. Assign Tanzu Observability service roles for the first Tanzu Observability instance.
-   1. Click **Add a Service**.
-   1. From the drop-down menu, select **Tanzu Observability**.
+2. Assign Tanzu Observability service roles for the first Tanzu Observability instance (tenant) to which you want to invite the new user.
+   1. Under **Assign Service Roles**, click **Add a Service**.
+   1. From the first drop-down menu, select **VMware Tanzu Observability**.
       ![A screenshot with the Tanzu Observability service selected.](images/csp-select-service.png)
-   1. From the **in** drop-down menu, select the service instance to which you want to invite the new user.
+   1. From the **in** drop-down menu, select the target service instance (tenant).
       ![A screenshot with the Tanzu Observability service instance selected.](images/csp-select-aoa-service.png)
-   1. Assign the service roles to the user.
+
+      {% include note.html content="This drop-down menu is available only for multi-tenant environments. If you want to grant access to all tenants, you must assign service roles for each tenant individually (see the next Step 3). If you miss selecting the target service instance, the users receive the `401 Unauthorized: User has no access to service` error message when trying to access that tenant."%}
+
+   1. From the **with roles** drop-down menu, select the service roles to assign for the selected service instance (tenant).
 
       Let's say that the user you're inviting will:
    
@@ -103,12 +112,12 @@ In a multi-tenant environment, you can assign different service roles for each T
       ![A screenshot with the Tanzu Observability roles selected.](images/csp-assign-service-roles.png)
    1. Leave the never expires access field as is.
 
-3. Assign the **Super Admin** service role for another Tanzu Observability instance.
+3. Assign another Tanzu Observability service role for the second Tanzu Observability instance (tenant) to which you want to invite the new user.
    
    1. Click **+ Add an Instance**.
-   1. From the **in** drop-down menu, select the other service instance to which you want to invite the new user.
-      ![A screenshot with the Tanzu Observability service instance selected.](images/csp-select-another-service.png)
-   1. Assign the **Super Admin** service role to the user.
+   1. From the **in** drop-down menu, select the target service instance (tenant).
+      ![A screenshot with the Tanzu Observabilitys service instance selected.](images/csp-select-another-service.png)
+   1. From the **with roles** drop-down menu, select the **Super Admin** service role, so that you grant full administrative privileges for the selected service instance.
 
       ![A screenshot with the Tanzu Observability roles selected.](images/csp-assign-superadmin-service-role.png)
    1. Leave the never expires access field as is.
@@ -116,7 +125,7 @@ In a multi-tenant environment, you can assign different service roles for each T
 
 The invitations you send are valid for seven days. You can view the status of the invitation by expanding **Identity & Access Management** and then clicking **Pending Invitations**.
 
-## Invite a New User and Assign a Custom Role
+## Example 2: Invite a New User and Assign a Custom Role
 
 If you have created custom roles and want to assign custom roles to a user, you must make sure that you assign:
 
@@ -124,7 +133,7 @@ If you have created custom roles and want to assign custom roles to a user, you 
 * At least one service role, for example **Viewer**
 * The custom roles of interest
 
-Custom roles work only in combination with service roles. The Tanzu Observability permissions in a custom role apply to all service instances (tenants) for which the user has at least one Tanzu Observability service role. 
+Custom roles work only in combination with service roles. In a multi-tenant environment, the Tanzu Observability permissions in a custom role apply to all service instances (tenants) for which the user has at least one Tanzu Observability service role.
 
 ### Step 1: Enter the New User Details
 
@@ -136,29 +145,27 @@ Custom roles work only in combination with service roles. The Tanzu Observabilit
 
 ### Step 2: Assign the Roles and Invite the User
 
-Let's assign **Organization Administrator** as a mandatory organization role, then assign the **Viewer** service role to one tenant and the **Ingestion Policies** role to another tenant. After that we will assign the custom role. 
+Let's assign **Organization Administrator** as a mandatory organization role, then assign the **Viewer** service role for one tenant and the **Ingestion Policies** service role for another tenant. After that, we assign the custom role and it applies to the two tenants for which the user has service roles.
 
-1. Under mandatory roles, select the **Organization Administrator** role.
+1. Under **Assign Organization Roles**, select the **Organization Administrator** role.
 
    ![A screenshot with the Organization Administrator role selected.](images/csp-assign-org-admin.png)
 
-2. Assign the **Viewer** service role for a specific Tanzu Observability service instance.
-   1. Click **Add a Service**.
-   1. From the drop-down menu, select **Tanzu Observability**.
+2. Assign the **Viewer** service role for the first Tanzu Observability service instance (tenant) to which you want to invite the new user.
+   1. Under **Assign Service Roles**, click **Add a Service**.
+   1. From the first drop-down menu, select **VMware Tanzu Observability**.
       ![A screenshot with the Tanzu Observability service selected.](images/csp-select-service.png)
-   1. From the **in** drop-down menu, select the service instance to which you want to invite the new user and leave the **Viewer** service role selected so that you assign it to the user.
-      ![A screenshot with the Tanzu Observability instance  and the Viewer role selected.](images/csp-select-aoa-service-viewer.png)
+   1. From the **in** drop-down menu, select the target service instance (tenant) and leave the **Viewer** service role selected.
+      ![A screenshot with the Tanzu Observability service instance  and the Viewer role selected.](images/csp-select-aoa-service-viewer.png)
    1. Leave the never expires access field as is.
-3. Assign the **Ingestion Policies** service role for another Tanzu Observability service instance.
+3. Assign the **Ingestion Policies** service role for the second Tanzu Observability service instance (tenant) to which you want to invite the new user.
    1. Click **+Add an Instance**.
-   1. From the **in** drop-down menu, select the other service instance to which you want to invite the new user.
-   1. Select the **Ingestion Policies** service role to assign it to the user.
+   1. From the **in** drop-down menu, select the target service instance (tenant).
+   1. From the **with roles** drop-down menu, select the **Ingestion Policies** service role to assign it to the user for the selected tenant.
       ![A screenshot with the Tanzu Observability service instance and the Viewer and the Ingestion Policies service roles selected.](images/csp-assign-two-service-roles.png)
    1. Leave the never expires access field as is.
 
-3. Assign the custom role to the user.
-
-   The custom role is assigned for the already selected Tanzu Observability service instances.
+3. Assign the custom role for the already selected Tanzu Observability service instances (tenants).
 
    1. Click **+ Add Custom Roles Access**.
    1. In the **Add custom role access** popup window, search for, select the custom role that you want to assign, and click **Add**.   

@@ -1,15 +1,16 @@
 ---
-title: Data Retention and Terms of Service
+title: Terms of Service
 keywords: tos
 tags: [tos]
 sidebar: doc_sidebar
 permalink: terms_of_service.html
-summary: Data Retention and Terms of Service
+summary: Terms of Service
 ---
 The terms of service and data retention for Tanzu Observability (formerly known as VMware Aria Operations for Applications) differ depending on the contract your company has with VMware. This page gives a summary and links to some relevant information.
 
 {% include tip.html content="Details vary depending on when you became a customer and on your Service Agreement with VMware." %}
 
+<!--
 ## Data Retention
 
 A production instance retains different types of data for different amounts of time. While this is subject to change, here are the default settings:
@@ -33,11 +34,15 @@ See <a href="metric_types.html#metric-types-per-retention-period">Metric Types p
 </tbody>
 </table>
 
+-->
+
 ## Terms of Service
 
 Your Terms of Service are different depending on when you became a customer.
 
+<!--
 Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for persistent metrics, 28 days for ephemeral metrics, 6 months for histograms, and 7 days for spans. We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
+-->
 
 If you became a customer on or after August 17, 2017:
 
