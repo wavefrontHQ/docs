@@ -1,14 +1,14 @@
 ---
-title: Wavefront Data Best Practices
+title: Tanzu Observability Data Best Practices
 keywords: data
 tags: [data, best practice]
 sidebar: doc_sidebar
 permalink: wavefront_data_naming.html
-summary: Best practices for naming data sent to Wavefront.
+summary: Best practices for naming data sent to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 You can organize your data schema into metric names, source names, and point, alert, event, and source tags.
 
-Wavefront doesn't place any restrictions on naming. However, you benefit from following best practices when you name Wavefront objects. See [Wavefront Data Format](wavefront_data_format.html#operations-for-applications-data-format-fields) for details on valid characters for metric names and other names.
+Tanzu Observability doesn't place any restrictions on naming. However, you benefit from following best practices when you name Tanzu Observability objects. See [Tanzu Observability Data Format](wavefront_data_format.html) for details on valid characters for metric names and other names.
 
 ## Metric Names Best Practices
 
@@ -21,9 +21,9 @@ Don't include a timestamp in the metric name.
 
 ## Source Names Best Practices
 
-Source names should reflect a unique source that is emitting metrics. Wavefront assumes that source names are unique.
+Source names should reflect a unique source that is emitting metrics. Tanzu Observability assumes that source names are unique.
 
-For example, if you have the same machine name in different data centers, and don't separate the two machines when sending data to Wavefront (for example, by prefixing the source names with the datacenter), you can get confusing query results. Time series might oscillate between different values seemingly randomly, or you might see unexpected averaging of points between multiple sources.
+For example, if you have the same machine name in different data centers, and don't separate the two machines when sending data to Tanzu Observability (for example, by prefixing the source names with the datacenter), you can get confusing query results. Time series might oscillate between different values seemingly randomly, or you might see unexpected averaging of points between multiple sources.
 
 When it's not clear which name to use as the source name, use the most unique value for a source name. For higher-level pre-aggregated data, for example, a datacenter-wide metric like power usage, use the name of the datacenter as the name of the source.
 
@@ -45,13 +45,13 @@ Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), an
 
 ### History
 
-Wavefront does not retain the history of alert, event, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with `build-25`, queries filtered by `build-24` no longer match `web004.pax.wavefront.com.` In other words, only current alert, event, and source tags affect queries because these tags are tied only to those objects, not to data.
+Tanzu Observability does not retain the history of alert, event, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with `build-25`, queries filtered by `build-24` no longer match `web004.pax.wavefront.com.` In other words, only current alert, event, and source tags affect queries because these tags are tied only to those objects, not to data.
 
 For more information on tags, see [Organizing with Tags](tags_overview.html).
 
 ## Other Data Best Practices
 
-* [Wavefront and Cardinality](cardinality.html) has an introduction with a video.
+* [Tanzu Observability and Cardinality](cardinality.html) has an introduction with a video.
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) is an in-depth discussion with examples.
 * [Common Time Limits and Best Practices](wavefront_limits.html) shows limits, for example, when a query times out.
 * [Troubleshooting Missing Data](missing_data_troubleshooting.html) explains, for example, how you can toggle the Obsolete Metrics flag to see old data.

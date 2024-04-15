@@ -7,7 +7,8 @@ permalink: missing_data_troubleshooting.html
 summary: Learn how to troubleshoot when you expect to see data but it doesn't appear in charts.
 ---
 
-Sometimes you expect to see certain data in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) but, for some reason, it doesn't show up! This can be a frustrating and confusing experience, especially when you urgently need the data. What could be the problem?
+Sometimes you expect to see certain data in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) but, for some reason, it doesn't show up! This can be a frustrating and confusing experience, especially when you urgently need the data. What could be the problem?
+
 
 <!-- Before removing data retention link
 

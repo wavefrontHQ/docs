@@ -34,7 +34,29 @@ Starting September 20, 2023, all **new trial** instances of Tanzu Observability 
 
 In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Tanzu Observability UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
 
-{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
+{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy)." %}
+
+## 2024-07.x Release Notes
+
+**Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
+
+- `~collector.*points.reported`
+- `~externalservices.*.points`
+- `~derived-metrics.points.reported`
+- `~collector.*histograms.reported`
+- `~derived-histograms.histograms.reported`
+- `~collector.*spans.reported`
+- `~query.metrics_scanned`
+- `~proxy.points.*.received`
+- `~proxy.histograms.*.received`
+- `~proxy.spans.*.received`
+- `~proxy.spanLogs.*.received`
+- `~proxy.build.version`
+- `~metric.global.namespace.*`
+- `~histogram.global.namespace.*`
+- `~counter.global.namespace.*`
+
+
 
 ## 2024-07.x Release Notes
 
@@ -87,7 +109,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-03.x Release Notes
 
-* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Tanzu Observability user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
 * **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
 

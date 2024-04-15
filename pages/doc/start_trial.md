@@ -55,7 +55,7 @@ VMware Cloud services provides provides single sign-on (SSO) and identity access
    
    You are redirected to the Tanzu Observability GUI. You are logged with your VMware account.
    
-   {% include note.html content="Initially, you have only the [**Viewer** Tanzu Observability service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). As a VMware Cloud **Organization Owner**, you can [change your roles](csp_users_roles.html#manage-roles). It's recommended that when you start your free trial, you change your role to **Super Admin**. You can also add users to your service. See [Manage User Accounts](csp_user_management.html) for details." %}
+   {% include note.html content="Initially, you have only the [**Viewer** Tanzu Observability service role](csp_users_roles.html#tanzu-observability-service-roles-built-in). As a VMware Cloud **Organization Owner**, you can [change your roles](csp_users_roles.html#manage-roles). It's recommended that when you start your free trial, you change your role to **Super Admin**. You can also add users to your service. See [Manage User Accounts](csp_user_management.html) for details." %}
 
 ## Learn More!
 * [Get Started with Tanzu Observability on VMware Cloud Services](csp_getting_started.html).

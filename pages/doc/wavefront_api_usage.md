@@ -1,5 +1,5 @@
 ---
-title: Use the Operations for Applications REST API
+title: Use the Tanzu Observability REST API
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: using_wavefront_api.html
 summary: Learn how to use the REST API outside of the in-product API documentation UI.
 ---
 
-The [REST API](wavefront_api.html) enables you to interact with the VMware Aria Operations for Applications service (formerly known as Tanzu Observability by Wavefront) by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example, to tag sources automatically.
+The [REST API](wavefront_api.html) enables you to interact with the VMware Tanzu Observability service (formerly known as VMware Aria Operations for Applications) by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example, to tag sources automatically.
 
 When you make REST API calls outside the REST API documentation UI, you must use a token to authenticate. The token that you need depends on your [subscription type](subscriptions-differences.html).
 
@@ -15,7 +15,7 @@ When you make REST API calls outside the REST API documentation UI, you must use
 
    - User accounts use VMware Cloud services API tokens to retrieve access tokens. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
 
-   - Server to server apps, which correspond to service accounts in Operations for Applications, use OAuth 2.0 client credentials (ID and secret) to retrieve access tokens. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+   - Server to server apps, which correspond to service accounts in Tanzu Observability, use OAuth 2.0 client credentials (ID and secret) to retrieve access tokens. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 
 * For original subscriptions, invoking the Operations for Application REST API requires an Operations for Application API token. An API token can be associated with a user account or service account See [Manage API Tokens](api_tokens.html). 
 
@@ -24,7 +24,7 @@ When you make REST API calls outside the REST API documentation UI, you must use
 
 ## VMware Cloud Services Subscriptions
 
-Invoking the REST API of an Operations for Applications subscription on VMware Cloud services requires a VMware Cloud services access token.
+Invoking the REST API of a Tanzu Observability subscription on VMware Cloud services requires a VMware Cloud services access token.
 
 ### Make API Calls by Using a User Account
 
@@ -51,7 +51,7 @@ If you want to use [your own user account](csp_users_account_managing.html) to m
    curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <access_token>'
     ```
    
-   Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<access_token>` is the access token for your user account.
+   Here, `<your_instance>` is the name of your Tanzu Observability service instance, and `<access_token>` is the access token for your user account.
 
 
 ### Make API Calls by Using a Server to Server App
@@ -59,9 +59,9 @@ If you want to use [your own user account](csp_users_account_managing.html) to m
 If you want to use a [**server to server app**](csp_server_to_server_apps.html) to make the REST API calls, obtain the OAuth credentials (ID and secret) associated with the server to server app and exchange them for an access token.
 
 1. Create a server to server app in VMware Cloud services.
-1. Assign one or more roles to the server to server app to grant it the Operations for Applications access it needs.
+1. Assign one or more roles to the server to server app to grant it the Tanzu Observability access it needs.
 1. Obtain the OAuth 2.0 client credentials of the server to server app and save them to a secure place.
-1. Add the app to your VMware Cloud organization running the Operations for Applications service.
+1. Add the app to your VMware Cloud organization running the Tanzu Observability service.
 1. Encode the server to server OAuth 2.0 client credentials (ID and secret) to Base64 format.
 1. Exchange the Base64 encoded OAuth 2.0 client credentials for an access token.
 
@@ -78,13 +78,13 @@ If you want to use a [**server to server app**](csp_server_to_server_apps.html) 
       ```
       curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <access_token>'
       ```
-      Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<access_token>` is the access token for the server to server app.
+      Here, `<your_instance>` is the name of your Tanzu Observability service instance, and `<access_token>` is the access token for the server to server app.
 
   For more information, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 
 ## Original Subscriptions
 
-Invoking the REST API of an original Operations for Applications subscription requires an Operations for Applications API token.
+Invoking the REST API of an original Tanzu Observability subscription requires a Tanzu Observability API token.
 
 ### Make API Calls by Using a User Account
 
@@ -99,7 +99,7 @@ If you want to use [your own user account](users_account_managing.html) to make 
    curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <your_api_token>'
     ```
    
-   Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<your_api_token>` is the API token for your user account.
+   Here, `<your_instance>` is the name of your Tanzu Observability service instance, and `<your_api_token>` is the API token for your user account.
   
 ### Make API Calls by Using a Service Account
 
@@ -117,4 +117,4 @@ If you want to use a [service account](service-accounts.html) to make REST API c
    curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <service_account_api_token>'
    ```
    
-   Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<service_account_api_token>` is the API token for the service account.
+   Here, `<your_instance>` is the name of your Tanzu Observability service instance, and `<service_account_api_token>` is the API token for the service account.

@@ -4,7 +4,7 @@ keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
 permalink: csp_new_users_tutorial.html
-summary: Learn how to invite new users to Tanzu Observability (formerly known as VMware Aria Operations for Applications) through the VMware Cloud Services Console.
+summary: Learn how to invite new users to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) through the VMware Cloud Services Console.
 ---
 
 Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: 
@@ -117,6 +117,7 @@ In a multi-tenant environment, you assign service roles on a tenant basis. You c
    1. Click **+ Add an Instance**.
    1. From the **in** drop-down menu, select the target service instance (tenant).
       ![A screenshot with the Tanzu Observabilitys service instance selected.](images/csp-select-another-service.png)
+
    1. From the **with roles** drop-down menu, select the **Super Admin** service role, so that you grant full administrative privileges for the selected service instance.
 
       ![A screenshot with the Tanzu Observability roles selected.](images/csp-assign-superadmin-service-role.png)

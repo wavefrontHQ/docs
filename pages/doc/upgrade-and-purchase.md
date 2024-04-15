@@ -28,7 +28,7 @@ Billing depends on the amount of data, measured in points per second (PPS), that
 
 ## Upgrade a Trial Service Instance on VMware Cloud Services
 
-{% include note.html content="To upgrade from a trial version, you must hold the [**Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) in the VMware Cloud organization running the service as well as at least one [Tanzu Observability service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance. If your enterprise domain is federated, to access the organization billing account, you must have a VMware account linked to your corporate account." %}
+{% include note.html content="To upgrade from a trial version, you must hold the [**Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) in the VMware Cloud organization running the service as well as at least one [Tanzu Observability service role](csp_users_roles.html#tanzu-observabilitys-service-roles-built-in) for the service instance. If your enterprise domain is federated, to access the organization billing account, you must have a VMware account linked to your corporate account." %}
 
 1. Log in to your service instance.
 1. On the banner showing you how many days have left from your trial period, click **Upgrade**.

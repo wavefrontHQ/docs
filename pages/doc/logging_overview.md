@@ -40,7 +40,7 @@ summary: Learn about VMware Tanzu Observability (formerly known as VMware Aria O
   </li>
   <li>
     Only users with the <b>Logs</b> permission can view the Logs Browser and drill down into logs from charts, alerts, and traces.
-    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#vmware-aria-operations-for-applications-on-vmware-cloud-services">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
+    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html##tanzu-observability-on-vmware-cloud-services">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
   </li>
 </ul>
 {{site.data.alerts.end}}
