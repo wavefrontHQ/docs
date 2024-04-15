@@ -1,7 +1,7 @@
 <div class="index-header">
     <div>
-        <h1>Operations for Applications</h1>
-        <p><i>(Formerly known as Tanzu Observability by Wavefront)</i></p>
+        <h1>VMware Tanzu Observability</h1>
+        <p><i>(Formerly known as VMware Aria Operations for Applications)</i></p>
         <p>Welcome to our Documentation!</p>
         <ul>
             <li>Explore using the hierarchy on the left.</li>
