@@ -27,6 +27,8 @@ You can send data from your Spring Boot applications into our service using the 
   - **Customer or Free Trial User**: Customers or free trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial here](https://tanzu.vmware.com/observability).
 * **Wavefront Spring Boot Integration**: Customers and free trial users can access the Wavefront Spring Boot integration directly from their clusters.
 
+If your Spring Boot applications are running on Tanzu Application Service (TAS), see the VMware Tanzu solutions workbook on [Instrumenting TAS OpenTelemetry for Spring Boot Application](https://docs.vmware.com/en/VMware-Tanzu-Reference-Architecture/services/tanzu-solutions-workbooks/solution-workbooks-TAS-OpenTelemetry-SpringBoot-TO.html).
+
 ## Dashboards
 
 After you complete the setup, you can examine the data in our dashboards.
