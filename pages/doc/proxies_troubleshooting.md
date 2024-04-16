@@ -230,8 +230,8 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
 
 * Potential Resolution:
 
-  1. Log in to your service instance and navigate to the **Operations for Applications Usage** integration.
-  2. In the **Operations for Applications Service and Proxy Data** dashboard check if the proxy's queue and backlog are staying the same size or growing.
+  1. Log in to your service instance and navigate to the **Tanzu Observability Usage** integration.
+  2. In the **Tanzu Observability Service and Proxy Data** dashboard check if the proxy's queue and backlog are staying the same size or growing.
     * If they're growing, then the attempted rate of ingest is higher than allowed by the backend limit. Either lower the rate of data that is at the proxies, or contact our Technical Support team to request a higher backend limit. If your overall rate of data ingestion is higher than your contract rate, you may incur overage charges.
     * If the proxy's queue size is spiky (going up and coming down, close to 0), then the proxy is effectively smoothing out bursts in your rate of data ingestion. This is normal behavior and is not a cause for concern.
 

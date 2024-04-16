@@ -60,7 +60,7 @@ Also, we made improvements to the following integrations in October 2023:
   * Removed thresholds from the **K8s pod CPU usage too high** system alert.
   * Updated the **Kubernetes Workloads Troubleshooting** dashboard overview with information about the Operator compatibility.
 * Tanzu Application Service - Updated the **Error Rate per Minute** chart in the **Workload Monitoring** dashboard to include the 4xx and 5xx HTTP request error counts.
-* Operations for Applications Usage -- Enabled the **Include Obsolete Metrics** option for all charts in the **Operations for Applications Service and Proxy Data** dashboard.
+* Tanzu Observability Usage -- Enabled the **Include Obsolete Metrics** option for all charts in the **Tanzu Observability Service and Proxy Data** dashboard.
 * VMware GemFire -- Updated the queries of the GemFire system alerts with new prefixes.
 * Go -- Removed references of deprecated SDKs.
 * C Sharp -- Removed references of deprecated libraries.
@@ -102,7 +102,7 @@ We made improvements to the following integrations in August 2023:
 
   For the latest list of integrations, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
 
-* Operations for Applications Usage -- Made bug fixes to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards.
+* Tanzu Observability Usage -- Made bug fixes to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards.
 
 * Fluentd -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
 * Ceph -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
@@ -126,7 +126,7 @@ We made improvements to the following integrations in July 2023:
 * VMware GemFire -- Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. Also updated some of the dashboard queries to a new format.
 * Uptime -- Updated the integration with the new Uptime logo.
 * Windows Host -- The setup steps now use a URL parameter in the Wavefront proxy configuration.
-* Operations for Applications Usage -- Fixed issues in the predefined dashboards.
+* Tanzu Observability Usage -- Fixed issues in the predefined dashboards.
 * Terraform Provider -- Fixed a discrepancy in the Terraform `resource_alert` provider resulting in erroneous Terraform change plan.
 
 
@@ -202,7 +202,7 @@ We made improvements to the following integrations in January 2023:
 
 * Microsoft SQL Server -- Updated the charts in the **SQL Server Metrics** dashboard to use the instance variables.
 
-* Operations for Applications Usage -- Made fixes to the integration and now dashboards are populated with data depending on your type of contract (Billable vs. Burndown).
+* Tanzu Observability Usage -- Made fixes to the integration and now dashboards are populated with data depending on your type of contract (Billable vs. Burndown).
 
 * Tanzu Application Service -- Made updates to the TAS system alerts and removed some of the alerts that are no longer needed, such as:
   - TAS Active Locks Alerts

@@ -51,7 +51,7 @@ Administrators (and often other team members) are interested in usage data at al
 
 1. Users who install Wavefront proxies can examine the [proxy information](monitoring_proxies.html) on the out-of-the-box dashboards. Larger environments or production environments rely on a team of load-balanced proxies, as discussed by Clement Pang in [this video about proxies](https://vmwaretv.vmware.com/media/t/1_5wfjti3m).
     Having usage data for the proxy helps administrators during installation and also helps with proxy sizing later.
-2. View the points flowing into the system from the [Overall Data Rate section](wavefront_monitoring.html#overall-data-rate) of the **Operations for Applications Service and Proxy Data** dashboard.
+2. View the points flowing into the system from the [Overall Data Rate section](wavefront_monitoring.html#overall-data-rate) of the **Tanzu Observability Service and Proxy Data** dashboard.
 3. Create custom charts with internal metrics. Our system dashboard information is a great start, but you might benefit from other [internal metrics](wavefront-internal-metrics.html) and it's easy to create a dashboard with custom charts.
 
    **Note**: We've include the internal metrics that are most useful in the documentation.
