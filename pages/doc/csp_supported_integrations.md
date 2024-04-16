@@ -487,5 +487,5 @@ The following integrations do not depend on the subscription type and work as ex
 
 * [Webhooks](webhooks.html)
 * [Graphite](graphite.html)
-* [Operations for Applications Usage Integration](wavefront_monitoring.html)
+* [Tanzu Observability Usage Integration](wavefront_monitoring.html)
 

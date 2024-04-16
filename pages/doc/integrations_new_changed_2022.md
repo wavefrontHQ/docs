@@ -97,13 +97,13 @@ Logs (Beta) Related Changes:
 With the Initial Availability of our Logs (Beta) feature, we have made improvements to the following integrations:
   
 * Linux Host -- Now contains Linux Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your Linux integration to [send logs](logging_send_logs.html) to our service. For details on the Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For detailed steps on setting up the Linux Host integration, see [Linux Logs Setup (Beta)](linux.html).
-* Operations for Applications Usage -- We added a Logs Stats section. It contains charts that track the amount of logs that are successfully delivered and successfully queried by our service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy. [Read more](wavefront_monitoring.html#logs-stats).
+* Tanzu Observability Usage -- We added a Logs Stats section. It contains charts that track the amount of logs that are successfully delivered and successfully queried by our service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy. [Read more](wavefront_monitoring.html#logs-stats).
 
 We made improvements and bug fixes to the following integrations in October 2022:
 
-* Operations for Applications Usage:
+* Tanzu Observability Usage:
   - Made significant improvements to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards. You can use the data displayed on the dashboard that suits your commit contract. For example, if you have a billable commit contract, only the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard will contain charts populated with data. The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard will be empty.
-  - Made a minor fix to the **Operations for Applications Service and Proxy Data** dashboard.
+  - Made a minor fix to the **Tanzu Observability Service and Proxy Data** dashboard.
 * Terraform Provider:
   - We added data source support for alerts, dashboards, events, derived metrics, maintenance windows, and external links.
   - Added support for checking frequency of Terraform Tanzu Observability Alert.
@@ -116,7 +116,7 @@ We made improvements and bug fixes to the following integrations in October 2022
 * Java -- Fixed the links to the Jolokia 2 Agent documentation.
 * Kubernetes -- Added a new system alert to the integration. You can now get notified when the Kubernetes observability status becomes unhealthy.
 * Google Cloud Platform -- The **Google Dataproc** dashboard is now improved with information that you must create a derived metric if you see a delay in the loading of variables.
-* Operations for Applications Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
+* Tanzu Observability Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
 
 ## September 2022
 
@@ -125,7 +125,7 @@ We made improvements to the following integrations in September 2022:
 * vSphere -- Made fixes to the **Cluster** dashboard. Updated the cluster variable to all charts in the **Virtual Machine Operations for a Data Center - 1 Hour** section.
 * Elasticsearch -- Made a fix to the query of the chart that displays the number of nodes, and updated the descriptions of charts.
 * Microsoft SQL Server -- Added proxy preprocessor rules in the Microsoft SQL Server setup instructions to avoid database read/write metrics getting dropped because of an extra quote (“) in a few point-tag keys.
-* Operations for Applications Usage -- Made minor updates to the Overview tab of the integration. The link to the service internal metrics is corrected.
+* Tanzu Observability Usage -- Made minor updates to the Overview tab of the integration. The link to the service internal metrics is corrected.
 * Slack -- Updated the setup instructions and added information on how to troubleshoot the Slack URL Unfurler.
 * Cassandra -- We updated the integration and now you can monitor Cassandra on Kubernetes.
 * Tanzu Application Service -- We added three new dashboards for monitoring TAS services: 
@@ -171,7 +171,7 @@ We made improvements to the following integrations in July 2022:
 * Google Cloud Platform -- Added a **Google Cloud Bigtable** out-of-the-box dashboard which allows you to monitor the Google Cloud Bigtable service.
 * Microsoft Azure -- Made fixes to the **Azure Cosmos DB** dashboard to avoid showing the NO DATA message on single-stat charts.
 * Fluentd -- Improved the **Fluentd** dashboard and added two new sections to the dashboard: **Buffer** and **Fluentd Statistics**.
-* Operations for Applications Usage -- Made some fixes and standardized the **Operations for Applications Service and Proxy Data** dashboard.
+* Tanzu Observability Usage -- Made some fixes and standardized the **Tanzu Observability Service and Proxy Data** dashboard.
 * Kubernetes -- Improved the Kubernetes Metrics Collector Troubleshooting dashboard to show correctly whether the desired number of Collector instances are ready.
 
 ## June 2022
@@ -209,7 +209,7 @@ We made improvements to the following integrations in June 2022:
   * We improved the setup instructions with information on how to enable a Prometheus endpoint.
 
 
-* Operations for Applications Usage -- Updated the dashboard descriptions and made fixes to alerts.
+* Tanzu Observability Usage -- Updated the dashboard descriptions and made fixes to alerts.
 
 
 ## May 2022
@@ -270,7 +270,7 @@ We made improvements to the following integrations in March 2022:
   * You can enable the control plane metrics with helm, or using manual configuration. To see a full list of supported control plane metrics, visit our [github repo](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#control-plane-metrics).
 
 
-*  Operations for Applications Usage
+*  Tanzu Observability Usage
    * Added two new system dashboards to the integration: **Committed rate vs Monthly Usage (PPS P95) Billable** and **Usage vs Remaining Balance (PPS P95) Burndown**.
    * Added three new system alerts: **Percentage of Usage Scanned**, **Percentage of Usage Ingested**, and **Remaining Balance**.
 

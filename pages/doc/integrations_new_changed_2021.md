@@ -77,7 +77,7 @@ Made improvements to the following integrations and dashboards in September 2021
   - Updated the query in the top 10 CPU charts of the **AWS: ECS (Fargate)** dashboard to show the correct values.
   - Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
 
-* Operations for Applications Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard:
+* Tanzu Observability Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard:
   - Gauge
   - Pie
   - Node map
@@ -113,7 +113,7 @@ Made improvements to the following integrations and dashboards in July 2021:
 * Project Pacific -- Renamed the integration from Project Pacific Integration to vSphere with Tanzu Integration.
 * VMware Cloud PKS -- Removed the VMware Cloud PKS integration.
 * OpenTelemetry --  Updated the steps for configuring the application to send trace data to Tanzu Observability using the trace exporter.
-* Operations for Applications Usage -- Added new charts to **Proxies Overview** section in the **Operations for Applications Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
+* Tanzu Observability Usage -- Added new charts to **Proxies Overview** section in the **Tanzu Observability Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
 * Azure AD -- Added steps to configure Azure AD using Self-Service SAML.
 * Data Platforms -- Added a new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**.
 * Kubernetes:
@@ -162,7 +162,7 @@ Made improvements to the following integrations and dashboards in June 2021:
 Made improvements to the following integrations and dashboards in May 2021:
 * AWS -- Updated the **AWS Summary** dashboard to use Delta Counters.
 * Linux -- Updated the Linux integration to list all collected metrics.
-* Operations for Applications Usage:
+* Tanzu Observability Usage:
   * The out of the box dashboards are updated to use new delta counters.
   * The integration out of the box alerts are updated to use delta counters.
 * Kubernetes:
@@ -210,7 +210,7 @@ Made improvements to the following integrations in March 2021:
 * OneLogin -- Updates to the integration setup instructions
 * vSphere -- Fixes to the out of the box dashboards
 * RabbitMQ -- Fixes to the out of the box dashboards
-* Operations for Applications Usage -- Added new alerts to the integration
+* Tanzu Observability Usage -- Added new alerts to the integration
 
 ## December 2020 - February 2021
 
@@ -224,7 +224,7 @@ Made improvements to the following integrations and dashboards in December 2020 
 * Amazon Web Services Gateway -- New API gateway types
 * Spring Cloud Data Flow -- Spring Cloud Data Flow and Spring Cloud Skipper version upgrade
 * Microsoft Azure Storage -- New chart showing used capacity
-* Operations for Applications Usage:
+* Tanzu Observability Usage:
   * Name changes to the dashboards
   * Now includes an **Alerts** tab with predefined alerts
 * Java
@@ -232,7 +232,7 @@ Made improvements to the following integrations and dashboards in December 2020 
 * AppDynamics -- Updates to the setup UI
 * Kubernetes -- New out of the box dashboards
 * OKTA -- Updates to the setup UI
-* Operations for Applications Tutorial
+* Tanzu Observability Tutorial
 * Slack
 * Amazon Web Services: Fargate dashboard
 * Tanzu Kubernetes Grid Integrated Edition -- Updated to support Tanzu Kubernetes Grid Integrated Edition 1.10

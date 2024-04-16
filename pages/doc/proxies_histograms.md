@@ -265,4 +265,4 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
 
 ## Monitoring Histogram Points
 
-You can use `~histogram` metrics to monitor histogram ingestion. See the [Ingest Rate by Source](wavefront_monitoring.html#ingest-rate-by-source) section of the Operations for Applications Service and Proxy Data dashboard.
+You can use `~histogram` metrics to monitor histogram ingestion. See the [Ingest Rate by Source](wavefront_monitoring.html#ingest-rate-by-source) section of the Tanzu Observability Service and Proxy Data dashboard.
