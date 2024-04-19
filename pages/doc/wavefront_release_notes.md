@@ -58,6 +58,30 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 
 
+## 2024-xx.x Release Notes
+
+* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between Operations for Applications and VMware Tanzu Insights. The Insights capabilities help you investigate your alerts from within the Operations for Applications user interface.
+
+  The Alert Viewer and Alert Editor now include the Related Insights pane, which provides a list of the insights that contain the corresponding alert.
+
+  {% include note.html content="You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see [Service Roles](https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1) in the VMware Tanzu Hub documentation."%}
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  In the Related Insights pane, you can:
+  <ul><li>Filter the insights by severity.</li>
+  <li>View all Operations for Applications alert firings aggregated in a related insight.</li>
+  <li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub</a> in the VMware Tanzu Hub documentation.</li></ul>
+  <p>If your VMware Cloud organization is not running the VMware Tanzu Insights service, you can click <strong>Try Free Tier</strong> to unlock AI/ML-based insights for your environment.</p></td>
+  <td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
+  </tr>
+  </tbody>
+  </table>
+
+  For details, see [Examine the Related Information](alerts.html#step-2-examine-the-related-information).
+
 ## 2024-07.x Release Notes
 
 **Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
@@ -77,8 +101,6 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 - `~metric.global.namespace.*`
 - `~histogram.global.namespace.*`
 - `~counter.global.namespace.*`
-
-
 
 ## 2024-05.x Release Notes
 
