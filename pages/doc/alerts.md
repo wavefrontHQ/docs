@@ -269,7 +269,7 @@ The related information in the right pane depends on your [subscription type](su
 
 * For a VMware Cloud services subscription, in the top right, examine the Related Insights pane.
 
-  We scan and show the Tanzu Observability insights that include this alert.
+  We scan the Tanzu Observability insights in the Tanzu Hub platform and show the insights that include this alert.
 
   {% include note.html content="You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see [Service Roles](https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1) in the VMware Tanzu Hub documentation."%}
 
