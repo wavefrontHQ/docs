@@ -34,7 +34,7 @@ Starting September 20, 2023, all **new trial** instances of Tanzu Observability 
 
 In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Tanzu Observability UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
 
-{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy)." %}
+{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Tanzu Observability API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy)." %}
 
 ## 2024-07.x Release Notes
 
@@ -60,7 +60,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 ## 2024-xx.x Release Notes
 
-* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between Operations for Applications and VMware Tanzu Insights. The Insights capabilities help you investigate your alerts from within the Operations for Applications user interface.
+* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between the Tanzu Observability UI and the Tanzu Observability Insights UI in the VMware Tanzu Hub platform.
 
   The Alert Viewer and Alert Editor now include the Related Insights pane, which provides a list of the insights that contain the corresponding alert.
 
@@ -72,9 +72,9 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
   <td width="50%">
   In the Related Insights pane, you can:
   <ul><li>Filter the insights by severity.</li>
-  <li>View all Operations for Applications alert firings aggregated in a related insight.</li>
-  <li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Insights in Tanzu Hub</a> in the VMware Tanzu Hub documentation.</li></ul>
-  <p>If your VMware Cloud organization is not running the VMware Tanzu Insights service, you can click <strong>Try Free Tier</strong> to unlock AI/ML-based insights for your environment.</p></td>
+  <li>View all Tanzu Observability alert firings aggregated in a related insight.</li>
+  <li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Observability Insights in Tanzu Hub</a> in the VMware Tanzu Hub documentation.</li></ul>
+  </td>
   <td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
   </tr>
   </tbody>

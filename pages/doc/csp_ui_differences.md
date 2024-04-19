@@ -84,7 +84,7 @@ The option for creating a metrics security policy rule based on roles is removed
 
 ## Alert Viewer and Alert Editor
 
-The Related Firing Alerts pane in the top right of the Alert Viewer is replaced with the Related Insights pane, because VMware Cloud services subscribers have a bidirectional link with VMware Tanzu Insights. 
+The Related Firing Alerts pane in the top right of the Alert Viewer is replaced with the Related Insights pane. VMware Cloud services subscribers have a bidirectional link between the Tanzu Observability UI and the VMware Tanzu Observability Insights UI in the VMware Tanzu Hub platform. 
 
   ![An image showing that the Roles option is removed from the UI for new subscribers.](images/new-vs-original-related-alerts.png)
 
