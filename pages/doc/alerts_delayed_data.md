@@ -86,7 +86,6 @@ You can use either of the following techniques (or both):
 * Use the `lag()` function in the alert condition.
 * Increase the length of the alert check time window.
 
-
 ### Adjust the Alert Condition
 
 You can use the [`lag()`](ts_lag.html) function in an alert condition to shift the alert check time window back in time. Pick a time window that you think might be old enough to contain backfilled values. Without `lag()`, the alert check time window ends immediately before alert checking occurs, which is too soon for backfilling to occur.

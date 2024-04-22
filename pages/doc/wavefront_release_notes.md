@@ -58,6 +58,14 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 
 
+## 2024-09.x Release Notes
+
+**Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
+
+  ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
+
+
+
 ## 2024-07.x Release Notes
 
 **Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
