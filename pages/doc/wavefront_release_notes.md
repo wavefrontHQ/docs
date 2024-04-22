@@ -34,7 +34,14 @@ Starting September 20, 2023, all **new trial** instances of Tanzu Observability 
 
 In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Tanzu Observability UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
 
-{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy)." %}
+{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Tanzu Observability API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy)." %}
+
+## 2024-09.x Release Notes
+
+**Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
+
+  ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
+
 
 ## 2024-07.x Release Notes
 
@@ -55,15 +62,6 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 - `~metric.global.namespace.*`
 - `~histogram.global.namespace.*`
 - `~counter.global.namespace.*`
-
-
-
-## 2024-09.x Release Notes
-
-**Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
-
-  ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
-
 
 
 ## 2024-07.x Release Notes
