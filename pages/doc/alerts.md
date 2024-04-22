@@ -207,13 +207,13 @@ For example, you could show alerts that are both FIRING and SEVERE.</td>
 
 ### Step 3: Examine an Alert in Alerts Browser
 
-For each alert, the Alerts Browser includes detailed information. For example, an alert that is firing looks like this:
+You can expand each alert to view detailed information. For example, when you expand an alert that is firing, the detailed information looks like this:
 
 ![Annotated screenshot highlighting the UI elements which are described in the text below](images/alert_firing.png)
 
 Follow these steps for a tour:
 1. Click the ellipsis icon to the left for a menu.
-2. Click the chart icon next to the status for alert details. If the alert is firing, click to examine the alert in Alert Viewer.
+2. Click the chart icon under the **State** column for alert details. If the alert is firing, click to examine the alert in Alert Viewer.
 3. View the alert condition and points.
 4. View details below the severity:
   - View the last affected series, including the affected sources and point tags.
@@ -255,16 +255,13 @@ Alert version history shows:
 You can revert back to a past alert version or clone a past alert version.
 <br/><br/>.
 </td>
-<td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
+<td width="40%"><img src="images/alert_versions.png" alt="alert history selected in menu."></td>
 </tr>
 </tbody>
 </table>
 
 
-
-
-
-### Step 5: Organize Related Alerts With Tags
+### Step 5: Organize Related Alerts with Tags
 
 You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html). You can:
 * [Search or filter](wavefront_searching.html) the list of alerts in the Alerts Browser to show only a category of alerts.
@@ -272,21 +269,30 @@ You can use alert tags to organize related alerts into categories. Alert tags ar
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
 <table style="width: 100%;">
-<tbody>
-<tr>
-<td width="70%">
-<br/>
-To add a new or existing alert tag at any time:
-<ul>
-<li>Set the <strong>Tags</strong> property when you create or edit the alert. </li>
-<li>Click plus (<strong>+</strong>) at the bottom of the alert in the Alerts Browser.</li>
-<li>Select one or more alerts in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong></li>
-</ul>
-<p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
-</td>
-<td width="30%"><img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options"></td>
-</tr>
-</tbody>
+  <tbody>
+    <tr>
+      <td width="50%">
+        <br/>
+        To add a new or existing alert tag at any time:
+        <ul>
+          <li>
+            Set the <strong>Tags</strong> property when you create or edit the alert.
+            </li>
+          <li>
+            In the Alerts Browser, expand to get the details view of an alert, and click plus (<strong>+</strong>) under <strong>Alert Tags</strong>.
+          </li>
+          <li>
+            Select one or more alerts in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong>
+          </li>
+        </ul>
+        <p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
+        {% include note.html content="If you want to add a new tag in the revamped Alerts Browser, enter the name of the tag and click plus icon next to the new tag name. " %}
+      </td>
+      <td width="50%">
+        <img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options">
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -296,10 +302,10 @@ To add a new or existing alert tag at any time:
 ### Step 6: (Optional) Use Multi-Level Alert Tags
 
 If your environment has a nested set of categories, you can use alert tag paths. For example, suppose you have created a group of alerts that you use as demo examples, and:
-* Within the demo group, some alerts monitor network activity, while others monitor request latency.
-* Within each subgroup, some alerts monitor production applications, while others monitor development applications.
+* Within the demo group, some alerts monitor network activity.
+* Within each subgroup, some alerts monitor production applications.
 
-To manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts Browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
+To manage these alerts, you assign the tag paths `example.network.prod` and `example.latency.prod`. The Alerts Browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
 
 ![Alert tag path](images/alert_tag_path.png)
 

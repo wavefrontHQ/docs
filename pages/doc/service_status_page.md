@@ -6,7 +6,7 @@ permalink: service_status_page.html
 summary: Monitor for incidents and maintenance on your service.
 ---
 
-We publish the service operational status and maintenance schedules to the [VMware Cloud Services status page](https://status.broadcom.com/services/vmware-cloud-services). For confidentiality reasons, the individual customer clusters are listed with alias names.
+We publish the Tanzu Observability (formerly known as VMware Aria Operations for Applications) service operational status and maintenance schedules to the [VMware Cloud Services page](https://status.broadcom.com/services/vmware-cloud-services) on the Broadcom Service Status portal. For confidentiality reasons, the individual customer clusters are listed with alias names.
 
 ## Find Your Cluster Alias Name
 
@@ -14,7 +14,7 @@ We publish the service operational status and maintenance schedules to the [VMwa
 <tbody>
 <tr>
 <td width="60%">
-To see the status of your Tanzu Observability (formerly known as VMware Aria Operations for Applications) service, you must get the alias name of your cluster.
+To see the status of your Tanzu Observability service instance, you must get the alias name of your cluster.
 <ol>
 <li>Log in to your service instance and click the gear icon on the toolbar.</li>
 <li>Under <strong>VMware Status Page</strong>, see your cluster alias name.</li>
