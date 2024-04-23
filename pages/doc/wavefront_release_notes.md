@@ -15,15 +15,6 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcements
 
-### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
-
-In October, 2023, we start to incrementally [onboard](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Operations for Applications UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
-
-
-### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
-
-Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
-
 ### VMware Aria Operations for Applications on VMware Cloud Services
 
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
@@ -31,119 +22,104 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 * **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
 * **Original Subscriptions**: Existing subscriptions which remain as is until onboarded to VMware Cloud services. 
    
-   We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
-
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
 
-## 2023-38.x Release Notes
+### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
 
-### Onboarded Subscriptions
+Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
 
-**New Admin Permission and Service Role**: With this release, we introduce the **Admin** [permission](csp_permissions_overview.html#operations-for-applications-permissions) and [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). **Admin** users can manage the Operations for Applications organization settings.
+### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
 
+In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Operations for Applications UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
 
-### Original and Onboarded Subscriptions
+{% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
-**Cloud Integrations Page Improvements**: We improved the user experience of the **Cloud Integrations** page. To navigate to this page:
-1. In your service instance, click **Integrations** on the toolbar.
-2. Click a cloud integration tile,  for example **Amazon Web Services**.
-3. On the **Setup** tab, click **Advanced**.
+## 2024-09.x Release Notes
 
-![An annotated screenshot of the Cloud Integrations list page. The information is listed below](images/cloud-integrations-page.png)
+**Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
 
-On the **Cloud Integrations** page, now you can:
-
-* Apply various filters and hide or show the filters listed on the left.
-* Search for integrations, save and share searches.
-* Hide or show the filters on the left.
-* Click the **Add Cloud Integration** button and select a new integration to add.
-* Select to display all active or only the deleted integrations.
-* Sort the cloud integrations by name, time of the last data fetch, or number of ingested metrics.
-* Use the ellipsis icon menu to:
-  * Enable or disable an integration instance, edit it, or delete it, when all integrations are displayed.
-  * Restore an integration instance or select to permanently delete it, when only deleted integrations are displayed.
-
-## 2023-34.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-**Kubernetes Alerts Templates**: We included new alerts templates for the Kubernetes integration. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
-
-## 2023-33.x Release Notes
-
-### Original and Onboarded Subscriptions
-
-* **Alerts Improvements**: When the **Resolve Window** for an alert is deleted by using an external tool, in the Operations for Applications UI, the **Alert** will now properly display that the **Resolve Window** matches the **Trigger Window**.
+  ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
 
 
-* **Sources Browser Page Improvements**: The [**Sources** browser page](sources_managing.html#examine-sources-in-the-source-browser) is now improved and allows you to:
 
-    * Hide and show details for all sources or for a specific source.
-    * Apply various filters and hide or show the filters listed on the left.
-    * Hide a single source or create a maintenance window for the alerts with a particular source.
+## 2024-07.x Release Notes
+
+**Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
+
+- `~collector.*points.reported`
+- `~externalservices.*.points`
+- `~derived-metrics.points.reported`
+- `~collector.*histograms.reported`
+- `~derived-histograms.histograms.reported`
+- `~collector.*spans.reported`
+- `~query.metrics_scanned`
+- `~proxy.points.*.received`
+- `~proxy.histograms.*.received`
+- `~proxy.spans.*.received`
+- `~proxy.spanLogs.*.received`
+- `~proxy.build.version`
+- `~metric.global.namespace.*`
+- `~histogram.global.namespace.*`
+- `~counter.global.namespace.*`
 
 
-  In addition, the page on which you can [examine a single source](sources_managing.html#step-2-examine-the-source) is also improved for better user experience. 
+
+## 2024-05.x Release Notes
+
+* **New Ephemeral Metric Type**: With this release, we introduce ephemeral metrics, which have a short retention period. Ephemeral metrics are retained for 28 days, whereas persistent (default) metrics are retained for 18 months. For details, see [Metric Types per Retention Period](metric_types.html#metric-types-per-retention-period).
+
+  {% include note.html content="By default, all ingested metrics are persistent but are now convertible to ephemeral."%}
+
+  On the Metrics Browser:
   
+  * All users can view the type of each metric - persistent or ephemeral.
+  * Super Admin users can convert metrics from persistent to ephemeral and the reverse. For details, see [Change the Retention Period of Metrics](metrics_managing.html#change-the-retention-period-of-metrics).
+    
+  ![A screenshot of the Metrics Browser with highlighted the new Type column and the new Change Ephemerality button.](images/metrics_browser_RNs.png)
 
-## 2023-31.x Release Notes
+  {% include note.html content="Converting persistent metrics to ephemeral improves the [query performance](query_language_performance.html) and reduces the [cardinality](cardinality.html). Consider converting metrics that are relevant for a short time and that have high cardinality, such as the Kubernetes metrics (`kubernetes.`). "%}
 
-### Original and Onboarded Subscriptions
+* **Replace all `~agent.` metrics with `~proxy.`**: The `~agent.` metrics were deprecated a few years ago. With this release, our service no longer supports the `~agent.` metrics. You must replace all the `~agent.` metrics with `~proxy.` to ensure that your charts don’t break.
 
-* **Logs GA release**: With this release, we launch the General Availability of our [Logs feature](logging_overview.html). You can:
-  * [Send your logs](logging_send_logs.html) to our service, and troubleshoot using the [Logs Browser](logging_log_browser.html).
-  * [Create logs charts](logging_logs_chart.html) to view logs next to your metrics data.
-  * Drill into logs from alerts, charts, and traces.
-  * [Customize the default log settings](logging_logs_settings.html) to map logs tags to metrics and trace tags so you can drill into logs seamlessly.
-  
-  {% include important.html content="Logs is enabled only for selected customers. If you want to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
+  For example: 
 
-  ![A screenshot of the logs browser.](images/logs_browser_ga_for_release_notes.png)
+  ```
+  # Deprecated metric: 
+  rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
 
-* **Logs Alerts**: You can create alerts for your logs data and see the firing events of the logs alert. See [Manage Logs Alerts](logging_log_alerts.html) for details. 
+  # Replace with:
+  rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
+  ``````
 
-  {{site.data.alerts.note}}
-  <ul>
-      <li>
-          You need the <b>Logs</b> permission to view the logs alerts.
-      </li>
-      <li>
-          You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
-      </li>
-  </ul>
-  <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
-  {{site.data.alerts.end}}
+## 2024-03.x Release Notes
 
-  In this release, you can create logs alerts only when the default query language for your [user account](users_account_managing.html#configure-user-preferences) is **WQL** and **Chart Builder** is the default way for building queries. This limitation will be removed in an upcoming release.
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
-  ![A screenshot of the alert browser on the logs alerts tab.](images/logs_alerts_for_rlease_notes.png)
+* **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
 
-* **Maintenance Window Browser Page Improvements**: The [**Maintenance Window** browser page](maintenance_windows_managing.html#maintenance-windows) is now improved and allows you to:
+  ![An annotated screenshot of the Derived Metrics Browser. The information is listed below](images/derived_metrics.png)
 
-    * Hide and show details for all maintenance windows or for a specific maintenance window.
-    * Sort the maintenance windows by name, state, start or end time.
-    * Apply various filters and hide or show the filters listed on the left.
+  On this page, now you can:
 
-* **New Field in the Generic Webhook Alert Template**: We added the [`contributingKVs` iterator](alert_target_customizing.html#list-all-sources-and-point-tags-of-an-aggregation-alerts-time-series), which returns the keys and values of each source and point tag used in the time series of a failed alert whose condition uses a single top-level aggregation function.
+  * Apply various filters and hide or show the filters listed on the left.
+  * Search for derived metrics, save and share searches.
+  * Click **Create Derived Metric** to add a derived metric.
+  * Choose to display only the existing or only the deleted derived metrics.
+  * Sort the derived metrics by name, state, time of the last update, or number of points.
+  * Show or hide details for specific or all derived metrics.
+  * Use the ellipsis icon menu to:
+    * Edit, clone, or delete an existing derived metric.
+    * Restore or permanently delete a deleted derived metric.
+  * Select one or more derived metrics to add or remove specific tags for them, or to delete them.
 
-  {% include important.html content="This feature is not available by default. To enable this feature for your service instance, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
+## 2024-01.x Release Notes
 
-* **Support for Alerting on ~alert.webhooks**: With this release, you can alert on `cs(~alert.webhooks.*)`. See [Query Responses of Webhook Alert Targets](webhooks_alert_notification.html#query-responses-of-webhook-alert-targets) for details.
-
-### Onboarded Subscriptions Only
-
-* **Support for Kubernetes Integration Setup**: We added support for setting up the Kubernetes integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
-
-* **Support for Tanzu Application Service Integration Setup**: We added support for setting up the Tanzu Application Service integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations Release Notes](integrations_new_changed.html#august-2023) for details.
-
-
-
-
-
+**Amazon Web Services Integration Improvement**: You can now disable the ingestion of support service limit metrics. See the [Integrations Release Notes](integrations_new_changed.html#january-2024) for details.
 
 ## Past Release Notes
+- [2023-52.x Release Notes](2023-52.x_release_notes.html)
 - [2023-29.x Release Notes](2023-29.x_release_notes.html)
 - [2023-13.x Release Notes](2023-13.x_release_notes.html)
 - [2023-06.x Release Notes](2023-06.x_release_notes.html)
@@ -152,15 +128,3 @@ On the **Cloud Integrations** page, now you can:
 - [2022-29.x Release Notes](2022-29.x_release_notes.html)
 - [2022-20.x Release Notes](2022-20.x_release_notes.html)
 - [2022-06.x Release Notes](2022-06.x_release_notes.html)
-- [2021-49.x Release Notes](2021.49.x_release_notes.html)
-- [2021-35.x Release Notes](2021.35.x_release_notes.html)
-- [2021-24.x Release Notes](2021.24.x_release_notes.html)
-- [2021-19.x Release Notes](2021.19.x_release_notes.html)
-- [2021-14.x Release Notes](2021.14.x_release_notes.html)
-- [2021-08.x Release Notes](2021.08.x_release_notes.html)
-- [2020-42.x Release Notes](2020.42.x_release_notes.html)
-- [2020-38.x Release Notes](2020.38.x_release_notes.html)
-- [2020-30.x Release Notes](2020.30.x_release_notes.html)
-- [2020-26.x Release Notes](2020.26.x_release_notes.html)
-- [2020-22.x Release Notes](2020.22.x_release_notes.html)
-- [2020-14.x Release Notes](2020.14.x_release_notes.html)

@@ -969,7 +969,7 @@ entries:
             url: /csp_access.html
             output: web
 
-          - title: Metrics Security Policy Rules
+          - title: Security Policy Rules
             url: /csp_metrics_security.html
             output: web
             
@@ -1031,8 +1031,8 @@ entries:
             url: /access.html
             output: web
 
-          - title: Metrics Security Policy Rules
-            url: /metrics_security.html
+          - title: Security Policy Rules
+            url: /security_policy.html
             output: web
 
 

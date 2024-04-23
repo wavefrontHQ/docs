@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Chef Server integrati
 
 ## Chef Server Integration
 
-This integration is a cookbook for installing and configuring Python, pip, Telegraf, and the Wavefront proxy on a Chef client. The instructions include all commands you run, in sequence.
+This integration is a cookbook for installing and configuring pip, Telegraf, and the Wavefront proxy on a Chef client. The instructions on the **Setup** tab, include all commands that you must run, in a sequence.
 
 
 

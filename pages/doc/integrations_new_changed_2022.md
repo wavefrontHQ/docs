@@ -8,7 +8,7 @@ summary: New and changed integrations released in 2022.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations.
 
-This document lists new and changed integrations for 2022. For earlier releases, see [New and Changed Integrations in 2021](integrations_new_changed_2021.html)[New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
+This document lists new and changed integrations for 2022. For earlier releases, see [New and Changed Integrations in 2021](integrations_new_changed_2021.html) and [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
 * We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
@@ -24,9 +24,9 @@ We made improvements to the following integrations in December 2022:
   
     ![Screenshot of the new Kubernetes setup UI experience.](images/k8s-setup-UI.png)
   
-  - We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. 
+  - We deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. 
     
-    If you currently use the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods. See more [here](wavefront_obsolescence_policy.html#kubernetes-integration).
+    If you currently use the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods.
     
     {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
     

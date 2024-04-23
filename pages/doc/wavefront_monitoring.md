@@ -87,14 +87,14 @@ These charts use the following metrics:
 
 The **Logs Stats** section contains charts that track the amount of logs that are successfully delivered and successfully queried by the Operations for Applications service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the proxy.
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative."%}
+{% include important.html content="Logs is enabled only for selected customers. To participate, contact your account representative."%}
 
 These charts use the following metrics:
 
-- `~agent.logs.*.delivered` -- Number of log bytes successfully delivered.
+- `~proxy.logs.*.delivered` -- Number of log bytes successfully delivered.
 - `~wavefront.logservice.api.bytesQueried.total.bytes` -- Number of log bytes successfully queried.
 - `~proxy.logs.*.received.bytes` -- Number of log bytes received by the proxy.
-- `~agent.logs.*.received.max-burst-rate` -- Maximum burst rate of incoming logs.
+- `~proxy.logs.*.received.max-burst-rate` -- Maximum burst rate of incoming logs.
 - `~proxy.buffer.logs-count` -- Number of delayed log bytes stored on disk. Logs can be queued for the following reasons:
     - Intermittent failures in communication with the backend.
     - A surge of incoming data in excess of thread buffer size.

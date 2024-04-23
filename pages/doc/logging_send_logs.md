@@ -43,8 +43,6 @@ value: "false"</code>
   </tr>
 </table>
 
-{% include important.html content="Starting with proxy version 11.3, you can send logs in the JSON **array** format. Starting with proxy version 12.1, you can send logs also in the JSON **lines** format." %}
-
 To install and configure a new proxy:
 
 1. Select **Browse** > **Proxies**.

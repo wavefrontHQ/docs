@@ -262,5 +262,5 @@ You have to specify the URL of your instance (e.g. https://example.wavefront.com
 
 ## Learn More!
 
-* KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
+* KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://vmwaoa.zendesk.com/hc/en-us/articles/21323746500237-Configure-a-VMware-Aria-Operations-for-Applications-Proxy-Container-to-Use-wavefront-conf)
 * [Configure Containerized Wavefront Proxy with an HTTPS Proxy](proxies_container.html#configure-a-containerized-wavefront-proxy-with-an-https-proxy) explains CACert setup for a Docker container.

@@ -37,6 +37,8 @@ Use the Alerts Browser to create and manage your logs alerts. To see the logs al
 
 Follow these steps to create a logs alert:
 
+{% include note.html content="You can only create 500 log alerts. If you reach the log alert limit and need to create a new log alert, you need to delete an existing log alert so you can create a new log alert." %}
+
 ### Go to the Alert Browser
 1.	Log in to your product instance as a user with the **Alerts** and **Logs** permissions.
 2.	On the toolbar, click **Alerting** > **All Alerts**.
@@ -245,6 +247,24 @@ You can customize the alert firing message and add information to help users und
                 </tr>
                 <tr>
                     <td>
+                        <b> Notification Metadata </b>   
+                    </td>
+                    <td markdown="span">
+                        Add **key**-**value** pairs to send additional information in the logs alert firing message.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+<!--
+
+##Include later on, once the feature is back.
+
+
+                <tr>
+                    <td>
                         <b> Message Includes </b>
                     </td>
                     <td>
@@ -259,16 +279,8 @@ You can customize the alert firing message and add information to help users und
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <b> Notification Metadata </b>   
-                    </td>
-                    <td markdown="span">
-                        Add **key**-**value** pairs to send additional information in the logs alert firing message.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+--> 
 
 After you customize the message, click **Next**.
 
