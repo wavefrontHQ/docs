@@ -36,6 +36,14 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+## 2024-09.x Release Notes
+
+**Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
+
+  ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
+
+
+
 ## 2024-07.x Release Notes
 
 **Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
