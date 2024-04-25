@@ -20,7 +20,7 @@ You can send data to VMware Tanzu Observability (formerly known as VMware Aria O
   * **Prevent data loss, optimize network bandwidth** – The proxy buffers and manages data traffic. Even if there’s a connectivity problem, you don’t lose data points.
   * **Simple firewall configuration** – The proxy receives metrics from many agents on different hosts and forwards those metrics to the Tanzu Observability service. You don’t need to open internet access for each of the agents.
   * **Enrich or filter data** – You can set up the proxy preprocessor to filter data before it’s sent to the Tanzu Observability service.
-  * **Examine bottlenecks** – Each proxy generates its own metrics. You can [learn about incoming and outgoing data](monitoring_proxies.html) in the individual proxy dashboards and the **Operations for Applications Service and Proxy Data** dashboard.
+  * **Examine bottlenecks** – Each proxy generates its own metrics. You can [learn about incoming and outgoing data](monitoring_proxies.html) in the individual proxy dashboards and the **Tanzu Observability Service and Proxy Data** dashboard.
 
 
 

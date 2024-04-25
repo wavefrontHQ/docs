@@ -758,7 +758,7 @@ The following example illustrates using a `limitLength` for a point tag. The lim
 
 ```yaml
   # Make sure that the limit that you are setting is not higher
-  # than the default Operations for Applications limit.
+  # than the default Tanzu Observability limit.
   ################################################################
   - rule          : limit-point-tag-length
     action        : limitLength
@@ -1360,4 +1360,4 @@ To apply the Wavefront proxy preprocessor rules when certain conditions are met,
 
 ## Learn More!
 
-To monitor the time a proxy is spending with preprocessing rules, examine the [**Proxy Troubleshooting**](monitoring_proxies.html#proxy-troubleshooting) section on the **Operations for Applications Service and Proxy Data** dashboard.
+To monitor the time a proxy is spending with preprocessing rules, examine the [**Proxy Troubleshooting**](monitoring_proxies.html#proxy-troubleshooting) section on the **Tanzu Observability Service and Proxy Data** dashboard.

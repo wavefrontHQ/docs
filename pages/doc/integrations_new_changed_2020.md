@@ -26,10 +26,10 @@ Made improvements to the following integrations in October 2020 - December 2020:
 * Spring Cloud Data Flow -- New preconfigured dashboard to monitor Native Kafka client
 * Kubernetes -- New setup UI
 * Slack -- URL unfurler
-* Operations for Applications Usage new dashboards:
-  - **Operations for Applications Ingestion Policy Explorer** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
+* Tanzu Observability Usage new dashboards:
+  - **Tanzu Observability Ingestion Policy Explorer** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
   - **Committed Rate and Monthly Usage (PPS P95)** dashboard shows Tanzu Observability monthly usage against committed rate.
-  - **Operations for Applications Namespace Usage Explorer**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
+  - **Tanzu Observability Namespace Usage Explorer**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
 * Google Cloud Platform (GCP) -- Fixed dashboard queries in Google Kubernetes Engine (GKE) dashboard
 * Azure Storage -- Preconfigured dashboard now supports monitoring of the Classic storage type
 
@@ -69,7 +69,7 @@ Made improvements to the following integrations in October 2019 - October 2020:
 
 Made significant improvements to the dashboards of the following integrations:
 
-* Operations for Applications Tutorial dashboards (upgrade for V2 UI)
+* Tanzu Observability Tutorial dashboards (upgrade for V2 UI)
 * Pivotal Cloud Foundry dashboards
 * Kubernetes dashboard
 * vSphere dashboards

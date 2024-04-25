@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: wavefront_limits.html
 summary: Limits and recommendations to promote efficient resource use.
 ---
-For best performance and cost reduction, VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports limits. Some limits are recommendations--if your environment exceeds the limits, you'll see significant performance issues. Other limits result in an error if you exceed the limit.
+For best performance and cost reduction, VMware Tanzu Observability (formerly known as Mware Aria Operations for Applications) supports limits. Some limits are recommendations--if your environment exceeds the limits, you'll see significant performance issues. Other limits result in an error if you exceed the limit.
 
 <!--this page is public but we're not pointing to it from elsewhere in the documentation because some companies change their limits (and pay more, potentially) --->
 
@@ -198,7 +198,7 @@ Follow best practices to avoid hitting query limits and for improved query execu
   - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
 * For best performance, keep the number of distinct time series per metric and host to under 1000.
 
-See [Operations for Applications Data Naming](wavefront_data_format.html#operations-for-applications-data-format-best-practices) for more best practices.
+See [Tanzu Observability Data Naming](wavefront_data_format.html#tanzu-observability-data-format-best-practices) for more best practices.
 
 
 
@@ -206,6 +206,6 @@ See [Operations for Applications Data Naming](wavefront_data_format.html#operati
 
 You can examine what's going on with your cluster in several ways:
 
-* [Monitor and troubleshoot your VMware Aria Operations for Applications instance](wavefront_monitoring.html)
+* [Monitor and troubleshoot your Tanzu Observability instance](wavefront_monitoring.html)
 * [Examine ingestion breakdown and export usage data](ingestion_policies.html)
 * [Use Wavefront Top or Spy to Investigate Traffic](wavefront_monitoring_spy.html)

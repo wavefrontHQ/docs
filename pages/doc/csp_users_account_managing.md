@@ -58,7 +58,7 @@ To view your roles, see what access you have to services, and request additional
 
 ## Enable or Disable Super Admin Mode
 
-If you hold the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in), you can temporarily enable Super Admin mode and perform your Super Admin tasks.
+If you hold the [**Super Admin** service role](csp_users_roles.html#tanzu-observability-service-roles-built-in), you can temporarily enable Super Admin mode and perform your Super Admin tasks.
 
 {% include note.html content="To avoid making unintentional changes in the system, after performing your current Super Admin tasks, disable the Super Admin mode." %}
 
@@ -69,7 +69,7 @@ If you hold the [**Super Admin** service role](csp_users_roles.html#operations-f
         <tr>
             <td width="70%">As a result:
             <ul>
-            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Tanzu Observability service. See the <a href="csp_users_roles.html#operations-for-applications-service-roles-built-in">Super Admin service role</a> for details.</li>
+            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Tanzu Observability service. See the <a href="csp_users_roles.html#tanzu-observability-service-roles-built-in">Super Admin service role</a> for details.</li>
             <li>When the Super Admin mode is <strong>disabled</strong>, you have only the permissions from your other roles if any.</li>
             </ul></td>
             <td width="30%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle.">

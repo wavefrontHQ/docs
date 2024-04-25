@@ -29,7 +29,7 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 - Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8, 9, 10 or 11 is required. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 - Other - Maven
 
-{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The individual proxy dashboards and the **Operations for Applications Service and Proxy Data** dashboard have several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
+{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The individual proxy dashboards and the **Tanzu Observability Service and Proxy Data** dashboard have several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
 
 <a name="single"></a>
 
