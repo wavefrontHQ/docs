@@ -15,6 +15,20 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcements
 
+### Upcoming Migration of Our Support Resources to the Broadcom Support Portal
+
+{% include important.html content="On **May 5 2024**, at approximately 7:30 PM PDT, our support portals will be migrated to the [Broadcom Support Portal](http://support.broadcom.com/)."%}
+
+- All KB articles will be migrated.
+- All open support cases will be migrated.
+- All support cases that are closed within the past six months will be migrated.
+- All support cases that closed in the past six to 12 months will be migrated in the following week.
+- Enhancement requests will not be migrated.
+- The [Support](wavefront_support_feedback.html#support) menu item in our service UI will be updated.
+
+{% include important.html content="Starting **May 6, 2024**, to open a new or view an existing support ticket, you must register and activate a Broadcom Support Portal account and log in to the [Broadcom Support Portal](http://support.broadcom.com/). For more details, see the KB article [Broadcom case management frequently asked questions](https://knowledge.broadcom.com/external/article?articleId=144456#mcetoc_1glavo9usd)."%}
+
+
 ### VMware Aria Operations for Applications on VMware Cloud Services
 
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
@@ -25,10 +39,6 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
-
-### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
-
-Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
 
 ### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
 
