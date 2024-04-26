@@ -15,6 +15,15 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcements
 
+### VMware Tanzu Support Moving to Broadcom Support Portal
+
+On Sunday, May 5, 2024, at approximately 7:30 pm PDT, the VMware Tanzu support portals will be transitioned to Broadcom.
+
+If you require assistance or would like to submit a ticket on or after May 6, all technical and non-technical inquiries should be submitted via the [Broadcom Support Portal](http://support.broadcom.com/).
+
+For details, see the KB article [VMware Tanzu Support moving to Broadcom Support Portal May 6th](https://support.cloudhealthtech.com/hc/en-us/articles/26164366649741-VMware-Tanzu-Support-moving-to-Broadcom-Support-Portal-May-6th).
+
+
 ### VMware Aria Operations for Applications on VMware Cloud Services
 
 Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
@@ -25,10 +34,6 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
-
-### Free Trial of VMware Aria Operations for Applications on VMware Cloud Services
-
-Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services. You can [start a free trial](start_trial.html) directly from the VMware Cloud Services Console.
 
 ### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
 
