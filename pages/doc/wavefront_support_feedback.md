@@ -8,19 +8,24 @@ summary: Get help with and give feedback.
 
 ## Support
 
-Tanzu Observability (formerly known as VMware Aria Operations for Applications) support is available as follows:
+{% include important.html content="On May 6, 2024, the VMware Tanzu support resources are migrated to the Broadcom Support Portal.<br/>
+  - All KB articles are migrated.<br/>
+  - All open support cases are migrated.<br/>
+  - All support cases that are closed within the past six months are migrated.<br/>
+  - All support cases that closed in the past six to 12 months will be migrated in the following week.<br/>
+  - Enhancement requests are not migrated." %}
 
-* Get in touch with Technical Support and create a support ticket. 
-  1. Navigate to the [Support Portal](https://cloudhealth.zendesk.com/).
-  2. Sign up and create an account. 
-  3. [Submit a ticket](https://vmwaoa.zendesk.com/hc/en-us/requests/new).  
+To create a support ticket:
 
-* Get support from within Tanzu Observability:
-  1. Log in to your service instance.
-  1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
+1. Navigate to the Broadcom Support Portal.
+
+    * From a Web browser, go to [http://support.broadcom.com/](http://support.broadcom.com/).
+    * From the Tanzu Observability UI, click the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
     <br/>![support menu item](images/get_support.png)
+2. Register and activate a Broadcom Support Portal account, or log in with your existing Broadcom Support Portal account.
 
-* Get support from within the VMware Cloud Services Console. See [How do I get support](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E4DC731F-C039-4FB2-949E-9A61584CD5BF.html).
+    If you did not receive an activation email or forgot your password, see the KB article [Resetting your password on the Broadcom Support Portal](https://knowledge.broadcom.com/external/article/144158/).
+3. Create a support ticket. See the KB article [Broadcom case management frequently asked questions](https://knowledge.broadcom.com/external/article?articleId=144456#mcetoc_1glavo9usd).
 
 ## Documentation Feedback
 
