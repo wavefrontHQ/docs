@@ -15,18 +15,18 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcements
 
-### Upcoming Migration of Our Support Resources to the Broadcom Support Portal
+### VMware Tanzu Support Moving to Broadcom Support Portal
 
-{% include important.html content="On **May 5 2024**, at approximately 7:30 PM PDT, our support portals will be migrated to the [Broadcom Support Portal](http://support.broadcom.com/)."%}
+On Sunday, May 5, 2024, at approximately 7:30 pm PDT, the VMware Tanzu support portals will be transitioned to Broadcom. The following will be migrated:
 
-- All KB articles will be migrated.
-- All open support cases will be migrated.
-- All support cases that are closed within the past six months will be migrated.
-- All support cases that closed in the past six to 12 months will be migrated in the following week.
-- Enhancement requests will not be migrated.
-- The [Support](wavefront_support_feedback.html#support) menu item in our service UI will be updated.
+* Knowledge Base content
+* All open cases and the closed cases from the past 6 months
 
-{% include important.html content="Starting **May 6, 2024**, to open a new or view an existing support ticket, you must register and activate a Broadcom Support Portal account and log in to the [Broadcom Support Portal](http://support.broadcom.com/). For more details, see the KB article [Broadcom case management frequently asked questions](https://knowledge.broadcom.com/external/article?articleId=144456#mcetoc_1glavo9usd)."%}
+    Additional 12 months of support requests will be migrated in the following week. Enhancement requests will not be migrated.
+
+If you require assistance or would like to submit a ticket on or after May 6, all technical and non-technical inquiries should be submitted via the [Broadcom Support Portal](http://support.broadcom.com/).
+
+For details, see the KB article [VMware Tanzu Support moving to Broadcom Support Portal May 6th](https://support.cloudhealthtech.com/hc/en-us/articles/26164366649741-VMware-Tanzu-Support-moving-to-Broadcom-Support-Portal-May-6th).
 
 
 ### VMware Aria Operations for Applications on VMware Cloud Services
