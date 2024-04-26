@@ -17,12 +17,7 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ### VMware Tanzu Support Moving to Broadcom Support Portal
 
-On Sunday, May 5, 2024, at approximately 7:30 pm PDT, the VMware Tanzu support portals will be transitioned to Broadcom. The following will be migrated:
-
-* Knowledge Base content
-* All open cases and the closed cases from the past 6 months
-
-    Additional 12 months of support requests will be migrated in the following week. Enhancement requests will not be migrated.
+On Sunday, May 5, 2024, at approximately 7:30 pm PDT, the VMware Tanzu support portals will be transitioned to Broadcom.
 
 If you require assistance or would like to submit a ticket on or after May 6, all technical and non-technical inquiries should be submitted via the [Broadcom Support Portal](http://support.broadcom.com/).
 
