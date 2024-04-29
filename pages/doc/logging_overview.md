@@ -3,7 +3,7 @@ title: Get Started with Logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
-summary: Learn about VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) metrics, logs, and traces.
+summary: Learn about VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) metrics, logs, and traces.
 ---
 
 {% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
@@ -12,7 +12,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
 <tbody>
 <tr>
   <td width="60%" >
-    VMware Aria Operations for Applications helps you monitor your application using metrics, traces, and logs.
+    Tanzu Observability helps you monitor your application using metrics, traces, and logs.
     For example, you can:
     <ul>
       <li>
@@ -27,7 +27,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
     </ul>
   </td>
   <td width="40%" markdown="span">
-    ![shows that Operations for Applications supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
+    ![shows that Tanzu Observability supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
   </td>
 </tr>
 </tbody>
@@ -40,7 +40,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
   </li>
   <li>
     Only users with the <b>Logs</b> permission can view the Logs Browser and drill down into logs from charts, alerts, and traces.
-    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#vmware-aria-operations-for-applications-on-vmware-cloud-services">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
+    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html##tanzu-observability-on-vmware-cloud-services">Onboarded and Original subscriptions</a>. See add permissions details for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">Onboarded subscriptions</a> and <a href="users_roles.html">Original subscriptions</a>.</p>
   </li>
 </ul>
 {{site.data.alerts.end}}

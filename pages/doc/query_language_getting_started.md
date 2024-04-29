@@ -7,7 +7,7 @@ permalink: query_language_getting_started.html
 summary: Watch some videos, run a query, apply filters and functions, and more.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes the Wavefront Query Language (WQL), which lets you retrieve and display data that has been ingested.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes the Wavefront Query Language (WQL), which lets you retrieve and display data that has been ingested.
 * **Time series data** The query language is particularly well suited to time series data because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.

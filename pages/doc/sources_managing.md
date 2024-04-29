@@ -7,7 +7,7 @@ permalink: sources_managing.html
 summary: Learn about sources and how to manage them.
 ---
 
-In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), a **source** is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of an [Operations for Applications data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from the [AWS CloudWatch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
+In VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications), a **source** is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of an [Tanzu Observability data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from the [AWS CloudWatch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
 
 * To view and manage sources, click **Browse > Sources** on the toolbar.
 * To filter and group in charts, use the Wavefront Query Language. You can filter by source and [filter and group by source tags](tags_overview.html#source-tags).

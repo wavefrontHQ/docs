@@ -7,7 +7,7 @@ permalink: glossary.html
 summary: Learn how we use technical terms.
 ---
 
-This VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details. 
+This Tanzu Observability (formerly known as VMware Aria Operations for Applications) glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details. 
 
 <table style="width: 100%;">
 <tbody>
@@ -200,7 +200,7 @@ This VMware Aria Operations for Applications (formerly known as Tanzu Observabil
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Object tag**](tags_overview.html#manage-object-tags)</td>
-<td>Object tags help you filter your display. You apply an object tag to Operations for Applications UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
+<td>Object tags help you filter your display. You apply an object tag to Tanzu Observability UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -334,7 +334,7 @@ You can manage authorization with user-level permissions or user and group-level
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">VMware Aria Operations for Applications service</td>
+<td markdown="span">Tanzu Observability service</td>
 <td>The service runs the metrics collection engine. It can receive telemetry data from a Wavefront proxy or through direct ingestion. </td>
 </tr>
 

@@ -10,7 +10,7 @@ summary: Monitor clusters in Tanzu Mission Control.
 [VMware Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-concepts/GUID-E2B5BE05-596E-4999-9B21-1CDB875A1BBF.html) provides a centralized management platform for consistently operating and securing your Kubernetes infrastructure and modern applications across multiple teams and clouds.
 
 This document explains:
-* How to set up and enable the integration from Tanzu Mission Control to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+* How to set up and enable the integration from Tanzu Mission Control to Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 * How to monitor your Kubernetes environment with our pre-defined dashboards, and how to clone and customize those dashboards.
 * How to troubleshoot common problems.
 
@@ -21,12 +21,12 @@ If you want to monitor Tanzu Mission Control with Wavefront, you have two option
 
 ## Create the Credential
 
-To get started, you set up the integration from Tanzu Mission Control to VMware Aria Operations for Applications:
+To get started, you set up the integration from Tanzu Mission Control to Tanzu Observability:
 
 ### Step 1: Generate an API Token
 
-<!--* If your Operations for Applications service **is** onboarded to VMware Cloud services, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html).
-* If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. See [Managing API tokens](api_tokens.html).
+<!--* If your Tanzu Observability service **is** onboarded to VMware Cloud services, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html).
+* If your Tanzu Observability service is **not** onboarded to VMware Cloud services, generate the API token in the Tanzu Observability UI. See [Managing API tokens](api_tokens.html).
 -->
 
 In your product cluster, [Generate a Service Account API Token for Tanzu Mission Control](integrations_tmc.html#generate-an-api-token-for-tanzu-mission-control).
@@ -63,9 +63,9 @@ In your product cluster, [Generate a Service Account API Token for Tanzu Mission
 
 {% include tip.html content="For details, see the [Tanzu Mission Control documentation](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-A70E57A8-2C45-46D4-8E1F-6D5E7026473F.html)" %}
 
-## Enable Operations for Applications for a Cluster in Tanzu Mission Control
+## Enable Tanzu Observability for a Cluster in Tanzu Mission Control
 
-After you have set up the credential from Tanzu Mission Control, you can start enabling VMware Aria Operations for Applications for individual clusters that are managed by Tanzu Mission Control.
+After you have set up the credential from Tanzu Mission Control, you can start enabling Tanzu Observability for individual clusters that are managed by Tanzu Mission Control.
 
 
 <table style="width: 100%;">
@@ -85,15 +85,15 @@ After you have set up the credential from Tanzu Mission Control, you can start e
 
 ![Large screenshot of TMC UI with Clusters selected and Integrations tile visible](/images/tmc_cluster_integrated.png)
 
-You can now click the link to VMware Aria Operations for Applications. You are redirected to a dashboard in the VMware Aria Operations for Applications instance that shows the metrics for the cluster.
+You can now click the link to Tanzu Observability. You are redirected to a dashboard in the Tanzu Observability instance that shows the metrics for the cluster.
 
 ## Modify the Collector Configuration for a Cluster
 
-You can use Tanzu Mission Control to modify the collector configuration that controls how data is sent to Operations for Applications.
+You can use Tanzu Mission Control to modify the collector configuration that controls how data is sent to Tanzu Observability.
 
-The collector configuration for Operations for Applications specifies the details about the data that is sent to your Operations for Applications account, such as what data is collected and how often it is sent. Using Tanzu Mission Control, you can change the configuration to fine-tune the data collection for each of your clusters.
+The collector configuration for OTanzu Observability specifies the details about the data that is sent to your Tanzu Observability account, such as what data is collected and how often it is sent. Using Tanzu Mission Control, you can change the configuration to fine-tune the data collection for each of your clusters.
 
-For more information about collector configuration for Operations for Applications, see the Wavefront Collector for Kubernetes [configuration file in GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file).
+For more information about collector configuration for Tanzu Observability, see the Wavefront Collector for Kubernetes [configuration file in GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file).
 
 1. Log in to the Tanzu Mission Control console as a user who has the **cluster.admin** role on the cluster.
 2. Navigate to the cluster that you want to configure.
@@ -103,7 +103,7 @@ For more information about collector configuration for Operations for Applicatio
 4. Edit the YAML code to modify the Collector configuration.
    
    * You can edit the code directly in the provided code text box.
-   * If you have already edited the Collector, you can click **Reset to Default Configuration** to pull the default configuration from your Operations for Applications account.
+   * If you have already edited the Collector, you can click **Reset to Default Configuration** to pull the default configuration from your Tanzu Observability account.
    * To load a new configuration from a file, click **Import** and select the file to import.
 
 5. To apply the changes to the YAML code, click **Save**.
@@ -134,7 +134,7 @@ If you want to customize the charts in the dashboards or add more charts, you ca
 <ol>
 <li>Select <strong>Clone</strong> from the ellipsis menu in the top right.</li>
 <li>Give the cloned dashboard a new name and click <strong>OK</strong>.</li></ol>
-You must have the <strong>Dashboards</strong> permission inside VMware Aria Operations for Applications to clone or edit a dashboard. </td>
+You must have the <strong>Dashboards</strong> permission inside Tanzu Observability to clone or edit a dashboard. </td>
 <td width="50%"><img src="/images/tmc_clone.png" alt="Pulldown menu shows Edit, Clone, Export to PDF"></td>
 </tr>
 </tbody>
@@ -184,15 +184,15 @@ Follow these steps to remediate problems:
 
 **Symptom**
 
-You're monitoring your Kubernetes cluster with VMware Aria Operations for Applications. You installed VMware Aria Operations for Applications from Tanzu Mission Control. Now you're having problems making a change to the Wavefront proxy.
+You're monitoring your Kubernetes cluster with Tanzu Observability. You installed Tanzu Observability from Tanzu Mission Control. Now you're having problems making a change to the Wavefront proxy.
 
 **Cause**
 
-If you installed VMware Aria Operations for Applications from Tanzu Mission Control, you cannot make changes to the Wavefront proxy.
+If you installed Tanzu Observability from Tanzu Mission Control, you cannot make changes to the Wavefront proxy.
 
 **Remediation**
 
-If your environment has a standalone VMware Aria Operations for Applications instance, use that instance. We are working on resolving the issue.
+If your environment has a standalone Tanzu Observability instance, use that instance. We are working on resolving the issue.
 
 ## Learn More
 

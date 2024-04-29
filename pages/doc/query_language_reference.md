@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_reference.html
 summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language (WQL).
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes the Wavefront Query Language, which allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes the Wavefront Query Language, which allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
 
 
 ## Query Expressions
@@ -191,7 +191,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#partial-regex-wildcards-aliases-and-variables) to match multiple names or values.
 
-* Rules for valid names are here: [Data Format](wavefront_data_format.html#operations-for-applications-data-format-fields).
+* Rules for valid names are here: [Data Format](wavefront_data_format.html#tanzu-observability-data-format-fields).
 * Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a reserved word in the product, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
 
 <table style="width: 100%;">

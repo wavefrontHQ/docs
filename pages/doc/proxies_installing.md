@@ -5,15 +5,15 @@ sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and manage Wavefront proxies.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
 
-In most cases, a Wavefront proxy must be running in your environment before metrics begin streaming to your Operations for Applications service from a host or application.
+In most cases, a Wavefront proxy must be running in your environment before metrics begin streaming to your Tanzu Observability service from a host or application.
 
 {% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to install and manage Wavefront proxies." %}
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services access token. <br/>
-- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with an Operations for Applications API token."%}
+{% include note.html content="Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Tanzu Observability with a VMware Cloud services access token. <br/>
+- For original Tanzu Observability subscriptions, the Wavefront proxy 13.0 still supports authentication with a Tanzu Observability API token."%}
 
 ## Proxy Host Requirements
 
@@ -29,16 +29,16 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 - Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8, 9, 10 or 11 is required. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 - Other - Maven
 
-{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The individual proxy dashboards and the **Operations for Applications Service and Proxy Data** dashboard have several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
+{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The individual proxy dashboards and the **Tanzu Observability Service and Proxy Data** dashboard have several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
 
 <a name="single"></a>
 
 ## Proxy Authentication Types
 
-* If your Operations for Applications service instance **is** onboarded to VMware Cloud services, the proxy requires a VMware Cloud services access token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two options for the proxy to retrieve an access token. You can configure the proxy with:
+* If your Tanzu Observability service instance **is** onboarded to VMware Cloud services, the proxy requires a VMware Cloud services access token with the **Proxies** [service role](csp_users_roles.html#tanzu-observability-service-roles-built-in). There are two options for the proxy to retrieve an access token. You can configure the proxy with:
     *	The credentials (ID and secret) of a VMware Cloud services server to server **OAuth app** and the ID of the VMware Cloud organization running the service.
 
-        Before you add a proxy with an OAuth app, you must retrieve the credentials (ID and secret) of a server to server app that is assigned with the **Proxies** Operations for Applications service role and added to the VMware Cloud organization running the service. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html?hWord=N4IgpgHiBcIMpgE4DckAIAuB7NBnJqiaAhgA6kgC+QA) in the VMware Cloud services documentation.
+        Before you add a proxy with an OAuth app, you must retrieve the credentials (ID and secret) of a server to server app that is assigned with the **Proxies** Tanzu Observability service role and added to the VMware Cloud organization running the service. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html?hWord=N4IgpgHiBcIMpgE4DckAIAuB7NBnJqiaAhgA6kgC+QA) in the VMware Cloud services documentation.
 
         Also, you must retrieve the VMware Cloud organization long ID. See [View the Organization ID](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html#view-the-organization-id-1) in the VMware Cloud services documentation.
 
@@ -50,7 +50,7 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 
         {% include important.html content="You might need to regenerate and reconfigure the API token periodically depending on its TTL configuration."%}
 
-* If your Operations for Applications service instance **isn't** onboarded to VMware Cloud services, the proxy requires an Operations for Applications **API token**.
+* If your Tanzu Observability service instance **isn't** onboarded to VMware Cloud services, the proxy requires a Tanzu Observability **API token**.
 
     Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
 
@@ -58,7 +58,7 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 
 Many users install a proxy when they set up an integration. You can also install a proxy from the UI or perform a scripted installation manually.
 
-{% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to Operations for Applications. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
+{% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to Tanzu Observability. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
 
 ### Install a Proxy from the UI
 

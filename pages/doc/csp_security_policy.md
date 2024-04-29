@@ -1,5 +1,5 @@
 ---
-title: Security Policy Rules in Operations for Applications on VMware Cloud Services
+title: Security Policy Rules in Tanzu Observability on VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -7,9 +7,9 @@ permalink: csp_security_policy.html
 summary: Use security policies to control access to metrics, such as time series, histograms, RED metrics, and delta counters, as well as traces.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services](csp_metrics_security.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Security Policy Rules](security_policy.html)."%}
 
-You can create security policies on VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) to protect your metrics and traces security data.
+You can create security policies in Tanzu Observability to protect your metrics and traces security data.
 
 <img src="images/security_policies_overview.png" alt="An overview image that shows metrics and traces security policies." style="width:70%; max-width:1000">
 
@@ -153,7 +153,7 @@ Data protected by a metrics security policy rule can become invisible to users.
 
 ### Alert Notifications
 
-To protect metrics or RED metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Operations for Applications looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
+To protect metrics or RED metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Tanzu Observability looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
 
 ### Derived Metrics and Events
 

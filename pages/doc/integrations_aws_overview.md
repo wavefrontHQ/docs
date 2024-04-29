@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_aws_overview.html
 summary: Understand setup and services in the AWS integration.
 ---
-Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS.
+Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 
 You can use the Amazon Web Services integration for initial setup, but additional steps might be needed for some of the services. This page gives an overview.
 
@@ -18,19 +18,19 @@ The AWS integration ingests data from many AWS services and products including:
 
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** -- retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
-- **[CloudTrail](http://aws.amazon.com/cloudtrail)** -- retrieves EC2 event information and creates VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) System events that represent the AWS events.
-- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and EC2 instance metadata like tags. You can investigate billing data and the number of reserved instances. Be sure to enable AWS+ metrics because it allows VMware Aria Operations for Applications to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
+- **[CloudTrail](http://aws.amazon.com/cloudtrail)** -- retrieves EC2 event information and creates Tanzu Observability System events that represent the AWS events.
+- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and EC2 instance metadata like tags. You can investigate billing data and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Tanzu Observability to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
 
 {% include tip.html content="See [AWS CloudWatch, CloudTrail, and Metrics+ Integrations](integrations_aws_metrics.html)" %}
 
 ### Establish a Trust Relationship
 
-Adding an AWS integration requires establishing a trust relationship between Amazon and VMware Aria Operations for Applications by specifying account information. You have to do that only once, and you have 2 options:
+Adding an AWS integration requires establishing a trust relationship between Amazon and Tanzu Observability by specifying account information. You have to do that only once, and you have 2 options:
 
 * [Give Global Read-Only Access](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
 * [Give Limited Access](#giving-limited-access)
 
-After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from the VMware Aria Operations for Applications GUI. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboard.
+After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from the Tanzu Observability GUI. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboard.
 
 <!--### Use Internal Metrics to Monitor AWS Integrations
 
@@ -72,7 +72,7 @@ Data flows from AWS only if the account has the required access. You have severa
 
 ### Give Read-Only Access to Your Amazon Account and Get the Role ARN
 
-To grant Operations for Applications with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and VMware Aria Operations for Applications (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To grant Tanzu Observability with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Tanzu Observability (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
@@ -92,7 +92,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
     
    - Select the option **Require external ID** and provide the external ID. 
    
-       Copy the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in your VMware Aria Operations for Applications GUI) and paste it into the text box in the AWS UI.
+       Copy the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in your Tanzu Observability GUI) and paste it into the text box in the AWS UI.
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
@@ -124,7 +124,7 @@ The required permissions for limited access, shown in the table below, are suffi
 </tr>
 <tr>
     <td>CloudTrail <br /></td>
-    <td>Retrieves EC2 event information and creates VMware Aria Operations for Applications System events. </td>
+    <td>Retrieves EC2 event information and creates Tanzu Observability System events. </td>
     <td>List and Get permissions on the S3 bucket where the logs are delivered.
     </td>
 </tr>

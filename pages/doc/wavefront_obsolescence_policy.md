@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_obsolescence_policy.html
 summary: Learn about deprecated and EOL features and how to prevent potential problems.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) product features and APIs move to end-of-life as part of the normal software development lifecycle, security improvements, and other factors. To support planning for upgrades, this document provides information on upcoming lifecycle changes. While every effort is made to provide sufficient notice of changes, security issues or other factors may occasionally lead to accelerated end-of-life dates.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) product features and APIs move to end-of-life as part of the normal software development lifecycle, security improvements, and other factors. To support planning for upgrades, this document provides information on upcoming lifecycle changes. While every effort is made to provide sufficient notice of changes, security issues or other factors may occasionally lead to accelerated end-of-life dates.
 
 ## Lifecycle Stages
 
@@ -78,7 +78,7 @@ The following proxy versions are deprecated or moved to end-of-life.
 
 ## Delta Counters
 
-Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html). The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). We changed delta counter queries to use `cs()` in the Operations for Applications Usage integration and tracing RED metrics. The original delta counter implementation is End of Life March 31, 2021.
+Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html). The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). We changed delta counter queries to use `cs()` in the Tanzu Observability Usage integration and tracing RED metrics. The original delta counter implementation is End of Life March 31, 2021.
 
 ### Automatic Updates and Required Changes
 
@@ -181,13 +181,13 @@ rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
 rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
 ```
 
-## Operations for Applications Authentication and Authorization
+## Tanzu Observability Authentication and Authorization
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. VMware Cloud services provides centralized authentication and authorization to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Advantages of VMware Cloud Services Subscriptions Over Original Subscriptions](subscriptions-differences.html#advantages-of-vmware-cloud-services-subscriptions-over-original-subscriptions).
+Starting July 3, 2023, Tanzu Observability is a service on the VMware Cloud services platform. VMware Cloud services provides centralized authentication and authorization to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Tanzu Observability. See [Advantages of VMware Cloud Services Subscriptions Over Original Subscriptions](subscriptions-differences.html#advantages-of-vmware-cloud-services-subscriptions-over-original-subscriptions).
 
-Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services.
+Starting September 20, 2023, all **new trial** instances of Tanzu Observability are **onboarded** to VMware Cloud services.
 
-In October, 2023, we start to incrementally [onboard](csp_migration.html) all **original** subscriptions, which use Operations for Applications authentication and authorization, to VMware Cloud services. 
+In October, 2023, we start to incrementally [onboard](csp_migration.html) all **original** subscriptions, which use Tanzu Observability authentication and authorization, to VMware Cloud services. 
 
-{% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
+{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Tanzu Observability API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy)." %}
 

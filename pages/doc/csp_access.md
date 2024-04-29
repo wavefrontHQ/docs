@@ -1,5 +1,5 @@
 ---
-title: Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services
+title: Managing Access to Dashboards and Alerts in Tanzu Observability on VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -7,15 +7,15 @@ permalink: csp_access.html
 summary: Control access to individual dashboards and alerts.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Managing Access to Dashboards and Alerts](access.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Managing Access to Dashboards and Alerts](access.html)."%}
 
-VMware Cloud services supports the roles and groups authorization paradigm for managing global permissions in VMware Aria Operations for Applications. For example, a user with the **Dashboards** service role can manage *all* dashboards in Operations for Applications. This paradigm is sufficient for many of our customers.
+VMware Cloud services supports the roles and groups authorization paradigm for managing global permissions in Tanzu Observability. For example, a user with the **Dashboards** service role can manage *all* dashboards in Tanzu Observability. This paradigm is sufficient for many of our customers.
 
 Users with the **Admin** and **Super Admin** service roles who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
 {% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have a role with the **Dashboards** permission and **View and Modify** access for that dashboard." %}
 
-{% include tip.html content="In addition to access control, Operations for Applications also supports [metrics security policy rules](csp_metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
+{% include tip.html content="In addition to access control, Tanzu Observability also supports [metrics security policy rules](csp_metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
 
 {% include note.html content="After the access setting is set to **Object Creator** in an environment, only the creator of a new object and users the **Super Admin** service role can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
@@ -23,7 +23,7 @@ Users with the **Admin** and **Super Admin** service roles who need finer-graine
 
 ## How Access Control Works
 
-Operations for Applications supports granting and revoking access to dashboards and alerts.
+Tanzu Observability supports granting and revoking access to dashboards and alerts.
 * By default, all users can view all dashboards and alerts.
 * Users with the **Dashboards** permission can:
   - Restrict or grant access to individual dashboards from the Dashboard browser.
@@ -85,7 +85,7 @@ After the change, access to new dashboards and new alerts is initially limited t
 
 {% include note.html content="A change to the security setting applies only to dashboards and alerts created **after** the change. If you change the setting to **Object Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Object Creator** keep the restricted access." %}
 
-By default, service accounts (which includes the [server to server apps](csp_server_to_server_apps.html) in VMware Cloud services as well as the [service accounts](csp_service_accounts.html) in Operations for Applications) don't have browse permissions. However, you can also grant access for new dashboards and alerts to service accounts:
+By default, service accounts (which includes the [server to server apps](csp_server_to_server_apps.html) in VMware Cloud services as well as the [service accounts](csp_service_accounts.html) in Tanzu Observability) don't have browse permissions. However, you can also grant access for new dashboards and alerts to service accounts:
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
 2. Click the **Security** tab, select **Grant Modify Access To:  Everyone** and **Service Accounts**.
@@ -166,4 +166,4 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
 
 10. Validate that the dashboard is now live again.
 
-    For example, navigate to `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the Operations for Applications UI.
+    For example, navigate to `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the Tanzu Observability UI.

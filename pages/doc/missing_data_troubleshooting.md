@@ -7,7 +7,8 @@ permalink: missing_data_troubleshooting.html
 summary: Learn how to troubleshoot when you expect to see data but it doesn't appear in charts.
 ---
 
-Sometimes you expect to see certain data in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) but, for some reason, it doesn't show up! This can be a frustrating and confusing experience, especially when you urgently need the data. What could be the problem?
+Sometimes you expect to see certain data in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) but, for some reason, it doesn't show up! This can be a frustrating and confusing experience, especially when you urgently need the data. What could be the problem?
+
 
 <!-- Before removing data retention link
 
@@ -32,7 +33,7 @@ It might sound surprising, but many **No Data** problems are the result of a typ
 
 ### Step 2: Quote
 
-Because of character limitations imposed by the Operations for Applications Data Format, it's possible that your queries cannot recognize source names or tag names unless they are surrounded by double quotes. See [Data Format Best Practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices).
+Because of character limitations imposed by the Tanzu Observability Data Format, it's possible that your queries cannot recognize source names or tag names unless they are surrounded by double quotes. See [Taznu Observability Data Format Best Practices](wavefront_data_format.html#tanzu-observability-data-format-best-practices).
 
 ### Step 3: Untangle
 
@@ -203,7 +204,7 @@ Cloud integrations do not use a Wavefront proxy, but for many integrations, data
 
 <img src="images/delayed_data_proxy.png" style="width: 600px;" alt="Data delay at proxy flowchart, mirrors text"/>
 
-There are several possible reasons for queues at the proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Operations for Applications Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing, discussed next:
+There are several possible reasons for queues at the proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Tanzu Observability Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing, discussed next:
 
 * [Pushback from Backend](#proxy-queue-reasons-pushback-from-backend)
 * [Proxy Rate Limit](#proxy-queue-reasons-proxy-rate-limit)
@@ -218,22 +219,22 @@ If the rate of data ingestion is higher than backend limit, the proxy queues dat
 
 **Troubleshooting & Further Investigation**
 
-1. Look for pushback in the **Queuing Reasons** chart of the **Operations for Applications Service and Proxy Data** dashboard.
-2. Use the query in the **Data Ingestion Rate (Points)** chart of the **Operations for Applications Service and Proxy Data** dashboard to keep track of your ingestion rate. Ensure the ingestion rate is within contractual limits to avoid overages. While it's possible to ask Support to raise the backend limit such a change can result in overages.
+1. Look for pushback in the **Queuing Reasons** chart of the **Tanzu Observability Service and Proxy Data** dashboard.
+2. Use the query in the **Data Ingestion Rate (Points)** chart of the **Tanzu Observability Service and Proxy Data** dashboard to keep track of your ingestion rate. Ensure the ingestion rate is within contractual limits to avoid overages. While it's possible to ask Support to raise the backend limit such a change can result in overages.
 
 
 #### Proxy Queue Reasons: Proxy Rate Limit
 
-If the proxy is configured with a rate limit, and the rate of data sent to the proxy is above the limit, the proxy starts queuing data. The **Proxy Rate Limiter Active** chart in the **Operations for Applications Service and Proxy Data** dashboard provides insight into whether data is coming in faster than the proxy rate limit supports.
+If the proxy is configured with a rate limit, and the rate of data sent to the proxy is above the limit, the proxy starts queuing data. The **Proxy Rate Limiter Active** chart in the **Tanzu Observability Service and Proxy Data** dashboard provides insight into whether data is coming in faster than the proxy rate limit supports.
 
 <!---So, is the solution more proxies, limit the data, or both?? How can I direct my data to a proxy that can handle it?? HA solution??--->
 
 **Troubleshooting & Further Investigation**
 
 1. Confirm whether data is coming in faster than the proxy's rate limit configuration (`pushRateLimit`). If so, look into ways to reduce your data rate.
-  1. On the **Operations for Applications Service and Proxy Data dashboard** find the **Proxy Troubleshooting** section and  examine the **Proxy  Rate Limiter Active** chart to see whether the rate limiter is active on the different proxies in your environment.
+  1. On the **Tanzu Observability Service and Proxy Data dashboard** find the **Proxy Troubleshooting** section and  examine the **Proxy  Rate Limiter Active** chart to see whether the rate limiter is active on the different proxies in your environment.
   2. Confirm the `pushRateLimit` of each proxy by looking at the proxy configuration file or by querying `--proxyconfig.pushRateLimit`.
-2. Go to the **Received Points/Distributions/Spans Per Second** charts in the **Operations for Applications Service and Proxy Data** dashboard
+2. Go to the **Received Points/Distributions/Spans Per Second** charts in the **Tanzu Observability Service and Proxy Data** dashboard
   1. Examine the ingest rate for the proxy that seems to have rate limit problems.
   2. Use the Filter feature at the top of each dashboard or chart or specifying a specific source name in the underlying queries to filter for the proxy you are interested in.
 
@@ -248,7 +249,7 @@ Because rate limits are set assuming a steady rate, that burst of 60,000 PPS for
 
 **Troubleshooting & Further Investigation**
 
-1. Explore the **Received Points/Distributions/Spans Max Burst Rate (top 20)** charts in the **Operations for Applications Service and Proxy Data** dashboard provides to understand the burstiness of your data rate. The queuing ability of the proxy normally helps smooth out the data rate through momentary queuing.
+1. Explore the **Received Points/Distributions/Spans Max Burst Rate (top 20)** charts in the **Tanzu Observability Service and Proxy Data** dashboard provides to understand the burstiness of your data rate. The queuing ability of the proxy normally helps smooth out the data rate through momentary queuing.
 2. If you find that the proxy queues sustain and continue to grow, then the overall data ingest rate is too high.
 3. Either reduce the ingest rate or request that the backend limit be raised (this could result in overages).
 
@@ -262,7 +263,7 @@ As the proxy processes data in the memory buffers, space is freed up for new inc
 
 **Troubleshooting & Further Investigation**
 
-1. Find the **Queuing Reasons** chart in the **Operations for Applications Service and Proxy Data** dashboard and look for `bufferSize`.
+1. Find the **Queuing Reasons** chart in the **Tanzu Observability Service and Proxy Data** dashboard and look for `bufferSize`.
 2. If you see problems, consider lowering the ingestion rate or distributing the load among several proxies.
 3. In some situations, it might make sense to adjust the `pushMemoryBufferLimit` proxy property.
   * Raising this value results in higher memory usage.
@@ -270,11 +271,11 @@ As the proxy processes data in the memory buffers, space is freed up for new inc
 
 #### Proxy Queue Reasons: Network Issues
 
-If network issues prevent or slow down requests from the proxy to the Operations for Applications service, then the proxy queue fills up because data arrives at the proxy faster than data can be sent to the service.
+If network issues prevent or slow down requests from the proxy to the Tanzu Observability service, then the proxy queue fills up because data arrives at the proxy faster than data can be sent to the service.
 
 **Troubleshooting & Further Investigation:**
 
-1. Go to the **Network Latency** chart in the **Proxy Troubleshooting** section of the **Operations for Applications Service and Proxy Data** dashboard. This chart tracks the amount of time from when the proxy sends out a data point to when it receives an acknowledgment from the backend.
+1. Go to the **Network Latency** chart in the **Proxy Troubleshooting** section of the **Tanzu Observability Service and Proxy Data** dashboard. This chart tracks the amount of time from when the proxy sends out a data point to when it receives an acknowledgment from the backend.
 2. Ensure that this amount of time is in the range of hundreds of milliseconds. If the time reaches the range of seconds, check for network latency issues.
 
 
@@ -285,18 +286,18 @@ The proxy configuration property `memGuardFlushThreshold` is meant to protect ag
 **Troubleshooting & Further Investigation:**
 <!---Would we recommend changing memGuardFlushThreshold? I don't understand-- do we get a host with more memory, or do we change what the proxy can consume?--->
 
-1. Find the  **Queueing Reasons** chart in the **Operations for Applications Service and Proxy Data** dashboard and examine the `memoryPressure` metric.
+1. Find the  **Queueing Reasons** chart in the **Tanzu Observability Service and Proxy Data** dashboard and examine the `memoryPressure` metric.
 2. If there's a problem, consider increasing memory limits for the host server.
 
 
 
 ### Step 2: Understand Data Delays Inherent to Your Data Pipeline
 
-If your data travels through a pipeline before reaching the Wavefront proxy or before being direct ingested to the Operations for Applications service, the pipeline itself can introduce delays to the ingestion process.
+If your data travels through a pipeline before reaching the Wavefront proxy or before being direct ingested to the Tanzu Observability service, the pipeline itself can introduce delays to the ingestion process.
 
 **Troubleshooting & Further Investigation**
 
-Examine the **Data Received Lag** charts in the **Proxy Troubleshooting** section of the **Operations for Applications Service and Proxy Data** dashboard.
+Examine the **Data Received Lag** charts in the **Proxy Troubleshooting** section of the **Tanzu Observability Service and Proxy Data** dashboard.
 
 These charts can help if the data points are timestamped at or near the source of the data. The underlying metric used in these charts tracks the difference between the system time of the proxy host and the timestamp of data points. This difference can provide insight into how long it takes for a data point to traverse the data pipeline and reach the proxy.
 
@@ -306,17 +307,17 @@ Every pipeline inherently has its own latencies. Understanding the latencies hel
 
 ### Step 3: Find Data Delays Caused by High Rate of New IDs
 
-Components of each data point are converted into IDs at the backend (Operations for Applications service) before the points are stored. These components include metric name, source name, and the point tag key and value combination.
+Components of each data point are converted into IDs at the backend (Tanzu Observability service) before the points are stored. These components include metric name, source name, and the point tag key and value combination.
 
 Each time the service detects a new name, it generates a new ID. ID generation adds to the ingestion time. When the rate of new IDs is low, this is negligible. However, when you send a large amount of new data at the same time and the ID generation rate is high, a backlog of items that need an ID can result. This backlog results in delays in ingestion.
 
 
 **Troubleshooting & Further Investigation**
 
-The **Operations for Applications Usage** integration includes several alerts that you can customize to be alerted when there is a high rate of new IDs.
+The **Tanzu Observability Usage** integration includes several alerts that you can customize to be alerted when there is a high rate of new IDs.
 
-* A high rate of new IDs can happen when you start sending new data to Operations for Applications.
-* A high rate of new IDs could also indicate a **cardinality issue** with the data shape of the data you're sending to Operations for Applications. For instance, if a timestamp was included as a point tag, a high number of unique point tags results. This can be a problem when you send the data to Operations for Applications, but also causes problems later when you query the data. See [Data Naming Best Practices](wavefront_data_naming.html) for best practices.
+* A high rate of new IDs can happen when you start sending new data to Tanzu Observability.
+* A high rate of new IDs could also indicate a **cardinality issue** with the data shape of the data you're sending to Tanzu Observability. For instance, if a timestamp was included as a point tag, a high number of unique point tags results. This can be a problem when you send the data to Tanzu Observability, but also causes problems later when you query the data. See [Data Naming Best Practices](wavefront_data_naming.html) for best practices.
 
 ## Problem: Blocked Data
 
@@ -331,14 +332,14 @@ By default, the proxy and the service allow data points that are timestamped bet
 * 8760 hours (1 year) ago
 * 24 hours (1 day) ahead of the current time
 
-This functionality supports back-fill of old data or pre-fill future data. Make sure that the timestamp of your data points is in this range. Data with a timestamp outside this range will be rejected at the proxy or not ingested by the Operations for Applications service. If you have a use case for ingesting data outside this time range, update the proxy configuration and [contact Support](wavefront_support_feedback.html#support) to have the backend configuration for your environment updated.
+This functionality supports back-fill of old data or pre-fill future data. Make sure that the timestamp of your data points is in this range. Data with a timestamp outside this range will be rejected at the proxy or not ingested by the Tanzu Observability service. If you have a use case for ingesting data outside this time range, update the proxy configuration and [contact Support](wavefront_support_feedback.html#support) to have the backend configuration for your environment updated.
 
 
 ### Step 2: Do Invalid Data Format Block Data?
 
 The proxy supports a variety of data formats. Most environments are set up to use different ports for different formats. Ensure that data is being sent to the proper port.
 
-For data that is in the Operations for Applications data format, see [this page](wavefront_data_format.html) for information on what is and is not valid and on the [limits that are in place](wavefront_limits.html).
+For data that is in the Tanzu Observability data format, see [this page](wavefront_data_format.html) for information on what is and is not valid and on the [limits that are in place](wavefront_limits.html).
 
 * Each component of the data point has a set of allowed characters and length limits.
 * There is also, for example, a default limit of 20 points tags per data point.

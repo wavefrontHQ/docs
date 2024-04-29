@@ -7,7 +7,7 @@ published: true
 permalink: visualize_histograms.html
 summary: Learn how to visualize histograms.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports histograms for computing, storing, and using distributions of metrics rather than single metrics. You can [send histograms](proxies_histograms.html#sending-histogram-distributions) to a Wavefront proxy or use direct ingestion.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports histograms for computing, storing, and using distributions of metrics rather than single metrics. You can [send histograms](proxies_histograms.html#sending-histogram-distributions) to a Wavefront proxy or use direct ingestion.
 
 You can find histogram metrics in the histogram browser and query for them using an `hs()` query. You can also visualize histograms different chart types.
 
@@ -18,7 +18,7 @@ You can find histogram metrics in the histogram browser and query for them using
 You can view histograms in the Histogram browser.
 
 1. Click **Browse > Histograms** and start typing the histogram metric name.
-  Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram data format, the extension corresponds to the interval you specified (`!M`, `!H`, or `!D`). If you sent a metric using Operations for Applications data format, the extension depends on the histogram port that you used.
+  Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram data format, the extension corresponds to the interval you specified (`!M`, `!H`, or `!D`). If you sent a metric using Tanzu Observability data format, the extension depends on the histogram port that you used.
 2. Select the metric you're interested in.
 
    ![select_histogram_chart](images/histogram_select_chart.png)
@@ -36,7 +36,7 @@ You can display histogram information in any chart.
 
 You use the [`hs()` function](hs_function.html) with the name of a histogram metric to access the histogram distributions for that metric. A histogram metric name has an extension `.m`, `.h`, or `.d`:
 * If you sent distributions in histogram data format, the histogram metric extension corresponds to the interval you specified (`!M`, `!H`, or `!D`).
-* If you sent metrics using Operations for Applications data format, the histogram metric extension corresponds to the histogram port that you used.
+* If you sent metrics using Tanzu Observability data format, the histogram metric extension corresponds to the histogram port that you used.
 
 When you run an `hs()` query, you can optionally use it with one of the [histogram to histogram functions](query_language_reference.html#histogram-to-histogram-functions).
 
@@ -83,7 +83,7 @@ Histogram charts are designed especially for histogram visualization:
 
 Histogram charts are interactive. Hover legends give details, and you can go from the ellipsis in the top right to the trace browser for the histogram:
 * Add histogram queries in Chart Builder or Query Editor.
-  - Use an `hs()` query to visualize data that were ingested as Operations for Applications histograms.
+  - Use an `hs()` query to visualize data that were ingested as Tanzu Observability histograms.
   - Use a `ts()` query to visualize **any data** as histograms.
 * Set the Y axis dimensions and X axis minimum, maximum, and units.
 * Select percentile markers to display.
@@ -106,7 +106,7 @@ The following diagram uses the same query as the histogram chart above.
 
 The heatmap is interactive and lets you examine the histogram in detail.
 * Add histogram queries in Chart Builder or Query Editor.
-  - Use an `hs()` query to visualize data that were ingested as Operations for Applications histograms.
+  - Use an `hs()` query to visualize data that were ingested as Tanzu Observability histograms.
   - Use a `ts()` query to visualize any data as histograms.
 * Hover over any field to bring up a legend. The legend:
   - Shows how this histogram bar fits in with the rest of the histogram using a contrasting color.

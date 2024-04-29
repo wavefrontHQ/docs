@@ -80,9 +80,9 @@ Use the methods listed below to track the incoming log data and the number of lo
 ### See the Data on the Predefined Logs Stats Charts
 
 1. Select **Dashboards** > **All Dashboards**.
-1. Search for **Operations for Applications Service and Proxy Data** in the search bar, and click the dashboard.
-    ![A screenshot of the results you get when you search for  the Operations for Applications Service and Proxy Data dashboard. ](images/logs_wavefront_service_and_proxy_data.png)
-1. Examine the charts in the **Logs Stats** section of the [Operations for Applications Service and Proxy Data dashboard](wavefront_monitoring.html#operations-for-applications-service-and-proxy-data-dashboard) to get details about the logs you are sending.
+1. Search for **Tanzu Observability Service and Proxy Data** in the search bar, and click the dashboard.
+    ![A screenshot of the results you get when you search for  the Tanzu Observability Service and Proxy Data dashboard. ](images/logs_wavefront_service_and_proxy_data.png)
+1. Examine the charts in the **Logs Stats** section of the [Tanzu Observability Service and Proxy Data dashboard](wavefront_monitoring.html#operations-for-applications-service-and-proxy-data-dashboard) to get details about the logs you are sending.
 
     ![A screenshot of the proxy dashboard with the preconfigured charts.](images/logging_proxy_logs_dashboard.png)
 

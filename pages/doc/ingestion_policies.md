@@ -6,7 +6,7 @@ permalink: ingestion_policies.html
 summary: Monitor ingestion rates by policies and configure ingestion limits with alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html) of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), you can use ingestion policies for monitoring usage by specific accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to understand the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html) of Tanzu Observability (formerly known as VMware Aria Operations for Applications), you can use ingestion policies for monitoring usage by specific accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to understand the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
 
 By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a Points per Second (PPS) limit for the ingestion policy and associate it with an alert. After you create an ingestion policy, you can start monitoring the ingestion policy dashboard, which shows:
 - The P95 PPS usage per [billing period](glossary.html#b) since the creation of the policy.
@@ -19,11 +19,11 @@ By creating an ingestion policy, you combine a set of accounts, groups, sources,
 
 {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
-For performance monitoring of your Operations for Applications instance, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
+For performance monitoring of your Tanzu Observability instance, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Operations for Applications service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
+Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Tanzu Observability service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
 
 Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether a particular team will need more PPS in the future or will need to reduce their overhead ingestions.
 
@@ -54,13 +54,13 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </thead>
     <tr>
     <td><strong>Accounts</strong></td>
-    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is onboarded to VMware Cloud services, individual <a href="csp_user_management.html">users</a>, <a href="csp_server_to_server_apps.html">server to server apps</a>, and <a href="csp_service_accounts.html">service accounts</a>.</li>
-    <li>If your Operations for Applications service is an original subscription, individual <a href="authorization-faq.html#what-are-user--service-accounts">user and service accounts</a>.</li></ul></td></tr>
+    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Tanzu Observability service is onboarded to VMware Cloud services, individual <a href="csp_user_management.html">users</a>, <a href="csp_server_to_server_apps.html">server to server apps</a>, and <a href="csp_service_accounts.html">service accounts</a>.</li>
+    <li>If your Tanzu Observability service is an original subscription, individual <a href="authorization-faq.html#what-are-user--service-accounts">user and service accounts</a>.</li></ul></td></tr>
     <tr>
     <td><strong>Groups</strong></td>
-    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is onboarded to VMware Cloud services, <a href="csp_users_roles.html#manage-user-groups">groups</a> of VMware Cloud services users.
+    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Tanzu Observability service is onboarded to VMware Cloud services, <a href="csp_users_roles.html#manage-user-groups">groups</a> of VMware Cloud services users.
     <p>You can also select the <strong>Everyone</strong> internal system group (which includes all users) or the <strong>Service Accounts</strong> internal system group (which includes all <a href="csp_server_to_server_apps.html">server to server apps</a> that have access to your service as well as all <a href="csp_service_accounts.html">service accounts</a> in your service).</p></li>
-    <li>If your Operations for Applications service is an original subscription, <a href="users_roles.html#create-a-group">groups</a> of user and service accounts, including the <strong>Everyone</strong> and <strong>Service Accounts</strong> system groups.</li></ul>
+    <li>If your Tanzu Observability service is an original subscription, <a href="users_roles.html#create-a-group">groups</a> of user and service accounts, including the <strong>Everyone</strong> and <strong>Service Accounts</strong> system groups.</li></ul>
     </td>
     </tr>
     <tr>
@@ -88,7 +88,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
 
 {% include note.html content="If you didn't choose to set a PPS limit, this step is skipped."%}
 
-If you set a PPS limit for the ingestion policy, Operations for Applications creates an ingestion policy alert that queries the PPS usage by the policy as a percentage of the PPS limit.
+If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the PPS usage by the policy as a percentage of the PPS limit.
 
 1. In the **Conditions** panel, configure the [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities).
    1. Select the comparison operator for the alert condition. In most cases, you alert when the usage is **greater than** a specified threshold percentage of the PPS limit.
@@ -240,11 +240,11 @@ All users can view the ingestion policies and examine the ingestion policy dashb
  
 
 
-In addition, the Operations for Applications Usage integration includes the [Operations for Applications Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#operations-for-applications-ingestion-policy-explorer-dashboard), which provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
+In addition, the Tanzu Observability Usage integration includes the [Tanzu Observability Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#tanzu-observability-ingestion-policy-explorer-dashboard), which provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
-Consider the following example. You are administering an Operations for Applications service instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
+Consider the following example. You are administering a Tanzu Observability service instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
 
 You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you will receive an alert notification, so that you can provide additional training on how to use ingested data wisely. 
 

@@ -20,7 +20,7 @@ Many of our cloud integrations generate point tags automatically to help you fil
 
 ### Point Tag Maximum
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront)  supports up 20 point tags per time series. A larger number of point tags does not improve the user experience and can lead to performance problems.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports up 20 point tags per time series. A larger number of point tags does not improve the user experience and can lead to performance problems.
 
 {% include note.html content="If the number of point tags exceeds 20, then we drop the metrics that have those point tags." %}
 

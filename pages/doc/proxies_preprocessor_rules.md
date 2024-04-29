@@ -7,7 +7,7 @@ permalink: proxies_preprocessor_rules.html
 summary: Learn how to write proxy preprocessor rules.
 ---
 
-For fine-grained control before data are sent to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), the Wavefront proxy supports:
+For fine-grained control before data are sent to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications), the Wavefront proxy supports:
 
 * Point filtering and point altering rules
 * Span filtering and span altering rules
@@ -19,7 +19,7 @@ This page explains how to write these preprocessor rules, and includes many exam
 
 ## Overview
 
-The Wavefront proxy includes a preprocessor that applies rules before data is sent to Operations for Applications. The rules make it possible to address data quality issues in the data flow when it's not possible to fix the problem at the source. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to Operations for Applications.
+The Wavefront proxy includes a preprocessor that applies rules before data is sent to Tanzu Observability. The rules make it possible to address data quality issues in the data flow when it's not possible to fix the problem at the source. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to Tanzu Observability.
 
 You can limit when a rule applies using the `if` parameter (proxy 7.0 and later). See [Preprocessor Rule Conditions](proxies_preprocessor_rule_conditions.html) for details.
 
@@ -131,7 +131,7 @@ For earlier versions of the proxy, you have to [restart the proxy](proxies_insta
 
 ### Interactive Testing of Preprocessor Rules
 
-You can test a preprocessor rule before sending data to your Operations for Applications service using `-testPreprocessorForPort <port>`.
+You can test a preprocessor rule before sending data to your Tanzu Observability service using `-testPreprocessorForPort <port>`.
 
 How you run the proxy in test mode depends on whether you're using the JVM bundled with the Wavefront proxy. In that case, if the proxy installer detects that java v8, 9, 10 or, 11 already exists in the users path that version of Java is used.
 
@@ -180,7 +180,7 @@ Defines a regex that points must match to be filtered out.
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Operations for Applications and Graphite data formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Tanzu Observability and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -237,7 +237,7 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Operations for Applications and Graphite data formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Tanzu Observability and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -296,12 +296,12 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
 <tr>
 <td>function</td>
 <td><ul>
-<li>allow -- Sends only metrics that match one of the entries listed in <code>names</code> to the Operations for Applications service. All other metrics are dropped.</li>
-<li>drop -- Drops all metrics that match one of the entries listed in <code>names</code>. All other metrics are sent on to the Operations for Applications service.</li></ul></td>
+<li>allow -- Sends only metrics that match one of the entries listed in <code>names</code> to the Tanzu Observability service. All other metrics are dropped.</li>
+<li>drop -- Drops all metrics that match one of the entries listed in <code>names</code>. All other metrics are sent on to the Tanzu Observability service.</li></ul></td>
 </tr>
 <tr>
 <td>names</td>
-<td>List of exact metric names or regular expressions. The list specifies which metrics are sent to the Operations for Applications service or which are dropped. Regular expressions must start and end with `/`.
+<td>List of exact metric names or regular expressions. The list specifies which metrics are sent to the Tanzu Observability service or which are dropped. Regular expressions must start and end with `/`.
 </td>
 </tr>
 <tr>
@@ -336,7 +336,7 @@ The example:
 
 
 Point altering rules allow you to:
-* Replace text in the point line. The point line uses the Operations for Applications data format input format:
+* Replace text in the point line. The point line uses the Tanzu Observability data format input format:
   `<metricName> <metricValue> [<timestamp>] source=<source> [pointTags]`
 * Add, remove, or update point tags.
 
@@ -367,7 +367,7 @@ Replaces arbitrary text in the point line or any of its components:
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Operations for Applications and Graphite data formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Tanzu Observability and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -544,7 +544,7 @@ extractTagIfNotExists</td>
 <td>source</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Operations for Applications and Graphite data formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Tanzu Observability and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -664,7 +664,7 @@ Converts metric name, source name, or point tag value to lowercase.
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Operations for Applications and Graphite data formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Tanzu Observability and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -714,7 +714,7 @@ Enforces string length limits for a metric name, source name, or point tag value
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Operations for Applications and Graphite data formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Tanzu Observability and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -758,7 +758,7 @@ The following example illustrates using a `limitLength` for a point tag. The lim
 
 ```yaml
   # Make sure that the limit that you are setting is not higher
-  # than the default Operations for Applications limit.
+  # than the default Tanzu Observability limit.
   ################################################################
   - rule          : limit-point-tag-length
     action        : limitLength
@@ -769,7 +769,7 @@ The following example illustrates using a `limitLength` for a point tag. The lim
 
 ## Span Filtering Rules
 
-[Operations for Applications distributed tracing](tracing_basics.html) gives you end-to-end visibility into an entire request across application services by allowing you to examine traces and spans. Span filtering rules allow you to specify a block list or allow list that determines which spans the proxy sends to Operations for Applications.
+[Tanzu Observability distributed tracing](tracing_basics.html) gives you end-to-end visibility into an entire request across application services by allowing you to examine traces and spans. Span filtering rules allow you to specify a block list or allow list that determines which spans the proxy sends to Tanzu Observability.
 
 {% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
 
@@ -1360,4 +1360,4 @@ To apply the Wavefront proxy preprocessor rules when certain conditions are met,
 
 ## Learn More!
 
-To monitor the time a proxy is spending with preprocessing rules, examine the [**Proxy Troubleshooting**](monitoring_proxies.html#proxy-troubleshooting) section on the **Operations for Applications Service and Proxy Data** dashboard.
+To monitor the time a proxy is spending with preprocessing rules, examine the [**Proxy Troubleshooting**](monitoring_proxies.html#proxy-troubleshooting) section on the **Tanzu Observability Service and Proxy Data** dashboard.

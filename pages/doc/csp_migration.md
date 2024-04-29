@@ -4,17 +4,17 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_migration.html
-summary: Learn about how we migrate the authorization and authentication from Operations for Applications to VMware Cloud services.
+summary: Learn about how we migrate the authorization and authentication from Tanzu Observability to VMware Cloud services.
 ---
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
+Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
 
 ## What Should I Do Before the Onboarding?
 
-Currently, all original Operations for Applications subscriptions are integrated with VMware Cloud services for billing and subscription management. Therefore, you must already have a [VMware Cloud organization](csp_getting_started.html#whats-a-vmware-cloud-organization) with at least one user with the [VMware Cloud **Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
+Currently, all original Tanzu Observability subscriptions are integrated with VMware Cloud services for billing and subscription management. Therefore, you must already have a [VMware Cloud organization](csp_getting_started.html#whats-a-vmware-cloud-organization) with at least one user with the [VMware Cloud **Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
 
 Before the onboarding:
-* Get familiar with the VMware Cloud service platform. See [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
+* Get familiar with the VMware Cloud service platform. See [Getting Started with Tanzu Observability on VMware Cloud Services](csp_getting_started.html).
 * Verify that your VMware Cloud **Organization Owner** user can log in to the [VMware Cloud Services Console](https://console.cloud.vmware.com).
 
     - If you are the VMware Cloud **Organization Owner** user and cannot log in, try using the **Forgot Password** option.
@@ -61,23 +61,23 @@ Here's the process:
 
 ## How Are the Users Migrated to VMware Cloud Services?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, we add all your current users to your VMware Cloud organization running the service.
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, we add all your current users to your VMware Cloud organization running the service.
 
-![An image displaying how users are migrated when your Operations for Applications service is onboarded to VMware Cloud services. The information from the image is explained in the bullet list below.](images/csp-user-accounts-migration.png)
+![An image displaying how users are migrated when your Tanzu Observability service is onboarded to VMware Cloud services. The information from the image is explained in the bullet list below.](images/csp-user-accounts-migration.png)
 
-* If a user is a **Super Admin** in Operations for Applications, we assign that user with the **Super Admin** Operations for Applications service role in VMware Cloud services.
-* If a user is assigned with individual permissions in Operations for Applications, we assign that user with the corresponding [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) in VMware Cloud services. For example, if a user has the **Alerts** permission in Operations for Applications, we assign that user with the **Alerts** Operations for Applications service role in VMware Cloud services. There are the following exceptions:
+* If a user is a **Super Admin** in Tanzu Observability, we assign that user with the **Super Admin** Tanzu Observability service role in VMware Cloud services.
+* If a user is assigned with individual permissions in Tanzu Observability, we assign that user with the corresponding [Tanzu Observability service roles](csp_users_roles.html#tanzu-observability-service-roles-built-in) in VMware Cloud services. For example, if a user has the **Alerts** permission in Tanzu Observability, we assign that user with the **Alerts** Tanzu Observability service role in VMware Cloud services. There are the following exceptions:
 
-    - The **Accounts** permission is replaced by the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) plus the **Admin** Operations for Applications service role.
+    - The **Accounts** permission is replaced by the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) plus the **Admin** Tanzu Observability service role.
     - The **API Tokens** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. Each VMware Cloud services user can manage their own VMware Cloud services API tokens.
     - The **SAML IdP Admin** permission is not replaced by any role, because this privilege is not needed in VMware Cloud services. The VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
 
     For details, see the [permissions differences](csp-differences-by-area.html#permissions).
-* If a user does not have any permissions and roles in Operations for Applications, we assign that user with the **Viewer** Operations for Applications service role in VMware Cloud services.
-* If a user is assigned with roles in Operations for Applications, we assign that user with the corresponding custom roles in VMware Cloud services. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
-* If a user belongs to a group in Operations for Applications, we add that user to the corresponding group in VMware Cloud services. See [How Are the Groups Migrated to VMware Cloud Services?](#how-are-the-groups-migrated-to-vmware-cloud-services).
+* If a user does not have any permissions and roles in Tanzu Observability, we assign that user with the **Viewer** Tanzu Observability service role in VMware Cloud services.
+* If a user is assigned with roles in Tanzu Observability, we assign that user with the corresponding custom roles in VMware Cloud services. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If a user belongs to a group in Tanzu Observability, we add that user to the corresponding group in VMware Cloud services. See [How Are the Groups Migrated to VMware Cloud Services?](#how-are-the-groups-migrated-to-vmware-cloud-services).
 
-{% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the Operations for Applications users](csp_user_management.html) in the VMware Cloud Services Console."%}
+{% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the Tanzu Observability users](csp_user_management.html) in the VMware Cloud Services Console."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -87,42 +87,42 @@ During the process of onboarding your Operations for Applications service to VMw
 
 ## How Are the Groups Migrated to VMware Cloud Services?
 
-Originally, your Operation for Applications service includes the **Everyone** and **Service Accounts** system groups as well as any other custom groups that you have created.
+Originally, your Tanzu Observability service includes the **Everyone** and **Service Accounts** system groups as well as any other custom groups that you have created.
 
 ### How Are the Custom Groups Migrated?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, for each group that you have created in Operations for Applications, we create a corresponding group in your VMware Cloud organization running the service.
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, for each group that you have created in Tanzu Observability, we create a corresponding group in your VMware Cloud organization running the service.
 
-* The corresponding VMware Cloud groups are with the same names and descriptions as the original Operations for Applications custom groups.
-* All users from a custom group in Operations for Applications are added to the corresponding VMware Cloud group.
-* The service accounts from the custom groups in Operations for Applications **are not** added to any VMware Cloud group.
+* The corresponding VMware Cloud groups are with the same names and descriptions as the original Tanzu Observability custom groups.
+* All users from a custom group in Tanzu Observability are added to the corresponding VMware Cloud group.
+* The service accounts from the custom groups in Tanzu Observability **are not** added to any VMware Cloud group.
 
     {% include important.html content="Currently, VMware Cloud services supports grouping only for user accounts."%}
-* If a custom group in Operations for Applications is assigned with roles, the corresponding VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If a custom group in Tanzu Observability is assigned with roles, the corresponding VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
 
 {% include tip.html content="From now on, users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles can [manage the user groups](csp_users_roles.html#manage-user-groups) in the VMware Cloud Services Console."%}
 
 ### How Is the Everyone System Group Migrated?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, for the **Everyone** system group in Operations for Applications, we create the corresponding **All Operations for Applications Users** group in your VMware Cloud organization running the service as follows:
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, for the **Everyone** system group in Tanzu Observability, we create the corresponding **All Tanzu Observability Users** group in your VMware Cloud organization running the service as follows:
 
-* All current users are added to the **All Operations for Applications Users** VMware Cloud group.
+* All current users are added to the **All Tanzu Observability Users** VMware Cloud group.
 
     {% include important.html content="New users will **no longer** be added automatically to this group."%}
-* The **All Operations for Applications Users** VMware Cloud group is assigned with the **All Operations for Applications Users** VMware Cloud custom role, which corresponds to the **Everyone** role in Operations for Applications. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
-* If the **Everyone** system group in Operations for Applications is assigned with custom roles, the **All Operations for Applications Users** VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
-* In Operations for Applications, we continue to maintain the **Everyone** system group only as a local **internal** group that is automatically populated with all new users. This group has no roles and permissions.
+* The **All Tanzu Observability Users** VMware Cloud group is assigned with the **All Tanzu Observability Users** VMware Cloud custom role, which corresponds to the **Everyone** role in Tanzu Observability. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
+* If the **Everyone** system group in Tanzu Observability is assigned with custom roles, the **All Tanzu Observability Users** VMware Cloud group is assigned with the corresponding VMware Cloud custom roles. See [How Are the Roles Migrated to VMware Cloud Services?](#how-are-the-roles-migrated-to-vmware-cloud-services).
+* In Tanzu Observability, we continue to maintain the **Everyone** system group only as a local **internal** group that is automatically populated with all new users. This group has no roles and permissions.
 
-{% include tip.html content="From now on, it is up to you to add new users to the **All Operations for Applications Users** VMware Cloud group. The **Everyone** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
+{% include tip.html content="From now on, it is up to you to add new users to the **All Tanzu Observability Users** VMware Cloud group. The **Everyone** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ### What Happens with the Service Accounts System Group?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, we **do not** migrate the **Service Accounts** system group.
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, we **do not** migrate the **Service Accounts** system group.
 
 {% include important.html content="Currently, VMware Cloud services supports grouping only for user accounts."%}
 
-* The permissions from the roles assigned to the **Service Accounts** system group in Operations for Applications are now directly assigned to the service accounts. See [What Happens with the Service Accounts?](#what-happens-with-the-service-accounts).
-* In Operations for Applications, we continue to maintain the **Service Accounts** system group only as a local **internal** group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
+* The permissions from the roles assigned to the **Service Accounts** system group in Tanzu Observability are now directly assigned to the service accounts. See [What Happens with the Service Accounts?](#what-happens-with-the-service-accounts).
+* In Tanzu Observability, we continue to maintain the **Service Accounts** system group only as a local **internal** group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
 
 {% include tip.html content="From now on, the **Service Accounts** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
@@ -134,16 +134,16 @@ During the process of onboarding your Operations for Applications service to VMw
 
 ## How Are the Roles Migrated to VMware Cloud Services?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, for each role in Operations for Applications, we create a corresponding [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) in your VMware Cloud organization running the service as follows:
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, for each role in Tanzu Observability, we create a corresponding [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) in your VMware Cloud organization running the service as follows:
 
-* For each role that you have created in Operations for Applications, we create a corresponding VMware Cloud custom role with the same name and description.
-* For the **Everyone** role that is assigned to the **Everyone** system group in Operations for Applications, we create the **All Operations for Applications Users** VMware Cloud custom role. See [How Is the Everyone System Group Migrated?](#how-is-the-everyone-system-group-migrated).
-* For the **Service Accounts** role that is assigned to the **Service Accounts** system group in Operations for Applications, we **do not** create any VMware Cloud custom role, because this group is not migrated. See [What Happens with Service Accounts System Group?](#what-happens-with-the-service-accounts-system-group).
-* The corresponding VMware Cloud custom roles are assigned with the same [permissions](csp_permissions_overview.html) as the original roles in Operations for Applications. There are the following exceptions:
+* For each role that you have created in Tanzu Observability, we create a corresponding VMware Cloud custom role with the same name and description.
+* For the **Everyone** role that is assigned to the **Everyone** system group in Tanzu Observability, we create the **All Tanzu Observability Users** VMware Cloud custom role. See [How Is the Everyone System Group Migrated?](#how-is-the-everyone-system-group-migrated).
+* For the **Service Accounts** role that is assigned to the **Service Accounts** system group in Tanzu Observability, we **do not** create any VMware Cloud custom role, because this group is not migrated. See [What Happens with Service Accounts System Group?](#what-happens-with-the-service-accounts-system-group).
+* The corresponding VMware Cloud custom roles are assigned with the same [permissions](csp_permissions_overview.html) as the original roles in Tanzu Observability. There are the following exceptions:
 
-    - The **Accounts** permission in Operations for Applications is replaced by the **Admin** Operations for Applications permission in VMware Cloud services. In addition, the users with that permission are assigned with the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
-    - The **API Tokens** permission in Operations for Applications **is not** replaced by any permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because each user can manage their own VMware Cloud services API tokens.
-    - The **SAML IdP Admin** permission in Operations for Applications **is not** replaced with by permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because the VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
+    - The **Accounts** permission in Tanzu Observability is replaced by the **Admin** Tanzu Observability permission in VMware Cloud services. In addition, the users with that permission are assigned with the [VMware Cloud **Organization Administrator** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
+    - The **API Tokens** permission in Tanzu Observability **is not** replaced by any permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because each user can manage their own VMware Cloud services API tokens.
+    - The **SAML IdP Admin** permission in Tanzu Observability **is not** replaced with by permission in VMware Cloud services. This permission does not exist in VMware Cloud services, because the VMware Cloud **Organization Owner** initiates enterprise federation for your corporate domain and assigns an **Enterprise Administrator**.
 
     For details, see the [permissions differences](csp-differences-by-area.html#permissions).
 
@@ -157,26 +157,26 @@ During the process of onboarding your Operations for Applications service to VMw
 
 ## What Happens with the Service Accounts?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, the service accounts **are not** migrated to VMware Cloud services, because VMware Cloud services supports [server to server OAuth apps](csp_server_to_server_apps.html), which are equivalent to the services accounts in Operations for Applications.
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, the service accounts **are not** migrated to VMware Cloud services, because VMware Cloud services supports [server to server OAuth apps](csp_server_to_server_apps.html), which are equivalent to the services accounts in Tanzu Observability.
 
-{% include warning.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future."%}
+{% include warning.html content="The usage of service accounts in Tanzu Observability on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Tanzu Observability API tokens will be deprecated in the future."%}
 
-For backward compatibility, all of your service accounts are **preserved** in Operations for Applications as follows:
+For backward compatibility, all of your service accounts are **preserved** in Tanzu Observability as follows:
 
 * The service accounts no longer belong to groups, because the groups management is migrated to VMware Cloud services.
 * The service accounts no longer have roles, because the roles management is migrated to VMware Cloud services.
 * The service accounts are assigned with their existing permissions, including the permissions that they have inherited from roles and group roles. Exceptions are the **API Tokens** and **SAML IdP Admin** permissions, which no longer exist.
 
-    {% include note.html content="The **Accounts** permission in Operations for Applications corresponds to the [**Admin** Operations for Applications permission](csp_permissions_overview.html) in VMware Cloud services."%}
-* All service accounts still belong to the **Service Accounts** system group, which is now only an **internal** Operations for Applications group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
+    {% include note.html content="The **Accounts** permission in Tanzu Observability corresponds to the [**Admin** Tanzu Observability permission](csp_permissions_overview.html) in VMware Cloud services."%}
+* All service accounts still belong to the **Service Accounts** system group, which is now only an **internal** Tanzu Observability group that is automatically populated with all [service accounts](csp_service_accounts.html) and [server to server OAuth apps](csp_server_to_server_apps.html) that have access to the service instance. This group has no roles and permissions.
 
-You should incrementally [replace](#how-to-replace-a-service-account-with-a-server-to-server-app) your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
+You should incrementally [replace](#how-to-replace-a-service-account-with-a-server-to-server-app) your service accounts in Tanzu Observability with server to server OAuth apps in VMware Cloud services.
 
-{% include tip.html content="From now on, users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can [manage server to server apps](csp_server_to_server_apps.html) in the VMware Cloud Services Console. Users with the **Admin** service role can [manage the service accounts](csp_service_accounts.html) in Operations for Applications. The **Service Accounts** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
+{% include tip.html content="From now on, users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can [manage server to server apps](csp_server_to_server_apps.html) in the VMware Cloud Services Console. Users with the **Admin** service role can [manage the service accounts](csp_service_accounts.html) in Tanzu Observability. The **Service Accounts** internal system group can be used only when managing [access to dashboards and alerts](csp_access.html), [metrics security policy rules](csp_metrics_security.html), and [ingestion policies](ingestion_policies.html)."%}
 
 ### How to Replace a Service Account with a Server to Server App?
 
-Service accounts authenticate with Operations for Applications API tokens, while server to server OAuth apps authenticate with the more secure VMware Cloud services access tokens. Service accounts are supported for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) but will be deprecated in the future.
+Service accounts authenticate with Tanzu Observability API tokens, while server to server OAuth apps authenticate with the more secure VMware Cloud services access tokens. Service accounts are supported for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) but will be deprecated in the future.
 
 <table style="width: 100%;">
 <tbody>
@@ -188,7 +188,7 @@ Service accounts authenticate with Operations for Applications API tokens, while
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-After onboarding to VMware Cloud services, you should incrementally replace your service accounts in Operations for Applications with server to server OAuth apps in VMware Cloud services.
+After onboarding to VMware Cloud services, you should incrementally replace your service accounts in Tanzu Observability with server to server OAuth apps in VMware Cloud services.
 
 <br /><br /> The flowchart on the right shows the overall process for creating a server to server OAuth app and replacing a service account with it.
 </td>
@@ -225,14 +225,14 @@ After onboarding to VMware Cloud services, you should incrementally replace your
         <td>
         <strong>Custom Roles</strong>
         </td>
-        <td>Optional. Use only if you previously created a <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">custom role</a> with the necessary <a href="csp_permissions_overview.html">Operations for Applications permissions</a>.
+        <td>Optional. Use only if you previously created a <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">custom role</a> with the necessary <a href="csp_permissions_overview.html">Tanzu Observability permissions</a>.
         </td>
         </tr>
         <tr>
         <td><strong>Service Roles</strong>
         </td>
-        <td>Required for service access. Assign the <a href="csp_users_roles.html#operations-for-applications-service-roles-built-in">Operations for Applications service roles</a> that correspond to the permissions of the service account that you want to replace.
-        <p>If you already assigned a custom role, you must assign at least the <strong>Viewer</strong> Operations for Applications service role.</p>
+        <td>Required for service access. Assign the <a href="csp_users_roles.html#tanzu-observability-service-roles-built-in">Tanzu Observability service roles</a> that correspond to the permissions of the service account that you want to replace.
+        <p>If you already assigned a custom role, you must assign at least the <strong>Viewer</strong> Tanzu Observability service role.</p>
         </td>
         </tr>
         </tbody>
@@ -252,40 +252,40 @@ After onboarding to VMware Cloud services, you should incrementally replace your
 </tbody>
 </table>
 
-## What Happens with the Operations for Applications API Tokens?
+## What Happens with the Tanzu Observability API Tokens?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, the Operations for Applications API tokens **are not** migrated to VMware Cloud services, because Operations for Applications on VMware Cloud services supports authentication with:
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, the Tanzu Observability API tokens **are not** migrated to VMware Cloud services, because Tanzu Observability on VMware Cloud services supports authentication with:
 
 * VMware Cloud services API tokens associated with user accounts.
-* Server to server OAuth apps credentials, that is, app ID and app secret. The server to server OAuth app must belong to the organization that is running the Operations for Applications service.
+* Server to server OAuth apps credentials, that is, app ID and app secret. The server to server OAuth app must belong to the organization that is running the Tanzu Observability service.
 
 You must exchange a VMware Cloud services API token or the credentials (ID and secret) of server to server OAuth app for a VMware Cloud services **access token**.
 
-For backward compatibility, all of your API tokens are **preserved** in Operations for Applications as follows:
+For backward compatibility, all of your API tokens are **preserved** in Tanzu Observability as follows:
 
-* The Operations for Applications API tokens associated with user accounts are **no longer**  editable. The users can still use, view, and revoke their Operations for Applications API tokens until they expire, but they **cannot** generate new ones.
-* The Operations for Applications API tokens associated with service accounts are editable, because we still support them for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens).
+* The Tanzu Observability API tokens associated with user accounts are **no longer**  editable. The users can still use, view, and revoke their Tanzu Observability API tokens until they expire, but they **cannot** generate new ones.
+* The Tanzu Observability API tokens associated with service accounts are editable, because we still support them for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens).
 
-You should incrementally [replace](#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token) your Operations for Applications API tokens with VMware Cloud services API tokens and server to server OAuth apps.
+You should incrementally [replace](#how-to-replace-a-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token) your Tanzu Observability API tokens with VMware Cloud services API tokens and server to server OAuth apps.
 
 {% include tip.html content="From now on, all users must generate VMware Cloud services API tokens for their accounts and exchange them for access tokens. Users with the VMware Cloud **Organization Owner**, **Organization Administrator**, or **Organization Member** with **Developer** roles can create server to server OAuth apps and exchange the app credentials for access tokens."%}
 
-### How to View and Manage the Operations for Applications API Tokens?
+### How to View and Manage the Tanzu Observability API Tokens?
 
-Users with the **Admin** Operations for Applications service role can [manage](csp_api_tokens.html#manage-the-operations-for-applications-api-tokens-in-your-service-instance) the Operations for Applications API tokens in the service instance.
+Users with the **Admin** Tanzu Observability service role can [manage](csp_api_tokens.html#manage-the-tanzu-observability-api-tokens-in-your-service-instance) the Tanzu Observability API tokens in the service instance.
 
-Each user can view and revoke their own Operations for Applications API tokens:
+Each user can view and revoke their own Tanzu Observability API tokens:
 
 1. Log in to your service instance.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
-1. Click the **API Access** tab and view all your Operations for Applications API tokens.
+1. Click the **API Access** tab and view all your Tanzu Observability API tokens.
 1. To revoke a token, click the **Revoke** button for the token.
 
     If you run a script that uses a revoked token, the script returns an authorization error.
 
-### How to Replace an Operations for Applications API Token with a VMware Cloud Services Access Token?
+### How to Replace a Tanzu Observability API Token with a VMware Cloud Services Access Token?
 
-It's recommended to use Operations for Applications API tokens only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens). We will update these integrations to authenticate with VMware Cloud services access tokens in a future release.
+It's recommended to use Tanzu Observability API tokens only for a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens). We will update these integrations to authenticate with VMware Cloud services access tokens in a future release.
 
 <table style="width: 100%;">
 <tbody>
@@ -293,32 +293,32 @@ It's recommended to use Operations for Applications API tokens only for a [limit
 <td markdown="span">
 <br /><br /><br /><br />
 
-You should incrementally replace your Operations for Applications API tokens with the more secure VMware Cloud services access tokens.
+You should incrementally replace your Tanzu Observability API tokens with the more secure VMware Cloud services access tokens.
 <br /><br />
-To replace an Operations for Applications API token associated with a service account, you must replace the service account with a server to server OAuth app. See [How to Replace a Service Account with a Server to Server App?](#how-to-replace-a-service-account-with-a-server-to-server-app).
+To replace a Tanzu Observability API token associated with a service account, you must replace the service account with a server to server OAuth app. See [How to Replace a Service Account with a Server to Server App?](#how-to-replace-a-service-account-with-a-server-to-server-app).
 <br /><br />
-The flowchart on the right shows the overall process for replacing an Operations for Applications API token with a VMware Cloud services API token.
+The flowchart on the right shows the overall process for replacing a Tanzu Observability API token with a VMware Cloud services API token.
 </td>
 <td>
-<img src="/images/csp-replace-api-token.png" alt="Flowchart showing how to replace an Operations for Applications API token with a VMware Cloud services API token. The process is described in the list below"/>
+<img src="/images/csp-replace-api-token.png" alt="Flowchart showing how to replace a Tanzu Observability API token with a VMware Cloud services API token. The process is described in the list below"/>
 </td>
 </tr>
 </tbody>
 </table>
 
 
-To replace an Operations for Applications API token associated with your user account:
+To replace a Tanzu Observability API token associated with your user account:
 
 1. Log in to the VMware Cloud Services Console.
 1. Generate an API token. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
 
-    - For the name of the VMware Cloud services API token, you can enter the name of the Operations for Applications API token that you want to replace.
+    - For the name of the VMware Cloud services API token, you can enter the name of the Tanzu Observability API token that you want to replace.
     - For the time to live (TTL) of the VMware Cloud services API token, you can configure a value from several minutes to several months, or never expire. This value defines the period in which the API token should be renewed.
     
         The TTL of the access tokens that will be issued to that API token is 30 minutes and is not configurable.
     - For the scopes of the API token, you must configure the minimum portion of your roles:
 
-        {% include note.html content="Till now, the Operations for Applications API tokens inherited all your permissions and roles. Now, you can set the VMware Cloud services API token with a subset of the roles that you own."%}
+        {% include note.html content="Till now, the Tanzu Observability API tokens inherited all your permissions and roles. Now, you can set the VMware Cloud services API token with a subset of the roles that you own."%}
 
         <table style="width: 100%;">
         <tbody>
@@ -346,15 +346,15 @@ To replace an Operations for Applications API token associated with your user ac
         <td><strong>Service Roles</strong>
         </td>
         <td>Required for service access.
-        <p>If you already assigned a custom role, you must assign at least the <strong>Viewer</strong> Operations for Applications service role.</p>
+        <p>If you already assigned a custom role, you must assign at least the <strong>Viewer</strong> Tanzu Observability service role.</p>
         </td>
         </tr>
         </tbody>
         </table>
-1. Reconfigure your scripts, API calls, or proxies to exchange the newly generated VMware Cloud services API token for an access token, instead of using the Operations for Applications API token.
+1. Reconfigure your scripts, API calls, or proxies to exchange the newly generated VMware Cloud services API token for an access token, instead of using the Tanzu Observability API token.
 
     {% include important.html content="The TTL of the access tokens associated with user accounts is 30 minutes. Make sure that your script renews the access token periodically before it expires. The Wavefront proxy does this automatically. "%}
-1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Operations for Applications API token that you replaced.
+1. [Revoke](#how-to-view-and-manage-the-tanzu-observability-api-tokens) the Tanzu Observability API token that you replaced.
 
 <table style="width: 100%;">
 <tbody>
@@ -364,13 +364,13 @@ To replace an Operations for Applications API token associated with your user ac
 
 ## What Happens with the Wavefront Proxies?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, all of the existing Wavefront proxies are **preserved** with their existing Operations for Applications API tokens.
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, all of the existing Wavefront proxies are **preserved** with their existing Tanzu Observability API tokens.
 
-You should incrementally [replace](#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
+You should incrementally [replace](#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy) the tokens of your proxies to authenticate with the more secure VMware Cloud services access tokens.
 
-{% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Operations for Applications service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
+{% include tip.html content="From now on, the users with the **Proxies** service role can create and manage the proxies in your Tanzu Observability service. New proxies must authenticate with VMware Cloud services access tokens unless used for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens."%}
 
-### How to Replace the Operations for Application API Token of a Wavefront Proxy?
+### How to Replace the Tanzu Observability API Token of a Wavefront Proxy?
 
 {% include important.html content="Make sure the version of your Wavefront proxy is 13.0 or later."%}
 
@@ -395,7 +395,7 @@ You should incrementally [replace](#how-to-replace-the-operations-for-applicatio
         ```
         cspAPIToken=<VMware_Cloud_services_API_token>
         ```
-1. [Revoke](#how-to-view-and-manage-the-operations-for-applications-api-tokens) the Operations for Applications API token that you replaced.
+1. [Revoke](#how-to-view-and-manage-the-tanzu-observability-api-tokens) the Tanzu Observability API token that you replaced.
 
 <table style="width: 100%;">
 <tbody>
@@ -405,11 +405,11 @@ You should incrementally [replace](#how-to-replace-the-operations-for-applicatio
 
 ## What Happens with the Integrations?
 
-During the process of onboarding your Operations for Applications service to VMware Cloud services, all of the existing integrations are **preserved** and continue to operate using proxy authentication with Operations for Applications API tokens.
+During the process of onboarding your Tanzu Observability service to VMware Cloud services, all of the existing integrations are **preserved** and continue to operate using proxy authentication with Tanzu Observability API tokens.
 
-You should incrementally [replace](#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy) the proxy tokens of your [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that are updated to use proxy authentication with the more secure VMware Cloud services access token.
+You should incrementally [replace](#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy) the proxy tokens of your [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens) that are updated to use proxy authentication with the more secure VMware Cloud services access token.
 
-{% include tip.html content="From now on, the users with the **Proxies** and **Integrations** service roles can set up integrations in your Operations for Applications service. New integrations must use proxy authentication with VMware Cloud services access tokens except for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens."%}
+{% include tip.html content="From now on, the users with the **Proxies** and **Integrations** service roles can set up integrations in your Tanzu Observability service. New integrations must use proxy authentication with VMware Cloud services access tokens except for the [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-tanzu-observability-api-tokens) that still authenticate with Tanzu Observability API tokens."%}
 
 <table style="width: 100%;">
 <tbody>

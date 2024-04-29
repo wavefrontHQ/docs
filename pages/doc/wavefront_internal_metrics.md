@@ -4,12 +4,12 @@ keywords: administration
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront-internal-metrics.html
-summary: VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) collects internal metrics that are used extensively in the different dashboards of the Operations for Applications Usage integration.
+summary: Tanzu Observability (formerly known as VMware Aria Operations for Applications)) collects internal metrics that are used extensively in the different dashboards of the Tanzu Observability Usage integration.
 ---
 
 You can:
 
-* Clone and modify one of the Operations for Applications Usage integration dashboards.
+* Clone and modify one of the Tanzu Observability Usage integration dashboards.
 * Create your own dashboard, query these metrics in charts, and create alerts for some of these metrics.
 
 Most of the internal metrics are [**ephemeral**](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which are persistent:
@@ -37,7 +37,7 @@ We collect the following sets of metrics.
 - `~collector` -- metrics processed at the collector gateway to the service instance. Includes spans.
 - `~metric` -- total unique sources and metrics.  You can compute the rate of metric creation from each source.
 - `~proxy` -- metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor. See [Monitor Wavefront Proxies](monitoring_proxies.html).
-- `~wavefront` -- set of gauges that track metrics about your use of the Operations for Applications service.
+- `~wavefront` -- set of gauges that track metrics about your use of the Tanzu Observability service.
 - `~http.api` -- namespace for looking at API request metrics.
 
 If you have an [AWS integration](integrations_aws_metrics.html), metrics with the following prefix are available:
@@ -50,7 +50,7 @@ There's also a metric you can use to monitor ongoing events and make sure the nu
 
 ## Useful Internal Metrics for Optimizing Performance
 
-A small set of internal metrics can help you optimize performance and monitor your costs. This section highlights some things to look for - the exact steps depend on how you're using the Operations for Applications service and on the characteristics of your environment.
+A small set of internal metrics can help you optimize performance and monitor your costs. This section highlights some things to look for - the exact steps depend on how you're using the Tanzu Observability service and on the characteristics of your environment.
 
 Our customer support engineers have found the following metrics especially useful.
 
@@ -74,7 +74,7 @@ Our customer support engineers have found the following metrics especially usefu
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.reported <br> ~collector.histograms.reported <br>~collector.tracing.spans.reported<br>~collector.tracing.span_logs.reported <br> ~collector.tracing.span_logs.bytes_reported<br></td>
-<td markdown="span">Valid metric points, histogram points, trace data (spans), or span logs that the collector reports to Operations for Applications. This is a billing metric that you can look up on the Operations for Applications Usage dashboard.<br>
+<td markdown="span">Valid metric points, histogram points, trace data (spans), or span logs that the collector reports to Tanzu Observability. This is a billing metric that you can look up on the Tanzu Observability Usage dashboard.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.reported` we have `collector.direct-ingestion.points.reported`.</td></tr>
 <tr>
@@ -87,7 +87,7 @@ Our customer support engineers have found the following metrics especially usefu
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.undecodable<br> ~collector.histograms.undecodable<br> ~collector.tracing.spans.undecodable<br> ~collector.tracing.span_logs.undecodable</td>
-<td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Operations for Applications because the input is not in the right format.<br>
+<td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Tanzu Observability because the input is not in the right format.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.undecodable` we have `collector.direct-ingestion.points.undecodable`.</td></tr>
 
@@ -102,15 +102,15 @@ Our customer support engineers have found the following metrics especially usefu
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_host_ids</td>
-<td markdown="span">Counter that increments when a new `source=` or `host=` is sent to Operations for Applications.</td></tr>
+<td markdown="span">Counter that increments when a new `source=` or `host=` is sent to Tanzu Observability.</td></tr>
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_metric_ids</td>
-<td markdown="span">Counter that increments when a new metric name is sent to Operations for Applications.</td></tr>
+<td markdown="span">Counter that increments when a new metric name is sent to Tanzu Observability.</td></tr>
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_string_ids</td>
-<td markdown="span">Counter that increments when a new point tag value is sent to Operations for Applications.</td></tr>
+<td markdown="span">Counter that increments when a new point tag value is sent to Tanzu Observability.</td></tr>
 <tr>
 <td markdown="span">~query</td>
 <td>~query.requests</td><td>Counter tracking the number of queries a user made.</td></tr>

@@ -7,19 +7,19 @@ permalink: integrations_bigpanda_troubleshooting.html
 summary: Investigate, troubleshoot, and remediate issues with BigPanda Webhook targets.
 ---
 
-BigPanda is an algorithmic event and alert management platform. This integration allows you to create BigPanda tickets from triggered alerts in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). VMware Aria Operations for Applications and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in VMware Aria Operations for Applications to pass notifications from VMware Aria Operations for Applications alerts into BigPanda. 
+BigPanda is an algorithmic event and alert management platform. This integration allows you to create BigPanda tickets from triggered alerts in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). Tanzu Observability and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in Tanzu Observability to pass notifications from Tanzu Observability alerts into BigPanda. 
 
 ## BigPanda Integration Configuration 
 
-Typically, alert targets are configured to use webhooks. A common use case is when VMware Aria Operations for Applications is configured to have BigPanda alert targets, by using the webhook feature.
+Typically, alert targets are configured to use webhooks. A common use case is when Tanzu Observability is configured to have BigPanda alert targets, by using the webhook feature.
 
-For information about setting up the BigPanda integration, follow the instructions displayed on the BigPanda integration **Setup** tab in the Operations for Applications UI .
+For information about setting up the BigPanda integration, follow the instructions displayed on the BigPanda integration **Setup** tab in the Tanzu Observability UI .
 
 ## Problems
 
-In some cases, VMware Aria Operations for Applications functions properly and alerts fire. Issues that you might observe:
+In some cases, Tanzu Observability functions properly and alerts fire. Issues that you might observe:
 
-* The BigPanda integration doesn’t receive VMware Aria Operations for Applications alert payloads.
+* The BigPanda integration doesn’t receive Tanzu Observability alert payloads.
 * BigPanda notifications appear as if they’ve been snoozed, and outages are not properly alerted upon.
 	
 This is a problem, because you might have dependencies and workflows outside that rely on those  notifications.

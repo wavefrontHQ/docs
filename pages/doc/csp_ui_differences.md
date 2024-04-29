@@ -4,10 +4,10 @@ keywords:
 tags: [introduction]
 sidebar: doc_sidebar
 permalink: csp-ui-differences.html
-summary: Learn about the differences in the UI of VMware Aria Operations for Applications original subscriptions and VMware Cloud services subscriptions.
+summary: Learn about the differences in the UI of Tanzu Observability original subscriptions and VMware Cloud services subscriptions.
 ---
 
-Operations for Applications subscriptions are two types: original subscriptions and VMware Cloud services subscriptions.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) subscriptions are two types: original subscriptions and VMware Cloud services subscriptions.
 
 ## Menu Bar
 
@@ -17,14 +17,14 @@ The menu bar differs, because the VMware Cloud services toolbar is added to the 
 
   From the VMware Cloud services toolbar, you can:
 
-  1. Switch between tenants (service instances) in a multi-tenant Operations for Applications environment.
+  1. Switch between tenants (service instances) in a multi-tenant Tanzu Observability environment.
   1. See notifications from VMware Cloud services.
   1. Manage your VMware Cloud services account and switch to other organizations.
   1. Go to the VMware Cloud Services Console and switch to other service subscriptions.
 
 ## Own User Account Settings
 
-When viewing their own user account settings in the Operations for Applications UI, VMware Cloud services subscribers do not have the **Groups, Roles & Permissions** and the **API Access** tabs (1) and can no longer change their password from the Operations for Applications UI (2), because this is done from the VMware Cloud Services Console.
+When viewing their own user account settings in the Tanzu Observability UI, VMware Cloud services subscribers do not have the **Groups, Roles & Permissions** and the **API Access** tabs (1) and can no longer change their password from the Tanzu Observability UI (2), because this is done from the VMware Cloud Services Console.
 
   ![An image showing that the tabs mentioned above and the change password link are removed from the UI for new subscribers.](images/new-vs-original.png)
 
@@ -54,8 +54,8 @@ Most of the identity and access management tasks for VMware Cloud services subsc
 
   ![An image showing the differences in the Accounts menu and the Service Accounts tab.](images/new-vs-original-accounts.png)
 
-  1. The **User Accounts**, **Groups**, and **Roles** tabs are missing, because the management of users, groups, and roles is done from the VMware Cloud Services Console. By using the **Accounts** menu item, the VMware Cloud services subscribers can manage only service accounts and the Operations for Applications API tokens associated with them.
-  1. VMware Cloud services subscribers cannot assign roles to service accounts and also can’t add them to groups. For VMware Cloud services subscriptions, service accounts are local entities in Operations for Applications, while roles and groups management is centralized in VMware Cloud services. VMware Cloud services subscribers can grant only permissions to service accounts.
+  1. The **User Accounts**, **Groups**, and **Roles** tabs are missing, because the management of users, groups, and roles is done from the VMware Cloud Services Console. By using the **Accounts** menu item, the VMware Cloud services subscribers can manage only service accounts and the Tanzu Observability API tokens associated with them.
+  1. VMware Cloud services subscribers cannot assign roles to service accounts and also can’t add them to groups. For VMware Cloud services subscriptions, service accounts are local entities in Tanzu Observability, while roles and groups management is centralized in VMware Cloud services. VMware Cloud services subscribers can grant only permissions to service accounts.
   1. Filtering the service accounts can be done only by permissions, because they don’t have roles and don’t belong to groups.
 
 ## Super Admin Page
@@ -66,7 +66,7 @@ The **Super Admin** page is replaced with **Orphaned Objects**, because Super Ad
 
 ## Add New Wavefront Proxy Page
 
-When adding a Wavefront proxy, VMware Cloud services subscribers have two options for the proxy authorization to Operations for Applications. They can configure the proxy with server to server OAuth app credentials or with a VMware Cloud services API token.
+When adding a Wavefront proxy, VMware Cloud services subscribers have two options for the proxy authorization to Tanzu Observability. They can configure the proxy with server to server OAuth app credentials or with a VMware Cloud services API token.
 
   ![An image showing the differences in the add new proxy page.](images/new-vs-original-proxy.png)
 

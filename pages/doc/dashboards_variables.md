@@ -7,7 +7,7 @@ permalink: dashboards_variables.html
 summary: Use dashboard variables and global filters switch between different data sources.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes dashboard variables and global filters. Both are excellent ways of focusing the metrics that a dashboard displays.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes dashboard variables and global filters. Both are excellent ways of focusing the metrics that a dashboard displays.
 
 <ul>
 <li>All users can <strong>set predefined variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
