@@ -60,11 +60,11 @@ Follow these steps:
     1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
     1. Copy the **Account ID** value shown in the AWS integration setup instructions.
     1. Paste it in the **Account ID** text box in the AWS UI.
-        ![A diagram that shows where the account ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
+        ![A diagram that shows where the account ID is on the Tanzu Observability integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select the **Require external ID** check box.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
     1. Enter the **External ID**. Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the external ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
+        ![A diagram that shows where the external ID is on the Tanzu Observability integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
     1. Click **Next**.
 1. Set Permissions:
     1. Search for the **ReadOnlyAccess** permission and select it.
@@ -76,7 +76,7 @@ Follow these steps:
 1. Click **Create role**.
 1. Once the list of roles appears, click `example-role` (the role you just created), and copy the **ARN** value.
 
-{% include note.html content="See [Giving Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy for VMware Aria Operations for Applications." %}
+{% include note.html content="See [Giving Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy for Tanzu Observability." %}
 
 ### Step 3: Configure the AWS Integration
 
@@ -94,7 +94,7 @@ Go back to the product instance where you opened the AWS integration tile, and f
 </tbody>
 </table>
 
-VMware Aria Operations for Applications can now connect to your AWS account and get data. Once the data starts flowing, you can visualize it. It will take a few minutes for the data to show.
+Tanzu Observability can now connect to your AWS account and get data. Once the data starts flowing, you can visualize it. It will take a few minutes for the data to show.
 
 ### Step 4: (Optional) Launch an EC2 Instance
 
@@ -218,7 +218,7 @@ Our Success Value Engineering team shared some frequently asked questions -- and
 * How do I manage my account (permissions, preferences, etc.)? See [Customize Your Account](users_account_managing.html).
 * How can admins add other users? See [Manage User Accounts](user-accounts.html).
 * How do admins set up SSO? See [Single-Tenant Authentication and Self-Service SAML SSO](auth_self_service_sso.html)
-* How do I track usage? See [Monitor Your Service with the Operations for Applications Usage Integration](wavefront_monitoring.html).
+* How do I track usage? See [Monitor Your Service with the Tanzu Observability Usage Integration](wavefront_monitoring.html).
 * Why did my alert (not) fire? See [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire) and [Why Did My Alert Misfire](alerts_faq.html#why-did-my-alert-misfire).
 * How do I contact support? See [Support and Feedback](wavefront_support_feedback.html). 
 * Do you have videos? Yes! We have a [video channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)!

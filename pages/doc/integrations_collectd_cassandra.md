@@ -4,13 +4,13 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_cassandra.html
-summary: Learn how to send Cassandra data collected by collectd to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Learn how to send Cassandra data collected by collectd to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 [Apache Cassandra](http://cassandra.apache.org/) is a popular, distributed, NoSQL database system.
 Since Cassandra uses JMX to export metrics, collectd depends on the [Java](https://collectd.org/wiki/index.php/Plugin:Java) and [GenericJMX](https://collectd.org/wiki/index.php/Plugin:GenericJMX) plugins in order to collect metrics from Cassandra.
 
-VMware Aria Operations for Applications supports a built-in integration that gets data from Cassandra using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
+Tanzu Observability supports a built-in integration that gets data from Cassandra using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
 
 
 ## Cassandra Set Up

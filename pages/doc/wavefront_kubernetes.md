@@ -4,14 +4,14 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wavefront_kubernetes.html
-summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 **Monitor your Kubernetes environment** at the infrastructure level and at the applications level with our Kubernetes Metrics Collector.
 
 * Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from our dashboards -- and create alerts from those dashboards.
 * Automatically collect metrics from applications and workloads using built-in plug-ins such as Prometheus, Telegraf, etc.
 
-**Scale your Kubernetes environment** based on the metrics sent to VMware Aria Operations for Applications with our Horizontal Pod Autoscaler Adapter.
+**Scale your Kubernetes environment** based on the metrics sent to Tanzu Observability with our Horizontal Pod Autoscaler Adapter.
 
 
 ## Videos
@@ -50,7 +50,7 @@ The following videos get you started.
 </td>
 <td><br><br>
 <p>
-This video gives you the big picture. It explains the different ways of monitoring Kubernetes with Operations for Applications.</p>
+This video gives you the big picture. It explains the different ways of monitoring Kubernetes with Tanzu Observability.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_w7w6o0b4" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
@@ -61,16 +61,16 @@ This video gives you the big picture. It explains the different ways of monitori
 
 ## Send Data from Your Kubernetes Environment
 
-You can send data to VMware Aria Operations for Applications in several ways:
+You can send data to our service in several ways:
 
 *	**Direct**: Use our Kubernetes Metrics Collector to send data directly from your Kubernetes cluster to the Wavefront proxy. The Collector can collect metrics from Prometheus compatible applications and support a number of Telegraf plugins.
 
-*	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with VMware Aria Operations for Applications, send data to the Kubernetes Metrics Collector.
+*	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data using our service, send data to the Kubernetes Metrics Collector.
 
 ![The diagram shows the different components and ways you can send data from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
 To use our Kubernetes Metrics Collector, you must set up our Kubernetes integration. Use one of the following options:
-* [**Recommended**] Directly by using the VMware Aria Operations for Applications user interface. 
+* [**Recommended**] Directly using the user interface. 
 
   The new [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Collector and the Wavefront proxy in Kubernetes with a few clicks.
   
@@ -91,7 +91,7 @@ To use our Kubernetes Metrics Collector, you must set up our Kubernetes integrat
 
 Our Kubernetes Metrics Collector supports monitoring for your Kubernetes infrastructure at all levels of the stack. See the [list of metrics collected by the Kubernetes Metrics Collector](kubernetes.html#metrics).
 * Set up the Kubernetes Collector to have much of the monitoring happen automatically.
-* Fine-tune and customize the solution with configuration options available in the Operations for Applications Kubernetes Metrics Collector.
+* Fine-tune and customize the solution with configuration options available in the Tanzu Observability Kubernetes Metrics Collector.
 
 {% include tip.html content="To avoid [high-cardinality](cardinality.html) and ensure optimal [query performance](query_language_performance.html), consider reducing the retention period of the Kubernetes metrics from 18 months (default) to 28 days. For that purpose, convert the `kubernetes.` metrics namespace from persistent to ephemeral. For details, see [Change the Retention Period of Metrics](metrics_managing.html#change-the-retention-period-of-metrics)." %}
 
@@ -99,7 +99,7 @@ Our Kubernetes Metrics Collector supports monitoring for your Kubernetes infrast
 
 Our Kubernetes Metrics Collector collects metrics to give comprehensive insight into all layers of your Kubernetes environment, such as nodes, pods, services, and config maps.
 
-Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to the VMware Aria Operations for Applications service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
+Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to our service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
 
 ![kubernetes core monitoring](/images/kubernetes_core.png)
 
@@ -109,7 +109,7 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 The Kubernetes Metrics Collector supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services in your environment and starts collecting host-level metrics.
 
-You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the VMware Aria Operations for Applications service.
+You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to our service.
 
 ### Application Monitoring
 
@@ -260,7 +260,7 @@ The default Kubernetes infrastructure can include a [Horizontal Pod Autoscaler](
 
 Our [Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to scale based on *any* metric that it knows about.
 
-For example, you can scale based on networking or disk metrics, or any application metrics that are available to VMware Aria Operations for Applications. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
+For example, you can scale based on networking or disk metrics, or any application metrics that are available to Tanzu Observability. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
 
 ![Kubernetes scaling diagram](/images/kubernetes_scaling.png)
 

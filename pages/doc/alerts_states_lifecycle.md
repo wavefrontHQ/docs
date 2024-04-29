@@ -6,7 +6,7 @@ permalink: alerts_states_lifecycle.html
 summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
 ---
 
-Here's a video to get you started with the alerts lifecycle in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
+Here's a video to get you started with the alerts lifecycle in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications). Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_gors5bq5" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gors5bq5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *"  frameborder="0" title="Alert States and Lifecycle"></iframe>
@@ -32,7 +32,7 @@ Let's look at an example:
 |SMOKE  | 4000  |
 
 This multi-threshold alert notifies targets like this:
-1. Operations for Applications monitors the alert condition.
+1. Tanzu Observability monitors the alert condition.
 2. If at least one of the threshold values is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
 3. Notifications are always sent to all alert targets that match the condition, for example, that are equal to or below the severity that triggers the alert. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
 4. We continue checking the alert condition at the specified interval (5 minutes by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
@@ -43,7 +43,7 @@ This multi-threshold alert notifies targets like this:
 
 Single-threshold alerts notify all targets at the same time when the alert changes state:
 
-1. Operations for Applications monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
+1. Tanzu Observability monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
 2. When the alert fires, we send alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
 3. When the alert resolves or is snoozed, we send additional notification to the alert target(s).
 
@@ -58,8 +58,8 @@ An alert can be in one of the following states, shown in the Alerts Browser and 
 </thead>
 <tr>
 <td><strong>CHECKING</strong></td>
-<td>Operations for Applications checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Trigger Window</strong> property.<br/> <br/>
-If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Operations for Applications checks firing alerts to determine if firing conditions are still met. A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
+<td>Tanzu Observability checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Trigger Window</strong> property.<br/> <br/>
+If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Tanzu Observability checks firing alerts to determine if firing conditions are still met. A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
 <tr>
 <td><strong>FIRING</strong></td>
 <td>The alert meets the <strong>Condition</strong> for the amount of time specified by the <strong>Trigger Window</strong> property. An alert transitions to FIRING when the condition has at least one true value and no false values during a fixed time window.</td>

@@ -7,18 +7,18 @@ permalink: users_roles.html
 summary: Manage global permissions with roles.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Manage Roles and Groups in VMware Cloud Services](csp_users_roles.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Manage Roles and Groups in VMware Cloud Services](csp_users_roles.html)."%}
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports roles to fine-tune authorization in the Wavefront environment.
+Tanzu Observability supports roles to fine-tune authorization in the Wavefront environment.
 
 Users with the **Accounts** permission can:
 1. Create one or more **roles** and assign one or more [permissions](permissions_overview.html) to each role.
 2. Create one or more **groups** and add one or more accounts to each group. Accounts can be user accounts or service accounts.
 3. Assign one or more roles to each group. It's also possible to assign a role to individual users.
 
-In addition to the global roles and permissions model, Operations for Applications also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
+In addition to the global roles and permissions model, Tanzu Observability also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
 
-{% include note.html content="You must have the **Accounts** permission to view and manage authorization in your Operations for Applications environment. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
+{% include note.html content="You must have the **Accounts** permission to view and manage authorization in your Tanzu Observability environment. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
 
 
 ## Manage Roles and Permissions

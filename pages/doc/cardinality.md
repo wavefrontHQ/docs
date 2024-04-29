@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how the service deals with cardinality.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. Operations for Applications can handle more than 200,000 concurrently running containers per Kubernetes cluster. In certain situations, however, high cardinality can cause system slowdown and metrics retrieval issues.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. Tanzu Observability can handle more than 200,000 concurrently running containers per Kubernetes cluster. In certain situations, however, high cardinality can cause system slowdown and metrics retrieval issues.
 
 ## Video
 
@@ -25,7 +25,7 @@ Generally, timeseries data in a simple form is labeled as a name, value, and tim
 
 `cpu.usage.user.percentage <metricvalue> [<timestamp>]`
 
-The [Operations for Applications Data Format](wavefront_data_format.html) also includes point tags. For example:
+The [Tanzu Observability Data Format](wavefront_data_format.html) also includes point tags. For example:
 
 `cpu.usage.user.percentage <metricvalue> [<timestamp>] source="mysystem" [pointTags]`
 
@@ -56,30 +56,30 @@ Almost all timeseries databases are key-value systems and each unique combinatio
 When you deploy a large system, there’s a rapid burst of new index entries, which can lead to high cardinality issues, such as slowdown or unresponsiveness of the monitoring system.
 
 
-## High Cardinality and Operations for Applications
+## High Cardinality and Tanzu Observability
 
 
-Operations for Applications usually deals gracefully with high cardinality because it has the following features:
+Tanzu Observability usually deals gracefully with high cardinality because it has the following features:
 
 **Applies top-down and bottom-up indexes**
 
-Top-down indexes are the so-called metric source tags. Instead of just using the metric name as the primary key, Operations for Applications uses the source as part of the primary metric/host index. This improves performance and retrievability of data.
+Top-down indexes are the so-called metric source tags. Instead of just using the metric name as the primary key, Tanzu Observability uses the source as part of the primary metric/host index. This improves performance and retrievability of data.
 
 A second tag value index allows for queries filtered by tag values to retain high performance. The combination of 2 primary indexes (metric and source) for timeseries data allows for greater cardinality with no impact on the data ingestion or query performance.
 
 **Keeps the most recent indexes**
 
-Operations for Applications keeps indexes that deal with current data are kept in fast memory. Only indexes that have not received new data and have become [obsolete](metrics_managing.html#obsolete-metrics) are moved to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
+Tanzu Observability keeps indexes that deal with current data are kept in fast memory. Only indexes that have not received new data and have become [obsolete](metrics_managing.html#obsolete-metrics) are moved to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
 
 
 **Uses correlated tagging**
 
-Some metrics always have the same combination of tag keys and values. Data ingestion heuristics can spot when the same combination of tags is routinely indexed. Operations for Applications correlates tags and optimizes index creation and usage to increase the performance for metrics with the same combination of tags.
+Some metrics always have the same combination of tag keys and values. Data ingestion heuristics can spot when the same combination of tags is routinely indexed. Tanzu Observability correlates tags and optimizes index creation and usage to increase the performance for metrics with the same combination of tags.
 
 **Uses dynamic programming**
 Most queries are similar and run repeatedly, iteratively, and streaming. For example, queries such as `*.system.cpu.*, env=prod` would damage many systems when fetching proper indexes.
 
-Operations for Applications uses a dynamic programming in the backend which:
+Tanzu Observability uses a dynamic programming in the backend which:
 
 * Breaks down a complex search into simple sub-searches.
 * Solves each sub-search once and store the results.
@@ -93,7 +93,7 @@ FoundationDB provides excellent performance on commodity hardware. It is an open
 
 ## Optimizing High-Cardinality Data
 
-Although Operations for Applications supports high cardinality for time series data, to avoid high cardinality issues, consider the following recommendations:
+Although Tanzu Observability supports high cardinality for time series data, to avoid high cardinality issues, consider the following recommendations:
 
 * Do not monitor individual event data points. If you want to monitor such data, use the distributed tracing offering. See [Distributed Tracing Overview](tracing_basics.html) and [Tracing Best Practices](tracing_best_practices.html).
 
@@ -104,7 +104,7 @@ Although Operations for Applications supports high cardinality for time series d
    3. Use point tags and [ephemeral metrics](metric_types.html#metric-types-per-retention-period) for data that is ephemeral.
    4. In Kubernetes, where point tags are usually called labels, add only the point tags that you really need.
 
-For information about metric, source, and point tag names, see [Operations for Applications Data Format Best Practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
+For information about metric, source, and point tag names, see [Tanzu Observability Data Format Best Practices](wavefront_data_format.html#tanzu-observability-data-format-best-practices). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
 
 <!--* If you run a query of the type `ts(<metricName>, source="<sourceName>")`, make sure that the number of data points returned is less than 1000. Although Wavefront can handle more, it is best to keep in mind that more data can cause high cardinality issues.-->
 

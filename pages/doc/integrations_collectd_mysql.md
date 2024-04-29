@@ -4,12 +4,12 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_mysql.html
-summary: Learn how to send MySQL data collected by collectd to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Learn how to send MySQL data collected by collectd to VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
 [MySQL](https://www.mysql.com/) is a popular open-source relational database. See [collectd MySQL plugin documentation](https://collectd.org/wiki/index.php/Plugin:MySQL).
 
-VMware Aria Operations for Applications supports a built-in integration that gets data from MySQL using Telegraf. If you want to use collectd instead, follow the instructions on this page.
+Tanzu Observability supports a built-in integration that gets data from MySQL using Telegraf. If you want to use collectd instead, follow the instructions on this page.
 
 
 ## Installation

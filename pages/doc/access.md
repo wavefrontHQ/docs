@@ -7,9 +7,9 @@ permalink: access.html
 summary: Control access to individual dashboards and alerts.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services](csp_access.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Managing Access to Dashboards and Alerts in Tanzu Observability on VMware Cloud Services](csp_access.html)."%}
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports the roles, permissions, and groups authorization paradigm for managing global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many of our customers.
+Tanzu Observability supports the roles, permissions, and groups authorization paradigm for managing global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many of our customers.
 
 Super Admins or users with the **Accounts** permission who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
@@ -26,7 +26,7 @@ This video shows how to limit access for a dashboard, how to give access (share)
 
 ## How Access Control Works
 
-Operations for Applications supports granting and revoking access to dashboards and alerts.
+Tanzu Observability supports granting and revoking access to dashboards and alerts.
 * By default, all users can view all dashboards and alerts.
 * Users with **Dashboards** permission can:
   - Restrict or grant access to individual dashboards from the Dashboard browser.

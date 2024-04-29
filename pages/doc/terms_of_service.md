@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: terms_of_service.html
 summary: Terms of Service
 ---
-The terms of service for VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) differ depending on the contract your company has with VMware. This page gives a summary and links to some relevant information.
+The terms of service for VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) differ depending on the contract your company has with VMware. This page gives a summary and links to some relevant information.
 
 {% include tip.html content="Details vary depending on when you became a customer and on your Service Agreement with VMware." %}
 

@@ -7,7 +7,7 @@ permalink: metrics_managing.html
 summary: Understand metrics structure and how to explore metrics in the Metrics Browser
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides observability for several different [metric types](metric_types.html) including time series metrics, delta counters, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the Metrics Browser.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) provides observability for several different [metric types](metric_types.html) including time series metrics, delta counters, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the Metrics Browser.
 
 ## Videos
 
@@ -192,4 +192,4 @@ Changing the retention period of a metric or metrics namespace creates a [System
 ## Learn More!
 
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
-* See the KB article [Migrating Objects or Data Between Operations for Applications Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments) if your company has several service instances.
+* See the KB article [Migrating Objects or Data Between Environments](https://vmwaoa.zendesk.com/hc/en-us/articles/21153594484493-Migrating-Objects-or-Data-Between-VMware-Aria-Operations-for-Applications-Environments) if your company has several service instances.

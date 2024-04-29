@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: ui_sharing.html
 summary: Share links to dashboards and charts, give dashboard access, and create embedded charts.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports sharing links, sharing access, and embedding charts.
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports sharing links, sharing access, and embedding charts.
 
 You can
 * Share a link to a dashboard or chart so someone else can see what's going on.
@@ -102,7 +102,7 @@ You can embed an interactive chart in another product or on a Website. You must 
 
 ### Allow or Deny Access to Embedded Charts
 
-You can apply access policies and deny or allow access to the embedded charts by using our REST API. The `Access Policy` controls which IP addresses can access the embedded charts and doesn't affect any other URLs or other functionality. Learn more about the [categories in the REST API](wavefront_api.html#operations-for-applications-rest-api-categories).
+You can apply access policies and deny or allow access to the embedded charts by using our REST API. The `Access Policy` controls which IP addresses can access the embedded charts and doesn't affect any other URLs or other functionality. Learn more about the [categories in the REST API](wavefront_api.html#tanzu-observability-rest-api-categories).
 
 When you apply an access policy rule, take in mind the following:
 

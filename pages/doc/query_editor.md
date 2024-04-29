@@ -7,7 +7,7 @@ permalink: query_editor.html
 summary: Query your metrics with query language functions and variables.
 ---
 
-VMware Aria Operations for Application (formerly known as Tanzu Observability by Wavefront) supports two tools for working with queries:
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports two tools for working with queries:
 
 * [Chart Builder](chart_builder.html) is the fasted way to customize which metrics you see and to display them in charts.
 * Query Editor, discussed on this page, allows advanced users to extract exactly the metrics they need from ingested data. If a chart uses functions that are not supported in Chart Builder, or if the chart has been opened in Query Editor before, we show Query editor when you open the chart for edit.

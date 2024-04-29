@@ -5,20 +5,20 @@ sidebar: doc_sidebar
 permalink: csp_sign_up_or_log_in.html
 summary: Learn how you can sign up and log in to your service instance if it's onboarded to VMware Cloud services.
 ---
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
+Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform.
 
-{% include note.html content="After July 3, 2023, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to VMware Cloud services and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. We are in the process of incrementally [onboarding](csp_migration.html) original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
+{% include note.html content="After July 3, 2023, we support two types of subscriptions: Tanzu Observability subscriptions **onboarded** to VMware Cloud services and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. We are in the process of incrementally [onboarding](csp_migration.html) original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
 
-When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+When your Tanzu Observability instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Tanzu Observability.
 
 Here’s how the signup works:
-1.	If you don't belong to the VMware Cloud organization in which the Operations for Applications service instance is running, you can be added to that organization in one the following ways:
+1.	If you don't belong to the VMware Cloud organization in which the Tanzu Observability service instance is running, you can be added to that organization in one the following ways:
 - A VMware Cloud **Organization Owner** or **Organization Administrator** adds you individually. See [How do I add users to my organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html) in the VMware Cloud services documentation.
 - A VMware Cloud **Organization Owner** and **Enterprise Administrator** federate your corporate domain with VMware Cloud services. See [What is enterprise federation and how does it work](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html) in the VMware Cloud services documentation.
 2. A VMware Cloud **Organization Owner** or **Organization Administrator** grants you access to the organization's resources with an [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).
-3. A VMware Cloud **Organization Owner** or **Organization Administrator** grants you access to the Operations for Applications service instance with an [Operations for Applications service role](csp_users_roles.html). In addition, they can grant you a custom role with Operations for Application permissions.
+3. A VMware Cloud **Organization Owner** or **Organization Administrator** grants you access to the Tanzu Observability service instance with an [Tanzu Observability service role](csp_users_roles.html). In addition, they can grant you a custom role with Operations for Application permissions.
 
-    In a multi-tenancy environment, you can have different service and custom roles for the different Operations for Applications service instances (tenants).
+    In a multi-tenancy environment, you can have different service and custom roles for the different Tanzu Observability service instances (tenants).
 4. After you’ve been added to an organization, you receive an email notification with information about the VMware Cloud organization to which you were added, your organization role, and any other roles. You can now [sign up](#sign-up-with-an-email-invitation) in the VMware Cloud Services Console.
 
     {% include note.html content="The invitation link is valid for seven days."%}
@@ -26,9 +26,9 @@ Here’s how the signup works:
 
 ## Sign Up with an Email Invitation
 
-If you received an email notification with information that you are added to a VMware Cloud organization with Operations for Applications access, follow these steps:
+If you received an email notification with information that you are added to a VMware Cloud organization with Tanzu Observability access, follow these steps:
 
-1. Click the **VMware Aria Operations for Applications** link in your email notification.
+1. Click the **VMware Tanzu Observability** link in your email notification.
 2. Authenticate yourself to VMware Cloud services. 
     - If your account is not federated, sign in with your VMware account credentials.
     
@@ -36,8 +36,8 @@ If you received an email notification with information that you are added to a V
     - If your account is federated, sign in with your corporate credentials.
   
       {% include note.html content="As a user of a federated account, you must create a VMware account only if you want to file a support ticket or perform billing and subscription-related operations."%}
-3. On the **Organization** tab of the **Services** page, locate the **VMware Aria Operations for Applications** tile from the list of the services available to the organization.
-4. In the **VMware Aria Operations for Applications** tile, click **Launch Service**.
+3. On the **Organization** tab of the **Services** page, locate the **VMware Tanzu Observability** tile from the list of the services available to the organization.
+4. In the **VMware Tanzu Observability** tile, click **Launch Service**.
 
    <table>
    <tr>
@@ -52,15 +52,15 @@ From now on, you can log in to your service instance from the [VMware Cloud Serv
 
 ## Log In from the VMware Cloud Services Console
 
-You can log in to the VMware Cloud Services Console and launch your service instance. If you have access to multiple Operations for Applications service instances, you can select the tenant to which you want to log in, because VMware Cloud Services also supports a multi-tenancy login.
+You can log in to the VMware Cloud Services Console and launch your service instance. If you have access to multiple Tanzu Observability service instances, you can select the tenant to which you want to log in, because VMware Cloud Services also supports a multi-tenancy login.
 
 1. In a Web browser, go to [https://console.cloud.vmware.com/](https://console.cloud.vmware.com/).
 2. Authenticate yourself.
   - If your account is not federated, sign in with your VMware account credentials. 
   - If your account is federated, sign in with your corporate credentials.
-3. If you belong to multiple organizations, switch to the organization in which the Operations for Applications service instance runs. See [How do I access another one of my organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-432417CF-CE0C-48EB-BEBB-8C27751577D1.html) in the VMware Cloud services documentation.
-4. On the **Organization** tab of the **Services** page, locate the **VMware Aria Operations for Applications** tile from the list of the services available to the organization.
-5. In the **VMware Aria Operations for Applications** tile, click **Launch service**.
+3. If you belong to multiple organizations, switch to the organization in which the Tanzu Observability service instance runs. See [How do I access another one of my organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-432417CF-CE0C-48EB-BEBB-8C27751577D1.html) in the VMware Cloud services documentation.
+4. On the **Organization** tab of the **Services** page, locate the **VMware Tanzu Observability** tile from the list of the services available to the organization.
+5. In the **VMware Tanzu Observability** tile, click **Launch service**.
 
     <table>
     <tr>
@@ -69,7 +69,7 @@ You can log in to the VMware Cloud Services Console and launch your service inst
     </tr>
     </table>
 
-You are redirected to your Operations for Applications service instance and you're logged in with your VMware Cloud services account.
+You are redirected to your Tanzu Observability service instance and you're logged in with your VMware Cloud services account.
 
 <table>
 <tr>

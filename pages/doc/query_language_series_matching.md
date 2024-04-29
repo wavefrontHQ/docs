@@ -7,7 +7,7 @@ permalink: query_language_series_matching.html
 summary: Learn how implicit series matching operates on pairs of time series that have corresponding sources and point tags.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront)  performs **series matching** to identify meaningful pairs of individual time series to operate on. For example, because of implicit series matching in the following operation, the query engine compares metrics for disk reads and disk writes only when they come from the same source and have common point tag values:
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) performs **series matching** to identify meaningful pairs of individual time series to operate on. For example, because of implicit series matching in the following operation, the query engine compares metrics for disk reads and disk writes only when they come from the same source and have common point tag values:
 
 ```
 ts(~sample.disk.bytes.read) > ts(~sample.disk.bytes.written)

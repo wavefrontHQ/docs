@@ -42,7 +42,7 @@ While this is subject to changes at any time, we currently retain 5 days of data
 
 * Currently, only our freemium cluster supports automatic account provisioning with Spring Boot. If you are using a different cluster, you won’t see a link.
 * You have configured an API token in your application's `application.properties` file. If you want to see the link printed on the console, add `wavefront.freemium-account=true` to the `application.properties` file.
-* If you have a web application, expose the VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) actuator endpoint to easily access your dashboard.
+* If you have a web application, expose the Tanzu Observability (formerly known as VMware Aria Operations for Applications) actuator endpoint to easily access your dashboard.
 
 ## How Do I Ensure I Send Data to the Same Account All the Time (Across Multiple Machines and Deployments)?
 * If you are just trying out our service, see [Manage Service Accounts](service-accounts.html) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.

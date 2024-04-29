@@ -7,9 +7,9 @@ permalink: service-accounts.html
 summary: Create and manage service accounts.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Server to Server Apps](csp_server_to_server_apps.html) and [Manage Service Accounts](csp_service_accounts.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Server to Server Apps](csp_server_to_server_apps.html) and [Manage Service Accounts](csp_service_accounts.html)."%}
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports service accounts that can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
+Tanzu Observability supports service accounts that can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
 
 {% include note.html content="Service accounts have no permissions by default. As a user with the **Accounts** permission, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
@@ -27,7 +27,7 @@ As a user with the **Accounts** permission, you [generate (and revoke, if needed
 
 ## How Service Accounts Work
 
-If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API.
+If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Tanzu Observability REST API.
 
 1. Create a service account from the UI. The service account name must be unique.
 2. Assign a role to the account to give the account the permissions it needs. Service accounts can perform get, modify, and delete tasks **only if** they have the necessary permissions.
@@ -54,7 +54,7 @@ Creating a service account is different from creating a user account.
 <tr>
 <td>
 Account ID</td>
-<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Operations for Applications converts service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
+<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Tanzu Observability converts service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
 </tr>
 <tr>
 <td>

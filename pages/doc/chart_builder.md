@@ -7,7 +7,7 @@ permalink: chart_builder.html
 summary: Use Chart Builder to display the data you're interested in.
 ---
 
-When you get started with VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), Chart Builder is the fasted way to customize which metrics you see and to display them in charts.
+When you get started with VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications), Chart Builder is the fasted way to customize which metrics you see and to display them in charts.
 
 Chart Builder has the tools for creating charts and customizing which metrics you see.
 * Construct queries from building blocks

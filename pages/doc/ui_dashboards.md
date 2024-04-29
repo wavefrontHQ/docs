@@ -6,7 +6,7 @@ permalink: ui_dashboards.html
 summary: Create dashboards, add charts, customize dashboard layout, and troubleshoot dashboards.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes many out-of-the box dashboards, and supports creation and fine-grained customization of dashboards. You organize the information about your environment and fine-tune what users see. For example:
+Tanzu Observability (formerly known as VMware Aria Operations for Applications) includes many out-of-the box dashboards, and supports creation and fine-grained customization of dashboards. You organize the information about your environment and fine-tune what users see. For example:
 <ul>
 <li>Organize charts into sections.</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
@@ -629,7 +629,7 @@ Each time you save a dashboard, you create a dashboard version. Up to 100 versio
    <li>Select a version and revert or clone that version.</li>
    </ol>
    </td>
-   <td width="25%" markdown="span">![screenshot ellipsis menu, versions highlited](images/dashboard_versions_detail.png) </td></tr>
+   <td width="25%" markdown="span">![screenshot ellipsis menu, versions highlighted](images/dashboard_versions_detail.png) </td></tr>
    </tbody>
 </table>
 ![version list, ellipsis menu shows versions](images/dashboard_select_version.png)

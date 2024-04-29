@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_kube_container.html
 summary: Run a Wavefront proxy in a Kubernetes container and customize it.
 ---
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports setting up the Wavefront proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install). However, you cannot rely on a single `wavefront.conf` file. Instead, a ConfigMap file governs deployment.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports setting up the Wavefront proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install). However, you cannot rely on a single `wavefront.conf` file. Instead, a ConfigMap file governs deployment.
 
 1. Create a custom ConfigMap file that contains the custom setup, for example preprocessing rules, for your proxy configuration. This doc page creates a `00_proxy-preprocessor-config.yaml` file.
 2. Edit `wavefront.yaml` so it points to the ConfigMap file.
@@ -16,7 +16,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 This section illustrates how to use a custom ConfigMap to block traffic for some metrics via preprocessor rules. You can use the same approach to, for example, have the Wavefront proxy use an HTTPS proxy.
 
-In this section, we first create a custom ConfigMap (`00_proxy-preprocessor-config.yaml`) that includes preprocessor rules to block metrics. Then we customize the `wavefront.yaml` so it points to our Operations for Applications service instance, includes the proxy authentication, and points to the ConfigMap file.
+In this section, we first create a custom ConfigMap (`00_proxy-preprocessor-config.yaml`) that includes preprocessor rules to block metrics. Then we customize the `wavefront.yaml` so it points to our Tanzu Observability service instance, includes the proxy authentication, and points to the ConfigMap file.
 
 **1.** Create a file called `00_proxy-preprocessor-config.yaml` with content like the following. This sample file includes some examples of preprocessor rules that block certain metrics.
 

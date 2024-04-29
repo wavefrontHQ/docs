@@ -4,22 +4,21 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_vrops.html
-summary: Understand the setup and the VMware Aria Operations (SaaS)integration v1 limitations and caveats.
+summary: Understand the setup and the VMware Aria Operations (SaaS) integration v1 limitations and caveats.
 ---
 [VMware Aria Operations (SaaS)](https://www.vmware.com/products/aria-operations.html) (formerly vRealize Operations Cloud) delivers intelligent operations management with application-to-storage visibility across physical, virtual, and cloud infrastructures. Using policy-based automation, operations teams automate key processes and improve the IT efficiency.
 
-
-The VMware Aria Operations (SaaS) integration is a full-featured native integration that offers agentless data ingestion of VMware Aria Operations (SaaS) metric data, as well as a predefined dashboard. 
+The VMware Aria Operations (SaaS) integration is a full-featured native integration that offers agentless data ingestion of VMware Aria Operations (SaaS) metric data into VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications), as well as a predefined dashboard.
 
 {% include important.html content="The VMware Aria Operations (SaaS) integration v1 is the first version of this integration and currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases." %}
 
 ## How to Register a VMware Aria Operations (SaaS) Integration
 
-To register a new VMware Aria Operations (SaaS) instance, you need a Cloud Services console API token and a VMware Aria Operations (SaaS) endpoint URL.
+To register a new VMware Aria Operations (SaaS) instance, you need a VMware Cloud services API token and a VMware Aria Operations (SaaS) endpoint URL.
 
 ### Obtain an API Token
 
-The API token will give read-only access to VMware Aria Operations (SaaS) and enable VMware Aria Operations for Applications (formerly Tanzu Observability by Wavefront) to continually load metrics from various resource categories. The minimum role required for the integration is the **Operations ReadOnly** role. Make sure that the role assigned to the API token is also assigned to the user generating the API token.
+The API token will give read-only access to VMware Aria Operations (SaaS) and enable Tanzu Observability to continually load metrics from various resource categories. The minimum role required for the integration is the **Operations ReadOnly** role. Make sure that the role assigned to the API token is also assigned to the user generating the API token.
 
 1. Navigate to the [VMware Cloud Services Console](https://console.cloud.vmware.com/csp/gateway/discovery) page.
 1. Click your user name on the right of the toolbar, and select **My Account**.
@@ -41,7 +40,7 @@ The API token will give read-only access to VMware Aria Operations (SaaS) and en
 
 ### Set Up the VMware Aria Operations (SaaS) Integration
 
-1. Log in to your Operations for Applications instance.
+1. Log in to your Tanzu Observability instance.
 1. Click **Integrations** on the toolbar. 
 1. In the VMware section, click the **VMware Aria Operations (SaaS)** tile.
 1. Click **Add Integration**.
@@ -85,7 +84,7 @@ With this initial, v1 release of the VMware Aria Operations (SaaS) integration, 
 
 You can see the full list of the collected metrics on the **Metrics Browser** page.
 
-1. In your VMware Aria Operations for Applications cluster, click **Browse > Metrics**.
+1. In the Tanzu Observability UI, click **Browse > Metrics**.
 2. On the **Metrics Browser** page, in the **Metrics** text box, enter `vrops.vmware.`.
 3. Click the folder icons to drill down to the individual metrics. 
 
@@ -95,7 +94,7 @@ This initial release of the VMware Aria Operations (SaaS) integration has the fo
 
 * For supermetrics, such as `Cost Drivers - Facilities (US $/Month)`, `Total Server Purchase Cost`, and so on, the metric names are not fetched and in our UI, these metrics are displayed with the super metric ID.
 * The VMware Aria Operations (SaaS) metrics have a point tag, which represents the organization ID. This is the UUIF of the organization. Currently, we collect the Organization ID as a point tag, instead of the Organization name.
-* Along with the summary for a resource, in VMware Aria Operations (SaaS) there might be other properties. In Operations for Applications, currently we do not collect such properties. The VMware VMware Aria Operations (SaaS) integration only collects properties under the summary section as point tags.
+* Along with the summary for a resource, in VMware Aria Operations (SaaS) there might be other properties. In Tanzu Observability, currently we do not collect such properties. The VMware VMware Aria Operations (SaaS) integration only collects properties under the summary section as point tags.
 * In this release, you will see all the vCenter Server instances that you have configured in VMware Aria Operations (SaaS). To shortlist the vCenter Server instances you want to monitor, apply a filter by using the REST API. 
   1. In your cluster, click the gear icon in the top right corner, and select **API Documentation**.
   2. Expand **Cloud Integration** and click the `GET /api/v2/cloudintegration` request.
@@ -130,4 +129,4 @@ This initial release of the VMware Aria Operations (SaaS) integration has the fo
     9. In the **Edit Value** text box, enter the contents of the JSON file that you created in Step 6.
     10. Click **Execute**. 
     
-   You get a `200` response and in the Operations for Applications UI, you can see that the vCenter Server instances are filtered out.
+   You get a `200` response and in the Tanzu Observability UI, you can see that the vCenter Server instances are filtered out.

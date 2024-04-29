@@ -7,7 +7,7 @@ permalink: query_language_discrete_continuous.html
 summary: Understand discrete and continuous time series and when the query engine performs interpolation.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports both discrete and continuous time series. Understanding how to work with them is important for best performance.
+VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications) supports both discrete and continuous time series. Understanding how to work with them is important for best performance.
 
 ## Basics
 
