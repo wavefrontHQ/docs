@@ -63,13 +63,12 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
   <ul><li>Filter the insights by severity.</li>
   <li>View all Tanzu Observability alert firings aggregated in a related insight.</li>
   <li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Observability Insights in Tanzu Hub</a> in the VMware Tanzu Hub documentation.</li></ul>
+  For details, see <a href="alerts.html#step-2-examine-the-related-information">Examine the Related Information</a>.
   </td>
   <td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
   </tr>
   </tbody>
   </table>
-
-  For details, see [Examine the Related Information](alerts.html#step-2-examine-the-related-information).
 
 * **Dashboards Browser and Events Browser Improvements**: We improved the user experience of the **Dashboards > All Dashboards** and the **Browse > Events** pages.
 

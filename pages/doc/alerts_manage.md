@@ -333,12 +333,26 @@ Users with the **Alerts** permission can change an alert at any time. The option
 <td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/edit_alert.png) </td></tr>
 <tr>
 <td width="40%">
-<ol>
-<li>Make changes (see next section).   </li>
+<ul>
 <li>Click <strong>Show Firings</strong> at any time to see when the alert fired and fine-tune the behavior based on that information.</li>
-</ol>
+</ul>
 </td>
 <td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/show_firings.png) </td></tr>
+<tr>
+<td width="40%">
+<ul>
+<li>If your Tanzu Observability service is <a href="subscriptions-differences.html">onboarded</a> to VMware Cloud services, you can also examine the Related Insights pane on the right.
+<p>For details, see <a href="alerts.html#step-2-examine-the-related-information">Examine the Related Information</a>.</p></li>
+</ul>
+</td>
+<td width="60%" markdown="span">![screenshot of the Related Insights pane to the left of the Alert Editor](images/related_insights.png) </td></tr>
+<tr>
+<td width="40%">
+<ul>
+<li>Make changes (see next section).</li>
+</ul>
+</td>
+<td width="60%" markdown="span"></td></tr>
 </tbody>
 </table>
 

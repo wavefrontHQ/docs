@@ -11,7 +11,7 @@ VMware Tanzu Observability (formerly known as VMware Aria Operations for Applica
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
 
-{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts and perform the tasks on this page. You need the [**Alerts** permission](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## How Alerts Work
@@ -82,86 +82,6 @@ The default **Checking Frequency** interval is 5 minutes. You can adjust this pr
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
   * If an alert is non-critical, you can check only as often as needed.
 
-## Alert Viewer Tutorial
-
-Alert Viewer is for investigating a **single alert**.
-
-When you receive an alert notification, it includes a link to the alert in Alert Viewer. The related information in Alert Viewer can help you determine what's going on.
-
-![annotated alert viewer allowing you to solve the problems listed below](images/alert_viewer.png)
-
-### Step 1: Connect and Get the Big Picture
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
-Click the link in the alert notification and start with the 10-second briefing in the top left. <br /><br/>
-Learn about:
-<ul>
-<li>Alert status and description </li>
-<li>Alert settings </li>
-<li>Alert targets</li>
-<li>When the alert ended (if applicable)</li>
-</ul>
-</td>
-<td width="50%"><img src="/images/alert_viewer_description.png" alt="Description of the alert"></td>
-</tr>
-</tbody>
-</table>
-
-### Step 2: Examine Related Firing Alerts
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">In the top right, examine Related Firing Alerts. <br /><br/>
-When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
-<td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
-</tr>
-</tbody>
-</table>
-
-### Step 3: Investigate Affected Point Tags and Sources
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
-Scroll down and examine the Affected section on the left.<br/><br/>
-When an alert fires, we analyze the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, this tag is ranked higher than other tags.</td>
-<td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
-</tr>
-</tbody>
-</table>
-
-### Step 4: Learn From Other Firings
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details.
-</td>
-<td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Other Firings list with links to the past firings"></td>
-</tr>
-</tbody>
-</table>
-
-### Step 5: Explore Alert Data
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">Scroll to the Data section.<br /><br /> You can have a first look at the alert query, filter what's displayed, and open the alert query.
-</td>
-<td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section displaying the alert query and condition"></td>
-</tr>
-</tbody>
-</table>
-
-### Alert Viewer Video
-
-In this video, Pierre gives a 2-minute tour of Alert Viewer. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
-
-<p>
-<iframe id="kmsembed-1_qdr0dtwr" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to alert viewer"></iframe>
-</p>
-
 ## Alerts Browser Tutorial
 
 You can view and manage **all alerts** in the Alerts Browser.
@@ -213,13 +133,13 @@ You can expand each alert to view detailed information. For example, when you ex
 
 Follow these steps for a tour:
 1. Click the ellipsis icon to the left for a menu.
-2. Click the chart icon under the **State** column for alert details. If the alert is firing, click to examine the alert in Alert Viewer.
-3. View the alert condition and points.
-4. View details below the severity:
+1. Click the chart icon under the State column to examine the [Alert Viewer](#alert-viewer-tutorial) for the current or last firing of an alert.
+1. View the alert condition and points.
+1. View details below the severity:
   - View the last affected series, including the affected sources and point tags.
   - View the targets.
   For multi-threshold alerts, you see this information for each severity.
-4. Examine [alert tags](#step-5-organize-related-alerts-with-tags). You can add a tag to make filtering for the alert easier.
+1. Examine [alert tags](#step-5-organize-related-alerts-with-tags). You can add a tag to make filtering for the alert easier.
 
 <!---
 ### View Alert Details
@@ -317,6 +237,118 @@ When you create a maintenance window, you can use a wildcard to match tag path c
 
 When you have many and complex tag paths, you can search them by parent. For example, if you have the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`, you can perform a search by **example** and the search returns all of its children.
 
+
+## Alert Viewer Tutorial
+
+The Alert Viewer is for investigating a **single alert firing**. You can open the Alert Viewer for a current or past firing.
+
+The related information in the right pane of the Alert Viewer can help you determine what's going on. The related information depends on your [subscription type](subscriptions-differences.html):
+* For VMware Cloud services subscriptions, the right pane shows the related insights, which are generated by the VMware Tanzu Observability Insights capability running in the VMware Tanzu Hub platform.
+* For original subscriptions, the right pane shows the related firing alerts.
+
+![annotated alert viewer allowing you to solve the problems listed below](images/alert_viewer.png)
+
+### Step 1: Connect and Get the Big Picture
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">Open the Alert Viewer in one of the following ways:
+<ul><li>In the <a href="#alerts-browser-tutorial">Alerts Browser</a>, in the State column of the alert, click the chart icon to open the current or most recent firing of that alert.</li>
+<li>In the alert notification that you received, click the link to the Alert Viewer.</li>
+</ul><br /><br/>
+Examine the following:
+<ul>
+<li>Alert status and description </li>
+<li>Alert settings </li>
+<li>Alert targets</li>
+<li>When the alert firing ended (if applicable)</li>
+</ul>
+</td>
+<td width="50%"><img src="/images/alert_viewer_description.png" alt="Description of the alert"></td>
+</tr>
+</tbody>
+</table>
+
+### Step 2: Examine the Related Information
+
+The related information in the right pane depends on your [subscription type](subscriptions-differences.html).
+
+* For a VMware Cloud services subscription, in the top right, examine the Related Insights pane.
+
+  We scan the Tanzu Observability insights in the Tanzu Hub platform and show the insights that include this alert.
+
+  {% include note.html content="You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see [Service Roles](https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1) in the VMware Tanzu Hub documentation."%}
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  In the Related Insights pane, you can:
+  <ul><li>Filter the insights by severity.</li>
+  <li>View all Tanzu Observability alert firings aggregated in a related insight.</li>
+  <li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Observability Insights in Tanzu Hub</a> in the Tanzu Hub documentation.</li>
+  </ul>
+  <p><strong>Note</strong>: The Related Insights pane is also available on the <a href="alerts_manage.html#edit-alerts">Alert Edit</a> page.</p>
+  </td>
+  <td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
+  </tr>
+  </tbody>
+  </table>
+
+* For an original subscription, in the top right, examine the Related Firing Alerts pane.
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlate them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
+  <td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
+  </tr>
+  </tbody>
+  </table>
+
+### Step 3: Investigate Affected Point Tags and Sources
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+Scroll down and examine the Affected section on the left.<br/><br/>
+When an alert fires, we analyze the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, this tag is ranked higher than other tags.</td>
+<td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
+</tr>
+</tbody>
+</table>
+
+### Step 4: Learn From Other Firings
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details.
+</td>
+<td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Other Firings list with links to the past firings"></td>
+</tr>
+</tbody>
+</table>
+
+### Step 5: Explore Alert Data
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">Scroll to the Data section.<br /><br /> You can have a first look at the alert query, filter what's displayed, and open the alert query.
+</td>
+<td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section displaying the alert query and condition"></td>
+</tr>
+</tbody>
+</table>
+
+### Alert Viewer Video
+
+In this video, Pierre gives a 2-minute tour of Alert Viewer. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
+
+<p>
+<iframe id="kmsembed-1_qdr0dtwr" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to alert viewer"></iframe>
+</p>
+
 ## Clone an Alert
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
@@ -336,7 +368,6 @@ We create [events](events.html) as alerts fire, update, and resolve. You can opt
 ![event icons](images/event_icons.png)
 
 {% include note.html content="If you don't have [access](access.html) to an alert, you also won't see the corresponding alert events." %}
-
 
 ## Do More!
 
