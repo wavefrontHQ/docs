@@ -65,7 +65,7 @@ google_analytics: UA-45491516-30
 feedback_email: docs@wavefront.com
 # Email address for the Send Feedback link in the footer
 
-support_link:  https://vmwaoa.zendesk.com/hc/en-us/requests/new
+support_link:  https://support.broadcom.com/
 # The Support link in the top navigation bar
 
 # feedback_disable: true
