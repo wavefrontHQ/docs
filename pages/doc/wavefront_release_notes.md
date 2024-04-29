@@ -4,10 +4,10 @@ keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Announcements and new and updated features in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Announcements and new and updated features in VMware Tanzu Observability (formerly known as VMware Aria Operations for Applications).
 ---
 
-This page lists new and updated features for the VMware Aria Operations for Applications service.
+This page lists new and updated features for the VMware Tanzu Observability service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
@@ -24,32 +24,69 @@ If you require assistance or would like to submit a ticket on or after May 6, al
 For details, see the KB article [VMware Tanzu Support moving to Broadcom Support Portal May 6th](https://support.cloudhealthtech.com/hc/en-us/articles/26164366649741-VMware-Tanzu-Support-moving-to-Broadcom-Support-Portal-May-6th).
 
 
-### VMware Aria Operations for Applications on VMware Cloud Services
+### VMware Tanzu Observability on VMware Cloud Services
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
+Starting July 3, 2023, VMware Tanzu Observability is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
 
-* **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
+* **Onboarded Subscriptions**: Tanzu Observability subscriptions that are onboarded to the VMware Cloud services platform. 
 * **Original Subscriptions**: Existing subscriptions which remain as is until onboarded to VMware Cloud services. 
    
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
 
-### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
+### Onboarding Original VMware Tanzu Observability to VMware Cloud Services
 
-In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Operations for Applications UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
+In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Tanzu Observability UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
 
-{% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
+{% include warning.html content="The Tanzu Observability authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Tanzu Observability API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-tanzu-observability-api-token-with-a-vmware-cloud-services-access-token), including [the Tanzu Observability API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-tanzu-observability-api-token-of-a-wavefront-proxy)." %}
 
-## 2024-09.x Release Notes
+## May 2024
+
+### 2024-11.x Release Notes
+
+* **Product Name Update**: We updated our product name from VMware Aria Operations for Applications to VMware Tanzu Observability.
+
+* **Updated Support Link**: The VMware Tanzu support portals transitioned to Broadcom. Therefore, we updated the **Support** link from the gear icon <i class="fa fa-cog"/> on the toolbar to point to the [Broadcom Support Portal](http://support.broadcom.com/).
+
+* **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between the Tanzu Observability UI and the Tanzu Observability Insights UI in the VMware Tanzu Hub platform.
+
+  The Alert Viewer and Alert Editor now include the Related Insights pane, which provides a list of the insights that contain the corresponding alert.
+
+  {% include note.html content="You must have at least the Tanzu Hub Viewer and the Insights Viewer service roles to see the related insights for an alert. For details, see [Service Roles](https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-E58C5DA5-BA2B-4BD8-9CA7-ADF7839C6E7F.html#service-roles-1) in the VMware Tanzu Hub documentation."%}
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  In the Related Insights pane, you can:
+  <ul><li>Filter the insights by severity.</li>
+  <li>View all Tanzu Observability alert firings aggregated in a related insight.</li>
+  <li>View a related insight in VMware Tanzu Hub and examine all alerts and events aggregated in that insight, including events from other sources. For details, see <a href="https://docs.vmware.com/en/VMware-Tanzu-Hub/SaaS/Using-and-Managing-VMware-Tanzu-Hub/GUID-B56F48EF-5C60-4D10-BFE6-026BE8C7B96C.html">Monitoring resources for service reliability using VMware Tanzu Observability Insights in Tanzu Hub</a> in the VMware Tanzu Hub documentation.</li></ul>
+  </td>
+  <td width="50%"><img src="/images/alert_viewer_insights.png" alt="Related Insights section supports filters, such as active, resolved, critical, warning, and information"></td>
+  </tr>
+  </tbody>
+  </table>
+
+  For details, see [Examine the Related Information](alerts.html#step-2-examine-the-related-information).
+
+* **Dashboards Browser and Events Browser Improvements**: We improved the user experience of the **Dashboards > All Dashboards** and the **Browse > Events** pages.
+
+  ![An annotated screenshot of the Dashboards Browser.](images/dashboard_browser.png)
+
+
+## April 2024
+
+### 2024-09.x Release Notes
 
 **Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
 
   ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
 
+## March 2024
 
-
-## 2024-07.x Release Notes
+### 2024-07.x Release Notes
 
 **Ephemeral Internal Metrics**: Most of the [internal metrics](wavefront-internal-metrics.html) are now [ephemeral](metric_types.html#metric-types-per-retention-period) and not convertible to persistent. Exceptions are the following internal metrics, which remain persistent:
 
@@ -69,9 +106,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 - `~histogram.global.namespace.*`
 - `~counter.global.namespace.*`
 
-
-
-## 2024-05.x Release Notes
+### 2024-05.x Release Notes
 
 * **New Ephemeral Metric Type**: With this release, we introduce ephemeral metrics, which have a short retention period. Ephemeral metrics are retained for 28 days, whereas persistent (default) metrics are retained for 18 months. For details, see [Metric Types per Retention Period](metric_types.html#metric-types-per-retention-period).
 
@@ -98,9 +133,11 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
   rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
   ``````
 
-## 2024-03.x Release Notes
+## February 2024 
 
-* **Updated Support Link**: The link for contacting our Technical Support team from within the Operations for Applications user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
+### 2024-03.x Release Notes
+
+* **Updated Support Link**: The link for contacting our Technical Support team from within the Tanzu Observability user interface is now updated. To open a support ticket, click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Support**.
 
 * **Derived Metrics Browser Improvements**: We improved the user experience of the **Derived Metrics Browser**. To navigate to this page, select **Browse > Derived Metrics**.
 
@@ -119,7 +156,9 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
     * Restore or permanently delete a deleted derived metric.
   * Select one or more derived metrics to add or remove specific tags for them, or to delete them.
 
-## 2024-01.x Release Notes
+## January 2024 
+
+### 2024-01.x Release Notes
 
 **Amazon Web Services Integration Improvement**: You can now disable the ingestion of support service limit metrics. See the [Integrations Release Notes](integrations_new_changed.html#january-2024) for details.
 
