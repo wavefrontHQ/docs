@@ -47,7 +47,7 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 * **Product Name Update**: We updated our product name from VMware Aria Operations for Applications to VMware Tanzu Observability.
 
-* **Updated Support Link**: The VMware Tanzu support portals transitioned to Broadcom. Therefore, we updated the **Support** link from the gear icon <i class="fa fa-cog"/> on the toolbar to point to the [Broadcom Support Portal](http://support.broadcom.com/).
+* **Updated Support Link**: The VMware Tanzu support portals transitioned to Broadcom. Therefore, we updated the [**Support** link](wavefront_support_feedback.html#support) under the gear icon <i class="fa fa-cog"/> on the toolbar to point to the [Broadcom Support Portal](http://support.broadcom.com/).
 
 * **Alerts with Related Insights for VMware Cloud Services Subscriptions**: VMware Cloud services subscribers now have a bidirectional link between the Tanzu Observability UI and the Tanzu Observability Insights UI in the VMware Tanzu Hub platform.
 
