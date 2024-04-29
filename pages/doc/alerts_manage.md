@@ -341,7 +341,7 @@ Users with the **Alerts** permission can change an alert at any time. The option
 <tr>
 <td width="40%">
 <ul>
-<li>If your Operations for Applications service is <a href="subscriptions-differences.html">onboarded</a> to VMware Cloud services and your VMware Cloud organization is also running the VMware Tanzu Insights service, you can also examine the related insights in the right pane any time.
+<li>If your Tanzu Observability service is <a href="subscriptions-differences.html">onboarded</a> to VMware Cloud services, you can also examine the Related Insights pane on the right.
 <p>For details, see <a href="alerts.html#step-2-examine-the-related-information">Examine the Related Information</a>.</p></li>
 </ul>
 </td>
