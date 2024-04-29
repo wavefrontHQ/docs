@@ -81,3 +81,12 @@ The options for adding default groups for new user and service accounts as well 
 The option for creating a metrics security policy rule based on roles is removed, because VMware Cloud services subscribers can block or allow access to certain metrics only based on accounts (user accounts and service accounts) and groups.
 
   ![An image showing that the Roles option is removed from the UI for new subscribers.](images/new-vs-original-metricspolicy.png)
+
+## Alert Viewer and Alert Editor
+
+The Related Firing Alerts pane in the top right of the Alert Viewer is replaced with the Related Insights pane. VMware Cloud services subscribers have a bidirectional link between the Tanzu Observability UI and the Tanzu Observability Insights UI in the Tanzu Hub platform.
+
+  ![An image showing that the Roles option is removed from the UI for new subscribers.](images/new-vs-original-related-alerts.png)
+
+The Related Insights pane is also available in the Alert Editor for VMware Cloud services subscribers.
+
