@@ -687,6 +687,14 @@ entries:
             url: /tas_to_troubleshooting.html
             output: web
 
+  - title: Tanzu Insights
+    output: web
+    folderitems:
+
+      - title: Overview
+        url: /tanzu_insights.html
+        output: web
+    
   - title: Spring Boot
     output: web
     folderitems:
