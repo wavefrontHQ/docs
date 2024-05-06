@@ -13,5 +13,5 @@ As the first step you need to send data to the Tanzu Hub so that you can use the
 
 Once the data is in you can see the observations and the insights when you click Insights.
 
-![](images/tanzu-inisghts-overview-observations.png)
+![A screenshot of the Tanzu Insights UI. ](images/tanzu-inisghts-overview-observations.png)
 
