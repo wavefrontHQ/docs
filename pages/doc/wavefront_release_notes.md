@@ -41,12 +41,20 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
 {% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
 
+
+## 2024-11.x Release Notes
+
+* **Updated Support Link**: The VMware Tanzu support portals transitioned to Broadcom. Therefore, we updated the [**Support** link](wavefront_support_feedback.html#support) under the gear icon <i class="fa fa-cog"/> on the toolbar to point to the [Broadcom Support Portal](http://support.broadcom.com/).
+
+* **Dashboards Browser and Events Browser Improvements**: We improved the user experience of the **Dashboards > All Dashboards** and the **Browse > Events** pages.
+
+  ![An annotated screenshot of the Dashboards Browser.](images/dashboard_browser.png)
+
 ## 2024-09.x Release Notes
 
 **Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
 
   ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
-
 
 
 ## 2024-07.x Release Notes

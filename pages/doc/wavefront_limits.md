@@ -22,7 +22,7 @@ Our service enforces a limit on concurrent queries for each customer cluster. Th
 The following error results if your environment exceeds this limit:
 ```
 HTTP 429 TOO_MANY_REQUESTS
-Customer concurrent query limit exceeded. Please try again later. Contact support@wavefront.com for help.
+Customer concurrent query limit exceeded. Please try again later. Contact http://support.broadcom.com for help.
 ```
 
 ### Per User Concurrent Query Limit
@@ -32,7 +32,7 @@ Our service enforces a limit on per-user concurrent queries. The default limit i
 The following error results if one of the users exceeds this limit:
 ```
 HTTP 429 TOO_MANY_REQUESTS
-“User concurrent query limit exceeded. Please try again later. Contact support@wavefront.com for help.”
+“User concurrent query limit exceeded. Please try again later. Contact http://support.broadcom.com for help.”
 ```
 
 ## Timeout Limits
