@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Oracle RDBMS integrat
 
 Oracle is an Industry-leading enterprise Relational Database Management System.
 
-This integration installs and configures Telegraf and a custom Python script to send Oracle metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy. The custom script uses the Dynamic Performance views that Oracle provides to gather metrics.
+This integration installs and configures Telegraf and a custom Python script to send Oracle metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy. The custom script uses the Dynamic Performance views that Oracle provides to gather metrics.
 
 In addition to setting up the metrics flow, this integration also sets up a dashboard.
 {% include image.md src="images/Oracle-DB-metrics.png" width="80" %}

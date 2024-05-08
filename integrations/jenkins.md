@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Jenkins integration. 
 
 Jenkins is an open source automation server written in Java. It helps automate the software development process, supports continuous integration, and facilitates continuous delivery.
 
-This integration uses the Prometheus plugin to get the data from Jenkins. It also installs and configures Telegraf to send Jenkins server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration uses the Prometheus plugin to get the data from Jenkins. It also installs and configures Telegraf to send Jenkins server metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Jenkins dashboard.
 

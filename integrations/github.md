@@ -14,7 +14,7 @@ This page provides an overview of what you can do with the Github integration. T
 ## Github Integration
 GitHub is a web-based hosting service for version control using Git. It offers the distributed version control and source code management functionality of Git and adds access control and collaboration features.
 
-This integration installs and configures Telegraf to send Github metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf to send Github metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration installs a dashboard. Here are the **Overview** and **Events** sections of a dashboard displaying Github metrics:
 

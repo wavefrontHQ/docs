@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Graphite integration.
 
 The [Wavefront proxy](https://docs.wavefront.com/proxies.html) supports the [plaintext](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol) Graphite data format and the [pickle](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-pickle-protocol) Graphite data format.
 
-The plaintext Graphite data format is different than the [Wavefront data format](https://docs.wavefront.com/wavefront_data_format.html).  Wavefront supports point tags natively with its data format, and requires a tag named `source` or `host`.  The setup process explains how to extract a source from the Graphite metric name.
+The plaintext Graphite data format is different than the [Wavefront data format](https://docs.wavefront.com/wavefront_data_format.html).  Tanzu Observability supports point tags natively with its data format, and requires a tag named `source` or `host`.  The setup process explains how to extract a source from the Graphite metric name.
 
 
 

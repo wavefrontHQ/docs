@@ -1,14 +1,14 @@
 ---
-title: Operations for Applications Tour Integration
+title: Tanzu Observability Tour Integration
 tags: [integrations list]
 permalink: tour.html
-summary: Learn about the Operations for Applications Tour Integration.
+summary: Learn about the Tanzu Observability Tour Integration.
 ---
 
-This page provides an overview of what you can do with the Operations for Applications Tour integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Operations for Applications Tour integration are on the **Setup** tab of the integration.
+This page provides an overview of what you can do with the Tanzu Observability Tour integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Tanzu Observability Tour integration are on the **Setup** tab of the integration.
 
 1. Log in to your Operations for Applications instance. 
-2. Click **Integrations** on the toolbar, search for and click the **Operations for Applications Tour** tile. 
+2. Click **Integrations** on the toolbar, search for and click the **Tanzu Observability Tour** tile. 
 3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
 
 ## Operations for Applications Tour Integration

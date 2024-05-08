@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Google integration. T
 
 ## Google SSO Integration
 
-Wavefront supports authentication via SAML including Google SSO.
+Tanzu Observability supports authentication via SAML including Google SSO.
 
 
 

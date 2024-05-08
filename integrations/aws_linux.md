@@ -13,8 +13,8 @@ This page provides an overview of what you can do with the Amazon Linux AMI Host
 
 ## Linux Host Integration
 
-Monitoring Linux hosts is easy with Wavefront. This integration installs and configures Telegraf to send host metrics
-into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Monitoring Linux hosts is easy with Tanzu Observability. This integration installs and configures Telegraf to send host metrics
+into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the CPU section of a dashboard displaying Linux host metrics.
 
@@ -25,7 +25,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 This integration uses Fluentd input plugins and offers several setup options. For Fluentd installation prerequisites, see the [Fluentd Requirements](https://docs.fluentd.org/installation/before-install).
 
-* Use a proxy already running in your environment (preferred) or install a new proxy. 
+* Use a proxy already running in your environment (preferred) or install a new proxy.
 * Install the Wavefront proxy and Fluentd agent on the same host or on separate hosts.
 
 ### Install the Wavefront Proxy
@@ -39,7 +39,7 @@ Install Fluentd to send logs data to Wavefront proxy.
 * See the [prerequisites](https://docs.fluentd.org/installation/before-install) for installing Fluentd.
 {% raw %}
 * To install the stable distribution package of Fluentd, called ```td-agent```, use one the following cURL commands, depending on the Linux distribution that you use:
-    
+
    ```
 {% endraw %}
     # Ubuntu 20.04 Focal

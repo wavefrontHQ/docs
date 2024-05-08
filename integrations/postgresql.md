@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the PostgreSQL integratio
 
 ## PostgreSQL Integration
 
-PostgreSQL is a popular open source database. This integration installs and configures Telegraf to send PostgreSQL server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+PostgreSQL is a popular open source database. This integration installs and configures Telegraf to send PostgreSQL server metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the databases section of a dashboard displaying PostgreSQL metrics:
 {% include image.md src="images/postgres_metrics.png" width="80" %}

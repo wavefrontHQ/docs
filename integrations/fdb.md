@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the FoundationDB integrat
 
 ## FoundationDB Integration
 
-FoundationDB is a distributed database designed to handle large volumes of structured data across clusters of commodity servers. This integration installs and configures Telegraf to send FoundationDB metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+FoundationDB is a distributed database designed to handle large volumes of structured data across clusters of commodity servers. This integration installs and configures Telegraf to send FoundationDB metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here are sections of a dashboard displaying FoundationDB metrics:
 

@@ -1,14 +1,14 @@
 ---
-title: Operations for Applications Tutorial Integration
+title: Tanzu Observability Tutorial Integration
 tags: [integrations list]
 permalink: tutorial.html
-summary: Learn about the Operations for Applications Tutorial Integration.
+summary: Learn about the Tanzu Observability Tutorial Integration.
 ---
 
-This page provides an overview of what you can do with the Operations for Applications Tutorial integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Operations for Applications Tutorial integration are on the **Setup** tab of the integration.
+This page provides an overview of what you can do with the Tanzu Observability Tutorial integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Tanzu Observability Tutorial integration are on the **Setup** tab of the integration.
 
 1. Log in to your Operations for Applications instance. 
-2. Click **Integrations** on the toolbar, search for and click the **Operations for Applications Tutorial** tile. 
+2. Click **Integrations** on the toolbar, search for and click the **Tanzu Observability Tutorial** tile. 
 3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
 
 ## Tutorial Integration

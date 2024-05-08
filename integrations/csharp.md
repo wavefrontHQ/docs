@@ -13,9 +13,9 @@ This page provides an overview of what you can do with the C Sharp integration. 
 
 # C Sharp Integration
 
-This integration explains how to send C# application metrics to Operations for Applications.
+This integration explains how to send C# application metrics to Tanzu Observability.
 
-Applications written in C# can send metrics, delta counters, histogram distributions, spans, and events directly to Operations for Applications or to a Wavefront proxy.
+Applications written in C# can send metrics, delta counters, histogram distributions, spans, and events directly to Tanzu Observability or to a Wavefront proxy.
 
 - Github: **[wavefrontHQ/wavefront-sdk-csharp](https://github.com/wavefrontHQ/wavefront-sdk-csharp)**
 

@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Pingdom integration. 
 
 ## Pingdom Integration
 
-Pingdom lets you monitor the uptime and performance of your website and server. This integration installs and configures Telegraf to send Pingdom metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Pingdom lets you monitor the uptime and performance of your website and server. This integration installs and configures Telegraf to send Pingdom metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here are sections of a dashboard displaying Pingdom metrics:
 

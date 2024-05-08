@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the NGINX integration. Th
 
 ## NGINX Integration
 
-NGINX is a popular HTTP and reverse proxy server and also function as a load balancer for HTTP, TCP, and UDP servers. This integration installs and configures Telegraf to send NGINX server and log metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+NGINX is a popular HTTP and reverse proxy server and also function as a load balancer for HTTP, TCP, and UDP servers. This integration installs and configures Telegraf to send NGINX server and log metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of the NGINX dashboard.
 

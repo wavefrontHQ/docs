@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Apache HTTP integrati
 
 ## Apache HTTP Server Integration
 
-The Apache HTTP Server is a popular open source web server. This integration installs and configures Telegraf to send Apache HTTP Server metrics to Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy.
+The Apache HTTP Server is a popular open source web server. This integration installs and configures Telegraf to send Apache HTTP Server metrics to Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy.
 
 In addition to setting up the metrics flow, this integration also sets up a dashboard.
 

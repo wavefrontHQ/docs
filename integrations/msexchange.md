@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Microsoft Exchange in
 
 ## Microsoft Exchange Integration
 
-The Microsoft Exchange integration installs and configures Telegraf to send Microsoft Exchange performance metrics to Wavefront. Telegraf is a light-weight server process that can collect, process, aggregate and send metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+The Microsoft Exchange integration installs and configures Telegraf to send Microsoft Exchange performance metrics to Tanzu Observability. Telegraf is a light-weight server process that can collect, process, aggregate and send metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the overview section of a dashboard displaying Microsoft Exchange metrics.
 

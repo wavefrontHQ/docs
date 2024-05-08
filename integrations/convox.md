@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Convox integration. T
 
 ## Convox Integration
 
-Convox simplifies managing infrastructure and applications. This integration installs and configures Telegraf to send Convox metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Convox simplifies managing infrastructure and applications. This integration installs and configures Telegraf to send Convox metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here are sections of a dashboard displaying Convox metrics:
 

@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the PingOne integration. 
 
 PingOne® for Enterprise is a Single Sign-on (SSO) solution that enables enterprises to give their users federated access to applications with a single click from any browser or mobile device.
 
-After you've completed the Wavefront integration for PingOne for Enterprise setup, all users in your enterprise that can authenticate to PingOne for Enterprise can also log in to your Wavefront instance. What those users can do depends on their permission. All users are in the Everyone group and have, at a minimum, view permissions for dashboards and alerts. Additional permissions depend on the Permissions setup in your Wavefront instance. See [Roles, Groups, and Permissions](https://docs.wavefront.com/users_roles.html).
+After you've completed the Tanzu Observability integration for PingOne for Enterprise setup, all users in your enterprise that can authenticate to PingOne for Enterprise can also log in to your Tanzu Observability instance. What those users can do depends on their permission. All users are in the Everyone group and have, at a minimum, view permissions for dashboards and alerts. Additional permissions depend on the Permissions setup in your Tanzu Observability instance. See [Roles, Groups, and Permissions](https://docs.wavefront.com/users_roles.html).
 
 
 

@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Zabbix integration. T
 
 ## Zabbix Integration
 
-Wavefront provides a data adapter for Zabbix that allows you to easily send data to Wavefront. If you are already using Zabbix for monitoring, then you can use our adapter to send the same metrics to Wavefront without any configuration changes to your existing Zabbix environment. The Zabbix Database Adapter polls your Zabbix database at a configurable interval and sends new metrics to Wavefront.
+Wavefront provides a data adapter for Zabbix that allows you to easily send data to Tanzu Observability. If you are already using Zabbix for monitoring, then you can use our adapter to send the same metrics to Tanzu Observability without any configuration changes to your existing Zabbix environment. The Zabbix Database Adapter polls your Zabbix database at a configurable interval and sends new metrics to Tanzu Observability.
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a screenshot of the dashboard displaying Zabbix metrics.
 

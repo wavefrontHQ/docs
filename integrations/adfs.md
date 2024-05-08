@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the ADFS integration. The
 
 ## ADFS Integration
 
-ADFS is a popular identity management product that can be integrated with Wavefront to enable single sign-on.
+ADFS is a popular identity management product that can be integrated with Tanzu Observability to enable single sign-on.
 
 
 

@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Hashicorp Vault integ
 
 Hashicorp Vault provides a unified interface for securely storing and accessing secrets such as API keys, passwords, or certificates
 
-This integration installs and configures Telegraf to send Hashicorp Vault metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf to send Hashicorp Vault metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Hashicorp Vault dashboard.
 

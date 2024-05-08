@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Windows Performance C
 
 ## Windows performance counters
 
-Performance counters help you explore how well the operating system is performing. You can use performance counter data to find bottlenecks and fine tune system and application performance. This integration explains how to install and configure Telegraf to collect performance counter data and send it into Wavefront.
+Performance counters help you explore how well the operating system is performing. You can use performance counter data to find bottlenecks and fine tune system and application performance. This integration explains how to install and configure Telegraf to collect performance counter data and send it into Tanzu Observability.
 
 
 

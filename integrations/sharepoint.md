@@ -14,7 +14,7 @@ This page provides an overview of what you can do with the SharePoint integratio
 ## SharePoint Integration
 
 SharePoint is a web-based, collaborative platform that integrates with Microsoft Office.
-This integration installs and configures Telegraf to send SharePoint metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf to send SharePoint metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the WWW(Web) Services section of a dashboard displaying SharePoint metrics:
 

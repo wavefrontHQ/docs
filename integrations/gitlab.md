@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the GitLab integration. T
 
 ## GitLab Integration
 
-GitLab is a web-based Git-repository manager providing wiki, issue-tracking and CI/CD pipeline features. This integration installs and configures Telegraf to send GitLab metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+GitLab is a web-based Git-repository manager providing wiki, issue-tracking and CI/CD pipeline features. This integration installs and configures Telegraf to send GitLab metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a section of a dashboard displaying GitLab metrics:
 

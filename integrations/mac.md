@@ -13,8 +13,8 @@ This page provides an overview of what you can do with the Mac Host integration.
 
 ## Mac Host Integration
 
-Monitoring Mac hosts is easy with Wavefront. This integration installs and configures Telegraf to send host metrics
-into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Monitoring Mac hosts is easy with Tanzu Observability. This integration installs and configures Telegraf to send host metrics
+into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. For example, here's the CPU section of a dashboard displaying Mac host metrics.
 

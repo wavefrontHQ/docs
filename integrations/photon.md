@@ -13,8 +13,8 @@ This page provides an overview of what you can do with the Photon OS Host integr
 
 ## Photon OS Host Integration
 
-Photon OS is an open-source minimalist Linux operating system from VMware that is optimized for cloud computing platforms, VMware vSphere deployments, and applications native to the cloud. Monitoring Photon OS hosts is easy with Wavefront. This integration installs and configures Telegraf to send host metrics
-into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Photon OS is an open-source minimalist Linux operating system from VMware that is optimized for cloud computing platforms, VMware vSphere deployments, and applications native to the cloud. Monitoring Photon OS hosts is easy with Tanzu Observability. This integration installs and configures Telegraf to send host metrics
+into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the dashboard displaying Photon OS host metrics.
 

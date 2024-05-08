@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Logstash integration.
 
 Logstash is a free and open server-side data processing pipeline that allows you to collect data from a variety of sources and ingests it to your favorite destination.
 
-Wavefront supports two methods for sending log data to the Wavefront proxy:
+Tanzu Observability supports two methods for sending log data to the Wavefront proxy:
  - Filebeat: Once your data arrives at the proxy, the proxy converts your Logstash log data to metrics by parsing log lines with grok patterns (regular expressions) that you specify in a proxy configuration file.
  - Wavefront Output Plugin: Wavefront Output Plugin for Logstash parses the log data and sends it as metrics to the Wavefront service.
 

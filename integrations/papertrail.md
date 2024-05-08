@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Papertrail integratio
 
 ## Papertrail Integration
 
-Papertrail provides cloud hosted log management for troubleshooting of infrastructure and application issues. It seamlessly manages logs from apps, servers, and cloud services. Monitoring Papertrail is easy with Wavefront. This integration installs and configures Telegraf to send Papertrail alerts as metrics into Wavefront. The metrics are tagged with the event name as specified in Papertrail.
+Papertrail provides cloud hosted log management for troubleshooting of infrastructure and application issues. It seamlessly manages logs from apps, servers, and cloud services. Monitoring Papertrail is easy with Tanzu Observability. This integration installs and configures Telegraf to send Papertrail alerts as metrics into Tanzu Observability. The metrics are tagged with the event name as specified in Papertrail.
 Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 

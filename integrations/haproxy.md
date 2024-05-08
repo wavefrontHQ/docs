@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the HAProxy integration. 
 
 ## HAProxy Integration
 
-HAProxy is free, open source software that provides a high availability load balancer and proxy server for TCP and HTTP-based applications that spreads requests across multiple servers.  This integration installs and configures Telegraf to send HAProxy stats metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+HAProxy is free, open source software that provides a high availability load balancer and proxy server for TCP and HTTP-based applications that spreads requests across multiple servers.  This integration installs and configures Telegraf to send HAProxy stats metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. For example, here's screenshot of dashboard with metrics collected from the HAProxy stats page.
 {% include image.md src="images/haproxy-metrics.png" width="80" %}

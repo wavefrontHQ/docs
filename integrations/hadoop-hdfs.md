@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Apache Hadoop HDFS in
 
 The Hadoop Distributed File System (HDFS) can store very large data sets reliably, and can stream those data sets at high bandwidth to user applications. In a large cluster, thousands of servers can host directly attached storage and also execute user application tasks.
 
-This integration installs and configures Telegraf and Jolokia to send Hadoop HDFS cluster metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy. Jolokia is a JMX-HTTP bridge that allows non-Java processes to retrieve JMX mBean attributes. 
+This integration installs and configures Telegraf and Jolokia to send Hadoop HDFS cluster metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy. Jolokia is a JMX-HTTP bridge that allows non-Java processes to retrieve JMX mBean attributes.
 
 In addition to setting up the metrics flow, this integration also sets up a dashboard.
 {% include image.md src="images/hadoop-hdfs-metrics.png" width="80" %}
