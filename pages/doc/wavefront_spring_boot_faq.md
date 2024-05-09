@@ -46,7 +46,7 @@ While this is subject to changes at any time, we currently retain 5 days of data
 
 ## How Do I Ensure I Send Data to the Same Account All the Time (Across Multiple Machines and Deployments)?
 * If you are just trying out our service, see [Manage Service Accounts](service-accounts.html) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use our service in a larger deployment, sign up for [a free trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us at support@wavefront.com.
+* If you want to use our service in a larger deployment, sign up for [a free trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to our [Technical Support team](wavefront_support_feedback.html#support).
 
 ## How Do I Log In to the Account Using an Email and Password?
 

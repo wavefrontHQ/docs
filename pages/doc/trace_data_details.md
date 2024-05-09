@@ -341,7 +341,7 @@ Operations for Applications uses indexes to optimize the performance of queries 
 
 For performance reasons, we automatically index built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
-{% include note.html content="We don't automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact [support@wavefront.com](mailto:support@wavefront.com) to request indexing for that span tag." %}
+{% include note.html content="We don't automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact our [Technical Support team](wavefront_support_feedback.html#support) to request indexing for that span tag." %}
 
 
 <table style="width: 100%;">

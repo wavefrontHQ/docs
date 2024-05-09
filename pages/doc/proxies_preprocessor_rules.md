@@ -414,7 +414,7 @@ Adds a point tag with the specified value.
 * For `addTag`, if the point tag already exists, its existing value is replaced with the new value.
 * For `addTagIfNotExists`, if the point tag already exists, its existing value is preserved.
 
-{% include note.html content="You can add up to 20 point tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
+{% include note.html content="You can add up to 20 point tags. Contact our [Technical Support team](wavefront_support_feedback.html#support) if this does not meet your requirements." %}
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -1010,7 +1010,7 @@ Add a span tag to all spans.
 * `spanAddTag` adds the new span tag and assigns the new value to it. Spans do not restrict you from adding tags with the same name. If you want to update the value of a span tag, you need to [drop the span tag](#spandroptag) and add it again.
 * `spanAddTagIfNotExists` adds the span tag only if it does not already exist.
 
-{% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
+{% include note.html content="You can add up to 20 span tags. Contact our [Technical Support team](wavefront_support_feedback.html#support) if this does not meet your requirements." %}
 
 <font size="3"><strong>Parameters</strong></font>
 
