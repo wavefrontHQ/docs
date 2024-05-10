@@ -15,7 +15,7 @@ If you require assistance or would like to submit a ticket, all technical and no
 To access the Broadcom Support Portal:
 
   * From a Web browser, go to [http://support.broadcom.com/](http://support.broadcom.com/).
-  * From the Tanzu Observability UI, click the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
+  * From the Operations for Applications UI, click the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
 
     ![support menu item](images/get_support.png)
 
