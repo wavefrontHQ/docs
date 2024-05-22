@@ -8,7 +8,7 @@ summary: Learn how to use dashboards and charts with sample data.
 
 Want to learn some tips and tricks for exploring your data in dashboards?
 
-This tutorial uses our **sample data** to get you started. To complete the tasks, you need <strong>Access to a product instance</strong>. If your company doesn't have one, sign up for a <a href="https://tanzu.vmware.com/observability-trial">free trial</a>.
+This tutorial uses our **sample data** to get you started. To complete the tasks, you need <strong>Access to a product instance</strong>.
 
 The focus in tutorial is on exploration, so you don't need any permissions to go through these tasks.
 

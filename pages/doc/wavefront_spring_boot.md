@@ -21,12 +21,13 @@ If you use Wavefront for Spring Boot:
 
 ## Sending Data from Spring Boot Into Our Service
 
-You can send data from your Spring Boot applications into our service using the Wavefront for Spring Boot Starter (all users) or the Wavefront Spring Boot integration (customers and free trial users).
+You can send data from your Spring Boot applications into our service using the Wavefront for Spring Boot Starter (all users) or the Wavefront Spring Boot integration (customers).
 
 * **Wavefront for Spring Boot Starter**<br/> If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to our service. Once the data is in our service, you can view your data, find hotspots, and gather more data.
-  - **Freemium**: All users can run the Spring Boot Starter with the default settings to view their data in the freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
-  - **Customer or Free Trial User**: Customers or free trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial here](https://tanzu.vmware.com/observability).
-* **Wavefront Spring Boot Integration**: Customers and free trial users can access the Wavefront Spring Boot integration directly from their clusters.
+  
+  All users can run the Spring Boot Starter with the default settings to view their data in the freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
+  
+* **Wavefront Spring Boot Integration**: Customers can access the Wavefront Spring Boot integration directly from their clusters.
 
 ## Dashboards
 
@@ -447,7 +448,7 @@ You can configure the cluster and shard the same way. This information is used t
 
 ## Wavefront Spring Boot Integration
 
-If you already have an Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
+If you already have an Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration.
 
 1. Select **Integrations**, search for Spring Boot, and click the Spring Boot integration.
 1. Use the information displayed on the **Setup** tab to set up the integration.

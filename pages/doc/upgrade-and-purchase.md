@@ -2,9 +2,9 @@
 title: Upgrade Your Trial Version and Purchase the Service 
 keywords: administration
 tags: [administration]
-sidebar: doc_sidebar
 permalink: upgrade_and_purchase.html
 summary: Learn how to upgrade from a trial version and purchase the service.
+search: exclude
 ---
 
 When you register for the trial version of VMware Aria Operations for Applications, your trial expires after 30 days. One of the options that we offer is to purchase the service by using our self-service workflow. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option.

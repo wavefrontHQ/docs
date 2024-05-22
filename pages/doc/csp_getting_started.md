@@ -48,7 +48,7 @@ VMware Cloud services uses organizations to provide controlled access to one or 
 
 For example, you can have a multi-tenant Operations for Applications environment with multiple service instances (tenants) in the same organization.
 
-{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you are [starting an Operations for Applications free trial](start_trial.html)."%}
+{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you sign up for an Operations for Applications account."%}
 
 See [How do I manage my Cloud Services organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html) in the VMware Cloud services documentation.
 

@@ -2,9 +2,9 @@
 title: Start an Operations for Applications Free Trial
 keywords: administration
 tags: [administration]
-sidebar: doc_sidebar
 permalink: start_trial.html
 summary: VMware offers a free trial of the VMware Aria Operations for Applications service where you can explore all of the service capabilities.
+search: exclude
 
 
 ---
