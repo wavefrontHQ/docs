@@ -17,7 +17,8 @@ Follow these steps:
 1. If the application uses Spring Cloud Sleuth, see the [Spring Cloud Sleuth 3.1 Migration Guide](https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide) to migrate from Spring Boot 2 to Spring Boot 3.
 1. Update the Wavefront for Spring Boot dependencies for your existing project. For more details, see [how to configure an existing Spring Boot application](wavefront_springboot3.html#step-1-initialize-and-configure-your-project) and click the **Initialize an Existing Project** tab.
 
-<!--## What Is the Difference Between the Wavefront for Spring Boot Freemium Cluster and a Free Trial?
+<!--
+## What Is the Difference Between the Wavefront for Spring Boot Freemium Cluster and a Free Trial?
 
 * **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out our service without having to sign up or provide an email address. Freemium accounts that are inactive for 3 days are automatically deleted.
 
