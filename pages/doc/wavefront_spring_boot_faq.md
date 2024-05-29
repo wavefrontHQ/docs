@@ -33,6 +33,7 @@ Follow these steps:
   management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
   ```
 -->
+
 ## What Is the Retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot Freemium Cluster?
 
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on our free cluster. Freemium accounts that are are inactive for 3 days are automatically deleted.
