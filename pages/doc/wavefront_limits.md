@@ -72,7 +72,7 @@ HTTP 429 TOO_MANY_REQUESTS
 
 ## Default Customer-Specific Limits
 
-You can start either as part of a free trial or as a new customer. In both cases, a set of out-of-the-box limits applies to that customer account. You can contact our customer success team to request changes. In some cases, a change might involve additional costs.
+A set of out-of-the-box limits applies to your customer account. You can contact our customer success team to request changes. In some cases, a change might involve additional costs.
 
 <table>
 <tbody>

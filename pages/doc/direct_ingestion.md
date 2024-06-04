@@ -103,7 +103,7 @@ Direct ingestion has some benefits, but also some limitations:
 
 When you use direct ingestion, you might see 406 responses, which means that the Operations for Applications service pushed back the data. Direct ingestion drops this data -- and if you code your client to retry, you're actually starting to rebuild the proxy.
 
-{% include note.html content="If you're using Operations for Applications as part of a free trial or Freemium offering, there are limits on how much data you can send to the service using direct ingestion. Contact our [Technical Support team](wavefront_support_feedback.html#support) if you need a higher limit. For production environments, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not supported for production environments." %}
+{% include note.html content="For production environments, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not supported for production environments." %}
 
 It's typical that the Operations for Applications service doesn't accept a small amount of data. This pushback doesn't cause any issues with proxies. Consider this example:
 

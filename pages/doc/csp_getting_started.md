@@ -9,8 +9,6 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service on t
 
 Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. We are in the process of incrementally [onboarding](csp_migration.html) all original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Differences Between Original and VMware Cloud Services Subscriptions](csp-differences-by-area.html).
 
-{% include note.html content="Starting September 20, 2023, all [**new trial**](start_trial.html) instances of Operations for Applications are **onboarded** to VMware Cloud services."%}
-
 VMware Cloud services provides features to your Operations for Applications environment, such as:
 - Single sign-on (SSO) with VMware Cloud services accounts.
 - SAML 2.0 SSO identity federation with your enterprise identity provider.
@@ -36,7 +34,7 @@ See [Using VMware Cloud Services Console](https://docs.vmware.com/en/VMware-Clou
 A VMware Cloud services account is a user (human) account in VMware Cloud services with which you can access all of your service instances, including Operations for Applications. A VMware Cloud services account logs in to VMware Cloud services with an email address and a password. A VMware Cloud services account can be one of the following:
 - A VMware account (VMware ID) that you create in the VMware Cloud Services Console.
 
-    You can create a VMware account independently, while [onboarding](start_trial.html) a service, or while [signing up](csp_sign_up_or_log_in.html) to a service with an invitation link.
+    You can create a VMware account while [signing up](csp_sign_up_or_log_in.html) to a service with an invitation link.
 - Your corporate account if your enterprise domain is federated. You might still need to create a VMware account and link it to your corporate account if you need to access billing information in the organization. See [What is enterprise federation and how does it work](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html) in the VMware Cloud services documentation.
 
 ## What's a VMware Cloud Organization?
@@ -48,7 +46,7 @@ VMware Cloud services uses organizations to provide controlled access to one or 
 
 For example, you can have a multi-tenant Operations for Applications environment with multiple service instances (tenants) in the same organization.
 
-{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you are [starting an Operations for Applications free trial](start_trial.html)."%}
+{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you sign up for an Operations for Applications account."%}
 
 See [How do I manage my Cloud Services organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html) in the VMware Cloud services documentation.
 

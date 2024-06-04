@@ -157,6 +157,6 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
 
 * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
 * You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront for Spring Boot Service Dashboards. If you want custom dashboards, you must clone and edit the dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
-* Customers or free trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
+* Customers can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
     {% include note.html content="Alerts are not supported on this freemium cluster."%}
 * Try out the petclinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.

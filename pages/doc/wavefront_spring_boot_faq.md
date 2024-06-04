@@ -17,6 +17,7 @@ Follow these steps:
 1. If the application uses Spring Cloud Sleuth, see the [Spring Cloud Sleuth 3.1 Migration Guide](https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide) to migrate from Spring Boot 2 to Spring Boot 3.
 1. Update the Wavefront for Spring Boot dependencies for your existing project. For more details, see [how to configure an existing Spring Boot application](wavefront_springboot3.html#step-1-initialize-and-configure-your-project) and click the **Initialize an Existing Project** tab.
 
+<!--
 ## What Is the Difference Between the Wavefront for Spring Boot Freemium Cluster and a Free Trial?
 
 * **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out our service without having to sign up or provide an email address. Freemium accounts that are inactive for 3 days are automatically deleted.
@@ -31,6 +32,7 @@ Follow these steps:
   # Spring Boot 2:
   management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
   ```
+-->
 
 ## What Is the Retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot Freemium Cluster?
 
@@ -46,7 +48,7 @@ While this is subject to changes at any time, we currently retain 5 days of data
 
 ## How Do I Ensure I Send Data to the Same Account All the Time (Across Multiple Machines and Deployments)?
 * If you are just trying out our service, see [Manage Service Accounts](service-accounts.html) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use our service in a larger deployment, sign up for [a free trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to our [Technical Support team](wavefront_support_feedback.html#support).
+* If you want to use our service in a larger deployment, you need to sign up to create a new customer account and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to our [Technical Support team](wavefront_support_feedback.html#support).
 
 ## How Do I Log In to the Account Using an Email and Password?
 
@@ -65,7 +67,7 @@ If you added `wavefront.freemium-account=true` to your `application.properties` 
 * **Wavefront Spring Boot Integration** Our customers and trial users can access the Wavefront Spring Boot integration directly from their clusters.
 * **Wavefront for Spring Boot Starter**<br/> If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to our service, and view your data, find hotspots, and gather more data.
   - **Freemium** All users can run the Spring Boot Starter with the default settings to view their data in the Freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
-  - **Customers or  Free Trial User** Customers or free trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial](https://tanzu.vmware.com/observability).
+  - **Customers** Customers can modify the default Wavefront Spring Boot Starter to send data to their cluster.
 
 ## How Can I See My Metrics and Traces?
 
