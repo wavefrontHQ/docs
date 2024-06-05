@@ -50,12 +50,13 @@ In October, 2023, we start to incrementally [**onboard**](csp_migration.html) al
 
   ![An annotated screenshot of the Dashboards Browser.](images/dashboard_browser.png)
 
+-->
+
 ## 2024-09.x Release Notes
 
 **Alerts Browser Improvements**: We improved the user experience of the **Alerts Browser**. To navigate to this page, select **Alerting > All Alerts**.
 
   ![An annotated screenshot of the Alerts Browser.](images/alert_firing.png)
--->
 
 ## 2024-07.x Release Notes
 
