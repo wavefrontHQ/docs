@@ -14,7 +14,6 @@ In VMware Aria Operations for Applications (formerly known as Tanzu Observabilit
 * Manage the authorization and access to the Operations for Applications environment.
 * Select the authentication model in the Operations for Applications environment, for example, by setting up SSO using an identity provider (IdP).
 * Monitor and troubleshoot the Operations for Applications environment and usage.
-* Purchase initial and additional Operations for Applications capacity by using the self-service workflows in the UI.
 
 ## Authorization
 

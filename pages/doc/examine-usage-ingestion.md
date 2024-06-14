@@ -129,7 +129,6 @@ For more in-depth exploration on the usage of your Operations for Applications s
 * [Monitor Your Service](wavefront_monitoring.html).
 * [Find Actionable Usage Information](wavefront_usage_info.html).
 * [Monitor Wavefront Proxies](monitoring_proxies.html).
-* [Purchase Additional Capacity](purchase_additional_capacity.html)
 
 Our Customer Success Team has put together a KB article that drills down into adoption info.
 

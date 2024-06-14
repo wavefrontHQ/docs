@@ -43,38 +43,6 @@ Last sentence: Тo temporarily enable service accounts for your service instance
 <tr><th width="22%">Task</th><th width="39%">Original Subscription</th><th width="39%">VMware Cloud Services Subscription</th></tr>
 </thead>
 <tr>
-<td>Upgrade from trial
-</td>
-<td>
-<ul>
-<li><strong>Who:</strong> Operations for Applications <strong>Super Admin</strong></li>
-<li><strong>Where:</strong> From the Operations for Applications UI</li>
-</ul>
-</td>
-<td>
-<ul>
-<li><strong>Who:</strong> Users with the Operations for Applications  <strong>Super Admin</strong> service role</li>
-<li><strong>Where:</strong> From the Operations for Applications UI</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Purchase more PPS
-</td>
-<td>
-<ul>
-<li><strong>Who:</strong> Operations for Applications  <strong>Super Admin</strong></li>
-<li><strong>Where:</strong> From the Operations for Applications UI</li>
-</ul>
-</td>
-<td>
-<ul>
-<li><strong>Who:</strong> Users with the Operations for Applications <strong>Super Admin</strong> service role</li>
-<li><strong>Where:</strong> From the Operations for Applications UI</li>
-</ul>
-</td>
-</tr>
-<tr>
 <td>Invite new Super Admins
 </td>
 <td>

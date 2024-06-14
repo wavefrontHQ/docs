@@ -40,10 +40,6 @@ entries:
           - title: "Functionality Differences"
             url: /csp-differences-by-area.html
             output: web
-            
-    - title: Purchase Additional Capacity
-      url: /purchase_additional_capacity.html
-      output: web
 
     - title: "Onboarding Original to VMware Cloud Services"
       url: /csp_migration.html

@@ -31,7 +31,6 @@ When a Super Admin user [enables Super Admin mode](users_account_managing.html#e
 * Can invite other Super Admin users.
 * Can [sign out a user](user-accounts.html#sign-out-a-user).
 * Can [convert metrics](metrics_managing.html#change-the-retention-period-of-metrics) from persistent to ephemeral and the reverse.
-* Can purchase more PPS.
 
 To invite other Super Admin users:
 
