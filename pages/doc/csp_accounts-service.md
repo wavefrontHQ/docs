@@ -11,7 +11,7 @@ summary: Learn how you can create and manage service accounts.
 
 {% include warning.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future."%}
 
-If your service was recently onboarded to VMware Cloud services, you might have some legacy service accounts for backward compatibility. It's strongly recommended that you incrementally switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens. See [How to Replace a Service Account with a Server to Server App?](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app).
+If your service was recently onboarded to VMware Cloud services, you might have some legacy service accounts for backward compatibility. It's strongly recommended that you incrementally switch to using [server to server OAuth apps](csp_server_to_server_apps.html) which authenticate with more secure VMware Cloud services access tokens. 
 
 ## What Are Service Accounts?
 

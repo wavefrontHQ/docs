@@ -17,7 +17,7 @@ To obtain a VMware Cloud services access token, you must make an API call to the
 
 To obtain an Operations for Applications API token, you can also create a service account and generate an API token associated with it.
 
-{% include note.html content="If your original Operations for Applications subscription was recently [onboarded to VMware Cloud services](csp_migration.html), for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts and service accounts. It’s recommended that you incrementally replace them with VMware Cloud services API tokens and sever to server OAuth apps."%}
+
 
 ## Manage the VMware Cloud Services API Tokens for Your User Account
 
@@ -66,7 +66,7 @@ For details on how to create, view, and modify the details of the OAuth 2.0 apps
 
 If you want to set up one of the [integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with an **Operations for Applications API token**, you must create a [service account](csp_service_accounts.html) and generate an API token associated with it.
 
-{% include warning.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future. "%}
+{% include warning.html content="The usage of service accounts in Operations for Applications on VMware Cloud services is **restricted** to support only a [limited list of integrations](integrations_onboarded_subscriptions.html#integrations-that-use-operations-for-applications-api-tokens) that still authenticate with Operations for Applications API tokens. We are in the process of updating all of our integrations to authenticate with VMware Cloud services access tokens. It is strongly recommended that you gradually switch to using server to server OAuth apps which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future. "%}
 
 <!--Bring this back to the warning if we get the flag: Тo temporarily enable service accounts for your service instance, [contact](wavefront_support_feedback.html) our Technical Support team.-->
 
@@ -92,7 +92,7 @@ To generate and manage the API tokens for an existing **service account**:
 
 As a user with the **Admin** service role, you can view and revoke the API tokens of any service account in your service instance.
 
-{% include warning.html content="If your original Operations for Applications subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts. It’s recommended that you incrementally [replace them with VMware Cloud services API tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token)."%}
+{% include warning.html content="If your original Operations for Applications subscription was onboarded to VMware Cloud services, for backward compatibility, you might have some legacy Operations for Applications API tokens that are associated with user accounts. It’s recommended that you incrementally replace them with VMware Cloud services API tokens."%}
 
 1. Log in to your service instance as an **Admin** user.
 2. Click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Accounts**.

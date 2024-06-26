@@ -18,28 +18,6 @@ entries:
     - title: Product FAQ
       output: web
       url: /tobs_faq.html
-
-  - title: Subscription and Commitment 
-    output: web
-    folderitems:
-
-    - title: Subscription Types
-      url: /subscriptions-differences.html
-      output: web
-
-      subfolders:
-
-      - title: Differences Explained
-        output: web
-        subfolderitems:
-        
-          - title: "UI Differences"
-            url: /csp-ui-differences.html
-            output: web
-            
-          - title: "Functionality Differences"
-            url: /csp-differences-by-area.html
-            output: web
             
     - title: Purchase Additional Capacity
       url: /purchase_additional_capacity.html
@@ -903,10 +881,6 @@ entries:
   - title: Administering VMware Cloud Services Subscriptions
     output: web
     folderitems:
-
-      - title: Get Started with VMware Cloud Services
-        url: /csp_getting_started.html
-        output: web
 
       - title: Sign Up or Log In
         url: /csp_sign_up_or_log_in.html

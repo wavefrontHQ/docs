@@ -9,7 +9,7 @@ summary: Learn how integration authentication happens, which integrations work w
 
 ## Subscription Types
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until [onboarded](csp_migration.html) to VMware Cloud services.
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services.
 
 For best performance, when you set up most of our integrations, it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. 
 
@@ -39,7 +39,7 @@ The Wavefront proxy requires a VMware Cloud services access token with the **Pro
 
 For a limited number of integrations, you must still use an Operations for Applications API token, associated with a [service account](csp_service_accounts.html) that has the **Proxies** permission. As a user with the **Admin** service role, you can create a service account with the **Proxies** permission and generate an API token for it. Then, you can install the Wavefront proxy and set up your integration to pass the API token of the service account. 
 
-{% include warning.html content="  It is strongly recommended that you gradually [switch to using server to server OAuth apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future." %}
+{% include warning.html content="  It is strongly recommended that you gradually switch to using server to server OAuth apps which authenticate with more secure VMware Cloud services access tokens. Service accounts and Operations for Applications API tokens will be deprecated in the future." %}
 
 <!--Bring this back to the warning if we get the flag: First sentence: Service accounts are enabled only for a **limited number** of VMware Cloud services subscriptions. 
 

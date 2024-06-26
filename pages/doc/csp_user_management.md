@@ -16,7 +16,7 @@ VMware Cloud services provides identity access management for the users of your 
 
 To add a user to your Operations for Applications service instance, you must assign that user:
 
-1. An [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) for the VMware Cloud organization running the service instance.
+1. An organization role for the VMware Cloud organization running the service instance.
 
     {% include note.html content="If you are a VMware Cloud **Organization Administrator**, you can assign only the VMware Cloud **Organization Member** role. Only a VMware Cloud **Organization Owner** can add VMware Cloud **Organization Owners** and VMware Cloud **Organization Administrators**."%}
 

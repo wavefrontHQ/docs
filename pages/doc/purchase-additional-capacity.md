@@ -8,7 +8,7 @@ summary: Learn how to add capacity to your current VMware Aria Operations for Ap
 ---
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, to purchase additional capacity, you must hold the [**Organization Owner** role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) in the VMware Cloud organization running the service as well as at least one [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance. If your enterprise domain is federated, to access the organization billing account, you must have a VMware account linked to your corporate account.<br/>
+- For VMware Cloud services subscriptions, to purchase additional capacity, you must hold the **Organization Owner** role in the VMware Cloud organization running the service as well as at least one [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) for the service instance. If your enterprise domain is federated, to access the organization billing account, you must have a VMware account linked to your corporate account.<br/>
 - For original Operations for Applications subscriptions, to purchase additional capacity, you must be a **Super Admin** user."%}
 
 ## Supported Contracts
