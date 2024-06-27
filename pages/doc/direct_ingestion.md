@@ -36,11 +36,7 @@ Because some customers wanted to send data directly to the Operations for Applic
 ## Direct Ingestion Example Commands
 
 The following examples illustrate how to send data directly to the Operations for Applications service.
-* A token is required. Referred to as `<TOKEN>` in the examples. Depends on your [subscription type](subscriptions-differences.html):
-
-    - For VMware Cloud services subscriptions, a VMware Cloud services access token is required. You can retrieve an access token by exchanging your user API token or [server to server OAuth credentials](csp_server_to_server_apps.html#how-server-to-server-apps-work).
-    - For original subscriptions, an [API token](api_tokens.html) is required. The API token can be associated to a user account or service account.
-
+* An [API token](api_tokens.html) is required. The API token can be associated to a user account or service account.
 * You must know your Operations for Applications service instance name. This doc page uses `mydomain.wavefront.com`.
 * Currently, direct ingestion supports only [Operations for Applications Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
 

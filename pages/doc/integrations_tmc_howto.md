@@ -25,10 +25,6 @@ To get started, you set up the integration from Tanzu Mission Control to VMware 
 
 ### Step 1: Generate an API Token
 
-<!--* If your Operations for Applications service **is** onboarded to VMware Cloud services, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html).
-* If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. See [Managing API tokens](api_tokens.html).
--->
-
 In your product cluster, [Generate a Service Account API Token for Tanzu Mission Control](integrations_tmc.html#generate-an-api-token-for-tanzu-mission-control).
 
 ### Step 2: In Tanzu Mission Control, Set Up the Integration

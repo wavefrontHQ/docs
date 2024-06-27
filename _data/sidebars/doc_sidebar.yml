@@ -877,56 +877,6 @@ entries:
         url: /wavefront_clis.html
         output: web
 
-
-  - title: Administering VMware Cloud Services Subscriptions
-    output: web
-    folderitems:
-
-      - title: Manage Your VMware Cloud Services Account
-        url: /csp_users_account_managing.html
-        output: web
- 
-        subfolders:
-        - title: Authorization and User Management
-          output: web
-          subfolderitems:
-
-          - title: Manage Roles and Groups
-            url: /csp_users_roles.html
-            output: web
-          
-          - title: Manage User Accounts
-            url: /csp_user_management.html
-            output: web
-
-          - title: Manage Server to Server Apps
-            url: /csp_server_to_server_apps.html
-            output: web
-
-          - title: Manage Service Accounts
-            url: /csp_service_accounts.html
-            output: web
-
-          - title: Manage Tokens
-            url: /csp_api_tokens.html
-            output: web
-            
-        - title: Manage Access to Objects
-          output: web
-          subfolderitems:
-
-          - title: Manage Access to Dashboards and Alerts
-            url: /csp_access.html
-            output: web
-
-          - title: Security Policy Rules
-            url: /csp_metrics_security.html
-            output: web
-            
-      - title: Authentication Model
-        url: /csp_authentication.html
-        output: web
-
   - title: Administering Original Subscriptions
     output: web
     folderitems:

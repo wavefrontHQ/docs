@@ -28,11 +28,11 @@ To invite new users, you assign them:
     
   Note that you can assign the **Organization Owner** role to another user only if you have the **Organization Owner** role.
 
-* A role within the Operations for Applications service instance. We provide a number of [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in).
+* A role within the Operations for Applications service instance. We provide a number of Operations for Applications service roles.
 
    Note that in a multi-tenant Operations for Applications environment, you must specify the service instance (tenant) for which you want to assign the service role. You can assign different service roles for different service instances (tenants). You invite the users only to the tenants for which you assigned them service roles.
 
-* Optionally, a custom role created in the VMware Cloud organization. [Custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) are composed of different service permissions.
+* Optionally, a custom role created in the VMware Cloud organization. Custom roles are composed of different service permissions.
 
    Note that a custom role with an Operations for Applications permission applies only if the user has at least one Operations for Applications service role. In a multi-tenant Operations for Applications environment, custom roles apply to all service instances (tenants) for which the user has at least one Operations for Applications service role.
 
@@ -67,7 +67,7 @@ We provide a number of built-in Operations for Applications service roles.
 - A corresponding service role for each permission.
 - Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service.
 
-For more information, see [Operations for Applications Service Roles (Built-in)](csp_users_roles.html#operations-for-applications-service-roles-built-in).
+For more information, see Operations for Applications Service Roles (Built-in).
 
 ### Step 1: Enter the New User Details
 
