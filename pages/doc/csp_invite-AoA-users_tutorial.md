@@ -64,7 +64,7 @@ If you do not have the VMware Cloud **Organization Owner** or **Organization Adm
 
 We provide a number of built-in Operations for Applications service roles.
 
-- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
+- A corresponding service role for each permission.
 - Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service.
 
 For more information, see [Operations for Applications Service Roles (Built-in)](csp_users_roles.html#operations-for-applications-service-roles-built-in).

@@ -74,7 +74,7 @@ You will need the organization ID when you install the Wavefront proxy.
 
 ### Step 3: Navigate to Operations for Applications
 
-To install the Wavefront proxy, set up an integration, and install integration dashboards, you must have the **Proxies** and **Integrations** permissions. For more information see [Operations for Applications Permissions in VMware Cloud Services](csp_permissions_overview.html).
+To install the Wavefront proxy, set up an integration, and install integration dashboards, you must have the **Proxies** and **Integrations** permissions. For more information see Operations for Applications Permissions in VMware Cloud Services.
 
 1. In the VMware Cloud Services Console, click VMware Cloud Services.
 2. Search for Operations for Applications and click the **VMware Aria Operations for Applications** tile.

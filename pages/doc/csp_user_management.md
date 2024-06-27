@@ -30,7 +30,7 @@ To add a user to your Operations for Applications service instance, you must ass
 
     {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform. "%}
 
-1. Optionally, a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
+1. Optionally, a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an Operations for Applications permission.
 
     {% include important.html content="In a multi-tenant Operations for Applications environment, custom roles apply to **all** service instances (tenants) to which the user has access, that is, for which the user has at least one Operations for Applications service role."%}
 
@@ -42,7 +42,7 @@ When you are adding an individual user or a list of users to the VMware Cloud or
 
 For details, see [How do I add users to my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html).
 
-The newly added users receive an invitation email with an account activation link to [sign up](csp_sign_up_or_log_in.html) to the service instance. The invitations you send are valid for seven days. You can view the status of the invitation on the **Identity and Access Management** > **Pending Invitations** page.
+The newly added users receive an invitation email with an account activation link to sign up to the service instance. The invitations you send are valid for seven days. You can view the status of the invitation on the **Identity and Access Management** > **Pending Invitations** page.
 
 ### Creating or Editing a Group
 
@@ -52,7 +52,7 @@ You can add users who already belong to the VMware Cloud organization as well as
 
 For details, see [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
-The newly added users receive an invitation email with an account activation link to [sign up](csp_sign_up_or_log_in.html) to the service instance. The invitations you send are valid for seven days. You can view the status of the invitation on the **Identity and Access Management** > **Pending Invitations** page.
+The newly added users receive an invitation email with an account activation link to sign up to the service instance. The invitations you send are valid for seven days. You can view the status of the invitation on the **Identity and Access Management** > **Pending Invitations** page.
 
 ### Editing a User's Roles
 
@@ -70,10 +70,10 @@ For details, see [How do I change user roles](https://docs.vmware.com/en/VMware-
 
 ## Sign Out a User
 
-As a user with the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in), you can sign out other users by using the [REST API](wavefront_api.html). To sign out a user while you [enabled Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode), simply run a POST request with the `logout` API call. For example:
+As a user with the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in), you can sign out other users by using the [REST API](wavefront_api.html). To sign out a user while you enabled Super Admin mode, simply run a POST request with the `logout` API call. For example:
 
 ```
 POST https://<your_instance>.wavefront.com/api/logout/{identifier}
 ```
 
-You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid [API token](csp_users_account_managing.html#generate-an-api-token).
+You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid API token.

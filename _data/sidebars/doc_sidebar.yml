@@ -882,10 +882,6 @@ entries:
     output: web
     folderitems:
 
-      - title: Sign Up or Log In
-        url: /csp_sign_up_or_log_in.html
-        output: web
-
       - title: Manage Your VMware Cloud Services Account
         url: /csp_users_account_managing.html
         output: web
@@ -894,14 +890,6 @@ entries:
         - title: Authorization and User Management
           output: web
           subfolderitems:
-
-          - title: Authorization Model
-            url: /csp_authorization.html
-            output: web
-
-          - title: Permissions Reference
-            url: /csp_permissions_overview.html
-            output: web
 
           - title: Manage Roles and Groups
             url: /csp_users_roles.html

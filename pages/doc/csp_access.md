@@ -77,7 +77,7 @@ Initially, all users can *view* all dashboards and alerts. In addition, global p
 As a user with the **Admin** or **Super Admin** service role, you can restrict access to new dashboards and alerts:
 
 1. Log in to your service instance.
-1. If you are a **Super Admin** user, [enable Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode).
+1. If you are a **Super Admin** user, enable Super Admin mode.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
 2. Click the **Security** tab and select **Object Creator**.
 
@@ -109,7 +109,7 @@ A dashboard or alert becomes orphaned if:
 * Only one user had access to it, and that user was removed.
 
 To restore an orphan dashboard or alert:
-1. Log in to your service instance as a user with the **Super Admin** service role and [enable Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode).
+1. Log in to your service instance as a user with the **Super Admin** service role and enable Super Admin mode.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Orphaned Objects**.
 1. Select the orphaned dashboard or alert and share it with other users or groups.
 
@@ -117,7 +117,7 @@ To restore an orphan dashboard or alert:
 
 A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the users with the **Super Admin** service role. As a user with the **Super Admin** service role, you can try to restore the dashboard by using the REST API.
 
-1. Log in to your service instance as a user with the **Super Admin** service role and [enable Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode).
+1. Log in to your service instance as a user with the **Super Admin** service role and enable Super Admin mode.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
 3. Expand the **Dashboard** category and click the `GET api/v2/dashboard/{id}/history/{version}` request.
 4. Enter the dashboard name as the `"id"` parameter.

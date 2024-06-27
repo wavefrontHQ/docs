@@ -41,7 +41,7 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 ### Operations for Applications Service Roles (Built-in)
 
 The VMware Cloud Services Console **Roles** page includes the following built-in Operations for Applications service roles:
-- A corresponding Operations for Applications service role for each [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions), that is, each of the following service roles has only one permission assigned:
+- A corresponding Operations for Applications service role for each Operations for Applications permission, that is, each of the following service roles has only one permission assigned:
 
   * **Admin**
   * **Alerts**
@@ -68,7 +68,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
   </tr>
   <tr>
     <th>Super Admin</th>
-    <td>When users with that service role <a href="csp_users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a>, they:<ul>
+    <td>When users with that service role enable Super Admin mode, they:<ul>
     <li>Have all Operations for Applications permissions.</li>
     <li>Have access to all dashboards and alerts.</li>
     <li>Can <a href="csp_access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
@@ -79,7 +79,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
     <th>Viewer</th>
     <td>Users with that service role:<ul>
     <li>Don't have any Operations for Applications permissions.</li>
-    <li>Can perform only the <a href="csp_permissions_overview.html#default-tasks">default tasks</a>.</li>
+    <li>Can perform only the default tasks.</li>
     </ul>
     <p><strong>Tip:</strong> Assign the <strong>Viewer</strong> service role individually or in combination with custom roles.</p></td>
   </tr>
@@ -87,7 +87,7 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
 
 ### Create, Edit, or Delete a Custom Role
 
-Custom roles let you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
+Custom roles let you combine service permissions of your choice, for example, Operations for Applications permissions. A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
 
 {% include important.html content="The Operations for Applications permissions in a custom role apply to **all** Operations for Applications service instances to which the target user account or server to server app has access. Therefore, to obtain the Operations for Applications permissions from a custom role for a given Operations for Applications service instance, the user account or server to server app assigned with that custom role must have at least one Operations to Applications service role for that service instance, for example, the **Viewer** service role."%}
 
