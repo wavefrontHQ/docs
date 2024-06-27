@@ -19,8 +19,6 @@ The current version of the REST API is v2. You can access the API at `<your_inst
 
 {% include note.html content="Our REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
 
-{% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For VMware Cloud services subscriptions, the authentication and authorization APIs are part of the VMware Cloud services REST API. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
-
 ## API Documentation (Service Instance)
 
 Each Operations for Applications service instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.

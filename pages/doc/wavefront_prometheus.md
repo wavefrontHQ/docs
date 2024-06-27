@@ -8,10 +8,6 @@ summary: Run PromQL queries in the Query Editor
 
 VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, users with the **Super Admin** service role (in Super Admin mode) and users with the **Admin** service role can enable the PromQL support. <br/>
-- For original Operations for Applications subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
-
 * Users with an administrative role in Operations for Applications have control over user defaults:
   - On the **Organization Settings** page (New User Defaults) they can enable users to write queries in PromQL.
   - If queries in PromQL are enabled, they can also set other options.

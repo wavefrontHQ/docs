@@ -7,8 +7,6 @@ permalink: permissions_overview.html
 summary: Learn about the permissions in the service.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see Operations for Applications permissions in VMware Cloud services."%}
-
 Permissions allow access control for the feature sets in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). [Super Admin users](authorization-faq.html#who-is-the-super-admin-user) and users with the **Accounts** permission can manage permissions for groups and accounts.
 
 {% include note.html content="Every user can [perform certain tasks](user-accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}

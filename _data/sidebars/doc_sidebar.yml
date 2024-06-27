@@ -462,11 +462,7 @@ entries:
 
     - title: Integrations Overview
       url: /integrations.html
-      output: web
-    
-    - title: How Integration Authentication Works
-      url: /integrations_onboarded_subscriptions.html
-      output: web
+      output: webd
 
     - title: Complete List of Integrations
       url: /label_integrations%20list.html
@@ -877,7 +873,7 @@ entries:
         url: /wavefront_clis.html
         output: web
 
-  - title: Administering Original Subscriptions
+  - title: Administration
     output: web
     folderitems:
 

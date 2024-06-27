@@ -8,21 +8,6 @@ summary: New and changed integrations.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-
-## Announcement
-
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. We are in the process of incrementally onboarding all original subscriptions to VMware Cloud services.
-
-For details about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
-
-If your Operations for Applications service **is onboarded** to VMware Cloud services, most of the integrations authenticate with VMware Cloud services **access tokens**. Only a limited list of integrations still authenticate with Operations for Applications API tokens. For details, see [How Integration Authentication Works](integrations_onboarded_subscriptions.html).
-
-{% include note.html content= "The integrations in the **Archived** section are approaching their end-of-life. For that reason, we will not update these integrations to authenticate with VMware Cloud services access tokens." %}
-
-During the process of onboarding an original Operations for Applications service to VMware Cloud services, all of the existing integrations are preserved and continue to operate using Operations for Applications API tokens. You should incrementally switch to integration authentication with the more secure VMware Cloud services access tokens. 
-
-{% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
-
 ## January 2024
 
 We improved the following integration in January 2024:

@@ -39,8 +39,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
     Our service retains logs for 30 days during the Logs free trial or retains logs for 7 days when on the freemium subscription! To retain logs for a longer period, contact your account representative or [technical support](wavefront_support_feedback.html#support).
   </li>
   <li>
-    Only users with the <b>Logs</b> permission can view the Logs Browser and drill down into logs from charts, alerts, and traces.
-    <p>The steps to add roles and permissions differ for <a href="wavefront_release_notes.html#vmware-aria-operations-for-applications-on-vmware-cloud-services">Onboarded and Original subscriptions</a>. See add permissions details for Onboarded subscriptions and <a href="users_roles.html">Original subscriptions</a>.</p>
+    Only users with the <b>Logs</b> permission can view the Logs Browser and drill down into logs from charts, alerts, and traces. See <a href="users_roles.html"> for details.</a>.</p>
   </li>
 </ul>
 {{site.data.alerts.end}}

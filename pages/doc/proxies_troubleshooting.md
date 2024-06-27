@@ -278,8 +278,6 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   2021-02-18 22:52:28,376 ERROR [proxy:checkinError] HTTP 401 Unauthorized: Please verify that your server and token settings are correct and that the token has Proxy Management permission!
   ```
 * Explanation: The proxy cannot connect using the token provided.
-  
-  {% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Operations for Applications differs for VMware Cloud services subscriptions and original subscriptions."%}
 
   <table>
   <tbody>

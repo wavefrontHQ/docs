@@ -11,10 +11,6 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 
 {% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to install and manage Wavefront proxies." %}
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services access token. <br/>
-- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with an Operations for Applications API token."%}
-
 ## Proxy Host Requirements
 
 - Internet access - Run `timeout 3s curl -fIsS <api_url>` from the host and make sure you get a response and not a timeout.
