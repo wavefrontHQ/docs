@@ -7,12 +7,6 @@ summary: Learn about the architecture, interfaces, and how to get started.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is a high-performance streaming analytics platform that supports observability for metrics, counters, histograms, and traces/spans. The product is unique because it scales to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data that were ingested earlier.
 
-## Where Do I Start?
-
-You need an account to get started. 
-
-Starting July 3, 2023, Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until onboarded to VMware Cloud services. For information about the subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
-
 ## Intro Videos
 
 The first <a href="https://vmwaretv.vmware.com/media/t/1_1rfs66nv" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> is a 90 second overview of **how you can use** explore data and create alerts. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.

@@ -22,10 +22,6 @@ entries:
     - title: Purchase Additional Capacity
       url: /purchase_additional_capacity.html
       output: web
-
-    - title: "Onboarding Original to VMware Cloud Services"
-      url: /csp_migration.html
-      output: web
    
   - title: Quickstart & Tutorials
     output: web
@@ -44,10 +40,6 @@ entries:
       - title: Tutorials
         output: web
         subfolderitems:
-
-        - title: "Invite New Users Tutorial"
-          url: /csp_new_users_tutorial.html
-          output: web
 
         - title: "AWS Integration Tutorial"
           url: /hello_wavefront_aws_tutorial.html

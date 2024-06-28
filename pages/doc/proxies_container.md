@@ -16,118 +16,38 @@ You can run a proxy in a Docker container by running one of the following comman
 
 Example: Run the Wavefront proxy in a container with a limit of 2 GB of memory:
 
-* For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
-
-    ```
-    docker run -d \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_APP_ID=<CSP_APP_ID> \
-    -e CSP_APP_SECRET=<CSP_APP_SECRET> \
-    -e CSP_ORG_ID=<CSP_ORG_ID> \
-    -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
-    -e JAVA_HEAP_USAGE="1650m"\
-    -m 2g \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
-
-* For VMware Cloud services subscriptions and proxy authentication with an API token:
-
-    ```
-    docker run -d \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_API_TOKEN=<CSP_API_TOKEN> \
-    -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
-    -e JAVA_HEAP_USAGE="1650m"\
-    -m 2g \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
-
-* For original subscriptions:
-
-    ```
-    docker run -d \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
-    -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
-    -e JAVA_HEAP_USAGE="1650m"\
-    -m 2g \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
+```
+docker run -d \
+-e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
+-e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
+-e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
+-e JAVA_HEAP_USAGE="1650m"\
+-m 2g \
+-p 2878:2878 \
+ wavefronthq/proxy:latest
+```
 
 Example: Run the proxy with preprocessor rules by using the WAVEFRONT_PROXY_ARGS. Specify the volume to use:
 
-* For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
-
-    ```
-    docker run \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_APP_ID=<CSP_APP_ID> \
-    -e CSP_APP_SECRET=<CSP_APP_SECRET> \
-    -e CSP_ORG_ID=<CSP_ORG_ID> \
-    -e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
-    -v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
-
-* For VMware Cloud services subscriptions and proxy authentication with an API token:
-
-    ```
-    docker run \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_API_TOKEN=<CSP_API_TOKEN> \
-    -e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
-    -v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
-* For original subscriptions:
-
-    ```
-    docker run \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
-    -e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
-    -v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
+```
+docker run \
+-e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
+-e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
+-e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
+-v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
+-p 2878:2878 \
+wavefronthq/proxy:latest
+```
     
 **Harbor:**
 
-* For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
-
-    ```
-    docker run -d\
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
-    -e CSP_APP_ID=<CSP_APP_ID> \
-    -e CSP_APP_SECRET=<CSP_APP_SECRET> \
-    -e CSP_ORG_ID=<CSP_ORG_ID> \
-    -e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
-    -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
-    ```
-
-* For VMware Cloud services subscriptions and proxy authentication with an API token:
-
-    ```
-    docker run -d\
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
-    -e CSP_API_TOKEN=<CSP_API_TOKEN> \
-    -e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
-    -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
-    ```
-* For original subscriptions:
-
-    ```
-    docker run -d\
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
-    -e WAVEFRONT_TOKEN=<YOUR_API_TOKEN>
-    -e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
-    -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
-    ```
+```
+docker run -d\
+-e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
+-e WAVEFRONT_TOKEN=<YOUR_API_TOKEN>
+-e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
+-p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
+```
 
 Options:
 
@@ -135,11 +55,7 @@ Options:
 <tbody>
 <tr>
 <td width="20%"><strong>Authentication</strong></td>
-<td width="80%">Depends on your <a href="subscriptions-differences.html">subscription type</a> and <a href="proxies_installing.html#proxy-authentication-types">proxy authentication type</a>.
-<ul>
-<li>For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret). The server to server app must be assigned with the <strong>Proxies</strong> service role and must be added to the VMware Cloud organization running the Operations for Applications service instance. CSP_ORG_ID is the ID of the VMware Cloud organization.</li>
-<li>For VMware Cloud services subscriptions and proxy authentication with an API token, CSP_API_TOKEN is the VMware Cloud services API token. The API token and its associated user account must be assigned with the <strong>Proxies</strong> service role.</li>
-<li>For original subscriptions, WAVEFRONT_TOKEN is the Operations for Applications API token. The user account or service account associated with the API token must be assigned with the <strong>Proxies</strong> permission.</li></ul>
+<td width="80%">The WAVEFRONT_TOKEN is the Operations for Applications API token. The user account or service account associated with the API token must be assigned with the <strong>Proxies</strong> permission.
 </td>
 </tr>
 <tr>
@@ -271,23 +187,9 @@ To add the CA certificates of the HTTPS proxy to the Wavefront proxy that runs i
 
 Example: Run a command like the following for testing (see the Docker documentation for the command in production environments):
 
-* For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
-
-    ```
-    docker run -it -e WAVEFRONT_URL=xxxxxxx -e CSP_APP_ID=xxxxxx CSP_APP_SECRET=xxxxxx CSP_ORG_ID=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
-    ```
-
-* For VMware Cloud services subscriptions and proxy authentication with an API token:
-
-    ```
-    docker run -it -e WAVEFRONT_URL=xxxxxxx -e CSP_API_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
-    ```
-
-* For original subscriptions:
-
-    ```
-    docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
-    ```
+```
+docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
+```
 
 You must specify:
 * WAVEFRONT_URL: The URL of your Operations for Applications service (e.g., https://example.wavefront.com)

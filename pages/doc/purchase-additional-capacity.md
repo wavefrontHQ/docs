@@ -26,7 +26,7 @@ Currently, you can buy additional capacity only if you have a billable commit co
 1. Verify the resulting **New commitment** of PPS per [billing period](glossary.html#b) and the **Current Level** pricing tier, and click **Next**.
 1. Select the billing model and commit duration for the additional capacity, and click **Proceed to checkout**.
 
-    The billing model and commit duration for the additional capacity are the same as for the original subscription. Billing model and commit duration cannot be changed.
+    The billing model and commit duration for the additional capacity are the same. Billing model and commit duration cannot be changed.
 
 After checking out, you will see an order confirmation message. Typically, it takes 24 hours to fulfil an order. Once your additional capacity becomes available, you'll receive an email notification. 
 
