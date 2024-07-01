@@ -18,8 +18,6 @@ In most cases, a Wavefront proxy must be running in your environment before metr
   - By default, the proxy uses port 2878. Make sure this port is reachable from other machines on your network. You can change this default separately for different types of data (metrics, histograms, traces, etc.) in the [proxy configuration file](proxies_configuring.html). For example, use `traceListenerPorts` to specify where to listen to trace data.
   - For egress, ensure that port 443 is available.
 
-    {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, your environment must allow an outbound HTTPS connection to the VMware Cloud services platform (`https://console.cloud.vmware.com/`)."%}
-
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - CPU - A standalone proxy can easily handle up to 40K PPS (points per second). If you're sending more, use [multiple proxies behind a load balancer](proxies.html#production-environment-team-of-proxies--load-balancer).
 - Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8, 9, 10 or 11 is required. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
@@ -46,8 +44,6 @@ To install and run a proxy:
 1. Log in to your service instance and select **Browse** > **Proxies**.
 1. Click **Add New Proxy**.
 1. Click the tab for your operating system and follow the steps on screen.
-
-    {% include tip.html content="If your service instance isn't onboarded to VMware Cloud services, the latest API token of your user account is prepopulated in the proxy installation command but you can change it."%}
 
 The proxy starts listening on port 2878. You can customize listener ports with the [proxy configuration file](proxies_configuring.html).
 

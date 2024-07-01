@@ -277,48 +277,14 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   ```
   2021-02-18 22:52:28,376 ERROR [proxy:checkinError] HTTP 401 Unauthorized: Please verify that your server and token settings are correct and that the token has Proxy Management permission!
   ```
-* Explanation: The proxy cannot connect using the token provided.
-
-  <table>
-  <tbody>
-  <thead>
-  <tr>
-  <th width="50%">VMware Cloud Services Subscriptions</th>
-  <th width="50%">Original Subscriptions</th>
-  </tr>
-  </thead>
-  <tr>
-  <td><ul>
-  <li>If the proxy uses the <strong>OAuth app</strong> authentication type, the corresponding server to server app might have been deleted or might have not the <strong>Proxies</strong> service role.</li>
-  <li>If the proxy uses the <strong>API token</strong> authentication type, the API token might have been deleted or expired, or might have not the <strong>Proxies</strong> service role. The user account associated with the token might have been removed.</li>
-  </ul></td>
-  <td>The API token or the account associated with the API token might have been deleted or might not have the <strong>Proxies</strong> permissions.</td>
-  </tr>
-  </tbody>
-  </table>
+* Explanation: The proxy cannot connect using the token provided. The API token or the account associated with the API token might have been deleted or might not have the <strong>Proxies</strong> permissions.
 
 * Potential Resolution:
-
-  <table>
-  <tbody>
-  <thead>
-  <tr>
-  <th width="50%">VMware Cloud Services Subscriptions</th>
-  <th width="50%">Original Subscriptions</th>
-  </tr>
-  </thead>
-  <tr>
-  <td><ul>
-  <li>Validate that the API token or the OAuth app credentials that the proxy is using are correct and active.</li>
-  <li>Validate that the user account associated with the token or the corresponding server to server app is active.</li>
-  <li>Ensure that the corresponding server to server app, or the API token and the associated user account have the <strong>Proxies</strong> service role.</li></ul></td>
-  <td><ul>
-  <li>Validate that the token used by the proxy is correct and active.</li>
-  <li>Validate that the user or server account associated with the token is active.</li>
-  <li>Ensure that the user or service account associated with the token has the <strong>Proxies</strong> permission.</li></ul></td>
-  </tr>
-  </tbody>
-  </table>
+  <ul>
+    <li>Validate that the token used by the proxy is correct and active.</li>
+    <li>Validate that the user or server account associated with the token is active.</li>
+    <li>Ensure that the user or service account associated with the token has the <strong>Proxies</strong> permission.</li>
+  </ul>
 
 ### Proxy CRITICAL Messages
 

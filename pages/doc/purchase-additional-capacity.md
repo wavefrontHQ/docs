@@ -9,10 +9,6 @@ summary: Learn how to add capacity to your current VMware Aria Operations for Ap
 
 To purchase additional capacity, you must be a **Super Admin** user.
 
-## Supported Contracts
-
-Currently, you can buy additional capacity only if you have a billable commit contract and your Operations for Applications service is connected to a VMware Cloud Services organization. If your Operations for Applications service is not connected to a VMware Cloud Services organization, or if you have a burndown commit contract, contact the Operations for Applications sales team to add more capacity to your subscription.
-
 ## How to Purchase Additional Capacity
 
 1. Log in to your service instance.
