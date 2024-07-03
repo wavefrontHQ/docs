@@ -167,7 +167,7 @@ The following example passes the `telegraf.conf` file and any files (such as `10
 ```
 Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the container starts.
 
-* WAVEFRONT_URL together with WAVEFRONT_TOKEN or CSP_APP_ID, CSP_APP_SECRET, and CSP_ORG_ID or CSP_API_TOKEN are required parameters for the container to start.
+* WAVEFRONT_URL and WAVEFRONT_TOKEN are required parameters for the container to start.
 
 ## Configure a Containerized Wavefront Proxy with an HTTPS Proxy
 
