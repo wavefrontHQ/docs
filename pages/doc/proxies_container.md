@@ -77,7 +77,6 @@ Options:
 </tbody>
 </table>
 
-
 ### Proxy Versions for Containers
 
 For containers, the proxy image version is determined by the `image` property in the configuration file. You have these choices:
