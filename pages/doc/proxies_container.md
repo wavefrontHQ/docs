@@ -179,7 +179,6 @@ In many environments, traffic goes through an HTTPS proxy before going to the in
 
 ![Both HTTP/HTTPS proxy and Wavefront proxy are secured](images/proxy_and_proxy.png)
 
-
 To add the CA certificates of the HTTPS proxy to the Wavefront proxy that runs in the Docker container:
 
 1. Place all PEM files in one directory.
