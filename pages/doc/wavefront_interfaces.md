@@ -21,11 +21,7 @@ Operations for Applications provides different kinds of interfaces for performin
 <tr>
 <td markdown="span">Operations for Applications user interface (UI)</td>
 <td>Interacting directly with Operations for Applications from your browser. Sample tasks include visualizing metrics, histograms, and trace data in charts and dashboards, running queries, setting up alerts and alert notifications, installing and managing integrations, creating events, and so on.
-<p>In the <strong>original</strong> Operations for Applications subscriptions, this interface also provides support for managing users, user groups, roles, permissions, and preferences. For information about original and onboarded subscriptions and the differences between them, see <a href="subscriptions-differences.html">Subscription Types</a>. </p></td>
-</tr>
-<tr>
-<td markdown="span">VMware Cloud Services Console</td>
-<td>In the <strong>onboarded</strong> Operations for Applications subscriptions, VMware Cloud services provides support for managing users, user groups, roles, and preferences. For information about original and onboarded subscriptions and the differences between them, see <a href="subscriptions-differences.html">Subscription Types</a>. </td>
+</td>
 </tr>
 <tr>
 <td markdown="span">[Operations for Applications REST API](wavefront_api.html) </td>

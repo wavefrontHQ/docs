@@ -5,7 +5,6 @@ sidebar: doc_sidebar
 permalink: users_account_managing.html
 summary: Learn how to manage your passwords and preferences.
 ---
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Your VMware Cloud Services Account](csp_users_account_managing.html)."%}
 
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports administrator-level customization for all users of an instance, and user-level customization, discussed on this page. 
 

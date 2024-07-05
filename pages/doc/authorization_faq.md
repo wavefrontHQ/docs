@@ -7,7 +7,6 @@ permalink: authorization-faq.html
 summary: Before you start managing users, groups, roles, and access, here are some FAQs.
 ---
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Authorization Model in Operations for Applications on VMware Cloud Services](csp_authorization.html)."%}
 
 ### What Are User & Service Accounts?
 

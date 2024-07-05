@@ -22,8 +22,6 @@ Follow these steps to install a proxy on a host with full network access (incomi
 
 - **Networking:** [Test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the target proxy host and your Operations for Applications service.
 
-   {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, you must also test connectivity between the target proxy host and the VMware Cloud services platform (`https://console.cloud.vmware.com/`). For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
-
 - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk11. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 
     {% include note.html content="Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path." %}
@@ -53,20 +51,7 @@ Before you can customize the proxy configuration, you have to find the values fo
 </tr>
 <tr>
 <td><strong>token</strong></td>
-<td>A valid Operations for Applications token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.<p><strong>Note:</strong> Applies only to original Operations for Applications subscriptions that are not onboarded to VMware Cloud services, i.e. when <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with an Operations for Applications API token.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><strong>cspAppId</strong></p><p><strong>cspAppSecret</strong></p><p><strong>cspOrgId </strong></p></td>
-<td>Server to server OAuth app credentials - ID and secret (<strong>cspAppId</strong> and <strong>cspAppSecret</strong>), and the VMware Cloud organization ID (<strong>cspOrgId</strong>) running the Operations for Applications service instance. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Operations for Applications service instance. 
-<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services OAuth app.</p> </td>
-<td></td>
-</tr>
-<tr>
-<td><strong>cspAPIToken</strong></td>
-<td>A valid VMware Cloud services API token associated with an active user account. The user and the token must have the <strong>Proxies</strong> service role.
-<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services token.</p>
-</td>
+<td>A valid Operations for Applications token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.</td>
 <td></td>
 </tr>
 <tr>
@@ -146,8 +131,6 @@ In some cases, you might need to run the proxy on a host with limited network ac
 ### Prerequisites
 
 - **Networking:** The minimum requirement is an outbound HTTPS connection to your Operations for Applications service, so the proxy can send metrics to the service. For metrics, by default the proxy uses port 2878. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
-
-   {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, your environment must also allow an outbound HTTPS connection to the VMware Cloud services platform (`https://console.cloud.vmware.com/`). For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
 
   You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
 

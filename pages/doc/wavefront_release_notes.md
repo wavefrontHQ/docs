@@ -23,24 +23,6 @@ If you require assistance or would like to submit a ticket on or after May 6, al
 
 For details, see the KB article [VMware Tanzu Support moving to Broadcom Support Portal May 6th](https://support.cloudhealthtech.com/hc/en-us/articles/26164366649741-VMware-Tanzu-Support-moving-to-Broadcom-Support-Portal-May-6th).
 
-
-### VMware Aria Operations for Applications on VMware Cloud Services
-
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
-
-* **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
-* **Original Subscriptions**: Existing subscriptions which remain as is until onboarded to VMware Cloud services. 
-   
-For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
- 
-{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are onboarded to VMware Cloud services."%}
-
-### Onboarding Original VMware Aria Operations for Applications to VMware Cloud Services
-
-In October, 2023, we start to incrementally [**onboard**](csp_migration.html) all original subscriptions to VMware Cloud services. You will receive a notification in your Operations for Applications UI with the date scheduled for your service onboarding to VMware Cloud services. Make sure that you get familiar with the VMware Cloud services platform and prepare for the onboarding. See [What Should I Do Before the Onboarding?](csp_migration.html#what-should-i-do-before-the-onboarding).
-
-{% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
-
 <!--
 ## 2024-10.x Release Notes
 

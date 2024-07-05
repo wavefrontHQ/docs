@@ -22,9 +22,6 @@ Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux t
 
 You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_yif61rd5" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
-To set up the Wavefront top utility you need a valid API token. For an Operations for Applications subscription on VMware Cloud services, you must use a VMware Cloud services access token. To get an access token, generate a VMware Cloud services API token associated with your user account and exchange it for the access token. Make sure that when you do this, you deselect the **Send empty value** check box for the **passcode** parameter. For more information and instructions, see [Use the Operations for Applications REST API](using_wavefront_api.html).
-
-
 ## Why Spy?
 
 The `spy` endpoints can provide insight into new data that is being ingested by your service instance. For example, you might analyze `spy` results to:

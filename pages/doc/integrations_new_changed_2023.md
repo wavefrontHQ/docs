@@ -23,7 +23,7 @@ We made improvements to the following integrations in December 2023:
 * Tanzu Application Service -- Fixed an issue with the **Error Rate** chart in the **Workload Monitoring** dashboard. 
 * VMware Tanzu Kubernetes Grid Integration -- Removed the `limit()` function from the queries in the VMware Tanzu Kubernetes Grid integration system dashboards, because this function [may return No Data](ts_limit.html#summary).
 
-We updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+We updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services.
 
   * Chef Server
 
@@ -65,7 +65,7 @@ Also, we made improvements to the following integrations in October 2023:
 * Go -- Removed references of deprecated SDKs.
 * C Sharp -- Removed references of deprecated libraries.
 
-In addition, we updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations That Use VMware Cloud Services Access Tokens](integrations_onboarded_subscriptions.html#integrations-that-use-vmware-cloud-services-access-tokens).
+In addition, we updated the following integrations to support VMware Cloud Services access token authentication when your Operations for Applications service **is onboarded** to VMware Cloud services.
 
   * Catchpoint
   * Nagios
@@ -92,15 +92,13 @@ We made improvements to the following integrations in August 2023:
   3. Search for **Velero** and click its tile.
   4. Click the **Setup** tab.
 
-* Tanzu Application Service -- We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services. See [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+* Tanzu Application Service -- We added support for Tanzu Application Service setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
 
 * Kubernetes:
   * We added [new alerts templates](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/alerts/alerts.md).
   * We added a new dashboard **Kubernetes Workloads Troubleshooting** which allows you to monitor the health of the Kubernetes workloads. To use this dashboard, maker sure that you use the Observability for Kubernetes Operator version 2.10.0 and later.
   * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
   * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
-
-  For the latest list of integrations, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
 
 * Operations for Applications Usage -- Made bug fixes to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards.
 

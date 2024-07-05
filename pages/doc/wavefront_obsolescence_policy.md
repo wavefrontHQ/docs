@@ -181,13 +181,3 @@ rawsum(align(1m, mean, ts(\"~agent.buffer.task-count\")))
 rawsum(align(1m, mean, ts(\"~proxy.buffer.task-count\")))
 ```
 
-## Operations for Applications Authentication and Authorization
-
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. VMware Cloud services provides centralized authentication and authorization to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Advantages of VMware Cloud Services Subscriptions Over Original Subscriptions](subscriptions-differences.html#advantages-of-vmware-cloud-services-subscriptions-over-original-subscriptions).
-
-Starting September 20, 2023, all **new trial** instances of Operations for Applications are **onboarded** to VMware Cloud services.
-
-In October, 2023, we start to incrementally [onboard](csp_migration.html) all **original** subscriptions, which use Operations for Applications authentication and authorization, to VMware Cloud services. 
-
-{% include warning.html content="The Operations for Applications authentication and authorization will be **deprecated** in the future. Therefore, after onboarding to VMware Cloud services, **replace** [your service accounts with server to server apps](csp_migration.html#how-to-replace-a-service-account-with-a-server-to-server-app) and [your Operations for Applications API tokens with VMware Cloud Services access tokens](csp_migration.html#how-to-replace-an-operations-for-applications-api-token-with-a-vmware-cloud-services-access-token), including [the Operations for Application API tokens of your Wavefront proxies](csp_migration.html#how-to-replace-the-operations-for-application-api-token-of-a-wavefront-proxy)." %}
-
