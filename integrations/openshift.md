@@ -66,7 +66,7 @@ Operations for Applications uses the [Observability for Kubernetes Operator](htt
 
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure our Kubernetes Metrics Collector and a Wavefront proxy. With the 2022-48.x release we introduced the Kubernetes Observability Operator which simplifies the deployment of the Kubernetes Metrics Collector and the Wavefront proxy. 
 
-The setup process varies based on the distribution type that you choose to monitor, and whether your Operations for Applications service is onboarded to the VMware Cloud services platform.
+The setup process varies based on the distribution type that you choose to monitor.
 
 
 1. Log in to your product cluster.
@@ -94,22 +94,9 @@ The setup process varies based on the distribution type that you choose to monit
       3. **HTTP Proxy Authentication** - Can be either basic (with user name and password), or CA certificate - based (with a CA certificate).
 
 1. Enter the authentication options and click **Next**.
-   
-   The authentication options vary depending on whether your [Operations for Applications service is onboarded to VMware Cloud services](https://docs.wavefront.com/subscriptions-differences.html). For more details, see [Proxy Authentication Types](https://docs.wavefront.com/proxies_installing.html#proxy-authentication-types).
-   
-   * If your service **is onboarded** to VMware Cloud services, choose to authenticate by using either an **OAuth App** or an **API token**. 
-
-     * **OAuth App** authentication requires you to use an existing App ID, App Secret, and Organization ID of a server to server app that has the **Proxies** service role assigned and belongs to the VMware Cloud services organization running the service.
-     * **API Token** authentication requires you to use an API token that belongs to your user account in the VMware Cloud organization running the service. Note that you must regenerate and reconfigure the API Token periodically depending on the token TTL configuration.
-
-   * If your service is **not onboarded** to VMware Cloud services, you can authenticate to the Operations for Applications REST API by using either a user account, or a service account. In both cases, the account must have an Operations for Applications API token associated with it.
+   You can authenticate to the Operations for Applications REST API using either a user account, or a service account. In both cases, the account must have an Operations for Applications API token associated with it.
    
 1. In the **Script** section, review the script and click the **Copy to clipboard** button.
-   
-   * When your service **is onboarded** to VMware Cloud services:
-     * If you have selected **OAuth App** as the authentication type, replace `<CSP_APP_ID>` and `<CSP_APP_SECRET>` with your server to server app credentials and `<CSP_ORG_ID>` with the ID of the VMware Cloud organization running the service.
-     * If you have selected **API token** as the authentication type, replace `<CSP_API_TOKEN>` with your VMware Cloud services API token.
-   * When your service is **not onboarded** to VMware Cloud services, proceed to the next step.
 1. Run the script in your Kubernetes cluster.
 1. After successful installation, return back to the Operations for Applications UI, and click **Finish**.
 

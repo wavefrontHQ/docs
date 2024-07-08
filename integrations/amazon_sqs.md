@@ -113,8 +113,6 @@ You can use an AWS Lambda function to ingest CloudWatch logs to Operations for A
 
 The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy](https://docs.wavefront.com/proxies_installing.html) in your AWS environment.
 
-* If your Operations for Applications service **is** onboarded to VMware Cloud services, install  Wavefront proxy version 13.0 or later.
-* If your Operations for Applications service is **not** onboarded to VMware Cloud services, install  Wavefront proxy version 12.2 or later.
 
 #### Create an AWS Lambda Function
 
