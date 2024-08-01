@@ -90,7 +90,7 @@ Our documentation includes reference documentation for API, query language, and 
 <ul><li><a href="ui_charts_faq.html">Charts FAQ</a> explains how to set color mapping, how to define drilldown links, and more.  </li>
 <li><a href="wavefront_kubernetes_faq.html">Kubernetes FAQ</a> addresses common questions, such as integrating with third-party applications. </li>
 <li><a href="tracing_faq.html">Tracing FAQ</a> helps with common tasks like filtering RED metrics with custom span tags.  </li>
-<li><a href="wavefront_spring_boot_faq.html">Wavefront and Spring Boot FAQ</a> explains differences between Freemium and trial clusters, how to visualize metrics and traces, and more. </li>
+<li><a href="wavefront_spring_boot_faq.html">Wavefront and Spring Boot FAQ</a> explains how to send data to our service from a Spring Boot application and how to visualize metrics and traces, and more. </li>
 </ul></td>
 <td><img src="/images/wavefront_charts_faq.png" alt="screenshot of TOC of chart FAQ"></td>
 </tr>
