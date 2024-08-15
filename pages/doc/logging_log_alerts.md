@@ -24,7 +24,7 @@ You can create alerts for your logs data and get email notifications when the al
           You need the <b>Alerts</b> and <b>Logs</b> permissions to create and manage logs alerts.
       </li>
   </ul>
-  <p>The steps to add roles and permissions differ for onboarded and original subscriptions. For details, see how to manage roles, groups, and permissions for <a href="csp_users_roles.html#create-edit-or-delete-a-custom-role">onboarded subscriptions</a> and <a href="users_roles.html">original subscriptions</a>.</p>
+  <p>For details, see how to manage <a href="users_roles.html">roles, groups, and permissions</a>.</p>
   {{site.data.alerts.end}}
 
 ## Alerts Browser

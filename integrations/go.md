@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Go integration. The d
 
 # Go Integration
 
-Applications written in Go can send metrics, delta counters, histogram distributions, spans, and events directly to Operations for Applications or to a Wavefront proxy.
+Applications written in Go can send metrics, delta counters, histogram distributions, spans, and events directly to Tanzu Observability or to a Wavefront proxy.
 
 - GitHub: **[wavefrontHQ/wavefront-sdk-go](https://github.com/wavefrontHQ/wavefront-sdk-go)**
 - Documentation: [pkg.go.dev](https://pkg.go.dev/github.com/wavefronthq/wavefront-sdk-go)

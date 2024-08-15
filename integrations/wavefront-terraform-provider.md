@@ -13,9 +13,9 @@ This page provides an overview of what you can do with the Terraform Provider in
 
 # Wavefront Terraform Provider
 
-The [Wavefront Terraform Provider](https://github.com/vmware/terraform-provider-wavefront) recently became a Wavefront integration.
+The [Wavefront  Terraform Provider](https://github.com/vmware/terraform-provider-wavefront) recently became a Tanzu Observability integration.
 
-This integration currently supports a comprehensive set of Wavefront resources including alerts, alert targets and dashboards.
+This integration currently supports a comprehensive set of Tanzu Observability resources including alerts, alert targets and dashboards.
 
 
 

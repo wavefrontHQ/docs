@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Dynatrace integration
 
 ## Dynatrace Integration
 
-Dynatrace is an AI-powered, full-stack, automated performance management solution. This integration collects the metrics from a Dynatrace SaaS environment and sends them to Wavefront.
+Dynatrace is an AI-powered, full-stack, automated performance management solution. This integration collects the metrics from a Dynatrace SaaS environment and sends them to Tanzu Observability.
 
 
 

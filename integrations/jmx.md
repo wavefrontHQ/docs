@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the JMX integration. The 
 
 The JMX technology provides a simple, standard way of managing resources such as applications, devices, and services. Because the JMX technology is dynamic, you can use it to monitor and manage resources as they are created, installed and implemented. You can also use the JMX technology to monitor and manage the Java Virtual Machine (Java VM).
 
-Wavefront JMX integration uses [Jolokia](https://jolokia.org/) to setup and retrieve JMX metrics from a running Java instance, in a form of an embedded [agent](https://jolokia.org/agent.html). After the JMX metrics are available on the web endpoint, the Telegraf that's part of the integration retrieves the desired metrics using the jolokia plugin and sends it to Wavefront.
+Wavefront JMX integration uses [Jolokia](https://jolokia.org/) to setup and retrieve JMX metrics from a running Java instance, in a form of an embedded [agent](https://jolokia.org/agent.html). After the JMX metrics are available on the web endpoint, the Telegraf that's part of the integration retrieves the desired metrics using the jolokia plugin and sends it to Tanzu Observability.
 
 In addition to setting up the metrics flow, this integration also sets up a dashboard.
 {% include image.md src="images/jmx-metrics.png" width="80" %}

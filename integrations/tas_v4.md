@@ -69,12 +69,8 @@ The Tanzu Observability Nozzle is the code that sends data from Tanzu Applicatio
 {% include image.md src="images/screen-4.png" width="80" %}
 
 #### Authentication Configuration
-Starting with version 4.3.0, the Nozzle supports two types of authentication:
 
-- If your Operations for Applications service is **onboarded** to VMware Cloud services, use [server to server OAuth app credentials](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html), such as app ID and app secret. The server to server app must have the **Proxies** service role and must belong to the VMware Cloud organization running the Operations for Applications service instance.
-- If your Operations for Applications service is **not onboarded** to VMware Cloud services, you can still use a valid [Operations for Applications API token](https://docs.wavefront.com/api_tokens.html).
-
-For information about the original and onboarded subscriptions and how they differ, see [Subscription Types](https://docs.wavefront.com/subscriptions-differences.html).
+Use a valid [Tanzu Observability API token](https://docs.wavefront.com/api_tokens.html).
 
 See the [documentation](https://docs.wavefront.com/integrations_tas_howto.html) for details and FAQs.
 

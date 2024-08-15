@@ -82,23 +82,6 @@ spec:
         env:
         - name: WAVEFRONT_URL
           value: <https://<your_instance>.wavefront.com/api/
-        # Uncomment the lines for your subscription type and proxy authentication type.
-        # For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, uncomment the below lines:
-        #- name: CSP_APP_ID
-        #  value: <CSP_APP_ID>
-        #- name: CSP_APP_SECRET
-        #  value: <CSP_APP_SECRET>
-        #- name: CSP_ORG_ID
-        #  value: <CSP_ORG_ID>
-        # For VMware Cloud services subscriptions and proxy authentication with an API token, uncomment the below lines:
-        #- name: CSP_API_TOKEN
-        #  value: <CSP_API_TOKEN>
-        # For original subscriptions:
-        #- name: WAVEFRONT_TOKEN
-        #  value: <YOUR-API-TOKEN>
-        # Uncomment the below lines to consume Zipkin/Istio traces
-        #- name: WAVEFRONT_PROXY_ARGS
-        #  value: --traceZipkinListenerPorts 9411
         - name: WAVEFRONT_PROXY_ARGS
           value: --preprocessorConfigFile /preprocessor-config/preprocessor_rules.yaml --histogramDistListenerPorts 40000 --traceListenerPorts 2878
         ports:

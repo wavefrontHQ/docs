@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Okta integration. The
 
 ## Okta Integration
 
-Okta is a popular identity management product that can be integrated with Wavefront to enable single sign-on.
+Okta is a popular identity management product that can be integrated with Tanzu Observability to enable single sign-on.
 
 
 

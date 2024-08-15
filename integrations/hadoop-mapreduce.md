@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Apache Hadoop MapRedu
 
 Hadoop MapReduce is a Yarn-based system for parallel processing of large data sets.
 
-This integration installs and configures Telegraf and a custom Python script to send Hadoop MapReduce metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy. The custom script uses the Hadoop HTTP REST API to gather metrics. 
+This integration installs and configures Telegraf and a custom Python script to send Hadoop MapReduce metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a Wavefront proxy. The custom script uses the Hadoop HTTP REST API to gather metrics.
 
 In addition to setting up the metrics flow, this integration also sets up a dashboard.
 {% include image.md src="images/hadoop-mapreduce-metrics.png" width="80" %}

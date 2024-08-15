@@ -14,7 +14,7 @@ This page provides an overview of what you can do with the Twemproxy integration
 ## Twemproxy Integration
 
 Twemproxy (nutcracker) is a fast and lightweight proxy for memcached and redis.
-This integration installs and configures Telegraf to send Twemproxy metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf to send Twemproxy metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here are the **Overview** and **Pool Stats** sections of a dashboard displaying Twemproxy metrics:
 {% include image.md src="images/twemproxy_dashboard.png" width="80" %}

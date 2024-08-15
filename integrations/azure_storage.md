@@ -13,11 +13,11 @@ This page provides an overview of what you can do with the Microsoft Azure Stora
 
 ## Microsoft Azure Integration
 
-The Microsoft Azure integration enables monitoring Azure with Wavefront and offers pre-defined dashboards and alert conditions.
+The Microsoft Azure integration enables monitoring Azure with Tanzu Observability and offers pre-defined dashboards and alert conditions.
 
 ### Dashboards
 
-Wavefront provides Microsoft Azure dashboards for the following services:
+Tanzu Observability provides Microsoft Azure dashboards for the following services:
 
 - Azure: Application Gateway
 - Azure: App Service
@@ -41,17 +41,17 @@ Here's a preview of the Virtual Machine dashboard:
 {% include image.md src="images/azure-overview.png" width="80" %}
 
 ### Metrics Configuration
-Wavefront ingests Microsoft Azure metrics using the Azure Monitor APIs. For details on the metrics that the API supports, see the [documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics).
+Tanzu Observability ingests Microsoft Azure metrics using the Azure Monitor APIs. For details on the metrics that the API supports, see the [documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics).
 
-Metrics originating from Microsoft Azure are prefixed with `azure.` within Wavefront. After you set up the integration, you can browse the available metrics in the Metrics browser. Simply click **Browse > Metrics** from the taskbar and search for `azure.`.
+Metrics originating from Microsoft Azure are prefixed with `azure.` within Tanzu Observability. After you set up the integration, you can browse the available metrics in the Metrics browser. Simply click **Browse > Metrics** from the taskbar and search for `azure.`.
 
-The metric names consist of the actual metric name and a suffix for the aggregation type. The **default metric name** without a suffix corresponds to the **total aggregation** type.  
+The metric names consist of the actual metric name and a suffix for the aggregation type. The **default metric name** without a suffix corresponds to the **total aggregation** type.
 For example, the metric names for metric azure.compute.vm.percentage.cpu are:
 
-azure.compute.vm.percentage.cpu.average  
-azure.compute.vm.percentage.cpu.maximum  
-azure.compute.vm.percentage.cpu.minimum  
-azure.compute.vm.percentage.cpu.count  
+azure.compute.vm.percentage.cpu.average
+azure.compute.vm.percentage.cpu.maximum
+azure.compute.vm.percentage.cpu.minimum
+azure.compute.vm.percentage.cpu.count
 azure.compute.vm.percentage.cpu (corresponds to azure.compute.vm.percentage.cpu.total)
 
 ### Metrics Information

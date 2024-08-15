@@ -13,9 +13,7 @@ Yes!
 * The [AWS Integration Tutorial](hello_wavefront_aws_tutorial.html) tutorial has:
   - Detailed step-by-step instructions for ingesting data from AWS
   - Links to next steps
-* The [Windows Host Integration Tutorial](windows_host_tutorial.html) has:
-  - Detailed step-by-step instructions for ingesting data from a Windows host machine, when your Operations for Applications service **is onboarded** to VMware Cloud services.
-  - A video about ingesting data from a Windows machine when your Operations for Applications service is **not onboarded** to VMware Cloud services.
+* The [Windows Host Integration Tutorial](windows_host_tutorial.html) shows you how ingesting data from a Windows machine.
 * The [Explore Data Tutorial](tutorial_dashboards.html) gives step-by-step instructions for exploring a sample dashboard. You don't need special permissions follow these steps.
 * The [Query Language Tutorial](query_language_getting_started.html) explores the anatomy of a query, includes a few videos, and includes hands-on practice.
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) and the [Create Alerts Tutorial](alerts_manage.html#create-alert-tutorial) get you started with alerts.
@@ -52,9 +50,7 @@ By default, all users can view dashboards and alerts. They can also edit dashboa
 
 <p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
 
-1. Check your permissions. See:
-   * [Examine Groups, Roles, and Permissions in Operations for Applications](users_account_managing.html#examine-groups-roles-and-permissions) -- Applicable for original subscribers.
-   * [Examine Your Groups, Roles, and Permissions in VMware Cloud services](csp_users_account_managing.html#examine-your-groups-roles-and-permissions) -- Applicable for new subscribers.
+1. Check your permissions. See [Examine Groups, Roles, and Permissions in Operations for Applications](users_account_managing.html#examine-groups-roles-and-permissions).
 2. If you don't have the permissions you need, ask a user with the proper administration permissions or to grant you the permissions.
 3. If that doesn't solve the problem, the individual dashboard or alert you're trying to edit might be protected by access control. The creator of the alert or dashboard or a Super Admin user can grant access.
 

@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Elasticsearch integra
 
 ## Elasticsearch Integration
 
-Elasticsearch is a distributed, RESTful search and analytics engine. This integration installs and configures Telegraf to send Elasticsearch metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Elasticsearch is a distributed, RESTful search and analytics engine. This integration installs and configures Telegraf to send Elasticsearch metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard for monitoring an Elasticsearch cluster.  Here's a screenshot of that dashboard:
 

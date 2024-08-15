@@ -14,7 +14,7 @@ This page provides an overview of what you can do with the ZooKeeper integration
 ## ZooKeeper Integration
 
 ZooKeeper is a centralized service for maintaining configuration information, providing distributed synchronization and providing group services.
-This integration installs and configures Telegraf to send ZooKeeper server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf to send ZooKeeper server metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the ZooKeeper dashboard.
 

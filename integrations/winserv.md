@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Windows Service integ
 
 ## Windows Services
 
-Microsoft Windows Services are programs that are long running in the background on a Windows system. Services can be configured to kick-start when the system boots, or to be triggered by an event or manually. This integration explains how to install and configure Telegraf to collect Windows Services status data and send it into Wavefront.
+Microsoft Windows Services are programs that are long running in the background on a Windows system. Services can be configured to kick-start when the system boots, or to be triggered by an event or manually. This integration explains how to install and configure Telegraf to collect Windows Services status data and send it into Tanzu Observability.
 
 ### Metrics
 
@@ -34,7 +34,7 @@ This integration generates these metrics for each service:
     - 1 - system start
     - 2 - auto start
     - 3 - demand start
-    - 4 - disabled   
+    - 4 - disabled
 
 All metrics have the following point tags:
 - service_name

@@ -31,7 +31,7 @@ A proxy status can be:
 <td>The proxy stopped sending data. The reason can be:
 <ul>
 <li>The sources stopped sending data to the proxy.</li>
-<li>The API token has been revoked. Applies to a VMware Cloud services API token or an Operations for Applications API token, if used for the <a href="proxies_installing.html#proxy-authentication-types">proxy authentication</a>.</li>
+<li>The API token has been revoked.</li>
 <li>The proxy service has been <a href="proxies_installing.html#start-and-stop-a-proxy">stopped or restarted</a>.
 <ul>
 <li>If the proxy is non-ephemeral, you can start the stopped proxy service again.</li>
@@ -46,7 +46,7 @@ A proxy status can be:
 </tr>
 <tr>
 <td><strong>Token Expired</strong></td>
-<td>The API token has expired. Applies to a VMware Cloud services API token or an Operations for Applications API token, if used for the <a href="proxies_installing.html#proxy-authentication-types">proxy authentication</a>. You must install a new proxy.</td>
+<td>The API token has expired. You must install a new proxy.</td>
 </tr>
 </tbody>
 </table>

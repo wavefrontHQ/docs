@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Lighttpd integration.
 
 Lighttpd is a fast, secure, and flexible web server that has been optimized for high-performance environments.
 
-This integration installs and configures Telegraf to send Lighttpd server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf to send Lighttpd server metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Lighttpd dashboard.
 

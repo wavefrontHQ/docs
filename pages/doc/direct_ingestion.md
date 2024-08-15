@@ -36,11 +36,7 @@ Because some customers wanted to send data directly to the Operations for Applic
 ## Direct Ingestion Example Commands
 
 The following examples illustrate how to send data directly to the Operations for Applications service.
-* A token is required. Referred to as `<TOKEN>` in the examples. Depends on your [subscription type](subscriptions-differences.html):
-
-    - For VMware Cloud services subscriptions, a VMware Cloud services access token is required. You can retrieve an access token by exchanging your [user API token](csp_users_account_managing.html#generate-an-api-token) or [server to server OAuth credentials](csp_server_to_server_apps.html#how-server-to-server-apps-work).
-    - For original subscriptions, an [API token](api_tokens.html) is required. The API token can be associated to a user account or service account.
-
+* An [API token](api_tokens.html) is required. The API token can be associated to a user account or service account.
 * You must know your Operations for Applications service instance name. This doc page uses `mydomain.wavefront.com`.
 * Currently, direct ingestion supports only [Operations for Applications Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
 
@@ -103,7 +99,7 @@ Direct ingestion has some benefits, but also some limitations:
 
 When you use direct ingestion, you might see 406 responses, which means that the Operations for Applications service pushed back the data. Direct ingestion drops this data -- and if you code your client to retry, you're actually starting to rebuild the proxy.
 
-{% include note.html content="If you're using Operations for Applications as part of a free trial or Freemium offering, there are limits on how much data you can send to the service using direct ingestion. Contact support@wavefront.com if you need a higher limit. For production environments, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not supported for production environments." %}
+{% include note.html content="For production environments, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not supported for production environments." %}
 
 It's typical that the Operations for Applications service doesn't accept a small amount of data. This pushback doesn't cause any issues with proxies. Consider this example:
 

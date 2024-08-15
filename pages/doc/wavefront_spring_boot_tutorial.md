@@ -105,29 +105,31 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 2 with
     wavefront.application.service=spring-petclinic
     spring.sleuth.jdbc.p6spy.enable-logging=true
     ```
+1. To send data to your Operations for Applications account, specify the `uri` and `api-token` properties as follows:
+
+    ```
+    management.wavefront.api-token=$API_Token
+    management.wavefront.uri=$wavefront_instance
+    ```
+
+    * `$API_Token` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
+    * `$wavefront_instance` is the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
 1. Add data from the petclinic user interface.
     For example:
     1. Add an Owner and a Pet via the User Interface.
     2. Click **ERROR** to trigger errors.
-1. Click the one-time use link to access the Wavefront for Spring Boot Service Dashboard and view data.
-    {% include tip.html content = "Make sure to save the one-time use link so you can access the same dashboard each time you restart your application."%}
-    Example:
-    ```
-    To share this account, make sure the following is added to your configuration:
-
-     management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
-     management.metrics.export.wavefront.uri=https://wavefront.surf
-
-    Connect to your Wavefront dashboard using this one-time use link:
-    https://wavefront.surf/us/example
-    ```
 
   {% include note.html content="See [custom configurations](wavefront_springboot3.html#custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
 
 ## Examine Inventory Data
 
-When you click the link in the Wavefront Spring Boot starter, you are taken to the Spring Boot Inventory dashboard. This dashboard provides real-time visibility into your Spring Boot application landscape. The dashboard has several sections that include the following charts:
+To examine the data:
+
+1. Go to your server instance, click **Dashboards** > **All Dashboards** and enter `Spring Boot Inventory`.
+1. Select **Contains: Spring Boot Inventory**, and click the **Spring Boot Inventory** result in the table.
+
+You are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application. This dashboard provides real-time visibility into your Spring Boot application landscape. The dashboard has several sections that include the following charts:
 
 * Status of hosts, applications, and services.
 * Request rate
@@ -157,6 +159,4 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
 
 * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
 * You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront for Spring Boot Service Dashboards. If you want custom dashboards, you must clone and edit the dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
-* Customers or free trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
-    {% include note.html content="Alerts are not supported on this freemium cluster."%}
-* Try out the petclinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
+* Customers can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).

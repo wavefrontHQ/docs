@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Riak KV Store integra
 
 ## Riak KV Store Integration
 
-The Riak key-value database integration installs and configures Telegraf to send Riak key-value store (KV store) performance metrics to Wavefront. Telegraf is a light-weight server process that can collect, process, aggregate and send metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+The Riak key-value database integration installs and configures Telegraf to send Riak key-value store (KV store) performance metrics to Tanzu Observability. Telegraf is a light-weight server process that can collect, process, aggregate and send metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the Read/Write latency section of a dashboard displaying Riak node metrics.
 

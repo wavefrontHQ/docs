@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Azure AD integration.
 
 ## Azure AD Integration
 
-Azure AD is a popular identity management product that can be integrated with Wavefront to enable single sign-on.
+Azure AD is a popular identity management product that can be integrated with Tanzu Observability to enable single sign-on.
 
 
 

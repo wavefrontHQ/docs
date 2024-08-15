@@ -13,13 +13,13 @@ This page provides an overview of what you can do with the Python integration. T
 
 # Python Integration
 
-This Wavefront Python integration explains how to send Python application metrics to Wavefront.
+This Wavefront Python integration explains how to send Python application metrics to Tanzu Observability.
 
-Wavefront provides several Python SDKs and a REST API client for different purposes on Github:
+Tanzu Observability provides several Python SDKs and a REST API client for different purposes on Github:
 
-- **[wavefront-sdk-python](https://github.com/wavefrontHQ/wavefront-sdk-python)**: Core SDK for sending different telemetry data to Wavefront. Data include metrics, delta counters, distributions, and spans.
-- **[wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)**: Provides reporters and constructs such as counters, meters and histograms to periodically report application metrics and distributions to Wavefront.
-- **[wavefront-lambda-python](https://github.com/wavefrontHQ/wavefront-lambda-python)**: Wavefront Python wrapper for AWS Lambda to enable reporting of standard lambda metrics and custom app metrics directly to Wavefront.
+- **[wavefront-sdk-python](https://github.com/wavefrontHQ/wavefront-sdk-python)**: Core SDK for sending different telemetry data to Tanzu Observability. Data include metrics, delta counters, distributions, and spans.
+- **[wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)**: Provides reporters and constructs such as counters, meters and histograms to periodically report application metrics and distributions to Tanzu Observability.
+- **[wavefront-lambda-python](https://github.com/wavefrontHQ/wavefront-lambda-python)**: Wavefront Python wrapper for AWS Lambda to enable reporting of standard lambda metrics and custom app metrics directly to Tanzu Observability.
 - **[wavefront-opentracing-sdk-python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)**: Wavefront OpenTracing Python SDK. See [our tracing documentation](https://docs.wavefront.com/tracing_basics.html) for background.
 - **[python-client](https://github.com/wavefrontHQ/python-client)**: The Wavefront REST API client enables you to interact with Wavefront servers using the standard REST API. You can use this client to automate commonly executed operations such as automatically tagging sources.
 

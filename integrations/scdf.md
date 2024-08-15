@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the VMware Spring Cloud D
 
 ## Spring Cloud Data Flow Integration
 
-Wavefront provides a comprehensive solution for monitoring [Spring Cloud Data Flow (SCDF)](https://dataflow.spring.io/). 
+Tanzu Observability provides a comprehensive solution for monitoring [Spring Cloud Data Flow (SCDF)](https://dataflow.spring.io/).
 This integration uses the [Micrometer Wavefront registry](https://micrometer.io/docs/registry/wavefront) to collect detailed metrics from SCDF server as well as the Stream and Task data pipelines managed by the SCDF servers.
 
 The following diagram illustrates the `Spring Cloud Data Flow` metrics collection architecture:
@@ -28,8 +28,8 @@ For Streaming data pipelines that use Kafka message binder, the native Apache Ka
 
 ### Servers Monitoring
 
-All [Spring Cloud Data Flow](https://spring.io/projects/spring-cloud-dataflow) and the [Spring Cloud Skipper](https://spring.io/projects/spring-cloud-skipper) are instrumented for Wavefront metrics collection.  
- This dashboard provides real-time visibility into the Spring Cloud Data Flow and Spring Cloud Skipper servers. 
+All [Spring Cloud Data Flow](https://spring.io/projects/spring-cloud-dataflow) and the [Spring Cloud Skipper](https://spring.io/projects/spring-cloud-skipper) are instrumented for Wavefront metrics collection.
+ This dashboard provides real-time visibility into the Spring Cloud Data Flow and Spring Cloud Skipper servers.
 
 The Spring Cloud Stream applications add an additional `application` metrics tag, that allows metrics aggregation by server type (SCDF or Skipper):
 
@@ -37,9 +37,9 @@ The Spring Cloud Stream applications add an additional `application` metrics tag
 
 ### Streams Monitoring
 
-All [Spring Cloud Stream Applications](https://spring.io/projects/spring-cloud-stream-applications) are instrumented for Wavefront metrics collection.  
- 
-The Spring Cloud Stream applications add several, stream specific tags (below), 
+All [Spring Cloud Stream Applications](https://spring.io/projects/spring-cloud-stream-applications) are instrumented for Wavefront metrics collection.
+
+The Spring Cloud Stream applications add several, stream specific tags (below),
 that allow metrics aggregation by application type, instance, stream name, and so on:
 
 * `stream.name`: The name of the Stream that contains the applications emitting the metrics.
@@ -50,7 +50,7 @@ that allow metrics aggregation by application type, instance, stream name, and s
 
 ### Tasks Monitoring
 
-The integration supports monitoring of [Task applications](https://spring.io/projects/spring-cloud-task) that were deployed as part of a [Task definition in Data Flow](https://dataflow.spring.io/docs/feature-guides/batch/monitoring/). 
+The integration supports monitoring of [Task applications](https://spring.io/projects/spring-cloud-task) that were deployed as part of a [Task definition in Data Flow](https://dataflow.spring.io/docs/feature-guides/batch/monitoring/).
 
 The Spring Cloud Task applications add several task-specific tags that allow metric aggregation by application type, instance id or task name:
 

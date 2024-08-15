@@ -11,8 +11,6 @@ Integrations are one easy way to get data from external systems into VMware Aria
 
 We update our [integrations release notes](integrations_new_changed.html) frequently.
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. For information about the subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).  
-
 ## Watch a Video
 
 In this video, Jason talks about the different integrations we have, and how you can use them to get your data into the product. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
@@ -25,23 +23,7 @@ In this video, Jason talks about the different integrations we have, and how you
 
 Sign up for a trial version to try our integrations. Detailed setup steps for each integration are in the product UI. 
 
-When the integration setup requires a token for the proxy authentication, the setup instructions of some integrations (such as all integrations for Linux distributions, Windows host integration, MacOS integration, Prometheus, and so on) vary depending on whether your service is onboarded to VMware Cloud services or not. For details, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html). For the latest and most recent instructions on how to set up an integration, see the steps on the **Setup** tab of the integration that you're interested in.
-
-* If your Operations for Applications service **is** onboarded to VMware Cloud services, you have two choices:
-
-   * Use OAuth App authentication (recommended):
-
-     You must use the credentials (client ID and client secret) of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the ID of the VMware Cloud organization running the service.
-
-      If you don’t have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
-
-
-   * Use API Token authentication:
-
-     The API token must be generated in the VMware Cloud Services Console by an active user account. It also must have the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
-   
-
-* If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. It is recommended that you use a service account API token. For more information, see [Manage API tokens](api_tokens.html).
+You need to generate the API token in the Operations for Applications UI. It is recommended that you use a service account API token. For more information, see [Manage API tokens](api_tokens.html).
 
 Here's a sample of what you see when you select one of our integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.

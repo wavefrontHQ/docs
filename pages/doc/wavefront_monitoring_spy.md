@@ -22,9 +22,6 @@ Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux t
 
 You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_yif61rd5" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
-To set up the Wavefront top utility you need a valid API token. For an Operations for Applications subscription on VMware Cloud services, you must use a VMware Cloud services access token. To get an access token, generate a VMware Cloud services API token associated with your user account and exchange it for the access token. Make sure that when you do this, you deselect the **Send empty value** check box for the **passcode** parameter. For more information and instructions, see [Use the Operations for Applications REST API](using_wavefront_api.html).
-
-
 ## Why Spy?
 
 The `spy` endpoints can provide insight into new data that is being ingested by your service instance. For example, you might analyze `spy` results to:
@@ -392,7 +389,7 @@ Suppose you have a service instance named `ex1`.
 
 Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some of our SDKs include span logs for errors by default. To get access to other span log information, you can customize an SDK to include [span log information](trace_data_details.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
 
-{% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact our Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
+{% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact our [Technical Support team](wavefront_support_feedback.html#support)."%}
 
 You can use the returned list of span logs to find out if it contains the data that you expect.<br/>
 Example:

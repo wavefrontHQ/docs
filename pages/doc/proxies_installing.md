@@ -11,18 +11,12 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 
 {% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to install and manage Wavefront proxies." %}
 
-{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services access token. <br/>
-- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with an Operations for Applications API token."%}
-
 ## Proxy Host Requirements
 
 - Internet access - Run `timeout 3s curl -fIsS <api_url>` from the host and make sure you get a response and not a timeout.
 - Networking:
   - By default, the proxy uses port 2878. Make sure this port is reachable from other machines on your network. You can change this default separately for different types of data (metrics, histograms, traces, etc.) in the [proxy configuration file](proxies_configuring.html). For example, use `traceListenerPorts` to specify where to listen to trace data.
   - For egress, ensure that port 443 is available.
-
-    {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, your environment must allow an outbound HTTPS connection to the VMware Cloud services platform (`https://console.cloud.vmware.com/`)."%}
 
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - CPU - A standalone proxy can easily handle up to 40K PPS (points per second). If you're sending more, use [multiple proxies behind a load balancer](proxies.html#production-environment-team-of-proxies--load-balancer).
@@ -33,26 +27,9 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 
 <a name="single"></a>
 
-## Proxy Authentication Types
+## Proxy Authentication Type
 
-* If your Operations for Applications service instance **is** onboarded to VMware Cloud services, the proxy requires a VMware Cloud services access token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two options for the proxy to retrieve an access token. You can configure the proxy with:
-    *	The credentials (ID and secret) of a VMware Cloud services server to server **OAuth app** and the ID of the VMware Cloud organization running the service.
-
-        Before you add a proxy with an OAuth app, you must retrieve the credentials (ID and secret) of a server to server app that is assigned with the **Proxies** Operations for Applications service role and added to the VMware Cloud organization running the service. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html?hWord=N4IgpgHiBcIMpgE4DckAIAuB7NBnJqiaAhgA6kgC+QA) in the VMware Cloud services documentation.
-
-        Also, you must retrieve the VMware Cloud organization long ID. See [View the Organization ID](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html#view-the-organization-id-1) in the VMware Cloud services documentation.
-
-        {% include note.html content="When the access token expires, depending on the token TTL configuration of the server to server app, the proxy automatically retrieves a new access token."%}
-
-    *	A VMware Cloud services **API token** that belongs to your user account.
-
-        Before you add a proxy with an API token, you must have a VMware Cloud services API token that belongs to the VMware Cloud organization running the service and that is assigned with the **Proxies** service role. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
-
-        {% include important.html content="You might need to regenerate and reconfigure the API token periodically depending on its TTL configuration."%}
-
-* If your Operations for Applications service instance **isn't** onboarded to VMware Cloud services, the proxy requires an Operations for Applications **API token**.
-
-    Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
+Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
 
 ## Install a Proxy
 
@@ -66,10 +43,7 @@ To install and run a proxy:
 
 1. Log in to your service instance and select **Browse** > **Proxies**.
 1. Click **Add New Proxy**.
-1. If your service instance is onboarded to VMware Cloud services, click the tab for the [proxy authentication type](#proxy-authentication-types) of your choice - **OAuth app** or **API token**.
 1. Click the tab for your operating system and follow the steps on screen.
-
-    {% include tip.html content="If your service instance isn't onboarded to VMware Cloud services, the latest API token of your user account is prepopulated in the proxy installation command but you can change it."%}
 
 The proxy starts listening on port 2878. You can customize listener ports with the [proxy configuration file](proxies_configuring.html).
 
@@ -183,8 +157,8 @@ You can test that a proxy is receiving and sending data as follows:
 1. Send data by running the following command:
 
    ```shell
-echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
-   ```
+    echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
+   ```  
    where `<wavefront_proxy_address>` is the address of your Wavefront proxy.
 1. Log in to service instance and select **Browse > Metrics**.
 1. In the Metrics field, type `test.metric`.

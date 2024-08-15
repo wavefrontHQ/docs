@@ -14,7 +14,7 @@ This page provides an overview of what you can do with the .NET Core integration
 ## .NET Core Integration
 
 The .NET Core is a general-purpose, most versatile framework that may be used to build software applications for Windows, Linux, and MacOS.
-This integration installs and configures the Kubernetes Metrics Collector to collect the .NET Core performance metrics and uses the [Wavefront proxy](https://docs.wavefront.com/proxies.html) for sending those metrics to VMware Aria Operations for Applications.
+This integration installs and configures the Kubernetes Metrics Collector to collect the .NET Core performance metrics and uses the [Wavefront proxy](https://docs.wavefront.com/proxies.html) for sending those metrics to VMware Tanzu Observability.
 
 Here's a preview of the .NET Core on Kubernetes dashboard:
 

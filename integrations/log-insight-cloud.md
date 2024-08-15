@@ -13,9 +13,9 @@ This page provides an overview of what you can do with the VMware Aria Operation
 
 ## VMware Aria Operations for Logs
 
-VMware Aria Operations for Logs (formerly known as VMware vRealize Log Insight Cloud) provides visibility across public and private cloud environments including AWS. VMware Aria Operations for Logs features robust log aggregation and sophisticated analytics that enable you to determine root causes for an issue quickly and thoroughly. 
+VMware Aria Operations for Logs (formerly known as VMware vRealize Log Insight Cloud) provides visibility across public and private cloud environments including AWS. VMware Aria Operations for Logs features robust log aggregation and sophisticated analytics that enable you to determine root causes for an issue quickly and thoroughly.
 
-This integration provides steps to create a configuration to extract metrics from logs and post these metrics to VMware Aria Operations for Applications.
+This integration provides steps to create a configuration to extract metrics from logs and post these metrics to VMware Tanzu Observability.
 
 
 

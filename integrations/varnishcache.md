@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Varnish Cache integra
 
 ## Varnish Cache Integration
 
-Varnish Cache is a web application accelerator. This integration installs and configures Telegraf to send Varnish Cache server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Varnish Cache is a web application accelerator. This integration installs and configures Telegraf to send Varnish Cache server metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Varnish Cache dashboard.
 

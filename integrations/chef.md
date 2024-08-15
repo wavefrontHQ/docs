@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the Chef integration. The
 
 ## Chef Integration
 
-Chef is a configuration management tool written in Ruby and Erlang. This integration installs and configures Telegraf to send Chef metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Chef is a configuration management tool written in Ruby and Erlang. This integration installs and configures Telegraf to send Chef metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a section of a dashboard displaying Chef metrics:
 

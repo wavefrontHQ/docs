@@ -13,7 +13,7 @@ This page provides an overview of what you can do with the NetBSD Host integrati
 
 ## NetBSD Host Integration
 
-NetBSD is a free and open-source Unix-like operating system. Monitoring NetBSD hosts is easy with Wavefront. This integration steps you through installing and configuring the Wavefront proxy and Collectd. Collectd is a Unix daemon capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) in Graphite data format.
+NetBSD is a free and open-source Unix-like operating system. Monitoring NetBSD hosts is easy with Tanzu Observability. This integration steps you through installing and configuring the Wavefront proxy and Collectd. Collectd is a Unix daemon capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) in Graphite data format.
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here are the **Summary** and **CPU** sections of a dashboard displaying NetBSD host metrics.
 

@@ -13,35 +13,35 @@ This page provides an overview of what you can do with the Java integration. The
 
 # Java Integration
 
-The Wavefront Java integration allows you to send Java application metrics to Wavefront. You can collect metrics in two ways.
+The Wavefront Java integration allows you to send Java application metrics to Tanzu Observability. You can collect metrics in two ways.
 
 * Java SDKs
 * Java using Telegraf Jolokia2 Agent Plugin
 
 ### Java SDKs
 
-Wavefront provides several Java SDKs for different purposes on GitHub:
+Tanzu Observability provides several Java SDKs for different purposes on GitHub:
 
-- **[wavefront-sdk-java](https://github.com/wavefrontHQ/wavefront-sdk-java)**: Core SDK for sending different telemetry data to Wavefront. Data include metrics, delta counters, distributions, and spans.
-- **[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)**: Provides reporters and constructs, such as counters, meters, and histograms to periodically report application metrics and distributions to Wavefront.
-- **[wavefront-dropwizard-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java)**: Provides out-of-the-box metrics for your Dropwizard application and periodically reports that data to Wavefront.
+- **[wavefront-sdk-java](https://github.com/wavefrontHQ/wavefront-sdk-java)**: Core SDK for sending different telemetry data to Tanzu Observability. Data include metrics, delta counters, distributions, and spans.
+- **[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)**: Provides reporters and constructs, such as counters, meters, and histograms to periodically report application metrics and distributions to Tanzu Observability.
+- **[wavefront-dropwizard-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java)**: Provides out-of-the-box metrics for your Dropwizard application and periodically reports that data to Tanzu Observability.
 - **[wavefront-runtime-sdk-jvm](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)**: Wavefront JVM SDK. Provides out-of-the-box metrics for the Java Virtual Machine (JVM) that runs your Java application.
 - **[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)**: Wavefront OpenTracing Java SDK. See [our tracing documentation](https://docs.wavefront.com/tracing_basics.html) for background.
-- **[wavefront-grpc-sdk-java](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)**: Wavefront gRPC Java SDK. Provides out-of-the-box metrics, histograms, and trace data from gRPC operations in your Java application and reports that data to Wavefront.
-- **[wavefront-jaxrs-sdk-java](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)**: Wavefront JAX-RS Java SDK. Provides out-of-the-box trace data from JAX-RS based clients in your Java application and reports that data to Wavefront.
-- **[wavefront-jersey-sdk-java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)**: Wavefront Jersey Java SDK. Provides out-of-the-box metrics, histograms, and, optionally, traces from your Jersey-based Java application, and reports that data to Wavefront.
+- **[wavefront-grpc-sdk-java](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)**: Wavefront gRPC Java SDK. Provides out-of-the-box metrics, histograms, and trace data from gRPC operations in your Java application and reports that data to Tanzu Observability.
+- **[wavefront-jaxrs-sdk-java](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)**: Wavefront JAX-RS Java SDK. Provides out-of-the-box trace data from JAX-RS based clients in your Java application and reports that data to Tanzu Observability.
+- **[wavefront-jersey-sdk-java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)**: Wavefront Jersey Java SDK. Provides out-of-the-box metrics, histograms, and, optionally, traces from your Jersey-based Java application, and reports that data to Tanzu Observability.
 
 On the **Setup** tab, the integration includes sample code based on `wavefront-dropwizard-metrics-sdk-java` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
 ### Java using Telegraf Jolokia2 Agent Plugin
 
-You can use the Jolokia2 Agent Telegraf Input Plugin to collect and send JVM metrics to Wavefront which does not require any code changes.
+You can use the Jolokia2 Agent Telegraf Input Plugin to collect and send JVM metrics to Tanzu Observability which does not require any code changes.
 
 ### Dashboards
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 
-* Java 
+* Java
 * Java on Kubernetes
 * Java Using Telegraf
 

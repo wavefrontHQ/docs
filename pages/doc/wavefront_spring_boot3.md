@@ -19,13 +19,11 @@ If you use Wavefront for Spring Boot:
 
 ## Sending Data from Spring Boot into Our Service
 
-You can send data from your Spring Boot applications into our service using the Wavefront for Spring Boot Starter (all users) or the Wavefront Spring Boot integration (customers and free trial users).
+You can send data from your Spring Boot applications into our service using the Wavefront for Spring Boot Starter or the Wavefront Spring Boot integration.
 
 * **Wavefront for Spring Boot Starter**
-  <br/> If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to our service. Once the data is in our service, you can view your data, find hotspots, and gather more data.
-  - **Freemium**: All users can run the Spring Boot Starter with the default settings to view their data in the freemium instance. Certain limitations apply, for example, alerts are not available.
-  - **Customer or Free Trial User**: Customers or free trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial here](https://tanzu.vmware.com/observability).
-* **Wavefront Spring Boot Integration**: Customers and free trial users can access the Wavefront Spring Boot integration directly from their clusters.
+  <br/> If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to our service. Once the data is in our service, you can view your data, find hotspots, and gather more data. Customers can modify the default Wavefront Spring Boot Starter to send data to their cluster.
+* **Wavefront Spring Boot Integration**: Customers can access the Wavefront Spring Boot integration directly from their clusters.
 
 If your Spring Boot applications are running on Tanzu Application Service (TAS), see the VMware Tanzu solutions workbook on [Instrumenting TAS OpenTelemetry for Spring Boot Application](https://docs.vmware.com/en/VMware-Tanzu-Reference-Architecture/services/tanzu-solutions-workbooks/solution-workbooks-TAS-OpenTelemetry-SpringBoot-TO.html).
 
@@ -57,9 +55,8 @@ This is the default dashboard you see when you run the Spring Boot initializer. 
 
 Getting started is easy. Here are some things to know before you start:
 
-* **Ingestion Method**: Wavefront for Spring Boot sends data to our service via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
-* **Target**: Wavefront for Spring Boot sends data to our freemium instance. You can change the default behavior and  [configure your application to send data to your Operations for Applications instance](#step-2-optional-specify-your-operations-for-applications-instance).
-* **Account**: By default, the starter sends you to the Freemium instance, auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Operations for Applications instance (see Step 2 below), you must include an API token for that instance.
+* **Ingestion Method**: Wavefront for Spring Boot sends data to our service via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).\
+* **Account**: To send data to your Operations for Applications instance (see Step 2 below), you must include an API token for that instance.
 
 ### Prerequisites for Wavefront Spring Boot Starter
 
@@ -95,10 +92,7 @@ Initialize a new project using the Spring Initializer or add the required depend
       <a href="#new" data-toggle="tab">Initialize a New Project</a>
     </li>
     <li>
-      <a href="#freemium" data-toggle="tab">Initialize an Existing Project (Freemium)</a>
-    </li>
-    <li>
-      <a href="#customer" data-toggle="tab">Initialize an Existing Project (Customer) </a>
+      <a href="#customer" data-toggle="tab">Initialize an Existing Project </a>
     </li>
 </ul>
 <div class="tab-content">
@@ -137,114 +131,7 @@ Initialize a new project using the Spring Initializer or add the required depend
     </ol>
   </div>
 
-  <div role="tabpanel" class="tab-pane"  id="freemium">
-    <p> Follow these steps if you don't have an Operations for Applications account and need to use the freemium account.</p>
-    <ol>
-      <li> Add the Wavefront dependency.
-        <ul id="profileTabs" class="nav nav-tabs">
-            <li class="active"><a href="#maven" data-toggle="tab">Maven</a></li>
-            <li><a href="#gradle" data-toggle="tab">Gradle</a></li>
-        </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="maven">
-              <p>Open your application and add the following code to your <code>pom.xml</code> file.   </p>
-              <pre>
-&lt;dependency&gt;
-  &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
-  &lt;artifactId&gt;wavefront-spring-boot-starter&lt;/artifactId&gt;
-  &lt;scope&gt;runtime&lt;/scope&gt;
-&lt;/dependency&gt;
-              </pre>
-           </div>
-
-           <div role="tabpanel" class="tab-pane" id="gradle">
-             <p>Open your application and add the following code to your <code>build.gradle</code> file.  </p>
-             <pre>
-dependencies {
-  ...
-  runtimeOnly 'com.wavefront:wavefront-spring-boot-starter'
-}
-             </pre>
-           </div>
-         </div>
-      </li>
-
-      <li>
-        Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
-        {{site.data.alerts.tip}}
-          <p>The Wavefront for Spring Boot dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$releaseVersion</code> with the correct dependency version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
-        {{site.data.alerts.end}}
-        <ul id="profileTabs" class="nav nav-tabs">
-            <li class="active"><a href="#mavenbom" data-toggle="tab">Maven</a></li>
-            <li><a href="#gradlebom" data-toggle="tab">Gradle</a></li>
-        </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="mavenbom">
-              <pre>
-
-&lt;dependencyManagement&gt;
-  &lt;dependencies&gt;
-  .....
-    &lt;dependency&gt;
-      &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
-      &lt;artifactId&gt;wavefront-spring-boot-bom&lt;/artifactId&gt;
-      &lt;version&gt;$releaseVersion&lt;/version&gt;
-      &lt;type&gt;pom&lt;/type&gt;
-      &lt;scope&gt;import&lt;/scope&gt;
-    &lt;/dependency&gt;
-  .....
-  &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-              </pre>
-            </div>
-
-            <div role="tabpanel" class="tab-pane" id="gradlebom">
-              <pre>
-dependencyManagement {
-  imports {
-    mavenBom "com.wavefront:wavefront-spring-boot-bom:$releaseVersion"
-  }
-}
-            </pre>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        If you want to send trace data to our service using Micrometer Tracing, add the following dependencies.
-        <ul id="profileTabs" class="nav nav-tabs">
-            <li class="active"><a href="#maven-dt" data-toggle="tab">Maven</a></li>
-            <li><a href="#gradle-dt" data-toggle="tab">Gradle</a></li>
-        </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="maven-dt">
-              <pre>
-&lt;dependency&gt;
-  &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
-  &lt;artifactId&gt;micrometer-tracing-bridge-brave&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
-  &lt;artifactId&gt;micrometer-tracing-reporter-wavefront&lt;/artifactId&gt;
-  &lt;scope&gt;runtime&lt;/scope&gt;
-&lt;/dependency&gt;
-              </pre>
-            </div>
-
-            <div role="tabpanel" class="tab-pane" id="gradle-dt">
-              <pre>
-dependencies {
-  ...
-  implementation 'io.micrometer:micrometer-tracing-bridge-brave'
-  runtimeOnly 'io.micrometer:micrometer-tracing-reporter-wavefront'
-}
-              </pre>
-            </div>
-          </div>
-      </li>
-    </ol>
-  </div>
-  <div role="tabpanel" class="tab-pane active" id="customer">
+  <div role="tabpanel" class="tab-pane" id="customer">
       <p> Follow these steps if you already have an Operations for Applications account.</p>
       <ol>
         <li>
@@ -253,11 +140,11 @@ dependencies {
           <p>The Wavefront for Spring Boot dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$releaseVersion</code> with the correct dependency version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
         {{site.data.alerts.end}}
         <ul id="profileTabs" class="nav nav-tabs">
-            <li class="active"><a href="#mavenbom" data-toggle="tab">Maven</a></li>
-            <li><a href="#gradlebom" data-toggle="tab">Gradle</a></li>
+            <li class="active"><a href="#mavenbom2" data-toggle="tab">Maven</a></li>
+            <li><a href="#gradlebom2" data-toggle="tab">Gradle</a></li>
         </ul>
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="mavenbom">
+            <div role="tabpanel" class="tab-pane active" id="mavenbom2">
               <pre>
 
 &lt;dependencyManagement&gt;
@@ -275,8 +162,7 @@ dependencies {
 &lt;/dependencyManagement&gt;
               </pre>
             </div>
-
-            <div role="tabpanel" class="tab-pane" id="gradlebom">
+            <div role="tabpanel" class="tab-pane" id="gradlebom2">
               <pre>
 dependencyManagement {
   imports {
@@ -290,11 +176,11 @@ dependencyManagement {
       <li>
         If you want to send trace data to our service using Micrometer Tracing, add the following dependencies.
         <ul id="profileTabs" class="nav nav-tabs">
-            <li class="active"><a href="#maven-dt" data-toggle="tab">Maven</a></li>
-            <li><a href="#gradle-dt" data-toggle="tab">Gradle</a></li>
+            <li class="active"><a href="#mavendt" data-toggle="tab">Maven</a></li>
+            <li><a href="#gradledt" data-toggle="tab">Gradle</a></li>
         </ul>
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="maven-dt">
+            <div role="tabpanel" class="tab-pane active" id="mavendt">
               <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
@@ -307,8 +193,7 @@ dependencyManagement {
 &lt;/dependency&gt;
               </pre>
             </div>
-
-            <div role="tabpanel" class="tab-pane" id="gradle-dt">
+            <div role="tabpanel" class="tab-pane" id="gradledt">
               <pre>
 dependencies {
   ...
@@ -319,98 +204,27 @@ dependencies {
             </div>
           </div>
       </li>
-      <li>
-        You need to Specify the VMware Cloud Services account instance or the Operations for Applications instance, as explained in <a href="#step-2-optional-specify-your-operations-for-applications-instance">Step 2</a> below. Otherwise, you run into errors because the freemium account settings do not support the configurations in this section.
-      </li>
     </ol>
     </div>
 </div>
 
-### Step 2 (Optional): Specify Your Operations for Applications Instance
+### Step 2: Specify Your Operations for Applications Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a VMware Cloud Services account or an Operations for Applications account, you can send data there instead by specifying the properties shown below: 
+To send data to your Operations for Applications account, specify the `uri` and `api-token` properties as follows:
 
-<ul id="profileTabs" class="nav nav-tabs">
-    <li class="active"><a href="#oauth" data-toggle="tab">Server to Server OAuth App</a></li>
-    <li><a href="#api" data-toggle="tab">API Token</a></li>
-</ul>
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="oauth">
-      <p>
-        Add these properties to authenticate with the ID and Secret of a Server to Server OAuth App in VMware Cloud Services:
-      </p>
-      <pre>
-management.wavefront.api-token-type=CSP_CLIENT_CREDENTIALS
-management.wavefront.uri={ENTER_WAVEFRONT_INSTANCE_URL}
-management.wavefront.api-token=clientId={ENTER_CLIENT-ID},clientSecret={ENTER_SECRET},orgId={OPTIONAL_ORG_ID}
-wavefront.freemium-account = false
-      </pre>
-      <ul>
-        <li>
-          Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
-        </li>
-        <li>
-          Replace <code>{ENTER_CLIENT-ID}</code> and <code>{ENTER_SECRET}</code> with the credentials (client ID and client secret) of an existing server-to-server OAuth app which has the <b>Direct Data Ingestion</b> service role assigned and is added to the VMware Cloud organization running the Operations for Applications service.
-        </li>
-        <li>
-          The <code>{OPTIONAL_ORG_ID}</code> parameter is optional, and you can replace it with the long ID of the VMware Cloud organization running the service.
-        </li>
-        <li>
-          Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
-        </li>
-      </ul>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="api">
-      <ul>
-        <li>
-          <b>VMware Cloud Services API Token</b>:<br/>If you have a VMware Cloud Service account, add the following properties to authenticate with a VMware Cloud Services API Token.
-          <pre>
-management.wavefront.api-token-type=CSP_API_TOKEN
-management.wavefront.uri={ENTER_WAVEFRONT_INSTANCE_URL}
-management.wavefront.api-token={ENTER_CSP_API_TOKEN}
-wavefront.freemium-account = false
-          </pre>
-          <ul>
-            <li>
-              Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
-            </li>
-            <li>
-              Replace <code>{ENTER_CSP_API_TOKEN}</code> with your VMware Cloud Services API token. The API token must be generated in the VMware Cloud Services Console by an active user account and must be assigned the <b>Direct Data Ingestion</b>service role.
-            </li>
-            <li>
-              Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Operations for Applications API Token</b>: <br/>If you have an Operations for Applications account, add the following properties to authenticate with the API Token (legacy).
-          <pre>
-management.wavefront.api-token = {ENTER_API_TOKEN}
-management.wavefront.uri = {ENTER_WAVEFRONT_INSTANCE_URL}
-wavefront.freemium-account = false
-          </pre>
-          <ul>
-            <li>
-              Replace <code>{ENTER_WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
-            </li>
-            <li>
-              Replace <code>{WAVEFRONT_INSTANCE_URL}</code> with the name of your Operations for Applications instance, for example, https://example.wavefront.com.
-            </li>
-            <li>
-              Set <code>wavefront.freemium-account</code> as false. Because you have an Operations for Applications instance, you do not need a freemium account.
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
+```
+management.wavefront.api-token=$API_Token
+management.wavefront.uri=$wavefront_instance
+```
+
+* `$API_Token` is a valid [API token for your Operations for Applications instance](users_account_managing.html#generate-an-api-token).
+* `$wavefront_instance` is the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
 
 ### Step 3:  View Your Data in Our Service
 
 To view your data, you first run your project from the command line, and then click the link that directs you to our service. Follow these steps:
 
 1. Run your project.
-    {% include note.html content="If you're using the Freemium instance, an account is auto-negotiated or restored from `~/.wavefront_freemium` in your home directory each time the application starts. Otherwise, you're directed to the instance you specified. "%}
     <ul id="profileTabs" class="nav nav-tabs">
         <li class="active"><a href="#mavenrun" data-toggle="tab">Maven</a></li>
         <li><a href="#gradlerun" data-toggle="tab">Gradle</a></li>
@@ -428,26 +242,18 @@ To view your data, you first run your project from the command line, and then cl
             </pre>
         </div>
       </div>
-     You see the following printed on your console:
-     <br/>The following example shows what you see if you're using the Freemium instance:
-      ```
-        To share this account, make sure the following is added to your configuration:
-
-         management.wavefront.api-token=44444-34this-45is-123a-sampletoken
-         management.wavefront.uri=https://wavefront.surf
-
-        Connect to your Wavefront dashboard using this one-time use link:
-        https://wavefront.surf/us/example
-      ```
+     
 1. Add data to your application before you start to view the data in our service.
     {% include tip.html content="Try out the [Wavefront for Spring Boot 3 Tutorial](wavefront_springboot3_tutorial.html)."%}
-1. Click the link (for example, `https://wavefront.surf/us/<name>`) and you are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application.
+1. Go to your server instance, click **Dashboards** > **All Dashboards** and enter `Spring Boot Inventory`.
+1. Select **Contains: Spring Boot Inventory**, and click the **Spring Boot Inventory** result in the table.
+    <br/>You are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application.
     <br/>Example:
     ![Spring Boot metrics dashboard](images/springboot_metrics.png)
     If your application uses trace data, click the link in the **Tracing** section of the dashboard to be directed to the Traces Browser.
     <br/>Example:
     ![Spring Boot traces browser](images/springboot_span_logs_pet_clinic.png)
-    {% include note.html content="Want to see the cool information you can gather from the Traces Browser? See [Explore the Traces Browser](tracing_traces_browser.html)." %}
+    {% include note.html content="To learn more about our Traces Browser, see [Explore the Traces Browser](tracing_traces_browser.html)." %}
 <!---
 <iframe width="768" height="432" src="https://www.youtube.com/embed/K-cviV9mKKA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 --->
@@ -461,8 +267,7 @@ Add the following custom configurations to the `application.properties` file.
 
 You can invite users and let them send data to the same cluster:
 
-1. Click the link that was printed on your console and navigate to the Wavefront for Spring Boot Dashboard:
-    {% include note.html content="Save the link that you used to access the Service Dashboard." %}
+1. Go to your server instance. 
     1. Click the gear icon and select **Accounts**.
     1. Click **Invite New Users** and specify a comma-separated list of email addresses.<br/>
         ![Invite Users](/images/spring_boot_invite_users.png)
@@ -470,13 +275,8 @@ You can invite users and let them send data to the same cluster:
 1. Information about the token and URL are displayed on your terminal. Add them to your project’s `application.properties` file.
     ```
     management.wavefront.api-token=<Enter_Token>
-    management.wavefront.uri=https://wavefront.surf
+    management.wavefront.uri=<Enter_Wavefront_Instance>
     ```
-1. If you are using the freemium account and want the single-use login URL to show on the terminal each time you start the application, add `wavefront.freemium-account` to the `application.properties` file and set it to `true`.
-  ```
-  wavefront.freemium-account=true
-  ```
-    {% include tip.html content="If you don’t want Operations for Applications to auto-negotiate a freemium account for you, set the value to `false`."%}
 1. Restart your application.
 
 <a name="proxy"></a>
@@ -524,7 +324,7 @@ You can configure the cluster and shard names under the `management.wavefront.ap
 
 ## Wavefront Spring Boot Integration
 
-If you already have an Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
+If you already have an Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration.
 
 1. Click **Integrations** on the toolbar, search for Spring Boot, and click the Spring Boot integration.
 1. Use the information displayed on the **Setup** tab to set up the integration.

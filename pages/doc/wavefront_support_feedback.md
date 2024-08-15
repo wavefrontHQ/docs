@@ -6,22 +6,19 @@ permalink: wavefront_support_feedback.html
 summary: Get help with and give feedback.
 ---
 
-
 ## Support
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) support is available as follows:
+{% include important.html content="On May 6, 2024, the VMware Tanzu support portals transitioned to Broadcom. For details, see the KB article [VMware Tanzu Support moving to Broadcom Support Portal May 6th](https://support.cloudhealthtech.com/hc/en-us/articles/26164366649741-VMware-Tanzu-Support-moving-to-Broadcom-Support-Portal-May-6th)."%}
 
-* Get in touch with Technical Support and create a support ticket. 
-  1. Navigate to the [Support Portal](https://cloudhealth.zendesk.com/).
-  2. Sign up and create an account. 
-  3. [Submit a ticket](https://vmwaoa.zendesk.com/hc/en-us/requests/new).  
+If you require assistance or would like to submit a ticket, all technical and non-technical inquiries should be submitted via the Broadcom Support Portal.
 
-* Get support from within Operations for Applications:
-  1. Log in to your service instance.
-  1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
-    <br/>![support menu item](images/get_support.png)
+To access the Broadcom Support Portal:
 
-* Get support from within the VMware Cloud Services Console. See [How do I get support](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E4DC731F-C039-4FB2-949E-9A61584CD5BF.html).
+  * From a Web browser, go to [http://support.broadcom.com/](http://support.broadcom.com/).
+  * From the Operations for Applications UI, click the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
+
+    ![support menu item](images/get_support.png)
+
 
 ## Documentation Feedback
 

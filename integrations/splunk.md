@@ -13,9 +13,9 @@ This page provides an overview of what you can do with the Splunk integration. T
 
 # Splunk Logs Integration
 
-Usually the best way to send metrics to a monitoring system is to use a metrics library. However, sometimes you have a legacy system, or a system that is difficult to modify, and you want to garner metrics from Splunk logs. 
+Usually the best way to send metrics to a monitoring system is to use a metrics library. However, sometimes you have a legacy system, or a system that is difficult to modify, and you want to garner metrics from Splunk logs.
 
-Wavefront supports sending log data to your Wavefront proxy with TCP. This method is supported in Wavefront proxy 4.4 and higher. Once your data arrives at the proxy, the proxy converts your Splunk log data to metrics by parsing log lines with grok patterns (regular expressions) that you specify in a proxy configuration file.
+Tanzu Observability supports sending log data to your Wavefront proxy with TCP. This method is supported in Wavefront proxy 4.4 and higher. Once your data arrives at the proxy, the proxy converts your Splunk log data to metrics by parsing log lines with grok patterns (regular expressions) that you specify in a proxy configuration file.
 
 
 

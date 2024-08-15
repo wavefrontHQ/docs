@@ -15,7 +15,7 @@ This page provides an overview of what you can do with the Apache Kudu integrati
 
 Apache Kudu is an open source column-oriented data store compatible with most of the processing frameworks in the Apache Hadoop ecosystem. It enables fast analytics on fast data.
 
-This integration installs and configures Telegraf to send Apache Kudu server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf to send Apache Kudu server metrics into Tanzu Observability. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Apache Kudu dashboard.
 
